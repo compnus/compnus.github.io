@@ -56,3 +56,5 @@ async function handlePostVerification() {
     console.log("User added to database!");
 }
 
+console.log("✅ script.js loaded!");
+
