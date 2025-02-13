@@ -15,7 +15,7 @@ async function fetchData() {
     }
 }
 
-async function signUpUser(email, password, username) {
+async function signUpUser(email, password) {
     const { data, error } = await supabase.auth.signUp({
         email,
         password
@@ -27,28 +27,4 @@ async function signUpUser(email, password, username) {
     }
 
     console.log("User signed up:", data);
-
-    const userId = data.user?.id;
-    const createdAt = data.user?.created_at;
-
-    if (!userId) {
-        console.error("No user ID returned from Supabase");
-        return;
-    }
-
-    const { error: dbError } = await supabase.from("users").insert([
-        {
-            id: userId,
-            email: email,
-            username: username,
-            created: createdAt
-        }
-    ]);
-
-    if (dbError) {
-        console.error("Database insert error:", dbError.message);
-        return;
-    }
-
-    console.log("User added to database successfully!");
 }
