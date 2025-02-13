@@ -28,3 +28,31 @@ async function signUpUser(email, password) {
 
     console.log("User signed up:", data);
 }
+
+async function handlePostVerification() {
+    const { data, error } = await supabase.auth.getUser();
+
+    if (error || !data.user) {
+        console.error("User not logged in:", error?.message);
+        return;
+    }
+
+    console.log("Verified user:", data.user);
+
+    const { error: dbError } = await supabase.from("users").insert([
+        {
+            id: data.user.id,
+            email: data.user.email,
+            username: data.user.email.split("@")[0],
+            created: data.user.created_at
+        }
+    ], { onConflict: ['id'] });
+
+    if (dbError) {
+        console.error("Database insert error:", dbError.message);
+        return;
+    }
+
+    console.log("User added to database!");
+}
+
