@@ -9,7 +9,7 @@
         document.addEventListener("DOMContentLoaded", async () => {
             var verified = await handlePostVerification();
             var title = document.getElementById("verif");
-            var msg = document.getElementById("msg");
+            var msg = document.getElementById("verifmsg");
             if (verified === true) {
                 title.innerHTML = "Verified succesfully!";
                 msg.innerHTML = "Please wait while we redirect you. (Or click <a href='setup.html'>here</a>)";
