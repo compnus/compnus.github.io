@@ -79,17 +79,23 @@
                     return;
                 }
 
-                const { error } = await supabase
+                const { data, error } = await supabase
                     .from("users")
-                    .update({ username, name: displayName, birthdate: birthdate })
+                    .update({ username, display_name: displayName, birthdate: birthdate })
                     .eq("id", user.id);
 
                 if (error) {
+                    // Log both error message and data to see what went wrong
+                    console.error("Database error:", error);
                     statusElement.textContent = `Error: ${error.message}`;
                 } else {
+                    // Log the data to verify if the update was successful
+                    console.log("Update successful:", data);
                     statusElement.textContent = "Setup complete! Redirecting...";
-                    //setTimeout(() => window.location.href = "profile.html", 1000);
+                    // Uncomment the following line once you're ready to redirect
+                    // setTimeout(() => window.location.href = "profile.html", 1000);
                 }
+
             });
         });
     </script>
