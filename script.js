@@ -34,10 +34,8 @@ async function handlePostVerification() {
 
     if (error || !data.user) {
         console.error("User not logged in:", error?.message);
-        return;
+        return false;
     }
-
-    console.log("Verified user:", data.user);
 
     const { error: dbError } = await supabase.from("users").insert([
         {
@@ -50,11 +48,11 @@ async function handlePostVerification() {
 
     if (dbError) {
         console.error("Database insert error:", dbError.message);
-        return;
+        return false;
     }
 
-    console.log("User added to database!");
+    return true;
 }
 
-console.log("✅ script.js loaded!");
+console.log("script loaded");
 

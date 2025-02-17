@@ -6,8 +6,10 @@
 </head>
 <body>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            handlePostVerification();
+        document.addEventListener("DOMContentLoaded", async () => {
+            var verified = await handlePostVerification();
+            if (verified) console.log("yay");
+            else console.log("nay...");
         });
     </script>
 </body>
