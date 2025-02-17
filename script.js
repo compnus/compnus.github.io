@@ -23,10 +23,10 @@ async function signUpUser(email, password) {
 
     if (error) {
         console.error("Sign-up error:", error.message);
-        return data, error;
+        return { data, error };
     }
 
-    return data, error;
+    return { data, error };
 }
 
 async function handlePostVerification() {
