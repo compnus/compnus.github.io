@@ -9,7 +9,7 @@
         document.addEventListener("DOMContentLoaded", async () => {
             var verified = await handlePostVerification();
             if (verified === true) console.log("yay");
-            else if (verified === 23505) console.log("already verified");
+            else if (verified === "23505") console.log("already verified");
             else console.log("nay..." + verified);
         });
     </script>
