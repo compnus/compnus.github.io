@@ -25,7 +25,7 @@
         <div class="input">
             <label for="birthdate">* Date of birth:</label>
             <input type="date" id="birthdate" required>
-            <p>You need to be at least 13 years old to use our services.</p>
+            <p>You must be at least 13 years old to use our services.</p>
         </div>
         <button type="submit">Save</button>
     </form>
@@ -44,6 +44,7 @@
 
             if (!user) {
                 statusElement.textContent = "You must be logged in to set up your account.";
+                form.style.display = 'none';
                 return;
             }
 
@@ -74,20 +75,20 @@
                 const month = today.getMonth() - birthDateObj.getMonth();
 
                 if (age < 13 || (age === 13 && month < 0)) {
-                    statusElement.textContent = "You are too young to proceed.";
+                    statusElement.textContent = "You are too young.";
                     return;
                 }
 
                 const { error } = await supabase
                     .from("users")
-                    .update({ username: username, name: displayName, birthdate: birthdate })
+                    .update({ username, name: displayName, birthdate: birthdate })
                     .eq("id", user.id);
 
                 if (error) {
                     statusElement.textContent = `Error: ${error.message}`;
                 } else {
                     statusElement.textContent = "Setup complete! Redirecting...";
-                    setTimeout(() => window.location.href = "profile.html", 2000);
+                    setTimeout(() => window.location.href = "profile.html", 1000);
                 }
             });
         });
