@@ -29,6 +29,62 @@ async function signUpUser(email, password) {
     return { data, error };
 }
 
+async function logInUser(email, password) {
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+    });
+
+    return { data, error };
+}
+
+async function signInWithProvider(provider) {
+    try {
+        const { data: authData, error: authError } = await supabase.auth.signInWithOAuth({
+            provider: provider
+        });
+
+        if (authError) {
+            throw new Error(authError.message);
+        }
+
+        const user = authData.user;
+        const email = user.email;
+
+        const { data: existingUser, error: userError } = await supabase
+            .from("users")
+            .select("id")
+            .eq("email", email)
+            .single();
+
+        if (userError) {
+            throw new Error("Error checking user in the database: " + userError.message);
+        }
+
+        if (existingUser) {
+            console.log("User exists, linking account...");
+            await supabase
+                .from("users")
+                .update({ provider: provider })
+                .eq("email", email);
+        } else {
+            const { error: insertError } = await supabase
+                .from("users")
+                .insert({ id: user.id, email, provider: provider });
+
+            if (insertError) {
+                throw new Error("Error inserting new user: " + insertError.message);
+            }
+        }
+
+    } catch (error) {
+        console.error("Error during login/signup with provider:", error.message);
+    }
+}
+
+
+
+
 async function handlePostVerification() {
     const { data, error } = await supabase.auth.getUser();
 

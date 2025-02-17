@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Log in</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="../../script.js" defer></script>
 </head>
 <body>
-    <h1>Sign Up</h1>
+    <h1>Log in</h1>
 
-    <form id="signup-form">
+    <form id="login-form">
         <div class="input">
             <label for="email">Email:</label>
             <input type="email" id="email" required>
@@ -19,23 +19,18 @@
             <label for="password">Password:</label>
             <input type="password" id="password" required>
         </div>
-        <div class="input">
-            <label for="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirm-password" required>
-        </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit">Log in</button>
     </form>
 
     <p>Or log in with:</p>
     <button onclick="signInWithProvider('google')">Log in with Google</button>
     <button onclick="signInWithProvider('github')">Log in with GitHub</button>
 
-
     <p id="status"></p>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const form = document.getElementById("signup-form");
+            const form = document.getElementById("login-form");
             const statusElement = document.getElementById("status");
 
             form.addEventListener("submit", async (event) => {
@@ -43,20 +38,15 @@
 
                 const email = document.getElementById("email").value.trim();
                 const password = document.getElementById("password").value;
-                const confirmPassword = document.getElementById("confirm-password").value;
 
-                if (password !== confirmPassword) {
-                    statusElement.textContent = "Passwords do not match!";
-                    return;
-                }
-
-                statusElement.textContent = "Signing up...";
-                const { data, error } = await signUpUser(email, password);
+                statusElement.textContent = "Logging in...";
+                const { data, error } = await logInUser(email, password);
 
                 if (error) {
                     statusElement.textContent = `Error: ${error.message}`;
                 } else {
-                    statusElement.textContent = "Sign-up successful! Check your email to verify your account.";
+                    statusElement.textContent = "Login successful! Redirecting...";
+                    setTimeout(() => window.location.href = "profile.html", 1000);
                 }
             });
         });
@@ -64,3 +54,4 @@
 
 </body>
 </html>
+
