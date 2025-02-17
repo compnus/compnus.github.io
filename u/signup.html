@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../../script.js" defer></script>
+</head>
+<body>
+    <h1>Sign Up</h1>
+
+    <form id="signup-form">
+        <div class="input">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="input">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+        </div>
+        <div class="input">
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" required>
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <p id="status"></p>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("signup-form");
+        const statusElement = document.getElementById("status");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+
+            if (password !== confirmPassword) {
+                statusElement.textContent = "Passwords do not match!";
+                return;
+            }
+
+            statusElement.textContent = "Signing up...";
+            const { data, error } = await signUpUser(email, password);
+
+            if (error) {
+                statusElement.textContent = `Error: ${error.message}`;
+            } else {
+                statusElement.textContent = "Sign-up successful! Check your email to verify your account.";
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
