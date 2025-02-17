@@ -8,8 +8,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
             var verified = await handlePostVerification();
-            if (verified) console.log("yay");
-            else console.log("nay...");
+            if (verified === true) console.log("yay");
+            else console.log("nay..."+verified);
         });
     </script>
 </body>

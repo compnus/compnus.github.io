@@ -34,7 +34,7 @@ async function handlePostVerification() {
 
     if (error || !data.user) {
         console.error("User not logged in:", error?.message);
-        return false;
+        return error;
     }
 
     const { error: dbError } = await supabase.from("users").insert([
@@ -48,7 +48,7 @@ async function handlePostVerification() {
 
     if (dbError) {
         console.error("Database insert error:", dbError.message);
-        return false;
+        return dbError;
     }
 
     return true;
