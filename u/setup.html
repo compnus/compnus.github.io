@@ -49,7 +49,7 @@
 
             const { data: userData, error: dbError } = await supabase
                 .from("users")
-                .select("username, display_name, birthdate")
+                .select("username, name, birthdate")
                 .eq("id", user.id)
                 .single();
 
@@ -57,7 +57,7 @@
                 statusElement.textContent = "Error fetching user data.<br>" + dbError;
             } else {
                 if (userData.username) usernameInput.value = userData.username;
-                if (userData.display_name) displayNameInput.value = userData.display_name;
+                if (userData.name) displayNameInput.value = userData.name;
                 if (userData.birthdate) birthdateInput.value = userData.birthdate;
             }
 
@@ -80,7 +80,7 @@
 
                 const { error } = await supabase
                     .from("users")
-                    .update({ username, display_name: displayName, birthdate: birthdate })
+                    .update({ username: username, name: displayName, birthdate: birthdate })
                     .eq("id", user.id);
 
                 if (error) {
