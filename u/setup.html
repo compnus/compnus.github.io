@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Setup</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../../script.js" defer></script>
+</head>
+<body>
+    <h1>Set Up Your Account</h1>
+
+    <form id="setup-form">
+        <p><i>* denotes required field.</i></p>
+        <div class="input">
+            <label for="username">* Username:</label>
+            <input type="text" id="username" required>
+            <p>You can change this later.</p>
+        </div>
+        <div class="input">
+            <label for="display_name">Name:</label>
+            <input type="text" id="display_name">
+            <p>This name will not be publicly visible, it's merely a name for us to address you. If you choose to leave this empty, it will be set to your username.</p>
+        </div>
+        <div class="input">
+            <label for="birthdate">* Date of birth:</label>
+            <input type="date" id="birthdate" required>
+            <p>You need to be at least 13 years old to use our services.</p>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+
+    <p id="status"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const form = document.getElementById("setup-form");
+            const statusElement = document.getElementById("status");
+            const usernameInput = document.getElementById("username");
+            const displayNameInput = document.getElementById("display_name");
+            const birthdateInput = document.getElementById("birthdate");
+
+            const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+            if (!user) {
+                statusElement.textContent = "You must be logged in to set up your account.";
+                return;
+            }
+
+            const { data: userData, error: dbError } = await supabase
+                .from("users")
+                .select("username, display_name, birthdate")
+                .eq("id", user.id)
+                .single();
+
+            if (dbError) {
+                statusElement.textContent = "Error fetching user data.<br>" + dbError;
+            } else {
+                if (userData.username) usernameInput.value = userData.username;
+                if (userData.display_name) displayNameInput.value = userData.display_name;
+                if (userData.birthdate) birthdateInput.value = userData.birthdate;
+            }
+
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const username = usernameInput.value.trim();
+                const displayName = displayNameInput.value === "" ? usernameInput.value.trim() : displayNameInput.value.trim();
+                const birthdate = birthdateInput.value;
+
+                const today = new Date();
+                const birthDateObj = new Date(birthdate);
+                const age = today.getFullYear() - birthDateObj.getFullYear();
+                const month = today.getMonth() - birthDateObj.getMonth();
+
+                if (age < 13 || (age === 13 && month < 0)) {
+                    statusElement.textContent = "You must be at least 13 years old to use this service.";
+                    return;
+                }
+
+                const { error } = await supabase
+                    .from("users")
+                    .update({ username, display_name: displayName, birthdate: birthdate })
+                    .eq("id", user.id);
+
+                if (error) {
+                    statusElement.textContent = `Error: ${error.message}`;
+                } else {
+                    statusElement.textContent = "Setup complete! Redirecting...";
+                    setTimeout(() => window.location.href = "profile.html", 1000);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
