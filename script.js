@@ -33,7 +33,6 @@ async function handlePostVerification() {
     const { data, error } = await supabase.auth.getUser();
 
     if (error || !data.user) {
-        console.error("User not logged in:", error?.message);
         return error;
     }
 
@@ -47,8 +46,7 @@ async function handlePostVerification() {
     ], { onConflict: ['id'] });
 
     if (dbError) {
-        console.error("Database insert error:", dbError.message);
-        return dbError;
+        return dbError.code;
     }
 
     return true;
