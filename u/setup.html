@@ -74,7 +74,7 @@
                 const month = today.getMonth() - birthDateObj.getMonth();
 
                 if (age < 13 || (age === 13 && month < 0)) {
-                    statusElement.textContent = "You must be at least 13 years old to use this service.";
+                    statusElement.textContent = "You are too young to proceed.";
                     return;
                 }
 
@@ -87,7 +87,7 @@
                     statusElement.textContent = `Error: ${error.message}`;
                 } else {
                     statusElement.textContent = "Setup complete! Redirecting...";
-                    setTimeout(() => window.location.href = "profile.html", 1000);
+                    setTimeout(() => window.location.href = "profile.html", 2000);
                 }
             });
         });
