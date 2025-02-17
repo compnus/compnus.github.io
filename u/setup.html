@@ -85,15 +85,10 @@
                     .eq("id", user.id);
 
                 if (error) {
-                    // Log both error message and data to see what went wrong
-                    console.error("Database error:", error);
                     statusElement.textContent = `Error: ${error.message}`;
                 } else {
-                    // Log the data to verify if the update was successful
-                    console.log("Update successful:", data);
                     statusElement.textContent = "Setup complete! Redirecting...";
-                    // Uncomment the following line once you're ready to redirect
-                    // setTimeout(() => window.location.href = "profile.html", 1000);
+                    setTimeout(() => window.location.href = "profile.html", 1000);
                 }
 
             });
