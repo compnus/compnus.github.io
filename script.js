@@ -41,7 +41,10 @@ async function logInUser(email, password) {
 async function signInWithProvider(provider) {
     try {
         const { data: authData, error: authError } = await supabase.auth.signInWithOAuth({
-            provider: provider
+            provider: provider,
+            options: {
+                redirectTo: "https://compnus.github.io/u/setup.html"
+            }
         });
 
         if (authError) {
@@ -62,7 +65,6 @@ async function signInWithProvider(provider) {
         }
 
         if (existingUser) {
-            console.log("User exists, linking account...");
             await supabase
                 .from("users")
                 .update({ provider: provider })
