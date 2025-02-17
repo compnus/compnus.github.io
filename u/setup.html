@@ -81,7 +81,7 @@
 
                 const { data, error } = await supabase
                     .from("users")
-                    .update({ username, display_name: displayName, birthdate: birthdate })
+                    .update({ username, name: displayName, birthdate: birthdate })
                     .eq("id", user.id);
 
                 if (error) {
