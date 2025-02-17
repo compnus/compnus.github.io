@@ -8,9 +8,21 @@
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
             var verified = await handlePostVerification();
-            if (verified === true) console.log("yay");
-            else if (verified === "23505") console.log("already verified");
-            else console.log("nay..." + verified);
+            var title = document.getElementById("verif");
+            var msg = document.getElementById("msg");
+            if (verified === true) {
+                title.innerHTML = "Verified succesfully!";
+                msg.innerHTML = "Please wait while we redirect you. (Or click <a href='setup.html'>here</a>)";
+                window.location.href = "setup.html";
+            }
+            else if (verified === "23505") {
+                title.innerHTML = "Your e-mail is already verified.";
+                msg.innerHTML = "If you wish to set-up yor account, click <a href='setup.html'>here</a>.";
+            }
+            else {
+                title.innerHTML = "An error occured.";
+                msg.innerHTML = "Please try again. Error code:" + verified;
+            }
         });
     </script>
 </body>
