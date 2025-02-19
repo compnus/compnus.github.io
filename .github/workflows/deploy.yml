@@ -31,5 +31,5 @@ jobs:
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: |
-          # Deploy the 'test' function specifically
-          npx supabase functions deploy test --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          # Deploy the 'test' function from the correct directory
+          npx supabase functions deploy test --project-ref ${{ secrets.SUPABASE_PROJECT_REF }} --workdir site/functions/supabase
