@@ -26,4 +26,7 @@ jobs:
         env:
               SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: |
-            npx supabase functions deploy --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+            for function in site/functions/supabase/*/index.ts; do
+                function_name=$(basename $(dirname $function))
+                npx supabase functions deploy $function_name --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+            done
