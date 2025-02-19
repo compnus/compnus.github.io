@@ -40,8 +40,7 @@ async function logInUser(email, password) {
 
 async function signInWithProvider(provider) {
     const { data, error } = await supabase.auth.signInWithOAuth({
-        provider,
-        options: { redirectTo: `${window.location.origin}/u/profile.html` }
+        provider
     });
 
     if (error) {
