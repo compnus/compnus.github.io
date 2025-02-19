@@ -8,19 +8,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '18.x'
 
-      - name: Install dependencies
+      - name: Install Supabase CLI
         run: |
-          npm install
+          npm install -g supabase
 
       - name: Deploy Supabase Functions
         run: |
-          npx supabase functions deploy --project-ref ${{ secrets.SUPABASE_PROJECT_REF }} --service-role-key ${{ secrets.SUPABASE_TOKEN }} site/functions/supabase
+          supabase functions deploy --project-ref ${{ secrets.SUPABASE_PROJECT_REF }} --service-role-key ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} site/functions/supabase
