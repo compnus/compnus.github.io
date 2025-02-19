@@ -39,52 +39,55 @@ async function logInUser(email, password) {
 }
 
 async function signInWithProvider(provider) {
-    try {
-        const { data: authData, error: authError } = await supabase.auth.signInWithOAuth({
-            provider: provider,
-            options: {
-                redirectTo: "https://compnus.github.io/u/setup.html"
-            }
-        });
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: { redirectTo: `${window.location.origin}/u/profile.html` }
+    });
 
-        if (authError) {
-            throw new Error(authError.message);
-        }
-
-        const user = authData.user;
-        const email = user.email;
-
-        const { data: existingUser, error: userError } = await supabase
-            .from("users")
-            .select("id")
-            .eq("email", email)
-            .single();
-
-        if (userError) {
-            throw new Error("Error checking user in the database: " + userError.message);
-        }
-
-        if (existingUser) {
-            await supabase
-                .from("users")
-                .update({ provider: provider })
-                .eq("email", email);
-        } else {
-            const { error: insertError } = await supabase
-                .from("users")
-                .insert({ id: user.id, email, provider: provider });
-
-            if (insertError) {
-                throw new Error("Error inserting new user: " + insertError.message);
-            }
-        }
-
-    } catch (error) {
-        console.error("Error during login/signup with provider:", error.message);
+    if (error) {
+        console.error("OAuth Sign-in error:", error.message);
+        return;
     }
+
+    supabase.auth.onAuthStateChange(async (event, session) => {
+        if (event === "SIGNED_IN") {
+            const { data: userData, error: userError } = await supabase.auth.getUser();
+
+            if (!userError && userData?.user) {
+                const userId = userData.user.id;
+                const userEmail = userData.user.email;
+
+                // Check if user exists in DB
+                const { data: existingUser, error: fetchError } = await supabase
+                    .from("users")
+                    .select("id")
+                    .eq("id", userId)
+                    .single();
+
+                if (fetchError) {
+                    console.log("User does not exist in DB. Inserting...");
+
+                    // Insert new user into DB
+                    const { error: insertError } = await supabase.from("users").insert([
+                        {
+                            id: userId,
+                            email: userEmail,
+                            username: userEmail.split("@")[0] // Default username
+                        }
+                    ]);
+
+                    if (insertError) {
+                        console.error("User insert error:", insertError.message);
+                        return;
+                    }
+                }
+
+                // Redirect to setup page
+                window.location.href = "/u/setup.html";
+            }
+        }
+    });
 }
-
-
 
 
 async function handlePostVerification() {
