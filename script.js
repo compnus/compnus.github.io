@@ -88,7 +88,7 @@ async function handlePostVerification() {
     const { data, error } = await supabase.auth.getUser();
 
     if (error || !data.user) {
-        window.location.href = "/signup.html?error=oauth_failed";
+        window.location.href = "/u/signup.html?error=oauth_failed";
         return error;
     }
 
