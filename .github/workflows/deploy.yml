@@ -24,6 +24,12 @@ jobs:
 
       - name: Deploy Supabase Functions
         env:
-          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+              SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: |
-          npx supabase functions deploy test --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+            npx supabase functions deploy --project-ref ${{ secrets.SUPABASE_PROJECT_REF }} site/functions/supabase
+
+      - name: Disable JWT Authentication for Functions
+        run: |
+            curl -X PUT "https://api.supabase.io/v1/projects/${{ secrets.SUPABASE_PROJECT_REF }}/functions/test" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ACCESS_TOKEN }}" \
+            -d '{"jwt": false}'
