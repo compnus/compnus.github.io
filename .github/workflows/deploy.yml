@@ -13,15 +13,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18.x'
 
-      - name: Install Supabase CLI
+      - name: Install dependencies
         run: |
-          npm install -g supabase
+          npm install
+
+      - name: Install Supabase CLI (local)
+        run: |
+          npm install supabase
 
       - name: Deploy Supabase Functions
         run: |
-          supabase functions deploy --project-ref ${{ secrets.SUPABASE_PROJECT_REF }} --service-role-key ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} site/functions/supabase
+          npx supabase functions deploy --project-ref ${{ secrets.SUPABASE_PROJECT_REF }} --service-role-key ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} site/functions/supabase
