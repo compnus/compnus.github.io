@@ -21,13 +21,15 @@
             }
             else if (verified === "23505") {
                 title.innerHTML = "Your e-mail is already verified.";
-                msg.innerHTML = "If you wish to set-up yor account, click <a href='setup.html'>here</a>.";
+                msg.innerHTML = "Please wait while we redirect you. (Or click <a href='setup.html'>here</a>)";
+                window.location.href = "setup.html";
             }
             else {
                 title.innerHTML = "An error occured.";
                 msg.innerHTML = "Please try again. Error code:" + verified;
             }
         });
+
     </script>
     <h1 id="verif">Verifying your e-mail...</h1>
     <h3 id="verifmsg">This will only take a moment.</h3>
