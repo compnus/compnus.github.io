@@ -1,0 +1,10 @@
+{
+  "name": "compnus",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "npx supabase functions deploy"
+  },
+  "devDependencies": {
+    "supabase": "^2.0.0"
+  }
+}
