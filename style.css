@@ -1,0 +1,65 @@
+:root {
+    --maingrad: linear-gradient(180deg, rgba(126,70,21,1) 0%, rgba(21,45,96,1) 100%);
+    --maingradfallback: rgb(126,70,21);
+}
+
+html,body{
+    padding: 0;
+    margin: 0;
+    background-color: #0b0c12;
+    color: white;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.cc {
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.link {
+    color: yellow;
+    transition: ease-out 0.2s;
+}
+
+.link:hover {
+    color: orangered;
+    text-shadow: black 0 0 3px;
+}
+
+.link.nav {
+    font-family: 'Funnel Display';
+    color: white;
+    font-weight: 800;
+    font-size: 3vh;
+    margin: 0;
+    display: block;
+}
+
+.link.nav:hover {
+    color: yellow;
+}
+
+.grid {
+    display: grid;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+    .grid.unirow {
+        grid-template-columns: repeat(auto-fit, minmax(1px, 1fr));
+        grid-template-rows: 1fr;
+    }
+
+@media(orientation:portrait){
+
+}

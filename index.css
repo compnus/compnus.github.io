@@ -1,0 +1,29 @@
+#main {
+    position: sticky;
+    top: -18vh;
+    height: 23vh;
+    background: var(--maingradfallback);
+    background: var(--maingrad);
+    padding: 2vh;
+    border-radius: 0 0 100% 100% / 0 0 30% 30%;
+    box-shadow: black 0 0 25px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+#ilogo {
+    height: 15vh;
+    margin-right: 1vw;
+    margin-bottom: 3vh;
+}
+
+#logo {
+    font-size: 10vh;
+    color: white;
+    margin: 0;
+    margin-bottom: 3vh;
+}
+
+@media(orientation:portrait) {
+}

@@ -108,5 +108,15 @@ async function handlePostVerification() {
     return true;
 }
 
+async function getUser() {
+    const { data, error } = await supabase.auth.getUser();
+
+    if (error || !data.user) {
+        return { user:false, data:error };
+    }
+
+    return { user: true, data: data.user };
+}
+
 console.log("script loaded");
 
