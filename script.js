@@ -3,6 +3,8 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+var popupid = 0;
+
 async function fetchData() {
     let { data, error } = await supabase
         .from("variable")
@@ -84,6 +86,27 @@ async function signInWithProvider(provider) {
     }
 }
 
+async function resetPassword() {
+    const email = document.getElementById("email").value;
+    const status = document.getElementById("status");
+
+    status.innerHTML = "Please wait...";
+
+    if (!email) {
+        status.innerHTML = "Please enter your email.";
+        return;
+    }
+
+    const { error } = await supabase.auth.resetPasswordForEmail(email);
+
+    if (error) {
+        console.log("Error: " + error.message);
+        status.innerHTML = error.message;
+    } else {
+        status.innerHTML = "Password reset link sent! Check your email.";
+    }
+}
+
 async function handlePostVerification() {
     const { data, error } = await supabase.auth.getUser();
 
@@ -116,6 +139,33 @@ async function getUser() {
     }
 
     return { user: true, data: data.user };
+}
+
+function popup(title, message) {
+    var x = document.createElement("div");
+    x.style.opacity = 0;
+    x.style.transition = '0.1s';
+    x.id = "popup" + popupid++;
+    x.className = "popup";
+    x.innerHTML = `
+    <div onclick="e = window.event; e.stopPropagation()">
+    <div>
+    <h1>${title}</h1>
+    <h2 onclick="document.getElementById('${x.id}').style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('${x.id}')), 201)">X</h2>
+    </div>
+    <p>
+    ${message}
+    </p>
+    </div>
+    `;
+    x.onclick = () => {
+        x.style.opacity = 0;
+        window.setTimeout(() => document.body.removeChild(document.getElementById(x.id)), 201);
+    }
+
+
+    document.body.appendChild(x);
+    window.setTimeout(() => x.style.opacity = 1, 1);
 }
 
 console.log("script loaded");

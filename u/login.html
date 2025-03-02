@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <script src="../head.js"></script>
+    <title>Log in - CompNUS</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-    <h1>Log in</h1>
-
+    <script>
+    initHeader("Log In");
+    document.getElementById("headernav").removeChild(document.getElementById("userlogin"));
+    </script>
+    <main class="landing">
+        <p>Don't have an account yet? <a href="signup.html" class="link">Sign up</a> right now!</p>
+    <div class="landing">
     <form id="login-form">
         <div class="input">
             <label for="email">Email:</label>
-            <input type="email" id="email" required>
+            <input type="email" id="email" required placeholder="johndoe@mail.com">
         </div>
         <div class="input">
             <label for="password">Password:</label>
             <input type="password" id="password" required>
         </div>
+        <button type="button" onclick="resetPassword()">Forgot Password</button>
         <button type="submit">Log in</button>
     </form>
+    <p id="status"> </p>
+    <p class="minilabel">Or sign in using:</p>
+    <button onclick="signInWithProvider('google')">Sign in with Google</button>
+    <button onclick="signInWithProvider('github')">Sign in with GitHub</button>
 
-    <p>Or log in with:</p>
-    <button onclick="signInWithProvider('google')">Log in with Google</button>
-    <button onclick="signInWithProvider('github')">Log in with GitHub</button>
 
-    <p id="status"></p>
+</div></main>
+
+    
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -51,6 +59,8 @@
                 }
             });
         });
+
+        initFooter();
     </script>
 
 </body>

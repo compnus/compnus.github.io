@@ -1,13 +1,116 @@
 :root {
     --maingrad: linear-gradient(180deg, rgba(126,70,21,1) 0%, rgba(21,45,96,1) 100%);
-    --maingradfallback: rgb(126,70,21);
+    --maingradfallback: rgb(14, 26, 51);
+    --accent: #3b4b26;
+    --border: #906a00;
+    --shadow: #b1b0507d;
+    --bg: #12131b;
+    --lightbg: #252635
 }
 
 html,body{
     padding: 0;
     margin: 0;
-    background-color: #0b0c12;
+    background-color: var(--bg);
     color: white;
+}
+
+p, li, input {
+    font-size: 2vh;
+    font-family: Ubuntu;
+}
+
+button {
+    font-weight: 700;
+    font-size: 2vh;
+    border-radius: 2vh;
+    padding: 1vh 2vh;
+    border: var(--border) solid 3px;
+    background: var(--bg);
+    color: white;
+    font-family: 'Gabarito';
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--lightbg);
+}
+
+button:active {
+    background: var(--bg);
+    transform: scale(0.9);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background: var(--maingradfallback);
+    background: var(--maingrad);
+    box-shadow: black 0 0 10px;
+    padding: 1vh;
+    position: sticky;
+    top: 0;
+}
+
+#headerlogo {
+    height: 6vh;
+    width: 6vh;
+    margin-right: 1vw;
+    transition: filter ease 1s, transform ease 1s;
+}
+
+#headerlogo:hover {
+    filter: drop-shadow(white 0 0 3px);
+    transform: scale(1.05);
+}
+
+#title {
+    font-size: 4vh;
+    font-family: 'Gabarito';
+    margin: 0;
+}
+
+#headernav, #footernav {
+    flex: 1;
+    align-items: baseline;
+    justify-content: flex-end;
+    display: flex;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    background: var(--maingradfallback);
+    box-shadow: black 0 0 10px;
+    padding: 2vh;
+}
+
+#footnote{
+    margin: 0;
+    font-family: 'Ubuntu';
+    font-size: 2vh;
+    line-height: 1;
+}
+
+main {
+    padding: 2vh;
+    min-height: 82vh;
+}
+
+main.landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.landing {
+    background-color: var(--accent);
+    padding: 2vh;
+    border-radius: 4vh;
+    box-shadow: var(--shadow) 0 5px 10px;
+    text-align: center;
 }
 
 .flex {
@@ -20,6 +123,9 @@ html,body{
 }
 
 a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: inherit;
     text-decoration: none;
 }
@@ -27,6 +133,7 @@ a {
 .link {
     color: yellow;
     transition: ease-out 0.2s;
+    line-height: 1;
 }
 
 .link:hover {
@@ -34,7 +141,7 @@ a {
     text-shadow: black 0 0 3px;
 }
 
-.link.nav {
+.link.nav, .link.hnav, .link.fnav {
     font-family: 'Funnel Display';
     color: white;
     font-weight: 800;
@@ -43,7 +150,18 @@ a {
     display: block;
 }
 
-.link.nav:hover {
+.link.hnav {
+    margin-right: 2vw;
+}
+
+.link.fnav {
+    margin-left: 2vw;
+    font-size: 2vh;
+    font-family: Ubuntu;
+    font-weight: 700;
+}
+
+.link.nav:hover, .link.hnav:hover, .link.fnav:hover {
     color: yellow;
 }
 
@@ -60,6 +178,172 @@ a {
         grid-template-rows: 1fr;
     }
 
-@media(orientation:portrait){
+.input {
+    display: flex;
+    width: 1fr;
+    margin-bottom: 1vh;
+    align-items: center;
+}
 
+.input > label {
+    font-size: 2vh;
+    margin-right: 0.5vw;
+    font-family: 'Funnel Display';
+    font-weight: 500;
+    flex: 1;
+    white-space: nowrap;
+    text-align: left;
+}
+
+    .input > input, .input > .halve > input {
+        width: 15vw;
+        font-size: 2vh;
+        border-radius: 2vh;
+        padding: 1vh;
+        border: var(--border) solid 2px;
+        background: var(--bg);
+        color: white;
+        transition: 0.3s ease;
+    }
+
+    .input > .halve {
+        display: flex;
+        align-items: center;
+        width: calc(15vw + 2vh + 4px);
+    }
+
+    .input > .halve > input {
+        width: calc(14.5vw - 5vh);
+        margin-right: 0.5vw;
+    }
+
+        .input > .halve > button {
+            font-size: 2vh;
+            border-radius: 2vh;
+            padding: 1vh;
+            border: var(--border) solid 2px;
+            font-weight: 500;
+            transition: 0.3s ease;
+            width: 5vh;
+            display: block;
+        }
+
+    .input > input:focus, .input > .halve > input:focus, .input > .halve > button:hover {
+        outline: none;
+        box-shadow: var(--border) 0 0 5px, var(--border) 0 0 5px inset;
+        background: var(--lightbg);
+    }
+
+div.popup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0 0 0 / 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.popup > div {
+    border-radius: 2vh;
+    padding: 2vh;
+    background: var(--maingradfallback);
+    border: var(--border) solid 2px;
+    box-shadow: black 0 0 25px;
+}
+
+div.popup > div > div {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1vh;
+}
+
+div.popup > div > div > h1 {
+    margin: 0;
+    flex: 1;
+    margin-right: 2vw;
+    font-family: 'Funnel Display';
+    font-size: 4vh;
+}
+
+    div.popup > div > div > h2 {
+        margin: 0;
+        font-size: 3vh;
+        font-family: 'Gabarito';
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+
+@media(orientation:portrait){
+    .link.nav {
+        font-size: 2.5vh;
+    }
+    .grid.unirow {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        row-gap: 1vh;
+    }
+    #userlogin {
+        grid-column: 1 / -1;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 1.5vh;
+        top: -7.5vh;
+    }
+
+    #headerlogo {
+        margin-right: 2vw;
+    }
+
+        #headerlogo:hover {
+            filter: none;
+            transform: none;
+        }
+
+    #headernav {
+        flex: initial;
+        margin-top: 1.5vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        row-gap: 1vh;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    #footernav {
+        flex: initial;
+        margin-top: 1.5vh;
+    }
+
+    footer {
+        flex-direction: column;
+        padding: 1.5vh;
+    }
+
+    main {
+        padding: 2vh;
+        min-height: 74vh;
+    }
+
+        .link.hnav {
+            margin-right: 0;
+        }
+
+        .link.fnav {
+            margin-left: 2vw;
+            font-size: 2vh;
+            font-family: Ubuntu;
+            font-weight: 700;
+        }
 }

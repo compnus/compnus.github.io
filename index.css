@@ -3,19 +3,45 @@
     top: -18vh;
     height: 23vh;
     background: var(--maingradfallback);
-    background: var(--maingrad);
+    background: linear-gradient(180deg, rgba(126,70,21,1) 0%, rgba(21,45,96,1) 33%, rgba(126,70,21,1) 67%, rgba(21,45,96,1) 100%);
+    background-size: 100% 300%;
     padding: 2vh;
     border-radius: 0 0 100% 100% / 0 0 30% 30%;
-    box-shadow: black 0 0 25px;
+    box-shadow: black 0 0 20px;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
+    animation: gradientScroll 20s ease infinite;
+}
+
+@keyframes gradientScroll {
+    0% {
+        background-position: 50% 0%;
+    }
+
+    100% {
+        background-position: 50% 100%;
+    }
 }
 
 #ilogo {
     height: 15vh;
+    width: 15vh;
     margin-right: 1vw;
     margin-bottom: 3vh;
+    animation: logoPulse 30s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0% {
+        transform: scale(0.975);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(0.975);
+    }
 }
 
 #logo {
@@ -26,4 +52,33 @@
 }
 
 @media(orientation:portrait) {
+    #main {
+        position: sticky;
+        top: -13vh;
+        height: 18vh;
+        background: var(--maingradfallback);
+        background: linear-gradient(180deg, rgba(126,70,21,1) 0%, rgba(21,45,96,1) 33%, rgba(126,70,21,1) 67%, rgba(21,45,96,1) 100%);
+        background-size: 100% 300%;
+        padding: 2vh;
+        border-radius: 0 0 100% 100% / 0 0 20% 20%;
+        box-shadow: black 0 0 20px;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        animation: gradientScroll 20s ease infinite;
+    }
+
+    #ilogo {
+        height: 10vh;
+        margin-right: 2vw;
+        margin-bottom: 2vh;
+        animation: logoPulse 30s ease-in-out infinite;
+    }
+
+    #logo {
+        font-size: 6vh;
+        color: white;
+        margin: 0;
+        margin-bottom: 2vh;
+    }
 }

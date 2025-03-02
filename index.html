@@ -15,13 +15,15 @@
             <h1 id="logo"><span style="font-family:'Funnel Display';">Comp</span><span style="font-family:'Gabarito';">NUS</span></h1>
         </div>
         <div class="grid unirow" id="nav">
-            <p class="link nav" title="Free crypto, new crypto projects and so much more!"><a href="projects.html">CryptoNUS</a></p>
+            <p class="link nav" title="Free crypto, new crypto projects and so much more!"><a href="crypto/index.html">CryptoNUS</a></p>
             <p class="link nav" title="Projects by CompNUS, or supporting CompNUS."><a href="projects.html">Projects</a></p>
             <p class="link nav" id="userlogin" title="Gateway to everything NUS: mine $NUS crypto and more!"><a href="u/signup.html">Sign Up</a> <span style="color: white !important">/</span> <a href="u/login.html">Log In</a></p>
         </div>
     </div>
 
+    <main>
 
+    </main>
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
@@ -42,6 +44,7 @@
                 document.getElementById("userlogin").innerHTML = `<a href="u/profile.html">My Profile (${usern})</a>`;
             }
         });
+        initFooter();
     </script>
 </body>
 </html>

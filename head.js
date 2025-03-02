@@ -16,3 +16,58 @@ const head = `
 `;
 
 document.head.innerHTML += head;
+
+const header = document.createElement("template");
+const footer = document.createElement("template");
+
+header.innerHTML = `
+<header>
+<div class="flex cc">
+<a href="/"><img id="headerlogo" src="/site/image/logo/main.svg"/></a>
+<h1 id="title"></h1>
+</div>
+<div id="headernav">
+<p class="link hnav" title="Free crypto, new crypto projects and so much more!"><a href="/crypto/index.html">CryptoNUS</a></p>
+<p class="link hnav" title="Projects by CompNUS, or supporting CompNUS."><a href="/projects.html">Projects</a></p>
+<p class="link hnav" id="userlogin" title="Gateway to everything NUS: mine $NUS crypto and more!"><a href="/u/signup.html">Sign Up</a> <span style="color: white !important">/</span> <a href="/u/login.html">Log In</a></p>
+</div>
+</header>
+`;
+
+footer.innerHTML = `
+<footer>
+<p id="footnote">&copy;<span id="footnoteyear">2069</span> CompNUS, All rights reserved.</p>
+<div id="footernav">
+<p class="link fnav"><a href="/legal/credits.html">Credits</a></p>
+<p class="link fnav"><a href="/legal/tos.html">Terms of Service</a></p>
+</div>
+</footer>
+`;
+
+function initHeader(title) {
+    document.body.appendChild(header.content);
+    document.getElementById("title").innerHTML = title;
+    document.addEventListener("DOMContentLoaded", async () => {
+        var user = await getUser();
+        var usern;
+        if (user.user) {
+            const { data: username, error: dbError } = await supabase
+                .from("users")
+                .select("username")
+                .eq("id", user.data.id)
+                .single();
+
+            if (dbError) {
+                console.log(dbError);
+            } else {
+                if (username.username) usern = username.username;
+            }
+            document.getElementById("userlogin").innerHTML = `<a href="u/profile.html">My Profile (${usern})</a>`;
+        }
+    });
+}
+
+function initFooter() {
+    document.body.appendChild(footer.content);
+    document.getElementById("footnoteyear").innerHTML = new Date().getFullYear().toString();
+}
