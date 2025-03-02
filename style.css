@@ -141,14 +141,15 @@ a {
     text-shadow: black 0 0 3px;
 }
 
-.link.nav, .link.hnav, .link.fnav {
-    font-family: 'Funnel Display';
-    color: white;
-    font-weight: 800;
-    font-size: 3vh;
-    margin: 0;
-    display: block;
-}
+    .link.nav, .link.hnav, .link.fnav {
+        font-family: 'Funnel Display';
+        color: white;
+        font-weight: 800;
+        font-size: 3vh;
+        margin: 0;
+        display: block;
+        line-height: 1;
+    }
 
 .link.hnav {
     margin-right: 2vw;
@@ -281,13 +282,21 @@ div.popup > div > div > h1 {
 
 
 @media(orientation:portrait){
+    p, li, input {
+        font-size: 4vw;
+    }
+    button {
+        font-size: 4vw;
+        border-radius: 4vw;
+        padding: 2vw 4vw;
+    }
     .link.nav {
-        font-size: 2.5vh;
+        font-size: 5vw;
     }
     .grid.unirow {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
-        row-gap: 1vh;
+        row-gap: 2vw;
     }
     #userlogin {
         grid-column: 1 / -1;
@@ -295,12 +304,14 @@ div.popup > div > div > h1 {
 
     header {
         flex-direction: column;
-        padding: 1.5vh;
-        top: -7.5vh;
+        padding: 3vw;
+        top: -15vw;
     }
 
     #headerlogo {
         margin-right: 2vw;
+        height: 12vw;
+        width: 12vw;
     }
 
         #headerlogo:hover {
@@ -310,64 +321,79 @@ div.popup > div > div > h1 {
 
     #headernav {
         flex: initial;
-        margin-top: 1.5vh;
+        margin-top: 3vw;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
-        row-gap: 1vh;
+        row-gap: 2vw;
         align-content: center;
         align-items: center;
         justify-content: center;
         justify-items: center;
     }
 
+    #title {
+        font-size: 8vw;
+    }
+
     #footernav {
         flex: initial;
-        margin-top: 1.5vh;
+        margin-top: 3vw;
+    }
+
+    #footnote {
+        font-size: 4vw;
     }
 
     footer {
         flex-direction: column;
-        padding: 1.5vh;
+        padding: 3vw;
     }
 
     main {
-        padding: 2vh;
-        min-height: 74vh;
+        padding: 4vw;
+        min-height: calc(100vh - 52vw);
     }
 
         .link.hnav {
             margin-right: 0;
+            font-size: 6vw;
         }
 
         .link.fnav {
             margin-left: 3vw;
-            font-size: 2vh;
-            font-family: Ubuntu;
-            font-weight: 700;
+            font-size: 4vw;
         }
 
+    div.landing {
+        padding: 4vw;
+        border-radius: 8vw;
+    }
+
     button {
-        font-size: 2.5vh;
-        margin: 0.5vh 0.25vh 0 0.25vh;
+        font-size: 5vw;
+        margin: 1vw 0.5vw 0 0.5vw;
     }
 
     .input {
         flex-direction: column;
-        padding: 0 1vh;
+        padding: 0 2vw;
+        margin-bottom: 2vw;
     }
 
         .input > label {
             width: 100%;
-            font-size: 2vh;
-            margin-bottom: 0.5vh;
+            font-size: 4vw;
+            margin-bottom: 1vw;
             white-space: nowrap;
             text-align: left;
         }
 
         .input > input, .input > .halve > input {
-            width: calc(100% - 2vh);
-            font-size: 2.5vh;
+            width: calc(100% - 4vw);
+            font-size: 5vw;
+            border-radius: 4vw;
+            padding: 2vw;
         }
 
         .input > .halve {
@@ -377,12 +403,15 @@ div.popup > div > div > h1 {
         }
 
             .input > .halve > input {
-                width: calc(100% - 6vh);
-                margin-right: 1vh;
+                width: calc(100% - 12vw);
+                margin-right: 2vw;
             }
 
             .input > .halve > button {
-                font-size: 2.5vh;
+                font-size: 5vw;
+                border-radius: 4vw;
+                padding: 2vw;
+                width: 10vw;
                 margin: 0;
             }
 
@@ -390,8 +419,21 @@ div.popup > div > div > h1 {
             max-width: 80vw;
         }
 
+    div.popup > div {
+        border-radius: 4vw;
+        padding: 4vw;
+    }
+
+        div.popup > div > div {
+            margin-bottom: 2vw;
+        }
+
                 div.popup > div > div > h1 {
                     margin-right: 3vw;
-                    font-size: 3.5vh;
+                    font-size: 7vw;
                 }
+
+            div.popup > div > div > h2 {
+                font-size: 6vw;
+            }
 }
