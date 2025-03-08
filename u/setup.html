@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Setup</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <script src="../head.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="../script.js" defer></script>
+    <title>Account Setup - CompNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="credentials.css" />
 </head>
 <body>
-    <h1>Set Up Your Account</h1>
-
-    <form id="setup-form">
-        <p><i>* denotes required field.</i></p>
-        <div class="input">
-            <label for="username">* Username:</label>
-            <input type="text" id="username" required>
-            <p>You can change this later.</p>
+    <script>
+        initHeader("Setup Your Account");
+        document.querySelector("header").removeChild(document.getElementById("headernav"));
+    </script>
+    <style>
+        @media(orientation:portrait){
+            main {
+                min-height: calc(100vh - 43vw);
+            }
+        }
+    </style>
+    <main class="landing">
+        <p id="mainhint" style="text-align: center;"><i>* denotes required field.</i></p>
+        <div class="landing" id="maindiv">
+            <form id="setup-form">
+                <div class="input">
+                    <label for="username">* Username:</label>
+                    <input type="text" id="username" required>
+                </div><p class="limited">You can change this later.</p>
+                <div class="input">
+                    <label for="display_name">Name:</label>
+                    <input type="text" id="display_name">
+                </div><p class="limited">This name will not be publicly visible, it's merely a name for us to address you. If you choose to leave this empty, it will be set to your username.</p>
+                <div class="input">
+                    <label for="birthdate">* Date of birth:</label>
+                    <input type="date" id="birthdate" required>
+                </div><p class="limited">You must be at least 13 years old to use our services.</p>
+                <p id="status"></p>
+                <button type="submit">Save</button>
+            </form>
         </div>
-        <div class="input">
-            <label for="display_name">Name:</label>
-            <input type="text" id="display_name">
-            <p>This name will not be publicly visible, it's merely a name for us to address you. If you choose to leave this empty, it will be set to your username.</p>
-        </div>
-        <div class="input">
-            <label for="birthdate">* Date of birth:</label>
-            <input type="date" id="birthdate" required>
-            <p>You must be at least 13 years old to use our services.</p>
-        </div>
-        <button type="submit">Save</button>
-    </form>
-
-    <p id="status"></p>
-
+    </main>
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
             const form = document.getElementById("setup-form");
@@ -44,10 +52,10 @@
             const { data: { user }, error: authError } = await supabase.auth.getUser();
 
             if (!user) {
-                statusElement.textContent = "You must be logged in to set up your account.";
-                form.style.display = 'none';
-                return;
-            }
+                 document.getElementById("mainhint").innerHTML = "You must be logged in to set up your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
+                 document.getElementById("maindiv").style.display = 'none';
+                 return;
+             }
 
             const { data: userData, error: dbError } = await supabase
                 .from("users")
@@ -95,6 +103,8 @@
 
             });
         });
+
+        initFooter();
     </script>
 
 </body>

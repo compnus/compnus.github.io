@@ -4,23 +4,26 @@
     <script src="../head.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="../script.js"></script>
-
-    <title>Verify e-mail</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="credentials.css" />
+    <title>Verify E-mail - CompNUS</title>
 </head>
 <body>
     <script>
+        initHeader("E-mail Verification");
+        document.querySelector("header").removeChild(document.getElementById("headernav"));
         document.addEventListener("DOMContentLoaded", async () => {
             var verified = await handlePostVerification();
             var title = document.getElementById("verif");
             var msg = document.getElementById("verifmsg");
             if (verified === true) {
                 title.innerHTML = "Verified succesfully!";
-                msg.innerHTML = "Please wait while we redirect you. (Or click <a href='setup.html'>here</a>)";
+                msg.innerHTML = "Please wait while we redirect you. (Or click <a href='setup.html' class='link'>here</a>)";
                 window.location.href = "setup.html";
             }
             else if (verified === "23505") {
                 title.innerHTML = "Your e-mail is already verified.";
-                msg.innerHTML = "Please wait while we redirect you. (Or click <a href='setup.html'>here</a>)";
+                msg.innerHTML = "Please wait while we redirect you. (Or click <a href='setup.html' class='link'>here</a>)";
                 window.location.href = "setup.html";
             }
             else {
@@ -30,7 +33,17 @@
         });
 
     </script>
-    <h1 id="verif">Verifying your e-mail...</h1>
-    <h3 id="verifmsg">This will only take a moment.</h3>
+    <style>
+        @media(orientation:portrait) {
+            main {
+                min-height: calc(100vh - 43vw);
+            }
+        }
+    </style>
+    <main class="landing">
+        <h1 id="verif">Verifying your e-mail...</h1>
+        <h3 id="verifmsg">This will only take a moment.</h3>
+    </main>
+    <script>initFooter();</script>
 </body>
 </html>

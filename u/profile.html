@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js" defer></script>
+    <title>Dashboard - CompNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="credentials.css" />
+</head>
+<body>
+    <script>
+        initHeader("Dashboard");
+        document.getElementById("headernav").removeChild(document.getElementById("userlogin"));
+    </script>
+
+    <main>
+       
+
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const { data, error } = await supabase.auth.getUser();
+
+            if (!data.user) {
+                window.location.href = "/u/login.html";
+                return;
+            } else if (error) {
+                console.error(error);
+            }
+        });
+
+        initFooter();
+    </script>
+</body>
+</html>
