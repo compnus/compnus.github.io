@@ -24,12 +24,12 @@
         document.addEventListener("DOMContentLoaded", async () => {
             const { data, error } = await supabase.auth.getUser();
 
-            if (!data.user) {
+            /*if (!data.user) {
                 window.location.href = "/u/login.html";
                 return;
             } else if (error) {
                 console.error(error);
-            }
+            }*/
         });
 
         initFooter();
