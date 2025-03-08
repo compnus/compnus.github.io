@@ -7,6 +7,18 @@ Deno.serve(async (req) => {
         Deno.env.get('SUPABASE_ANON_KEY') ?? '',
     );
 
+    if (req.method === 'OPTIONS') {
+        return new Response(null, {
+            status: 204,
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "https://compnus.github.io",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type",
+            }
+        })
+    }
+
     let uid: string | null = null;
 
     try {
@@ -59,7 +71,7 @@ Deno.serve(async (req) => {
                 "Access-Control-Allow-Origin": "https://compnus.github.io",
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
                 "Access-Control-Allow-Headers": "Content-Type",
-            },
+            }
         });
     } catch (error) {
         console.error("Error processing request", error);
