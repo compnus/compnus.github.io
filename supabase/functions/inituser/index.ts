@@ -14,7 +14,7 @@ Deno.serve(async (req) => {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "https://compnus.github.io",
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Allow-Headers": "Content-Type, Authorisation",
             }
         })
     }
@@ -70,7 +70,7 @@ Deno.serve(async (req) => {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "https://compnus.github.io",
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Allow-Headers": "Content-Type, Authorisation",
             }
         });
     } catch (error) {
