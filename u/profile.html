@@ -24,12 +24,31 @@
         document.addEventListener("DOMContentLoaded", async () => {
             const { data, error } = await supabase.auth.getUser();
 
-            /*if (!data.user) {
+            if (!data.user) {
                 window.location.href = "/u/login.html";
                 return;
             } else if (error) {
                 console.error(error);
-            }*/
+            }
+
+            const data = {
+                user_id: userId
+            };
+
+            fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Function response:', data);
+                })
+                .catch((error) => {
+                    console.error('Error invoking function:', error);
+                });
         });
 
         initFooter();
