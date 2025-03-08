@@ -30,7 +30,7 @@ jobs:
             if [ -d "$function" ]; then
               function_name=$(basename "$function")
               echo "Deploying function: $function_name"
-              npx supabase functions deploy "$function_name" --project-ref ${{ secrets.SUPABASE_PROJECT_REF }} --disable-jwt
+              npx supabase functions deploy "$function_name" --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
             fi
           done
 
