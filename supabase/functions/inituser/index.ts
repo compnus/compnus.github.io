@@ -19,7 +19,6 @@ Deno.serve(async (req) => {
         });
     }
 
-    // Check Authorization header
     const authHeader = req.headers.get('Authorization');
     if (!authHeader) {
         return new Response('Authorization header missing', { status: 401 });
