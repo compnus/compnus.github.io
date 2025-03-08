@@ -19,6 +19,19 @@ Deno.serve(async (req) => {
         })
     }
 
+    const authHeader = req.headers.get('Authorization')
+    if (!authHeader) {
+        return new Response('Authorization header missing', { status: 401 })
+    }
+
+    const token = authHeader.split(' ')[1] // Bearer token
+
+    // Verify the token using Supabase client SDK (make sure supabase client is initialized)
+    const { data: user, error } = await supabase.auth.api.getUser(token)
+    if (error || !user) {
+        return new Response('Invalid JWT', { status: 401 })
+    }
+
     let uid: string | null = null;
 
     try {
