@@ -42,6 +42,7 @@
                     'Authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
                 },
                 body: JSON.stringify(dt)
+                mode: 'no-cors'
             })
                 .then(response => response.json())
                 .then(data => {
