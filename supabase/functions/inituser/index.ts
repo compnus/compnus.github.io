@@ -12,24 +12,23 @@ Deno.serve(async (req) => {
             status: 204,
             headers: {
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "https://compnus.github.io",
+                "Access-Control-Allow-Origin": "https://compnus.github.io", 
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-                "Access-Control-Allow-Headers": "Content-Type, Authorization",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization"
             }
-        })
+        });
     }
 
-    const authHeader = req.headers.get('Authorization')
+    // Check Authorization header
+    const authHeader = req.headers.get('Authorization');
     if (!authHeader) {
-        return new Response('Authorization header missing', { status: 401 })
+        return new Response('Authorization header missing', { status: 401 });
     }
 
-    const token = authHeader.split(' ')[1] // Bearer token
-
-    // Verify the token using Supabase client SDK (make sure supabase client is initialized)
-    const { data: user, error } = await supabase.auth.api.getUser(token)
+    const token = authHeader.split(' ')[1];
+    const { data: user, error } = await supabase.auth.api.getUser(token);
     if (error || !user) {
-        return new Response('Invalid JWT', { status: 401 })
+        return new Response('Invalid JWT', { status: 401 });
     }
 
     let uid: string | null = null;
@@ -83,7 +82,7 @@ Deno.serve(async (req) => {
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Origin": "https://compnus.github.io",
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-                "Access-Control-Allow-Headers": "Content-Type, Authorization",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization"
             }
         });
     } catch (error) {
@@ -91,4 +90,3 @@ Deno.serve(async (req) => {
         return new Response("Internal Server Error.", { status: 500 });
     }
 });
-
