@@ -64,7 +64,7 @@ Deno.serve(async (req) => {
         const { data: userExists, error: userExistsError } = await supabase
             .from("users")
             .select("id")
-            .eq("id", supabase.rpc("uuid",[uid]))
+            .eq("id", uid)
             .single();
 
         if (userExistsError || !userExists) {
