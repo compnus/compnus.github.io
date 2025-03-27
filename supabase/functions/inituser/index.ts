@@ -68,7 +68,7 @@ Deno.serve(async (req) => {
             .single();
 
         if (userExistsError || !userExists) {
-            return new Response("User does not exist in the 'users' table.", {
+            return new Response(JSON.stringify({ error:`User does not exist in the 'users' table. Data: ${userExists} with errors ${userExistsError}`}), {
                 status: 400,
                 headers: {
                     ...headers
