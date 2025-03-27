@@ -29,7 +29,7 @@ Deno.serve(async (req) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const { data: user, error } = await supabase.auth.api.getUser(token);
+    const { data: user, error } = await supabase.auth.getUser(token);
     if (error || !user) {
         return new Response('Invalid JWT', {
             status: 401,
