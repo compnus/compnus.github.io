@@ -41,8 +41,7 @@
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
                 },
-                body: JSON.stringify(dt),
-                mode: 'no-cors'
+                body: JSON.stringify(dt)
             })
                 .then(response => response.json())
                 .then(data => {
