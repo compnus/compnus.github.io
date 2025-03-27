@@ -8,7 +8,7 @@ Deno.serve(async (req) => {
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
     );
 
-    const headers = { ...corsHeaders }; 
+    const headers = { ...corsHeaders };
 
     if (req.method === 'OPTIONS') {
         return new Response(null, {
@@ -21,21 +21,23 @@ Deno.serve(async (req) => {
 
     const authHeader = req.headers.get('authorization');
     if (!authHeader) {
-        return new Response('Authorization header missing', {
+        return new Response(JSON.stringify({ response: 'Authorization header missing' }), {
             status: 401,
             headers: {
                 ...headers
-            } });
+            }
+        });
     }
 
     const token = authHeader.split(' ')[1];
     const { data: user, error } = await supabase.auth.getUser(token);
     if (error || !user) {
-        return new Response('Invalid JWT', {
+        return new Response(JSON.stringify({ response: 'Invalid JWT' }), {
             status: 401,
             headers: {
                 ...headers
-            } });
+            }
+        });
     }
 
     let uid: string | null = null;
@@ -45,19 +47,21 @@ Deno.serve(async (req) => {
         uid = body.uid || null;
     } catch (error) {
         console.error("Failed to parse JSON body", error);
-        return new Response("Failed to parse request body", {
+        return new Response(JSON.stringify({ response: "Failed to parse request body" }), {
             status: 400,
             headers: {
                 ...headers
-            } });
+            }
+        });
     }
 
     if (!uid) {
-        return new Response("UID is required", {
+        return new Response(JSON.stringify({ response: "UID is required" }), {
             status: 400,
             headers: {
                 ...headers
-            } });
+            }
+        });
     }
 
     try {
@@ -68,11 +72,12 @@ Deno.serve(async (req) => {
             .single();
 
         if (userExistsError || !userExists) {
-            return new Response(JSON.stringify({ error: `User ${uid} does not exist in the 'users' table. Data: ${userExists} with errors ${JSON.stringify(userExistsError)}`}), {
+            return new Response(JSON.stringify({ response: `User ${uid} does not exist in the 'users' table.` }), {
                 status: 400,
                 headers: {
                     ...headers
-                } });
+                }
+            });
         }
 
         const { data: udataExists, error: udataExistsError } = await supabase
@@ -87,15 +92,16 @@ Deno.serve(async (req) => {
                 .insert([{ user_id: uid }]);
 
             if (insertError) {
-                return new Response("Error inserting into 'udata' table.", {
+                return new Response(JSON.stringify({ response: "Error inserting into 'udata' table." }), {
                     status: 500,
                     headers: {
                         ...headers
-                    } });
+                    }
+                });
             }
         }
 
-        return new Response("User data processed successfully.", {
+        return new Response(JSON.stringify({ response: "User data processed successfully." }), {
             status: 200,
             headers: {
                 ...headers
@@ -103,10 +109,11 @@ Deno.serve(async (req) => {
         });
     } catch (error) {
         console.error("Error processing request", error);
-        return new Response("Internal Server Error.", {
+        return new Response(JSON.stringify({ response: "Internal Server Error." }), {
             status: 500,
             headers: {
                 ...headers
-            } });
+            }
+        });
     }
 });
