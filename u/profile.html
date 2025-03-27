@@ -32,7 +32,8 @@
             }
 
             const dt = {
-                uid: data.user.id
+                user_id: data.user.id,
+                uid: (await supabase.auth.getSession()).data.session?.user.id
             };
 
             fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
