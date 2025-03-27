@@ -64,11 +64,11 @@ Deno.serve(async (req) => {
         const { data: userExists, error: userExistsError } = await supabase
             .from("users")
             .select("id")
-            .match({ id:uid })
+            .eq("id", uid)
             .single();
 
         if (userExistsError || !userExists) {
-            return new Response(JSON.stringify({ error: `User ${uid} does not exist in the 'users' table. Data: ${userExists} with errors ${JSON.stringify(userExistsError)}\nOther data: ${req.headers.get("authorization") }`}), {
+            return new Response(JSON.stringify({ error: `User ${uid} does not exist in the 'users' table. Data: ${userExists} with errors ${JSON.stringify(userExistsError)}`}), {
                 status: 400,
                 headers: {
                     ...headers
