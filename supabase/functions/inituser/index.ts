@@ -1,5 +1,6 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
+import { corsHeaders } from '../_shared/cors.ts';
 
 Deno.serve(async (req) => {
     const supabase = createClient(
@@ -11,15 +12,14 @@ Deno.serve(async (req) => {
         return new Response(null, {
             status: 204,
             headers: {
+                ...corsHeaders,
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "https://compnus.github.io", 
-                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-                "Access-Control-Allow-Headers": "Content-Type, Authorization"
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS"
             }
         });
     }
 
-    const authHeader = req.headers.get('Authorization');
+    const authHeader = req.headers.get('authorization');
     if (!authHeader) {
         return new Response('Authorization header missing', { status: 401 });
     }
@@ -78,10 +78,9 @@ Deno.serve(async (req) => {
         return new Response("User data processed successfully.", {
             status: 200,
             headers: {
+                ...corsHeaders,
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "https://compnus.github.io",
-                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-                "Access-Control-Allow-Headers": "Content-Type, Authorization"
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS"
             }
         });
     } catch (error) {
