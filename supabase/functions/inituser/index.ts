@@ -82,7 +82,7 @@ Deno.serve(async (req) => {
             .single();
 
         if (udataExistsError) {
-            return new Response("Error checking 'udata' table.", {
+            return new Response(JSON.stringify(udataExistsError), {
                 status: 500,
                 headers: {
                     ...headers
