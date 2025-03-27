@@ -81,14 +81,6 @@ Deno.serve(async (req) => {
             .eq("user_id", uid)
             .single();
 
-        if (udataExistsError) {
-            return new Response(JSON.stringify(udataExistsError), {
-                status: 500,
-                headers: {
-                    ...headers
-                } });
-        }
-
         if (!udataExists) {
             const { error: insertError } = await supabase
                 .from("udata")
