@@ -8,7 +8,7 @@ Deno.serve(async (req) => {
         Deno.env.get('SUPABASE_ANON_KEY') ?? '',
     );
 
-    const headers = { ...corsHeaders };
+    const headers = { ...corsHeaders }; 
 
     if (req.method === 'OPTIONS') {
         return new Response(null, {
