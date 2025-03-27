@@ -4,8 +4,8 @@ import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
     const supabase = createClient(
-        Deno.env.get('SUPABASE_URL') ?? '',
-        Deno.env.get('SUPABASE_ANON_KEY') ?? '',
+        Deno.env.get('SUPABASE_URL'),
+        Deno.env.get('SUPABASE_ANON_KEY'),
     );
 
     const headers = { ...corsHeaders }; 
@@ -68,7 +68,7 @@ Deno.serve(async (req) => {
             .single();
 
         if (userExistsError || !userExists) {
-            return new Response(JSON.stringify({ error:`User ${uid} does not exist in the 'users' table. Data: ${userExists} with errors ${JSON.stringify(userExistsError)}`}), {
+            return new Response(JSON.stringify({ error: `User ${uid} does not exist in the 'users' table. Data: ${userExists} with errors ${JSON.stringify(userExistsError)}\nOther data: ${req.headers.get("authorization") }`}), {
                 status: 400,
                 headers: {
                     ...headers
