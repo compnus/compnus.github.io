@@ -5,18 +5,6 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 var popupid = 0;
 
-async function fetchData() {
-    let { data, error } = await supabase
-        .from("variable")
-        .select("*");
-
-    if (error) {
-        console.error("Error fetching users:", error);
-    } else {
-        console.log("Users:", data);
-    }
-}
-
 async function signUpUser(email, password) {
     const { data, error } = await supabase.auth.signUp({
         email,
