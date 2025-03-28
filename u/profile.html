@@ -58,6 +58,8 @@
                 .eq("id", dt.user_id)
                 .single();
 
+            console.log(nameddata, namederror);
+
             document.getElementById("welcomer").innerHTML = `Welcome, ${nameddata}!`;
         });
 
