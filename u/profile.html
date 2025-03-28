@@ -52,13 +52,11 @@
                     console.error('Error invoking function:', error);
                 });
 
-            const { nameddata, namederror } = await supabase
+            const { data:nameddata, error:namederror } = await supabase
                 .from("users")
                 .select("name")
                 .eq("id", dt.user_id)
                 .single();
-
-            console.log(nameddata, namederror)
 
             document.getElementById("welcomer").innerHTML = `Welcome, ${nameddata}!`;
         });
