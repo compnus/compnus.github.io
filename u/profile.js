@@ -1,7 +1,7 @@
-const { data, error } = await supabase.auth.getUser();
 var dt;
 
 async function main() {
+    const { data, error } = await supabase.auth.getUser();
     dt = {
         user_id: data.user.id,
         uid: (await supabase.auth.getSession()).data.session?.user.id
