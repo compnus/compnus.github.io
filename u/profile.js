@@ -1,3 +1,4 @@
+const { data, error } = await supabase.auth.getUser();
 var dt;
 
 async function main() {
