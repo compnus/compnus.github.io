@@ -49,7 +49,7 @@ async function loadWallet() {
             x = data.balance;
             whole = Math.floor(x);
             rem = Math.floor((x - whole) * 100000000);
-            document.getElementById("walletnus").innerHTML = `${whole}.<span class="walletdecimal">${"0".repeat(8 - rem.toString().length)}${rem}</span>`;
+            document.getElementById("walletnus").innerHTML = `${whole}<span class="walletdecimal">.${"0".repeat(8 - rem.toString().length)}${rem}</span>`;
         })
         .catch((error) => {
             console.error('Error invoking function:', error);

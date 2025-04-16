@@ -49,11 +49,13 @@ main {
 }
 
 .currencydisplay {
+    display: flex;
     margin: 0;
     width: 100%;
-    text-align: right;
     font-size: 3.5vh;
     line-height: 5vh;
+    align-items: flex-start;
+    justify-content: flex-end;
 }
 
 .walletdecimal {
@@ -61,6 +63,6 @@ main {
     font-weight: 300;
     display: inline-block;
     font-size: 2vh;
-    padding-bottom: 1.5vh;
-    line-height: 3.5vh;
+    line-height: 2.25vh;
+    padding-top: 1vh;
 }
