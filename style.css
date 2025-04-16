@@ -5,7 +5,8 @@
     --border: #906a00;
     --shadow: #b1b0507d;
     --bg: #12131b;
-    --lightbg: #252635
+    --lightbg: #252635;
+    --lightbgaccent: #36384e;
 }
 
 html,body{

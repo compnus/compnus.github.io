@@ -1,0 +1,57 @@
+div.mainscroll {
+    height: 82vh;
+    overflow-y: scroll;
+}
+
+div.mainscroll::-webkit-scrollbar {
+    width: 3px;
+}
+
+    div.mainscroll::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    div.mainscroll::-webkit-scrollbar-thumb {
+        background: var(--lightbg);
+        border-radius: 100px;
+    }
+
+        div.mainscroll::-webkit-scrollbar-thumb:hover {
+            background: var(--lightbgaccent);
+        }
+
+
+main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 2vh;
+}
+
+#side {
+    min-width: 40vh;
+}
+
+.sideshmuck {
+    padding: 2vh;
+    background-color: var(--lightbg);
+    border-radius: 2vh;
+}
+
+.title {
+    font-family: 'Funnel Display';
+    margin: 0;
+    padding-bottom: 1vh;
+}
+
+.currencylogo {
+    width: 5vh;
+    height: 5vh;
+}
+
+.currencydisplay {
+    margin: 0;
+    width: 100%;
+    text-align: right;
+    font-size: 4vh;
+    line-height: 5vh;
+}

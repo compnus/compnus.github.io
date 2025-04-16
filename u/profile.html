@@ -4,8 +4,10 @@
     <script src="../head.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="../script.js" defer></script>
+    <script src="profile.js"></script>
     <title>Dashboard - CompNUS</title>
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="profile.css" />
     <link rel="stylesheet" href="credentials.css" />
 </head>
 <body>
@@ -15,9 +17,22 @@
     </script>
 
     <main>
-       
-        <h1 id="welcomer">Welcome, User!</h1>
+        <div id="main" class="mainscroll">
 
+            <div class="flex cc"><h1 id="welcomer">Welcome, User!</h1></div>
+
+        </div>
+        <div id="side" class="mainscroll">
+            
+            <div class="sideshmuck" id="wallet">
+                <div class="flex cc"><h1 class="title">Wallet</h1></div>
+                <div class="flex" title="$NUS">
+                    <img src="../site/image/logo/currency.svg" class="currencylogo" />
+                    <h2 class="currencydisplay" id="walletnus">0.00000000</h2>
+                </div>
+            </div>
+
+        </div>
     </main>
 
     <script>
@@ -31,34 +46,7 @@
                 console.error(error);
             }
 
-            const dt = {
-                user_id: data.user.id,
-                uid: (await supabase.auth.getSession()).data.session?.user.id
-            };
-
-            fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
-                },
-                body: JSON.stringify(dt)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Function response:', data);
-                })
-                .catch((error) => {
-                    console.error('Error invoking function:', error);
-                });
-
-            const { data:nameddata, error:namederror } = await supabase
-                .from("users")
-                .select("name")
-                .eq("id", dt.user_id)
-                .single();
-
-            document.getElementById("welcomer").innerHTML = `Welcome, ${nameddata.name}!`;
+            main();
         });
 
         initFooter();
