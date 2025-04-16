@@ -32,7 +32,8 @@ function main() {
 }
 
 function loadWallet() {
-    fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
+    var x;
+    fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/getbalance', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -42,10 +43,11 @@ function loadWallet() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log('Function response:', data);
+            x = data.balance;
+            console.log(balance);
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
         });
-    var whole = 
+    var whole = 0;
 }
