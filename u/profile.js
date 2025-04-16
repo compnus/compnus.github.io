@@ -47,12 +47,13 @@ async function loadWallet() {
         .then(response => response.json())
         .then(data => {
             x = data.balance;
-            console.log(x);
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
         });
-    var whole = 0;
+    var whole = Math.floor(x);
+    var rem = Math.floor((x - whole) * 100000000);
+    document.getElementById("walletnus").innerHTML = `${whole}.<span class="walletdecimal">${"0".repeat(8-rem.toString().length)}${rem}</span>`;
 }
 
 console.log("profile loaded");
