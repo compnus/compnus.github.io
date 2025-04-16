@@ -52,6 +52,7 @@ async function loadWallet() {
             console.error('Error invoking function:', error);
         });
     var whole = Math.floor(x);
+    console.log(x, whole);
     var rem = Math.floor((x - whole) * 100000000);
     document.getElementById("walletnus").innerHTML = `${whole}.<span class="walletdecimal">${"0".repeat(8-rem.toString().length)}${rem}</span>`;
 }
