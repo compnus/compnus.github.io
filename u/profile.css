@@ -55,3 +55,12 @@ main {
     font-size: 3.5vh;
     line-height: 5vh;
 }
+
+.walletdecimal {
+    color: #999;
+    font-weight: 300;
+    display: inline-block;
+    font-size: 2vh;
+    padding-bottom: 1.5vh;
+    line-height: 3.5vh;
+}
