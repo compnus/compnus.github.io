@@ -1,5 +1,7 @@
-function main() {
-    const dt = {
+var dt;
+
+async function main() {
+    dt = {
         user_id: data.user.id,
         uid: (await supabase.auth.getSession()).data.session?.user.id
     };
@@ -31,7 +33,7 @@ function main() {
     loadWallet();
 }
 
-function loadWallet() {
+async function loadWallet() {
     var x;
     fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/getbalance', {
         method: 'POST',
@@ -52,4 +54,4 @@ function loadWallet() {
     var whole = 0;
 }
 
-console.log("profile loaded")
+console.log("profile loaded");
