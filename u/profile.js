@@ -46,7 +46,7 @@ async function loadWallet() {
         .then(response => response.json())
         .then(data => {
             x = data.balance;
-            console.log(balance);
+            console.log(x);
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
