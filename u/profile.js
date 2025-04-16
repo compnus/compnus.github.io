@@ -51,3 +51,5 @@ function loadWallet() {
         });
     var whole = 0;
 }
+
+console.log("profile loaded")
