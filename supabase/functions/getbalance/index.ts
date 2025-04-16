@@ -80,7 +80,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        return new Response(JSON.stringify({ response: "User data processed successfully.", balance }), {
+        return new Response(JSON.stringify({ response: "User data processed successfully.", balance: balance }), {
             status: 200,
             headers: {
                 ...headers
