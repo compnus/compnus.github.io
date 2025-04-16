@@ -36,6 +36,7 @@ async function main() {
 
 async function loadWallet() {
     var x, whole, rem;
+    document.getElementById("walletnus").innerHTML = "Loading...";
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/getbalance', {
         method: 'POST',
         headers: {
