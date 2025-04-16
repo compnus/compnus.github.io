@@ -36,7 +36,7 @@ async function main() {
 
 async function loadWallet() {
     var x;
-    fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/getbalance', {
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/getbalance', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
