@@ -67,9 +67,8 @@ async function loadMessages() {
    // try {
         const { x, y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
     if (!x || y) {
-        if (y) console.log(y);
-        else console.log(x);
-            throw new DOMException();
+        console.log(x, y);
+        throw new DOMException();
         }
   /*  } catch {
         msgcont.innerHTML = `<p>An error occured while trying to load messages.</p>`;
