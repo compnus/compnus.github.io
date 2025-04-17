@@ -74,7 +74,7 @@ async function loadMessages() {
         return;
     }
     x = x.messages.split("%$$%");
-    if (!(x.trim() === "")) {
+    if (x.length === 0) {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
     }
