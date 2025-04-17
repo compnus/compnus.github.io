@@ -70,11 +70,10 @@ async function loadMessages() {
             throw new DOMException(y.message);
         }
     } catch (x) {
-        msgcont.innerHTML = `<p>An error occured while trying to load messages${x?": "+x:"."}</p>`;
+        msgcont.innerHTML = `<p>An error occured while trying to load messages${x?": "+x:""}.</p>`;
         return;
     }
-    console.log(x);
-    x = x.data.messages.split("%$$%");
+    x = x.messages.split("%$$%");
     if (!(x.trim() === "")) {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
