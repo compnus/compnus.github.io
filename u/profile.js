@@ -63,7 +63,24 @@ async function loadWallet() {
 }
 
 async function loadMessages() {
-    var { x,y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
+    var msgcont = document.getElementById("messagecont");
+    try {
+        const { x, y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
+        if (!x || y) {
+            throw DOMException();
+        }
+    } catch {
+        msgcont.innerHTML = `<p>An error occured while trying to load messages.</p>`;
+        return;
+    }
+    x = x.data.messages.split("%$$%");
+    if (!(x.trim() === "")) return;
+    msgcont.innerHTML = "";
+    for (var i of x) {
+
+
+
+    }
 }
 
 function collapse(id) {
