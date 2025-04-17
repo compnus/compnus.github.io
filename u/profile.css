@@ -25,6 +25,12 @@ div.mainscroll::-webkit-scrollbar {
             background: var(--lightbgaccent);
         }
 
+#welcomer {
+    font-size: 4vh;
+    line-height: 1;
+    margin-bottom: 2vh;
+    margin-top: 0;
+}
 
 main {
     display: grid;
@@ -130,6 +136,7 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 2vh;
+    margin-bottom: 2vh;
 }
 
 #mainactions > button {
@@ -160,6 +167,11 @@ main {
     div.mainscroll {
         height: initial;
         padding: 0;
+    }
+
+    #welcomer {
+        font-size: 8vw;
+        margin-bottom: 4vw;
     }
 
     main {
@@ -228,6 +240,7 @@ main {
     #mainactions {
         grid-template-columns: 1fr 1fr;
         grid-gap: 4vw;
+        margin-bottom: 4vw;
     }
         #mainactions > button:hover {
             box-shadow: black 0 5px 10px -5px;

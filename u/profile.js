@@ -63,7 +63,7 @@ async function loadWallet() {
 }
 
 async function loadMessages() {
-
+    var { x,y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
 }
 
 function collapse(id) {
@@ -88,6 +88,7 @@ async function attemptRecovery() {
         status.innerHTML = "Error fetching user data.<br>Try refreshing the page.";
         return;
     }
+    email = email.data.email;
     if (email !== document.getElementById('resetpassword')) {
         status.innerHTML = "Emails do not match."
         return;
