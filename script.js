@@ -28,6 +28,11 @@ async function logInUser(email, password) {
     return { data, error };
 }
 
+async function logOut() {
+    await supabase.auth.signOut();
+    window.location.href = "/";
+}
+
 async function signInWithProvider(provider) {
     try {
         const { data: authData, error: authError } = await supabase.auth.signInWithOAuth({
@@ -137,7 +142,7 @@ function popup(title, message) {
     x.className = "popup";
     x.innerHTML = `
     <div onclick="e = window.event; e.stopPropagation()">
-    <div>
+    <div class="inside">
     <h1>${title}</h1>
     <h2 onclick="document.getElementById('${x.id}').style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('${x.id}')), 201)">X</h2>
     </div>

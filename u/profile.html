@@ -17,17 +17,30 @@
     </script>
 
     <main>
-        <div id="main" class="mainscroll">
-
-            <div class="flex cc"><h1 id="welcomer">Welcome, User!</h1></div>
-
+        <div id="main">
+            <div class="flex cc"><h1 id="welcomer" style="font-size:4vh;line-height:1;margin-bottom:2vh;margin-top:0">Welcome, User!</h1></div>
+            <div id="mainactions" style="margin-bottom:2vh">
+                <button class="fullwidth" title="Send wallet resources to other users!">Send Money</button>
+                <button class="fullwidth" title="Mine CompNUS's own cryptocurrency - $NUS!">Mine $NUS</button>
+                <button class="fullwidth" title="Get more Nocas (&curren;) to spend them on CompNUS!">Get Nocas</button>
+                <button class="fullwidth" title="Access and manage all your data!">Manage Data</button>
+            </div>
+        </div>
+        <div id="messages" class="mainscroll">
+            <div class="flex cc">
+                <h1 style="flex:1;text-align:center;cursor:default" class="title">Messages:</h1>
+                <p id="messagerefresh" title="Refresh Messages" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
+            </div>
+            <div id="messagecont">
+                
+            </div>
         </div>
         <div id="side" class="mainscroll">
 
             <div class="sideshmuck" id="wallet">
                 <p class="collapse" id="walletrefresh" title="Refresh Wallet" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
                 <p class="collapse" id="collapsewallet" title="Collapse/Reveal Wallet" onclick="collapse('wallet');">&#9650;</p>
-                <div class="flex cc"><h1 class="title">Wallet</h1></div>
+                <div class="flex cc"><h1 class="title" onclick="collapse('wallet');">Wallet</h1></div>
                 <div class="flex" title="$NUS">
                     <img src="../site/image/logo/currency.svg" class="currencylogo" />
                     <h2 class="currencydisplay" id="walletnus">Loading...</h2>
@@ -38,6 +51,35 @@
                     <h2 class="currencydisplay" id="walletnoca">Loading...</h2>
                 </div>
             </div>
+            <br />
+            <div class="sideshmuck collapsed" id="accact" style="height:3.5vh">
+                <p class="collapse collapsed" id="collapseaccact" title="Collapse/Reveal Account Actions" onclick="collapse('accact');">&#9650;</p>
+                <div class="flex cc"><h1 class="title" onclick="collapse('accact');">Account Actions</h1></div>
+                <button class="fullwidth" onclick="location.assign('edit.html')">Edit Account</button>
+                <br />
+                <button class="fullwidth"
+                        onclick="popup('Log Out', `Please confirm that you want to log out.</p><div class='flex cc'><button onclick='logOut()'>Log Out</button></div><p style='display: none'>`)">
+                    Log Out
+                </button>
+                <br />
+                <button class="fullwidth"
+                        onclick="popup('Reset Password', `<div class='input'><label for='resetpassword'>Your Email:</label><input id='resetpassword' type='email' placeholder='johndoe@mail.com'></div><p>This email must match the one you signed up with.<br>We will send the password reset link there.</p><p id='passresetstatus' style='font-weight:bold;text-align:center' class='fullwidth'></p><div class='flex cc'><button onclick='attemptRecovery()'>Submit</button>`)">
+                    Reset Password
+                </button>
+                <br />
+                <button class="fullwidth" style="border-color: darkred"
+                        onclick="popup('Request Account Deletion', `Please send an email to <b style='user-select: all; -webkit-user-select: all; -ms-user-select: all;'>supcompnus@gmail.com</b> to request account deletion.<br>The email must be sent from the same email that you use to log in, and include your username.<br>Please keep in mind, that you will lose access to everything, and the funds in your wallet will be lost forever.</p><div class='flex cc'><button onclick='copyTemplate()'>Copy Email Template</button></div><p style='display:none'>`)">
+                    Delete Account
+                </button>
+            </div>
+            <br />
+            <div class="sideshmuck" id="updates">
+                <p class="collapse" id="collapseupdates" title="Collapse/Reveal Updates" onclick="collapse('updates');">&#9650;</p>
+                <div class="flex cc"><h1 class="title" onclick="collapse('updates');">Updates</h1></div>
+                <h2>Hello, world!</h2>
+                <p>Thank you for using CompNUS! There are no updates for now, however.</p>
+            </div>
+
 
         </div>
     </main>

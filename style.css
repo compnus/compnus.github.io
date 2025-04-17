@@ -32,6 +32,7 @@ input {
 button {
     font-weight: 700;
     font-size: 2vh;
+    line-height: 1;
     border-radius: 2vh;
     padding: 1vh 2vh;
     border: var(--border) solid 3px;
@@ -257,6 +258,7 @@ div.popup {
 }
 
 div.popup > div {
+    max-width: 80vw;
     border-radius: 2vh;
     padding: 2vh;
     background: var(--maingradfallback);
@@ -264,13 +266,13 @@ div.popup > div {
     box-shadow: black 0 0 25px;
 }
 
-div.popup > div > div {
+div.popup > div > div.inside {
     display: flex;
     align-items: flex-start;
     margin-bottom: 1vh;
 }
 
-div.popup > div > div > h1 {
+div.popup > div > div.inside > h1 {
     margin: 0;
     flex: 1;
     margin-right: 2vw;
@@ -278,7 +280,7 @@ div.popup > div > div > h1 {
     font-size: 4vh;
 }
 
-    div.popup > div > div > h2 {
+    div.popup > div > div.inside > h2 {
         margin: 0;
         font-size: 3vh;
         font-family: 'Gabarito';
@@ -288,6 +290,8 @@ div.popup > div > div > h1 {
         cursor: pointer;
         line-height: 1;
     }
+
+.fullwidth { width: 100%; display: block; }
 
 
 @media(orientation:portrait){
@@ -429,20 +433,21 @@ div.popup > div > div > h1 {
         }
 
     div.popup > div {
+        max-width: 95vw;
         border-radius: 4vw;
         padding: 4vw;
     }
 
-        div.popup > div > div {
+        div.popup > div > div.inside {
             margin-bottom: 2vw;
         }
 
-                div.popup > div > div > h1 {
+                div.popup > div > div.inside > h1 {
                     margin-right: 3vw;
                     font-size: 7vw;
                 }
 
-            div.popup > div > div > h2 {
+            div.popup > div > div.inside > h2 {
                 font-size: 6vw;
             }
 }

@@ -1,6 +1,10 @@
 div.mainscroll {
     height: 82vh;
     overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-right: calc(1vh - 3px);
 }
 
 div.mainscroll::-webkit-scrollbar {
@@ -14,6 +18,7 @@ div.mainscroll::-webkit-scrollbar {
     div.mainscroll::-webkit-scrollbar-thumb {
         background: var(--lightbg);
         border-radius: 100px;
+        box-shadow: inset var(--bg) 0 2vh, inset var(--bg) 0 -2vh;
     }
 
         div.mainscroll::-webkit-scrollbar-thumb:hover {
@@ -24,11 +29,26 @@ div.mainscroll::-webkit-scrollbar {
 main {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-gap: 2vh;
+    grid-template-rows: 13vh 1fr;
+    grid-gap: 1vh;
+    padding: 0 1vh 0 2vh;
+}
+
+#main {
+    grid-area: 1/1/1/1;
+    padding-top: 2vh;
+    padding-right: 2vh;
+    padding-bottom: 2vh;
 }
 
 #side {
     min-width: 40vh;
+    grid-area: 1/2/2/2;
+}
+
+#messages {
+    grid-area: 2/1/2/1;
+    height: 68vh;
 }
 
 .sideshmuck {
@@ -38,6 +58,7 @@ main {
     position: relative;
     overflow: hidden;
     transition: height 0.4s ease-out;
+    box-shadow: black 0 10px 15px -15px;
 }
 
 .title {
@@ -46,6 +67,10 @@ main {
     padding-bottom: 2vh;
     font-size: 3.5vh;
     line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 .currencylogo {
@@ -99,4 +124,163 @@ main {
 
 .collapse.collapsed {
     transform: rotate(180deg);
+}
+
+#mainactions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 2vh;
+}
+
+#mainactions > button {
+    box-shadow: black 0 5px 10px -5px;
+    bottom: 0;
+    position: relative;
+}
+
+#mainactions > button:hover {
+    box-shadow: white 0 0 10px -5px;
+    bottom: 0.2vh;
+}
+
+#messagerefresh {
+    color: #ccc;
+    cursor: pointer;
+    margin: 0 2vh 0 0;
+    font-size: 3.5vh;
+    line-height: 1;
+    transition: 0.4s;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    font-weight: 900;
+}
+
+@media(orientation:portrait) {
+    div.mainscroll {
+        height: 82vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-right: calc(1vh - 3px);
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-gap: 1vh;
+        padding: 0 1vh 0 2vh;
+    }
+
+    #side {
+        min-width: 40vh;
+    }
+
+    .sideshmuck {
+        padding: 2vh;
+        background-color: var(--lightbg);
+        border-radius: 2vh;
+        position: relative;
+        overflow: hidden;
+        transition: height 0.4s ease-out;
+        box-shadow: black 0 10px 15px -15px;
+    }
+
+    .title {
+        font-family: 'Funnel Display';
+        margin: 0;
+        padding-bottom: 2vh;
+        font-size: 3.5vh;
+        line-height: 1;
+        cursor: pointer;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .currencylogo {
+        width: 5vh;
+        height: 5vh;
+    }
+
+    .currencydisplay {
+        display: flex;
+        margin: 0;
+        width: 100%;
+        font-size: 3.5vh;
+        line-height: 5vh;
+        align-items: flex-start;
+        justify-content: flex-end;
+    }
+
+    .walletdecimal {
+        color: #999;
+        font-weight: 300;
+        display: inline-block;
+        font-size: 2vh;
+        line-height: 2.25vh;
+        padding-top: 1vh;
+        padding-left: 0.1vh;
+    }
+
+    .collapse {
+        position: absolute;
+        left: 2vh;
+        top: 2vh;
+        color: #ccc;
+        cursor: pointer;
+        margin: 0;
+        font-size: 2.5vh;
+        line-height: 1;
+        transition: 0.4s;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+    }
+
+        .collapse:hover {
+            color: white;
+        }
+
+        .collapse#walletrefresh {
+            left: initial;
+            right: 2vh;
+        }
+
+        .collapse.collapsed {
+            transform: rotate(180deg);
+        }
+
+    #mainactions {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 2vh;
+        position: sticky;
+        top: 0;
+    }
+
+        #mainactions > button {
+            box-shadow: black 0 5px 10px -5px;
+            bottom: 0;
+            position: relative;
+        }
+
+            #mainactions > button:hover {
+                box-shadow: white 0 0 10px -5px;
+                bottom: 0.2vh;
+            }
+
+    #messagerefresh {
+        color: #ccc;
+        cursor: pointer;
+        margin: 0 2vh 0 0;
+        font-size: 3.5vh;
+        line-height: 1;
+        transition: 0.4s;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        font-weight: 900;
+    }
 }

@@ -4,38 +4,34 @@
     <script src="../head.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="../script.js" defer></script>
-    <title>Account Setup - CompNUS</title>
+    <title>Edit Account - CompNUS</title>
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="credentials.css" />
 </head>
 <body>
     <script>
-        initHeader("Setup Your Account");
+        initHeader("Edit Account");
         document.querySelector("header").removeChild(document.getElementById("headernav"));
     </script>
     <style>
-        @media(orientation:portrait){
+        @media(orientation:portrait) {
             main {
                 min-height: calc(100vh - 43vw);
             }
         }
     </style>
     <main class="landing">
-        <p id="mainhint" style="text-align: center;"><i>* denotes required field.</i></p>
+        <p id="mainhint" style="text-align: center; display: none;"></p>
         <div class="landing" id="maindiv">
             <form id="setup-form">
                 <div class="input">
-                    <label for="username">* Username:</label>
+                    <label for="username">Username:</label>
                     <input type="text" id="username" required>
                 </div><p class="limited">You can change this later.</p>
                 <div class="input">
                     <label for="display_name">Name:</label>
                     <input type="text" id="display_name">
                 </div><p class="limited">This name will not be publicly visible, it's merely a name for us to address you. If you choose to leave this empty, it will be set to your username.</p>
-                <div class="input">
-                    <label for="birthdate">* Date of birth:</label>
-                    <input type="date" id="birthdate" required>
-                </div><p class="limited">You must be at least 13 years old to use our services.</p>
                 <p id="status"></p>
                 <button type="submit">Save</button>
             </form>
@@ -47,29 +43,27 @@
             const statusElement = document.getElementById("status");
             const usernameInput = document.getElementById("username");
             const displayNameInput = document.getElementById("display_name");
-            const birthdateInput = document.getElementById("birthdate");
 
             const { data: { user }, error: authError } = await supabase.auth.getUser();
 
-            if (!user) {
-                 document.getElementById("mainhint").innerHTML = "You must be logged in to set up your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
+          /* if (!user) {
+                 document.getElementById("mainhint").innerHTML = "You must be logged in to edit your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
                  document.getElementById("maindiv").style.display = 'none';
+                 document.getElementById("mainhint").style.display = 'block';
                  return;
              }
-
+*/
             const { data: userData, error: dbError } = await supabase
                 .from("users")
-                .select("username, name, birthdate")
+                .select("username, name")
                 .eq("id", user.id)
                 .single();
 
             if (dbError) {
                 statusElement.textContent = "Error fetching user data.<br>" + dbError;
             } else {
-                if (userData.username) usernameInput.value = userData.username;
-                if (userData.name) displayNameInput.value = userData.name;
-                if (userData.birthdate) birthdateInput.value = userData.birthdate;
-                if (userData.birthdate) window.location.href = "profile.html";
+                usernameInput.value = userData.username;
+                displayNameInput.value = userData.name;
             }
 
             form.addEventListener("submit", async (event) => {

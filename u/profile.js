@@ -1,11 +1,9 @@
-var dt;
+var dt = {user_id: null, uid: null};
 
 async function main() {
     const { data, error } = await supabase.auth.getUser();
-    dt = {
-        user_id: data.user.id,
-        uid: (await supabase.auth.getSession()).data.session?.user.id
-    };
+    dt.user_id = data.user.id;
+    dt.uid = (await supabase.auth.getSession()).data.session?.user.id;
 
     fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
         method: 'POST',
@@ -32,6 +30,8 @@ async function main() {
     document.getElementById("welcomer").innerHTML = `Welcome, ${nameddata.name}!`;
 
     loadWallet();
+    loadMessages();
+    window.setTimeout(5000, ()=>{ loadWallet(); loadMessages(); });
 }
 
 async function loadWallet() {
@@ -58,6 +58,10 @@ async function loadWallet() {
         });
 }
 
+async function loadMessages() {
+
+}
+
 function collapse(id) {
     panel = document.getElementById(id);
     document.getElementById("collapse" + id).classList.toggle("collapsed");
@@ -70,6 +74,37 @@ function collapse(id) {
         panel.style.height = "3.5vh";
         panel.classList.add("collapsed");
     }
+}
+
+async function attemptRecovery() {
+    var status = document.getElementById('passresetstatus');
+    status.innerHTML = "Please wait...";
+    const { email, noemail } = await supabase.from('users').select('email').eq('id', dt.uid).single();
+    if (!email || noemail) {
+        status.innerHTML = "Error fetching user data.<br>Try refreshing the page.";
+        return;
+    }
+    if (email !== document.getElementById('resetpassword')) {
+        status.innerHTML = "Emails do not match."
+        return;
+    }
+    const { error } = await supabase.auth.resetPasswordForEmail(email);
+
+    if (error) {
+        status.innerHTML = error.message;
+    } else {
+        status.innerHTML = "Password reset link sent! Check your email.";
+    }
+}
+
+async function copyTemplate() {
+    var x = `I would like to delete my account on CompNUS.
+Username: [[Put your username here, as a confirmation]]
+Reason: [[Optionally, you can tell us why you are leaving CompNUS]]
+
+I do acknowledge, that I will lose access to everything connected to my CompNUS account, and funds in my wallet will be lost forever: [[Write "YES" here]]`;
+    navigator.clipboard.writeText(x);
+    popup("Template copied!", "Template preview:<br><br>"+x.replaceAll("\n","<br>"));
 }
 
 console.log("profile loaded");
