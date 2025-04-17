@@ -48,7 +48,7 @@ async function loadWallet() {
         .then(data => {
             x = data.balance[0];
             whole = Math.floor(x);
-            rem = Math.floor((x - whole) * 100000000);
+            rem = Math.round((x - whole) * 100000000);
             document.getElementById("walletnus").innerHTML = `${whole}<span class="walletdecimal">.${"0".repeat(8 - rem.toString().length)}${rem}</span>`;
             y = data.balance[1];
             document.getElementById("walletnoca").innerHTML = y;
@@ -56,6 +56,20 @@ async function loadWallet() {
         .catch((error) => {
             console.error('Error invoking function:', error);
         });
+}
+
+function collapse(id) {
+    panel = document.getElementById(id);
+    document.getElementById("collapse" + id).classList.toggle("collapsed");
+    if (panel.classList.contains("collapsed")) {
+        panel.classList.remove("collapsed");
+        panel.style.height = panel.scrollHeight - (window.innerHeight / 25) + "px";
+    } else {
+        panel.style.height = panel.scrollHeight - (window.innerHeight / 20) + "px";
+        panel.offsetHeight;
+        panel.style.height = "3.5vh";
+        panel.classList.add("collapsed");
+    }
 }
 
 console.log("profile loaded");
