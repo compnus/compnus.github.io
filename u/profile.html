@@ -25,10 +25,16 @@
         <div id="side" class="mainscroll">
             
             <div class="sideshmuck" id="wallet">
+                <p id="walletrefresh" title="Refresh Wallet" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
                 <div class="flex cc"><h1 class="title">Wallet</h1></div>
                 <div class="flex" title="$NUS">
                     <img src="../site/image/logo/currency.svg" class="currencylogo" />
-                    <h2 class="currencydisplay" id="walletnus">0<span class="walletdecimal">.00000000</span></h2>
+                    <h2 class="currencydisplay" id="walletnus">Loading...</h2>
+                </div>
+                <br />
+                <div class="flex" title="Nocas">
+                    <img src="../site/image/logo/noca.svg" class="currencylogo" />
+                    <h2 class="currencydisplay" id="walletnoca">Loading...</h2>
                 </div>
             </div>
 

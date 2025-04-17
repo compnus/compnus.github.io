@@ -35,6 +35,7 @@ main {
     padding: 2vh;
     background-color: var(--lightbg);
     border-radius: 2vh;
+    position: relative;
 }
 
 .title {
@@ -66,4 +67,20 @@ main {
     line-height: 2.25vh;
     padding-top: 1vh;
     padding-left: 0.1vh;
+}
+
+#walletrefresh {
+    position: absolute;
+    right: 2vh; top: 2vh;
+    color: #ccc;
+    cursor: pointer;
+    margin: 0;
+    font-size: 3vh;
+    line-height: 1;
+    font-weight: 400;
+    transition: 0.2s;
+}
+
+#walletrefresh:hover {
+    color: #fff;
 }
