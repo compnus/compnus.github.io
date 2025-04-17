@@ -64,7 +64,7 @@ async function loadWallet() {
 
 async function loadMessages() {
     var msgcont = document.getElementById("messagecont");
-    const { data: x, error: y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
+    var { data: x, error: y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
     try {
         if (!x || y) {
             throw new DOMException(y.message);
