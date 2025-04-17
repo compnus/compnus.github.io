@@ -64,16 +64,16 @@ async function loadWallet() {
 
 async function loadMessages() {
     var msgcont = document.getElementById("messagecont");
-   // try {
+    try {
         const { data:x, error:y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
-    if (!x || y) {
-        console.log(x, y);
-        throw new DOMException();
+        if (!x || y) {
+            throw new DOMException();
         }
-  /*  } catch {
+    } catch {
         msgcont.innerHTML = `<p>An error occured while trying to load messages.</p>`;
         return;
-    }*/
+    }
+    console.log(x);
     x = x.data.messages.split("%$$%");
     if (!(x.trim() === "")) {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
