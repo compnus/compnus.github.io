@@ -26,15 +26,7 @@
                 <button class="fullwidth" title="Access and manage all your data!">Manage Data</button>
             </div>
         </div>
-        <div id="messages" class="mainscroll">
-            <div class="flex cc">
-                <h1 style="flex:1;text-align:center;cursor:default" class="title">Messages:</h1>
-                <p id="messagerefresh" title="Refresh Messages" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
-            </div>
-            <div id="messagecont">
-                
-            </div>
-        </div>
+
         <div id="side" class="mainscroll">
 
             <div class="sideshmuck" id="wallet">
@@ -80,7 +72,16 @@
                 <p>Thank you for using CompNUS! There are no updates for now, however.</p>
             </div>
 
+        </div>
 
+        <div id="messages" class="mainscroll">
+            <div class="flex cc">
+                <h1 style="flex:1;text-align:center;cursor:default" class="title">Messages:</h1>
+                <p id="messagerefresh" title="Refresh Messages" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
+            </div>
+            <div id="messagecont">
+                <p>You have no messages.</p>
+            </div>
         </div>
     </main>
 

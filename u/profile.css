@@ -158,129 +158,89 @@ main {
 
 @media(orientation:portrait) {
     div.mainscroll {
-        height: 82vh;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        padding-top: 2vh;
-        padding-bottom: 2vh;
-        padding-right: calc(1vh - 3px);
+        height: initial;
+        padding: 0;
     }
 
     main {
-        display: grid;
-        grid-template-columns: 3fr 1fr;
-        grid-gap: 1vh;
-        padding: 0 1vh 0 2vh;
+        display: block;
+        padding: 4vw;
+    }
+
+    #main {
+        padding: 0;
     }
 
     #side {
-        min-width: 40vh;
+        min-width: 0;
+        padding-bottom: 8vw;
+    }
+
+    #messages {
+        height: initial;
     }
 
     .sideshmuck {
-        padding: 2vh;
-        background-color: var(--lightbg);
-        border-radius: 2vh;
-        position: relative;
-        overflow: hidden;
-        transition: height 0.4s ease-out;
-        box-shadow: black 0 10px 15px -15px;
+        padding: 4vw;
+        border-radius: 4vw;
     }
 
     .title {
-        font-family: 'Funnel Display';
-        margin: 0;
-        padding-bottom: 2vh;
-        font-size: 3.5vh;
-        line-height: 1;
-        cursor: pointer;
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
+        padding-bottom: 4vw;
+        font-size: 7vw;
     }
 
     .currencylogo {
-        width: 5vh;
-        height: 5vh;
+        width: 10vw;
+        height: 10vw;
     }
 
     .currencydisplay {
-        display: flex;
-        margin: 0;
-        width: 100%;
-        font-size: 3.5vh;
-        line-height: 5vh;
-        align-items: flex-start;
-        justify-content: flex-end;
+        font-size: 7vw;
+        line-height: 10vw;
     }
 
     .walletdecimal {
-        color: #999;
-        font-weight: 300;
-        display: inline-block;
-        font-size: 2vh;
-        line-height: 2.25vh;
-        padding-top: 1vh;
-        padding-left: 0.1vh;
+        font-size: 4vw;
+        line-height: 4.5vw;
+        padding-top: 2vw;
+        padding-left: 0.2vw;
     }
 
     .collapse {
-        position: absolute;
-        left: 2vh;
-        top: 2vh;
-        color: #ccc;
-        cursor: pointer;
-        margin: 0;
-        font-size: 2.5vh;
-        line-height: 1;
-        transition: 0.4s;
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
+        left: 4vw;
+        top: 4vw;
+        font-size: 5vw;
     }
 
         .collapse:hover {
+            color: #ccc;
+        }
+
+        .collapse:active {
             color: white;
         }
 
         .collapse#walletrefresh {
-            left: initial;
-            right: 2vh;
-        }
-
-        .collapse.collapsed {
-            transform: rotate(180deg);
+            right: 4vw;
         }
 
     #mainactions {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 2vh;
-        position: sticky;
-        top: 0;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 4vw;
     }
-
-        #mainactions > button {
+        #mainactions > button:hover {
             box-shadow: black 0 5px 10px -5px;
             bottom: 0;
-            position: relative;
         }
 
-            #mainactions > button:hover {
-                box-shadow: white 0 0 10px -5px;
-                bottom: 0.2vh;
-            }
+        #mainactions > button:active {
+            box-shadow: white 0 0 10px -5px;
+            bottom: 0.4vw;
+        }
 
     #messagerefresh {
-        color: #ccc;
-        cursor: pointer;
-        margin: 0 2vh 0 0;
-        font-size: 3.5vh;
-        line-height: 1;
-        transition: 0.4s;
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        font-weight: 900;
+        margin: 0;
+        font-size: 7vw;
     }
 }
