@@ -66,7 +66,9 @@ async function loadMessages() {
     var msgcont = document.getElementById("messagecont");
    // try {
         const { x, y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
-        if (!x || y) {
+    if (!x || y) {
+        if (y) console.log(y);
+        else console.log(x);
             throw new DOMException();
         }
   /*  } catch {
