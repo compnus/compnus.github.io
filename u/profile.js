@@ -65,7 +65,7 @@ async function loadWallet() {
 async function loadMessages() {
     var msgcont = document.getElementById("messagecont");
    // try {
-        const { x, y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
+        const { data:x, error:y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
     if (!x || y) {
         console.log(x, y);
         throw new DOMException();
@@ -104,7 +104,7 @@ function collapse(id) {
 async function attemptRecovery() {
     var status = document.getElementById('passresetstatus');
     status.innerHTML = "Please wait...";
-    const { email, noemail } = await supabase.from('users').select('email').eq('id', dt.uid).single();
+    const { data:email, error:noemail } = await supabase.from('users').select('email').eq('id', dt.uid).single();
     if (!email || noemail) {
         status.innerHTML = "Error fetching user data.<br>Try refreshing the page.";
         return;
