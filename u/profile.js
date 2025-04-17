@@ -78,14 +78,13 @@ async function loadMessages() {
         return;
     }
     x = x.messages.split("%$$%");
+    console.log(x);
     if (x.length === 0) {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
     }
     msgcont.innerHTML = "";
     for (var i of x) {
-
-        msgcont.innerHTML += i;
 
     }
 }
