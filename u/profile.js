@@ -74,7 +74,10 @@ async function loadMessages() {
         return;
     }
     x = x.data.messages.split("%$$%");
-    if (!(x.trim() === "")) return;
+    if (!(x.trim() === "")) {
+        msgcont.innerHTML = `<p>You have no messages.</p>`;
+        return;
+    }
     msgcont.innerHTML = "";
     for (var i of x) {
 
