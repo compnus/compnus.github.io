@@ -46,13 +46,13 @@
 
             const { data: { user }, error: authError } = await supabase.auth.getUser();
 
-          /* if (!user) {
+            if (!user) {
                  document.getElementById("mainhint").innerHTML = "You must be logged in to edit your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
                  document.getElementById("maindiv").style.display = 'none';
                  document.getElementById("mainhint").style.display = 'block';
                  return;
-             }
-*/
+            }
+
             const { data: userData, error: dbError } = await supabase
                 .from("users")
                 .select("username, name")
@@ -70,28 +70,17 @@
                 event.preventDefault();
 
                 const username = usernameInput.value.trim();
-                const displayName = displayNameInput.value === "" ? usernameInput.value.trim() : displayNameInput.value.trim();
-                const birthdate = birthdateInput.value;
-
-                const today = new Date();
-                const birthDateObj = new Date(birthdate);
-                const age = today.getFullYear() - birthDateObj.getFullYear();
-                const month = today.getMonth() - birthDateObj.getMonth();
-
-                if (age < 13 || (age === 13 && month < 0)) {
-                    statusElement.textContent = "You are too young.";
-                    return;
-                }
+                const displayName = displayNameInput.value === "" ? username : displayNameInput.value.trim();
 
                 const { data, error } = await supabase
                     .from("users")
-                    .update({ username, name: displayName, birthdate: birthdate })
+                    .update({ username, name: displayName })
                     .eq("id", user.id);
 
                 if (error) {
                     statusElement.textContent = `Error: ${error.message.replace("duplicate key value violates unique constraint \"users_username_key\"", "This username is taken.")}`;
                 } else {
-                    statusElement.textContent = "Setup complete! Redirecting...";
+                    statusElement.textContent = "Account was edited succesfully! Returning to dashboard...";
                     setTimeout(() => window.location.href = "profile.html", 1000);
                 }
 

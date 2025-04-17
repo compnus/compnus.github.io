@@ -27,6 +27,10 @@ async function main() {
         .eq("id", dt.user_id)
         .single();
 
+    if (namederror || !nameddata.name) {
+        window.location.href = "setup.html";
+    }
+
     document.getElementById("welcomer").innerHTML = `Welcome, ${nameddata.name}!`;
 
     loadWallet();
