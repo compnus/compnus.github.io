@@ -73,13 +73,8 @@ async function loadMessages() {
         msgcont.innerHTML = `<p>An error occured while trying to load messages${x?": "+x:""}.</p>`;
         return;
     }
-    if (x == null) {
-        msgcont.innerHTML = `<p>You have no messages.</p>`;
-        return;
-    }
     x = x.messages.split("%$$%");
-    console.log(x);
-    if (x.length === 0) {
+    if (x.length === 1 && x[0] === '') {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
     }
