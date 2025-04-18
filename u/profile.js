@@ -88,7 +88,6 @@ async function loadMessages() {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
     }
-    x.reverse();
     msgcont.innerHTML = "";
     for (var i of x) {
         loadedmessages[messageid] = i;
