@@ -152,7 +152,7 @@ async function deleteMessage(id) {
         loadedmessages[id] = buffer;
     } else {
         document.getElementById("messagecont").removeChild(document.getElementById("message" + id));
-        if (!(() => { for (var i in object) { return true; } return false; })) {
+        if (JSON.stringify(loadedmessages) === "{}") {
             msgcont.innerHTML = `<p>You have no messages.</p>`;
         }
     }
