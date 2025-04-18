@@ -193,6 +193,7 @@ main {
     margin-bottom: 1vh;
     font-size: 3vh;
     line-height: 1;
+    max-width: calc(100% - 4vh);
 }
 
 .msgfrom {
@@ -310,5 +311,46 @@ main {
     #messagerefresh {
         margin: 0;
         font-size: 7vw;
+    }
+
+    .message {
+        margin-bottom: 4vw;
+        padding: 4vw;
+        border-radius: 4vw;
+        background: var(--accent);
+    }
+
+    .msgtrash {
+        right: 4vw;
+        top: 4vw;
+        height: 6vw;
+        width: 6vw;
+    }
+
+        .msgtrash:hover {
+            transform: scale(1);
+            filter: invert(0.25);
+        }
+
+        msgtrash:active {
+            filter: invert(0);
+        }
+
+    .msgtitle {
+        margin-bottom: 2vw;
+        font-size: 6vw;
+        max-width: 76vw;
+    }
+
+    .msgfrom {
+        margin-bottom: 2vw;
+        font-size: 4vw;
+    }
+
+    .msgverified {
+        height: 3.6vw;
+        width: 3.6vw;
+        padding-left: 1vw;
+        margin-bottom: 0.4vw;
     }
 }
