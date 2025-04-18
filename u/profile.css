@@ -163,6 +163,61 @@ main {
     font-weight: 900;
 }
 
+.message {
+    position: relative;
+    margin-bottom: 2vh;
+    padding: 2vh;
+    border-radius: 2vh;
+    background: var(--accent);
+    box-shadow: var(--shadow) 0 5px 5px -3px;
+}
+
+.msgtrash {
+    position: absolute;
+    right: 2vh;
+    top: 2vh;
+    height: 3vh;
+    width: 3vh;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+    filter: invert(0.25);
+}
+
+    .msgtrash:hover {
+        transform: scale(1.2);
+        filter: invert(0);
+    }
+
+.msgtitle {
+    margin: 0;
+    margin-bottom: 1vh;
+    font-size: 3vh;
+    line-height: 1;
+}
+
+.msgfrom {
+    margin: 0;
+    margin-bottom: 1vh;
+    font-size: 2vh;
+    line-height: 1;
+    font-weight: 300;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+}
+
+.msgmsg > p {
+    margin-bottom: 0;
+}
+
+.msgverified {
+    display: inline-block;
+    height: 1.8vh;
+    width: 1.8vh;
+    padding-left: 0.5vh;
+    margin-bottom: 0.2vh;
+}
+
 @media(orientation:portrait) {
     div.mainscroll {
         height: initial;

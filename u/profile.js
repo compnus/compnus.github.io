@@ -1,4 +1,6 @@
-var dt = {user_id: null, uid: null};
+var dt = { user_id: null, uid: null };
+var messageid = 0;
+var loadedmessages = {};
 
 async function main() {
     const { data, error } = await supabase.auth.getUser();
@@ -64,6 +66,8 @@ async function loadWallet() {
 
 async function loadMessages() {
     var msgcont = document.getElementById("messagecont");
+    loadedmessages = {};
+    messageid = 0;
     var { data: x, error: y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
     try {
         if (!x || y) {
@@ -78,14 +82,77 @@ async function loadMessages() {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
     }
+
     x = x.split("%$$%");
-    if (x.length === 1 && x[0] === '') {
+    if (x.length === 1 && x[0].trim() === '') {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
     }
+    x.reverse();
     msgcont.innerHTML = "";
     for (var i of x) {
+        loadedmessages[messageid] = i;
+        if (i.trim() === "") continue;
+        var y = i.trim().split("%$,%");
+        var z = {
+            id: messageid,
+            title: "",
+            from: "",
+            message: ``
+        }
 
+        for (var j of y) {
+            if (j.startsWith("%$t%")) z.title = j.substring(4);
+            else if (j.startsWith("%$f%")) z.from = j.substring(4);
+            else if (j.startsWith("%$m%")) z.message = j.substring(4);
+        }
+
+        messageid++;
+
+        var cont = document.createElement("div");
+        cont.classList.add("message");
+        cont.id = "message" + z.id;
+        var trash = document.createElement("img");
+        trash.classList.add("msgtrash");
+        trash.src = "https://img.icons8.com/?size=100&id=85194&format=png&color=FFFFFF";
+        trash.title = "Delete Message (This cannot be undone!)";
+        trash.setAttribute("onclick", "deleteMessage("+z.id+")");
+        cont.appendChild(trash);
+        var title = document.createElement("h1");
+        title.classList.add("msgtitle");
+        title.innerHTML = z.title;
+        cont.appendChild(title);
+        var from = document.createElement("h3");
+        from.classList.add("msgfrom");
+        from.innerHTML = "From: " + z.from + (z.from === "CompNUS" ?`<img class="msgverified" src="https://img.icons8.com/?size=100&id=85190&format=png&color=FFFFFF" title="This is an official message from CompNUS."/>`:"");
+        cont.appendChild(from);
+        var msg = document.createElement("div");
+        msg.classList.add("msgmsg");
+        msg.innerHTML = z.message;
+        cont.appendChild(msg);
+
+        msgcont.appendChild(cont);
+    }
+    if (msgcont.innerHTML === "") {
+        msgcont.innerHTML = `<p>You have no messages.</p>`;
+    }
+}
+
+async function deleteMessage(id) {
+    var buffer = loadedmessages[id];
+    delete loadedmessages[id];
+    var newmessages = "";
+    for (var i in loadedmessages) newmessages+=(loadedmessages[i].trim() + "%$$%");
+    newmessages = newmessages.replace(/%\$\$%$/, '').trim();
+    const { data, error } = await supabase
+        .from("users")
+        .update({ messages: newmessages })
+        .eq("id", dt.uid);
+    if (error) {
+        alert("An error occured while trying to delete the message.\n" + error.message);
+        loadedmessages[id] = buffer;
+    } else {
+        document.getElementById("messagecont").removeChild(document.getElementById("message" + id));
     }
 }
 
