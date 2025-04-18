@@ -153,7 +153,7 @@ async function deleteMessage(id) {
     } else {
         document.getElementById("messagecont").removeChild(document.getElementById("message" + id));
         if (JSON.stringify(loadedmessages) === "{}") {
-            msgcont.innerHTML = `<p>You have no messages.</p>`;
+            document.getElementById("messagecont").innerHTML = `<p>You have no messages.</p>`;
         }
     }
 }
