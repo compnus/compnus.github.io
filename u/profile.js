@@ -112,7 +112,7 @@ async function attemptRecovery() {
         return;
     }
     email = email.data.email;
-    if (email !== document.getElementById('resetpassword')) {
+    if (email !== document.getElementById('resetpassword').value) {
         status.innerHTML = "Emails do not match."
         return;
     }
