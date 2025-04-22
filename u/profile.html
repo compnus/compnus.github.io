@@ -8,7 +8,6 @@
     <title>Dashboard - CompNUS</title>
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="profile.css" />
-    <link rel="stylesheet" href="credentials.css" />
 </head>
 <body>
     <script>
@@ -77,6 +76,7 @@
         <div id="messages" class="mainscroll">
             <div class="flex cc">
                 <h1 style="flex:1;text-align:center;cursor:default" class="title">Messages:</h1>
+                <img id="messagenew" title="Send a Message" onclick="location.assign('message.html')" src="https://img.icons8.com/?size=100&id=93480&format=png&color=CCCCCC" />
                 <p id="messagerefresh" title="Refresh Messages" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadMessages();" style="transform: rotate(45deg);">&orarr;</p>
             </div>
             <div id="messagecont">

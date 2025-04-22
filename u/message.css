@@ -1,0 +1,156 @@
+main {
+    padding-right: 10vw;
+    padding-left: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#shadowcontainer {
+    border-radius: 2vh;
+    box-shadow: black 3px 3px 5px -3px;
+}
+
+#mainheading {
+    background: var(--lightbg);
+    border-radius: 2vh 2vh 0 0;
+    padding-left: 2vh;
+}
+
+#mainheading > h1 {
+    margin: 0;
+    font-size: 3vh;
+    padding-right: 2vh;
+}
+
+.headingselector {
+    border: none;
+    flex: 1;
+    background-color: #252b1e;
+    border-radius: 2vh 2vh 0 0;
+    margin-top: 1vh;
+}
+
+    .headingselector:hover {
+        background-color: var(--shadow);
+        transform: none;
+    }
+
+    .headingselector.selected {
+        background-color: var(--accent);
+        cursor: default;
+    }
+
+        .headingselector.selected:hover {
+            background-color: var(--accent);
+        }
+
+#headinginfo {
+    border: none;
+    background-color: var(--accent);
+    margin: 0 1vh;
+    width: 3vh;
+    height: 3vh;
+    padding: 0;
+    border-radius: 100vh;
+    outline: solid 0.25vh var(--lightbg);
+}
+
+#headinginfo:hover {
+    outline-color: white;
+}
+
+.main {
+    display: none;
+    background-color: var(--lightbg);
+    padding: 0 1vh 1vh 1vh;
+    border-radius: 0 0 2vh 2vh;
+}
+
+.main.selected {
+    display: block;
+}
+
+.separation {
+    padding-left: 2vw;
+}
+
+.msgheading {
+    display: flex;
+    border-radius: 1vh 1vh 0 0;
+    padding: 1vh;
+    background-color: var(--accent);
+}
+
+.msgheading > .input { margin: 0 }
+.msgheading > .input > label { text-align: right; padding-right: 0.5vw; }
+.msgheading > .input > input { width: 100% !important }
+
+.msgcompose {
+    padding: 1vh;
+    background-color: var(--accent);
+}
+
+.msgfinal {
+    display: flex;
+    padding: 1vh;
+    border-radius: 0 0 1vh 1vh;
+    background-color: var(--accent);
+    justify-content: space-around;
+}
+
+.msgfinal > button { width: 25vw }
+
+textarea {
+    border: var(--border) solid 2px;
+    width: calc(100% - 2vh - 4px);
+    resize: vertical;
+    min-height: 20vh;
+    max-height: calc(53.5vh - 8px);
+    font-size: 2vh;
+    border-radius: 2vh;
+    padding: 1vh;
+    background: var(--bg);
+    color: white;
+    transition: box-shadow 0.3s ease;
+    font-family: 'Ubuntu';
+}
+
+    textarea:focus {
+        outline: none;
+        box-shadow: var(--border) 0 0 5px, var(--border) 0 0 5px inset;
+    }
+
+    textarea::-webkit-scrollbar {
+        width: 9px;
+        height: 0;
+    }
+
+    textarea::-webkit-scrollbar-track {
+        background: none;
+        margin-right: 1vh;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+        background: white;
+        border-radius: 100px;
+        border: solid 3px var(--bg);
+        cursor: default;
+    }
+
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: var(--lightbgaccent);
+        }
+
+        textarea::-webkit-scrollbar-corner {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+#remainingchar, #normaltitleremchar {
+    padding-top: 0.5vh;
+    margin: 0;
+    font-size: 2vh;
+    line-height: 1;
+}

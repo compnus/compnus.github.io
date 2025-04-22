@@ -163,6 +163,15 @@ main {
     font-weight: 900;
 }
 
+#messagenew {
+    cursor: pointer;
+    margin: 0 2vh 0 0;
+    width: 3.5vh; height: 3.5vh;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
 .message {
     position: relative;
     margin-bottom: 2vh;
@@ -217,6 +226,20 @@ main {
     width: 1.8vh;
     padding-left: 0.5vh;
     margin-bottom: 0.2vh;
+}
+
+.msgaction {
+    display: inline-block;
+    cursor: pointer;
+    filter: invert(0.25);
+    transition: 0.3s ease-out;
+    height: 2vh;
+    width: 2vh;
+    padding-left: 1vh;
+}
+
+.msgaction:hover {
+    filter:invert(0);
 }
 
 @media(orientation:portrait) {
@@ -313,6 +336,12 @@ main {
         font-size: 7vw;
     }
 
+    #messagenew {
+        margin-right: 4vw;
+        width: 7vw;
+        height: 7vw;
+    }
+
     .message {
         margin-bottom: 4vw;
         padding: 4vw;
@@ -353,4 +382,18 @@ main {
         padding-left: 1vw;
         margin-bottom: 0.4vw;
     }
+
+    .msgaction {
+        height: 4vw;
+        width: 4vw;
+        padding-left: 2vw;
+    }
+
+        .msgaction:hover {
+            filter: invert(0.25);
+        }
+
+        .msgaction:active {
+            filter: invert(0);
+        }
 }

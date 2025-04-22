@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js" defer></script>
+    <script src="message.js" defer></script>
+    <title>Send a Message - CompNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="message.css" />
+</head>
+<body>
+    <script>
+        initHeader("Send a Message");
+    </script>
+
+    <main>
+        <div id="shadowcontainer">
+            <div class="flex cc" id="mainheading">
+                <h1>Message Type:</h1>
+                <button class="headingselector selected" onclick="messageType(0)" id="types0">Normal</button>
+                <button class="headingselector" onclick="messageType(1)" id="types1">Advanced</button>
+                <button id="headinginfo"
+                        onclick="popup('Message Types', '<b>Normal Message</b><ul><li>Limited length</li><li>No formatting</li><li>No network fee</li></ul><hr><p><b>Advanced Message</b></p><ul><li>Unlimited length</li><li>Supports formatting and clickable links</li><li>Network fee is based on length</li></ul>')">
+                    ?
+                </button>
+            </div>
+            <div class="main selected" id="type0">
+                <div class="msgheading">
+                    <div class="input" style="flex: 1">
+                        <label for="normalreceiver">Send to:</label>
+                        <input id="normalreciever" placeholder="username" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase();; document.getElementById('advreciever').value=this.value"/>
+                    </div>
+                    <div class="separation"></div>
+                    <div class="input" style="flex: 3">
+                        <label for="normaltitle">Title:</label>
+                        <input id="normaltitle" placeholder="This is the title of this message!" oninput="fixTitle(this.id);"/>
+                    </div>
+                </div>
+                <div class="msgcompose">
+                    <textarea id="normalmsg" placeholder="Write your message here." oninput="remainingChar()"></textarea>
+                    <div class="flex cc">
+                        <p id="remainingchar">Characters remaining: 300</p>
+                        <div style="flex:1"></div>
+                        <p id="normaltitleremchar">Title length: 0/100</p>
+                    </div>
+                </div>
+                <div class="msgfinal">
+                    <button onclick="history.back()">Discard and Return</button>
+                    <button onclick="sendMessage()" id="limitedsend">Send</button>
+                </div>
+            </div>
+            <div class="main" id="type1">
+                <div class="msgheading">
+                    <div class="input" style="flex: 1">
+                        <label for="advreceiver">Send to:</label>
+                        <input id="advreciever" placeholder="username" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); document.getElementById('normalreciever').value=this.value" />
+                    </div>
+                    <div class="separation"></div>
+                    <div class="input" style="flex: 3">
+                        <label for="advtitle">Title:</label>
+                        <input id="advtitle" placeholder="This is the title of this message!" oninput="fixTitle(this.id);" />
+                    </div>
+                </div>
+                <div class="msgcompose">
+
+
+
+                    <div class="flex cc">
+                        <p id="charcount">Characters: 0</p>
+                        <div style="flex:1"></div>
+                        <p id="advtitleremchar">Title length: 0/100</p>
+                    </div>
+                </div>
+                <div class="msgfinal">
+                    <button onclick="history.back()">Discard and Return</button>
+                    <button onclick="sendMessage()">Send (<span id="messagecost">1</span> &curren;)</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>initFooter();</script>
+</body>
+</html>
