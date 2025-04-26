@@ -12,6 +12,33 @@
     <script>
         initHeader("Edit Account");
         document.querySelector("header").removeChild(document.getElementById("headernav"));
+
+        async function unblockUsers() {
+            const { data: { user }, error: authError } = await supabase.auth.getUser();
+            if (authError) {popup("An error occured.", authError.message); return; }
+            const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single()
+            if (authError) { popup("An error occured.", error.message); return; }
+            var x = data.blocked_users.trim().split("|");
+            if (x.length === 1 && x[0] === '') {
+                popup("Blocked Users", "You haven't blocked anyone yet!");
+                return;
+            }
+            var y = "";
+            for (var i of x) if (i!=="") y += `<p onclick="unblock(this.innerHTML)" id="blocked_${i}">${i}</p>`;
+            popup("Blocked Users",`</p><p id="hintmessage">This list contains all users you have blocked. Click on their username to unblock them.</p><div id="blockedusers">`+y+`</div><p id="hintinfo">`);
+        }
+
+        async function unblock(whom) {
+            const { data: { user }, error: authError } = await supabase.auth.getUser();
+            if (authError) { popup("An error occured.", authError.message); return; }
+            const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single()
+            if (authError) { popup("An error occured.", error.message); return; }
+            const { data: { returned }, error: errorMessage } = supabase.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i != whom }).join("|") });
+            if (errorMessage) { popup("An error occured.", errorMessage.message); return; }
+            var x = document.getElementById("blockedusers");
+            x.removeChild(document.getElementById("blocked_" + whom));
+            if (x.childElementCount === 0) document.getElementById("hintmessage").innerHTML = "You've unblocked everyone!";
+        }
     </script>
     <style>
         @media(orientation:portrait) {
@@ -33,8 +60,11 @@
                     <input type="text" id="display_name" oninput='this.value = this.value.replaceAll(/[<>"]/g, ""); if (this.value.length>30) this.value = this.value.substring(0,30);'>
                 </div><p class="limited">This name will not be publicly visible, it's merely a name for us to address you. If you choose to leave this empty, it will be set to your username.</p>
                 <p id="status"></p>
-                <button type="submit">Save</button>
+                <button type="submit">Save &amp; Return</button>
             </form>
+            <br />
+            <button onclick="unblockUsers()">Unblock Users...</button>
+            <button onclick="window.location.href = 'profile.html';">Return</button>
         </div>
     </main>
     <script>
