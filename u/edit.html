@@ -30,7 +30,7 @@
                 </div><p class="limited">You can change this later.</p>
                 <div class="input">
                     <label for="display_name">Name:</label>
-                    <input type="text" id="display_name" oninput="this.value = this.value.replaceAll(/[<>]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30);">
+                    <input type="text" id="display_name" oninput="this.value = this.value.replaceAll(/[<>]/g, ''); if (this.value.length>30) this.value = this.value.substring(0,30);">
                 </div><p class="limited">This name will not be publicly visible, it's merely a name for us to address you. If you choose to leave this empty, it will be set to your username.</p>
                 <p id="status"></p>
                 <button type="submit">Save</button>
@@ -46,12 +46,12 @@
 
             const { data: { user }, error: authError } = await supabase.auth.getUser();
 
-            if (!user) {
+         /*   if (!user) {
                  document.getElementById("mainhint").innerHTML = "You must be logged in to edit your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
                  document.getElementById("maindiv").style.display = 'none';
                  document.getElementById("mainhint").style.display = 'block';
                  return;
-            }
+            }*/
 
             const { data: userData, error: dbError } = await supabase
                 .from("users")

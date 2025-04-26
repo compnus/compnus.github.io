@@ -30,7 +30,7 @@
                 </div><p class="limited">You can change this later.</p>
                 <div class="input">
                     <label for="display_name">Name:</label>
-                    <input type="text" id="display_name" oninput='this.value = this.value.replaceAll(/[<>"]/g, "").toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30);'>
+                    <input type="text" id="display_name" oninput='this.value = this.value.replaceAll(/[<>"]/g, ""); if (this.value.length>30) this.value = this.value.substring(0,30);'>
                 </div><p class="limited">This name will not be publicly visible, it's merely a name for us to address you. If you choose to leave this empty, it will be set to your username.</p>
                 <div class="input">
                     <label for="birthdate">* Date of birth:</label>
