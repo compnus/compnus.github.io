@@ -25,7 +25,7 @@
             }
             var y = "";
             for (var i of x) if (i!=="") y += `<p onclick="unblock(this.innerHTML)" id="blocked_${i}">${i}</p>`;
-            popup("Blocked Users",`</p><p id="hintmessage">This list contains all users you have blocked. Click on their username to unblock them.</p><div id="blockedusers">`+y+`</div><p id="hintinfo">`);
+            popup("Blocked Users",`</p><p id="hintmessage">This list contains all users you have blocked. Click on their username to unblock them.</p><div id="blockedusers">`+y+`</div><p>`);
         }
 
         async function unblock(whom) {
@@ -33,7 +33,7 @@
             if (authError) { popup("An error occured.", authError.message); return; }
             const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single()
             if (authError) { popup("An error occured.", error.message); return; }
-            const { data: { returned }, error: errorMessage } = supabase.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i != whom }).join("|") });
+            const { data: { returned }, error: errorMessage } = await supabase.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i != whom }).join("|") });
             if (errorMessage) { popup("An error occured.", errorMessage.message); return; }
             var x = document.getElementById("blockedusers");
             x.removeChild(document.getElementById("blocked_" + whom));
