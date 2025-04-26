@@ -33,7 +33,7 @@
             if (authError) { popup("An error occured.", authError.message); return; }
             const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single();
             if (authError) { popup("An error occured.", error.message); return; }
-            const { data: help, error: errorMessage } = await supabase.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i !== whom }).join("|") }).eq("id",user.id);
+            const { data: returned, error: errorMessage } = await supabase.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i !== whom }).join("|") }).eq("id",user.id);
             if (errorMessage) { popup("An error occured.", errorMessage.message); return; }
             var x = document.getElementById("blockedusers");
             x.removeChild(document.getElementById("blocked_" + whom));
