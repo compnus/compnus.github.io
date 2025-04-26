@@ -33,7 +33,7 @@
             if (authError) { popup("An error occured.", authError.message); return; }
             const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single()
             if (authError) { popup("An error occured.", error.message); return; }
-            const { data: { returned }, error: errorMessage } = await supabase.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i != whom }).join("|") });
+            const { welp: data, error: errorMessage } = await supabase.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i != whom }).join("|") });
             if (errorMessage) { popup("An error occured.", errorMessage.message); return; }
             var x = document.getElementById("blockedusers");
             x.removeChild(document.getElementById("blocked_" + whom));
@@ -62,7 +62,7 @@
                 <p id="status"></p>
                 <button type="submit">Save &amp; Return</button>
             </form>
-            <br />
+            <br /><br />
             <button onclick="unblockUsers()">Unblock Users...</button>
             <button onclick="window.location.href = 'profile.html';">Return</button>
         </div>
@@ -76,12 +76,12 @@
 
             const { data: { user }, error: authError } = await supabase.auth.getUser();
 
-         /*   if (!user) {
+            if (!user) {
                  document.getElementById("mainhint").innerHTML = "You must be logged in to edit your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
                  document.getElementById("maindiv").style.display = 'none';
                  document.getElementById("mainhint").style.display = 'block';
                  return;
-            }*/
+            }
 
             const { data: userData, error: dbError } = await supabase
                 .from("users")
