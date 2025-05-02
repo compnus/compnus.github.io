@@ -164,6 +164,9 @@ async function deleteMessage(id) {
         if (JSON.stringify(loadedmessages) === "{}") {
             document.getElementById("messagecont").innerHTML = `<p>You have no messages.</p>`;
         }
+        if (document.getElementById("messagecont").innerHTML.trim() === "") {
+            document.getElementById("messagecont").innerHTML = `<p>You have no messages.</p>`;
+        }
     }
 }
 

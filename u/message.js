@@ -49,10 +49,10 @@ async function sendMessage() {
             popup("Message is missing!", "There is no message to send.");
             return;
         }
-        document.getElementById("limitedsend").innerHTML = "Please wait...";
+        var bt = document.getElementById("limitedsend");
+        bt.innerHTML = "Please wait...";
         const { data, error } = await supabase.auth.getUser();
-        document.getElementById("limitedsend").innerHTML = "Send";
-        if (error) { popup("Error!", "You need to be logged-in to send messages!"); return }
+        if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = "Send"; return }
         mt.user_id = data.user.id;
         mt.uid = (await supabase.auth.getSession()).data.session?.user.id;
         mt.to = document.getElementById("normalreciever").value;
@@ -70,17 +70,70 @@ async function sendMessage() {
             .then(data => {
                 if (data.type === null || data.type === undefined) {
                     popup("Error!", data.response);
+                    bt.innerHTML = "Send";
                     return;
                 }
                 if (data.type === 0) {
                     popup(data.response, data.message);
+                    bt.innerHTML = "Send";
                     return;
                 }
-                if (data.type === 1) popup(data.response, "</p><div class='flex cc'><button onclick='history.back()'>Return</button></div><p style='margin:0'")
+                if (data.type === 1) popup(data.response, "</p><div class='flex cc'><button onclick='history.back()'>Return</button></div><p style='margin:0'");
             })
             .catch((error) => {
                 console.error('Error invoking function:', error);
             });
+        bt.innerHTML = "Send";
+    }
+
+    if (selected === 1) {
+        if (document.getElementById("advreciever").value.trim() === "") {
+            popup("Receiver is missing!", "Please input the username of the person you want your message to be delivered to.");
+            return;
+        }
+        if (document.getElementById("advtitle").value.trim() === "") {
+            popup("Title is missing!", "Please input the title of your message.");
+            return;
+        }
+        if (document.getElementById("advmsg").value.trim() === "") {
+            popup("Message is missing!", "There is no message to send.");
+            return;
+        }
+        var bt = document.getElementById("limitedsend");
+        bt.innerHTML = "Please wait...";
+        const { data, error } = await supabase.auth.getUser();
+        if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = "Send"; return }
+        mt.user_id = data.user.id;
+        mt.uid = (await supabase.auth.getSession()).data.session?.user.id;
+        mt.to = document.getElementById("normalreciever").value;
+        mt.title = document.getElementById("normaltitle").value;
+        mt.message = document.getElementById("normalmsg").value;
+        await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendMessageNormal', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            },
+            body: JSON.stringify(mt)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.type === null || data.type === undefined) {
+                    popup("Error!", data.response);
+                    bt.innerHTML = "Send";
+                    return;
+                }
+                if (data.type === 0) {
+                    popup(data.response, data.message);
+                    bt.innerHTML = "Send";
+                    return;
+                }
+                if (data.type === 1) popup(data.response, "</p><div class='flex cc'><button onclick='history.back()'>Return</button></div><p style='margin:0'");
+            })
+            .catch((error) => {
+                console.error('Error invoking function:', error);
+            });
+        bt.innerHTML = "Send";
     }
 }
 
