@@ -21,8 +21,12 @@ p, li, input {
     font-family: Ubuntu;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h0, h1, h2, h3, h4, h5, h6 {
     font-family: Ubuntu;
+}
+
+h0 {
+    font-size: 3vh;
 }
 
 input {
@@ -300,6 +304,9 @@ div.popup > div > div.inside > h1 {
 @media(orientation:portrait){
     p, li, input {
         font-size: 4vw;
+    }
+    h0 {
+        font-size: 6vw;
     }
     button {
         font-size: 4vw;

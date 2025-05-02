@@ -106,7 +106,7 @@ textarea {
     width: calc(100% - 2vh - 4px);
     resize: vertical;
     min-height: 20vh;
-    max-height: calc(53.5vh - 8px);
+    max-height: calc(50vh - 8px);
     font-size: 2vh;
     border-radius: 2vh;
     padding: 1vh;
@@ -128,7 +128,6 @@ textarea {
 
     textarea::-webkit-scrollbar-track {
         background: none;
-        margin-right: 1vh;
     }
 
     textarea::-webkit-scrollbar-thumb {
@@ -142,15 +141,343 @@ textarea {
             background: var(--lightbgaccent);
         }
 
-        textarea::-webkit-scrollbar-corner {
-            display: none;
-            width: 0;
-            height: 0;
-        }
+    textarea::-webkit-scrollbar-corner {
+        background: none;
+    }
 
-#remainingchar, #normaltitleremchar {
+#remainingchar, #normaltitleremchar, .disclaimer, #charcount, #advtitleremchar {
     padding-top: 0.5vh;
     margin: 0;
     font-size: 2vh;
     line-height: 1;
+    text-align: center;
+}
+
+#remainingchar, #charcount {
+    justify-self: start;
+}
+
+#normaltitleremchar, #advtitleremchar {
+    justify-self: end;
+}
+
+.bottomline {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-gap: 2vh;
+}
+
+.disclaimer > span {
+    font-weight: bold;
+    color: yellow;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.disclaimer > span:hover {
+    color: orange;
+}
+
+textarea#advmsg {
+    height: calc(50vh - 8px);
+    resize: none;
+    margin-bottom: 4px;
+}
+
+#advancedinside {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 1vh;
+}
+
+#toolbox {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 52vh;
+}
+
+    #toolbox::-webkit-scrollbar, table::-webkit-scrollbar {
+        width: 13px;
+        height: 0;
+    }
+
+    #toolbox::-webkit-scrollbar-track, table::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    #toolbox::-webkit-scrollbar-thumb, table::-webkit-scrollbar-thumb {
+        background: white;
+        border-radius: 100px;
+        border: solid 5px var(--accent);
+        cursor: default;
+    }
+
+    table::-webkit-scrollbar-thumb {
+        border: solid 5px var(--maingradfallback);
+    }
+
+        #toolbox::-webkit-scrollbar-thumb:hover {
+            background: yellow;
+        }
+
+table, th, td {
+    text-align: center;
+}
+
+table {
+    max-height: 50vh;
+    overflow-y: auto;
+    width: 100%;
+    overflow-x: hidden;
+    display: block;
+}
+
+table.he {max-height: 65vh}
+
+#th1, #th2, #th6 {width:15vw}
+#th3 {width: 30vw}
+#th4, #th7 {width: 20vw}
+#th5 {width: 5vw}
+
+th {
+    font-family: 'Funnel Display';
+    font-size: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    background-color: var(--maingradfallback);
+}
+
+td {
+    font-size: 2vh;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    transition: 0.2s ease;
+    font-family: 'Ubuntu';
+}
+
+    td.first {
+        font-weight: bold;
+        font-family: 'Gabarito';
+    }
+
+tr {
+    transition: 0.2s ease;
+}
+
+    tr:hover {
+        background-color: var(--lightbg);
+    }
+
+td:hover {
+    background-color: var(--bg);
+}
+
+a.linkstv {
+    color: yellow !important;
+    transition: 0.2s;
+    text-decoration: inherit;
+}
+
+a.linkstv:hover {
+    color: orange !important;
+}
+
+td > img, .msgmsg > p > img {
+    max-height: 20vh;
+}
+
+.img1 {
+    object-fit: cover;
+    width: 20vh;
+    height: 20vh;
+}
+
+.img2 {
+    object-fit: cover;
+    width: 10vh;
+    height: 10vh;
+}
+
+.img3 {
+    object-fit: cover;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 2vh;
+}
+
+.img4 {
+    object-fit: cover;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 1vh;
+}
+
+.img5 {
+    object-fit: cover;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 10vh;
+}
+
+.img6 {
+    object-fit: cover;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 5vh;
+}
+
+.img7 {
+    object-fit: cover;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 0.5vh;
+    filter: grayscale();
+    transition: 0.3s ease-out;
+    position: relative;
+}
+
+.img7:hover {
+    filter: grayscale(0);
+    transform: scale(2);
+    z-index:9999;
+}
+
+.img8 {
+    object-fit: cover;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 0.5vh;
+    filter: grayscale();
+    transition: 0.3s ease-out;
+    position: relative;
+}
+
+.img8:hover {
+    filter: grayscale(0);
+    transform: scale(1.5);
+    z-index:9999;
+}
+
+.toolbutton {
+    width: 100%;
+    display: block;
+    margin-bottom: 1vh;
+}
+
+#actualtools {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1vh 0.5vw;
+}
+
+.toolsbutton {
+    padding: 0.25vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toolsbutton > img {
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+#ichoser {
+    display: grid;
+    grid-template-columns: repeat(5, 10vh);
+    grid-gap: 2vh;
+    grid-template-rows: 10vh 10vh;
+}
+
+.choserthing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.choser {
+    background: rgb(255, 255, 255, 0.5);
+    box-shadow: rgb(0, 0, 0, 0.5) inset 3px 3px 3px;
+    cursor: pointer;
+    transition: 0.4s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choser:hover {
+    transform: scale(1.05);
+    background: rgb(255,255,255,0.7);
+}
+
+    .choser.chosen {
+        background: rgb(255, 255, 255, 0.8);
+    }
+
+        .choser.chosen:hover {
+            transform: scale(1.01);
+            background: rgb(255,255,255,0.8);
+        }
+
+#choser0 {
+    width: 10vh;
+    height: 7vh;
+}
+#choser1 {
+    width: 10vh;
+    height: 10vh;
+}
+#choser2 {
+    width: 5vh;
+    height: 5vh;
+}
+#choser3 {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 1vh;
+}
+#choser4 {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 0.5vh;
+}
+#choser5 {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 5vh;
+}
+#choser6 {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 2.5vh;
+}
+#choser7 {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 0.5vh;
+    font-size: 2vh;
+}
+#choser8 {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 0.25vh;
+    font-size: 1vh;
+}
+
+.choser > p {
+    color: black;
+    margin: 0;
+    font-size: inherit;
+}
+
+.msgmsgmain {
+    padding: 2vh;
+    border-radius: 1vh;
+    background: var(--accent);
+    box-shadow: var(--shadow) 0 5px 5px -3px;
+    width: 60vw;
+}
+
+.msgmsg > p {
+    margin: 0;
 }
