@@ -70,6 +70,26 @@
                 <h2>Hello, world!</h2>
                 <p>Thank you for using CompNUS! There are no updates for now, however.</p>
             </div>
+            <br />
+            <div class="sideshmuck collapsed" id="contus" style="height:3.5vh">
+                <p class="collapse collapsed" id="collapsecontus" title="Collapse/Reveal Contact Us" onclick="collapse('contus');">&#9650;</p>
+                <div class="flex cc"><h1 class="title" onclick="collapse('contus');">Contact Us</h1></div>
+                <br />
+                <button class="fullwidth"
+                        onclick="popup('Contact Support', `Send an email to <b style='user-select: all'>supcompnus@gmail.com</b> to reach the support!<br>We will try to get to you as soon as possible.`)">
+                    Contact Support
+                </button>
+                <br />
+                <button class="fullwidth"
+                        onclick="popup('Suggest a Feature', ``)">
+                    Suggest a Feature
+                </button>
+                <br />
+                <button class="fullwidth"
+                        onclick="popup('Report a Problem', ``)">
+                    Report a Problem
+                </button>
+            </div>
 
         </div>
 
