@@ -37,11 +37,23 @@ async function loadNocas() {
 
 async function sendMessage() {
     if (selected === 0) {
+        if (document.getElementById("normalreciever").value.trim() === "") {
+            popup("Reciever is missing!","Please input the username of the person you want your message to be delivered to.");
+            return;
+        }
+        if (document.getElementById("normaltitle").value.trim() === "") {
+            popup("Title is missing!", "Please input the title of your message.");
+            return;
+        }
+        if (document.getElementById("normalmsg").value.trim() === "") {
+            popup("Message is missing!", "There is no message to send.");
+            return;
+        }
         const { data, error } = await supabase.auth.getUser();
         if (error) { popup("Error!", "You need to be logged-in to send messages!"); return }
         mt.user_id = data.user.id;
         mt.uid = (await supabase.auth.getSession()).data.session?.user.id;
-        mt.to = document.getElementById("normalreceiver").value;
+        mt.to = document.getElementById("normalreciever").value;
         mt.title = document.getElementById("normaltitle").value;
         mt.message = document.getElementById("normalmsg").value;
         await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendMessageNormal', {
