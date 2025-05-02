@@ -109,7 +109,7 @@ async function sendMessage() {
         mt.to = document.getElementById("advreciever").value;
         mt.title = document.getElementById("advtitle").value;
         mt.message = document.getElementById("advmsg").value;
-        await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendMessageNormal', {
+        await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendMessageAdv', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -121,12 +121,14 @@ async function sendMessage() {
             .then(data => {
                 if (data.type === null || data.type === undefined) {
                     popup("Error!", data.response);
-                    bt.innerHTML = "Send";
+                    bt.innerHTML = mn;
+                    increaseChar();
                     return;
                 }
                 if (data.type === 0) {
                     popup(data.response, data.message);
-                    bt.innerHTML = "Send";
+                    bt.innerHTML = mn;
+                    increaseChar();
                     return;
                 }
                 if (data.type === 1) popup(data.response, "</p><div class='flex cc'><button onclick='history.back()'>Return</button></div><p style='margin:0'");
@@ -134,7 +136,9 @@ async function sendMessage() {
             .catch((error) => {
                 console.error('Error invoking function:', error);
             });
-        bt.innerHTML = "Send";
+        bt.innerHTML = mn;
+        increaseChar();
+        loadNocas();
     }
 }
 
