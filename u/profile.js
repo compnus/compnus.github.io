@@ -133,7 +133,7 @@ async function loadMessages() {
 
         msgcont.appendChild(cont);
     }
-    if (msgcont.innerHTML === "") {
+    if (msgcont.innerHTML.trim() === "") {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
     }
 }
