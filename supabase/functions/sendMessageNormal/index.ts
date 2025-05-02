@@ -104,7 +104,7 @@ Deno.serve(async (req) => {
         }
 
         let upmessage: string = `
-    %$t%${title}%$,$
+    %$t%${title}%$,%
     %$f%${from}%$,%
     %$m%${message}
     %$$%`;
