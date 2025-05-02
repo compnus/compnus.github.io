@@ -107,8 +107,7 @@ Deno.serve(async (req) => {
     %$t%${title}%$,$
     %$f%${from}%$,%
     %$m%${message}
-    %$$%
-        `;
+    %$$%`;
 
         const { data: senuser, error: userExistsError } = await supabase
             .from("users")
@@ -126,7 +125,7 @@ Deno.serve(async (req) => {
         } else {
             const { error: cannotSend } = await supabase
                 .from("users")
-                .update("messages", upmessage + senuser.messages)
+                .update({ messages: upmessage + senuser.messages })
                 .eq("username", to);
             if (cannotSend) {
                 return new Response(JSON.stringify({ response: `Could not send message to ${to} due to error: ${cannotSend}` }), {

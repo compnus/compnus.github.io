@@ -62,7 +62,7 @@ function initHeader(title) {
             } else {
                 if (username.username) usern = username.username;
             }
-            document.getElementById("userlogin").innerHTML = `<a href="u/profile.html">My Profile (${usern})</a>`;
+            document.getElementById("userlogin").innerHTML = `<a href="/u/profile.html">My Profile (${usern})</a>`;
         }
     });
 }

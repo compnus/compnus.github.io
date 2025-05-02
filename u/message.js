@@ -38,7 +38,7 @@ async function loadNocas() {
 async function sendMessage() {
     if (selected === 0) {
         if (document.getElementById("normalreciever").value.trim() === "") {
-            popup("Reciever is missing!","Please input the username of the person you want your message to be delivered to.");
+            popup("Receiver is missing!","Please input the username of the person you want your message to be delivered to.");
             return;
         }
         if (document.getElementById("normaltitle").value.trim() === "") {
@@ -49,7 +49,9 @@ async function sendMessage() {
             popup("Message is missing!", "There is no message to send.");
             return;
         }
+        document.getElementById("limitedsend").innerHTML = "Please wait...";
         const { data, error } = await supabase.auth.getUser();
+        document.getElementById("limitedsend").innerHTML = "Send";
         if (error) { popup("Error!", "You need to be logged-in to send messages!"); return }
         mt.user_id = data.user.id;
         mt.uid = (await supabase.auth.getSession()).data.session?.user.id;
@@ -74,7 +76,7 @@ async function sendMessage() {
                     popup(data.response, data.message);
                     return;
                 }
-                if (data.type === 1) popup(data.response, "<button onclick='history.back()'>Return</button>")
+                if (data.type === 1) popup(data.response, "</p><div class='flex cc'><button onclick='history.back()'>Return</button></div><p style='margin:0'")
             })
             .catch((error) => {
                 console.error('Error invoking function:', error);
