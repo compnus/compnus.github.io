@@ -103,11 +103,7 @@ Deno.serve(async (req) => {
             from = recuser.username;
         }
 
-        let upmessage: string = `
-    %$t%${title}%$,%
-    %$f%${from}%$,%
-    %$m%${message}
-    %$$%`;
+        let upmessage: string = `%$t%${title}%$,%%$f%${from}%$,%%$m%<p>${message}</p>%$$%`;
 
         const { data: senuser, error: userExistsError } = await supabase
             .from("users")
