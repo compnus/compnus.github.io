@@ -124,7 +124,7 @@ Deno.serve(async (req) => {
             }
             const { error: logError } = await supabase
                 .from("logs")
-                .insert([{ created_by: from, type: "normalMessage", attributes: "to->"+to, message: "title->"+title+"\ncontent->"+message]);
+                .insert([{ created_by: from, type: "normalMessage", attributes: "to->" + to, message: "title->" + title + "\ncontent->" + message }]);
             if (logError) {
                 return new Response(JSON.stringify({ response: `Internal server error.` }), {
                     status: 500,
