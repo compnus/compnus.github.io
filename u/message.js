@@ -2,6 +2,7 @@ var selected = 0;
 var lastLoc = 0;
 var selectStyle = 0;
 var dt = { user_id: null, uid: null };
+var mt = { user_id: null, uid: null, to: null, title: null, message: null }
 
 function messageType(type) {
     selected = type;
@@ -35,7 +36,38 @@ async function loadNocas() {
 }
 
 async function sendMessage() {
-
+    if (selected === 0) {
+        const { data, error } = await supabase.auth.getUser();
+        if (error) { popup("Error!", "You need to be logged-in to send messages!"); return }
+        mt.user_id = data.user.id;
+        mt.uid = (await supabase.auth.getSession()).data.session?.user.id;
+        mt.to = document.getElementById("normalreceiver").value;
+        mt.title = document.getElementById("normaltitle").value;
+        mt.message = document.getElementById("normalmsg").value;
+        await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendMessageNormal', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            },
+            body: JSON.stringify(mt)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.type === null || data.type === undefined) {
+                    popup("Error!", data.response);
+                    return;
+                }
+                if (data.type === 0) {
+                    popup(data.response, data.message);
+                    return;
+                }
+                if (data.type === 1) popup(data.response, "<button onclick='history.back()'>Return</button>")
+            })
+            .catch((error) => {
+                console.error('Error invoking function:', error);
+            });
+    }
 }
 
 function remainingChar() {

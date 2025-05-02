@@ -51,7 +51,7 @@ Deno.serve(async (req) => {
         uid = body.uid || null;
         to = body.to || null;
         title = body.title || null;
-        message = body.message || null;
+        message = body.message.split("\n").join("<br>") || null;
     } catch (error) {
         console.error("Failed to parse JSON body", error);
         return new Response(JSON.stringify({ response: "Failed to parse request body" }), {
@@ -59,6 +59,20 @@ Deno.serve(async (req) => {
             headers: {
                 ...headers
             }
+        });
+    }
+
+    if (message.length > 300) {
+        return new Response(JSON.stringify({ response: "The message is too long!", type: 0, message: "Please make sure that the amount of characters in your message doesn't exceed 300 characters." }), {
+            status: 501,
+            headers: {...headers}
+        });
+    }
+
+    if (title.length > 100) {
+        return new Response(JSON.stringify({ response: "The title is too long!", type: 0, message: "Please make sure that the amount of characters in your title doesn't exceed 100 characters." }), {
+            status: 501,
+            headers: { ...headers }
         });
     }
 
@@ -92,7 +106,7 @@ Deno.serve(async (req) => {
         let upmessage: string = `
     %$t%${title}%$,$
     %$f%${from}%$,%
-    %$m%${message.split("\n").join("<br>")}
+    %$m%${message}
     %$$%
         `;
 
@@ -135,7 +149,7 @@ Deno.serve(async (req) => {
             }
         }
 
-        return new Response(JSON.stringify({ response: "Message sent successfully!" }), {
+        return new Response(JSON.stringify({ response: "Message sent successfully!", type:1 }), {
             status: 200,
             headers: {
                 ...headers
