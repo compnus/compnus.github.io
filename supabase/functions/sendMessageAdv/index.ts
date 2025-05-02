@@ -51,7 +51,7 @@ Deno.serve(async (req) => {
         uid = body.uid || null;
         to = body.to || null;
         title = body.title || null;
-        message = body.message.split("\n").join("<br>") || null;
+        message = body.message || null;
     } catch (error) {
         console.error("Failed to parse JSON body", error);
         return new Response(JSON.stringify({ response: "Failed to parse request body" }), {
@@ -62,12 +62,52 @@ Deno.serve(async (req) => {
         });
     }
 
-    if (message.length > 300) {
-        return new Response(JSON.stringify({ response: "The message is too long!", type: 0, message: "Please make sure that the amount of characters in your message doesn't exceed 300 characters." }), {
-            status: 501,
-            headers: {...headers}
+    var length = message.length;
+    var breaks = message.split("\n").length - 1;
+    var lefts = message.split("<").length - 1;
+    var rights = message.split(">").length - 1;
+    var amps = message.split("&").length - 1;
+    var lbr = message.split("{{").length - 1;
+    var rbr = message.split("}}").length - 1;
+    var hrs = message.split("{l}").length - 1;
+    var hs = message.split("{h}").length - 1;
+    var nhs = message.split("{/h}").length - 1;
+    var quts = message.split('"').length - 1;
+    var links = message.split("{link}").length - 1;
+    var imgs = message.split("{img}").length - 1;
+    var nbsps = message.split("{!}").length - 1;
+    var imgsts = (message.split("{img1}").length - 1) + (message.split("{img2}").length - 1) + (message.split("{img3}").length - 1) + (message.split("{img4}").length - 1) + (message.split("{img5}").length - 1) + (message.split("{img6}").length - 1) + (message.split("{img7}").length - 1) + (message.split("{img8}").length - 1);
+    length = length + ((breaks + amps) * 4) + ((lefts + rights + nbsps) * 3) + ((lbr + rbr) * 6) + (hs + nhs) + quts * 5 + (imgs * 2) + (imgsts * 15) + hrs * 8 + links * 30;
+    var price = 1 + links + (Math.floor((length - 1) / 50) >= 0 ? Math.floor((length - 1) / 50) : 0);
+
+    const { data: balancenoca, error: userExistsError } = await supabase
+        .from("udata")
+        .select("balance_noca")
+        .eq("user_id", uid)
+        .single();
+
+    if (!balancenoca || userExistsError) {
+        return new Response(JSON.stringify({ response: "Unknown error." }), {
+            status: 400,
+            headers: {
+                ...headers
+            }
         });
     }
+
+    if (price > balancenoca.balance_noca) {
+        return new Response(JSON.stringify({ response: "Not enough Nocas!", type: 0, message: "You do not have enough Nocas to pay for the network fee and send this message." }), {
+            status: 501,
+            headers: { ...headers }
+        });
+    }
+
+    message = message.split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;").split("\n").join("<br>").split("{l}<br>").join("{l}")
+        .split("{{").join("&lbrace;").split("}}").join("&rbrace;").split("{b}").join("<b>").split("{/b}").join("</b>").split("{i}").join("<i>").split("{/i}").join("</i>").split("{u}").join("<u>").split("{/u}").join("</u>")
+        .split("{s}").join("<s>").split("{/s}").join("</s>").split("{h}").join("<h0>").split("{/h}").join("</h0>").split("{l}").join("</p><hr><p>").split("{link}").join("<a class='linkstv' target='_blank' href='").split("{text}").join("'>")
+        .split("{/link}").join("</a>").split("{/img}").join("'>").split("{img}").join("<img src='").split("{img1}").join("<img class='img1' src='").split("{img2}").join("<img class='img2' src='").split("{img3}").join("<img class='img3' src='")
+        .split("{img4}").join("<img class='img4' src='").split("{img5}").join("<img class='img5' src='").split("{img6}").join("<img class='img6' src='").split("{img7}").join("<img class='img7' src='").split("{img8}").join("<img class='img8' src='")
+        .split("{!}").join("&nbsp;");
 
     if (title.length > 100) {
         return new Response(JSON.stringify({ response: "The title is too long!", type: 0, message: "Please make sure that the amount of characters in your title doesn't exceed 100 characters." }), {
@@ -118,6 +158,7 @@ Deno.serve(async (req) => {
                     ...headers
                 }
             });
+
         } else {
             const { error: cannotSend } = await supabase
                 .from("users")
@@ -142,6 +183,20 @@ Deno.serve(async (req) => {
                     }
                 });
             }
+        }
+
+        const { error: cannotDeduct } = await supabase
+            .from("udata")
+            .update({ balance_noca: balancenoca.balance_noca - price })
+            .eq("user_id", uid);
+
+        if (cannotDeduct) {
+            return new Response(JSON.stringify({ response: `Database Update Error`, type:0, message: "The message might have been sent, but the database wasn't able to process it.\nIt is unknown whether the message was actually be delivered.\nYou have not been charged any Nocas." }), {
+                status: 500,
+                headers: {
+                    ...headers
+                }
+            });
         }
 
         return new Response(JSON.stringify({ response: "Message sent successfully!", type:1 }), {

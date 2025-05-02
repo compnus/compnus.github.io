@@ -51,7 +51,7 @@ Deno.serve(async (req) => {
         uid = body.uid || null;
         to = body.to || null;
         title = body.title || null;
-        message = body.message.split("<").join("&lt;").split(">").join("&gt;").split("\n").join("<br>") || null;
+        message = body.message.split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;").split("\n").join("<br>") || null;
     } catch (error) {
         console.error("Failed to parse JSON body", error);
         return new Response(JSON.stringify({ response: "Failed to parse request body" }), {

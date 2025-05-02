@@ -99,15 +99,16 @@ async function sendMessage() {
             popup("Message is missing!", "There is no message to send.");
             return;
         }
-        var bt = document.getElementById("limitedsend");
+        var bt = document.getElementById("mainsend");
+        var mn = "Send (<span id='messagecost'>1</span> &curren;)";
         bt.innerHTML = "Please wait...";
         const { data, error } = await supabase.auth.getUser();
-        if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = "Send"; return }
+        if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = mn; increaseChar(); return }
         mt.user_id = data.user.id;
         mt.uid = (await supabase.auth.getSession()).data.session?.user.id;
-        mt.to = document.getElementById("normalreciever").value;
-        mt.title = document.getElementById("normaltitle").value;
-        mt.message = document.getElementById("normalmsg").value;
+        mt.to = document.getElementById("advreciever").value;
+        mt.title = document.getElementById("advtitle").value;
+        mt.message = document.getElementById("advmsg").value;
         await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendMessageNormal', {
             method: 'POST',
             headers: {
@@ -179,10 +180,10 @@ function increaseChar() {
 }
 
 function preview() {
-    var content = document.getElementById("advmsg").value.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>").replaceAll("{l}<br>", "{l}")
-        .replaceAll("&", "&amp;").replaceAll("{{", "&lbrace;").replaceAll("}}", "&rbrace;").replaceAll("{b}", "<b>").replaceAll("{/b}", "</b>").replaceAll("{i}", "<i>").replaceAll("{/i}", "</i>").replaceAll("{u}", "<u>").replaceAll("{/u}", "</u>")
+    var content = document.getElementById("advmsg").value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>").replaceAll("{l}<br>", "{l}")
+        .replaceAll("{{", "&lbrace;").replaceAll("}}", "&rbrace;").replaceAll("{b}", "<b>").replaceAll("{/b}", "</b>").replaceAll("{i}", "<i>").replaceAll("{/i}", "</i>").replaceAll("{u}", "<u>").replaceAll("{/u}", "</u>")
         .replaceAll("{s}", "<s>").replaceAll("{/s}", "</s>").replaceAll("{h}", "<h0>").replaceAll("{/h}", "</h0>").replaceAll("{l}", "</p><hr><p>").replaceAll("{link}", "<a class='linkstv' target='_blank' href='").replaceAll("{text}", "'>")
-        .replaceAll("{/link}", "</a>")        .replaceAll("{/img}", "'>").replaceAll("{img}", "<img src='").replaceAll("{img1}", "<img class='img1' src='").replaceAll("{img2}", "<img class='img2' src='").replaceAll("{img3}", "<img class='img3' src='")
+        .replaceAll("{/link}", "</a>").replaceAll("{/img}", "'>").replaceAll("{img}", "<img src='").replaceAll("{img1}", "<img class='img1' src='").replaceAll("{img2}", "<img class='img2' src='").replaceAll("{img3}", "<img class='img3' src='")
         .replaceAll("{img4}", "<img class='img4' src='").replaceAll("{img5}", "<img class='img5' src='").replaceAll("{img6}", "<img class='img6' src='").replaceAll("{img7}", "<img class='img7' src='").replaceAll("{img8}", "<img class='img8' src='")
         .replaceAll("{!}","&nbsp;");
     popup("Preview", `</p>
