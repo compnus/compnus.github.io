@@ -242,6 +242,92 @@ main {
     filter:invert(0);
 }
 
+a.linkstv {
+    color: yellow !important;
+    transition: 0.2s;
+    text-decoration: inherit;
+}
+
+    a.linkstv:hover {
+        color: orange !important;
+    }
+
+.msgmsg > p > img {
+    max-height: 20vh;
+}
+
+    .msgmsg > p > img.i1 {
+        object-fit: cover;
+        width: 20vh;
+        height: 20vh;
+    }
+
+    .msgmsg > p > img.i2 {
+        object-fit: cover;
+        width: 10vh;
+        height: 10vh;
+    }
+
+    .msgmsg > p > img.i3 {
+        object-fit: cover;
+        width: 20vh;
+        height: 20vh;
+        border-radius: 2vh;
+    }
+
+    .msgmsg > p > img.i4 {
+        object-fit: cover;
+        width: 10vh;
+        height: 10vh;
+        border-radius: 1vh;
+    }
+
+    .msgmsg > p > img.i5 {
+        object-fit: cover;
+        width: 20vh;
+        height: 20vh;
+        border-radius: 10vh;
+    }
+
+    .msgmsg > p > img.i6 {
+        object-fit: cover;
+        width: 10vh;
+        height: 10vh;
+        border-radius: 5vh;
+    }
+
+    .msgmsg > p > img.i7 {
+        object-fit: cover;
+        width: 10vh;
+        height: 10vh;
+        border-radius: 0.5vh;
+        filter: grayscale();
+        transition: 0.3s ease-out;
+        position: relative;
+    }
+
+        .msgmsg > p > img.i7:hover {
+            filter: grayscale(0);
+            transform: scale(2);
+            z-index: 9999;
+        }
+
+    .msgmsg > p > img.i8 {
+        object-fit: cover;
+        width: 10vh;
+        height: 10vh;
+        border-radius: 0.5vh;
+        filter: grayscale();
+        transition: 0.3s ease-out;
+        position: relative;
+    }
+
+        .msgmsg > p > img.i8:hover {
+            filter: grayscale(0);
+            transform: scale(1.5);
+            z-index: 9999;
+        }
+
 @media(orientation:portrait) {
     div.mainscroll {
         height: initial;

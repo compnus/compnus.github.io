@@ -105,8 +105,8 @@ Deno.serve(async (req) => {
     message = message.split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;").split("\n").join("<br>").split("{l}<br>").join("{l}")
         .split("{{").join("&lbrace;").split("}}").join("&rbrace;").split("{b}").join("<b>").split("{/b}").join("</b>").split("{i}").join("<i>").split("{/i}").join("</i>").split("{u}").join("<u>").split("{/u}").join("</u>")
         .split("{s}").join("<s>").split("{/s}").join("</s>").split("{h}").join("<h0>").split("{/h}").join("</h0>").split("{l}").join("</p><hr><p>").split("{link}").join("<a class='linkstv' target='_blank' href='").split("{text}").join("'>")
-        .split("{/link}").join("</a>").split("{/img}").join("'>").split("{img}").join("<img src='").split("{img1}").join("<img class='img1' src='").split("{img2}").join("<img class='img2' src='").split("{img3}").join("<img class='img3' src='")
-        .split("{img4}").join("<img class='img4' src='").split("{img5}").join("<img class='img5' src='").split("{img6}").join("<img class='img6' src='").split("{img7}").join("<img class='img7' src='").split("{img8}").join("<img class='img8' src='")
+        .split("{/link}").join("</a>").split("{/img}").join("'>").split("{img}").join("<img src='").split("{img1}").join("<img class='i1' src='").split("{img2}").join("<img class='i2' src='").split("{img3}").join("<img class='i3' src='")
+        .split("{img4}").join("<img class='i4' src='").split("{img5}").join("<img class='i5' src='").split("{img6}").join("<img class='i6' src='").split("{img7}").join("<img class='i7' src='").split("{img8}").join("<img class='i8' src='")
         .split("{!}").join("&nbsp;");
 
     if (title.length > 100) {
