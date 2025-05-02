@@ -296,7 +296,7 @@ a.linkstv {
         border-radius: 5vh;
     }
 
-    .msgmsg > p > img.i7 {
+    .msgmsg > p > img.i7, .msgmsg > p > img.i8 {
         object-fit: cover;
         width: 10vh;
         height: 10vh;
@@ -311,16 +311,6 @@ a.linkstv {
             transform: scale(2);
             z-index: 9999;
         }
-
-    .msgmsg > p > img.i8 {
-        object-fit: cover;
-        width: 10vh;
-        height: 10vh;
-        border-radius: 0.5vh;
-        filter: grayscale();
-        transition: 0.3s ease-out;
-        position: relative;
-    }
 
         .msgmsg > p > img.i8:hover {
             filter: grayscale(0);
@@ -481,5 +471,49 @@ a.linkstv {
 
         .msgaction:active {
             filter: invert(0);
+        }
+
+    .msgmsg > p > img {
+        max-height: 40vw;
+    }
+
+        .msgmsg > p > img.i1 {
+            width: 40vw;
+            height: 40vw;
+        }
+
+        .msgmsg > p > img.i2 {
+            width: 20vw;
+            height: 20vw;
+        }
+
+        .msgmsg > p > img.i3 {
+            width: 40vw;
+            height: 40vw;
+            border-radius: 4vw;
+        }
+
+        .msgmsg > p > img.i4 {
+            width: 20vw;
+            height: 20vw;
+            border-radius: 2vw;
+        }
+
+        .msgmsg > p > img.i5 {
+            width: 40vw;
+            height: 40vw;
+            border-radius: 20vw;
+        }
+
+        .msgmsg > p > img.i6 {
+            width: 20vw;
+            height: 20vw;
+            border-radius: 10vw;
+        }
+
+        .msgmsg > p > img.i7, .msgmsg > p > img.i8 {
+            width: 20vw;
+            height: 20vw;
+            border-radius: 1vw;
         }
 }

@@ -240,7 +240,7 @@ function addImage() {
         </div>
         <div class="input"><label>Style:</label></div>
         <div id="ichoser">
-            <div class="choserthing" style="grid-row:1/3"><div id="choser0" onclick="document.querySelector('.chosen').classList.remove('chosen'); selectStyle=0; this.classList.add('chosen')" class="choser chosen" title="Default"></div></div>
+            <div class="choserthing" id="choserm"><div id="choser0" onclick="document.querySelector('.chosen').classList.remove('chosen'); selectStyle=0; this.classList.add('chosen')" class="choser chosen" title="Default"></div></div>
             <div class="choserthing"><div id="choser1" onclick="document.querySelector('.chosen').classList.remove('chosen'); selectStyle=1; this.classList.add('chosen')" class="choser" title="Square (Big)"></div></div>
             <div class="choserthing"><div id="choser2" onclick="document.querySelector('.chosen').classList.remove('chosen'); selectStyle=2; this.classList.add('chosen')" class="choser" title="Square (Small)"></div></div>
             <div class="choserthing"><div id="choser3" onclick="document.querySelector('.chosen').classList.remove('chosen'); selectStyle=3; this.classList.add('chosen')" class="choser" title="Rounded (Big)"></div></div>
