@@ -167,7 +167,7 @@ async function administr() {
         .then(response => response.json())
         .then(data => {
             if (data.response === "admin") {
-                document.getElementById("admintools").style.display = "grid";
+                document.getElementById("adminactions").style.display = "grid";
             }
         })
         .catch((error) => {
