@@ -68,7 +68,7 @@ Deno.serve(async (req) => {
         const { data: recuser, error: userExistsErrorn } = await supabase
             .from("udata")
             .select("can_message")
-            .eq("id", uid)
+            .eq("user_id", uid)
             .single();
 
         if (userExistsErrorn || !recuser) {
