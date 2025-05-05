@@ -16,9 +16,6 @@ async function main() {
         body: JSON.stringify(dt)
     })
         .then(response => response.json())
-        .then(data => {
-            console.log('Function response:', data);
-        })
         .catch((error) => {
             console.error('Error invoking function:', error);
         });

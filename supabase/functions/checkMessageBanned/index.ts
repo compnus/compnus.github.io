@@ -11,7 +11,7 @@ Deno.serve(async (req) => {
     const headers = { ...corsHeaders };
 
     if (req.method === 'OPTIONS') {
-        return new Response(null, {
+        return new Response(JSON.stringify({ a:req.method, b:req.headers }), {
             status: 204,
             headers: {
                 ...headers
