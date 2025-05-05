@@ -396,17 +396,17 @@ a.linkstv {
             right: 4vw;
         }
 
-    #mainactions {
+    .mainactions {
         grid-template-columns: 1fr 1fr;
         grid-gap: 4vw;
         margin-bottom: 4vw;
     }
-        #mainactions > button:hover {
+        .mainactions > button:hover {
             box-shadow: black 0 5px 10px -5px;
             bottom: 0;
         }
 
-        #mainactions > button:active {
+        .mainactions > button:active {
             box-shadow: white 0 0 10px -5px;
             bottom: 0.4vw;
         }

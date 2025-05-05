@@ -140,11 +140,12 @@ async function loadMessages() {
 }
 
 async function administr() {
+    var tkn = (await supabase.auth.getSession()).data.session?.access_token;
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/checkMessageBanned', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            'authorization': `Bearer ${tkn}`
         },
         body: JSON.stringify(dt)
     })
@@ -162,7 +163,7 @@ async function administr() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            'authorization': `Bearer ${tkn}`
         },
         body: JSON.stringify(dt)
     })
