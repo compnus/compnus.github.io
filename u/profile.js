@@ -57,8 +57,8 @@ async function loadWallet() {
             document.getElementById("walletnoca").innerHTML = data.balance[1];
             y = data.balance[2];
             wholes = Math.floor(y);
-            rems = Math.round((y - wholes) * 1000);
-            document.getElementById("walletsats").innerHTML = `<span class="walletdecimal">0.${"0".repeat(8 - wholes.toString().length)}</span>${wholes}<span class="walletdecimal">${"0".repeat(4 - rems.toString().length)}${rems}</span>`;
+            rems = Math.round((y - wholes) * 10000);
+            document.getElementById("walletsats").innerHTML = `${wholes}<span class="walletdecimal">.${"0".repeat(4 - rems.toString().length)}${rems}</span>`;
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
