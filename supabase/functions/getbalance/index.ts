@@ -65,19 +65,13 @@ Deno.serve(async (req) => {
     }
 
     try {
-        const { data: balancenus, error: userExistsErrorn } = await supabase
+        const { data: balance, error: userExistsErrorn } = await supabase
             .from("udata")
-            .select("balance_nus")
+            .select("balance_nus, balance_noca, balance_sats")
             .eq("user_id", uid)
             .single();
 
-        const { data: balancenoca, error: userExistsError } = await supabase
-            .from("udata")
-            .select("balance_noca")
-            .eq("user_id", uid)
-            .single();
-
-        if (userExistsError || !balancenus || userExistsErrorn || !balancenoca) {
+        if (userExistsErrorn || !balance ) {
             return new Response(JSON.stringify({ response: `User ${uid} does not exist in the 'udata' table.` }), {
                 status: 400,
                 headers: {
@@ -86,7 +80,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        return new Response(JSON.stringify({ response: "User data processed successfully.", balance: [balancenus.balance_nus, balancenoca.balance_noca] }), {
+        return new Response(JSON.stringify({ response: "User data processed successfully.", balance: [balance.balance_nus, balance.balance_noca, balance.balance_sats] }), {
             status: 200,
             headers: {
                 ...headers

@@ -39,7 +39,7 @@ async function main() {
 }
 
 async function loadWallet() {
-    var x, whole, rem;
+    var x, whole, rem, y, wholes, rems;
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/getbalance', {
         method: 'POST',
         headers: {
@@ -54,8 +54,11 @@ async function loadWallet() {
             whole = Math.floor(x);
             rem = Math.round((x - whole) * 100000000);
             document.getElementById("walletnus").innerHTML = `${whole}<span class="walletdecimal">.${"0".repeat(8 - rem.toString().length)}${rem}</span>`;
-            y = data.balance[1];
-            document.getElementById("walletnoca").innerHTML = y;
+            document.getElementById("walletnoca").innerHTML = data.balance[1];
+            y = data.balance[2];
+            wholes = Math.floor(y);
+            rems = Math.round((y - wholes) * 1000);
+            document.getElementById("walletsats").innerHTML = `<span class="walletdecimal">0.${"0".repeat(8 - wholes.toString().length)}</span>${wholes}<span class="walletdecimal">${"0".repeat(4 - rems.toString().length)}${rems}</span>`;
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
