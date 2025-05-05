@@ -19,14 +19,6 @@ Deno.serve(async (req) => {
         });
     }
 
-    return new Response(JSON.stringify({ a: req.method, b: req.headers }), {
-        status: 200,
-        headers: {
-            ...headers
-        }
-    });
-    /*
-
     const authHeader = req.headers.get('authorization');
     if (!authHeader) {
         return new Response(JSON.stringify({ response: 'Authorization header missing' }), {
@@ -114,5 +106,5 @@ Deno.serve(async (req) => {
                 ...headers
             }
         });
-    }*/
+    }
 });
