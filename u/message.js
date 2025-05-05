@@ -267,6 +267,8 @@ function fixTitle(which) {
         "adv": document.getElementById('advtitle')
     }
 
+    i[which].value = i[which].replaceAll("<", "").replaceAll(">", "");
+
     if (i[which].value.length > 100) i[which].value = i[which].value.substring(0, 100);
 
     if (which === "normal") i["adv"].value = i[which].value;

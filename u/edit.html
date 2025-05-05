@@ -54,7 +54,10 @@
                 <div class="input">
                     <label for="username">Username:</label>
                     <input type="text" id="username" required oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30);">
-                </div><p class="limited">You can change this later.</p>
+                </div><p class="limited">
+                    You can change this later.<br />We reserve the right to change your username for any reason.
+                    <span style="color:yellow" onclick="popup('Us Changing Your Username','You will receive a message with the reason for your username being changed. If your username contains hate speech, or the promotion of it, you will not be compensated in any way. If we need your username for administrative purposes (e.g. Your username is \'john\'. Someone called John will start working with CompNUS and want the username john. We will change your username so that John can have the john username.) you will be compensated with $NUS and Nocas. You can contact support if you want to appeal this change.')">Read the full diclosure here.</span>
+                </p>
                 <div class="input">
                     <label for="display_name">Name:</label>
                     <input type="text" id="display_name" oninput='this.value = this.value.replaceAll(/[<>"]/g, ""); if (this.value.length>30) this.value = this.value.substring(0,30);'>

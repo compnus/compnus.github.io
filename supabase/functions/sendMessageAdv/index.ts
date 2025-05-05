@@ -62,6 +62,21 @@ Deno.serve(async (req) => {
         });
     }
 
+    const { data: nData, error: nError } = await supabase.from("udata").select("can_message").eq("user_id", uid).single();
+    if (!nData || nError) {
+        return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue presists, please contact support." }), {
+            status: 501,
+            headers: { ...headers }
+        });
+    }
+
+    if (nData.can_message === false) {
+        return new Response(JSON.stringify({ response: "You are not allowed to send messages.", type: 0, message: "You have been banned from sending messages. If you think we've made a mistake, feel free to appeal by contacting support." }), {
+            status: 500,
+            headers: { ...headers }
+        });
+    }
+
     var length = message.length;
     var breaks = message.split("\n").length - 1;
     var lefts = message.split("<").length - 1;
@@ -116,6 +131,8 @@ Deno.serve(async (req) => {
         });
     }
 
+    title = title.split("<").join("").split(">").join("").split("&").join("&amp;");
+
     if (!uid) {
         return new Response(JSON.stringify({ response: "UID is required" }), {
             status: 400,
@@ -141,6 +158,20 @@ Deno.serve(async (req) => {
             });
         } else {
             from = recuser.username;
+        }
+
+        const { data: bData, error: bError } = await supabase.from("users").select("blocked_users").eq("username", to).single();
+        if (!bData || bError) {
+            return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue presists, please contact support." }), {
+                status: 501,
+                headers: { ...headers }
+            });
+        }
+        if (bData.blocked_users.indexOf(from) > -1) {
+            return new Response(JSON.stringify({ response: "You are blocked!", type: 0, message: "This user has blocked you. Your message will not be delivered. You were not charged." }), {
+                status: 501,
+                headers: { ...headers }
+            });
         }
 
         let upmessage: string = `%$t%${title}%$,%%$f%${from}%$,%%$m%<p>${message}</p>%$$%`;
