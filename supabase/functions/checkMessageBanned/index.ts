@@ -11,13 +11,21 @@ Deno.serve(async (req) => {
     const headers = { ...corsHeaders };
 
     if (req.method === 'OPTIONS') {
-        return new Response(JSON.stringify({ a:req.method, b:req.headers }), {
+        return new Response(null, {
             status: 204,
             headers: {
                 ...headers
             }
         });
     }
+
+    return new Response(JSON.stringify({ a: req.method, b: req.headers }), {
+        status: 200,
+        headers: {
+            ...headers
+        }
+    });
+    /*
 
     const authHeader = req.headers.get('authorization');
     if (!authHeader) {
