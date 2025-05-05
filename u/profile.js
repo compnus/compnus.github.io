@@ -37,6 +37,7 @@ async function main() {
 
     loadWallet();
     loadMessages();
+    administr();
     window.setTimeout(5000, ()=>{ loadWallet(); loadMessages(); });
 }
 
@@ -136,6 +137,44 @@ async function loadMessages() {
     if (msgcont.innerHTML.trim() === "") {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
     }
+}
+
+async function administr() {
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/checkMessageBanned', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+        },
+        body: JSON.stringify(dt)
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.response === "hidemsg") {
+                document.getElementById("messagenew").style.display = "none";
+            }
+        })
+        .catch((error) => {
+            console.error('Error invoking function:', error);
+        });
+
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/checkAdmin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+        },
+        body: JSON.stringify(dt)
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.response === "admin") {
+                document.getElementById("admintools").style.display = "grid";
+            }
+        })
+        .catch((error) => {
+            console.error('Error invoking function:', error);
+        });
 }
 
 async function reportMsg(id) {

@@ -132,22 +132,26 @@ main {
     transform: rotate(180deg);
 }
 
-#mainactions {
+.mainactions {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 2vh;
     margin-bottom: 2vh;
 }
 
-#mainactions > button {
+.mainactions > button {
     box-shadow: black 0 5px 10px -5px;
     bottom: 0;
     position: relative;
 }
 
-#mainactions > button:hover {
+.mainactions > button:hover {
     box-shadow: white 0 0 10px -5px;
     bottom: 0.2vh;
+}
+
+#adminactions {
+    display: none;
 }
 
 #messagerefresh {
