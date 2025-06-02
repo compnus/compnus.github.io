@@ -12,7 +12,7 @@ Deno.serve(async (req) => {
 
     if (req.method === 'OPTIONS') {
         return new Response(null, {
-            status: 204,
+            status: 200,
             headers: {
                 ...headers
             }
