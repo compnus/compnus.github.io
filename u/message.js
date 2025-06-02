@@ -14,7 +14,9 @@ function messageType(type) {
 }
 
 async function loadNocas() {
-    var balance = await getBalance(dt.uid);
+    const { data, error } = await supabase.auth.getUser();
+    dt.user_id = data.user.id;
+    var balance = await getBalance(dt.user_id);
     var y = balance[1];
     document.getElementById("nocabalance").innerHTML = y;
 }
