@@ -14,25 +14,9 @@ function messageType(type) {
 }
 
 async function loadNocas() {
-    const { data, error } = await supabase.auth.getUser();
-    dt.user_id = data.user.id;
-    dt.uid = (await supabase.auth.getSession()).data.session?.user.id;
-    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/getbalance', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
-        },
-        body: JSON.stringify(dt)
-    })
-        .then(response => response.json())
-        .then(data => {
-            y = data.balance[1];
-            document.getElementById("nocabalance").innerHTML = y;
-        })
-        .catch((error) => {
-            console.error('Error invoking function:', error);
-        });
+    var balance = await getBalance(dt.uid);
+    var y = balance[1];
+    document.getElementById("nocabalance").innerHTML = y;
 }
 
 async function sendMessage() {
@@ -144,6 +128,7 @@ async function sendMessage() {
 
 function remainingChar() {
     var rm = document.getElementById("remainingchar");
+    rm.value.replaceAll(/ {2,}/g, " ");
     var length = 300 - document.getElementById("normalmsg").value.length;
     var breaks = document.getElementById("normalmsg").value.split("\n").length - 1;
     var lefts = document.getElementById("normalmsg").value.split("<").length - 1;

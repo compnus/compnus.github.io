@@ -156,9 +156,21 @@ function popup(title, message) {
         window.setTimeout(() => document.body.removeChild(document.getElementById(x.id)), 201);
     }
 
-
     document.body.appendChild(x);
     window.setTimeout(() => x.style.opacity = 1, 1);
+}
+
+async function getBalance(uid) {
+    const { data: balance, error: userExistsErrorn } = await supabase
+        .from("udata")
+        .select("balance_nus, balance_noca, balance_sats")
+        .eq("user_id", uid)
+        .single();
+
+    if (!balance | userExistsErrorn) return false;
+
+    return [balance.balance_nus, balance.balance_noca, balance.balance_sats];
+;
 }
 
 console.log("script loaded");

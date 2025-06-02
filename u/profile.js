@@ -7,7 +7,8 @@ async function main() {
     dt.user_id = data.user.id;
     dt.uid = (await supabase.auth.getSession()).data.session?.user.id;
 
-    fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
+    const { data: userindt, error: problem } = await supabase.from("udata").select("user_id").eq("user_id", dt.user_id).single();
+    if (!userindt || problem || userindt.user_id!=dt.user_id) fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -40,29 +41,17 @@ async function main() {
 
 async function loadWallet() {
     var x, whole, rem, y, wholes, rems;
-    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/getbalance', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
-        },
-        body: JSON.stringify(dt)
-    })
-        .then(response => response.json())
-        .then(data => {
-            x = data.balance[0];
-            whole = Math.floor(x);
-            rem = Math.round((x - whole) * 100000000);
-            document.getElementById("walletnus").innerHTML = `${whole}<span class="walletdecimal">.${"0".repeat(8 - rem.toString().length)}${rem}</span>`;
-            document.getElementById("walletnoca").innerHTML = data.balance[1];
-            y = data.balance[2];
-            wholes = Math.floor(y);
-            rems = Math.round((y - wholes) * 10000);
-            document.getElementById("walletsats").innerHTML = `${wholes}<span class="walletdecimal">.${"0".repeat(4 - rems.toString().length)}${rems}</span>`;
-        })
-        .catch((error) => {
-            console.error('Error invoking function:', error);
-        });
+    balance = await getBalance(dt.uid);
+    x = balance[0];
+    whole = Math.floor(x);
+    rem = Math.round((x - whole) * 100000000);
+    document.getElementById("walletnus").innerHTML = `${whole}<span class="walletdecimal">.${"0".repeat(8 - rem.toString().length)}${rem}</span>`;
+    document.getElementById("walletnoca").innerHTML = data.balance[1];
+    y = balance[2];
+    wholes = Math.floor(y);
+    rems = Math.round((y - wholes) * 10000);
+    document.getElementById("walletsats").innerHTML = `${wholes}<span class="walletdecimal">.${"0".repeat(4 - rems.toString().length)}${rems}</span>`;
+ 
 }
 
 async function loadMessages() {
@@ -75,7 +64,7 @@ async function loadMessages() {
             throw new DOMException(y.message);
         }
     } catch (x) {
-        msgcont.innerHTML = `<p>An error occured while trying to load messages${x?": "+x:""}.</p>`;
+        msgcont.innerHTML = `<p>An error occurred while trying to load messages${x?": "+x:""}.</p>`;
         return;
     }
     x = x.messages;
