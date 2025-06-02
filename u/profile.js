@@ -142,7 +142,7 @@ async function administr() {
         .then(data => {
             if (data.response === "hidemsg") {
                 document.getElementById("messagenew").style.display = "none";
-            }
+            } else console.log(data);
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
