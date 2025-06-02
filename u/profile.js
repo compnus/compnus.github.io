@@ -129,8 +129,21 @@ async function loadMessages() {
 }
 
 async function administr() {
-    var tkn = (await supabase.auth.getSession()).data.session?.access_token;
-    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/checkMessageBanned', {
+    
+    const { data, error } = await supabase.functions.invoke('checkMessageBanned', {
+        body: JSON.stringify(dt)
+    })
+
+    if (!data | error) {
+        console.error("error", error);
+    } else {
+        if (data.response === "hidemsg") {
+            document.getElementById("messagenew").style.display = "none";
+        }
+    }
+   /* 
+   var tkn = (await supabase.auth.getSession()).data.session?.access_token;
+   await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/checkMessageBanned', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -165,6 +178,7 @@ async function administr() {
         .catch((error) => {
             console.error('Error invoking function:', error);
         });
+        */
 }
 
 async function reportMsg(id) {
