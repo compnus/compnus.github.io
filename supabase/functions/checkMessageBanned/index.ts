@@ -3,11 +3,6 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
-    const supabase = createClient(
-        Deno.env.get('SUPABASE_URL'),
-        Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
-    );
-
     const headers = { ...corsHeaders };
 
     if (req.method === 'OPTIONS') {
@@ -18,6 +13,11 @@ Deno.serve(async (req) => {
             }
         });
     }
+
+    const supabase = createClient(
+        Deno.env.get('SUPABASE_URL'),
+        Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
+    );
 
     const authHeader = req.headers.get('authorization');
     if (!authHeader) {
