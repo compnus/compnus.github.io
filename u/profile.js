@@ -12,7 +12,7 @@ async function main() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            'Authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
         },
         body: JSON.stringify(dt)
     })
@@ -134,7 +134,7 @@ async function administr() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${tkn}`
+            'Authorization': `Bearer ${tkn}`
         },
         body: JSON.stringify(dt)
     })
@@ -152,7 +152,7 @@ async function administr() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${tkn}`
+            'Authorization': `Bearer ${tkn}`
         },
         body: JSON.stringify(dt)
     })
