@@ -52,7 +52,7 @@ async function loadWallet() {
     rems = Math.round((y - wholes) * 10000);
     document.getElementById("walletsats").innerHTML = `${wholes}<span class="walletdecimal">.${"0".repeat(4 - rems.toString().length)}${rems}</span>`;
     var pricebtc;
-    fetch('https://data-api.coindesk.com/index/cc/v1/latest/tick?market=ccix&instruments=BTC-USD').then(response => response.json()).then(json => { pricebtc = json.Data["BTC-USD"].VALUE });
+    await fetch('https://data-api.coindesk.com/index/cc/v1/latest/tick?market=ccix&instruments=BTC-USD').then(response => response.json()).then(json => { pricebtc = json.Data["BTC-USD"].VALUE });
     var pricebtcnew = (y * (pricebtc / 100000000)).toFixed(3);
     console.log(pricebtc, pricebtcnew);
     document.getElementById("valuebtcsats").innerHTML = `&asymp; $${pricebtcnew.substring(0, 4)}<span style="opacity:0.3">${pricebtcnew.substring(4)}</span>`;
