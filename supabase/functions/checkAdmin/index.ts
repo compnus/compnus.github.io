@@ -1,5 +1,5 @@
-import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-import { createClient } from "jsr:@supabase/supabase-js@2";
+import "npm:@supabase/functions-js/edge-runtime.d.ts";
+import { createClient } from "npm:@supabase/supabase-js@2";
 import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
@@ -12,14 +12,14 @@ Deno.serve(async (req) => {
 
     if (req.method === 'OPTIONS') {
         return new Response(null, {
-            status: 200,
+            status: 204,
             headers: {
                 ...headers
             }
         });
     }
 
-    const authHeader = req.headers.get('authorization') || req.headers.get('Authorization');
+    const authHeader = req.headers.get('authorization');
     if (!authHeader) {
         return new Response(JSON.stringify({ response: 'Authorization header missing' }), {
             status: 401,

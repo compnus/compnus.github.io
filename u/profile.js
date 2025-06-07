@@ -12,7 +12,7 @@ async function main() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
         },
         body: JSON.stringify(dt)
     })
@@ -134,7 +134,7 @@ async function administr() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${tkn}`
+            'authorization': `Bearer ${tkn}`
         },
         body: JSON.stringify(dt)
     })
@@ -142,7 +142,7 @@ async function administr() {
         .then(data => {
             if (data.response === "hidemsg") {
                 document.getElementById("messagenew").style.display = "none";
-            } else console.log(data);
+            }
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
@@ -152,7 +152,7 @@ async function administr() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${tkn}`
+            'authorization': `Bearer ${tkn}`
         },
         body: JSON.stringify(dt)
     })
