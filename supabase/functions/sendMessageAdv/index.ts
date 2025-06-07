@@ -91,8 +91,9 @@ Deno.serve(async (req) => {
     var links = message.split("{link}").length - 1;
     var imgs = message.split("{img}").length - 1;
     var nbsps = message.split("{!}").length - 1;
+    var eqs = message.split("=").length - 1;
     var imgsts = (message.split("{img1}").length - 1) + (message.split("{img2}").length - 1) + (message.split("{img3}").length - 1) + (message.split("{img4}").length - 1) + (message.split("{img5}").length - 1) + (message.split("{img6}").length - 1) + (message.split("{img7}").length - 1) + (message.split("{img8}").length - 1);
-    length = length + ((breaks + amps) * 4) + ((lefts + rights + nbsps) * 3) + ((lbr + rbr) * 6) + (hs + nhs) + quts * 5 + (imgs * 2) + (imgsts * 15) + hrs * 8 + links * 30;
+    length = length + ((breaks + amps + eqs) * 4) + ((lefts + rights + nbsps) * 3) + ((lbr + rbr) * 6) + (hs + nhs) + quts * 5 + (imgs * 2) + (imgsts * 15) + hrs * 8 + links * 30;
     var price = 1 + links + (Math.floor((length - 1) / 50) >= 0 ? Math.floor((length - 1) / 50) : 0);
 
     const { data: balancenoca, error: userExistsError } = await supabase
@@ -117,7 +118,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    message = message.split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;").split("\n").join("<br>").split("{l}<br>").join("{l}")
+    message = message.split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;").split("\n").join("<br>").split("{l}<br>").join("{l}").split("=").join("&#61;")
         .split("{{").join("&lbrace;").split("}}").join("&rbrace;").split("{b}").join("<b>").split("{/b}").join("</b>").split("{i}").join("<i>").split("{/i}").join("</i>").split("{u}").join("<u>").split("{/u}").join("</u>")
         .split("{s}").join("<s>").split("{/s}").join("</s>").split("{h}").join("<h0>").split("{/h}").join("</h0>").split("{l}").join("</p><hr><p>").split("{link}").join("<a class='linkstv' target='_blank' href='").split("{text}").join("'>")
         .split("{/link}").join("</a>").split("{/img}").join("'>").split("{img}").join("<img src='").split("{img1}").join("<img class='i1' src='").split("{img2}").join("<img class='i2' src='").split("{img3}").join("<img class='i3' src='")

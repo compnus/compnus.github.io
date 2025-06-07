@@ -77,7 +77,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    if (message.length > 300) {
+    if (message.length > 200) {
         return new Response(JSON.stringify({ response: "The message is too long!", type: 0, message: "Please make sure that the amount of characters in your message doesn't exceed 300 characters." }), {
             status: 501,
             headers: {...headers}

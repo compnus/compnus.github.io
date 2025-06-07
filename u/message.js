@@ -131,7 +131,7 @@ async function sendMessage() {
 function remainingChar() {
     var rm = document.getElementById("remainingchar");
     rm.value.replaceAll(/ {2,}/g, " ");
-    var length = 300 - document.getElementById("normalmsg").value.length;
+    var length = 200 - document.getElementById("normalmsg").value.length;
     var breaks = document.getElementById("normalmsg").value.split("\n").length - 1;
     var lefts = document.getElementById("normalmsg").value.split("<").length - 1;
     var rights = document.getElementById("normalmsg").value.split(">").length - 1;
@@ -164,8 +164,9 @@ function increaseChar() {
     var links = advmsg.split("{link}").length - 1;
     var imgs = advmsg.split("{img}").length - 1;
     var nbsps = advmsg.split("{!}").length - 1;
+    var eqs = advmsg.split("=").length - 1;
     var imgsts = (advmsg.split("{img1}").length - 1) + (advmsg.split("{img2}").length - 1) + (advmsg.split("{img3}").length - 1) + (advmsg.split("{img4}").length - 1) + (advmsg.split("{img5}").length - 1) + (advmsg.split("{img6}").length - 1) + (advmsg.split("{img7}").length - 1) + (advmsg.split("{img8}").length - 1);
-    length = length + ((breaks + amps) * 4) + ((lefts + rights + nbsps) * 3) + ((lbr + rbr) * 6) + (hs+nhs) + quts*5 + (imgs*2) + (imgsts*15) + hrs*8 + links*30;
+    length = length + ((breaks + amps + eqs) * 4) + ((lefts + rights + nbsps) * 3) + ((lbr + rbr) * 6) + (hs + nhs) + quts * 5 + (imgs * 2) + (imgsts * 15) + hrs * 8 + links * 30;
     rm.innerHTML = "Characters: " + length;
     document.getElementById("messagecost").innerHTML = 1 + links + (Math.floor((length - 1) / 50) >= 0 ? Math.floor((length - 1) / 50):0);
 }

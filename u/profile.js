@@ -141,8 +141,9 @@ async function administr() {
 
     if (!msgadm || msgadmerror) console.error(msgadmerror);
     else {
+        ismsgban = !msgadm.can_message;
         if (msgadm.admin) document.getElementById("adminactions").style.display = "grid";
-        if (!msgadm.can_message) document.getElementById("messagenew").style.display = "none";
+        if (ismsgban) document.getElementById("messagenew").style.display = "none";
     }
 }
 
