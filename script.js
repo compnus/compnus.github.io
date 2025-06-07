@@ -167,7 +167,7 @@ async function getBalance(uid) {
         .eq("user_id", uid)
         .single();
 
-    if (!balance | userExistsErrorn) return false;
+    if (!balance || userExistsErrorn) return false;
 
     return [balance.balance_nus, balance.balance_noca, balance.balance_sats];
 ;

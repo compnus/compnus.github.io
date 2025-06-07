@@ -55,7 +55,6 @@ async function loadWallet() {
     var pricebtc;
     await fetch('https://data-api.coindesk.com/index/cc/v1/latest/tick?market=ccix&instruments=BTC-USD').then(response => response.json()).then(json => { pricebtc = json.Data["BTC-USD"].VALUE });
     var pricebtcnew = (y * (pricebtc / 100000000)).toFixed(3);
-    console.log(pricebtc, pricebtcnew);
     document.getElementById("valuebtcsats").innerHTML = `&asymp; $${pricebtcnew.substring(0, 4)}<span style="color:#999; font-weight:300">${pricebtcnew.substring(4)}</span>`;
 }
 
@@ -140,14 +139,11 @@ async function administr() {
         .eq("user_id", dt.uid)
         .single();
 
-    if (!msgadm | msgadmerror) console.error(msgadmerror);
+    if (!msgadm || msgadmerror) console.error(msgadmerror);
     else {
-        console.log(msgadm);
+        if (msgadm.admin) document.getElementById("adminactions").style.display = "grid";
+        if (!msgadm.can_message) document.getElementById("messagenew").style.display = "none";
     }
-
-  /*document.getElementById("messagenew").style.display = "none";
-    document.getElementById("adminactions").style.display = "grid";
-  */
 }
 
 async function reportMsg(id) {
