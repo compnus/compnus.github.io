@@ -1,6 +1,7 @@
 var dt = { user_id: null, uid: null };
 var messageid = 0;
 var loadedmessages = {};
+var ismsgban = false;
 
 async function main() {
     const { data, error } = await supabase.auth.getUser();
@@ -133,42 +134,20 @@ async function loadMessages() {
 }
 
 async function administr() {
-    var tkn = (await supabase.auth.getSession()).data.session?.access_token;
-    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/checkMessageBanned', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'authorization': `Bearer ${tkn}`
-        },
-        body: JSON.stringify(dt)
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.response === "hidemsg") {
-                document.getElementById("messagenew").style.display = "none";
-            }
-        })
-        .catch((error) => {
-            console.error('Error invoking function:', error);
-        });
+    const { data: msgadm, error: msgadmerror } = await supabase
+        .from("udata")
+        .select("can_message, admin")
+        .eq("user_id", dt.uid)
+        .single();
 
-    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/checkAdmin', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'authorization': `Bearer ${tkn}`
-        },
-        body: JSON.stringify(dt)
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.response === "admin") {
-                document.getElementById("adminactions").style.display = "grid";
-            }
-        })
-        .catch((error) => {
-            console.error('Error invoking function:', error);
-        });
+    if (!msgadm | msgadmerror) console.error(msgadmerror);
+    else {
+        console.log(msgadm);
+    }
+
+  /*document.getElementById("messagenew").style.display = "none";
+    document.getElementById("adminactions").style.display = "grid";
+  */
 }
 
 async function reportMsg(id) {
