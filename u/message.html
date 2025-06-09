@@ -11,17 +11,6 @@
 </head>
 <body>
     <script>
-        var messageTo = GetURLParameter('to');
-        var messageRe = GetURLParameter('title');
-        if (messageTo) {
-            document.getElementById('normalreciever').value = messageTo;
-            document.getElementById('advreciever').value = messageTo;
-        }
-        if (messageRe) {
-            messageRe = messageRe.replaceAll("<CHQTE>", '"').replaceAll("<CHAMP>", "&");
-            document.getElementById('normaltitle').value = "Re: "+messageRe;
-            document.getElementById('advtitle').value = "Re: "+messageRe;
-        }
         initHeader("Send a Message");
         const SPAM = `
         <li>Advertising of any kind.</li>
@@ -293,6 +282,19 @@ onclick="popup('Formatting Help','You can use braces {} to format your text. The
         </div>
     </main>
 
-    <script>initFooter();</script>
+    <script>
+        initFooter();
+        var messageTo = GetURLParameter('to');
+        var messageRe = GetURLParameter('title');
+        if (messageTo) {
+            document.getElementById('normalreciever').value = messageTo;
+            document.getElementById('advreciever').value = messageTo;
+        }
+        if (messageRe) {
+            messageRe = messageRe.replaceAll("<CHQTE>", '"').replaceAll("<CHAMP>", "&");
+            document.getElementById('normaltitle').value = "Re: " + messageRe;
+            document.getElementById('advtitle').value = "Re: " + messageRe;
+        }
+    </script>
 </body>
 </html>
