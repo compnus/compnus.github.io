@@ -292,7 +292,7 @@ onclick="popup('Formatting Help','You can use braces {} to format your text. The
                 document.getElementById('advreciever').value = messageTo;
             }
             if (messageRe) {
-                messageRe = messageRe.replaceAll("<CHQTE>", '"').replaceAll("<CHAMP>", "&");
+                messageRe = messageRe.replaceAll("%3CCHQTE%3E", '"').replaceAll("%3CCHAMP%3E", "&").replaceAll("%20", " ").replaceAll("%27", "'").replaceAll("%25","%");
                 document.getElementById('normaltitle').value = messageRe;
                 document.getElementById('advtitle').value = messageRe;
             }
