@@ -292,8 +292,8 @@ onclick="popup('Formatting Help','You can use braces {} to format your text. The
         }
         if (messageRe) {
             messageRe = messageRe.replaceAll("<CHQTE>", '"').replaceAll("<CHAMP>", "&");
-            document.getElementById('normaltitle').value = "Re: " + messageRe;
-            document.getElementById('advtitle').value = "Re: " + messageRe;
+            document.getElementById('normaltitle').value = messageRe;
+            document.getElementById('advtitle').value = messageRe;
         }
     </script>
 </body>
