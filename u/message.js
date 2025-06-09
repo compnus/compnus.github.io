@@ -130,7 +130,10 @@ async function sendMessage() {
 
 function remainingChar() {
     var rm = document.getElementById("remainingchar");
-    rm.value.replaceAll(/ {2,}/g, " ");
+    var msg = document.getElementById("normalmsg");
+    lastLoc = msg.value.includes("  ")?msg.selectionEnd-1:msg.selectionEnd;
+    msg.value = msg.value.replaceAll(/ {2,}/g, " ");
+    msg.selectionEnd = lastLoc;
     var length = 200 - document.getElementById("normalmsg").value.length;
     var breaks = document.getElementById("normalmsg").value.split("\n").length - 1;
     var lefts = document.getElementById("normalmsg").value.split("<").length - 1;

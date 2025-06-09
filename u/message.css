@@ -101,50 +101,6 @@ main {
 
 .msgfinal > button { width: 25vw }
 
-textarea {
-    border: var(--border) solid 2px;
-    width: calc(100% - 2vh - 4px);
-    resize: vertical;
-    min-height: 20vh;
-    max-height: calc(50vh - 8px);
-    font-size: 2vh;
-    border-radius: 2vh;
-    padding: 1vh;
-    background: var(--bg);
-    color: white;
-    transition: box-shadow 0.3s ease;
-    font-family: 'Ubuntu';
-}
-
-    textarea:focus {
-        outline: none;
-        box-shadow: var(--border) 0 0 5px, var(--border) 0 0 5px inset;
-    }
-
-    textarea::-webkit-scrollbar {
-        width: 9px;
-        height: 0;
-    }
-
-    textarea::-webkit-scrollbar-track {
-        background: none;
-    }
-
-    textarea::-webkit-scrollbar-thumb {
-        background: white;
-        border-radius: 100px;
-        border: solid 3px var(--bg);
-        cursor: default;
-    }
-
-        textarea::-webkit-scrollbar-thumb:hover {
-            background: var(--lightbgaccent);
-        }
-
-    textarea::-webkit-scrollbar-corner {
-        background: none;
-    }
-
 #remainingchar, #normaltitleremchar, .disclaimer, #charcount, #advtitleremchar {
     padding-top: 0.5vh;
     margin: 0;
@@ -573,13 +529,7 @@ td > img, .msgmsg > p > img {
             width: 40vw
         }
 
-    textarea {
-        resize: none;
-        min-height: 50vh; max-height: 50vh; height: 50vh;
-        font-size: 4vw;
-        border-radius: 4vw;
-        padding: 2vw;
-    }
+   
 
     #remainingchar, #normaltitleremchar, .disclaimer, #charcount, #advtitleremchar {
         padding-top: 2vw;

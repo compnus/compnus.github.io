@@ -16,7 +16,7 @@ html,body{
     color: white;
 }
 
-p, li, input {
+p, li, input, select, option {
     font-size: 2vh;
     font-family: Ubuntu;
 }
@@ -29,8 +29,12 @@ h0 {
     font-size: 3vh;
 }
 
-input {
+input, select {
     color-scheme: dark;
+}
+
+select {
+    cursor: pointer;
 }
 
 button {
@@ -55,6 +59,50 @@ button:active {
     background: var(--bg);
     transform: scale(0.9);
 }
+
+textarea {
+    border: var(--border) solid 2px;
+    width: calc(100% - 2vh - 4px);
+    resize: vertical;
+    min-height: 20vh;
+    max-height: calc(50vh - 8px);
+    font-size: 2vh;
+    border-radius: 2vh;
+    padding: 1vh;
+    background: var(--bg);
+    color: white;
+    transition: box-shadow 0.3s ease;
+    font-family: 'Ubuntu';
+}
+
+    textarea:focus {
+        outline: none;
+        box-shadow: var(--border) 0 0 5px, var(--border) 0 0 5px inset;
+    }
+
+    textarea::-webkit-scrollbar {
+        width: 9px;
+        height: 0;
+    }
+
+    textarea::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+        background: white;
+        border-radius: 100px;
+        border: solid 3px var(--bg);
+        cursor: default;
+    }
+
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: var(--lightbgaccent);
+        }
+
+    textarea::-webkit-scrollbar-corner {
+        background: none;
+    }
 
 header {
     display: flex;
@@ -211,7 +259,7 @@ a {
     text-align: left;
 }
 
-    .input > input, .input > .halve > input {
+    .input > input, .input > .halve > input, .input > select, .input > .halve > select {
         width: 15vw;
         font-size: 2vh;
         border-radius: 2vh;
@@ -228,7 +276,7 @@ a {
         width: calc(15vw + 2vh + 4px);
     }
 
-    .input > .halve > input {
+    .input > .halve > input, .input > .halve > select {
         width: calc(14.5vw - 5vh);
         margin-right: 0.5vw;
     }
@@ -242,6 +290,7 @@ a {
             transition: 0.3s ease;
             width: 5vh;
             display: block;
+            height: 100%;
         }
 
     .input > input:focus, .input > .halve > input:focus, .input > .halve > button:hover {
@@ -249,6 +298,16 @@ a {
         box-shadow: var(--border) 0 0 5px, var(--border) 0 0 5px inset;
         background: var(--lightbg);
     }
+
+option:not(:checked) {
+    color: #ccc;
+    background-color: black;
+}
+
+option:checked {
+    color: white;
+    background-color: var(--bg);
+}
 
 div.popup {
     position: fixed;
@@ -307,6 +366,15 @@ div.popup > div > div.inside > h1 {
     }
     h0 {
         font-size: 6vw;
+    }
+    textarea {
+        resize: none;
+        min-height: 50vh;
+        max-height: 50vh;
+        height: 50vh;
+        font-size: 4vw;
+        border-radius: 4vw;
+        padding: 2vw;
     }
     button {
         font-size: 4vw;
@@ -412,11 +480,15 @@ div.popup > div > div.inside > h1 {
             text-align: left;
         }
 
-        .input > input, .input > .halve > input {
+        .input > input, .input > .halve > input, .input > select, .input > .halve > select {
             width: calc(100% - 4vw);
             font-size: 5vw;
             border-radius: 4vw;
             padding: 2vw;
+        }
+
+        .input > select {
+            width: calc(100% + 2vw) !important;
         }
 
         .input > .halve {
@@ -425,7 +497,7 @@ div.popup > div > div.inside > h1 {
             width: 100%;
         }
 
-            .input > .halve > input {
+            .input > .halve > input, .input > .halve > select {
                 width: calc(100% - 12vw);
                 margin-right: 2vw;
             }

@@ -13,6 +13,100 @@
     <script>
         initHeader("Dashboard");
         document.getElementById("headernav").removeChild(document.getElementById("userlogin"));
+
+        async function suggestFeature(name, dsc, status) {
+            status.innerHTML = "Please wait...";
+            dsc = dsc.trim();
+            if (!dsc) status.innerHTML = "Please describe the feature you want to suggest.";
+            else if (dsc.length < 20) status.innerHTML = "Please provide a more detailed description of the feature.";
+            else await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendSuggestion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                },
+                body: JSON.stringify({uid:dt.uid,name:name,dsc:dsc})
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.sc) {
+                        status.innerHTML = "Error: " + data.response;
+                    } else {
+                        status.innerHTML = data.response;
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error invoking function:', error);
+                });
+        }
+
+        async function reportProblem(cat, dsc, status) {
+            status.innerHTML = "Please wait...";
+            dsc = dsc.trim();
+            if (!dsc) status.innerHTML = "Please describe the problem you are bearing with.";
+            else await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/reportProblem', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                },
+                body: JSON.stringify({ uid: dt.uid, type: cat, dsc: dsc })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.sc) {
+                        status.innerHTML = "Error: " + data.response;
+                    } else {
+                        status.innerHTML = data.response;
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error invoking function:', error);
+                });
+        }
+
+        var suggstftr = `
+        <form id="suggestionform" onsubmit='event.preventDefault(); suggestFeature(document.getElementById("feature_name").value, document.getElementById("describesgst").value, document.getElementById("suggstftrstatus"));'>
+        <div class="input">
+            <label for="feature_name">Feature Name:</label>
+            <input type="text" id="feature_name" oninput='this.value = this.value.replaceAll("\"", ""); if (this.value.length>50) this.value = this.value.substring(0,50);'>
+        </div>
+        <p style="margin-bottom: 0.5vw">Describe the feature:</p>
+        <textarea id="describesgst"></textarea>
+        <br>
+        <p id="suggstftrstatus" style="font-weight:bold;text-align:center"></p>
+        <button type="submit" class="fullwidth">Send</button>
+        </form>
+        <p style="margin:0">
+        `;
+        var probcats = `
+        <b>Account</b> - Issues related to your account, messages or your data.<br>
+        <b>Wallet</b> - Issues related to your wallet, sending and receiving money.<br>
+        <b>Bug</b> - Anything that doesn't seem to be working properly.<br>
+        <b>Other</b> - All other issues, that do not fit into the above categories.
+        `;
+        var reportprob = `
+        <form id="suggestionform" onsubmit='event.preventDefault(); reportProblem(document.getElementById("probcat").value, document.getElementById("decribeprb").value, document.getElementById("reportprbstatus"));'>
+        <div class="input">
+            <label for="probcat">Problem Category:</label>
+            <div class="halve">
+            <select id="probcat">
+              <option value="account">Account</option>
+              <option value="wallet">Wallet</option>
+              <option value="bug">Bug</option>
+              <option value="other">Other</option>
+            </select>
+            <button onclick="popup('Problem Categories', probcats)" type="button">?</button>
+            </div>
+        </div>
+        <p style="margin-bottom: 0.5vw">Describe the problem:</p>
+        <textarea id="describeprb"></textarea>
+        <br>
+        <p id="reportprbstatus" style="font-weight:bold;text-align:center"></p>
+        <button type="submit" class="fullwidth">Send</button>
+        </form>
+        <p style="margin:0">
+        `;
     </script>
 
     <main>
@@ -80,12 +174,12 @@
                 </button>
                 <br />
                 <button class="fullwidth"
-                        onclick="popup('Suggest a Feature', ``)">
+                        onclick="popup('Suggest a Feature', suggstftr)">
                     Suggest a Feature
                 </button>
                 <br />
                 <button class="fullwidth"
-                        onclick="popup('Report a Problem', ``)">
+                        onclick="popup('Report a Problem', reportprob)">
                     Report a Problem
                 </button>
             </div>
