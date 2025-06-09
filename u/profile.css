@@ -322,6 +322,13 @@ a.linkstv {
             z-index: 9999;
         }
 
+#walletactions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1vh;
+    margin: 1vh 0;
+}
+
 @media(orientation:portrait) {
     div.mainscroll {
         height: initial;
@@ -520,4 +527,10 @@ a.linkstv {
             height: 20vw;
             border-radius: 1vw;
         }
+
+    #walletactions {
+        grid-template-columns: 1fr;
+        grid-gap: 1vw;
+        margin: 2vw 0;
+    }
 }

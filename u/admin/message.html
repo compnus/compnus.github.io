@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js" defer></script>
+    <script src="message.js" defer></script>
+    <title>Send a Message - CompNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="message.css" />
+</head>
+<body>
+    <script>
+        initHeader("Send a Message");
+        const SPAM = `
+        <li>Advertising of any kind.</li>
+        <li>Link farms.</li>
+        <li>Copypasta.</li>
+        <li>Shitposting.</li>
+        <li>In general, just make sure whoever you are about to message is okay with it.</li>
+        <li>Best rule: Don't send a message that you wouldn't want to receive.
+        `;
+        const RULES = `
+        <li>Send spam messages. <span
+        onclick="popup('What exactly are Span Messages?','These are basically messages no one wants to receive. This includes but is not limited to:<ul>'+SPAM+'</ul><p>We will not remove your ability to message others for most of these, but prepare to be blocked by recipients.')"
+        style="color:yellow;cursor:pointer">What exactly do we mean?</span></li>
+        <li>Spam the same message.</li>
+        <li>Send malicious links.</li>
+        <li>Scam; spread hoaxes, fake news, ...</li>
+        <li>Use hate speech. <span
+        onclick="popup('What exactly is Hate Speech?','Anything that promotes hate against any group of people.<br>This includes racism, homophobia, satanism, xenophobia, promotion of terrorism and other forms of hate speech.')"
+        style="color:yellow;cursor:pointer">What exactly do we mean?</span></li>
+        <li>Use messages to partake in an illegal activity. <span
+        onclick="popup('What are Illegal Activities?','Promotion of weapons, drugs, self-harm, violence on others, ...')"
+        style="color:yellow;cursor:pointer">What exactly do we mean?</span></li>
+        <li>Send messages containing any form of sexual or pornographic content.</li>
+        <li>Send messages containing images that depict violence or other form of gore.</li>
+        `;
+        const IMGLIST = `
+        For this example we are using this image:<br><a href="https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg" class="linkstv" target="_blank">https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg</a>
+        <table class="he">
+        <tr style="position:sticky;top:0">
+            <th id="th5">Number</th>
+            <th id="th6">Syntax</th>
+            <th id="th7">Example</th>
+        </tr>
+        <tr>
+            <td class="first"><i style="font-weight: normal !important">omitted</i></th>
+            <td>{img}link{/img}</th>
+            <td><img src="https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg"></th>
+        </tr>
+        <tr>
+            <td class="first">1</th>
+            <td>Square (Big)<br>{img1}link{/img}</th>
+            <td><img class="img1" src="https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg"></th>
+        </tr>
+        <tr>
+            <td class="first">2</th>
+            <td>Square (Small)<br>{img2}link{/img}</th>
+            <td><img class="img2" src="https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg"></th>
+        </tr>
+        <tr>
+            <td class="first">3</th>
+            <td>Rounded (Big)<br>{img3}link{/img}</th>
+            <td><img class="img3" src="https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg"></th>
+        </tr>
+        <tr>
+            <td class="first">4</th>
+            <td>Rounded (Small)<br>{img4}link{/img}</th>
+            <td><img class="img4" src="https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg"></th>
+        </tr>
+        <tr>
+            <td class="first">5</th>
+            <td>Circle (Big)<br>{img5}link{/img}</th>
+            <td><img class="img5" src="https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg"></th>
+        </tr>
+        <tr>
+            <td class="first">6</th>
+            <td>Circle (Small)<br>{img6}link{/img}</th>
+            <td><img class="img6" src="https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg"></th>
+        </tr>
+        <tr>
+            <td class="first">7</th>
+            <td>Hover* (Big)<br>{img7}link{/img}</th>
+            <td><img class="img7" src="https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg"></th>
+        </tr>
+        <tr>
+            <td class="first">8</th>
+            <td>Hover* (Small)<br>{img8}link{/img}</th>
+            <td><img class="img8" src="https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386521.jpg"></th>
+        </tr>
+        <tr>
+            <td colspan="3">* Note: On mobile devices, the effect will activate upon clicking.</td>
+        </tr>
+        </table>
+        `;
+        const LIST = `
+         <table>
+                <tr style="position:sticky;top:0">
+                    <th id="th1">Tag</th>
+                    <th id="th2">Function</th>
+                    <th id="th3">Syntax</th>
+                    <th id="th4">Example</th>
+                </tr>
+                <tr>
+                    <td class="first">b</td>
+                    <td>Bold Text</td>
+                    <td>{b}Text{/b}</td>
+                    <td><b>Text</b></td>
+                </tr>
+                <tr>
+                    <td class="first">i</td>
+                    <td>Italic Text</td>
+                    <td>{i}Text{/i}</td>
+                    <td><i>Text</i></td>
+                </tr>
+                <tr>
+                    <td>Example</td>
+                    <td>Bold Italic Text</td>
+                    <td>{b}{i}Text{/i}{/b}</td>
+                    <td>It is important that you close the tags in the opposite order that you opened them.</td>
+                </tr>
+                <tr>
+                    <td class="first">u</td>
+                    <td>Underlined Text</td>
+                    <td>{u}Text{/u}</td>
+                    <td><u>Text</u></td>
+                </tr>
+                <tr>
+                    <td class="first">s</td>
+                    <td>Strike-through Text</td>
+                    <td>{s}Text{/s}</td>
+                    <td><s>Text</s></td>
+                </tr>
+                <tr>
+                    <td class="first">h</td>
+                    <td>Heading (Big Text)</td>
+                    <td>{h}Text{/h}</td>
+                    <td><h0>Text<h0></td>
+                </tr>
+                <tr>
+                    <td class="first">l</td>
+                    <td>Line</td>
+                    <td>{l}</td>
+                    <td>Produces a horizontal line like so:<hr></td>
+                </tr>
+                <tr>
+                    <td class="first">!</td>
+                    <td>Explicit Space</td>
+                    <td>{!}</td>
+                    <td>Spaces in HTML tend to get ignored when repeated multiple times. The explicit space prevents this behavior.</td>
+                </tr>
+                <tr>
+                    <td class="first">img</td>
+                    <td>Image</td>
+                    <td>{img*}Link to Image{/img}</td>
+                    <td>{img1}https://website.com/image.png{/img}</td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                    Images can come in multiple styles by using a number as the first tag's suffix. No suffix means regular image, direct from source. Some browsers might have problems displaying such image (it can appear stretched).
+                    For this reason we advice you to choose one of the styles. <span style="color:yellow;font-weight:bold;cursor:pointer" onclick="popup('Image Style Tags',IMGLIST)">Click here to see all styles with examples.</span>
+                    <br>Please keep in mind that using a number that doesn't exist will make your image display incorrectly or not display at all.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="first">link/text</td>
+                    <td>Clickable Link with Custom Text</td>
+                    <td>{link}URL{text}Display Text{/link}</td>
+                    <td>{link}https://compnus.github.io{text}Homepage{/link}<br>Will create:<br><a href="https://compnus.github.io" class="linkstv" target="_blank">Homepage</a></td>
+                </tr>
+                <tr>
+                    <td>Braces</td>
+                    <td>How to add braces (and avoid formatting)?</td>
+                    <td>{{img}} is an image tag!</td>
+                    <td>Output:<br>{img} is an image tag!</td>
+                </tr>
+            </table>
+            <p style="margin-bottom: 0">We advise you to use the tag presets available next to/below the message composer to prevent syntax errors.
+        `;
+    </script>
+
+    <main>
+        <div id="shadowcontainer">
+            <div class="flex cc" id="mainheading">
+                <h1>Message Type:</h1>
+                <button class="headingselector selected" onclick="messageType(0)" id="types0">Normal</button>
+                <button class="headingselector" onclick="messageType(1)" id="types1">Advanced</button>
+                <button id="headinginfo"
+                        onclick="popup('Message Types', '<b>Normal Message</b><ul><li>Limited length</li><li>No formatting</li><li>No network fee</li></ul><hr><p><b>Advanced Message</b></p><ul><li>Unlimited length</li><li>Supports formatting, images and clickable links</li><li>Network fee is based on length and the amount of links</li></ul>')">
+                    ?
+                </button>
+            </div>
+            <div class="main selected" id="type0">
+                <div class="msgheading">
+                    <div class="input" style="flex: 1">
+                        <label for="normalreceiver">Send to:</label>
+                        <input id="normalreciever" placeholder="username" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30); document.getElementById('advreciever').value=this.value"/>
+                    </div>
+                    <div class="separation"></div>
+                    <div class="input" style="flex: 3">
+                        <label for="normaltitle">Title:</label>
+                        <input id="normaltitle" placeholder="This is the title of this message!" oninput="fixTitle(this.id);"/>
+                    </div>
+                </div>
+                <div class="msgcompose">
+                    <textarea id="normalmsg" placeholder="Write your message here." oninput="remainingChar()"></textarea>
+                    <div class="bottomline">
+                        <p id="remainingchar">Characters remaining: 200</p>
+                        <p class="disclaimer">
+                            By sending this message, you agree with the <span onclick="popup('Rules of CompNUS Messages','Breaking these rules will result in you permanently losing the ability to send messages.<br>It is forbidden to:</p><ul>'+RULES+'</ul><p style=\'margin-bottom:0\'>Besides these rules, we reserve the right to block you from sending messages at any time.')">Rules of CompNUS Messages</span>.
+                        </p>
+                        <p id="normaltitleremchar">Title length: 0/100</p>
+                    </div>
+                </div>
+                <div class="msgfinal">
+                    <button onclick="history.back()">Discard and Return</button>
+                    <button onclick="sendMessage()" id="limitedsend">Send</button>
+                </div>
+            </div>
+            <div class="main" id="type1">
+                <div class="msgheading">
+                    <div class="input" style="flex: 1">
+                        <label for="advreceiver">Send to:</label>
+                        <input id="advreciever" placeholder="username" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30); document.getElementById('normalreciever').value=this.value" />
+                    </div>
+                    <div class="separation"></div>
+                    <div class="input" style="flex: 3">
+                        <label for="advtitle">Title:</label>
+                        <input id="advtitle" placeholder="This is the title of this message!" oninput="fixTitle(this.id);" />
+                    </div>
+                </div>
+                <div class="msgcompose">
+                     <div id="advancedinside">
+                         <textarea id="advmsg" placeholder="Write your message here." oninput="increaseChar()" onfocus="increaseChar()"></textarea>
+                         <div id="toolbox">
+                             <button class="toolbutton"
+onclick="popup('Formatting Help','You can use braces {} to format your text. They function as tags (they must be opened and closed - the text between them will get formatted).<br>Example: {b}Bold text{/b} will produce <b>Bold text</b><br>Here is the list of all formatting tags with examples:'+LIST)"
+                             >Formatting Help</button>
+                             <button class="toolbutton" onclick="preview()">Preview Message</button>
+                             <br />
+                             <div id="actualtools">
+                                 <button class="toolsbutton" onclick="add('{b}')" title="Start Bold Text"><img src="../site/icon/bold.png" /></button>
+                                 <button class="toolsbutton" onclick="add('{/b}')" title="End Bold Text"><img src="../site/icon/nobold.png" /></button>
+                                 <button class="toolsbutton" onclick="add('{i}')" title="Start Italic Text"><img src="../site/icon/italic.png" /></button>
+                                 <button class="toolsbutton" onclick="add('{/i}')" title="End Italic Text"><img src="../site/icon/noitalic.png" /></button>
+                                 <button class="toolsbutton" onclick="add('{u}')" title="Start Underlined Text"><img src="../site/icon/underline.png" /></button>
+                                 <button class="toolsbutton" onclick="add('{/u}')" title="End Underlined Text"><img src="../site/icon/nounderline.png" /></button>
+                                 <button class="toolsbutton" onclick="add('{s}')" title="Start Strike-through Text"><img src="../site/icon/strike.png" /></button>
+                                 <button class="toolsbutton" onclick="add('{/s}')" title="End Strike-through Text"><img src="../site/icon/nostrike.png" /></button>
+                                 <button class="toolsbutton" onclick="add('{h}')" title="Start Heading (Big Text)"><img src="../site/icon/heading.png" /></button>
+                                 <button class="toolsbutton" onclick="add('{/h}')" title="End Heading (Big Text)"><img src="../site/icon/noheading.png" /></button>
+                                 <button class="toolsbutton span2" onclick="add('{l}')" title="Add a Horizontal Line">Line</button>
+                                 <button class="toolsbutton span3" onclick="addLink()" title="Add a Link to the Message">Add Link...</button>
+                                 <button class="toolsbutton span3" onclick="addImage()" title="Add an Image to the Message">Add Image...</button>
+                                 <p style="margin-bottom:0;text-align: center;" class="span6">Add special characters:</p>
+                                 <button class="toolsbutton" onclick="add('\{\{')" title="Left Brace">{</button>
+                                 <button class="toolsbutton" onclick="add('\}\}')" title="Right Brace">}</button>
+                                 <button class="toolsbutton span4" onclick="add('{!}')" title="Spaces in HTML tend to get ignored when repeated multiple times. The explicit space prevents this behavior.">Explicit Space</button>
+                             </div>
+                             <br />
+                             <hr />
+                             <div class="flex" style="justify-content: space-between">
+                                 <p>Noca balance:</p>
+                                 <p id="nocabalance">0</p>
+                             </div>
+                         </div>
+                     </div>
+                    <div class="bottomline">
+                        <p id="charcount">Characters: 0</p>
+                        <p class="disclaimer">
+                            By sending this message, you agree with the <span onclick="popup('Rules of CompNUS Messages','Breaking these rules will result in you permanently losing the ability to send messages.<br>It is forbidden to:</p><ul>'+RULES+'</ul><p style=\'margin-bottom:0\'>Besides these rules, we reserve the right to block you from sending messages at any time.')">Rules of CompNUS Messages</span>.
+                        </p>
+                        <p id="advtitleremchar">Title length: 0/100</p>
+                    </div>
+                </div>
+                <div class="msgfinal">
+                    <button onclick="history.back()">Discard and Return</button>
+                    <button onclick="sendMessage()" id="mainsend">Send (<span id="messagecost">1</span> &curren;)</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>initFooter();</script>
+</body>
+</html>
