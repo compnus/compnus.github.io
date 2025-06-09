@@ -118,7 +118,7 @@ async function loadMessages() {
         var from = document.createElement("h3");
         from.classList.add("msgfrom");
         from.innerHTML = "From: " + z.from + (z.from === "CompNUS" ? `<img class="msgverified" src="https://img.icons8.com/?size=100&id=85190&format=png&color=FFFFFF" title="This is an official message from CompNUS."/>`
-            : `<img class="msgaction" src="https://img.icons8.com/?size=100&id=9TytzhcaAZJO&format=png&color=FFFFFF" title="Reply" onclick="reply(${z.from}, ${z.title})"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=94733&format=png&color=FFFFFF" title="Report Message" onclick="reportMsg(${z.id})"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=83222&format=png&color=FFFFFF" title="Block User" onclick="blockUser('${z.from}')"/>`);
+            : `<img class="msgaction" src="https://img.icons8.com/?size=100&id=9TytzhcaAZJO&format=png&color=FFFFFF" title="Reply" onclick="location.assign(message.html?to=${z.from}&title=Re:%20${z.title})"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=94733&format=png&color=FFFFFF" title="Report Message" onclick="reportMsg(${z.id})"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=83222&format=png&color=FFFFFF" title="Block User" onclick="blockUser('${z.from}')"/>`);
         cont.appendChild(from);
         var msg = document.createElement("div");
         msg.classList.add("msgmsg");

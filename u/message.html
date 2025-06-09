@@ -11,6 +11,18 @@
 </head>
 <body>
     <script>
+        var messageTo = GetURLParameter('to');
+        var messageRe = GetURLParameter('title');
+        if (messageTo || messageRe) {
+            if (messageTo) {
+                document.getElementById('normalreciever').value = messageTo;
+                document.getElementById('advreciever').value = messageTo;
+            }
+            if (messageRe) {
+                document.getElementById('normaltitle').value = "Re: "+messageRe;
+                document.getElementById('advtitle').value = "Re: "+messageRe;
+            }
+        }
         initHeader("Send a Message");
         const SPAM = `
         <li>Advertising of any kind.</li>
