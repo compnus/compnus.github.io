@@ -13,15 +13,14 @@
     <script>
         var messageTo = GetURLParameter('to');
         var messageRe = GetURLParameter('title');
-        if (messageTo || messageRe) {
-            if (messageTo) {
-                document.getElementById('normalreciever').value = messageTo;
-                document.getElementById('advreciever').value = messageTo;
-            }
-            if (messageRe) {
-                document.getElementById('normaltitle').value = "Re: "+messageRe;
-                document.getElementById('advtitle').value = "Re: "+messageRe;
-            }
+        if (messageTo) {
+            document.getElementById('normalreciever').value = messageTo;
+            document.getElementById('advreciever').value = messageTo;
+        }
+        if (messageRe) {
+            messageRe = messageRe.replaceAll("<CHQTE>", '"').replaceAll("<CHAMP>", "&");
+            document.getElementById('normaltitle').value = "Re: "+messageRe;
+            document.getElementById('advtitle').value = "Re: "+messageRe;
         }
         initHeader("Send a Message");
         const SPAM = `
