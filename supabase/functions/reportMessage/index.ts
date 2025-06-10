@@ -42,14 +42,16 @@ Deno.serve(async (req) => {
 
     let uid: string | null = null;
     let type: string | null = null;
-    let message: string | null = null;
+    let msg: string | null = null;
     let concern: string | null = null;
+    let from: string | null = null;
 
     try {
         const body = await req.json();
         uid = body.uid || null;
-        cat = body.type || null;
-        dsc = body.dsc || null;
+        type = body.type || null;
+        msg = body.msg || null;
+        concern = body.concern || null;
     } catch (error) {
         console.error("Failed to parse JSON body", error);
         return new Response(JSON.stringify({ response: "Failed to parse request body" }), {
@@ -89,7 +91,7 @@ Deno.serve(async (req) => {
 
         const { error: logError } = await supabase
             .from("logs")
-            .insert([{ created_by: from, type: "problem", attributes: "type->" + cat, message: dsc }]);
+            .insert([{ created_by: from, type: "report", attributes: "type->" + type + "\nconcern->" + concern, message: msg }]);
         if (logError) {
             return new Response(JSON.stringify({ response: `Internal server error.` }), {
                 status: 500,
