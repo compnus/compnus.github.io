@@ -117,7 +117,7 @@ async function loadMessages() {
         cont.appendChild(title);
         var from = document.createElement("h3");
         from.classList.add("msgfrom");
-        var formatXp = z.title.replaceAll("%", "%25").replaceAll("'", "%27").replaceAll('"', "<CHQTE>").replaceAll("&", "<CHAMP>");
+        var formatXp = z.title.replaceAll("%", "%25").replaceAll("'", "%27").replaceAll('"', "<CHQTE>").replaceAll("&amp;", "<CHAMP>");
         var replyButton = ismsgban?"":`<img class="msgaction" src="https://img.icons8.com/?size=100&id=9TytzhcaAZJO&format=png&color=FFFFFF" title="Reply" onclick="location.assign('message.html?to=${z.from}&title=Re:%20${formatXp}')"/>`;
         from.innerHTML = "From: " + z.from + (z.from === "CompNUS" ? `<img class="msgverified" src="https://img.icons8.com/?size=100&id=85190&format=png&color=FFFFFF" title="This is an official message from CompNUS."/>`
             : `${replyButton}<img class="msgaction" src="https://img.icons8.com/?size=100&id=94733&format=png&color=FFFFFF" title="Report Message" onclick="reportMsg(${z.id})"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=83222&format=png&color=FFFFFF" title="Block User" onclick="blockUser('${z.from}')"/>`);
@@ -151,7 +151,7 @@ async function administr() {
 
 function reportMsg(id) {
     popup("Report Message from "+loadedmessages[id].from, `
-    <form id="suggestionform" onsubmit='event.preventDefault(); reportMessage(id, document.getElementById("offensetype").value, document.getElementById("describerep").value, document.getElementById("reportmsgstatus"));'>
+    <form id="suggestionform" onsubmit='event.preventDefault(); reportMessage(${id}, document.getElementById("offensetype").value, document.getElementById("describerep").value, document.getElementById("reportmsgstatus"));'>
         <div class="input">
             <label for="offensetype">Report for:</label>
             <select id="offensetype" style="width:initial !important; flex:10">
