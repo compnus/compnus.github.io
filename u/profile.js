@@ -210,7 +210,7 @@ function blockUser(username) {
         You can unblock them from the Edit Account page.<br>
         Do you wish to proceed?</p>
         <p id="blockuserstatus" style="font-weight:bold;text-align:center"></p>
-        <button class="fullwidth" style="border-color: red" onclick="blockUserConfirm('${username}')">Yes, block ${username}.</button>
+        <button class="fullwidth" style="border-color: red" onclick="blockUserConfirm('${username}')">Yes, block ${username}</button><br>
         <button class="fullwidth" onclick="document.getElementById('popup' + (popupid-1)).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + (popupid-1))), 201)">Cancel</button>
         <p style="margin:0">
     `);
@@ -226,7 +226,10 @@ async function blockUserConfirm(username) {
     if (error) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", error.message); return; }
     const { data: finalize, error: finalizeError } = await supabase.from("users").update({ blocked_users: data.blocked_users + username.trim() + "|" }).eq("id", user.id).single();
     if (finalizeError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", authError.message); return; }
-    else popup("You have blocked " + username + "!", "You will no longer receive messages from this user.<br>To unblock them, go to the Edit Account page.");
+    else {
+        document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201);
+        popup("You have blocked " + username + "!", "You will no longer receive messages from this user.<br>To unblock them, go to the Edit Account page.");
+    }
 }
 
 async function deleteMessage(id) {
