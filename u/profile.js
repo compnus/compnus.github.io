@@ -217,6 +217,7 @@ function blockUser(username) {
 }
 
 async function blockUserConfirm(username) {
+    username = username.trim();
     const status = document.getElementById("blockuserstatus");
     status.innerHTML = "Please wait...";
     const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -224,7 +225,12 @@ async function blockUserConfirm(username) {
     if (authError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", authError.message); return; }
     const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single();
     if (error) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", error.message); return; }
-    const { data: finalize, error: finalizeError } = await supabase.from("users").update({ blocked_users: data.blocked_users + username.trim() + "|" }).eq("id", user.id).single();
+    if (data.blocked_users.startsWith(username + "|") || data.blocked_users.endsWith("|" + username) || data.blocked_users.includes("|" + username + "|")) {
+        document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201);
+        popup("You have already blocked " + username + "!", "This user is already blocked. You cannot block them again.<br>You can try blocking them IRL. Dunno how that would work tho...");
+        return;
+    }
+    const { data: finalize, error: finalizeError } = await supabase.from("users").update({ blocked_users: data.blocked_users + username + "|" }).eq("id", user.id).single();
     if (finalizeError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", authError.message); return; }
     else {
         document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201);
