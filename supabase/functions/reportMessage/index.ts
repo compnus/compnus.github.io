@@ -101,7 +101,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        return new Response(JSON.stringify({ response: "Problem reported successfully!", sc: true }), {
+        return new Response(JSON.stringify({ response: "Message reported succesfully!", sc: true }), {
             status: 200,
             headers: {
                 ...headers
