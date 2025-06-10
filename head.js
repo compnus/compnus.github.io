@@ -26,7 +26,7 @@ header.innerHTML = `
 <h1 id="title"></h1>
 </div>
 <div id="headernav">
-<p class="link hnav" title="Free crypto, new crypto projects, scam list and so much more!"><a href="/crypto/index.html">CryptoNUS</a></p>
+<p class="link hnav" title="Free crypto, new crypto projects, scam list and so much more!"><a href="/crypto/">CryptoNUS</a></p>
 <p class="link hnav" title="Projects, tools and other services by CompNUS, or by partners of CompNUS."><a href="/services.html">Services</a></p>
 <p class="link hnav" id="userlogin" title="Gateway to everything NUS: mine $NUS crypto and more!"><a href="/u/signup.html">Sign Up</a> <span style="color: white !important">/</span> <a href="/u/login.html">Log In</a></p>
 </div>
