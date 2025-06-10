@@ -64,7 +64,7 @@ Deno.serve(async (req) => {
 
     const { data: nData, error: nError } = await supabase.from("udata").select("can_message").eq("user_id", uid).single();
     if (!nData || nError) {
-        return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue presists, please contact support." }), {
+        return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue persists, please contact support." }), {
             status: 501,
             headers: { ...headers }
         });
@@ -163,13 +163,13 @@ Deno.serve(async (req) => {
 
         const { data: bData, error: bError } = await supabase.from("users").select("blocked_users").eq("username", to).single();
         if (!bData || bError) {
-            return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue presists, please contact support." }), {
+            return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue persists, please contact support." }), {
                 status: 501,
                 headers: { ...headers }
             });
         }
         if (bData.blocked_users.indexOf(from) > -1) {
-            return new Response(JSON.stringify({ response: "You are blocked!", type: 0, message: "This user has blocked you. Your message will not be delivered. You were not charged." }), {
+            return new Response(JSON.stringify({ response: "You are blocked!", type: 0, message: "This user has blocked you. Your message will not be delivered. You have not been charged." }), {
                 status: 501,
                 headers: { ...headers }
             });

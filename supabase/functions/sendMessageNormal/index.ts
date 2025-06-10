@@ -122,7 +122,7 @@ Deno.serve(async (req) => {
 
         const { data: bData, error: bError } = await supabase.from("users").select("blocked_users").eq("username", to).single();
         if (!bData || bError) {
-            return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue presists, please contact support." }), {
+            return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue persists, please contact support." }), {
                 status: 501,
                 headers: { ...headers }
             });
