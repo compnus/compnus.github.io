@@ -151,7 +151,7 @@ async function administr() {
 
 function reportMsg(msg) {
     popup("Report Message from "+msg.from, `
-    <form id="suggestionform" onsubmit='event.preventDefault(); reportMessage(${msg}, document.getElementById("offensetype").value, document.getElementById("describerep").value, document.getElementById("reportmsgstatus"));'>
+    <form id="suggestionform" onsubmit='event.preventDefault(); reportMessage(${JSON.stringify(msg)}, document.getElementById("offensetype").value, document.getElementById("describerep").value, document.getElementById("reportmsgstatus"));'>
         <div class="input">
             <label for="offensetype">Report for:</label>
             <select id="offensetype" style="width:initial !important; flex:10">
@@ -174,6 +174,7 @@ function reportMsg(msg) {
 }
 
 async function reportMessage(message, offense, dsc, status) {
+    message = JSON.parse(message);
     status.innerHTML = "Please wait...";
     dsc = dsc.trim();
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/reportMessage', {
