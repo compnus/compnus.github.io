@@ -64,7 +64,7 @@ Deno.serve(async (req) => {
 
     const { data: nData, error: nError } = await supabase.from("udata").select("can_message").eq("user_id", uid).single();
     if (!nData || nError) {
-        return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue presists, please contact support." }), {
+        return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue persists, please contact support." }), {
             status: 501,
             headers: { ...headers }
         });
@@ -78,7 +78,7 @@ Deno.serve(async (req) => {
     }
 
     if (message.length > 200) {
-        return new Response(JSON.stringify({ response: "The message is too long!", type: 0, message: "Please make sure that the amount of characters in your message doesn't exceed 300 characters." }), {
+        return new Response(JSON.stringify({ response: "The message is too long!", type: 0, message: "Please make sure that the amount of characters in your message doesn't exceed 200 characters." }), {
             status: 501,
             headers: {...headers}
         });

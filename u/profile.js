@@ -117,9 +117,10 @@ async function loadMessages() {
         cont.appendChild(title);
         var from = document.createElement("h3");
         from.classList.add("msgfrom");
-        var formatXp = z.title.replaceAll("%","%25").replaceAll("'","%27").replaceAll('"',"<CHQTE>").replaceAll("&","<CHAMP>");
+        var formatXp = z.title.replaceAll("%", "%25").replaceAll("'", "%27").replaceAll('"', "<CHQTE>").replaceAll("&", "<CHAMP>");
+        var replyButton = ismsgban?"":`<img class="msgaction" src="https://img.icons8.com/?size=100&id=9TytzhcaAZJO&format=png&color=FFFFFF" title="Reply" onclick="location.assign('message.html?to=${z.from}&title=Re:%20${formatXp}')"/>`;
         from.innerHTML = "From: " + z.from + (z.from === "CompNUS" ? `<img class="msgverified" src="https://img.icons8.com/?size=100&id=85190&format=png&color=FFFFFF" title="This is an official message from CompNUS."/>`
-            : `<img class="msgaction" src="https://img.icons8.com/?size=100&id=9TytzhcaAZJO&format=png&color=FFFFFF" title="Reply" onclick="location.assign('message.html?to=${z.from}&title=Re:%20${formatXp}')"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=94733&format=png&color=FFFFFF" title="Report Message" onclick="reportMsg(${z.id})"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=83222&format=png&color=FFFFFF" title="Block User" onclick="blockUser('${z.from}')"/>`);
+            : `${replyButton}<img class="msgaction" src="https://img.icons8.com/?size=100&id=94733&format=png&color=FFFFFF" title="Report Message" onclick="reportMsg(${z.id})"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=83222&format=png&color=FFFFFF" title="Block User" onclick="blockUser('${z.from}')"/>`);
         cont.appendChild(from);
         var msg = document.createElement("div");
         msg.classList.add("msgmsg");
@@ -148,8 +149,52 @@ async function administr() {
     }
 }
 
-async function reportMsg(id) {
+function reportMsg(id) {
+    popup("Report Message from "+loadedmessages[id].from, `
+    <form id="suggestionform" onsubmit='event.preventDefault(); reportMessage(id, document.getElementById("offensetype").value, document.getElementById("describerep").value, document.getElementById("reportmsgstatus"));'>
+        <div class="input">
+            <label for="offensetype">Report for:</label>
+            <select id="offensetype" style="width:initial !important; flex:10">
+              <option value="spam">Spam / Chain Message</option>
+              <option value="scam">Malicious Content / Scam</option>
+              <option value="hate">Hate Speech / Threats</option>
+              <option value="illegal">Illegal Activity</option>
+              <option value="nsfw">Pornographic Content</option>
+              <option value="other">Other</option>
+            </select>
+        </div>
+        <p style="margin-bottom: 0.5vw">Anything you would like to add?<br><i>Feel free to add additional notes regarding your concern.</i></p>
+        <textarea id="describerep"></textarea>
+        <br>
+        <p id="reportmsgstatus" style="font-weight:bold;text-align:center"></p>
+        <button type="submit" class="fullwidth" style="border-color: red">Report Message</button>
+        </form>
+        <p style="margin:0">
+    `);
+}
 
+async function reportMessage(message, offense, dsc, status) {
+    status.innerHTML = "Please wait...";
+    dsc = dsc.trim();
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/reportMessage', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+        },
+        body: JSON.stringify({ uid: dt.uid, type: offense, msg: `from->${loadedmessages[message].from}\ntitle->${loadedmessages[message].title}\nmessage->${loadedmessages[message].message}`, concern: dsc })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.sc) {
+                status.innerHTML = "Error: " + data.response;
+            } else {
+                status.innerHTML = data.response;
+            }
+        })
+        .catch((error) => {
+            console.error('Error invoking function:', error);
+        });
 }
 
 async function blockUser(username) {
