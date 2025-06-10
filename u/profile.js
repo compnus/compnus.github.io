@@ -1,6 +1,7 @@
 var dt = { user_id: null, uid: null };
 var messageid = 0;
 var loadedmessages = {};
+var messagecontainer = {};
 var ismsgban = false;
 
 async function main() {
@@ -61,6 +62,7 @@ async function loadWallet() {
 async function loadMessages() {
     var msgcont = document.getElementById("messagecont");
     loadedmessages = {};
+    messagecontainer = {};
     messageid = 0;
     var { data: x, error: y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
     try {
@@ -120,7 +122,7 @@ async function loadMessages() {
         var formatXp = z.title.replaceAll("%", "%25").replaceAll("'", "%27").replaceAll('"', "<CHQTE>").replaceAll("&amp;", "<CHAMP>");
         var replyButton = ismsgban?"":`<img class="msgaction" src="https://img.icons8.com/?size=100&id=9TytzhcaAZJO&format=png&color=FFFFFF" title="Reply" onclick="location.assign('message.html?to=${z.from}&title=Re:%20${formatXp}')"/>`;
         from.innerHTML = "From: " + z.from + (z.from === "CompNUS" ? `<img class="msgverified" src="https://img.icons8.com/?size=100&id=85190&format=png&color=FFFFFF" title="This is an official message from CompNUS."/>`
-            : `${replyButton}<img class="msgaction" src="https://img.icons8.com/?size=100&id=94733&format=png&color=FFFFFF" title="Report Message" onclick="reportMsg(${JSON.stringify(z)})"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=83222&format=png&color=FFFFFF" title="Block User" onclick="blockUser('${z.from}')"/>`);
+            : `${replyButton}<img class="msgaction" src="https://img.icons8.com/?size=100&id=94733&format=png&color=FFFFFF" title="Report Message" onclick="reportMsg(${z.id})"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=83222&format=png&color=FFFFFF" title="Block User" onclick="blockUser('${z.from}')"/>`);
         cont.appendChild(from);
         var msg = document.createElement("div");
         msg.classList.add("msgmsg");
@@ -128,6 +130,7 @@ async function loadMessages() {
         cont.appendChild(msg);
 
         msgcont.appendChild(cont);
+        messagecontainer[z.id] = z;
     }
     if (msgcont.innerHTML.trim() === "") {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
@@ -150,9 +153,8 @@ async function administr() {
 }
 
 function reportMsg(msg) {
-    msg = JSON.parse(msg);
-    popup("Report Message from "+msg.from, `
-    <form id="suggestionform" onsubmit='event.preventDefault(); reportMessage(${JSON.stringify(msg)}, document.getElementById("offensetype").value, document.getElementById("describerep").value, document.getElementById("reportmsgstatus"));'>
+    popup("Report Message from "+messagecontainer[msg].from, `
+    <form id="suggestionform" onsubmit='event.preventDefault(); reportMessage(${msg}, document.getElementById("offensetype").value, document.getElementById("describerep").value, document.getElementById("reportmsgstatus"));'>
         <div class="input">
             <label for="offensetype">Report for:</label>
             <select id="offensetype" style="width:initial !important; flex:10">
@@ -175,7 +177,7 @@ function reportMsg(msg) {
 }
 
 async function reportMessage(message, offense, dsc, status) {
-    message = JSON.parse(message);
+    message = messagecontainer[message];
     status.innerHTML = "Please wait...";
     dsc = dsc.trim();
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/reportMessage', {
