@@ -107,6 +107,63 @@
         </form>
         <p style="margin:0">
         `;
+
+        async function sendFunds(type, amount, recipient, message, status) {
+            var pays = calcFees();
+            message = message.substring(0,100).replaceAll("<", "").replaceAll(">", "").replaceAll("\n", " ").replaceAll("  ", " ");
+            status.innerHTML = "Please wait...";
+            if (!recipient) { status.innerHTML = "Please enter the recipient's username."; return; }
+            if (!amount || amount <= 0 || pays[0] <= 0) { status.innerHTML = "Please enter a valid amount to send."; return; }
+            var bals = await getBalance(dt.uid);
+            if (!bals) { status.innerHTML = "Please login to send funds."; return; }
+            if (type == "nus" && pays[1] < bals[0]) { status.innerHTML = "You do not have enough $NUS."; return; }
+            if (type == "nus" && pays[1] < bals[0]) { status.innerHTML = "You do not have enough Nocas."; return; }
+            if (type == "nus" && pays[1] < bals[0]) { status.innerHTML = "You do not have enough Satoshis."; return; }
+        //    fetch
+        }
+
+        var sendfundsrq = `</p>
+        <form id="sendmoneyform" onsubmit="event.preventDefault(); sendFunds(document.getElementById('sendmoneyselect').value, document.getElementById('sendmoneyamount').value, document.getElementById('sendmoneyto').value, document.getElementById('sendmoneymsg').value, document.getElementById('sendmoneystatus'));">
+        <div class="input">
+            <label for="sendmoneyto">Recipient:</label>
+            <input type="text" id="sendmoneyto" placeholder="username" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30);">
+        </div>
+        <div class="input">
+            <label for="sendmoneyselect">Resource:</label>
+            <select style="font-family: 'currencycompnus',Ubuntu !important; width:initial !important; flex:10" id="sendmoneyselect" onchange="x=document.getElementById('sendmoneyamount'); x.placeholder = (this.value=='noca'?'0':'0.00'); x.step = (this.value=='noca'?'1':'0.00000001'); x.value = (this.value=='noca'?Math.floor(x.value):x.value); calcFees()">
+                <option style="font-family: 'currencycompnus',Ubuntu !important" value="nus">$ &nbsp; NUS</option>
+                <option style="font-family: 'currencycompnus',Ubuntu !important" value="noca">¤ &nbsp; Nocas</option>
+                <option style="font-family: 'currencycompnus',Ubuntu !important" value="sat">₿ &nbsp; Satoshis</option>
+            </select>
+        </div>
+        <div class="input">
+            <label for="sendmoneyamount">Amount:</label>
+            <input type="number" id="sendmoneyamount" placeholder="0.00" step="0.00000001" min="0" oninput="if(document.getElementById('sendmoneyselect').value=='noca'){this.value = Math.floor(this.value)} if(this.value<0){this.value = -this.value} calcFees();">
+        </div>
+        <p style="margin:0; color:#ccc">Fee: <span id="sendmoneyfee">0.005</span> <span id="sendmoneyfeecur" style="font-family: 'currencycompnus',Ubuntu !important">$</span> &nbsp;
+        <span style="font-weight: bold; cursor: pointer" onclick="popup('How is Fee Calculated?','<b>NUS</b><br>Transaction fee for $NUS is 5% of the sent amount, min 0.005 NUS, max 1 NUS.<br><br><b>Nocas</b><br>Transaction fee for Nocas is 1% of the sent amount + 5 Nocas, max 100 Nocas.<br><br><b>Satoshis</b><br>Transaction fee for Satoshis is 5 Sats.')">
+        &#9432;</span></p>
+        <div id="blockedmessaging">
+        <p style="margin-bottom: 0.5vw">Message for the recipient (<span id="sendmoneymsglength">100</span> remaining):</p>
+        <textarea id="sendmoneymsg" placeholder="Message is optional." oninput="this.value=this.value.replaceAll('\\n','').replaceAll('<','').replaceAll('>','').replaceAll('  ',' '); if(this.value.length>100){this.value = this.value.substring(0,100)} document.getElementById('sendmoneymsglength').innerHTML = 100 - this.value.length;"></textarea>
+        </div>
+        <div class="input">
+            <label for="sendmoneyfeetype">Fee Type:</label>
+            <div class="halve">
+                <select style="width:initial !important; flex:10" id="sendmoneyfeetype" onchange="calcTotals();">
+                    <option value="extra">Pay Extra</option>
+                    <option value="part">Part of Transaction</option>
+                </select>
+                <button onclick="popup('Fee Types', '<b>Pay Extra</b><br>The fee will be charged after the transaction.<br>The recipient will receive the exact amount you set, and you will pay the fee.<br><br><b>Part of Transaction</b><br>The fee will be charged as a part of the transaction.<br>The recipient will receive the amount you set minus the fee.')" type="button">?</button>
+            </div>
+        </div>
+        <p id="sendtotalrecieved" class="fullwidth" style="text-align:center">The recipient will receive: <span id="sendmoneytotal" style="font-weight:bold">0</span> <span id="sendmoneytotalcur" style="font-family: 'currencycompnus',Ubuntu !important">$</span></p>
+        <p id="sendtotalpaid" class="fullwidth" style="text-align:center">You will pay: <span id="sendmoneytotalpaid" style="font-weight:bold">0.005</span> <span id="sendmoneytotalpaidcur" style="font-family: 'currencycompnus',Ubuntu !important">$</span></p>
+        <p id="sendmoneystatus" style="font-weight:bold;text-align:center"></p>
+        <button type="submit" class="fullwidth">Send</button>
+        </form>
+        <p style="margin:0">
+        `;
     </script>
 
     <main>
@@ -142,19 +199,12 @@
                 </div>
                 <p style="margin: 0; width: 100%; text-align: right;" id="valuebtcsats" title="Approximate value based on the current price of Bitcoin (provided by CoinDesk)">&asymp; $0.00<span style="color: #999; font-weight: 300">0</span></p>
                 <div id="walletactions">
-                    <button class="fullwidth" title="Send wallet resources to other users!">Send Funds</button>
+                    <button class="fullwidth" title="Send wallet resources to other users!" onclick="popup('Send Funds', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send Funds</button>
                     <button class="fullwidth" title="Receive wallet resources to other users!">Receive Funds</button>
                 </div>
                 <button class="fullwidth" title="Detailed view of your wallet resources. You can withdraw your Bitcoin Satoshi here." onclick="location.assign('wallet.html')">Open Wallet</button>
             </div>
             <br />
-            <div class="input">
-            <select style="font-family: 'currencycompnus',Ubuntu !important">
-                <option style="font-family: 'currencycompnus',Ubuntu !important">$ &nbsp; NUS</option>
-                <option style="font-family: 'currencycompnus',Ubuntu !important">¤ &nbsp; Nocas</option>
-                <option style="font-family: 'currencycompnus',Ubuntu !important">₿ &nbsp; Satoshis</option>
-            </select>
-            </div>
             <div class="sideshmuck collapsed" id="accact" style="height:3.5vh">
                 <p class="collapse collapsed" id="collapseaccact" title="Collapse/Reveal Account Actions" onclick="collapse('accact');">&#9650;</p>
                 <div class="flex cc"><h1 class="title" onclick="collapse('accact');">Account Actions</h1></div>

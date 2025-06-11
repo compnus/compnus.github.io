@@ -134,7 +134,7 @@ async function getUser() {
     return { user: true, data: data.user };
 }
 
-function popup(title, message) {
+function popup(title, message, close = true) {
     var x = document.createElement("div");
     x.style.opacity = 0;
     x.style.transition = '0.1s';
@@ -151,9 +151,11 @@ function popup(title, message) {
     </p>
     </div>
     `;
-    x.onclick = () => {
-        x.style.opacity = 0;
-        window.setTimeout(() => document.body.removeChild(document.getElementById(x.id)), 201);
+    if (close) {
+        x.onclick = () => {
+            x.style.opacity = 0;
+            window.setTimeout(() => document.body.removeChild(document.getElementById(x.id)), 201);
+        }
     }
 
     document.body.appendChild(x);

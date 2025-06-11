@@ -88,27 +88,27 @@ textarea {
         box-shadow: var(--border) 0 0 5px, var(--border) 0 0 5px inset;
     }
 
-    textarea::-webkit-scrollbar {
+    textarea::-webkit-scrollbar, div.popup > div::-webkit-scrollbar {
         width: 9px;
         height: 0;
     }
 
-    textarea::-webkit-scrollbar-track {
+    textarea::-webkit-scrollbar-track, div.popup > div::-webkit-scrollbar-track {
         background: none;
     }
 
-    textarea::-webkit-scrollbar-thumb {
+    textarea::-webkit-scrollbar-thumb, div.popup > div::-webkit-scrollbar-thumb {
         background: white;
         border-radius: 100px;
         border: solid 3px var(--bg);
         cursor: default;
     }
 
-        textarea::-webkit-scrollbar-thumb:hover {
+        textarea::-webkit-scrollbar-thumb:hover, div.popup > div::-webkit-scrollbar-thumb:hover {
             background: var(--lightbgaccent);
         }
 
-    textarea::-webkit-scrollbar-corner {
+    textarea::-webkit-scrollbar-corner, div.popup > div::-webkit-scrollbar-corner {
         background: none;
     }
 
@@ -332,6 +332,8 @@ div.popup {
 
 div.popup > div {
     max-width: 80vw;
+    max-height: 90vh;
+    overflow: auto;
     border-radius: 2vh;
     padding: 2vh;
     background: var(--maingradfallback);
@@ -343,6 +345,13 @@ div.popup > div > div.inside {
     display: flex;
     align-items: flex-start;
     margin-bottom: 1vh;
+}
+
+#sendmoneymsg {
+    resize: none;
+    margin-bottom: 0.5vw;
+    min-height: 10vh;
+    height: 10vh;
 }
 
 div.popup > div > div.inside > h1 {

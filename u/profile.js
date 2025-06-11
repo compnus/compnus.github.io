@@ -323,4 +323,57 @@ async function showAccountInfo() {
     `);
 }
 
+function calcFees() {
+    var type = document.getElementById("sendmoneyselect").value;
+    var totalReceivedCur = document.getElementById("sendmoneytotalcur");
+    var totalPaidCur = document.getElementById("sendmoneytotalpaidcur");
+    var amountFix = document.getElementById("sendmoneyamount")
+    if (amountFix.value.includes("e")) amountFix.value = parseFloat(amountFix.value).toFixed(8);
+    var parts = amountFix.value.split(".");
+    if (type == "nus" && parts[1] && parts[1].length > 8) amountFix.value = parseFloat(parseFloat(amountFix.value)?.toFixed(8));
+    if (type == "sat" && parts[1] && parts[1].length > 4) amountFix.value = parseFloat(parseFloat(amountFix.value)?.toFixed(4));
+    var amount = parseFloat(amountFix.value) || 0;
+    var fee = document.getElementById("sendmoneyfee");
+    var feecur = document.getElementById("sendmoneyfeecur");
+    if (type == "nus") {
+        feecur.innerHTML = "$";
+        totalReceivedCur.innerHTML = "$";
+        totalPaidCur.innerHTML = "$";
+        if (amount / 20 <= 0.005) fee.innerHTML = 0.005;
+        else if (amount / 20 >= 1) fee.innerHTML = 1;
+        else fee.innerHTML = (amount / 20).toFixed(3);
+    } else if (type == "noca") {
+        feecur.innerHTML = "¤";
+        totalReceivedCur.innerHTML = "¤";
+        totalPaidCur.innerHTML = "¤";
+        if (amount / 100 >= 95) fee.innerHTML = 100;
+        else fee.innerHTML = Math.floor(amount / 100) + 5;
+    } else if (type == "sat") {
+        feecur.innerHTML = "₿";
+        totalReceivedCur.innerHTML = "₿";
+        totalPaidCur.innerHTML = "₿";
+        fee.innerHTML = 5;
+    }
+
+    return calcTotals();
+}
+
+function calcTotals() {
+    var type = document.getElementById("sendmoneyfeetype").value;
+    var amount = parseFloat(document.getElementById("sendmoneyamount").value) || 0;
+    var fee = parseFloat(document.getElementById("sendmoneyfee").innerHTML);
+    var totalPaid = document.getElementById("sendmoneytotalpaid");
+    var totalReceived = document.getElementById("sendmoneytotal");
+
+    if (type == "extra") {
+        totalReceived.innerHTML = amount.toFixed(8).replace(/\.?0+$/, '');
+        totalPaid.innerHTML = (amount + fee).toFixed(8).replace(/\.?0+$/, '');
+    } else if (type == "part") {
+        totalReceived.innerHTML = (amount - fee).toFixed(8).replace(/\.?0+$/, '');
+        totalPaid.innerHTML = amount.toFixed(8).replace(/\.?0+$/, '');
+    }
+
+    return [parseFloat(totalReceived.innerHTML), parseFloat(totalPaid.innerHTML)];
+}
+
 console.log("profile loaded");
