@@ -319,7 +319,7 @@ async function showAccountInfo() {
     <b>Username:</b> ${data.username}<br>
     <b>Email:</b> ${data.email}<br>
     <b>Date of Birth:</b> ${new Date(data.birthdate).toLocaleDateString()}<br>
-    <b>Banned from Sending Messages:</b> ${data1.can_message ? "No" : "Yes"}<br>
+    <b>Banned from Sending Messages:</b> ${data1.can_message ? "No" : "Yes"}
     `);
 }
 
