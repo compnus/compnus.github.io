@@ -9,6 +9,14 @@
     --lightbgaccent: #36384e;
 }
 
+@font-face {
+    font-family: 'currencycompnus';
+    src: url('/site/font/currencycompnus.eot?53016310');
+    src: url('/site/font/currencycompnus.eot?53016310#iefix') format('embedded-opentype'), url('/site/font/currencycompnus.woff2?53016310') format('woff2'), url('/site/font/currencycompnus.woff?53016310') format('woff'), url('/site/font/currencycompnus.ttf?53016310') format('truetype'), url('/site/font/currencycompnus.svg?53016310#currencycompnus') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html,body{
     padding: 0;
     margin: 0;
