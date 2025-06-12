@@ -204,9 +204,7 @@ Deno.serve(async (req) => {
 
         if (currency === "nus") currencyThing = "$";
         else if (currency === "noca") currencyThing = "¤";
-        else if (currency === "sats") {
-            currencyThing = "₿";
-        }
+        else if (currency === "sats") currencyThing = "₿";
 
         var finalMessage: string = message.length > 0 ? `<br><b>Message from sender:</b> ${message}` : ``;
 
@@ -214,12 +212,18 @@ Deno.serve(async (req) => {
 
         const { data: senuser, error: userExistsError } = await supabase
             .from("users")
-            .select("messages, balance_"+currency)
+            .select("messages")
             .eq("username", to)
             .single();
 
-        if (userExistsError || !senuser) {
-            return new Response(JSON.stringify({ response: `User ${to} does not exist.<br>${userExistsError.message}` }), {
+        const { data: senuserc, error: userExistsErrorc } = await supabase
+            .from("udata")
+            .select("balance_" + currency)
+            .eq("user_id", bData.id)
+            .single();
+
+        if (userExistsError || !senuser || userExistsErrorc || !senuserc) {
+            return new Response(JSON.stringify({ response: `User ${to} does not exist.` }), {
                 status: 404,
                 headers: {
                     ...headers
@@ -231,13 +235,13 @@ Deno.serve(async (req) => {
             var sends: Object = {};
             if (currency === "nus") {
                 updateds = { balance_nus: balancenoca.balance_nus - totalToSend };
-                sends = { balance_nus: senuser.balance_nus + totalReceived };
+                sends = { balance_nus: senuserc.balance_nus + totalReceived };
             } else if (currency === "noca") {
                 updateds = { balance_noca: balancenoca.balance_noca - totalToSend };
-                sends = { balance_noca: senuser.balance_noca + totalReceived };
+                sends = { balance_noca: senuserc.balance_noca + totalReceived };
             } else if (currency === "sats") {
                 updateds = { balance_sats: balancenoca.balance_sats - totalToSend };
-                sends = { balance_sats: senuser.balance_sats + totalReceived };
+                sends = { balance_sats: senuserc.balance_sats + totalReceived };
             }
             const { error: cannotDeduct } = await supabase
                 .from("udata")
