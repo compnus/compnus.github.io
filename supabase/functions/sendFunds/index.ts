@@ -208,7 +208,7 @@ Deno.serve(async (req) => {
 
         var finalMessage: string = (message && (message.length > 0)) ? `<br><b>Message from sender:</b> ${message}` : ``;
 
-        let upmessage: string = `%$t%You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important">${currencyThing} from ${from}!%$,%%$f%CompNUS%$,%%$m%<p>The amount has been added to your balance.${finalMessage}</p>%$$%`;
+        let upmessage: string = `%$t%You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!%$,%%$f%CompNUS%$,%%$m%<p>The amount has been added to your balance.${finalMessage}</p>%$$%`;
 
         const { data: senuser, error: userExistsError } = await supabase
             .from("users")
