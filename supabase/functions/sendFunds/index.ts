@@ -243,6 +243,14 @@ Deno.serve(async (req) => {
                 updateds = { balance_sats: balancenoca.balance_sats - totalToSend };
                 sends = { balance_sats: senuserc.balance_sats + totalReceived };
             }
+            if (uid === bData.id) {
+                    return new Response(JSON.stringify({ response: `You cannot send funds to yourself.`, sc: true }), {
+                        status: 403,
+                        headers: {
+                            ...headers
+                        }
+                    });
+            }
             const { error: cannotDeduct } = await supabase
                 .from("udata")
                 .update(updateds)
