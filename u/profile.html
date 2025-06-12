@@ -135,6 +135,10 @@
                         status.innerHTML = "Error: " + data.response;
                     } else {
                         status.innerHTML = data.response;
+                        loadWallet();
+                        document.getElementById("sendmoneysubmit").innerHTML = "Send Again";
+                        document.getElementById("sendmoneydiscard").innerHTML = "Close";
+                        document.getElementById("sendmoneydiscard").style.borderColor = "unset";
                     }
                 })
                 .catch((error) => {
@@ -180,10 +184,10 @@
         <p id="sendtotalrecieved" class="fullwidth" style="text-align:center">The recipient will receive: <span id="sendmoneytotal" style="font-weight:bold">0</span> <span id="sendmoneytotalcur" style="font-family: 'currencycompnus',Ubuntu !important">$</span></p>
         <p id="sendtotalpaid" class="fullwidth" style="text-align:center">You will pay: <span id="sendmoneytotalpaid" style="font-weight:bold">0.005</span> <span id="sendmoneytotalpaidcur" style="font-family: 'currencycompnus',Ubuntu !important">$</span></p>
         <p id="sendmoneystatus" style="font-weight:bold;text-align:center"></p>
-        <button type="submit" class="fullwidth">Send</button>
+        <button id="sendmoneysubmit" type="submit" class="fullwidth">Send</button>
         </form>
         <br>
-        <button class="fullwidth" onclick="document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201);" style="border-color: red">Discard</button>
+        <button id="sendmoneydiscard" class="fullwidth" onclick="document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201);" style="border-color: red">Discard</button>
         <p style="margin:0">
         `;
     </script>
