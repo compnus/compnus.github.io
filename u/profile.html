@@ -118,6 +118,7 @@
             if (!amount || amount <= 0 || pays[0] <= 0) { status.innerHTML = "Please enter a valid amount to send."; return; }
             var bals = await getBalance(dt.uid);
             if (!bals) { status.innerHTML = "Please login to send funds."; return; }
+            console.log(type,pays,bals)
             if (type == "nus" && pays[1] < bals[0]) { status.innerHTML = "You do not have enough $NUS."; return; }
             if (type == "noca" && pays[1] < bals[1]) { status.innerHTML = "You do not have enough Nocas."; return; }
             if (type == "sat" && pays[1] < bals[2]) { status.innerHTML = "You do not have enough Satoshis."; return; }
@@ -150,7 +151,7 @@
         </div>
         <div class="input">
             <label for="sendmoneyselect">Resource:</label>
-            <select style="font-family: 'currencycompnus',Ubuntu !important; width:initial !important; flex:10" id="sendmoneyselect" onchange="x=document.getElementById('sendmoneyamount'); x.placeholder = (this.value=='noca'?'0':'0.00'); x.step = (this.value=='noca'?'1':'0.00000001'); x.value = (this.value=='noca'?Math.floor(x.value):x.value); calcFees()">
+            <select style="font-family: 'currencycompnus',Ubuntu !important; width:initial !important; flex:10" id="sendmoneyselect" onchange="x=document.getElementById('sendmoneyamount'); x.placeholder = (this.value=='noca'?'0':'0.00'); x.step = (this.value=='noca'?'1':(this.value=='sat'?'0.0001':'0.00000001')); x.value = (this.value=='noca'?Math.floor(x.value):x.value); calcFees()">
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="nus">$ &nbsp; NUS</option>
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="noca">¤ &nbsp; Nocas</option>
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="sat">₿ &nbsp; Satoshis</option>
