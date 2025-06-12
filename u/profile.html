@@ -119,9 +119,9 @@
             var bals = await getBalance(dt.uid);
             if (!bals) { status.innerHTML = "Please login to send funds."; return; }
             console.log(type == "nus", pays[1], bals[0], pays[1] < bals[0]);
-            if (type == "nus" && pays[1] < bals[0]) { status.innerHTML = "You do not have enough $NUS."; return; }
-            if (type == "noca" && pays[1] < bals[1]) { status.innerHTML = "You do not have enough Nocas."; return; }
-            if (type == "sat" && pays[1] < bals[2]) { status.innerHTML = "You do not have enough Satoshis."; return; }
+            if (type == "nus" && (pays[1] > bals[0])) { status.innerHTML = "You do not have enough $NUS."; return; }
+            if (type == "noca" && (pays[1] > bals[1])) { status.innerHTML = "You do not have enough Nocas."; return; }
+            if (type == "sat" && (pays[1] > bals[2])) { status.innerHTML = "You do not have enough Satoshis."; return; }
             await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendFunds', {
                 method: 'POST',
                 headers: {
