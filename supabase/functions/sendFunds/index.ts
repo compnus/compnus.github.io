@@ -56,9 +56,11 @@ Deno.serve(async (req) => {
         amount = body.amount || null;
         fee = body.fee || null;
         message = body.message || null;
-        message = message.substring(0, 100);
-        message.split("<").join("").split(">").join("").split("\n").join("").split("  ").join(" ");
-        message.split("&").join("&amp;");
+        if (message) {
+            message = message.substring(0, 100);
+            message.split("<").join("").split(">").join("").split("\n").join("").split("  ").join(" ");
+            message.split("&").join("&amp;");
+        }
     } catch (error) {
         console.error("Failed to parse JSON body", error);
         return new Response(JSON.stringify({ response: "Failed to parse request body" + error }), {
