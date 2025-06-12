@@ -110,16 +110,36 @@
 
         async function sendFunds(type, amount, recipient, message, status) {
             var pays = calcFees();
-            message = message.substring(0,100).replaceAll("<", "").replaceAll(">", "").replaceAll("\n", " ").replaceAll("  ", " ");
+            message = message.substring(0, 100).replaceAll("<", "").replaceAll(">", "").replaceAll("\n", " ").replaceAll("  ", " ");
+            administr();
+            if (ismsgban && message.length > 0) { status.innerHTML = "You are banned from sending messages.<br>Please refresh the website and try again."; return; }
             status.innerHTML = "Please wait...";
             if (!recipient) { status.innerHTML = "Please enter the recipient's username."; return; }
             if (!amount || amount <= 0 || pays[0] <= 0) { status.innerHTML = "Please enter a valid amount to send."; return; }
             var bals = await getBalance(dt.uid);
             if (!bals) { status.innerHTML = "Please login to send funds."; return; }
             if (type == "nus" && pays[1] < bals[0]) { status.innerHTML = "You do not have enough $NUS."; return; }
-            if (type == "nus" && pays[1] < bals[0]) { status.innerHTML = "You do not have enough Nocas."; return; }
-            if (type == "nus" && pays[1] < bals[0]) { status.innerHTML = "You do not have enough Satoshis."; return; }
-        //    fetch
+            if (type == "noca" && pays[1] < bals[1]) { status.innerHTML = "You do not have enough Nocas."; return; }
+            if (type == "sat" && pays[1] < bals[2]) { status.innerHTML = "You do not have enough Satoshis."; return; }
+            await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendFunds', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                },
+                body: JSON.stringify({ uid: dt.uid, currency: type, fee: document.getElementById('sendmoneyfeetype').value, amount: amount, message: message, to: recipient })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.sc) {
+                        status.innerHTML = "Error: " + data.response;
+                    } else {
+                        status.innerHTML = data.response;
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error invoking function:', error);
+                });
         }
 
         var sendfundsrq = `</p>
@@ -162,6 +182,8 @@
         <p id="sendmoneystatus" style="font-weight:bold;text-align:center"></p>
         <button type="submit" class="fullwidth">Send</button>
         </form>
+        <br>
+        <button class="fullwidth" onclick="document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201);" style="border-color: red">Discard</button>
         <p style="margin:0">
         `;
     </script>
@@ -199,7 +221,7 @@
                 </div>
                 <p style="margin: 0; width: 100%; text-align: right;" id="valuebtcsats" title="Approximate value based on the current price of Bitcoin (provided by CoinDesk)">&asymp; $0.00<span style="color: #999; font-weight: 300">0</span></p>
                 <div id="walletactions">
-                    <button class="fullwidth" title="Send wallet resources to other users!" onclick="popup('Send Funds', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send Funds</button>
+                    <button class="fullwidth" title="Send wallet resources to other users!" onclick="sendfundsrqpopupid = popupid; popup('Send Funds', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send Funds</button>
                     <button class="fullwidth" title="Receive wallet resources to other users!">Receive Funds</button>
                 </div>
                 <button class="fullwidth" title="Detailed view of your wallet resources. You can withdraw your Bitcoin Satoshi here." onclick="location.assign('wallet.html')">Open Wallet</button>

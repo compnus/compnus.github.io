@@ -62,6 +62,15 @@ Deno.serve(async (req) => {
         });
     }
 
+    if (!uid) {
+        return new Response(JSON.stringify({ response: "UID is required" }), {
+            status: 400,
+            headers: {
+                ...headers
+            }
+        });
+    }
+
     const { data: nData, error: nError } = await supabase.from("udata").select("can_message").eq("user_id", uid).single();
     if (!nData || nError) {
         return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue persists, please contact support." }), {
@@ -133,15 +142,6 @@ Deno.serve(async (req) => {
     }
 
     title = title.split("<").join("").split(">").join("").split("&").join("&amp;");
-
-    if (!uid) {
-        return new Response(JSON.stringify({ response: "UID is required" }), {
-            status: 400,
-            headers: {
-                ...headers
-            }
-        });
-    }
 
     try {
         const { data: recuser, error: userExistsErrorn } = await supabase
