@@ -148,6 +148,39 @@
                 });
         }
 
+        async function sendFundsa(type, amount, recipient, message, status) {
+            if (administr() !== true) {
+                location.reload();
+                return false;
+            }
+            status.innerHTML = "Please wait...";
+            if (!recipient) { status.innerHTML = "Please enter the recipient's username."; return; }
+            if (!amount || amount <= 0) { status.innerHTML = "Please enter a valid amount to send."; return; }
+            await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/giveFunds', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                },
+                body: JSON.stringify({ uid: dt.uid, currency: type, amount: amount, message: message, to: recipient })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.sc) {
+                        status.innerHTML = "Error: " + data.response;
+                    } else {
+                        status.innerHTML = data.response;
+                        loadWallet();
+                        document.getElementById("sendmoneysubmit").innerHTML = "Send Again";
+                        document.getElementById("sendmoneydiscard").innerHTML = "Close";
+                        document.getElementById("sendmoneydiscard").style.borderColor = "var(--border)";
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error invoking function:', error);
+                });
+        }
+
         var sendfundsrq = `</p>
         <form id="sendmoneyform" onsubmit="event.preventDefault(); sendFunds(document.getElementById('sendmoneyselect').value, document.getElementById('sendmoneyamount').value, document.getElementById('sendmoneyto').value, document.getElementById('sendmoneymsg').value, document.getElementById('sendmoneystatus'));">
         <div class="input">
@@ -190,6 +223,34 @@
         </form>
         <br>
         <button id="sendmoneydiscard" class="fullwidth" onclick="document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201);" style="border-color: red">Discard</button>
+        <p style="margin:0">
+        `;
+
+        var sendfundsrqa = `</p>
+        <form id="sendmoneyaform" onsubmit="event.preventDefault(); sendFundsa(document.getElementById('sendmoneyaselect').value, document.getElementById('sendmoneyaamount').value, document.getElementById('sendmoneyato').value, document.getElementById('sendmoneyamsg').value, document.getElementById('sendmoneyastatus'));">
+        <div class="input">
+            <label for="sendmoneyato">Recipient:</label>
+            <input type="text" id="sendmoneyato" placeholder="username" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30);">
+        </div>
+        <div class="input">
+            <label for="sendmoneyaselect">Resource:</label>
+            <select style="font-family: 'currencycompnus',Ubuntu !important; width:initial !important; flex:10" id="sendmoneyaselect" onchange="x=document.getElementById('sendmoneyaamount'); x.placeholder = (this.value=='noca'?'0':'0.00'); x.step = (this.value=='noca'?'1':(this.value=='sat'?'0.0001':'0.00000001')); x.value = (this.value=='noca'?Math.floor(x.value):x.value)">
+                <option style="font-family: 'currencycompnus',Ubuntu !important" value="nus">$ &nbsp; NUS</option>
+                <option style="font-family: 'currencycompnus',Ubuntu !important" value="noca">¤ &nbsp; Nocas</option>
+                <option style="font-family: 'currencycompnus',Ubuntu !important" value="sat">₿ &nbsp; Satoshis</option>
+            </select>
+        </div>
+        <div class="input">
+            <label for="sendmoneyaamount">Amount:</label>
+            <input type="number" id="sendmoneyaamount" placeholder="0.00" step="0.00000001" min="0" oninput="if(document.getElementById('sendmoneyaselect').value=='noca'){this.value = Math.floor(this.value)} if(this.value<0){this.value = -this.value}">
+        </div>
+        <p style="margin-bottom: 0.5vw">Message for the recipient:</p>
+        <textarea id="sendmoneyamsg" placeholder="Message is compiled as HTML."></textarea>
+        <p id="sendmoneyastatus" style="font-weight:bold;text-align:center"></p>
+        <button id="sendmoneyasubmit" type="submit" class="fullwidth">Send</button>
+        </form>
+        <br>
+        <button id="sendmoneyadiscard" class="fullwidth" onclick="document.getElementById('popup' + (popupid-1)).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + (popupid-1))), 201);" style="border-color: red">Discard</button>
         <p style="margin:0">
         `;
     </script>
@@ -290,7 +351,7 @@
             <div id="adminactions" class="mainactions" style="padding-right: 1vh">
                 <h2 class="fullwidth" style="margin:0;text-align:center;align-self:center">Admin Actions:</h2>
                 <button class="fullwidth" onclick="location.assign('admin/message.html')">Send Message</button>
-                <button class="fullwidth" onclick="">Give Funds</button>
+                <button class="fullwidth" onclick="popup('Give Funds', sendfundsrqa, false);">Give Funds</button>
                 <button class="fullwidth" onclick="location.assign('admin/dividends.html')">Create Dividends</button>
             </div>
 
@@ -319,7 +380,7 @@
 
             main();
         });
-
+        document.getElementById("adminactions").style.display = "grid";
         initFooter();
     </script>
 </body>

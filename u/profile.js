@@ -149,7 +149,9 @@ async function administr() {
         ismsgban = !msgadm.can_message;
         if (msgadm.admin) document.getElementById("adminactions").style.display = "grid";
         if (ismsgban) document.getElementById("messagenew").style.display = "none";
+        return msgadm.admin;
     }
+    return false;
 }
 
 function reportMsg(msg) {
