@@ -95,6 +95,7 @@ Deno.serve(async (req) => {
         });
     }
 
+    if (currency == "sat") currency = "sats";
     const { data: balancenoca, error: userExistsError } = await supabase
         .from("udata")
         .select("balance_"+currency)
@@ -128,7 +129,7 @@ Deno.serve(async (req) => {
         parsedAmount = Math.floor(parsedAmount);
         if (parsedAmount / 100 >= 95) calcFee = 100;
         else calcFee = Math.floor(parsedAmount / 100) + 5;
-    } else if (currency == "sat") {
+    } else if (currency == "sats") {
         calcFee = 5;
     }
 
@@ -155,10 +156,9 @@ Deno.serve(async (req) => {
     if (currency == "noca") {
         totalToSend = Math.floor(totalToSend);
         totalReceived = Math.floor(totalReceived);
-    } else if (currency == "sat") {
+    } else if (currency == "sats") {
         totalToSend = parseFloat(totalToSend.toFixed(4));
         totalReceived = parseFloat(totalReceived.toFixed(4));
-        currency = "sats";
     }
 
     if (totalToSend > balancenoca["balance_"+currency]) {
