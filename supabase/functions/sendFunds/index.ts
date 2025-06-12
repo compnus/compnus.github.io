@@ -61,7 +61,7 @@ Deno.serve(async (req) => {
         message.split("&").join("&amp;");
     } catch (error) {
         console.error("Failed to parse JSON body", error);
-        return new Response(JSON.stringify({ response: "Failed to parse request body" }), {
+        return new Response(JSON.stringify({ response: "Failed to parse request body" + error }), {
             status: 400,
             headers: {
                 ...headers
