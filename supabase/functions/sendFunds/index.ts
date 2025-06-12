@@ -206,9 +206,7 @@ Deno.serve(async (req) => {
         else if (currency === "noca") currencyThing = "¤";
         else if (currency === "sats") currencyThing = "₿";
 
-        // no message = internal server eroor; investigate
-
-        var finalMessage: string = message.length > 0 ? `<br><b>Message from sender:</b> ${message}` : ``;
+        var finalMessage: string = (message && (message.length > 0)) ? `<br><b>Message from sender:</b> ${message}` : ``;
 
         let upmessage: string = `%$t%You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important">${currencyThing} from ${from}!%$,%%$f%CompNUS%$,%%$m%<p>The amount has been added to your balance.${finalMessage}</p>%$$%`;
 
@@ -286,7 +284,7 @@ Deno.serve(async (req) => {
         });
     } catch (error) {
         console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error.<br>"+error }), {
+        return new Response(JSON.stringify({ response: "Internal Server Error." }), {
             status: 500,
             headers: {
                 ...headers
