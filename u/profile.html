@@ -112,17 +112,17 @@
             var pays = calcFees();
             message = message.substring(0, 100).replaceAll("<", "").replaceAll(">", "").replaceAll("\n", " ").replaceAll("  ", " ");
             administr();
-            if (ismsgban && message.length > 0) { status.innerHTML = "You are banned from sending messages.<br>Please refresh the website and try again."; return; }
+            if (ismsgban && (message.length > 0)) { status.innerHTML = "You are banned from sending messages.<br>Please refresh the website and try again."; return; }
             status.innerHTML = "Please wait...";
             if (!recipient) { status.innerHTML = "Please enter the recipient's username."; return; }
             var { data: myUsername, error } = await supabase.from('users').select('username').eq('id', dt.uid).single();
             if (recipient == myUsername.username) { status.innerHTML = "You cannot send funds to yourself."; return; }
-            if (!amount || amount <= 0 || pays[0] <= 0) { status.innerHTML = "Please enter a valid amount to send."; return; }
+            if (!amount || (amount <= 0) || (pays[0] <= 0)) { status.innerHTML = "Please enter a valid amount to send."; return; }
             var bals = await getBalance(dt.uid);
             if (!bals || error) { status.innerHTML = "Please login to send funds."; return; }
-            if (type == "nus" && (pays[1] > bals[0])) { status.innerHTML = "You do not have enough $NUS."; return; }
-            if (type == "noca" && (pays[1] > bals[1])) { status.innerHTML = "You do not have enough Nocas."; return; }
-            if (type == "sat" && (pays[1] > bals[2])) { status.innerHTML = "You do not have enough Satoshis."; return; }
+            if ((type == "nus") && (pays[1] > bals[0])) { status.innerHTML = "You do not have enough $NUS."; return; }
+            if ((type == "noca") && (pays[1] > bals[1])) { status.innerHTML = "You do not have enough Nocas."; return; }
+            if ((type == "sat") && (pays[1] > bals[2])) { status.innerHTML = "You do not have enough Satoshis."; return; }
             await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendFunds', {
                 method: 'POST',
                 headers: {
@@ -149,7 +149,7 @@
         }
 
         async function sendFundsa(type, amount, recipient, message, status) {
-            if (administr() !== true) {
+            if ((type=="sat") || (await administr() !== true)) {
                 location.reload();
                 return false;
             }
@@ -170,7 +170,6 @@
                         status.innerHTML = "Error: " + data.response;
                     } else {
                         status.innerHTML = data.response;
-                        loadWallet();
                         document.getElementById("sendmoneysubmit").innerHTML = "Send Again";
                         document.getElementById("sendmoneydiscard").innerHTML = "Close";
                         document.getElementById("sendmoneydiscard").style.borderColor = "var(--border)";
@@ -234,10 +233,9 @@
         </div>
         <div class="input">
             <label for="sendmoneyaselect">Resource:</label>
-            <select style="font-family: 'currencycompnus',Ubuntu !important; width:initial !important; flex:10" id="sendmoneyaselect" onchange="x=document.getElementById('sendmoneyaamount'); x.placeholder = (this.value=='noca'?'0':'0.00'); x.step = (this.value=='noca'?'1':(this.value=='sat'?'0.0001':'0.00000001')); x.value = (this.value=='noca'?Math.floor(x.value):x.value)">
+            <select style="font-family: 'currencycompnus',Ubuntu !important; width:initial !important; flex:10" id="sendmoneyaselect" onchange="x=document.getElementById('sendmoneyaamount'); x.placeholder = (this.value=='noca'?'0':'0.00'); x.step = (this.value=='noca'?'1':'0.00000001'); x.value = (this.value=='noca'?Math.floor(x.value):x.value)">
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="nus">$ &nbsp; NUS</option>
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="noca">¤ &nbsp; Nocas</option>
-                <option style="font-family: 'currencycompnus',Ubuntu !important" value="sat">₿ &nbsp; Satoshis</option>
             </select>
         </div>
         <div class="input">

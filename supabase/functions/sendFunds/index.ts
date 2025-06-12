@@ -82,14 +82,14 @@ Deno.serve(async (req) => {
 
     const { data: nData, error: nError } = await supabase.from("udata").select("can_message").eq("user_id", uid).single();
     if (!nData || nError) {
-        return new Response(JSON.stringify({ response: "We had problems processing the message.", message: "You can try sending the message again. If the issue persists, please contact support." }), {
+        return new Response(JSON.stringify({ response: "We had problems processing the transaction."}), {
             status: 501,
             headers: { ...headers }
         });
     }
 
     if (nData.can_message === false) {
-        return new Response(JSON.stringify({ response: "You are not allowed to send messages.", message: "You have been banned from sending messages. If you think we've made a mistake, feel free to appeal by contacting support." }), {
+        return new Response(JSON.stringify({ response: "Please remove the message to complete the transaction.", sc:true }), {
             status: 500,
             headers: { ...headers }
         });

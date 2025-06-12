@@ -45,7 +45,6 @@ Deno.serve(async (req) => {
     let to: string | null = null;
     let currency: string | null = null;
     let amount: string | null = null;
-    let fee: string | null = null;
     let message: string | null = null;
 
     try {
@@ -54,13 +53,7 @@ Deno.serve(async (req) => {
         to = body.to || null;
         currency = body.currency || null;
         amount = body.amount || null;
-        fee = body.fee || null;
         message = body.message || null;
-        if (message) {
-            message = message.substring(0, 100);
-            message.split("<").join("").split(">").join("").split("\n").join("").split("  ").join(" ");
-            message.split("&").join("&amp;");
-        }
     } catch (error) {
         console.error("Failed to parse JSON body", error);
         return new Response(JSON.stringify({ response: "Failed to parse request body" + error }), {
@@ -80,37 +73,21 @@ Deno.serve(async (req) => {
         });
     }
 
-    const { data: nData, error: nError } = await supabase.from("udata").select("can_message").eq("user_id", uid).single();
+    const { data: nData, error: nError } = await supabase.from("udata").select("admin").eq("user_id", uid).single();
     if (!nData || nError) {
-        return new Response(JSON.stringify({ response: "We had problems processing the message.", message: "You can try sending the message again. If the issue persists, please contact support." }), {
+        return new Response(JSON.stringify({ response: "We had problems processing the transaction." }), {
             status: 501,
             headers: { ...headers }
         });
     }
 
-    if (nData.can_message === false) {
-        return new Response(JSON.stringify({ response: "You are not allowed to send messages.", message: "You have been banned from sending messages. If you think we've made a mistake, feel free to appeal by contacting support." }), {
-            status: 500,
+    if (nData.admin === false) {
+        return new Response(JSON.stringify({ response: "You are not an admin." }), {
+            status: 403,
             headers: { ...headers }
         });
     }
 
-    const { data: balancenoca, error: userExistsError } = await supabase
-        .from("udata")
-        .select("balance_"+currency)
-        .eq("user_id", uid)
-        .single();
-
-    if (!balancenoca || userExistsError) {
-        return new Response(JSON.stringify({ response: "Unknown error." }), {
-            status: 400,
-            headers: {
-                ...headers
-            }
-        });
-    }
-
-    var calcFee: number = 0;
     var parsedAmount: number = parseFloat(amount);
     if (isNaN(parsedAmount) || parsedAmount <= 0) {
         return new Response(JSON.stringify({ response: "Please enter a valid amount to send.", sc:true }), {
@@ -120,101 +97,47 @@ Deno.serve(async (req) => {
             }
         });
     }
-    if (currency == "nus") {
-        if (parsedAmount / 20 <= 0.005) calcFee = 0.005;
-        else if (parsedAmount / 20 >= 1) calcFee = 1;
-        else calcFee = parseFloat((parsedAmount / 20).toFixed(3));
-    } else if (currency == "noca") {
-        parsedAmount = Math.floor(parsedAmount);
-        if (parsedAmount / 100 >= 95) calcFee = 100;
-        else calcFee = Math.floor(parsedAmount / 100) + 5;
-    } else if (currency == "sat") {
-        calcFee = 5;
-    }
-
-    var totalToSend: number = 0;
-    var totalReceived: number = 0;
-
-    if (fee == "extra") {
-        totalReceived = parseFloat(parsedAmount.toFixed(8));
-        totalToSend = parseFloat((parsedAmount + calcFee).toFixed(8));
-    } else if (fee == "part") {
-        totalReceived = parseFloat((parsedAmount - calcFee).toFixed(8));
-        totalToSend = parseFloat(parsedAmount.toFixed(8));
-    }
-
-    if (totalReceived <= 0) {
-        return new Response(JSON.stringify({ response: "Please enter a valid amount to send.", sc: true }), {
+    const { data: recuser, error: userExistsErrorn } = await supabase
+        .from("users")
+        .select("username")
+        .eq("id", uid)
+        .single();
+    if (userExistsErrorn || !recuser) {
+        return new Response(JSON.stringify({ response: `Huh? You don't even exist.` }), {
             status: 400,
             headers: {
                 ...headers
             }
         });
-    }
-
-    if (currency == "noca") {
-        totalToSend = Math.floor(totalToSend);
-        totalReceived = Math.floor(totalReceived);
-    } else if (currency == "sat") {
-        totalToSend = parseFloat(totalToSend.toFixed(4));
-        totalReceived = parseFloat(totalReceived.toFixed(4));
-        currency = "sats";
-    }
-
-    if (totalToSend > balancenoca["balance_"+currency]) {
-        return new Response(JSON.stringify({ response: "Your balance is insufficient.", sc:true }), {
-            status: 501,
-            headers: { ...headers }
-        });
+    } else {
+        from = recuser.username;
     }
 
     try {
-        const { data: recuser, error: userExistsErrorn } = await supabase
-            .from("users")
-            .select("username")
-            .eq("id", uid)
-            .single();
-
-        if (userExistsErrorn || !recuser) {
-            return new Response(JSON.stringify({ response: `User ${uid} does not exist in the 'users' table.` }), {
-                status: 400,
-                headers: {
-                    ...headers
-                }
-            });
-        } else {
-            from = recuser.username;
-        }
-
-        const { data: bData, error: bError } = await supabase.from("users").select("blocked_users, id").eq("username", to).single();
-        if (!bData || bError) {
-            return new Response(JSON.stringify({ response: "The recipient does not exist." }), {
-                status: 501,
-                headers: { ...headers }
-            });
-        }
-        if (bData.blocked_users.indexOf(from) > -1 && message.length > 0) {
-            return new Response(JSON.stringify({ response: "This user has blocked you.<br>You can still complete the transaction if you remove the message.", sc:true }), {
-                status: 501,
-                headers: { ...headers }
-            });
-        }
-
         var currencyThing: string = "";
 
         if (currency === "nus") currencyThing = "$";
         else if (currency === "noca") currencyThing = "¤";
-        else if (currency === "sats") currencyThing = "₿";
 
-        var finalMessage: string = (message && (message.length > 0)) ? `<br><b>Message from sender:</b> ${message}` : ``;
+        var finalMessage: string = (message && (message.length > 0)) ? `${message}<br>` : ``;
 
-        let upmessage: string = `%$t%You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!%$,%%$f%CompNUS%$,%%$m%<p>The amount has been added to your balance.${finalMessage}</p>%$$%`;
+        let upmessage: string = `%$t%You have received ${parsedAmount} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span>%$,%%$f%CompNUS%$,%%$m%<p>${finalMessage}The amount has been added to your balance.</p>%$$%`;
 
         const { data: senuser, error: userExistsError } = await supabase
             .from("users")
             .select("messages")
             .eq("username", to)
             .single();
+
+        const { data: bData, error: bError } = await supabase.from("users").select("id").eq("username", to).single();
+        if (!bData || bError) {
+            return new Response(JSON.stringify({ response: `User ${to} does not exist.` }), {
+                status: 404,
+                headers: {
+                    ...headers
+                }
+            });
+        }
 
         const { data: senuserc, error: userExistsErrorc } = await supabase
             .from("udata")
@@ -231,30 +154,12 @@ Deno.serve(async (req) => {
             });
 
         } else {
-            var updateds: Object = {};
             var sends: Object = {};
             if (currency === "nus") {
-                updateds = { balance_nus: balancenoca.balance_nus - totalToSend };
-                sends = { balance_nus: senuserc.balance_nus + totalReceived };
+                sends = { balance_nus: senuserc.balance_nus + parsedAmount };
             } else if (currency === "noca") {
-                updateds = { balance_noca: balancenoca.balance_noca - totalToSend };
-                sends = { balance_noca: senuserc.balance_noca + totalReceived };
-            } else if (currency === "sats") {
-                updateds = { balance_sats: balancenoca.balance_sats - totalToSend };
-                sends = { balance_sats: senuserc.balance_sats + totalReceived };
+                sends = { balance_noca: senuserc.balance_noca + parsedAmount };
             }
-            if (uid === bData.id) {
-                    return new Response(JSON.stringify({ response: `You cannot send funds to yourself.`, sc: true }), {
-                        status: 403,
-                        headers: {
-                            ...headers
-                        }
-                    });
-            }
-            const { error: cannotDeduct } = await supabase
-                .from("udata")
-                .update(updateds)
-                .eq("user_id", uid);
             const { error: cannotAdd } = await supabase
                 .from("udata")
                 .update(sends)
@@ -263,8 +168,8 @@ Deno.serve(async (req) => {
                 .from("users")
                 .update({ messages: upmessage + senuser.messages })
                 .eq("username", to);
-            if (cannotSend || cannotDeduct || cannotAdd) {
-                return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend.message || cannotDeduct.message || cannotAdd.message}`, sc:true }), {
+            if (cannotSend || cannotAdd) {
+                return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend.message || cannotAdd.message}`, sc:true }), {
                     status: 401,
                     headers: {
                         ...headers
@@ -273,7 +178,7 @@ Deno.serve(async (req) => {
             }
             const { error: logError } = await supabase
                 .from("logs")
-                .insert([{ created_by: from, type: "transaction", attributes: "to->" + to + "\ncurrency->" + currency + "\nsent->" + totalToSend + "\nreceived->" + totalReceived, message: "message->" + message }]);
+                .insert([{ created_by: from, type: "adminTransaction", attributes: "to->" + to + "\ncurrency->" + currency + "\ngiven->" + parsedAmount, message: "message->" + message }]);
             if (logError) {
                 return new Response(JSON.stringify({ response: `Internal server error.` }), {
                     status: 500,
