@@ -219,7 +219,7 @@ Deno.serve(async (req) => {
             .single();
 
         if (userExistsError || !senuser) {
-            return new Response(JSON.stringify({ response: `User ${to} does not exist.` }), {
+            return new Response(JSON.stringify({ response: `User ${to} does not exist.<br>${userExistsError.message}` }), {
                 status: 404,
                 headers: {
                     ...headers
