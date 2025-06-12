@@ -170,9 +170,9 @@
                         status.innerHTML = "Error: " + data.response;
                     } else {
                         status.innerHTML = data.response;
-                        document.getElementById("sendmoneysubmit").innerHTML = "Send Again";
-                        document.getElementById("sendmoneydiscard").innerHTML = "Close";
-                        document.getElementById("sendmoneydiscard").style.borderColor = "var(--border)";
+                        document.getElementById("sendmoneyasubmit").innerHTML = "Send Again";
+                        document.getElementById("sendmoneyadiscard").innerHTML = "Close";
+                        document.getElementById("sendmoneyadiscard").style.borderColor = "var(--border)";
                     }
                 })
                 .catch((error) => {
