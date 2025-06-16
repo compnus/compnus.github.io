@@ -466,6 +466,7 @@
                 document.getElementById('sendmoneymsg').value = decodeURIComponent(message);
                 calcFees();
                 document.getElementById('sendmoneymsg').dispatchEvent(new Event('input'));
+                document.getElementById('sendmoneyfeetype').classList.add("disabled");
             }
         });
         initFooter();
