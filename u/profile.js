@@ -3,6 +3,8 @@ var messageid = 0;
 var loadedmessages = {};
 var messagecontainer = {};
 var ismsgban = false;
+var reclinktype = 0;
+var dtusername = "";
 
 async function main() {
     const { data, error } = await supabase.auth.getUser();
@@ -25,15 +27,16 @@ async function main() {
 
     const { data: nameddata, error: namederror } = await supabase
         .from("users")
-        .select("name")
+        .select("name, username")
         .eq("id", dt.user_id)
         .single();
 
-    if (namederror || !nameddata.name) {
+    if (namederror || !nameddata) {
         window.location.href = "setup.html";
     }
 
     document.getElementById("welcomer").innerHTML = `Welcome, ${nameddata.name}!`;
+    dtusername = nameddata.username;
 
     loadWallet();
     loadMessages();
@@ -358,6 +361,15 @@ function calcFees() {
     }
 
     return calcTotals();
+}
+
+function fixRecValues() {
+    var type = document.getElementById("recmoneyselect").value;
+    var amountFix = document.getElementById("recmoneyamount")
+    if (amountFix.value.includes("e")) amountFix.value = parseFloat(amountFix.value).toFixed(8);
+    var parts = amountFix.value.split(".");
+    if (type == "nus" && parts[1] && parts[1].length > 8) amountFix.value = parseFloat(parseFloat(amountFix.value)?.toFixed(8));
+    if (type == "sat" && parts[1] && parts[1].length > 4) amountFix.value = parseFloat(parseFloat(amountFix.value)?.toFixed(4));
 }
 
 function calcTotals() {

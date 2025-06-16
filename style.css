@@ -347,7 +347,7 @@ div.popup > div > div.inside {
     margin-bottom: 1vh;
 }
 
-#sendmoneymsg {
+#sendmoneymsg, #recmoneymsg {
     resize: none;
     margin-bottom: 0.5vw;
     min-height: 10vh;

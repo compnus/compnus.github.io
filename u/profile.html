@@ -180,6 +180,37 @@
                 });
         }
 
+        async function getFunds(type, amount, message, status) {
+            message = message.substring(0, 100).replaceAll("<", "").replaceAll(">", "").replaceAll("\n", " ").replaceAll("  ", " ").replaceAll("&", "");
+            status.innerHTML = "Please wait...";
+            if (dtusername == "") {
+                const { data, error } = await supabase
+                    .from("users")
+                    .select("username")
+                    .eq("id", dt.user_id)
+                    .single();
+                if (!data || error) {
+                    status.innerHTML = "You need to be logged in to use this feature.";
+                    return;
+                }
+                else dtusername = data.username;
+                dtusername = "test";
+            }
+            if (!amount || (amount <= 0)) {
+                status.innerHTML = "Please enter a valid amount to receive.";
+                return;
+            }
+            var link = `https://compnus.github.io/u/profile.html?act=send&to=${dtusername}&type=${type}&amount=${amount}` + (message.length ? `&message=${encodeURIComponent(message).replaceAll("'", "%27")}` : "");
+            if (reclinktype == 0) {
+                await fetch("https://is.gd/create.php?format=json&url=" + encodeURIComponent(link))
+                    .then(response => response.json())
+                    .then(data => {
+                        status.innerHTML = `Success! Click the link below to copy it.<br><span onclick='navigator.clipboard.writeText("${data.shorturl}"); this.innerHTML="Copied!"' style="cursor:pointer">`+data.shorturl+"</span>";
+                    }).catch(error => { status.innerHTML = "Something went wrong."; console.error(error); });
+            }
+            if (reclinktype == 1) status.innerHTML = `Success!<br><span style='cursor:pointer; color:yellow' onclick="navigator.clipboard.writeText('${link}'); this.innerHTML = 'COPIED!'">COPY LINK</span> &nbsp; &bull; &nbsp; <span style='cursor:pointer; color:yellow' onclick="popup('Full Link', '</p><p style=\\'max-width:75vw; overflow-x: auto; margin-bottom: 0\\'>${link}')">PREVIEW LINK</span>`;
+        }
+
         var sendfundsrq = `</p>
         <form id="sendmoneyform" onsubmit="event.preventDefault(); sendFunds(document.getElementById('sendmoneyselect').value, document.getElementById('sendmoneyamount').value, document.getElementById('sendmoneyto').value, document.getElementById('sendmoneymsg').value, document.getElementById('sendmoneystatus'));">
         <div class="input">
@@ -222,6 +253,47 @@
         </form>
         <br>
         <button id="sendmoneydiscard" class="fullwidth" onclick="document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201);" style="border-color: red">Discard</button>
+        <p style="margin:0">
+        `;
+
+        var changelinktyperq = `
+        <div class="input">
+            <div class="halve">
+                <select style="width:initial !important; flex:10" id="reqmoneylinktypeselect" onchange="reclinktype = this.value; if(this.value==0){document.getElementById('changelinkex').innerHTML='https://is.gd/RND45LINK'} else if(this.value==1){document.getElementById('changelinkex').innerHTML='https://compnus.github.io/u/profile.html?act=send&to='+dtusername+'&type=nus&amount=1&message=Yo%20send%20me%20your%20money%20now!'}">
+                    <option value="0">Shortened (Default)</option>
+                    <option value="1">Full Link</option>
+                </select>
+                <button onclick="popup('Link Types', '<b>Shortened</b><br>The link is shortened by is.gd and you will receive a short sharable link.<br><br><b>Full Link</b><br>You will receive the full link with parameters.')">?</button>
+            </div>
+        </div>
+        <p style="margin-bottom: 0">The link will look something like this:<br>
+        <span id="changelinkex" style="font-weight: bold;">https://is.gd/RND45LINK</span>
+        `;
+
+        var receivefundsrq = `</p>
+        <form id="recmoneyform" onsubmit="event.preventDefault(); getFunds(document.getElementById('recmoneyselect').value, document.getElementById('recmoneyamount').value, document.getElementById('recmoneymsg').value, document.getElementById('recmoneystatus'));">
+        <div class="input">
+            <label for="recmoneyselect">Resource:</label>
+            <select style="font-family: 'currencycompnus',Ubuntu !important; width:initial !important; flex:10" id="recmoneyselect" onchange="x=document.getElementById('recmoneyamount'); x.placeholder = (this.value=='noca'?'0':'0.00'); x.step = (this.value=='noca'?'1':(this.value=='sat'?'0.0001':'0.00000001')); x.value = (this.value=='noca'?Math.floor(x.value):x.value); fixRecValues()">
+                <option style="font-family: 'currencycompnus',Ubuntu !important" value="nus">$ &nbsp; NUS</option>
+                <option style="font-family: 'currencycompnus',Ubuntu !important" value="noca">¤ &nbsp; Nocas</option>
+                <option style="font-family: 'currencycompnus',Ubuntu !important" value="sat">₿ &nbsp; Satoshis</option>
+            </select>
+        </div>
+        <div class="input">
+            <label for="recmoneyamount">Amount:</label>
+            <input type="number" id="recmoneyamount" placeholder="0.00" step="0.00000001" min="0" oninput="if(document.getElementById('recmoneyselect').value=='noca'){this.value = Math.floor(this.value)} if(this.value<0){this.value = -this.value} fixRecValues()">
+        </div>
+        <p style="margin-bottom: 0.5vw">Message template (<span id="recmoneymsglength">100</span> remaining):</p>
+        <textarea id="recmoneymsg" placeholder="Message template is optional." oninput="this.value=this.value.replaceAll('\\n','').replaceAll('<','').replaceAll('>','').replaceAll('  ',' ').replaceAll('&',''); if(this.value.length>100){this.value = this.value.substring(0,100)} document.getElementById('recmoneymsglength').innerHTML = 100 - this.value.length;"></textarea>
+        <div class="flex">
+        <button id="recmoneysubmit" type="submit" style="flex:10">Get Link</button> &nbsp; &nbsp;
+        <button type="button" onclick="popup('Link Type', changelinktyperq); document.getElementById('reqmoneylinktypeselect').value=reclinktype; document.getElementById('reqmoneylinktypeselect').dispatchEvent(new Event('change'))"><b>&#8942;</b></button>
+        </div>
+        <p id="recmoneystatus" style="font-weight:bold;text-align:center"></p>
+        </form>
+        <br>
+        <button id="recmoneydiscard" class="fullwidth" onclick="document.getElementById('popup' + recfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + recfundsrqpopupid)), 201);" style="border-color: red">Discard</button>
         <p style="margin:0">
         `;
 
@@ -287,7 +359,7 @@
                 <p style="margin: 0; width: 100%; text-align: right;" id="valuebtcsats" title="Approximate value based on the current price of Bitcoin (provided by CoinDesk)">&asymp; $0.00<span style="color: #999; font-weight: 300">0</span></p>
                 <div id="walletactions">
                     <button class="fullwidth" title="Send wallet resources to other users!" onclick="sendfundsrqpopupid = popupid; popup('Send Funds', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send Funds</button>
-                    <button class="fullwidth" title="Receive wallet resources to other users!">Receive Funds</button>
+                    <button class="fullwidth" title="Receive wallet resources to other users!" onclick="recfundsrqpopupid = popupid; popup('Receive Funds', receivefundsrq, false)">Receive Funds</button>
                 </div>
                 <button class="fullwidth" title="Detailed view of your wallet resources. You can withdraw your Bitcoin Satoshi here." onclick="location.assign('wallet.html')">Open Wallet</button>
             </div>
@@ -371,14 +443,31 @@
             if (!data.user) {
                 //window.location.href = "/u/login.html";
                 return;
-            } else if (error) {
+            }
+            if (error) {
                 console.error(error);
                 return;
             }
 
             main();
+
+            let daction = GetURLParameter("act");
+            if (daction === "send") {
+                let to = GetURLParameter("to");
+                let type = GetURLParameter("type");
+                let amount = GetURLParameter("amount");
+                let message = GetURLParameter("message") || "";
+                sendfundsrqpopupid = popupid;
+                popup('Send Funds', sendfundsrq, false);
+                if (ismsgban) { document.getElementById('blockedmessaging').classList.add('disabled'); message = "" };
+                document.getElementById('sendmoneyto').value = to;
+                document.getElementById('sendmoneyselect').value = type;
+                document.getElementById('sendmoneyamount').value = amount;
+                document.getElementById('sendmoneymsg').value = decodeURIComponent(message);
+                calcFees();
+                document.getElementById('sendmoneymsg').dispatchEvent(new Event('input'));
+            }
         });
-        document.getElementById("adminactions").style.display = "grid";
         initFooter();
     </script>
 </body>
