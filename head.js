@@ -18,6 +18,7 @@ document.head.innerHTML += head;
 
 const header = document.createElement("template");
 const footer = document.createElement("template");
+const fullfooter = document.createElement("template");
 
 header.innerHTML = `
 <header>
@@ -37,8 +38,22 @@ footer.innerHTML = `
 <footer>
 <p id="footnote">&copy;<span id="footnoteyear">2069</span> CompNUS, All rights reserved.</p>
 <div id="footernav">
+<p class="link fnav"><a href="/legal/faq.html">FAQ</a></p>
+<p class="link fnav"><a href="/legal/">Legal</a></p>
+</div>
+</footer>
+`;
+
+fullfooter.innerHTML = `
+<footer class="full">
+<div id="footerline">
+<p id="footnote">&copy;<span id="footnoteyear">2069</span> CompNUS, All rights reserved.</p>
+<div id="footernav">
 <p class="link fnav"><a href="/legal/credits.html">Credits</a></p>
 <p class="link fnav"><a href="/legal/tos.html">Terms of Service</a></p>
+</div>
+</div>
+<div id="footerbottom">
 </div>
 </footer>
 `;
@@ -66,7 +81,11 @@ function initHeader(title) {
     });
 }
 
-function initFooter() {
-    document.body.appendChild(footer.content);
+function initFooter(full = false) {
+    if (full) {
+        document.body.appendChild(fullfooter.content);
+    } else {
+        document.body.appendChild(footer.content);
+    }
     document.getElementById("footnoteyear").innerHTML = new Date().getFullYear().toString();
 }
