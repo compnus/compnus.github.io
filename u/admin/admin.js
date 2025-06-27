@@ -39,6 +39,7 @@ async function sendMessage() {
     if ((body.title.trim() == "") || (body.msg.trim() == "")) {
         popup("Title or message is missing!", "Please input the title and the message properly.");
         return;
+    }
     var bt = document.getElementById("limitedsend");
     bt.innerHTML = "Please wait...";
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendMessageAdmin', {
