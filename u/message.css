@@ -246,47 +246,47 @@ td > img, .msgmsg > p > img {
     max-height: 20vh;
 }
 
-.img1 {
+.img1, img.i1 {
     object-fit: cover;
     width: 20vh;
     height: 20vh;
 }
 
-.img2 {
+.img2, img.i2 {
     object-fit: cover;
     width: 10vh;
     height: 10vh;
 }
 
-.img3 {
+.img3, img.i3 {
     object-fit: cover;
     width: 20vh;
     height: 20vh;
     border-radius: 2vh;
 }
 
-.img4 {
+.img4, img.i4 {
     object-fit: cover;
     width: 10vh;
     height: 10vh;
     border-radius: 1vh;
 }
 
-.img5 {
+.img5, img.i5 {
     object-fit: cover;
     width: 20vh;
     height: 20vh;
     border-radius: 10vh;
 }
 
-.img6 {
+.img6, img.i6 {
     object-fit: cover;
     width: 10vh;
     height: 10vh;
     border-radius: 5vh;
 }
 
-.img7, .img8 {
+.img7, .img8, img.i7, img.i8 {
     object-fit: cover;
     width: 10vh;
     height: 10vh;
@@ -296,16 +296,16 @@ td > img, .msgmsg > p > img {
     position: relative;
 }
 
-.img7:hover {
+.img7:hover, img.i7:hover {
     filter: grayscale(0);
     transform: scale(2);
     z-index:9999;
 }
 
-.img8:hover {
+.img8:hover, img.i8:hover {
     filter: grayscale(0);
     transform: scale(1.5);
-    z-index:9999;
+    z-index: 9999;
 }
 
 .toolbutton {
@@ -582,41 +582,41 @@ td > img, .msgmsg > p > img {
         max-height: 40vw;
     }
 
-    .img1 {
+    .img1, img.i1 {
         width: 40vw;
         height: 40vw;
     }
 
-    .img2 {
+    .img2, img.i2 {
         width: 20vw;
         height: 20vw;
     }
 
-    .img3 {
+    .img3, img.i3 {
         width: 40vw;
         height: 40vw;
         border-radius: 4vw;
     }
 
-    .img4 {
+    .img4, img.i4 {
         width: 20vw;
         height: 20vw;
         border-radius: 2vw;
     }
 
-    .img5 {
+    .img5, img.i5 {
         width: 40vw;
         height: 40vw;
         border-radius: 20vw;
     }
 
-    .img6 {
+    .img6, img.i6 {
         width: 20vw;
         height: 20vw;
         border-radius: 10vw;
     }
 
-    .img7, .img8 {
+    .img7, .img8, img.i7, img.i8 {
         width: 20vw;
         height: 20vw;
         border-radius: 1vw;

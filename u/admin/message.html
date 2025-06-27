@@ -8,6 +8,7 @@
     <title>Admin Message - CompNUS</title>
     <link rel="stylesheet" href="../../style.css" />
     <link rel="stylesheet" href="../message.css" />
+    <link rel="stylesheet" href="../message.css" />
     <link rel="stylesheet" href="admin.css" />
 </head>
 <body>
@@ -18,105 +19,35 @@
     <main>
         <div id="shadowcontainer">
             <div class="flex cc" id="mainheading">
-                <h1>Message Type:</h1>
-                <button class="headingselector selected" onclick="messageType(0)" id="types0">Normal</button>
-                <button class="headingselector" onclick="messageType(1)" id="types1">Advanced</button>
-                <button id="headinginfo"
-                        onclick="popup('Message Types', '<b>Normal Message</b><ul><li>Limited length</li><li>No formatting</li><li>No network fee</li></ul><hr><p><b>Advanced Message</b></p><ul><li>Unlimited length</li><li>Supports formatting, images and clickable links</li><li>Network fee is based on length and the amount of links</li></ul>')">
-                    ?
-                </button>
+                <p style="margin: 5px">Both the title and the message are compiled as HTML. &nbsp; <span onclick="popup('Image Class Cheatsheet', 'No Class = Normal Image<br><code>i1</code> = Big Square<br><code>i2</code> = Small Square<br><code>i3</code> = Big Rounded Square<br><code>i4</code> = Small Rounded Square<br><code>i5</code> = Big Circle<br><code>i6</code> = Small Circle<br><code>i7</code> = Rounded Square (Big Hover)<br><code>i8</code> = Rounded Square (Small Hover)')" style="color: yellow; cursor: pointer">Image Class Cheatsheet</span></p>
             </div>
-            <div class="main selected" id="type0">
+            <div class="main">
                 <div class="msgheading">
                     <div class="input" style="flex: 1">
-                        <label for="normalreceiver">Send to:</label>
-                        <input id="normalreciever" placeholder="username" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30); document.getElementById('advreciever').value=this.value"/>
+                        <label for="receiver">Send to:</label>
+                        <input id="receiver" placeholder="Leave empty for everyone" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30); document.getElementById('advreciever').value=this.value"/>
                     </div>
                     <div class="separation"></div>
                     <div class="input" style="flex: 3">
-                        <label for="normaltitle">Title:</label>
-                        <input id="normaltitle" placeholder="This is the title of this message!" oninput="fixTitle(this.id);"/>
+                        <label for="mtitle">Title:</label>
+                        <input id="mtitle" placeholder="Message title"/>
                     </div>
                 </div>
                 <div class="msgcompose">
-                    <textarea id="normalmsg" placeholder="Write your message here." oninput="remainingChar()"></textarea>
-                    <div class="bottomline">
-                        <p id="remainingchar">Characters remaining: 200</p>
-                        <p class="disclaimer">
-                            By sending this message, you agree with the <span onclick="popup('Rules of CompNUS Messages','Breaking these rules will result in you permanently losing the ability to send messages.<br>It is forbidden to:</p><ul>'+RULES+'</ul><p style=\'margin-bottom:0\'>Besides these rules, we reserve the right to block you from sending messages at any time.')">Rules of CompNUS Messages</span>.
-                        </p>
-                        <p id="normaltitleremchar">Title length: 0/100</p>
-                    </div>
+                    <textarea id="msg" placeholder="Message content"></textarea>
                 </div>
                 <div class="msgfinal">
                     <button onclick="history.back()">Discard and Return</button>
+                    <button onclick="preview()">Preview</button>
                     <button onclick="sendMessage()" id="limitedsend">Send</button>
-                </div>
-            </div>
-            <div class="main" id="type1">
-                <div class="msgheading">
-                    <div class="input" style="flex: 1">
-                        <label for="advreceiver">Send to:</label>
-                        <input id="advreciever" placeholder="username" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30); document.getElementById('normalreciever').value=this.value" />
-                    </div>
-                    <div class="separation"></div>
-                    <div class="input" style="flex: 3">
-                        <label for="advtitle">Title:</label>
-                        <input id="advtitle" placeholder="This is the title of this message!" oninput="fixTitle(this.id);" />
-                    </div>
-                </div>
-                <div class="msgcompose">
-                     <div id="advancedinside">
-                         <textarea id="advmsg" placeholder="Write your message here." oninput="increaseChar()" onfocus="increaseChar()"></textarea>
-                         <div id="toolbox">
-                             <button class="toolbutton"
-onclick="popup('Formatting Help','You can use braces {} to format your text. They function as tags (they must be opened and closed - the text between them will get formatted).<br>Example: {b}Bold text{/b} will produce <b>Bold text</b><br>Here is the list of all formatting tags with examples:'+LIST)"
-                             >Formatting Help</button>
-                             <button class="toolbutton" onclick="preview()">Preview Message</button>
-                             <br />
-                             <div id="actualtools">
-                                 <button class="toolsbutton" onclick="add('{b}')" title="Start Bold Text"><img src="../site/icon/bold.png" /></button>
-                                 <button class="toolsbutton" onclick="add('{/b}')" title="End Bold Text"><img src="../site/icon/nobold.png" /></button>
-                                 <button class="toolsbutton" onclick="add('{i}')" title="Start Italic Text"><img src="../site/icon/italic.png" /></button>
-                                 <button class="toolsbutton" onclick="add('{/i}')" title="End Italic Text"><img src="../site/icon/noitalic.png" /></button>
-                                 <button class="toolsbutton" onclick="add('{u}')" title="Start Underlined Text"><img src="../site/icon/underline.png" /></button>
-                                 <button class="toolsbutton" onclick="add('{/u}')" title="End Underlined Text"><img src="../site/icon/nounderline.png" /></button>
-                                 <button class="toolsbutton" onclick="add('{s}')" title="Start Strike-through Text"><img src="../site/icon/strike.png" /></button>
-                                 <button class="toolsbutton" onclick="add('{/s}')" title="End Strike-through Text"><img src="../site/icon/nostrike.png" /></button>
-                                 <button class="toolsbutton" onclick="add('{h}')" title="Start Heading (Big Text)"><img src="../site/icon/heading.png" /></button>
-                                 <button class="toolsbutton" onclick="add('{/h}')" title="End Heading (Big Text)"><img src="../site/icon/noheading.png" /></button>
-                                 <button class="toolsbutton span2" onclick="add('{l}')" title="Add a Horizontal Line">Line</button>
-                                 <button class="toolsbutton span3" onclick="addLink()" title="Add a Link to the Message">Add Link...</button>
-                                 <button class="toolsbutton span3" onclick="addImage()" title="Add an Image to the Message">Add Image...</button>
-                                 <p style="margin-bottom:0;text-align: center;" class="span6">Add special characters:</p>
-                                 <button class="toolsbutton" onclick="add('\{\{')" title="Left Brace">{</button>
-                                 <button class="toolsbutton" onclick="add('\}\}')" title="Right Brace">}</button>
-                                 <button class="toolsbutton span4" onclick="add('{!}')" title="Spaces in HTML tend to get ignored when repeated multiple times. The explicit space prevents this behavior.">Explicit Space</button>
-                             </div>
-                             <br />
-                             <hr />
-                             <div class="flex" style="justify-content: space-between">
-                                 <p>Noca balance:</p>
-                                 <p id="nocabalance">0</p>
-                             </div>
-                         </div>
-                     </div>
-                    <div class="bottomline">
-                        <p id="charcount">Characters: 0</p>
-                        <p class="disclaimer">
-                            By sending this message, you agree with the <span onclick="popup('Rules of CompNUS Messages','Breaking these rules will result in you permanently losing the ability to send messages.<br>It is forbidden to:</p><ul>'+RULES+'</ul><p style=\'margin-bottom:0\'>Besides these rules, we reserve the right to block you from sending messages at any time.')">Rules of CompNUS Messages</span>.
-                        </p>
-                        <p id="advtitleremchar">Title length: 0/100</p>
-                    </div>
-                </div>
-                <div class="msgfinal">
-                    <button onclick="history.back()">Discard and Return</button>
-                    <button onclick="sendMessage()" id="mainsend">Send (<span id="messagecost">1</span> &curren;)</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <script>initFooter();</script>
+    <script>
+        initFooter();
+       // document.addEventListener("DOMContentLoaded", async () => { main() });
+    </script>
 </body>
 </html>

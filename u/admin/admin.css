@@ -1,0 +1,31 @@
+textarea {
+    min-height: 50vh;
+    max-height: 50vh;
+    resize: none;
+}
+
+code {
+    user-select: all;
+    font-family: Consolas, monospace;
+}
+
+.main {
+    display: block !important;
+}
+
+.msgfinal > button {
+    width: 20vw;
+}
+
+@media(orientation: portrait) {
+
+    #mainheading {
+        display: block !important;
+        padding: 5px 4vw;
+    }
+
+    .msgfinal > button {
+        width: 100%;
+    }
+
+}
