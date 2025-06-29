@@ -4,215 +4,63 @@
     <script src="../head.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="../script.js" defer></script>
-    <script src="profile.js" defer></script>
-    <title>Dashboard - CompNUS</title>
+    <script src="wallet.js" defer></script>
+    <title>Wallet - CompNUS</title>
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="profile.css" />
 </head>
 <body>
     <script>
-        initHeader("Dashboard");
-        document.getElementById("headernav").removeChild(document.getElementById("userlogin"));
-
-        async function suggestFeature(name, dsc, status) {
-            status.innerHTML = "Please wait...";
-            dsc = dsc.trim();
-            if (!dsc) status.innerHTML = "Please describe the feature you want to suggest.";
-            else if (dsc.length < 20) status.innerHTML = "Please provide a more detailed description of the feature.";
-            else await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/sendSuggestion', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
-                },
-                body: JSON.stringify({uid:dt.uid,name:name,dsc:dsc})
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.sc) {
-                        status.innerHTML = "Error: " + data.response;
-                    } else {
-                        status.innerHTML = data.response;
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error invoking function:', error);
-                });
-        }
-
-        async function reportProblem(cat, dsc, status) {
-            status.innerHTML = "Please wait...";
-            dsc = dsc.trim();
-            if (!dsc) status.innerHTML = "Please describe the problem you are bearing with.";
-            else await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/reportProblem', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
-                },
-                body: JSON.stringify({ uid: dt.uid, type: cat, dsc: dsc })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.sc) {
-                        status.innerHTML = "Error: " + data.response;
-                    } else {
-                        status.innerHTML = data.response;
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error invoking function:', error);
-                });
-        }
-
-        var suggstftr = `
-        <form id="suggestionform" onsubmit='event.preventDefault(); suggestFeature(document.getElementById("feature_name").value, document.getElementById("describesgst").value, document.getElementById("suggstftrstatus"));'>
-        <div class="input">
-            <label for="feature_name">Feature Name:</label>
-            <input type="text" id="feature_name" oninput='this.value = this.value.replaceAll("\"", ""); if (this.value.length>50) this.value = this.value.substring(0,50);'>
-        </div>
-        <p style="margin-bottom: 0.5vw">Describe the feature:</p>
-        <textarea id="describesgst"></textarea>
-        <br>
-        <p id="suggstftrstatus" style="font-weight:bold;text-align:center"></p>
-        <button type="submit" class="fullwidth">Send</button>
-        </form>
-        <p style="margin:0">
-        `;
-        var probcats = `
-        <b>Account</b> - Issues related to your account, messages or your data.<br>
-        <b>Wallet</b> - Issues related to your wallet, sending and receiving money.<br>
-        <b>Bug</b> - Anything that doesn't seem to be working properly.<br>
-        <b>Other</b> - All other issues, that do not fit into the above categories.
-        `;
-        var reportprob = `
-        <form id="suggestionform" onsubmit='event.preventDefault(); reportProblem(document.getElementById("probcat").value, document.getElementById("describeprb").value, document.getElementById("reportprbstatus"));'>
-        <div class="input">
-            <label for="probcat">Problem Category:</label>
-            <div class="halve">
-            <select id="probcat">
-              <option value="account">Account</option>
-              <option value="wallet">Wallet</option>
-              <option value="bug">Bug</option>
-              <option value="other">Other</option>
-            </select>
-            <button onclick="popup('Problem Categories', probcats)" type="button">?</button>
-            </div>
-        </div>
-        <p style="margin-bottom: 0.5vw">Describe the problem:</p>
-        <textarea id="describeprb"></textarea>
-        <br>
-        <p id="reportprbstatus" style="font-weight:bold;text-align:center"></p>
-        <button type="submit" class="fullwidth">Send</button>
-        </form>
-        <p style="margin:0">
-        `;
+        initHeader("Wallet");
     </script>
 
-    <main>
-        <div id="main">
-            <div class="flex cc"><h1 id="welcomer">Welcome, User!</h1></div>
-            <div class="mainactions">
-                <button class="fullwidth" title="Free crypto is waiting!">CryptoNUS</button>
-                <button class="fullwidth" title="Mine CompNUS's own cryptocurrency - $NUS!">Mine $NUS</button>
-                <button class="fullwidth" title="Get Bitcoin, $NUS and Nocas (&curren;) from dividends and tasks!">Free Money</button>
-                <button class="fullwidth" title="Access and manage all your data!">Manage Data</button>
-            </div>
+    <div class="mainscroll mainwallet">
+        <div class="flex cc">
+            <button onclick="loadWallet()">Refresh Wallet</button>
         </div>
 
-        <div id="side" class="mainscroll">
+        <br />
 
-            <div class="sideshmuck" id="wallet">
-                <p class="collapse" id="walletrefresh" title="Refresh Wallet" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
-                <p class="collapse" id="collapsewallet" title="Collapse/Reveal Wallet" onclick="collapse('wallet');">&#9650;</p>
-                <div class="flex cc"><h1 class="title" onclick="collapse('wallet');">Wallet</h1></div>
-                <div class="flex" title="$NUS">
-                    <img src="../site/image/logo/currency.svg" class="currencylogo" />
-                    <h2 class="currencydisplay" id="walletnus">Loading...</h2>
-                </div>
-                <br />
-                <div class="flex" title="Nocas">
-                    <img src="../site/image/logo/noca.svg" class="currencylogo" />
-                    <h2 class="currencydisplay" id="walletnoca">Loading...</h2>
-                </div>
-                <br />
-                <div class="flex" title="Bitcoin Satoshi (0.00000001BTC)">
-                    <img src="../site/image/logo/sats.svg" class="currencylogo" />
-                    <h2 class="currencydisplay" id="walletsats">Loading...</h2>
-                </div>
-                <p style="margin: 0; width: 100%; text-align: right;" id="valuebtcsats" title="Approximate value based on the current price of Bitcoin (provided by CoinDesk)">&asymp; $0.00<span style="color: #999; font-weight: 300">0</span></p>
-                <div id="walletactions">
-                    <button class="fullwidth" title="Send wallet resources to other users!">Send Money</button>
-                    <button class="fullwidth" title="Receive wallet resources to other users!">Receive Money</button>
-                </div>
-                <button class="fullwidth" title="Detailed view of your wallet resources. You can withdraw your Bitcoin Satoshi here." onclick="location.assign('wallet.html')">Open Wallet</button>
-            </div>
-            <br />
-            <div class="sideshmuck collapsed" id="accact" style="height:3.5vh">
-                <p class="collapse collapsed" id="collapseaccact" title="Collapse/Reveal Account Actions" onclick="collapse('accact');">&#9650;</p>
-                <div class="flex cc"><h1 class="title" onclick="collapse('accact');">Account Actions</h1></div>
-                <button class="fullwidth" onclick="location.assign('edit.html')">Edit Account</button>
-                <br />
-                <button class="fullwidth"
-                        onclick="popup('Log Out', `Please confirm that you want to log out.</p><div class='flex cc'><button onclick='logOut()'>Log Out</button></div><p style='display: none'>`)">
-                    Log Out
-                </button>
-                <br />
-                <button class="fullwidth"
-                        onclick="popup('Reset Password', `<div class='input'><label for='resetpassword'>Your Email:</label><input id='resetpassword' type='email' placeholder='johndoe@mail.com'></div><p>This email must match the one you signed up with.<br>We will send the password reset link there.</p><p id='passresetstatus' style='font-weight:bold;text-align:center' class='fullwidth'></p><div class='flex cc'><button onclick='attemptRecovery()'>Submit</button>`)">
-                    Reset Password
-                </button>
-                <br />
-                <button class="fullwidth" style="border-color: darkred"
-                        onclick="popup('Request Account Deletion', `Please send an email to <b style='user-select: all; -webkit-user-select: all; -ms-user-select: all;'>supcompnus@gmail.com</b> to request account deletion.<br>The email must be sent from the same email that you use to log in, and include your username.<br>Please keep in mind, that you will lose access to everything, and the funds in your wallet will be lost forever.</p><div class='flex cc'><button onclick='copyTemplate()'>Copy Email Template</button></div><p style='display:none'>`)">
-                    Delete Account
-                </button>
-            </div>
-            <br />
-            <div class="sideshmuck collapsed" id="contus" style="height:3.5vh">
-                <p class="collapse collapsed" id="collapsecontus" title="Collapse/Reveal Contact Us" onclick="collapse('contus');">&#9650;</p>
-                <div class="flex cc"><h1 class="title" onclick="collapse('contus');">Contact Us</h1></div>
-                <br />
-                <button class="fullwidth"
-                        onclick="popup('Contact Support', `Send an email to <b style='user-select: all'>supcompnus@gmail.com</b> to reach the support!<br>We will try to get to you as soon as possible.`)">
-                    Contact Support
-                </button>
-                <br />
-                <button class="fullwidth"
-                        onclick="popup('Suggest a Feature', suggstftr)">
-                    Suggest a Feature
-                </button>
-                <br />
-                <button class="fullwidth"
-                        onclick="popup('Report a Problem', reportprob)">
-                    Report a Problem
-                </button>
-            </div>
-            <br />
-            <div class="sideshmuck" id="updates">
-                <p class="collapse" id="collapseupdates" title="Collapse/Reveal Updates" onclick="collapse('updates');">&#9650;</p>
-                <div class="flex cc"><h1 class="title" onclick="collapse('updates');">Updates</h1></div>
-                <h2>Hello, world!</h2>
-                <p>Thank you for using CompNUS! There are no updates for now, however.</p>
-            </div>
+        <div class="walletgridline">
+            <img src="../site/image/logo/currency.svg" class="currencylogo" />
+            <h1>$NUS</h1>
+            <h2 class="currencydisplay" id="walletnus">Loading...</h2>
 
-        </div>
-
-        <div id="messages" class="mainscroll">
-            <div id="adminactions" class="mainactions">
-                <button>You are an admin!</button>
-            </div>
-
-            <div class="flex cc">
-                <h1 style="flex:1;text-align:center;cursor:default" class="title">Messages:</h1>
-                <img id="messagenew" title="Send a Message" onclick="location.assign('message.html')" src="https://img.icons8.com/?size=100&id=93480&format=png&color=CCCCCC" />
-                <p id="messagerefresh" title="Refresh Messages" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadMessages();" style="transform: rotate(45deg);">&orarr;</p>
-            </div>
-            <div id="messagecont">
-                <p>You have no messages.</p>
+            <div class="bottomacts">
+                <button>Coin Info</button>
+                <button>Convert into Nocas</button>
+                <button onclick="location.assign('../crypto/nus/dividends.html')">Get Dividends</button>
+                <button onclick="location.assign('../crypto/nus/')">$NUS Mining</button>
             </div>
         </div>
-    </main>
+        <div class="walletgridline">
+            <img src="../site/image/logo/noca.svg" class="currencylogo" />
+            <h1>Nocas</h1>
+            <h2 class="currencydisplay" id="walletnoca">Loading...</h2>
+
+            <div class="bottomacts">
+                <button>What are Nocas?</button>
+                <button onclick="location.assign('../crypto/nus/free')">Free Nocas</button>
+            </div>
+        </div>
+        <div class="walletgridline">
+            <img src="../site/image/logo/sats.svg" class="currencylogo" />
+            <h1>Bitcoin Satoshi</h1>
+            <h2 class="currencydisplay" id="walletsats">Loading...</h2>
+
+            <div class="bottomacts flex cc" style="justify-content: flex-end">
+                <p>= <span id="bitcoinss">0.00000000</span> BTC &asymp; $<span id="bitcoinpr">0.000</span></p>
+                <p id="corr" onclick="popup('What is this?','Approximate value of your Bitcoin Satoshi based on the current price of Bitcoin (provided by CoinDesk).')">?</p>
+            </div>
+
+            <div class="bottomacts">
+                <button>Coin Info</button>
+                <button>Convert into Nocas</button>
+                <button onclick="location.assign('../crypto/nus/dividends.html')">Get Dividends</button>
+                <button>Withdraw</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
@@ -226,7 +74,7 @@
                 return;
             }
 
-            main();
+            loadWallet();
         });
 
         initFooter();

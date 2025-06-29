@@ -37,6 +37,16 @@ h0 {
     font-size: 3vh;
 }
 
+h2 > .resm {
+    font-size: 2vh;
+    font-family: 'Funnel Display';
+    font-weight: 400;
+    font-style: italic;
+    color: #ccc;
+    display: inline-block;
+    margin: 0 0 0 1vw;
+}
+
 input, select {
     color-scheme: dark;
 }
@@ -383,6 +393,10 @@ div.popup > div > div.inside > h1 {
     }
     h0 {
         font-size: 6vw;
+    }
+    h2 > .resm {
+        font-size: 4vw;
+        margin: 0 0 0 2vw;
     }
     textarea {
         resize: none;

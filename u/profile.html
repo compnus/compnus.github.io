@@ -11,6 +11,11 @@
 </head>
 <body>
     <script>
+        var UPDATES = `
+        <h2>Hello, world! <span class="resm"><!--DATE--></span></h2>
+        <p>Thank you for using CompNUS! There are no updates for now, however.</p>
+        `;
+
         initHeader("Dashboard");
         document.getElementById("headernav").removeChild(document.getElementById("userlogin"));
 
@@ -407,12 +412,9 @@
                     Report a Problem
                 </button>
             </div>
-            <br />
-            <div class="sideshmuck" id="updates">
-                <p class="collapse" id="collapseupdates" title="Collapse/Reveal Updates" onclick="collapse('updates');">&#9650;</p>
-                <div class="flex cc"><h1 class="title" onclick="collapse('updates');">Updates</h1></div>
-                <h2>Hello, world!</h2>
-                <p>Thank you for using CompNUS! There are no updates for now, however.</p>
+            <div id="updates" title="Updates" onclick="popup('Updates',UPDATES)">
+                <img src="https://img.icons8.com/?size=100&id=83194&format=png&color=FFFFFF" />
+                <p id="updatespop">1</p>
             </div>
 
         </div>
@@ -438,10 +440,14 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
+            let mhmcount = (UPDATES.match(/<h2>/g) || []).length;
+            if (mhmcount) document.getElementById("updatespop").innerHTML = mhmcount;
+            else document.getElementById("updatespop").style.display = "none";
+
             const { data, error } = await supabase.auth.getUser();
 
             if (!data.user) {
-                //window.location.href = "/u/login.html";
+                window.location.href = "/u/login.html";
                 return;
             }
             if (error) {
@@ -468,6 +474,7 @@
                 document.getElementById('sendmoneymsg').dispatchEvent(new Event('input'));
                 document.getElementById('sendmoneyfeetype').classList.add("disabled");
             }
+            
         });
         initFooter();
     </script>
