@@ -12,6 +12,24 @@
 <body>
     <script>
         initHeader("Wallet");
+
+        WINUS = `
+        $NUS is our own cryptocurrency, which will be launching on Solana after most of it has been airdropped to users through mining and dividends.<br>
+        <b>Total Supply:</b> 10 000 000 000 $NUS (10 Billion)<br>
+        <br>
+        After the launch, you will be able to withdraw $NUS into your Solana wallet.<br>
+        You can already use $NUS on CompNUS to pay for services, purchase Nocas, and more!
+        `;
+
+        WINocas = `
+        Nocas are a centralized currency used on CompNUS to pay for services, network fees and more.<br>
+        They have no real value outside of CompNUS.
+        `;
+
+        WIBTC = `
+        Satoshi is a smaller division of Bitcoin, commonly used due to Bitcoin's high value.<br>
+        <b>1 SAT = 0.00000001 BTC</b><br>
+        `;
     </script>
 
     <div class="mainscroll mainwallet">
@@ -23,12 +41,12 @@
 
         <div class="walletgridline">
             <img src="../site/image/logo/currency.svg" class="currencylogo" />
-            <h1>$NUS</h1>
+            <h1>NUS</h1>
             <h2 class="currencydisplay" id="walletnus">Loading...</h2>
 
             <div class="bottomacts">
-                <button>Coin Info</button>
-                <button>Convert into Nocas</button>
+                <button onclick="popup('What is NUS?', WINUS)">Coin Info</button>
+                <button onclick="convertNocas()">Convert into Nocas</button>
                 <button onclick="location.assign('../crypto/nus/dividends.html')">Get Dividends</button>
                 <button onclick="location.assign('../crypto/nus/')">$NUS Mining</button>
             </div>
@@ -39,8 +57,8 @@
             <h2 class="currencydisplay" id="walletnoca">Loading...</h2>
 
             <div class="bottomacts">
-                <button>What are Nocas?</button>
-                <button onclick="location.assign('../crypto/nus/free')">Free Nocas</button>
+                <button onclick="popup('What are Nocas?', WINocas)">What are Nocas?</button>
+                <button onclick="location.assign('../crypto/nus/free.html')">Free Nocas</button>
             </div>
         </div>
         <div class="walletgridline">
@@ -54,10 +72,10 @@
             </div>
 
             <div class="bottomacts">
-                <button>Coin Info</button>
-                <button>Convert into Nocas</button>
+                <button onclick="popup('What is Bitcoin Satoshi?', WIBTC)">Coin Info</button>
+                <button onclick="convertNocas(true)">Convert into Nocas</button>
                 <button onclick="location.assign('../crypto/nus/dividends.html')">Get Dividends</button>
-                <button>Withdraw</button>
+                <button onclick="withdraw()">Withdraw</button>
             </div>
         </div>
     </div>

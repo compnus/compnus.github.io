@@ -396,6 +396,7 @@ a.linkstv {
     border-radius: 2vh;
     padding: 2vh;
     background-color: var(--lightbg);
+    box-shadow: black 0 10px 15px -15px;
 }
 
 .walletgridline > h1, .walletgridline > .bottomacts > p {
@@ -663,5 +664,44 @@ a.linkstv {
             font-size: 3.5vw;
             padding: 1vw;
             min-width: 3.5vw;
+        }
+
+    .mainscroll.mainwallet {
+        padding: 4vw 4vw 0 4vw
+    }
+
+    .walletgridline {
+        grid-template-columns: 10vw 1fr;
+        align-items: center;
+        grid-gap: 2vw;
+        margin-bottom: 4vw;
+        border-radius: 4vw;
+        padding: 4vw;
+        padding-bottom: 2vw;
+    }
+
+    .walletgridline > .currencydisplay {
+        grid-column: 1 / -1;
+    }
+
+    .bottomacts.flex.cc {
+        display: flex;
+        margin: 0 -2vw;
+    }
+
+    .bottomacts {
+        display: block;
+    }
+
+        .bottomacts > button {
+            display: block;
+            width: calc(100% - 2vw);
+            margin: 0 1vw 2vw 1vw;
+        }
+
+        .bottomacts > #corr {
+            padding: 1vw;
+            width: 4vw;
+            height: 4vw;
         }
 }

@@ -9,3 +9,11 @@ async function loadWallet() {
     document.getElementById("bitcoinss").innerHTML = (balance[2] / 100000000).toFixed(8);
     document.getElementById("bitcoinpr").innerHTML = pricebtcnew;
 }
+
+function convertNocas(btc=false) {
+
+}
+
+function withdraw() {
+
+}
