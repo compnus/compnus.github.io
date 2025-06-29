@@ -335,7 +335,7 @@ a.linkstv {
     position: fixed;
     right: 1vw;
     bottom: calc(6vh + 1vw);
-    background-color: var(--accent);
+    background-color: var(--lightbg);
     border: solid 0.5vh var(--border);
     width: 6vh;
     height: 6vh;
