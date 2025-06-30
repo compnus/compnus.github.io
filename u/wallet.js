@@ -47,7 +47,6 @@ async function exchangeNocas(btc, amount, status) {
         .then(data => {
             if (!data.sc) {
                 status.innerHTML = "Error: " + data.response;
-                console.log(data.obj);
             } else {
                 status.innerHTML = data.response;
                 loadWallet();
