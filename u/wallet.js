@@ -34,7 +34,7 @@ async function exchangeNocas(btc, amount, status) {
     if (!bls) { status.innerHTML = "You need to be logged in to use this feature."; return; }
     bls = btc ? bls[2] : bls[0];
     var nocavals = btc ? await getVariable("nocaforsat") : await getVariable("nocafornus");
-    if (amount / nocavals > bls) { status.innerHTML = "Insufficient funds."; return; }
+    if (parseFloat((amount / nocavals).toFixed(4)) > bls) { status.innerHTML = "Insufficient funds."; return; }
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/exchangeNocas', {
         method: 'POST',
         headers: {
@@ -45,7 +45,6 @@ async function exchangeNocas(btc, amount, status) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data.obj);
             if (!data.sc) {
                 status.innerHTML = "Error: " + data.response;
             } else {
