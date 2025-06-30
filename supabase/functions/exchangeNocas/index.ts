@@ -77,7 +77,7 @@ Deno.serve(async (req) => {
     }
 
     if (parseInt(amount) <= (btc?100:10)) {
-        return new Response(JSON.stringify({ response: "Please enter a valid amount to send.", sc:true }), {
+        return new Response(JSON.stringify({ response: "Please enter a valid amount to send."+amount, sc:true }), {
             status: 400,
             headers: {
                 ...headers
@@ -104,7 +104,7 @@ Deno.serve(async (req) => {
         }
 
         if (!sendData || sendError) {
-            return new Response(JSON.stringify({ response: "There was a problem updating your balance."+sendError.message }), {
+            return new Response(JSON.stringify({ response: "There was a problem updating your balance."+toPay }), {
                 status: 400,
                 headers: {
                     ...headers
