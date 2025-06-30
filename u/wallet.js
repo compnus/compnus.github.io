@@ -26,6 +26,7 @@ async function setMax(btc, ...nodes) {
 }
 
 async function exchangeNocas(btc, amount, status) {
+    console.log(btc);
     status.innerHTML = "Please wait...";
     var uid = (await supabase.auth.getSession()).data.session?.user.id;
     if (btc && (amount < 100)) { status.innerHTML = "Minimum exchange for Satoshis is 100 Nocas."; return; }
@@ -49,6 +50,7 @@ async function exchangeNocas(btc, amount, status) {
                 status.innerHTML = "Error: " + data.response;
             } else {
                 status.innerHTML = data.response;
+                console.log(data.obj);
                 loadWallet();
             }
         })
