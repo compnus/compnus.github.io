@@ -77,7 +77,7 @@ Deno.serve(async (req) => {
     }
 
     if (parseInt(amount) <= (btc?100:10)) {
-        return new Response(JSON.stringify({ response: "Please enter a valid amount to send."+amount, sc:true }), {
+        return new Response(JSON.stringify({ response: "Please enter a valid amount to send." + amount + (btc ? 100 : 10) + (parseInt(amount) <= (btc ? 100 : 10)), sc:true }), {
             status: 400,
             headers: {
                 ...headers
@@ -85,7 +85,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    var toPay: number = parseFloat((parseInt(amount) / (await supabase.from("variable").select("value").eq("key", btc ? "nocaforsat" : "nocafornus").single()).value).toFixed(4));
+    var toPay: number = parseFloat((parseInt(amount) / (await supabase.from("variable").select("value").eq("key", (btc ? "nocaforsat" : "nocafornus")).single()).value).toFixed(4));
     if (toPay > (btc ? nData.balance_sats : nData.balance_nus)) {
         return new Response(JSON.stringify({ response: "Insufficient funds.", sc: true }), {
             status: 400,
