@@ -20,7 +20,7 @@ async function setMax(btc, ...nodes) {
     var bls = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
     var setting = btc ? bls[2] : bls[0];
     var nocavals = btc ? await getVariable("nocaforsat") : await getVariable("nocafornus");
-    nodes[2].value = Math.floor(setting * nocavals) >= nodes[2].min ? Math.floor(setting * nocavals) : nodes[2].min;
+    nodes[2].value = Math.round(setting * nocavals);
 
     refreshs(btc, ...nodes);
 }
