@@ -96,15 +96,10 @@ Deno.serve(async (req) => {
     }
 
     try {
-        var sendData, sendError;
-        if (btc) {
-            ({ data: sendData, error: sendError } = await supabase.from("udata").update({ balance_noca: nData.balance_noca + parseInt(amount), balance_sats: nData.balance_sats - toPay }).eq("user_id", uid));
-        } else {
-            ({ data: sendData, error: sendError } = await supabase.from("udata").update({ balance_noca: nData.balance_noca + parseInt(amount), balance_nus: nData.balance_nus - toPay }).eq("user_id", uid));
-        }
+        const { data: sendData, error: sendError } = await supabase.from("udata").update(btc ? { balance_noca: nData.balance_noca + parseInt(amount), balance_sats: nData.balance_sats - toPay } : { balance_noca: nData.balance_noca + parseInt(amount), balance_nus: nData.balance_nus - toPay }).eq("user_id", uid);
 
         if (!sendData || sendError) {
-            return new Response(JSON.stringify({ response: "There was a problem updating your balance.", obj: {btc: btc, amount: amount, data: [sendData, sendError], pay: toPay} }), {
+            return new Response(JSON.stringify({ response: "There was a problem updating your balance." }), {
                 status: 400,
                 headers: {
                     ...headers
