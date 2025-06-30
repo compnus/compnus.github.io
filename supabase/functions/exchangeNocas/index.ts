@@ -104,7 +104,7 @@ Deno.serve(async (req) => {
         }
 
         if (!sendData || sendError) {
-            return new Response(JSON.stringify({ response: "There was a problem updating your balance." + (await supabase.from("variable").select("value").eq("key", (btc ? "nocaforsat" : "nocafornus")).single()).value }), {
+            return new Response(JSON.stringify({ response: "There was a problem updating your balance." + (await supabase.from("variable").select("value").eq("key", (btc ? "nocaforsat" : "nocafornus")) + btc }), {
                 status: 400,
                 headers: {
                     ...headers
