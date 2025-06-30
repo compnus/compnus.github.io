@@ -27,13 +27,34 @@ async function setMax(btc, ...nodes) {
 
 async function exchangeNocas(btc, amount, status) {
     status.innerHTML = "Please wait...";
-    if (btc && (amount < 100)) { status.innerHTML = "Minimum exchange for Satoshi is 100 Nocas."; return; }
+    var uid = (await supabase.auth.getSession()).data.session?.user.id;
+    if (btc && (amount < 100)) { status.innerHTML = "Minimum exchange for Satoshis is 100 Nocas."; return; }
     else if (amount < 10) { status.innerHTML = "Minimum exchange for $NUS is 10 Nocas."; return; }
-    var bls = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
+    var bls = await getBalance(uid);
     if (!bls) { status.innerHTML = "You need to be logged in to use this feature."; return; }
     bls = btc ? bls[2] : bls[0];
     var nocavals = btc ? await getVariable("nocaforsat") : await getVariable("nocafornus");
     if (amount / nocavals > bls) { status.innerHTML = "Insufficient funds."; return; }
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/exchangeNocas', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+        },
+        body: JSON.stringify({ uid: uid, btc: btc, amount: amount })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.sc) {
+                status.innerHTML = "Error: " + data.response;
+            } else {
+                status.innerHTML = data.response;
+                loadWallet();
+            }
+        })
+        .catch((error) => {
+            console.error('Error invoking function:', error);
+        });
 }
 
 async function convertNocas(btc = false) {

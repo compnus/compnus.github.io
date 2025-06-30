@@ -97,21 +97,6 @@ Deno.serve(async (req) => {
             }
         });
     }
-    const { data: recuser, error: userExistsErrorn } = await supabase
-        .from("users")
-        .select("username")
-        .eq("id", uid)
-        .single();
-    if (userExistsErrorn || !recuser) {
-        return new Response(JSON.stringify({ response: `Huh? You don't even exist.` }), {
-            status: 400,
-            headers: {
-                ...headers
-            }
-        });
-    } else {
-        from = recuser.username;
-    }
 
     try {
         var currencyThing: string = "";
@@ -178,7 +163,7 @@ Deno.serve(async (req) => {
             }
             const { error: logError } = await supabase
                 .from("logs")
-                .insert([{ created_by: from, type: "adminTransaction", attributes: "to->" + to + "\ncurrency->" + currency + "\ngiven->" + parsedAmount, message: "message->" + message }]);
+                .insert([{ created_by: uid, type: "adminTransaction", attributes: "to->" + to + "\ncurrency->" + currency + "\ngiven->" + parsedAmount, message: "message->" + message }]);
             if (logError) {
                 return new Response(JSON.stringify({ response: `Internal server error.` }), {
                     status: 500,
