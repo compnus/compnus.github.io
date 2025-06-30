@@ -20,25 +20,36 @@ async function setMax(btc, ...nodes) {
     var bls = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
     var setting = btc ? bls[2] : bls[0];
     var nocavals = btc ? await getVariable("nocaforsat") : await getVariable("nocafornus");
-    nodes[2].value = Math.floor(setting*nocavals) || 0;
+    nodes[2].value = Math.floor(setting * nocavals) >= nodes[2].min ? Math.floor(setting * nocavals) : nodes[2].min;
 
     refreshs(btc, ...nodes);
+}
+
+async function exchangeNocas(btc, amount, status) {
+    status.innerHTML = "Please wait...";
+    if (btc && (amount < 100)) { status.innerHTML = "Minimum exchange for Satoshi is 100 Nocas."; return; }
+    else if (amount < 10) { status.innerHTML = "Minimum exchange for $NUS is 10 Nocas."; return; }
+    var bls = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
+    if (!bls) { status.innerHTML = "You need to be logged in to use this feature."; return; }
+    bls = btc ? bls[2] : bls[0];
+    var nocavals = btc ? await getVariable("nocaforsat") : await getVariable("nocafornus");
+    if (amount / nocavals > bls) { status.innerHTML = "Insufficient funds."; return; }
 }
 
 async function convertNocas(btc = false) {
     popup("Exchange Coin for Nocas",
         `
-            <div class="flex cc"><p style="font-family: 'currencycompnus',Ubuntu !important">1 ${btc ? "&#8383;" : "$"} = <span id="amountrt">100</span> &curren;</p></div>
-            <div class="flex cc"><p style="margin-top: 0; color: #ccc">This is the current conversion rate.</p></div>
-            <br>
+            <div class="flex cc"><p style="margin: 0; color: #ccc; font-style: italic">Current conversion rate:</p></div>
+            <div class="flex cc"><p style="font-family: 'currencycompnus',Ubuntu !important; margin-top: 0">1 ${btc ? "&#8383;" : "$"} = <span id="amountrt">100</span> &curren;</p></div>
             <div class="input">
             <label for="amountnc">Nocas to receive:</label>
             <div class="halve">
-            <input id="amountnc" type="number" min="0" step="1" oninput="refreshs(${btc}, document.getElementById('amountrt'), document.getElementById('amountpr'), document.getElementById('amountnc'));" value="0">
+            <input id="amountnc" type="number" step="1" oninput="refreshs(${btc}, document.getElementById('amountrt'), document.getElementById('amountpr'), document.getElementById('amountnc'));" min="${btc ? 100 : 10}" value="${btc ? 100 : 10}">
             <p onclick="setMax(${btc}, document.getElementById('amountrt'), document.getElementById('amountpr'), document.getElementById('amountnc'))" style="font-weight: bold; color: yellow; cursor: pointer;">MAX</button>
             </div></div>
             <div class="flex cc"><p style="font-family: 'currencycompnus',Ubuntu !important">Price: <span id="amountpr">0</span> ${btc ? "&#8383;" : "$"}</p></div>
-            <button class="fullwidth">Exchange</button>
+            <p id="status" style="font-weight: bold;text-align:center"></p>
+            <button class="fullwidth" onclick="exchangeNocas(${btc}, document.getElementById('amountnc').value, document.getElementById('status'))">Exchange</button>
             <p style="margin:0">
         `
     );
