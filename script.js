@@ -185,5 +185,16 @@ function GetURLParameter(sParam) {
     }
 }
 
+async function getVariable(vars) {
+    const { data, error } = await supabase
+        .from("variable")
+        .select("value")
+        .eq("key", vars)
+        .single();
+
+    if (!data || error) return null;
+    else return data.value;
+}
+
 console.log("script loaded");
 

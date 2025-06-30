@@ -10,8 +10,13 @@ async function loadWallet() {
     document.getElementById("bitcoinpr").innerHTML = pricebtcnew;
 }
 
-function convertNocas(btc=false) {
-
+async function convertNocas(btc = false) {
+    var nocavals = btc ? await getVariable("nocaforsat") : await getVariable("nocafornus");
+    popup("Exchange Coin for Nocas",
+        `
+            <div class="flex cc"><p style="font-family: 'currencycompnus',Ubuntu !important">1 ${btc ? "&#8383;" : "$"} = ${nocavals} &curren;</p></div>
+        `
+    );
 }
 
 function withdraw() {
