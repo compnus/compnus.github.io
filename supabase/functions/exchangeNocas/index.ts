@@ -104,7 +104,7 @@ Deno.serve(async (req) => {
         }
 
         if (!sendData || sendError) {
-            return new Response(JSON.stringify({ response: "There was a problem updating your balance." + sendError.message }), {
+            return new Response(JSON.stringify({ response: "There was a problem updating your balance.", obj: {btc: btc, amount: amount, data: [sendData, sendError], pay: toPay} }), {
                 status: 400,
                 headers: {
                     ...headers
