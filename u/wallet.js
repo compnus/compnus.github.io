@@ -120,7 +120,7 @@ async function setMaxW(fee, num, passd) {
 
 function updateFee(num, onNode, dedc) {
     var netw = document.getElementById("withdrawnetwork").value;
-    numv = num.value;
+    numv = parseInt(num.value);
     if (netw === "spd") {
         if (!numv || numv < 10) numv = 10;
         if (numv > 10000) numv = 10000;
@@ -214,6 +214,22 @@ function withdraw() {
     <input id="withdrawamount" type="number" step="1" min="10" max="10000" oninput="updateFee(this, document.getElementById('withdrawfee'), document.getElementById('withdrawdeduct'))" value="10">
     <p onclick="setMaxW(document.getElementById('withdrawfee'), document.getElementById('withdrawamount'), document.getElementById('withdrawdeduct'))" style="font-weight: bold; color: yellow; cursor: pointer;">MAX</button>
     </div>
+    </div>
+    <div class="input" id="wnspd">
+    <label for="withdrawaddressspd">Speed Wallet Address:</label>
+    <input id="withdrawaddressspd" type="text" placeholder="johndoe@speed.app">
+    </div>
+    <div class="input" id="wnlgn">
+    <label for="withdrawaddresslgn">Lightning Invoice:</label>
+    <input id="withdrawaddresslgn" type="text" placeholder="lnbc1500n1pw9q5g0pp5g0g0g0g0g0g0g0g0g0g0g0g">
+    </div>
+    <div class="input" id="wnbtc">
+    <label for="withdrawaddressbtc">Bitcoin Address:</label>
+    <input id="withdrawaddressbtc" type="text" placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa">
+    </div>
+    <div class="input" id="wnbnb">
+    <label for="withdrawaddressbnb">Binance ID:</label>
+    <input id="withdrawaddressbnb" type="text" placeholder="12345678">
     </div>
     <p>Total to be deducted from your wallet: <span id="withdrawdeduct" style="font-weight: bold">12</span> Satoshis</p>
     <p style="color: #ccc; text-align: center;">Withdrawals are processed manually.<br>If you don't receive your Satoshis within 7 days, please contact the support.</p>
