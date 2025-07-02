@@ -78,6 +78,143 @@ async function convertNocas(btc = false) {
     await refreshs(btc, document.getElementById("amountrt"), document.getElementById("amountpr"), document.getElementById("amountnc"));
 }
 
-function withdraw() {
+async function setMaxW(fee, num) {
+    var bls = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
+    if (!bls) {
+        location.href = "login.html";
+        return;
+    }
+    bls = bls[2];
+    var netw = document.getElementById("withdrawnetwork").value;
+    if (netw === "spd") {
+        if (bls < 12) {
+            popup("Not Enough Satoshi!", "The minimum amount to withdraw (fee included) is 12 Satoshis.");
+            return;
+        }
+        else if (bls < 103) num.value = bls - 2;
+        else if (bls < 1004) num.value = bls - 3;
+        else if (bls < 10005)  num.value = bls - 4;
+        else num.value = 10000;
+    }
+    else if (netw === "lgn") {
+        if (bls < 2100) {
+            popup("Not Enough Satoshi!", "The minimum amount to withdraw (fee included) is 2100 Satoshis.<br>If you want to withdraw less, switch the network to Lightning (Speed Wallet) or Binance!");
+            return;
+        } else if (bls < 10100) num.value = bls - 100;
+        else num.value = 10000;
+    }
+    else if (netw === "btc") {
+        if (bls < 23000) {
+            popup("Not Enough Satoshi!", "The minimum amount to withdraw (fee included) is 23000 Satoshis.<br>If you want to withdraw less, switch the network to Lightning or Binance!");
+            return;
+        } else if (bls < 1003000) num.value = bls - 3000;
+        else num.value = 10000;
+    } else if (netw === "bnb") {
+        if (bls < 100) {
+            popup("Not Enough Satoshi!", "The minimum amount to withdraw is 100 Satoshis.<br>If you want to withdraw less, switch the network to Lightning (Speed Wallet)!");
+            return;
+        } else num.value = Math.min(100000000, bls);
+    }
+    updateFee(num, fee);
+}
 
+function updateFee(num, onNode) {
+    var netw = document.getElementById("withdrawnetwork").value;
+    numv = num.value;
+    if (netw === "spd") {
+        if (!numv || numv < 10) numv = 10;
+        if (numv > 10000) numv = 10000;
+        onNode.innerHTML = String(numv).length;
+    }
+    else if (netw === "lgn") {
+        if (!numv || numv < 2000) numv = 2000;
+        if (numv > 10000) numv = 10000;
+    } else if (netw === "btc") {
+        if (!numv || numv < 20000) numv = 20000;
+        if (numv > 1000000) numv = 1000000;
+    } else if (netw === "bnb") {
+        if (!numv || numv < 100) numv = 100;
+        if (numv > 100000000) numv = 100000000;
+    }
+    
+    num.value = numv;
+}
+
+function finalizeWithdraw(amount, status) {
+
+}
+
+function updateNetwork(to) {
+    var mn = document.getElementById("wtminimum");
+    var mx = document.getElementById("wtmaximum");
+    var fee = document.getElementById("withdrawfee");
+    var amount = document.getElementById("withdrawamount");
+    var spad = document.getElementById("speedad");
+    if (to === "spd") {
+        mn.innerHTML = "10";
+        mx.innerHTML = "10000";
+        fee.innerHTML = "2";
+        amount.min = 10;
+        amount.max = 10000;
+        spad.style.display = "block";
+    } else if (to === "lgn") {
+        mn.innerHTML = "2000";
+        mx.innerHTML = "10000";
+        fee.innerHTML = "100";
+        amount.min = 2000;
+        amount.max = 100000;
+        spad.style.display = "none";
+    } else if (to === "btc") {
+        mn.innerHTML = "20000";
+        mx.innerHTML = "1000000";
+        fee.innerHTML = "3000";
+        amount.min = 20000;
+        amount.max = 1000000;
+        spad.style.display = "none";
+    } else if (to === "bnb") {
+        mn.innerHTML = "100";
+        mx.innerHTML = "100000000";
+        fee.innerHTML = "0";
+        amount.min = 100;
+        amount.max = 100000000;
+        spad.style.display = "none";
+    }
+    updateFee(amount, fee);
+}
+
+function withdraw() {
+    popup("Withdraw Bitcoin Satoshi",
+        `
+    <div class="input">
+    <label for="withdrawnetwork">Network:</label>
+    <select id="withdrawnetwork" onchange="updateNetwork(this.value)" style="width:100%">
+    <option value="spd">Lightning (Speed Wallet)</option>
+    <option value="lgn">Lightning (Other)</option>
+    <option value="btc">Bitcoin</option>
+    <option value="bnb">Binance</option>
+    </select>
+    </div>
+
+    <div id="speedad">
+    < speed wallet ad >
+    </div>
+
+    <p>
+    Minimum Withdrawal: <span id="wtminimum">10</span> Satoshis<br>
+    Maximum Withdrawal: <span id="wtmaximum">10000</span> Satoshis<br>
+    Network Fee: <span id="withdrawfee">2</span> Satoshis</p>
+    <div class="input">
+    <label for="withdrawamount">Amount to Withdraw:</label>
+    <div class="halve">
+    <input id="withdrawamount" type="number" step="1" min="10" max="10000" oninput="updateFee(this, document.getElementById('withdrawfee'))" value="10">
+    <p onclick="setMaxW(document.getElementById('withdrawfee'), document.getElementById('withdrawamount'))" style="font-weight: bold; color: yellow; cursor: pointer;">MAX</button>
+    </div>
+    </div>
+    <p>Total to be deducted from your wallet: <span id="withdrawdeduct" style="font-weight: bold">12</span> Satoshis</p>
+    <p style="color: #ccc; text-align: center;">Withdrawals are processed manually.<br>If you don't receive your Satoshis within 7 days, please contact the support.</p>
+    <p id="withdrawstatus" style="font-weight: bold;text-align:center"></p>
+    <button class="fullwidth" onclick="finalizeWithdraw()">Request Withdrawal</button>
+    <p style="margin:0">
+        `
+    );
 }
