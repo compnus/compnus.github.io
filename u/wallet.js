@@ -78,7 +78,7 @@ async function convertNocas(btc = false) {
     await refreshs(btc, document.getElementById("amountrt"), document.getElementById("amountpr"), document.getElementById("amountnc"));
 }
 
-async function setMaxW(fee, num) {
+async function setMaxW(fee, num, passd) {
     var bls = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
     if (!bls) {
         location.href = "login.html";
@@ -115,26 +115,30 @@ async function setMaxW(fee, num) {
             return;
         } else num.value = Math.min(100000000, bls);
     }
-    updateFee(num, fee);
+    updateFee(num, fee, passd);
 }
 
-function updateFee(num, onNode) {
+function updateFee(num, onNode, dedc) {
     var netw = document.getElementById("withdrawnetwork").value;
     numv = num.value;
     if (netw === "spd") {
         if (!numv || numv < 10) numv = 10;
         if (numv > 10000) numv = 10000;
         onNode.innerHTML = String(numv).length;
+        dedc.innerHTML = numv + String(numv).length;
     }
     else if (netw === "lgn") {
         if (!numv || numv < 2000) numv = 2000;
         if (numv > 10000) numv = 10000;
+        dedc.innerHTML = numv + 100;
     } else if (netw === "btc") {
         if (!numv || numv < 20000) numv = 20000;
         if (numv > 1000000) numv = 1000000;
+        dedc.innerHTML = numv + 3000;
     } else if (netw === "bnb") {
         if (!numv || numv < 100) numv = 100;
         if (numv > 100000000) numv = 100000000;
+        dedc.innerHTML = numv;
     }
     
     num.value = numv;
@@ -150,6 +154,7 @@ function updateNetwork(to) {
     var fee = document.getElementById("withdrawfee");
     var amount = document.getElementById("withdrawamount");
     var spad = document.getElementById("speedad");
+    var ded = document.getElementById('withdrawdeduct')
     if (to === "spd") {
         mn.innerHTML = "10";
         mx.innerHTML = "10000";
@@ -179,7 +184,7 @@ function updateNetwork(to) {
         amount.max = 100000000;
         spad.style.display = "none";
     }
-    updateFee(amount, fee);
+    updateFee(amount, fee, ded);
 }
 
 function withdraw() {
@@ -206,8 +211,8 @@ function withdraw() {
     <div class="input">
     <label for="withdrawamount">Amount to Withdraw:</label>
     <div class="halve">
-    <input id="withdrawamount" type="number" step="1" min="10" max="10000" oninput="updateFee(this, document.getElementById('withdrawfee'))" value="10">
-    <p onclick="setMaxW(document.getElementById('withdrawfee'), document.getElementById('withdrawamount'))" style="font-weight: bold; color: yellow; cursor: pointer;">MAX</button>
+    <input id="withdrawamount" type="number" step="1" min="10" max="10000" oninput="updateFee(this, document.getElementById('withdrawfee'), document.getElementById('withdrawdeduct'))" value="10">
+    <p onclick="setMaxW(document.getElementById('withdrawfee'), document.getElementById('withdrawamount'), document.getElementById('withdrawdeduct'))" style="font-weight: bold; color: yellow; cursor: pointer;">MAX</button>
     </div>
     </div>
     <p>Total to be deducted from your wallet: <span id="withdrawdeduct" style="font-weight: bold">12</span> Satoshis</p>
