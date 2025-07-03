@@ -192,6 +192,7 @@ function updateNetwork(to) {
 
 async function finalizeWithdraw(amount, network, status) {
     var address = document.getElementById("withdrawaddress" + network).value;
+    amount = parseInt(amount);
     status.innerHTML = "Please wait...";
     if (!address) {
         if ((network === "spd") || (network === "btc")) status.innerHTML = "Please enter a valid address.";
