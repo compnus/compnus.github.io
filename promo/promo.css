@@ -1,0 +1,122 @@
+main {
+    text-align: center;
+}
+
+main > h1 {
+    font-family: Gabarito;
+}
+
+#morewaystoearn {
+    padding: 0 calc(2vw - 2vh);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2vw;
+}
+
+.mwteitem {
+    text-align:left;
+    cursor: pointer;
+    transition: 0.5s ease-out;
+}
+
+.mwteitem:hover {
+    filter: drop-shadow(blue 0 0 5px);
+    transform: scale(1.05);
+}
+
+.mwteitem > img {
+    width: 22.5vw;
+    height: 22.5vw;
+    object-fit: cover;
+    border-radius: 1vw;
+}
+
+#stick {
+    position: fixed;
+    right: 2vh;
+    top: 10vh;
+    background-color: yellow;
+    color: black;
+    box-shadow: black 0 0 10px;
+    border-radius: 2vh;
+    padding: 1vh;
+    width: 16vw;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+
+    #stick > h1 {
+        font-size: 2.5vh;
+        margin: 0;
+        font-family: Gabarito;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    #stick > p {
+        margin: 0;
+        padding-top: 0.5vh;
+        font-size: 1.5vh;
+        font-family: 'Funnel Display';
+        text-align: center;
+    }
+
+    #stick:hover {
+        box-shadow: yellow 0 0 20px;
+        transform: scale(1.05);
+    }
+
+@media(orientation:portrait) {
+    #morewaystoearn {
+        padding: 0;
+        display: block;
+    }
+
+    .mwteitem {
+        margin-bottom: 5vw;
+        border-radius: 2vw;
+        box-shadow: rgba(255,255,255,0.1) 0 0 10px inset, rgba(255,255,255,0.1) 0 0 10px;
+        padding: 2vw;
+    }
+
+        .mwteitem:hover {
+            transform: scale(1);
+        }
+
+        .mwteitem > img {
+            width: 88vw;
+            height: 25vw;
+            border-radius: 1vw;
+        }
+
+        .mwteitem > h1 {
+            font-size: 6vw;
+        }
+
+        .mwteitem > p {
+            margin-bottom: 0;
+        }
+
+    #stick {
+        position: sticky;
+        bottom: 2vw;
+        margin-bottom: 2vw;
+        left: 2vw;
+        border-radius: 4vw;
+        padding: 2vw;
+        width: 92vw;
+    }
+
+        #stick > h1 {
+            font-size: 5vw;
+        }
+
+        #stick > p {
+            padding-top: 1vw;
+            font-size: 3vw;
+        }
+
+        #stick:hover {
+            transform: scale(1);
+        }
+}
