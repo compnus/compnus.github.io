@@ -193,7 +193,7 @@ function updateNetwork(to) {
 async function finalizeWithdraw(amount, network, status) {
     var address = document.getElementById("withdrawaddress" + network).value;
     status.innerHTML = "Please wait...";
-    if (!address || !address.value) {
+    if (!address) {
         if ((network === "spd") || (network === "btc")) status.innerHTML = "Please enter a valid address.";
         if (network === "lgn") status.innerHTML = "Please enter a valid invoice.";
         if (network === "bnb") status.innerHTML = "Please enter a valid Binance ID.";
