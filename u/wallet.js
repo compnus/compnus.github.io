@@ -144,17 +144,18 @@ function updateFee(num, onNode, dedc) {
     num.value = numv;
 }
 
-function finalizeWithdraw(amount, status) {
-
-}
-
 function updateNetwork(to) {
+    var nodes = [document.getElementById("wnspd"), document.getElementById("wnlgn"), document.getElementById("wnbtc"), document.getElementById("wnbnb")];
     var mn = document.getElementById("wtminimum");
     var mx = document.getElementById("wtmaximum");
     var fee = document.getElementById("withdrawfee");
     var amount = document.getElementById("withdrawamount");
     var spad = document.getElementById("speedad");
-    var ded = document.getElementById('withdrawdeduct')
+    var bnad = document.getElementById("binancead");
+    var ded = document.getElementById('withdrawdeduct');
+    for (i of nodes) i.style.display = "none";
+    spad.style.display = "none";
+    bnad.style.display = "none";
     if (to === "spd") {
         mn.innerHTML = "10";
         mx.innerHTML = "10000";
@@ -162,29 +163,96 @@ function updateNetwork(to) {
         amount.min = 10;
         amount.max = 10000;
         spad.style.display = "block";
+        nodes[0].style.display = "flex";
     } else if (to === "lgn") {
         mn.innerHTML = "2000";
         mx.innerHTML = "10000";
         fee.innerHTML = "100";
         amount.min = 2000;
         amount.max = 100000;
-        spad.style.display = "none";
+        nodes[1].style.display = "flex";
     } else if (to === "btc") {
         mn.innerHTML = "20000";
         mx.innerHTML = "1000000";
         fee.innerHTML = "3000";
         amount.min = 20000;
         amount.max = 1000000;
-        spad.style.display = "none";
+        nodes[2].style.display = "flex";
     } else if (to === "bnb") {
         mn.innerHTML = "100";
         mx.innerHTML = "100000000";
         fee.innerHTML = "0";
         amount.min = 100;
         amount.max = 100000000;
-        spad.style.display = "none";
+        bnad.style.display = "block";
+        nodes[3].style.display = "flex";
     }
     updateFee(amount, fee, ded);
+}
+
+async function finalizeWithdraw(amount, network, status) {
+    var address = document.getElementById("withdrawaddress" + network).value;
+    status.innerHTML = "Please wait...";
+    if (!address || !address.value) {
+        if ((network === "spd") || (network === "btc")) status.innerHTML = "Please enter a valid address.";
+        if (network === "lgn") status.innerHTML = "Please enter a valid invoice.";
+        if ((network === "bnb")(/^\d+$/.test(address))) status.innerHTML = "Please enter a valid Binance ID.";
+        return;
+    }
+    if ((network === "spd") && ((address.includes("@speed.app") && !/[0-9A-Za-z\._]+/.test(address.substring(0, address.length - 10))) || !/[0-9A-Za-z\._]+/.test(address))) {
+        status.innerHTML = "Please enter a valid Speed Wallet address.";
+        return;
+    }
+    if ((network === "lgn") && !address.startsWith("lnbc")) {
+        status.innerHTML = "Please enter a valid invoice.";
+        return;
+    }
+    if ((network === "bnb") && !/^\d+$/.test(address)) {
+        status.innerHTML = "Please enter a valid Binance ID.";
+        return;
+    }
+
+    if ((network === "spd" && ((amount < 10) || (amount > 10000))) || (network === "lgn" && ((amount < 2000) || (amount > 10000))) || (network === "btc" && ((amount < 20000) || (amount > 1000000))) || (network === "bnb" && ((amount < 100) || (amount > 100000000)))) {
+        status.innerHTML = "Please enter a valid amount.";
+    }
+
+    var bls = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
+    if (!bls) {
+        location.href = "login.html";
+        return;
+    }
+    bls = bls[2];
+
+    var fee = 0;
+    if (network === "spd") fee = amount.length;
+    if (network === "lgn") fee = 100;
+    if (network === "btc") fee = 3000;
+
+    if (bls < (amount + fee)) {
+        status.innerHTML = "Insufficient funds."
+        return;
+    }
+
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/withdrawRequest', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+        },
+        body: JSON.stringify({ uid: (await supabase.auth.getSession()).data.session?.user.id, network: network, amount: amount, address: address })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.sc) {
+                status.innerHTML = "Error: " + data.response;
+            } else {
+                status.innerHTML = data.response;
+                loadWallet();
+            }
+        })
+        .catch((error) => {
+            console.error('Error invoking function:', error);
+        });
 }
 
 function withdraw() {
@@ -204,6 +272,10 @@ function withdraw() {
     < speed wallet ad >
     </div>
 
+    <div id="binancead" style="display:none">
+    < binance ad >
+    </div>
+
     <p>
     Minimum Withdrawal: <span id="wtminimum">10</span> Satoshis<br>
     Maximum Withdrawal: <span id="wtmaximum">10000</span> Satoshis<br>
@@ -219,22 +291,25 @@ function withdraw() {
     <label for="withdrawaddressspd">Speed Wallet Address:</label>
     <input id="withdrawaddressspd" type="text" placeholder="johndoe@speed.app">
     </div>
-    <div class="input" id="wnlgn">
+    <div class="input" id="wnlgn" style="display:none">
     <label for="withdrawaddresslgn">Lightning Invoice:</label>
+    <div class="halve">
     <input id="withdrawaddresslgn" type="text" placeholder="lnbc1500n1pw9q5g0pp5g0g0g0g0g0g0g0g0g0g0g0g">
-    </div>
-    <div class="input" id="wnbtc">
+    <button onclick="popup('Lightning Invoice','Do not make the invoice contain a set amount of money to withdraw!<br>Doing so may result in your transaction being rejected.')">?</button>
+    </div></div>
+    <div class="input" id="wnbtc" style="display:none">
     <label for="withdrawaddressbtc">Bitcoin Address:</label>
     <input id="withdrawaddressbtc" type="text" placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa">
     </div>
-    <div class="input" id="wnbnb">
+    <div class="input" id="wnbnb" style="display:none">
     <label for="withdrawaddressbnb">Binance ID:</label>
     <input id="withdrawaddressbnb" type="text" placeholder="12345678">
     </div>
     <p>Total to be deducted from your wallet: <span id="withdrawdeduct" style="font-weight: bold">12</span> Satoshis</p>
-    <p style="color: #ccc; text-align: center;">Withdrawals are processed manually.<br>If you don't receive your Satoshis within 7 days, please contact the support.</p>
+    <p style="color: #ccc; text-align: center;">Withdrawals are processed manually.<br>If you don't receive your Satoshis within 7 days, please contact the support.<br>
+    If your withdrawal gets rejected, you will be fully refunded (fee included).</p>
     <p id="withdrawstatus" style="font-weight: bold;text-align:center"></p>
-    <button class="fullwidth" onclick="finalizeWithdraw()">Request Withdrawal</button>
+    <button class="fullwidth" onclick="finalizeWithdraw(document.getElementById('withdrawamount').value, document.getElementById('withdrawnetwork').value, document.getElementById('withdrawstatus'))">Request Withdrawal</button>
     <p style="margin:0">
         `
     );
