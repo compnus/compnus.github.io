@@ -386,6 +386,64 @@ div.popup > div > div.inside > h1 {
 .fullwidth { width: 100%; display: block; }
 .disabled { opacity: 0.5; pointer-events: none; }
 
+.promobannerad {
+    height: 10vh;
+    padding: 1vh;
+    border-radius: 2vh;
+    display: grid;
+    grid-template-columns: 10vh auto 10vh;
+    grid-gap: 2vh;
+    background-color: #2965FC;
+    box-shadow: rgba(0,0,0,0.5) 1px 1px 5px;
+    transition: 0.5s ease-out;
+}
+
+    .promobannerad#binancead {
+        background-color: #151A1D
+    }
+
+.promobannerad > img {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 1vh;
+    filter: drop-shadow(rgba(0,0,0,0.5) 0 0 0.5vh);
+}
+
+.promobannerad > div > h1 {
+    font-size: 4vh;
+    line-height: 1;
+    font-family: 'Gabarito';
+    margin: 0;
+}
+
+.promobannerad > div > p {
+    font-size: 2vh;
+    margin: 0;
+    margin-top: 1vh;
+    line-height: 1.25;
+    font-family: 'Ubuntu';
+    font-weight: 500;
+}
+
+    .promobannerad > button {
+        background-color: yellow;
+        color: black;
+        border: none;
+        box-shadow: rgba(0,0,0,0.5) 0 0 0.5vh;
+        border-radius: 1vh;
+        transition: 0.5s ease-out;
+    }
+
+    .promobannerad:hover {
+        box-shadow: #2965FC 0 0 10px;
+        transform: scale(1.01);
+    }
+
+    .promobannerad:hover > button {
+        background-color: #dcdc00;
+        box-shadow: yellow 0 0 1vh;
+    }
+
 
 @media(orientation:portrait){
     p, li, input {
@@ -563,4 +621,37 @@ div.popup > div > div.inside > h1 {
             div.popup > div > div.inside > h2 {
                 font-size: 6vw;
             }
+
+    .promobannerad {
+        padding: 2vw;
+        border-radius: 4vw;
+        grid-template-columns: 20vw auto;
+        grid-gap: 2vw 4vw;
+        height: initial;
+    }
+        .promobannerad > img {
+            width: 20vw;
+            height: 20vw;
+            border-radius: 2vw;
+            filter: drop-shadow(rgba(0,0,0,0.5) 0 0 1vw);
+        }
+
+        .promobannerad > div > h1 {
+            font-size: 7vw;
+        }
+
+        .promobannerad > div > p {
+            font-size: 4vw;
+            margin-top: 2vw;
+        }
+
+        .promobannerad > button {
+            grid-column: 1 / -1;
+            box-shadow: rgba(0,0,0,0.5) 0 0 1vw;
+            border-radius: 2vw;
+        }
+
+        .promobannerad:hover {
+            transform: scale(1);
+        }
 }

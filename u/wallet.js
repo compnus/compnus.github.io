@@ -162,7 +162,7 @@ function updateNetwork(to) {
         fee.innerHTML = "2";
         amount.min = 10;
         amount.max = 10000;
-        spad.style.display = "block";
+        spad.style.display = "grid";
         nodes[0].style.display = "flex";
     } else if (to === "lgn") {
         mn.innerHTML = "2000";
@@ -184,7 +184,7 @@ function updateNetwork(to) {
         fee.innerHTML = "0";
         amount.min = 100;
         amount.max = 100000000;
-        bnad.style.display = "block";
+        bnad.style.display = "grid";
         nodes[3].style.display = "flex";
     }
     updateFee(amount, fee, ded);
@@ -269,12 +269,22 @@ function withdraw() {
     </select>
     </div>
 
-    <div id="speedad">
-    < speed wallet ad >
+    <div id="speedad" class="promobannerad" onclick="window.open('/promo/speed.html', '_blank')">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FaYGRdyHW07ic-jZf8xyeYg34x-Br9Ya7aUg6vFgA-zYtNmv8R7pOWSTl-i2bW2GwRA&f=1&nofb=1&ipt=b7637308ff3bee0fb8895fbae06a4c7192e110b46463ef95d0764474d5dac6f5">
+    <div>
+    <h1>Bitcoin at the speed of light.</h1>
+    <p>Use Speed Wallet to store your Satoshis, and get 500 Satoshis for free!<br>Click "Learn More" to claim this offer!</p>
+    </div>
+    <button>LEARN MORE</button>
     </div>
 
-    <div id="binancead" style="display:none">
-    < binance ad >
+    <div id="binancead" style="display:none" class="promobannerad" onclick="window.open('/promo/binance.html', '_blank')">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Factufinance.fr%2Fwp-content%2Fuploads%2F2020%2F08%2Fbinance.png&f=1&nofb=1&ipt=80c76507bb6ef5fd2efb02a1c47005a6c935bd1c733a9b37fcc6f5314b160f45">
+    <div>
+    <h1>Withdraw and trade without fees.</h1>
+    <p>Trade with Binance and get 10% back on Spot and Futures trading!<br>Click "Learn More" to claim this offer!</p>
+    </div>
+    <button>LEARN MORE</button>
     </div>
 
     <p>

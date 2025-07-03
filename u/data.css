@@ -1,0 +1,23 @@
+div.mainscroll {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2vh;
+}
+
+#mainpardon {
+    font-size: 8vh;
+    font-family: 'Funnel Display';
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+@media(orientation:portrait) {
+    div.mainscroll {
+        height: initial;
+        padding: calc(2vh + 2vw);
+    }
+}
