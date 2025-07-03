@@ -196,7 +196,7 @@ async function finalizeWithdraw(amount, network, status) {
     if (!address || !address.value) {
         if ((network === "spd") || (network === "btc")) status.innerHTML = "Please enter a valid address.";
         if (network === "lgn") status.innerHTML = "Please enter a valid invoice.";
-        if ((network === "bnb")(/^\d+$/.test(address))) status.innerHTML = "Please enter a valid Binance ID.";
+        if (network === "bnb") status.innerHTML = "Please enter a valid Binance ID.";
         return;
     }
     if ((network === "spd") && ((address.includes("@speed.app") && !/[0-9A-Za-z\._]+/.test(address.substring(0, address.length - 10))) || !/[0-9A-Za-z\._]+/.test(address))) {
