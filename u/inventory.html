@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js" defer></script>
+    <script src="profile.js" defer></script>
+    <script src="inventory.js" defer></script>
+    <title>Inventory - CompNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+    <script>initHeader("Inventory");</script>
+
+    <div class="mainscroll">
+        <h1 id="infotext" class="flex cc">Please wait...</h1>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+
+            const { user, data } = await getUser();
+
+            if (!user) {
+                //window.location.href = "/u/login.html";
+                return;
+            }
+            if (error) {
+                console.error(error);
+                return;
+            }
+            initInventory(data);
+        });
+        initFooter();
+    </script>
+</body>
+</html>
