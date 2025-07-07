@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js" defer></script>
+    <title>Free Crypto - CryptoNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="listEarn.js"></script>
+    <script src="crypto.js" defer></script>
+</head>
+<body>
+    <script>initHeader("Free Crypto");</script>
+
+    <main>
+        <div id="filters">
+
+            <h1>FILTERS</h1><br />
+
+        </div>
+        <div id="main">
+
+            <div id="searchbar">
+                <input id="searchbarinput" placeholder="Search by name..." oninput="search(this.value)" /><p title="Clear" onclick="document.getElementById('searchbarinput').value=''">&times;</p>
+                <h1>Sort By:</h1>
+                <select id="searchbarselect">
+                    <option>Featured</option>
+                    <option>Newest</option>
+                    <option>Alphabetically</option>
+                </select>
+            </div>
+
+        </div>
+    </main>
+
+    <script>initFooter(true);
+        load();</script>
+</body>
+</html>

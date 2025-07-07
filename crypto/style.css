@@ -102,24 +102,117 @@ main#landing {
     overflow-y: scroll;
 }
 
-    .landingitem > p::-webkit-scrollbar {
+    .landingitem > p::-webkit-scrollbar, #filters::-webkit-scrollbar {
         width: 9px;
     }
 
-    .landingitem > p::-webkit-scrollbar-track {
+    .landingitem > p::-webkit-scrollbar-track, #filters::-webkit-scrollbar-track {
         background: none;
     }
 
-    .landingitem > p::-webkit-scrollbar-thumb {
+    .landingitem > p::-webkit-scrollbar-thumb, #filters::-webkit-scrollbar-thumb {
         background: #ccc;
         border-radius: 100px;
         border: solid 3px var(--lightbg);
         cursor: default;
     }
 
-        .landingitem > p::-webkit-scrollbar-thumb:hover {
+        .landingitem > p::-webkit-scrollbar-thumb:hover, #filters::-webkit-scrollbar-thumb:hover {
             background: white;
         }
+
+main {
+    display: flex;
+}
+
+#filters {
+    flex: 1;
+    text-align: center;
+    height: 80vh;
+    overflow-y: scroll;
+    position: sticky;
+    top: 10vh;
+}
+
+#searchbar {
+    position: sticky;
+    display: flex;
+    top: 10vh;
+    background-color: var(--accent);
+    padding: 1vh;
+    border-radius: 100vh;
+    box-shadow: rgba(0,0,0,0.5) 0 0.5vh 0.5vh;
+    z-index: 50;
+    align-items: center;
+}
+
+#searchbar > input {
+    flex: 1;
+    font-size: 2.5vh;
+    outline: none !important;
+    border: none;
+    background: none;
+    border-bottom: solid #aaa 3px;
+    padding-bottom: 0.5vh;
+    padding-left: 2vh;
+    transition: 0.4s ease-out;
+    border-radius: 5vh 0 0 5vh;
+}
+
+#searchbar > p {
+    border-bottom: solid #aaa 3px;
+    border-bottom-right-radius: 3px;
+    margin: 0;
+    padding: 0 1vh 0.5vh 1vh;
+    font-size: 2.5vh;
+    transition: 0.4s ease-out;
+    color: #ccc;
+    cursor: pointer;
+}
+
+#searchbar > p:hover {
+    text-shadow: white 0 0 3px;
+    color: white;
+}
+
+    #searchbar > input:focus + p, #searchbar > input:focus, #searchbar > select:focus {
+        border-bottom-color: white;
+        box-shadow: white 0 5px 5px -6px;
+    }
+
+
+
+#filters > h1, #searchbar > h1 {
+    margin: 0;
+    font-weight: 800;
+    font-family: 'Gabarito';
+    line-height: 1;
+}
+
+#searchbar > h1 {
+    padding-left: 5vh;
+    padding-right: 1vh;
+    font-size: 3vh;
+}
+
+#searchbar > select {
+    border: none;
+    border-bottom: solid 3px #aaa;
+    padding: 0 0.5vh 0.5vh 0;
+    font-size: 2.5vh;
+    font-weight: bold;
+    border-radius: 0 2.5vh 2.5vh 3px;
+    background-color: var(--accent);
+    transition: 0.4s ease-out;
+}
+
+    #searchbar > select:focus {
+        outline: none;
+    }
+
+#main {
+    flex: 3;
+}
 
 @media(orientation:portrait) {
     #header {
