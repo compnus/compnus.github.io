@@ -1,0 +1,179 @@
+#header {
+    height: 17vh;
+    background: var(--maingradfallback);
+    background: linear-gradient(180deg, rgba(126,70,21,1) 0%, rgba(21,45,96,1) 33%, rgba(126,70,21,1) 67%, rgba(21,45,96,1) 100%);
+    background-size: 100% 300%;
+    padding: 2vh;
+    border-radius: 0 0 100% 100% / 0 0 30% 30%;
+    box-shadow: black 0 0 20px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    animation: gradientScroll 20s ease infinite;
+}
+
+@keyframes gradientScroll {
+    0% {
+        background-position: 50% 0%;
+    }
+
+    100% {
+        background-position: 50% 100%;
+    }
+}
+
+#ilogo {
+    height: 10vh;
+    width: 10vh;
+    margin-right: 1vw;
+    margin-bottom: 2vh;
+    animation: logoPulse 30s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0% {
+        transform: scale(0.975);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(0.975);
+    }
+}
+
+#logo {
+    font-size: 8vh;
+    line-height: 10vh;
+    color: white;
+    margin: 0;
+    margin-bottom: 2vh;
+}
+
+main#landing {
+    min-height: 65vh;
+    height: 65vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4vh;
+    padding: 4vh;
+}
+
+.landingitem {
+    height: 26.5vh;
+    padding: 2vh;
+    border-radius: 2vh;
+    background-color: var(--lightbg);
+    display: grid;
+    grid-template-columns: 28.5vh 1fr;
+    grid-gap: 1.5vh;
+    grid-template-rows: auto 1fr;
+    transition: 0.5s ease-out;
+    box-shadow: rgba(0,0,0,0.5) 0 0 1vh;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.landingitem:hover {
+    transform: scale(1.02);
+    box-shadow: yellow 0 0 1vh;
+}
+
+.landingitem > img {
+    height: 26.5vh;
+    width: 26.5vh;
+    object-fit: contain;
+    grid-row: span 2;
+    filter: drop-shadow(rgba(0,0,0,0.5) 0 0 5px);
+}
+
+.landingitem > h1 {
+    font-size: 4vh;
+    line-height: 1;
+    margin: 0;
+    font-family: Gabarito;
+}
+
+.landingitem > p {
+    overflow-y: scroll;
+}
+
+    .landingitem > p::-webkit-scrollbar {
+        width: 9px;
+    }
+
+    .landingitem > p::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    .landingitem > p::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 100px;
+        border: solid 3px var(--lightbg);
+        cursor: default;
+    }
+
+        .landingitem > p::-webkit-scrollbar-thumb:hover {
+            background: white;
+        }
+
+@media(orientation:portrait) {
+    #header {
+        position: sticky;
+        top: -25vw;
+        height: 36vw;
+        padding: 4vw;
+        border-radius: 0 0 100% 100% / 0 0 20% 20%;
+    }
+
+    #ilogo {
+        height: 20vw;
+        width: 20vw;
+        margin-right: 2vw;
+        margin-bottom: 4vw;
+        animation: logoPulse 30s ease-in-out infinite;
+    }
+
+    #logo {
+        font-size: 12vw;
+        color: white;
+        margin: 0;
+        margin-bottom: 4vw;
+    }
+
+    main#landing {
+        min-height: 65vh;
+        height: fit-content;
+        display: block;
+        padding: 4vw;
+    }
+
+    .landingitem {
+        height: fit-content;
+        padding: 4vw;
+        border-radius: 4vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4vw;
+        grid-gap: 2vw;
+    }
+
+        .landingitem:hover {
+            transform: scale(1);
+            box-shadow: yellow 0 0 1vh;
+        }
+
+        .landingitem > img {
+            height: 50vw;
+            width: 50vw;
+        }
+
+        .landingitem > h1 {
+            font-size: 8vw;
+        }
+}

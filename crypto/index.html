@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js" defer></script>
+    <title>CryptoNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <script>
+        async function mineNUS() {
+            x = await getUser();
+            if (x.user) location.assign('nus');
+            else location.assign('../u/signup.html');
+        }
+    </script>
+    <div id="header">
+        <div class="flex cc">
+            <img id="ilogo" src="../site/image/logo/main.svg" />
+            <h1 id="logo"><span style="font-family:'Funnel Display';">Crypto</span><span style="font-family:'Gabarito';">NUS</span></h1>
+        </div>
+        <div class="grid unirow" id="nav">
+            <p class="link nav" title="Homepage"><a href="/">CompNUS</a></p>
+            <p class="link nav" title="Projects, tools and other services by CompNUS, or by partners of CompNUS."><a href="/services.html">Services</a></p>
+            <p class="link nav" id="userlogin" title="Gateway to everything NUS: mine $NUS crypto and more!"><a href="/u/signup.html">Sign Up</a> <span style="color: white !important">/</span> <a href="/u/login.html">Log In</a></p>
+        </div>
+    </div>
+    <main id="landing">
+        <div class="landingitem" onclick="mineNUS();">
+            <img src="../site/image/logo/coin.svg" />
+            <h1>$NUS Mining</h1>
+            <p>Mine CompNUS's own cryptocurrency and catch as much as possible before the airdrop!<br /><br />More info about the $NUS token can be found in your wallet on your profile.</p>
+        </div>
+        <div class="landingitem" onclick="location.assign('earn.html')">
+            <img src="../site/image/crypto/earn.svg" />
+            <h1>Free Crypto</h1>
+            <p>Earn free cryto from projects that really pay, get tips on how to earn as much as possible and get some extra cash!<br /><br />You can also request dividends from certain apps, which you will receive on your profile! Satoshi dividends can be withdrawn as Bitcoin!</p>
+        </div>
+        <div class="landingitem" onclick="location.assign('new.html')">
+            <img src="../site/image/crypto/new.svg" />
+            <h1>New Crypto Projects</h1>
+            <p>Discover new crypto, engage with the community and claim free airdrops!<br /><br />Note that some of these apps might be scams, but we left appropriate notes next to those.</p>
+        </div>
+        <div class="landingitem" onclick="location.assign('scam.html')">
+            <img src="../site/image/crypto/scam.svg" />
+            <h1>Scam List</h1>
+            <p>Avoid scam apps and learn how to look out for red flags!<br /><br />This list contains all apps that we have proof / high suspicion they are scams. You can suggest more, since there are way too many of those for us to find them all.</p>
+        </div>
+    </main>
+
+    <script>document.addEventListener("DOMContentLoaded", async () => {
+    var user = await getUser();
+    var usern;
+    if (user.user) {
+        const { data: username, error: dbError } = await supabase
+            .from("users")
+            .select("username")
+            .eq("id", user.data.id)
+            .single();
+
+        if (dbError) {
+            console.log(dbError);
+        } else {
+            if (username.username) usern = username.username;
+        }
+        document.getElementById("userlogin").innerHTML = `<a href="/u/profile.html">My Account (${usern})</a>`;
+    }
+});    
+    initFooter();</script>
+</body>
+</html>
