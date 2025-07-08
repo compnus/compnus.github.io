@@ -10,6 +10,7 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     animation: gradientScroll 20s ease infinite;
+    z-index: 40;
 }
 
 @keyframes gradientScroll {
@@ -76,11 +77,13 @@ main#landing {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
+    z-index: 5;
 }
 
 .landingitem:hover {
     transform: scale(1.02);
     box-shadow: yellow 0 0 1vh;
+    z-index: 6;
 }
 
 .landingitem > img {
@@ -89,6 +92,7 @@ main#landing {
     object-fit: contain;
     grid-row: span 2;
     filter: drop-shadow(rgba(0,0,0,0.5) 0 0 5px);
+    z-index: 7;
 }
 
 .landingitem > h1 {
@@ -96,10 +100,12 @@ main#landing {
     line-height: 1;
     margin: 0;
     font-family: Gabarito;
+    z-index: 7;
 }
 
 .landingitem > p {
     overflow-y: scroll;
+    z-index: 7;
 }
 
     .landingitem > p::-webkit-scrollbar, #filters::-webkit-scrollbar {
