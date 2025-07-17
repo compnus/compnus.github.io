@@ -16,25 +16,93 @@
     <main>
         <div id="filters">
 
-            <h1>FILTERS</h1><br />
+            <div id="smallen" onclick="collapseFilters()"><h1>FILTERS</h1><p title="Collapse Filters" id="collapfilt">▲</p></div>
+            <p>Click on a filter to toggle it.</p>
+            <div class="filterdiv">
+                <h2>GENERAL</h2>
+                <h3 title="Explain these filters." onclick="popup('General Filters', `<b>Featured</b> - Apps featured by CompNUS, being a reliable and efficient way to earn real crypto.<br><br><b>Dividends</b> - CompNUS will pay you dividends for using these apps. <a href='/crypto/nus/dividends.html' style='color:yellow;font-weight:bold'>Click here to request dividends</a><br><br><b>Legitimacy</b> - Distinguishes whether we are sure the app is legit.<ul style='margin-bottom: 0'><li><b>Verified</b> - We are 100% sure this app is legit.</li><li><b>Unknown</b> - This app might be legit or a scam, but there are no red flags.</li><li><b>Possible Scam</b> - This app contains red flags.</li></ul><p style='margin:0'>`)">?</h3>
+                <div>
+                    <p class="filter" id="f_main_featured" onclick="filter('main', 'featured')">Featured</p>
+                    <p class="filter" id="f_main_dividend" onclick="filter('main', 'dividend')">Dividends</p>
+                    <hr />
+                    <p class="filter" id="f_main_ver1" onclick="filter('main', 'ver1')">Verified Legitimacy</p>
+                    <p class="filter" id="f_main_ver0" onclick="filter('main', 'ver0')">Unknown Legitimacy</p>
+                    <p class="filter" id="f_main_verm1" onclick="filter('main', 'verm1')">Possible Scam</p>
+                </div>
+            </div>
+            <div class="filterdiv">
+                <h2>PLATFORM</h2>
+                <h3 title="Explain these filters." onclick="popup('Platform Filters', `You can use these filters to control which apps you see based on your prefered platform.<br>Keep in mind that some Telegram apps only work on mobile devices, however.`)">?</h3>
+                <div>
+                    <p class="filter" id="f_pf_web" onclick="filter('pf', 'web')"><img src="https://img.icons8.com/?size=100&id=89777&format=png&color=FFFFFF" />Web</p>
+                    <p class="filter" id="f_pf_android" onclick="filter('pf', 'android')"><img src="https://img.icons8.com/?size=100&id=86306&format=png&color=FFFFFF" />Android</p>
+                    <p class="filter" id="f_pf_ios" onclick="filter('pf', 'ios')"><img src="https://img.icons8.com/?size=100&id=30840&format=png&color=FFFFFF" />iOS</p>
+                    <p class="filter" id="f_pf_telegram" onclick="filter('pf', 'telegram')"><img src="https://img.icons8.com/?size=100&id=lUktdBVdL4Kb&format=png&color=FFFFFF" />Telegram</p>
+                </div>
+            </div>
+            <div class="filterdiv">
+                <h2>EARNING TYPE</h2>
+                <h3 title="Explain these filters." onclick="popup('Earning Types', `<b>Mining</b> - Use your device's (or pool's) computing power to generate coins.<br><b>Play to Earn</b> - Play a game and earn money alongside it!<br><b>Faucet</b> - Check in frequently to get a small amount of coins.<br><b>Watch to Earn</b> - Watch ads and get crypto as a reward.<br><b>Micro Tasks</b> - Complete simple tasks (surveys, games, web searches, ...) to earn crypto.<br><b>Network Sharing</b> - Share your unused data and get paid accordingly.<br><b>Other</b> - Miscellaneous ways to earn like getting paid for walking.`)">?</h3>
+                <div>
+                    <p class="filter" id="f_type_mine" onclick="filter('type', 'mine')">Mining</p>
+                    <p class="filter" id="f_type_p2e" onclick="filter('type', 'p2e')">Play to Earn</p>
+                    <p class="filter" id="f_type_faucet" onclick="filter('type', 'faucet')">Faucet</p>
+                    <p class="filter" id="f_type_ad" onclick="filter('type', 'ad')">Watch to Earn</p>
+                    <p class="filter" id="f_type_mt" onclick="filter('type', 'mt')">Micro Tasks</p>
+                    <p class="filter" id="f_type_nw" onclick="filter('type', 'nw')">Network Sharing</p>
+                    <p class="filter" id="f_type_other" onclick="filter('type', 'other')">Other</p>
+                </div>
+            </div>
+            <div class="filterdiv">
+                <h2>CURRENCY</h2>
+                <h3 title="Explain these filters." onclick="popup('Currency Filters', `You can filter apps by the currency you get for using them.<br>If a currency appears only rarely/once, it will be listed under the 'other' option.`)">?</h3>
+                <div>
+                    <p class="filter" id="f_coin_btc" onclick="filter('coin', 'btc')"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexplore-feed.github.com%2Ftopics%2Fbitcoin%2Fbitcoin.png&f=1&nofb=1&ipt=0fc5f2026f1b50c404143ab248bb02156a85728bb713e9281df90d4b8e90e6ce" />Bitcoin</p>
+                    <p class="filter" id="f_coin_ton" onclick="filter('coin', 'ton')"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoin-images.coingecko.com%2Fcoins%2Fimages%2F17980%2Flarge%2Fton_symbol.png%3F1696517498&f=1&nofb=1&ipt=90939ae1f3c6eb4ce309bc33f8ae788e1492abf53131bc126af4e0711d839d50" />TON</p>
+                    <p class="filter" id="f_coin_usdt" onclick="filter('coin', 'usdt')"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoinivore.com%2Fwp-content%2Fuploads%2F2020%2F11%2FTether-USDT.png&f=1&nofb=1&ipt=5b05429fb157f5eb8f37b2f5060c8abecfc511658a8f2d3c621c65f9d6dbeba7" />USDT/USDC</p>
+                    <p class="filter" id="f_coin_other" onclick="filter('coin', 'other')"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703" />Other</p>
+                </div>
+            </div>
+            <div class="filterdiv">
+                <h2>EFFORT</h2>
+                <h3 title="Explain these filters." onclick="popup('Effort', `This filter allows you to hide apps that require a specific level of effort.<br><br>Effort types:<br><b>No Effort</b> - The app earns on its own, you might need to activate it daily.<br><b>Low Effort<b> - The app earns on its own but needs to be activated often or left running in the background.<br><b>Medium Effort</b> - The app contains parts that work on their own, but also requires activity in order to earn.<br><b>High Effort</b> - If you aren't active, the app doesn't earn you anything.`)">?</h3>
+                <div>
+                    <p class="filter" id="f_effort_no" onclick="filter('effort', 'no')">None</p>
+                    <p class="filter" id="f_effort_low" onclick="filter('effort', 'low')">Low</p>
+                    <p class="filter" id="f_effort_medium" onclick="filter('effort', 'medium')">Medium</p>
+                    <p class="filter" id="f_effort_high" onclick="filter('effort', 'high')">High</p>
+                </div>
+            </div>
+            <div class="filterdiv">
+                <h2>APP RATING</h2>
+                <h3 title="Explain these filters." onclick="popup('App Rating Filters', `App rating is based on how easy to use the app is, whether there are bugs and whether the amount earned is worth your time.<br>And yes, these filters could have been done better. We will redo them. Eventually. Maybe. If there's demand I guess.<br>Anyway yes 5 stars is the best and 1 star is the worst. Obviously.`)">?</h3>
+                <div>
+                    <p class="filter" id="f_rating_highest" onclick="filter('rating', 'highest')" style="color: yellow">&starf;&starf;&starf;&starf;&starf;</p>
+                    <p class="filter" id="f_rating_high" onclick="filter('rating', 'high')" style="color: yellow">&starf;&starf;&starf;&starf;&star;</p>
+                    <p class="filter" id="f_rating_medium" onclick="filter('rating', 'medium')" style="color: yellow">&starf;&starf;&starf;&star;&star;</p>
+                    <p class="filter" id="f_rating_low" onclick="filter('rating', 'low')" style="color: yellow">&starf;&starf;&star;&star;&star;</p>
+                    <p class="filter" id="f_rating_lowest" onclick="filter('rating', 'lowest')" style="color: yellow">&starf;&star;&star;&star;&star;</p>
+                </div>
+            </div>
 
         </div>
+        <div id="searchbar">
+            <input id="searchbarinput" placeholder="Search by name..." oninput="search(this.value)" /><p title="Clear" onclick="document.getElementById('searchbarinput').value = ''; search('')">&times;</p>
+            <h1>Sort By:</h1>
+            <select id="searchbarselect" onchange="sortUpdate(this.value)">
+                <option value="0">Featured</option>
+                <option value="1">Newest</option>
+                <option value="2">Alphabetically</option>
+            </select>
+        </div>
         <div id="main">
-
-            <div id="searchbar">
-                <input id="searchbarinput" placeholder="Search by name..." oninput="search(this.value)" /><p title="Clear" onclick="document.getElementById('searchbarinput').value=''">&times;</p>
-                <h1>Sort By:</h1>
-                <select id="searchbarselect">
-                    <option>Featured</option>
-                    <option>Newest</option>
-                    <option>Alphabetically</option>
-                </select>
-            </div>
 
         </div>
     </main>
 
     <script>initFooter(true);
-        load();</script>
+        let DEFAULT = [];
+        window.addEventListener("DOMContentLoaded", () => load());
+        </script>
 </body>
 </html>

@@ -128,16 +128,47 @@ main#landing {
         }
 
 main {
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: auto 1fr;
 }
 
 #filters {
-    flex: 1;
+    grid-row: span 2;
     text-align: center;
-    height: 80vh;
+    height: 77.5vh;
     overflow-y: scroll;
     position: sticky;
     top: 10vh;
+    margin-right: 2vh;
+    padding: 1vh;
+    box-shadow: rgba(0 0 0 / 0.5) 0 0.5vh 0.5vh;
+    background: var(--lightbg);
+    border-radius: 3vh;
+    z-index: 5;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#smallen {
+    position: relative;
+    cursor: pointer;
+}
+
+#collapfilt {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 1vh;
+    font-size: 3vh;
+    font-weight: 900;
+    transition: 0.2s ease-out;
+}
+
+#smallen:hover > p {
+    color: yellow;
 }
 
 #searchbar {
@@ -155,6 +186,7 @@ main {
 #searchbar > input {
     flex: 1;
     font-size: 2.5vh;
+    line-height: 1;
     outline: none !important;
     border: none;
     background: none;
@@ -169,8 +201,9 @@ main {
     border-bottom: solid #aaa 3px;
     border-bottom-right-radius: 3px;
     margin: 0;
-    padding: 0 1vh 0.5vh 1vh;
+    padding: 0.5vh 1vh;
     font-size: 2.5vh;
+    line-height: 1;
     transition: 0.4s ease-out;
     color: #ccc;
     cursor: pointer;
@@ -186,7 +219,7 @@ main {
         box-shadow: white 0 5px 5px -6px;
     }
 
-#filters > h1, #searchbar > h1 {
+#smallen > h1, #searchbar > h1 {
     margin: 0;
     font-weight: 800;
     font-family: 'Gabarito';
@@ -214,8 +247,178 @@ main {
         outline: none;
     }
 
-#main {
-    flex: 3;
+.mainitem {
+    display: grid;
+    grid-template-columns: 12vh auto;
+    grid-template-rows: 1fr auto;
+    grid-gap: 1.5vh 1vh;
+    background-color: var(--lightbg);
+    padding: calc(1vh - 2px);
+    border-radius: 2vh;
+    border: solid 2px var(--lightbg);
+    margin-top: 2vh;
+    position: relative;
+    transition: 0.5s ease-out;
+    cursor: pointer;
+}
+
+.mainitem.fmainfeatured { border-color: yellow }
+
+.mainitem:hover {
+    box-shadow: yellow 0 0 1vh;
+    transform: scale(1.01);
+}
+
+    .mainitem.fmainfeatured:hover {
+        box-shadow: yellow 0 0 1vh, yellow 0 0 1vh inset;
+    }
+
+    .mainitem.fmainfeatured:hover > div > h2 {
+        box-shadow: yellow 0 0 1vh;
+    }
+
+.mainitem > img {
+    width: 12vh;
+    height: 12vh;
+    border-radius: 1vh;
+}
+
+    .mainitem > div > h2 {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        margin: 0;
+        padding: 1vh 1.5vh;
+        background-color: yellow;
+        color: black;
+        border-radius: 0 2vh 0 2vh;
+        font-size: 2vh;
+        line-height: 1;
+        transition: 0.5s ease-out;
+    }
+
+.mainitem > div > h1 {
+    font-size: 4vh;
+    line-height: 1;
+    margin: 0.5vh;
+    font-family: Gabarito;
+}
+
+.mainitem > div > p {
+    margin: 1vh 0.5vh 0 0.5vh;
+}
+
+.attr {
+    grid-column: span 2;
+    margin: -0.5vh;
+}
+
+.attr > div {
+    display: inline-flex;
+    padding: 0.5vh;
+    background: #222;
+    background: linear-gradient(45deg,rgba(34, 34, 34, 1) 0%, rgba(18, 19, 27, 1) 100%);
+    border-radius: 10vh;
+    align-items: center;
+    vertical-align: middle;
+    height: 3.5vh;
+    margin: 0.5vh;
+    box-shadow: rgba(0 0 0 / 0.3) 0.2vh 0.2vh 0.3vh;
+}
+
+.attr > div > img {
+    height: 3.5vh;
+    width: 3.5vh;
+}
+
+.attr > div > p {
+    font-size: 2vh;
+    line-height: 1;
+    margin: 0 0.5vh;
+}
+
+.filterdiv {
+    background-color: var(--accent);
+    padding: 1vh;
+    border-radius: 2vh;
+    box-shadow: rgba(0 0 0 / 0.5) 0 0.5vh 1vh -0.5vh;
+    margin-top: 2vh;
+    position: relative;
+}
+
+.filterdiv > h2 {
+    margin: 0;
+    font-size: 3vh;
+    line-height: 1;
+    font-weight: 900;
+    font-family: "Funnel Display";
+    text-align: left;
+}
+
+    .filterdiv > h3 {
+        margin: 0;
+        position: absolute;
+        top: 0.5vh;
+        right: 0.5vh;
+        padding: 1vh;
+        font-size: 2.5vh;
+        font-family: "Funnel Display";
+        font-weight: 900;
+        line-height: 1;
+        background: var(--bg);
+        background: linear-gradient(45deg, var(--bg) 0%, var(--lightbg) 100%);
+        width: 2.5vh;
+        height: 2.5vh;
+        border-radius: 2.25vh 1.5vh 2.25vh 2.25vh;
+        cursor: pointer;
+        transition: 0.3s ease-out;
+    }
+
+        .filterdiv > h3:hover {
+            color: yellow;
+            box-shadow: rgba(255 255 255 / 0.5) 0vh 0vh 0.5vh;
+        }
+
+        .filterdiv > div {
+            padding-top: 1vh;
+        }
+
+.filter {
+    display: inline-flex;
+    align-items: center;
+    background: #222;
+    margin: 0.5vh;
+    padding: 1vh;
+    border-radius: 10vh;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.filter > img {
+    height: 3vh;
+    width: 3vh;
+    margin-right: 0.5vh;
+}
+
+.filter:hover {
+    color: yellow;
+}
+
+        .filter.checked {
+            background: rgba(9, 145, 9, 1);
+        }
+
+        .filter.checked:hover {
+            color: black;
+        }
+
+#viewheader {
+
 }
 
 @media(orientation:portrait) {
@@ -273,4 +476,6 @@ main {
         .landingitem > h1 {
             font-size: 8vw;
         }
+
+
 }

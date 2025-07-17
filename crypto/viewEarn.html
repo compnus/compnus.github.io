@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js"></script>
+    <title>Free Crypto - CryptoNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="listEarn.js"></script>
+    <script src="crypto.js"></script>
+</head>
+<body>
+    <script>
+        let hid = GetURLParameter("id");
+        if (!hid) {
+            window.location.href = "earn.html";
+        }
+        initHeader(LIST.find(obj => obj.id === hid).name);</script>
+
+    <div id="viewheader">
+        <img id="viewicon" src="" />
+        <p id="description"></p>
+        <div>
+            <button>LET'S GO!</button>
+            <p onclick="popup()">Why sign up through CompNUS?</p>
+            <p>See sign up benefits</p>
+        </div>
+    </div>
+
+    <script>initFooter(true);
+        window.addEventListener("DOMContentLoaded", () => loadView(LIST.find(obj => obj.id === hid)));</script>
+</body>
+</html>
