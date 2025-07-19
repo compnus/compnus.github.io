@@ -33,14 +33,18 @@ LIST = [
             rating: 5
         },
         info: {},
+        go: {
+            type: 0,
+            link: ""
+        },
         tips: [],
         pros: [],
-        cons: []
+        cons: [],
+        benefits: []
     }, 
     {
         name: "#mate",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2025%2F03%2Fhash-mate-logo.webp&f=1&nofb=1&ipt=32321a8cf968e78d8752d064e51501960af68a10b2c1625adee8d234decf24dc",
-        link: "https://t.me/hashmate_bot?start=8f86ot00",
         featured: true,
         description: "#mate allows you to mine TON, NOT, Telegram Stars and more without investment! Frequent event, NFT mining and random cases allow you to earn a lot of various cryptocurrencies effortlessly!",
         added: "7-16-2024",
@@ -50,14 +54,22 @@ LIST = [
             dividends: true,
             platform: "t",
             type: "mine",
-            coin: "ton other:not other:dogs other:major other:cati other:px other:stars",
+            coin: "ton stars other:NOT other:Dogs other:Major other:Cati other:PX",
             effort: 0,
             rating: 5
         },
-        info: {},
+        info: {
+            description: "",
+            effort: ""
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/hashmate_bot?start=8f86ot00"
+        },
         tips: [],
         pros: [],
-        cons: []
+        cons: [],
+        benefits: ["Free miner to help you get started"]
     }
 ];
 
@@ -156,6 +168,11 @@ function search(via) {
         if (!(a.x && a.y && a.z && b && c && d && e && f)) i.style.display = "none";
 
     }
+    if ([...document.getElementById("main").children].every(x => x.style.display === "none")) {
+        document.getElementById("messagenone").style.display = "block";
+    } else {
+        document.getElementById("messagenone").style.display = "none";
+    }
 }
 
 function load() {
@@ -225,6 +242,7 @@ function load() {
         if (i.attr.coin === "btc") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexplore-feed.github.com%2Ftopics%2Fbitcoin%2Fbitcoin.png&f=1&nofb=1&ipt=0fc5f2026f1b50c404143ab248bb02156a85728bb713e9281df90d4b8e90e6ce'><p>Bitcoin</p>";
         else if (i.attr.coin === "ton") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoin-images.coingecko.com%2Fcoins%2Fimages%2F17980%2Flarge%2Fton_symbol.png%3F1696517498&f=1&nofb=1&ipt=90939ae1f3c6eb4ce309bc33f8ae788e1492abf53131bc126af4e0711d839d50'><p>TON</p>";
         else if (i.attr.coin === "usdt") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoinivore.com%2Fwp-content%2Fuploads%2F2020%2F11%2FTether-USDT.png&f=1&nofb=1&ipt=5b05429fb157f5eb8f37b2f5060c8abecfc511658a8f2d3c621c65f9d6dbeba7'><p>USDT/USDC</p>";
+        else if (i.attr.coin === "stars") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'><p>Telegram Stars</p>";
         else if (i.attr.coin.startsWith("other:")) coin.innerHTML = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"><p>${i.attr.coin.substring(6)}</p>`;
         else coin.innerHTML = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F013%2F391%2F079%2Fnon_2x%2Fcryptocurrency-exchange-3d-illustration-free-png.png&f=1&nofb=1&ipt=923304f21fdaf94f5c47b4ec445165ba37fa57f98d6e8b258995325165034d74"><p>Multi-Coin</p>`;
         atr.appendChild(coin);
@@ -296,5 +314,94 @@ function load() {
 }
 
 function loadView(item) {
-    
+    document.getElementById("viewicon").src = item.icon;
+    document.getElementById("description").src = item.info.description;
+    document.getElementById("benefits").setAttribute("onclick", "popup('Benefits for using "+item.name+" through CompNUS', '<ul>"+(item.benefits.length?"<li>"+ item.benefits.join("</li><li>") +"</li>":"") + (item.attr.dividends?`<li>Get dividends from CompNUS (you can request them <a target="_blank" style="color:yellow" href="../nus/dividends.html"><b>here</b></a>)</li>`:"")+"</ul>')");
+    let verf;
+    if (item.attr.verified === -1) verf = "Possible Scam";
+    else if (item.attr.verified === 0) verf = "Unknown";
+    else if (item.attr.verified === 1) verf = "Verified";
+    document.getElementById("legitimacy").innerHTML = verf;
+    for (j of item.attr.platform) {
+        var x = document.createElement("img");
+        if (j === "w") {
+            x.src = "https://img.icons8.com/?size=100&id=89777&format=png&color=FFFFFF";
+            x.title = "Web";
+        }
+        if (j === "a") {
+            x.src = "https://img.icons8.com/?size=100&id=86306&format=png&color=FFFFFF";
+            x.title = "Android";
+        }
+        if (j === "i") {
+            x.src = "https://img.icons8.com/?size=100&id=30840&format=png&color=FFFFFF";
+            x.title = "iOS";
+        }
+        if (j === "t") {
+            x.src = "https://img.icons8.com/?size=100&id=lUktdBVdL4Kb&format=png&color=FFFFFF";
+            x.title = "Telegram";
+        }
+        document.getElementById("platforms").appendChild(x);
+        if (!item.attr.platform.endsWith(j)) {
+            document.getElementById("platforms").innerHTML+="&ensp;";
+        }
+    }
+    let etype;
+    switch (item.attr.type) {
+        case "mine": etype = "Mining";break;
+        case "p2e": etype = "Play to Earn";break;
+        case "faucet": etype = "Faucet";break;
+        case "ad": etype = "Watch to Earn";break;
+        case "mt": etype = "Micro Tasks";break;
+        case "nw": etype = "Network Sharing"; break;
+        default: etype = item.attr.type;
+    }
+    document.getElementById("earningtype").innerHTML = etype;
+    let curr;
+    switch (item.attr.coin) {
+        case "btc": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexplore-feed.github.com%2Ftopics%2Fbitcoin%2Fbitcoin.png&f=1&nofb=1&ipt=0fc5f2026f1b50c404143ab248bb02156a85728bb713e9281df90d4b8e90e6ce'> Bitcoin"; break;
+        case "ton": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoin-images.coingecko.com%2Fcoins%2Fimages%2F17980%2Flarge%2Fton_symbol.png%3F1696517498&f=1&nofb=1&ipt=90939ae1f3c6eb4ce309bc33f8ae788e1492abf53131bc126af4e0711d839d50'> TON"; break;
+        case "usdt": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoinivore.com%2Fwp-content%2Fuploads%2F2020%2F11%2FTether-USDT.png&f=1&nofb=1&ipt=5b05429fb157f5eb8f37b2f5060c8abecfc511658a8f2d3c621c65f9d6dbeba7'> USDT/USDC"; break;
+        case "stars": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'> Telegram Stars"; break;
+        default:
+            if (item.attr.coin.startsWith("other:")) curr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${item.attr.coin.substring(6)}`;
+            else {
+                curr = "Click to view";
+                let xpt = [];
+                for (i of item.attr.coin.split(" ")) {
+                    let xpr = "";
+                    switch (i) {
+                        case "btc": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexplore-feed.github.com%2Ftopics%2Fbitcoin%2Fbitcoin.png&f=1&nofb=1&ipt=0fc5f2026f1b50c404143ab248bb02156a85728bb713e9281df90d4b8e90e6ce'> Bitcoin"; break;
+                        case "ton": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoin-images.coingecko.com%2Fcoins%2Fimages%2F17980%2Flarge%2Fton_symbol.png%3F1696517498&f=1&nofb=1&ipt=90939ae1f3c6eb4ce309bc33f8ae788e1492abf53131bc126af4e0711d839d50'> TON"; break;
+                        case "usdt": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoinivore.com%2Fwp-content%2Fuploads%2F2020%2F11%2FTether-USDT.png&f=1&nofb=1&ipt=5b05429fb157f5eb8f37b2f5060c8abecfc511658a8f2d3c621c65f9d6dbeba7'> USDT/USDC"; break;
+                        case "stars": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'> Telegram Stars"; break;
+                        default: xpr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${i.substring(6)}`;
+                    }
+                    let xpe = document.createElement("div");
+                    xpe.classList.add("singleCoin");
+                    xpe.innerHTML = xpr;
+                    xpt.push(xpe.outerHTML);
+                }
+                document.getElementById("currency").setAttribute("onclick", `popup('Earning Currencies', '${xpt.join(" ")}')`);
+                document.getElementById("currency").classList.add("clickableCurr");
+            }
+    }
+    document.getElementById("currency").innerHTML = curr;
+    let effrt;
+    switch (item.attr.effort) {
+        case 0: effrt = "None"; break;
+        case 1: effrt = "Low"; break;
+        case 2: effrt = "Medium"; break;
+        case 3: effrt = "High"; break;
+    }
+    document.getElementById("effort").innerHTML = effrt;
+    document.getElementById("effortdetails").setAttribute("onclick", `popup('Effort Details', "${item.info.effort}")`);
+    let rating;
+    switch (item.attr.rating) {
+        case 1: rating = "&starf;&star;&star;&star;&star;"; break;
+        case 2: rating = "&starf;&starf;&star;&star;&star;"; break;
+        case 3: rating = "&starf;&starf;&starf;&star;&star;"; break;
+        case 4: rating = "&starf;&starf;&starf;&starf;&star;"; break;
+        case 5: rating = "&starf;&starf;&starf;&starf;&starf;"; break;
+    }
+    document.getElementById("rating").innerHTML = rating;
 }

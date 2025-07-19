@@ -64,23 +64,41 @@ function sortUpdate(use) {
     }
 }
 
-let filtercCollapsed = false;
+let filtercCollapsed = window.visualViewport.width < window.visualViewport.height;
 function collapseFilters() {
     let filters = document.getElementById("filters");
+    let mobile = window.visualViewport.width < window.visualViewport.height;
     if (!filtercCollapsed) {
-        filters.style.height = "calc(3.5vh + 3px)";
-        filters.style.gridRow = "span 1";
-        filters.style.overflowY = "hidden";
+        if (mobile) {
+            filters.style.height = "7vw";
+        } else {
+            filters.style.height = "calc(3.5vh + 3px)";
+            filters.style.gridRow = "span 1";
+            filters.style.overflowY = "hidden";
+            document.getElementById("main").style.gridColumn = "span 2";
+        }
         document.getElementById("collapfilt").style.rotate = "180deg";
-        document.getElementById("main").style.gridColumn = "span 2";
     } else {
-        filters.style.height = "77.5vh";
-        filters.style.gridRow = "span 2";
-        filters.style.overflowY = "scroll";
+        if (mobile) {
+            filters.style.height = "fit-content";
+        } else {
+            filters.style.height = "77.5vh";
+            filters.style.gridRow = "span 2";
+            filters.style.overflowY = "scroll";
+            document.getElementById("main").style.gridColumn = "span 1";
+        }
         document.getElementById("collapfilt").style.rotate = "0deg";
-        document.getElementById("main").style.gridColumn = "span 1";
     }
     filtercCollapsed = !filtercCollapsed;
+}
+
+function viewTab(id) {
+    document.getElementById("tabbutton0").classList.remove("selected");
+    document.getElementById("tabbutton1").classList.remove("selected");
+    document.getElementById("pctab0").classList.remove("selected");
+    document.getElementById("pctab1").classList.remove("selected");
+    document.getElementById("tabbutton" + id).classList.add("selected");
+    document.getElementById("pctab" + id).classList.add("selected");
 }
 
 console.log("list loaded");
