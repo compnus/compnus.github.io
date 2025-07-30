@@ -3,7 +3,7 @@ LIST = [
         name: "Robox",
         icon: "https://play-lh.googleusercontent.com/4WJT23_3x0VGuNia2wVJ0M6LO7ZkaiGwWl8avIaPkWpkY3XF6QN1otAA_iumCGWdKg=w240-h480-rw",
         featured: true,
-        description: "Robox digital products allow you to mine the Robox stable coin in various different ways allowing you to earn a lot of money in a short period of time. Combine this with their special wallet which allows you to earn 7% APR interest and we have a great way to get some extra cash with low effort!",
+        description: "Robox digital products allow you to mine the Robox stable coin in various different ways allowing you to earn a lot of money in a short period of time. Combine this with their special wallet which allows you to earn 6% APR interest and we have a great way to get some extra cash with low effort!",
         added: "7-15-2024",
         id: "robox_main",
         attr: {
@@ -32,20 +32,107 @@ LIST = [
             rating: 5
         },
         info: {
-            description: "",
-            effort: ""
+            description: "Robox allows you to mine a Solana-based stable coin $ROX completely free and without any effort. Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APR interest on your tokens, which means even more money in your pocket! Not literally, since the money is actually in the cloud but you get the point.",
+            effort: "Visit the app every three hours and press a button. How simpler could it even be?"
         },
         go: {
             type: 0,
             link: "https://robox.digital/i/440583"
         },
         benefits: [],
-        features: [],
-        tips: [],
-        pros: [],
-        cons: [],
+        features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"]],
+        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APR interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."], ["Use dual apps! (if possible)", "If your phone supports dual apps, make sure to use it to effectively double your earnings! When withdrawing to NC Wallet, don't forget to use your main account's email."]],
+        pros: ["Instant withdrawals with extremely low minimum withdrawal", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN"],
+        cons: ["Unreliable notification service", "Paid plans will mostly result in a loss"],
         banner: "nc"
-    }, 
+    },
+    {
+        name: "Robox Fit",
+        unlisted: true,
+        icon: "https://play-lh.googleusercontent.com/UWmwSDqYDxuoZKn4M8Kw9H6ZYeo8UTG65TbScnv6w8Smfc4qNiibCF8BgHiRCE_bXE0=w240-h480-rw",
+        id: "roboxfit",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "ai",
+            type: "Walk to Earn, Mining",
+            coin: "other:Robox",
+            effort: 0,
+            rating: 5
+        },
+        info: {
+            description: "Robox Fit allows you to mine a Solana-based stable coin $ROX completely free for counting your steps! Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Don't forget to walk at least 1000 steps a day so that your miming doesn't unexpectedly stop. Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APR interest on your tokens, which means even more money in your pocket!",
+            effort: "Visit the app every three hours and press a button. You need to make at least 1000 steps a day. Any excess steps carry on to the next day."
+        },
+        go: {
+            type: 0,
+            link: "https://robox.fit/i/101935"
+        },
+        benefits: [],
+        features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"]],
+        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APR interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."], ["Use dual apps! (if possible)", "If your phone supports dual apps, make sure to use it to effectively double your earnings! When withdrawing to NC Wallet, don't forget to use your main account's email."]],
+        pros: ["Instant withdrawals with extremely low minimum withdrawal", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN", "Steps carry on to the next day, which means eventually you won't have to care about them anymore, since you will have hundreds of thousands spare steps"],
+        cons: ["Unreliable notification service", "Paid plans will mostly result in a loss"],
+        banner: "nc"
+    },
+    {
+        name: "Robox VPN",
+        unlisted: true,
+        icon: "https://play-lh.googleusercontent.com/kMQbfywV3TZig3c0HWQrg4Qm8kpBLVYZH5448AP0Cjum9irvVYHAly0Pn7--PixBIw=w240-h480-rw",
+        id: "roboxvpn",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "a",
+            type: "mine",
+            coin: "other:Robox",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "Robox VPN allows you to mine a Solana-based stable coin $ROX completely free for browsing the web while it protects you. Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APR interest on your tokens, which means even more money in your pocket!",
+            effort: "Visit the app every three hours and press a button. You need to browse a certain amount of websites every day. Excess web visits carry on to the next day."
+        },
+        go: {
+            type: 0,
+            link: "https://roboxvpn.com/i/40117"
+        },
+        benefits: [],
+        features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"], ["Free VPN Service", "7 free VPN locations to protect you online. Additional locations and special servers available for paid users."]],
+        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APR interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."]],
+        pros: ["Instant withdrawals with extremely low minimum withdrawal", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN", "Excess website visits carry on to the next day, which means you won't have to visit as many websites if you have any spare visits"],
+        cons: ["Unreliable notification service", "Paid plans will mostly result in a loss", "The free VPN service is painfully slow and the decent ones are locked behind a paid plan"],
+        banner: "nc"
+    },
+    {
+        name: "Robox Relax",
+        unlisted: true,
+        icon: "https://play-lh.googleusercontent.com/jmigq-tw4gSfZo7P41xi8S6OqkIyb4YDNHJKoeVyYHwU2N6aTOpQNb1WTtsfBVBxjGc=w240-h480-rw",
+        id: "roboxrelax",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "ai",
+            type: "mine",
+            coin: "other:Robox",
+            effort: 2,
+            rating: 5
+        },
+        info: {
+            description: "Robox Relax allows you to mine a Solana-based stable coin $ROX completely free for listening to relaxing tunes. It also offers commands for correct breathing to help you relax your mind. Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APR interest on your tokens, which means even more money in your pocket! Now that sounds relaxing!",
+            effort: "Visit the app every three hours and press a button. You gain mining energy by listening to sounds, that require the app to be open."
+        },
+        go: {
+            type: 0,
+            link: "https://robox.guru/i/6277"
+        },
+        benefits: [],
+        features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"], ["Breathing Tutorial and Relaxing Sounds", "Robox Relax offers 8 different breathing routines accompanied by soothing sounds that help you relax your mind."]],
+        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APR interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day. That's not very relaxing."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."]],
+        pros: ["Instant withdrawals with extremely low minimum withdrawal", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN", "Excess meditation energy carries on to the next day"],
+        cons: ["Unreliable notification service", "Paid plans will mostly result in a loss"],
+        banner: "nc"
+    },
     {
         name: "#mate",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2025%2F03%2Fhash-mate-logo.webp&f=1&nofb=1&ipt=32321a8cf968e78d8752d064e51501960af68a10b2c1625adee8d234decf24dc",
