@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="listEarn.js"></script>
     <script src="crypto.js"></script>
-</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script><script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script></head>
 <body>
     <script>
         let hid = GetURLParameter("id");
@@ -26,7 +26,7 @@
             <p onclick="popup('Why sign up to apps through us?','Signing up to apps through CompNUS can bring you many benefits, in both the app itself, but also on CompNUS in the form of dividends!<br>Furthermore, if an app is verified on CompNUS, you can be 100% sure there is no scam waiting for you, which is a much needed confirmation in this age of scams!<br><br>Click the \'See sign up benefits...\' button to see a detailed list of benefits you get thanks to us!')">Why sign up through CompNUS?</p>
             <p id="benefits">See sign up benefits...</p>
         </div>
-    </div>
+    </div><div id="banner"></div>
 
     <div id="pc">
         <div id="pcviewtabs">
@@ -39,7 +39,7 @@
         </div>
 
         <div id="pctab0" class="pctab selected">
-            <div>
+            <div id="mobiletab0">
                 <div id="maininfogrid">
                     <p class="infop">Legitimacy: <span id="legitimacy">Unknown</span> <span class="moreinfo" onclick="popup('Legitimacy','<b>Verified</b> - We guarantee that this app is 100% legit and definitely pays real crypto. In case this app offers paid services, they are legit.<br><br><b>Unknown</b> - We have not yet verified the legitimacy of this app. In case this app offers paid services, use them at your own risk.<br>In case you know this app is legit or a scam, please let us know.<br><br><b>Possible Scam</b> - Same as Unknown, except with red flags. If this app offers paid services, we advise against using them.<br>In case you know this app is legit or a scam, please let us know.')">?</span></p>
                     <p class="infop">Platforms:&ensp;<span id="platforms"></span></p>
@@ -49,23 +49,34 @@
                     <p class="infop">Rating: <span id="rating" style="color:yellow">&star;&star;&star;&star;&star;</span></p>
                 </div>
                 <h1 id="maininfofeatures">App Features</h1>
-                
+                <div id="mainfeatures"></div>
+                <p style="text-align:center; margin-bottom: 0">Click "LET'S GO!" at the top of the page to explore all of these features for yourself!</p>
             </div>
-            <div style="background-color: var(--lightbgaccent)">
-
+            <div style="background-color: var(--lightbgaccent)" id="mobiletab1">
+                <h1 style="font-family:'Funnel Display'; text-align: center; margin: 0">NUS Tips&trade;</h1><br />
             </div>
         </div>
 
         <div id="pctab1" class="pctab">
-            <div style="background-color: #294919">
-
-            </div>
-            <div style="background-color: #5b1717">
-
-            </div>
+            <div style="background-color: #294919" id="mobiletab2" class="procons"><h1>Advantages</h1></div>
+            <div style="background-color: #5b1717" id="mobiletab3" class="procons"><h1>Drawbacks</h1></div>
         </div>
     </div>
 
+    <div id="mobile">
+        <div id="mobiletabs">
+            <label for="mobiletabch">View:</label>
+            <select id="mobiletabch" onchange="mobileTab(this.value)">
+                <option value="0">Info and Features</option>
+                <option value="1">Tips</option>
+                <option value="2">Pros</option>
+                <option value="3">Cons</option>
+            </select>
+        </div>
+        <div id="mobileopentab">
+
+        </div>
+    </div>
     
 
     <script>initFooter(true);

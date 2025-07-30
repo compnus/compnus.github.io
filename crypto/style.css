@@ -460,6 +460,7 @@ main {
 #description {
     height: 10vw;
     overflow-y: auto;
+    margin: 0;
 }
 
 #viewheader > div {
@@ -507,7 +508,7 @@ main {
     font-size: 3vh;
     font-family: Gabarito;
     padding: 1vh;
-    width: 45vw;
+    width: 42vw;
     border-radius: 3vh 3vh 0 0;
     background-color: black;
     color: #ccc;
@@ -541,6 +542,7 @@ main {
 
 .pctab.selected {
     display: grid;
+    align-items: start;
 }
 
 .pctab > div {
@@ -603,7 +605,7 @@ main {
     border-radius: 10px;
     width: 50%;
     background: linear-gradient(90deg, white 50%, var(--lightbg) 100%);
-    margin: 0.5vh 0;
+    margin: 0.5vh 0 1vh 0;
 }
 
 #maininfofeatures::before {
@@ -628,6 +630,59 @@ main {
 }
 
 .clickableCurr:hover {
+    color: yellow;
+}
+
+#banner > div {
+    width: 60vw;
+    margin: 0 auto 2vh auto;
+    cursor: pointer;
+    height: min-content;
+}
+
+#mainfeatures > div > h1, #mobiletab1 > div > h1 {
+    margin: 1vh 0;
+    font-family: Gabarito;
+}
+
+#mainfeatures > div > p, #mobiletab1 > div > p {
+    margin: 0;
+}
+
+#mainfeatures > div::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 80%;
+    background: linear-gradient(90deg, var(--lightbg) 0%, rgb(255, 255, 255, 0.5) 50%, var(--lightbg) 100%);
+    margin: 1vh auto;
+}
+
+.procons {
+    display: grid;
+    grid-template-columns: 5vh 1fr;
+    grid-gap: 2vh;
+}
+
+    .procons > img {
+        width: 5vh;
+        height: 5vh;
+    }
+
+    .procons > h2 {
+        margin: 0;
+        align-self: center;
+    }
+
+    .procons > h1 {
+        font-family: 'Funnel Display';
+        text-align: center;
+        margin: 0;
+        grid-column: span 2
+    }
+
+#messagenone > a {
+    font-weight: bold;
     color: yellow;
 }
 
@@ -876,9 +931,141 @@ main {
 
     #mobile {
         display: block;
+        margin: 4vw;
+        background-color: var(--lightbg);
+        padding: 2vw;
+        border-radius: 4vw;
     }
 
     #pc {
         display: none;
     }
+
+    #viewheader {
+        grid-template-columns: 30vw 1fr;
+        grid-template-rows: 30vw 1fr;
+        border-radius: 4vw;
+        padding: 2vw;
+        margin: 4vw;
+        height: fit-content;
+        grid-gap: 2vw;
+    }
+
+    #viewicon {
+        width: 30vw;
+        height: 30vw;
+        border-radius: 2vw;
+    }
+
+    #description {
+        grid-column: span 2;
+        grid-row: 2;
+        height: fit-content;
+        overflow-y: hidden;
+    }
+
+    #viewheader > div {
+        grid-column: 2;
+        grid-row: 1;
+        grid-template-rows: 16vw 6vw 6vw;
+        grid-gap: 1vw;
+    }
+
+        #viewheader > div > button {
+            margin: 0;
+            font-size: 7vw;
+            border-radius: 2vw;
+        }
+
+        #viewheader > div > p {
+            font-size: 3vw;
+        }
+
+    #banner > div {
+        width: 88vw;
+        margin: 0 auto 4vw auto;
+    }
+
+    #mobiletabs {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2vw;
+    }
+
+    #mobiletabs > label {
+        font: bold 6vw Gabarito;
+    }
+
+    #mobiletabs > select {
+        font: bold 5vw Gabarito;
+        flex: 1;
+        border-radius: 2vw;
+        background-color: var(--bg);
+        border: 2px solid var(--border);
+        padding: 1vw;
+        margin-left: 4vw;
+    }
+
+    #mobileopentab {
+        border-radius: 2vw;
+        box-shadow: rgba(0 0 0 / 0.5) 0 0 1vw;
+    }
+
+        #mobileopentab > div {
+            padding: 2vw;
+            border-radius: 2vw;
+        }
+
+    .infop {
+        font-size: 4vw;
+    }
+
+    .moreinfo {
+        font-size: 4vw;
+        min-width: 4vw;
+        padding: 1vw;
+        height: 4vw;
+        border-radius: 8vw;
+        margin-left: 2vw;
+    }
+
+    #maininfogrid {
+        grid-template-columns: 1fr;
+        grid-gap: 4vw;
+    }
+
+    #maininfogrid > * {
+        justify-self: center;
+    }
+
+        #maininfofeatures::after {
+            margin: 1vw 0 2vw 0;
+        }
+
+        #maininfofeatures::before {
+            margin: 4vw 0;
+        }
+
+    #platforms > img, #currency > img {
+        height: 7vw;
+        width: 7vw;
+    }
+
+    #mainfeatures > div > h1, #mobiletab1 > div > h1 {
+        margin: 2vw 0;
+    }
+
+    #mainfeatures > div::after {
+        margin: 2vw auto;
+    }
+
+    .procons {
+        grid-template-columns: 10vw 1fr;
+        grid-gap: 3vw;
+    }
+
+        .procons > img {
+            width: 10vw;
+            height: 10vw;
+        }
 }

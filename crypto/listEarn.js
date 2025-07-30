@@ -21,7 +21,6 @@ LIST = [
         name: "Robox",
         unlisted: true,
         icon: "https://play-lh.googleusercontent.com/4WJT23_3x0VGuNia2wVJ0M6LO7ZkaiGwWl8avIaPkWpkY3XF6QN1otAA_iumCGWdKg=w240-h480-rw",
-        description: "Robox is the heart of the Robox ecosystem, allows you to effortlessly mine Robox by checking in the app every 3 hours!",
         id: "robox",
         attr: {
             verified: 1,
@@ -32,15 +31,20 @@ LIST = [
             effort: 0,
             rating: 5
         },
-        info: {},
+        info: {
+            description: "",
+            effort: ""
+        },
         go: {
             type: 0,
-            link: ""
+            link: "https://robox.digital/i/440583"
         },
+        benefits: [],
+        features: [],
         tips: [],
         pros: [],
         cons: [],
-        benefits: []
+        banner: "nc"
     }, 
     {
         name: "#mate",
@@ -59,17 +63,67 @@ LIST = [
             rating: 5
         },
         info: {
-            description: "",
-            effort: ""
+            description: "#mate allows you to mine TON, NOT, Telegram Stars and more cryptocurrencies without investment! Just start mining, complete daily tasks to get more miners and watch your earnings grow! #mate comes with frequent events to maximize earnings, NFT mining to get some extra drops while mining your coins and random case drops which you can open for extra miners, or, if you want to, sell them on the marketplace and make even more money! Speaking of the marketplace, you can purchase and sell miners to complete collections and get mining boosts!",
+            effort: "Everything you have to do is to start mining every 20 hours. It doesn't get simpler than that!"
         },
         go: {
             type: 0,
             link: "https://t.me/hashmate_bot?start=8f86ot00"
         },
-        tips: [],
-        pros: [],
-        cons: [],
-        benefits: ["Free miner to help you get started"]
+        tips: [["Periodically collect your loot!", "Collect your loot after you wake up and before you go to sleep. This will reset the 20 hour timer, making you never stop mining!"],
+            ["Join the Mate announcement and community channel!", "This way you can complete daily tasks, as well as get the secret word, allowing you to get 7 MATE coins every day for free!"],
+            ["Share with your \"friends\"!", "One of the daily tasks, which rewards you with 2 MATE coins requires you to share a message to someone on Telegram. You do not actually have to share this message to a person! Instead, share the message to the #mate bot and you'll receive your reward without bothering your friends!"],
+            ["Prioritize mining coins with low total hashrate!", "Obviously you will start mining TON as your first coin, only to realize you are making little to no money. Blocks can only give so many coins per reward, based on your hashrate. Mining coins with lower hashrate increases your share. Additionally, mining coins with low amount of active people increases your chances to win a block!"],
+            ["Do not rush withdrawal!", "Every withdrawal means a fee to pay. A fee that is not very low as seen in the Cons for #mate. You should only withdraw your coins if you don't want to mine them anymore. For instance, you can use your mined TON to make in-app purchases. Therefore you don't have to withdraw it, if you plan on using it in #mate."]
+        ],
+        pros: ["Daily tasks allowing you to get free $MATE, which can be used to buy miners", "Free NFTs and Cases", "Active developer team, frequent updates and events", "Helpful notification service", "No ads", "Fast withdrawals"],
+        cons: ["Relatively high withdrawal fee (0.1 TON, 35 STARS, ...)", "Cases require a key to open, which must be purchased with TON", "Pay-to-Win aspect with x50 block reward costing STARS to unlock", "The app has many little bugs that altogether can make the app tedious to use"],
+        benefits: ["Free miner to help you get started"],
+        features: [["Offline Mining of Your Chosen Currency", "You can choose a currency to mine and for the next 20 hours you will be mining it completely effort-free!"],
+            ["#Marketplace", "Buy and sell Limited Miners and Cases to maximize your earnings!"],
+            ["NFT and Case Drops", "While mining, there is a small chance you will get free cases or NFTs!"],
+            ["#Tasks", "Daily, General and Partner tasks reward you with MATE coin, which can be used to purchase miners!"]
+        ],
+        banner: "bin"
+    },
+    {
+        name: "Puparty",
+        icon: "https://puparty.com/resource/image/logo.jpg",
+        featured: true,
+        description: "A game based on the mobile classic \"Coin Master\", except it allows you to make money while playing! Great combination! Additionally, you can mine $PPT and exchange it for wUSDT, which can be withdrawn as USDT! Even more money!",
+        added: "7-17-2024",
+        id: "puparty",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "t",
+            type: "p2e",
+            coin: "usdt",
+            effort: 2,
+            rating: 5
+        },
+        info: {
+            description: "Puparty makes you play a game similar to Coin Masters - spin the slots and get coins! Other than coins, however, you can steal other's $PPT, coins, or even destroy their village! Speaking of the village, make sure you build your own, as every upgrade gives you PPP and completing a village gives you extra spins and even cards - whose dupes can be sold for $PPT. Now what's PPP for? The more PPP you have, the more $PPT per hour you earn! $PPT can be then exchanged for 1000PPT - a token with real value, which you can sell for wUSDT and withdraw it as USDT! Complete card collections to get pets or USDT! There are also daily rewards, platform dividends and more!",
+            effort: "You must spin manually and collect $PPT from your mine manually by clicking it. This game requires you to be active, but once you run out of Spins, there isn't much to do, which means you can turn it off and come back the next day."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/puparty_bot/index?startapp=10530568"
+        },
+        features: [["Offline $PPT Mining", "Every day you can visit your mine to collect accumulated $PPT!"],
+        ["Gameplay", "Simple yet engaging gameplay with simple to understand progression and many rewards along the way!"],
+        ["Card Marketplace", "Sell your dupe cards for $PPT or merge them for higher star cards and finish your collection for the best prizes!"],
+        ["Tasks and Tournaments", "Complete tasks to get PPP and compete in tournaments to get extra coins, PPP and USDT!"]
+        ],
+        tips: [["Collect $PPT every day!", "$PPT stops accumulating after 48 hours. Because of that make sure to collect it every day to prevent missing out on potential rewards."],
+        ["Do not buy low star cards!", "You are way more likely to get these from chests, so do not waste your $PPT on them. Their price is also usually higher than their value."],
+        ["Don't forget to spend your coins before logging off!", "Don't forget that just as you can steal other's coins, they can steal yours. Always make sure to spend them before logging off to prevent others from taking them."],
+        ["Log in daily for extra rewards!", "You will get a free reward every day. However, if you check in for more than 7 days in a row, the calendar upgrades and gives you better rewards. Every 7 days, the calendar upgrades even more, giving even better rewards. Miss out a single day, and the calendar resets back to its original, lame version."]
+        ],
+        benefits: [],
+        pros: ["Fast withdrawals with unitary fee", "Live 1000PPT price chart", "Generous tournaments", "Dividends for people who collected all cards"],
+        cons: ["Your $PPT can be stolen if you have no shields left","Annoying pop-ups", "AI music (luckily can be turned off)", "Outdated event names (like the Happy New Year event in August)"],
+        banner: "bin"
     }
 ];
 
@@ -169,7 +223,9 @@ function search(via) {
 
     }
     if ([...document.getElementById("main").children].every(x => x.style.display === "none")) {
-        document.getElementById("messagenone").style.display = "block";
+        let jmsg = document.getElementById("messagenone");
+        jmsg.style.display = "block";
+        if (via.includes("nc")) jmsg.innerHTML = "There are no apps that match your filters and/or search query.<br>Are you perhaps looking for <a href='viewEarn.html?id=nc'>NC Wallet</a>?";
     } else {
         document.getElementById("messagenone").style.display = "none";
     }
@@ -315,7 +371,7 @@ function load() {
 
 function loadView(item) {
     document.getElementById("viewicon").src = item.icon;
-    document.getElementById("description").src = item.info.description;
+    document.getElementById("description").innerHTML = item.info.description;
     document.getElementById("benefits").setAttribute("onclick", "popup('Benefits for using "+item.name+" through CompNUS', '<ul>"+(item.benefits.length?"<li>"+ item.benefits.join("</li><li>") +"</li>":"") + (item.attr.dividends?`<li>Get dividends from CompNUS (you can request them <a target="_blank" style="color:yellow" href="../nus/dividends.html"><b>here</b></a>)</li>`:"")+"</ul>')");
     let verf;
     if (item.attr.verified === -1) verf = "Possible Scam";
@@ -404,4 +460,73 @@ function loadView(item) {
         case 5: rating = "&starf;&starf;&starf;&starf;&starf;"; break;
     }
     document.getElementById("rating").innerHTML = rating;
+
+    var xad = document.getElementById("banner");
+    if (item.banner) switch (item.banner) {
+        case "nc":
+            xad.innerHTML = `<div class="promobannerad" style="background-color: #f7931a">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2Fv9x5O1Cul_XwbtKQtL3cQzyYwFRS54ww-yhQc94rLBgiOz0pqsCkK_iMqiW77_F2wAM&f=1&nofb=1&ipt=3b6ef67ef35288b5d12d828afefb670cda1b94c6864580fa8f5dfb7f181c0ce9">
+            <div>
+            <h1>Withdraw your ROX to NC Wallet!</h1>
+            <p>From there, you can swap it to any crypto and withdraw it to your crypto wallet!</p>
+            </div>
+            <button>OPEN</button>
+            </div>`;
+            xad.setAttribute("onclick", "window.open('/crypto/viewEarn.html?id=nc', '_blank')");
+            break;
+        case "bin":
+            xad.innerHTML = `<div class="promobannerad" style="background-color: #151a1d">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Factufinance.fr%2Fwp-content%2Fuploads%2F2020%2F08%2Fbinance.png&f=1&nofb=1&ipt=80c76507bb6ef5fd2efb02a1c47005a6c935bd1c733a9b37fcc6f5314b160f45">
+            <div>
+            <h1>Withdraw and trade without fees.</h1>
+            <p>Trade with Binance and get 10% back on Spot and Futures trading!<br>Click "Learn More" to claim this offer!</p>
+            </div>
+            <button>LEARN MORE</button>
+            </div>`;
+            xad.setAttribute("onclick", "window.open('/promo/binance.html', '_blank')");
+            break;
+        case "speed":
+            xad.innerHTML = `<div class="promobannerad">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FaYGRdyHW07ic-jZf8xyeYg34x-Br9Ya7aUg6vFgA-zYtNmv8R7pOWSTl-i2bW2GwRA&f=1&nofb=1&ipt=b7637308ff3bee0fb8895fbae06a4c7192e110b46463ef95d0764474d5dac6f5">
+            <div>
+            <h1>Bitcoin at the speed of light.</h1>
+            <p>Use Speed Wallet to withdraw your Satoshis, spend them with Speed Wallet, and get 500 Satoshis as a bonus! Click "Learn More" to claim this offer!</p>
+            </div>
+            <button>LEARN MORE</button>
+            </div>`;
+            xad.setAttribute("onclick", "window.open('/promo/speed.html', '_blank')");
+            break;
+        default:
+            xad.innerHTML = item.banner;
+    }
+
+    for (i of item.features) {
+        var itsx = document.createElement("div");
+        itsx.innerHTML = `<h1>${i[0]}</h1><p>${i[1]}</p>`;
+        document.getElementById("mainfeatures").appendChild(itsx);
+    }
+
+    for (i of item.tips) {
+        var itsx = document.createElement("div");
+        itsx.innerHTML = `<h1>${i[0]}</h1><p>${i[1]}</p>`;
+        document.getElementById("mobiletab1").appendChild(itsx);
+        if (i !== item.tips[item.tips.length-1]) {
+            document.getElementById("mobiletab1").innerHTML += "<br>";
+        }
+    }
+
+    for (i of item.pros) {
+        document.getElementById("mobiletab2").innerHTML += `<img src="https://img.icons8.com/?size=100&id=83145&format=png&color=00CC00"><h2>${i}</h2>`;
+    }
+    for (i of item.cons) {
+        document.getElementById("mobiletab3").innerHTML += `<img src="https://img.icons8.com/?size=100&id=95771&format=png&color=FF0000"><h2>${i}</h2>`;
+    }
+
+    switch (item.go.type) {
+        case 0:
+            document.getElementById("signupbutton").setAttribute("onclick", "window.open('" + item.go.link + "', '_blank')");
+            break;
+    }
+
+    mobileTab("0");
 }

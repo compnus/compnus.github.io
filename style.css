@@ -17,6 +17,29 @@
     font-style: normal;
 }
 
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 100px;
+    cursor: default;
+}
+
+    *::-webkit-scrollbar-thumb:hover {
+        background: yellow;
+    }
+
+*::-webkit-scrollbar-corner {
+    background: none;
+}
+
 html,body{
     padding: 0;
     margin: 0;
@@ -407,6 +430,7 @@ div.popup > div > div.inside > h1 {
     height: 10vh;
     border-radius: 1vh;
     filter: drop-shadow(rgba(0,0,0,0.5) 0 0 0.5vh);
+    align-self: center;
 }
 
 .promobannerad > div > h1 {
@@ -432,6 +456,7 @@ div.popup > div > div.inside > h1 {
         box-shadow: rgba(0,0,0,0.5) 0 0 0.5vh;
         border-radius: 1vh;
         transition: 0.5s ease-out;
+        padding: 1vh;
     }
 
     .promobannerad:hover {

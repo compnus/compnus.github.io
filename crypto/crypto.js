@@ -101,4 +101,8 @@ function viewTab(id) {
     document.getElementById("pctab" + id).classList.add("selected");
 }
 
+function mobileTab(tabid) {
+    document.getElementById("mobileopentab").innerHTML = document.getElementById("mobiletab" + tabid).outerHTML;
+}
+
 console.log("list loaded");

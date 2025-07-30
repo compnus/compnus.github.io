@@ -1,0 +1,214 @@
+#roboxmain {
+    min-height: 82vh;
+    padding: 2vh;
+}
+
+#rxmainlogo {
+    height: 15vh;
+    aspect-ratio: 480 / 139;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+h2 {
+    text-align: center;
+    margin: 2vh auto;
+    font: bold 4vh Gabarito;
+    line-height: 1;
+}
+
+#ncwallet {
+    margin-bottom: 2vh;
+    padding: 1vh;
+    height: 11vh;
+    border-radius: 2vh;
+    background: linear-gradient(135deg, #f7931a 0%, #f28368 100%);
+    display: grid;
+    grid-template-columns: 11vh 1fr 20vh;
+    grid-gap: 1vh;
+    transition: 0.5s ease-out;
+}
+
+#ncwallet > img {
+    height: 11vh;
+    width: 11vh;
+    border-radius: 1vh;
+}
+
+#ncwallet > p {
+    font-size: 2vh;
+    color: black;
+    margin: 0;
+    line-height: 1.25;
+    overflow: auto;
+    height: 11vh;
+}
+
+#ncwallet > p > span {
+    font: bold 3.5vh Gabarito;
+    line-height: 1;
+    display: inline-block;
+    margin-bottom: 0.5vh;
+}
+
+#ncwallet > button {
+    border-radius: 1vh;
+    font-size: 2.5vh;
+    border: none;
+}
+
+#ncwallet:hover {
+    transform: scale(1.01);
+    box-shadow: var(--border) 0 0 1vh, var(--border) 0 0 1vh inset;
+}
+
+#rxapps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2vh;
+}
+
+    #rxapps > div {
+        padding: 2vh;
+        height: 36vh;
+        background-color: var(--lightbg);
+        text-align: center;
+        transition: 0.5s ease-out;
+        border-radius: 2vh;
+        cursor: pointer;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+        #rxapps > div:hover {
+            transform: scale(1.01);
+            background-color: #f28368;
+        }
+
+        #rxapps > div.featured {
+            padding: calc(2vh - 2px);
+            border: solid 2px yellow;
+            position: relative;
+        }
+
+        #rxapps > div.featured > h3 {
+            position: absolute;
+            margin: 0;
+            top: -2px;
+            right: -2px;
+            background-color: yellow;
+            color: black;
+            font-size: 2vh;
+            padding: 0.5vh 1vh;
+            border-radius: 0 calc(2vh - 2px);
+        }
+
+    #rxapps > div > img {
+        height: 15vh;
+        width: 15vh;
+        border-radius: 20%;
+    }
+
+    #rxapps > div > h1 {
+        font: bold 4vh "Funnel Display";
+        margin: 1vh 0;
+        line-height: 1;
+    }
+
+    #rxapps > div > p {
+        font-size: 2.4vh;
+        margin: 0;
+        line-height: 2.8vh;
+        max-height: 15vh;
+        overflow: scroll;
+    }
+
+@media(orientation:portrait) {
+    #roboxmain {
+        min-height: initial;
+        padding: 4vw;
+    }
+
+    #rxmainlogo {
+        width: 80vw;
+        height: auto;
+    }
+
+    h2 {
+        margin: 4vw auto 6vw auto;
+        font-size: 5.5vw;
+    }
+
+    #ncwallet {
+        padding: 2vw;
+        height: fit-content;
+        border-radius: 4vw;
+        grid-template-columns: 20vw 1fr;
+        grid-gap: 2vw;
+    }
+
+        #ncwallet > img {
+            height: 20vw;
+            width: 20vw;
+            border-radius: 2vw;
+        }
+
+        #ncwallet > p {
+            font-size: 3.5vw;
+            height: fit-content;
+        }
+
+            #ncwallet > p > span {
+                font-size: 5.5vw;
+                margin-bottom: 0.5vw;
+            }
+
+        #ncwallet > button {
+            border-radius: 2vw;
+            grid-column: span 2;
+            margin: 0;
+            font-size: 5vw;
+        }
+
+    #rxapps {
+        display: block;
+    }
+
+        #rxapps > div {
+            margin-top: 4vw;
+            padding: 2vw;
+            height: fit-content;
+            border-radius: 4vw;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 30vw 1fr;
+            grid-row-gap: 2vw;
+        }
+
+                #rxapps > div.featured > h3 {
+                    font-size: 4vw;
+                    padding: 1vw 2vw;
+                    border-radius: 0 4vw;
+                }
+
+            #rxapps > div > img {
+                height: 30vw;
+                width: 30vw;
+                border-radius: 2vw;
+            }
+
+            #rxapps > div > h1 {
+                font-size: 8vw;
+                margin: 0;
+                align-self: center;
+            }
+
+            #rxapps > div > p {
+                grid-column: span 2;
+                font-size: 4vw;
+                line-height: 4.7vw;
+                max-height: max-content;
+                overflow: hidden;
+            }
+}

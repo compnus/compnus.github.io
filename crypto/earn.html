@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="listEarn.js"></script>
     <script src="crypto.js" defer></script>
-</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script><script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script></head>
 <body>
     <script>initHeader("Free Crypto");</script>
 
@@ -104,6 +104,9 @@
     <script>initFooter(true);
         let DEFAULT = [];
         window.addEventListener("DOMContentLoaded", () => load());
+        window.addEventListener('pageshow', function(event) {
+        if (document.getElementById('searchbarinput').value) search(document.getElementById('searchbarinput').value);
+});
         </script>
 </body>
 </html>
