@@ -146,7 +146,7 @@ main {
     top: 10vh;
     margin-right: 2vh;
     padding: 1vh;
-    box-shadow: rgba(0 0 0 / 0.5) 0 0.5vh 0.5vh;
+    box-shadow: rgba(0 0 0 / 0.5) 0 0.5vh 0.5vh, black 0 0 1vh;
     background: var(--lightbg);
     border-radius: 3vh;
     z-index: 5;
@@ -182,7 +182,7 @@ main {
     background-color: var(--accent);
     padding: 1vh;
     border-radius: 100vh;
-    box-shadow: rgba(0,0,0,0.5) 0 0.5vh 0.5vh;
+    box-shadow: rgba(0,0,0,0.5) 0 0.5vh 0.5vh, black 0 0 1vh;
     z-index: 50;
     align-items: center;
 }

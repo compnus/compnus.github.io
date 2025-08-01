@@ -134,6 +134,78 @@ LIST = [
         banner: "nc"
     },
     {
+        name: "NC Wallet",
+        unlisted: true,
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2Fv9x5O1Cul_XwbtKQtL3cQzyYwFRS54ww-yhQc94rLBgiOz0pqsCkK_iMqiW77_F2wAM&f=1&nofb=1&ipt=3b6ef67ef35288b5d12d828afefb670cda1b94c6864580fa8f5dfb7f181c0ce9",
+        id: "nc",
+        attr: {
+            verified: 1,
+            dividends: false,
+            platform: "wait",
+            type: "Staking",
+            coin: "other:CTC",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "NC Wallet allows you to hold your earned $ROX and allows you to swap it to any currency you want! You can then withdraw that currency to any crypto wallet you want! Additionaly, while in your NC Wallet, you are earning an interest of 6% APR paid in CTC. An important thing to mention is that because this app is comission free, the withdrawal threshold is relatively high (8-10$, depending on the currency), therefore it's not recommended to use this as your main crypto wallet.",
+            effort: "This wallet stakes your tokens automatically the second you deposit them."
+        },
+        go: {
+            type: 0,
+            link: "https://ncwallet.net/invite-app/YHWUTKQZ"
+        },
+        benefits: ['Boost your Robox dividend power. You can request this boost <a target="_blank" style="color: yellow" href="../nus/dividends.html"><b>here</b></a>.'],
+        features: [["Token Staking", "All your held tokens are automatically staked at 6% APR received in $CTC."], ["Token Swapping", "You can swap tokens between each other after their value reaches ~7$."]],
+        tips: [["Be patient!", "Swapping comes with exchange rate, which are not very favorable. Only swap once your tokens are worth over ~9$ to ensure comission-free withdrawal afterwards."]],
+        pros: ["Token staking at 6% APR", "Huge variety of supported currencies, including tokens like $ROX, $CTC and $HSH"],
+        cons: ["High minimum withdrawal threshold, making it unusable as an actual crypto wallet", "Unfavorable exchange rates making every swap a loss of money"],
+        banner: "bin"
+    },
+    {
+        name: "Honeygain",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F76%2Fca%2F8e%2F76ca8ea85b973ad8168da76b5ab4ceb3.jpg&f=1&nofb=1&ipt=cf6dcdd9d641ccfc089223691b7883e1f40abd128ebe2ac4e87a8a3bdecc08f5",
+        featured: true,
+        description: "Get paid for sharing your unused internet! Honeygain is the most popular app for sharing internet in exchange from money or crypto! Also available on Windows, macOS and Linux!",
+        added: "7-20-2024",
+        id: "honeygain",
+        attr: {
+            verified: 1,
+            dividends: false,
+            platform: "a",
+            type: "nw",
+            coin: "other:JMPT",
+            effort: 0,
+            rating: 5
+        },
+        info: {
+            description: "Honeygain shares your unused bandwidth - ideal if you are on WiFi or endless data supply, and pays you for them. Scientists and companies use your unused bandwidth to perform tasks like ad verification and more. Honeygain pays you for helping them make the internet a better place! Additionally, Honeygain doesn't slow down your internet connection which means there is literally no reason not to try it.<br><br>Although not listed in the platform section, Honeygain is also available for <b>Windows</b>, <b>macOS</b> and <b>Linux</b> devices.",
+            effort: "Just leave the app running in the background. No need to do anything else. Start the app and withdraw, everything else is done automatically."
+        },
+        go: {
+            type: 0,
+            link: "https://r.honeygain.me/STANO679"
+        },
+        features: [["Share Unused Bandwidth and Make Money", "Honeygain pays you for using your internet bandwidth for research purposes, that would go to waste otherwise. That sounds like a win-win situation!"],
+        ["Free Credits Daily", "Every day you can collect a honey pot after sharing a certain amount of data (varies between 5MB and 15MB) that rewards your with more credits (up to 100000 = 100$)"]
+        ],
+        tips: [["Collect Honey Pot daily!", "Don't forget to collect the Honey Pot every day, as it contains a huge amount of credits worth 100MB of bandwidth sharing on average!"],
+        ["Connect multiple devices!", "If you can, make sure to install Honeygain on your mobile device, computer, work laptop, etc. and link them all to the same account! This will exponentially increase your rewards!"]
+        ],
+        pros: ["No ads", "Active developer team, with frequent contests and credit giveaways", "Doesn't affect network or device speed"],
+        cons: ["High withdrawal threshold (20$)"],
+        benefits: ["3$ worth of Honeygain credits (3000 Cr)"],
+        banner: `<div class="promobannerad">
+            <img src="https://play-lh.googleusercontent.com/x_5u0RcjMK9WdyJ5QR9ZNnVF4dQDeDGs2C9GVzDzhsmgaQYX43cIYBO4O8nLVXgU8Vk=w240-h480-rw">
+            <div>
+            <h1>Enable JumpTask mode and earn 10% more!</h1>
+            <p>Withdraw your Honeygain credits as $JMPT without minimal threshold and gain 10% more? That sounds too good to be true! Yet, it is true.</p>
+            </div>
+    <button>LET'S GO!</button>
+            </div>`,
+        bannerLink: "viewEarn.html?id=jumptask"
+    },
+    {
         name: "#mate",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2025%2F03%2Fhash-mate-logo.webp&f=1&nofb=1&ipt=32321a8cf968e78d8752d064e51501960af68a10b2c1625adee8d234decf24dc",
         featured: true,
@@ -210,6 +282,207 @@ LIST = [
         benefits: [],
         pros: ["Fast withdrawals with unitary fee", "Live 1000PPT price chart", "Generous tournaments", "Dividends for people who collected all cards"],
         cons: ["Your $PPT can be stolen if you have no shields left","Annoying pop-ups", "AI music (luckily can be turned off)", "Outdated event names (like the Happy New Year event in August)"],
+        banner: "bin"
+    },
+    {
+        name: "JumpTask",
+        icon: "https://play-lh.googleusercontent.com/x_5u0RcjMK9WdyJ5QR9ZNnVF4dQDeDGs2C9GVzDzhsmgaQYX43cIYBO4O8nLVXgU8Vk=w240-h480-rw",
+        featured: false,
+        description: "Get paid for watching videos, playing games or browsing websites! Truly stretches the definition of 'micro task'! Additionally, participate in missions, stake your tokens and earn daily bonuses just for using the app!",
+        added: "7-21-2024",
+        id: "jumptask",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "wa",
+            type: "mt",
+            coin: "other:JMPT",
+            effort: 3,
+            rating: 4
+        },
+        info: {
+            description: "JumpTask completely redefines the term 'micro tasks' with tasks ranging from searching the web, through signing up on a website all the way to playing games or signing up for casinos? Do not gamble kids! Or adults! CompNUS was created for you to make money, not to lose it! Anyway, just like with any other micro tasking service there are surveys and offerwalls! After you are satisfied with your earnings, you can withdraw your $JMPT to any CELO or BSC wallet from as little as 0.5$!",
+            effort: "Certain tasks are extremely easy while others might take extra effort. However, the daily check-in bonus is completely effortless!"
+        },
+        go: {
+            type: 0,
+            link: "https://www.jumptask.io/r/jicunicyfumo"
+        },
+        features: [["Complete Tasks to Earn $JMPT", "JumpTask offers an extremely wide selection of tasks, including but not limited to searching the web, watching YouTube videos, following social profiles, joining Telegram channels, signing up for websites, filling out surveys and even more!"],
+            ["Free Tokens Daily", "Log in every day to get a booster of $JMPT tokens every day for free!"],
+            ["Web3 Missions and Token Staking", "Participate in special mission to earn extra tokens! You can then stake your tokens to earn even more!"], 
+            ["Task Categories", "Have no time but still want to earn? Check out the \"Quick tasks\" category! Want to watch something? Check out the \"Watch & Earn\" category! To put it simply, JumpTask categorizes its tasks for extra conveniency!"]
+        ],
+        tips: [["Check-in every day!", "Free $JMPT every day! Surely you won't give up on those!"],
+            ["Higher activity = Higher rewards!", "The more tasks you complete, the higher is the probability of getting access to participate in one of the closed Web3 missions or staking pools!"],
+        ["Withdraw to CELO, but do not rush it!", "CELO has lower network fee than BSC, but it still has a network fee. Do not withdraw your tokens if you don't need them! Avoiding fees is the first step to understanding how economy works! Or something. What I'm trying to say is, be financially literate!"]
+        ],
+        pros: ["Quick withdrawals with low threshold","Seemingly endless supply of tasks", "Allows you to earn 10% extra when using <a href='viewEarn.html?id=honeygain' style='color:yellow'>Honeygain</a> in JumpTask mode"],
+        cons: ["Impossible to change wallet address once set", "Many tasks have unclear completion conditions (especially \"search the web\" tasks) and won't pay out no matter what you do"],
+        benefits: ["10% earning boost on your first task"],
+        banner: "bin"
+    },
+    {
+        name: "GenkiMiner",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplaytoearn.com%2Fimg%2Fdapp%2Fgenki-miner%2Fprofile_picture%2F100_genki-miner.jpg&f=1&nofb=1&ipt=34a474bc7b503cf7309931997fe797b1eba0c55e04bfd501d3be4a071aceaf80",
+        description: "Mine ores, upgrade your pickaxe, open chests and withdraw money! Leave it running in the background and enjoy passive earning of ores and automatic chest opening for extra income!",
+        added: "7-22-2024",
+        id: "genki",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "t",
+            type: "p2e",
+            coin: "usdt",
+            effort: 2,
+            rating: 4
+        },
+        info: {
+            description: "GenkiMiner allows you to earn USDT in many interesting ways, carrying the Play to Earn aspect the most. You can passively mine ores that give gold (used for upgrading your pickaxe), keys (used for opening chests), points (used for withdrawals) and gems (exhanged for USDT)! Chests allow you to participate in prop hunts for extra rewards and the forge, which can reward you with limited pickaxes that can be sold for USDT, keys or gems - but if you decide to keep them, they will allow you to claim keys, points or gems daily! Finally, we have the spin-a-wheel, which allows you to get USDT, keys, points, gold and tickets for free or for gems.",
+            effort: "Activate auto mining to mine (almost) effortlessly - you have to leave it running in the background and check it from time to time, ensuring it's still running, because USDT chest popup or your pickaxe losing durability will automatically stop it. Every other part of the game requires your full attention in order to earn anything."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/GenkiMinerBot/GenkiMiner?startapp=6BY-aagN"
+        },
+        benefits: [],
+        features: [["Automatic Mining", "You can enable automatic mining to mine ores, chests and gems effortlessly!"],
+        ["Spin-a-Wheel", "Daily spins for ads and unlimited spins for gems allow you to stock up on tickets and points!"],
+        ["Prop Hunts", "Prop hunt events are active almost permanently and allow you to maximize your earnings by rewarding you with extra keys, coins and gems!"],
+            ["Tasks", "Daily and Social tasks, along with achievements allow you to get extra keys and points for activity!"],
+        ["Battles and Forge", "Upgrade your individual mine to get Glory Points and horde up troops to fight and protect your mine! You can also attack other mines to get extra Glory Points. You can use tickets in the forge to get Artifacts - different pickaxes that not only upgrade your rewards but can also be sold for USDT, keys and gems!"]
+        ],
+        tips: [
+            ["Activate auto mining and complete daily tasks!", "This will allow you to open extra chests - which means extra money! Just don't forget to check it from time to time, since the earnings can stop quite unexpectedly."],
+            ["Skip ads but get rewards for them!", "Certain ad providers on Telegram allow you to skip the ad while still getting the reward by pressing a button in the ad. GenkiMiner has most, if not all of its ads from these kinds of companies! Do not waste time watching ads!"],
+            ["Properly set-up Auto Mine Settings!", "In the mine, there is a gear icon to the right, which allows you to configure Auto Mine. Make sure to enable <b>Width-First</b> (this will decrease durability taken from your pickaxe and prevent constant repairs), <b>Auto Repair</b> (this will automatically use your excess coins to repair your pickaxe and restore its durability) and <b>Auto Open Chest</b> (this will decrease the effort required to open chests)!"],
+            ["Avoid mine battles!", "Participating in battles makes you visible to other players as well. Reinforcing your army is mostly a waste of coins. This doesn't mean you shouldn't upgrade your mine, however! Upgrade your mine to passively earn extra Glory Points!"],
+            ["Spin the wheel!", "Spinning the wheel is the second best way to earn points after mining. Remember, points are required to withdraw your gems as USDT, so it's very important to gain as many as you can in as little time as possible. Additionally, the Spin-a-Wheel is excellent for getting Forge tickets, that can be exchanged for pickaxes which can be sold for USDT, keys and gems!"]
+        ],
+        pros: ["Daily tasks rewarding coins and keys for free", "Automatic pickaxe durability restoring, allowing you to save coins", "Very low withdrawal threshold for gems (as low as 0.03$)", "Low withdrawal fee (0.02$ for every withdrawal, regardless of the amount)"],
+        cons: ["Later gem withdrawals require an insane amount of points, forcing you to be active almost daily", "Later gem withdrawals require inviting users", "Annoying notifications with no value", "Daily check-in requires TON transaction"],
+        banner: "bin"
+    },
+    {
+        name: "WeMine",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcombomanager.com%2Fwp-content%2Fuploads%2F2024%2F12%2Fge23.jpg&f=1&nofb=1&ipt=da13b6da19fb3b7d391f70e99dffe3191ff5084d6952451008733aa27359fb2f",
+        description: "Mine USDT, $LABR and WeMine's own token $WM for free! Solve daily cases to get extra wUSDT and WM that can be used to upgrade your miners and enjoy extra income!",
+        added: "7-23-2024",
+        id: "wemine",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "t",
+            type: "mine",
+            coin: "usdt other:LABR other:WM",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "WeMine offers 4 different mines, each offering a different currency to earn with its own utility! Main mine allows you to mine wBTC which can be used to upgrade $WM mine or exchanged for wUSDT to upgrade main mine, USDT mine and LABR mine. Every day you can also solve a case for extra wUSDT! USDT mine allows you to mine for USDT from the community pool. Be sure to mine as much as possible, because the supply is limited! LABR mine is connected to Labrador Adventures (see banner below) and allows you to mine $LABR based on your Labrador's speed + miner level. $LABR will be transfered to Labrador Adventures from which it can be withdrawn. Finally, the $WM Miner is the latest addition to WeMine! After the TGE, you can use this mine to collect your airdrop rewards, as well as mine for $WM or solve cases for even more $WM!",
+            effort: "Collecting mining rewards requires watching an ad and is happening fairly often if you refuse to pay stars."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/WeMineBot/mine?startapp=ref_JKO5DUOI74"
+        },
+        benefits: [],
+        features: [["Four Different Mines Offering 3 Different Tokens to Mine", "Mine USDT, $LABR and $WM - your choice! But obviously the best option is to mine them all!"],
+            ["Daily Cases", "Every day you can solve four cases for extra wUSDT and $WM! Two cases are community-wide, meaning that you don't have to solve anything! Simply ask the community! The other two are user-exclusive, meaning you have to try to guess the code yourself."]
+        ],
+        tips: [
+            ["Do not waste any time!", "WeMine will send you a notification after your miner has finished mining. Do not waste a single second a collect your rewards!"],
+            ["Solve the daily cases!", "Daily cases can give you more wUSDT and WM than the mining itself, meaning they are extremely important to solve for extra rewards!"],
+            ["Max out your wBTC miner!", "After ensuring a stable wBTC and therefore wUSDT income, you can invest it into other miners. This approach might take extra time before you start earning real money, but it will pay off in the long run!"]
+        ],
+        pros: ["Excellent notification service", "Active developer team"],
+        cons: ["The app is unstable and may refuse to start or get stuck at the loading screen on certain devices", "Mining USDT requires inviting friends", "Unhelpful support"],
+        banner: `<div class="promobannerad" style="background-color:#9f5500">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdb.stickerswiki.app%2Fapi%2Ffiles%2F1nlpavfhdos0lje%2Fkqxu070ljh98k3z%2Favatar_aq5bx17dxd.jpg&f=1&nofb=1&ipt=167cbbcefb0cc09f95864377bdd562b3d824ddd1696a708641af9a3519229978">
+            <div>
+            <h1>Withdraw $LABR through Labrador Adventures!</h1>
+            <p>In order to mine and withdraw $LABR using WeMine, you will need Labrador Adventures.</p>
+            </div>
+    <button>OPEN</button>
+            </div>`,
+        bannerLink: "viewEarn.html?id=labrador"
+    },
+    {
+        name: "Labrador Adventures",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdb.stickerswiki.app%2Fapi%2Ffiles%2F1nlpavfhdos0lje%2Fkqxu070ljh98k3z%2Favatar_aq5bx17dxd.jpg&f=1&nofb=1&ipt=167cbbcefb0cc09f95864377bdd562b3d824ddd1696a708641af9a3519229978",
+        unlisted: true,
+        id: "labrador",
+        attr: {
+            verified: 1,
+            dividends: false,
+            platform: "t",
+            type: "mine",
+            coin: "other:LABR",
+            effort: 0,
+            rating: 3
+        },
+        info: {
+            description: "Labrador Adventures is a mining game that allows you to mine bones and gold, which can be used to upgrade your equipment to increase mining speed, which also increases the speed of your LABR miner in WeMine. This game doesn't allow you to earn free LABR tokens, however. The only way to earn them is through the Mine, which requires a purchased shovel from the shop, which unlocks only after buying at least 3000 gold for TON (about 15 TON). Only use this app with WeMine to earn free LABR tokens.",
+            effort: "Simply restart mining every cycle (takes 3 hours by default, but you can make it longer)"
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/LabradorAdventuresBot/start?startapp=ref_NA733O7EMR"
+        },
+        benefits: ["Synergy with WeMine (not really a benefit, but this app does not offer anythign else)"],
+        features: [["Mining and Expeditions", "Along with the idle mining aspect, you can also send your Labrador to expedition, that can reward you with extra bones and gold."]
+        ],
+        tips: [
+            ["Don't forget to collect achievements and upgrade professions!", "In the Hero upgrade screen, you can also upgrade your mining speed by collecting achievements and investing your EXP to professions!"],
+            ["Participate in expeditions!", "Along with a chance to reward bones and gold, expeditions are guaranteed to give you EXP, which can be used to upgrade professions!"]
+        ],
+        pros: ["Great notification service"],
+        cons: ["Earning $LABR is impossible without investment", "Pay to win leaderboard rewards", "Unexplained upgrades that seem to do nothing but wasting bones and gold"],
+        banner: `<div class="promobannerad" style="background-color:#f48f27">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcombomanager.com%2Fwp-content%2Fuploads%2F2024%2F12%2Fge23.jpg&f=1&nofb=1&ipt=da13b6da19fb3b7d391f70e99dffe3191ff5084d6952451008733aa27359fb2f">
+            <div>
+            <h1>Mine $LABR using WeMine!</h1>
+            <p>Use your Labrador's speed in WeMine to mine $LABR for free!</p>
+            </div>
+    <button>OPEN</button>
+            </div>`,
+        bannerLink: "viewEarn.html?id=wemine"
+    },
+    {
+        name: "TeaBank",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapp.teabank.io%2Flogo.jpg&f=1&nofb=1&ipt=48c1f89cd915b1b0e8021e92bb285e1768d06f3ec661363ae640885fbda09da9",
+        description: "Grow your trees and harvest TON! Complete tasks, participate in challenges and don't forget to water your trees so they can grow even more!",
+        added: "7-26-2024",
+        id: "teabank",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "t",
+            type: "mine",
+            coin: "ton",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "TeaBank allows you to plant and care for your own tea tree by watering it and harvesting TON every three hours! Along with TON, you are also earning tbPoints, which will be used for future airdrops. Along with the farming, you can get extra TON for spinning the Lucky Wheel, completing Tasks (new added daily) and participating in community challenges!",
+            effort: "Claim earnings and start mining every three hours. You will need water to start mining, which requires watching ads."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/tea_bank_bot/app?startapp=155293"
+        },
+        benefits: ["Free tree to help you get started", "Free Lucky Wheel tickets"],
+        features: [["Plant a Tree and Farm TON", "Water your trees to produce TON! The older they are, the less they earn."],
+            ["Tasks and Challenges", "Complete tasks to get extra TON! From time to time, you can also participate in community challenges by solving a riddle! All the winners will then split the reward pool!"],
+            ["Lucky Wheel", "Spin the Lucky Wheel to get extra TON, Trees and Water!"]
+        ],
+        tips: [
+            ["Get a reminder!", "This app has notifications, but not for when your mining stops. Make sure to set alarms to never miss a chance to earn!"],
+            ["Stack up on water!", "These trees are pretty thirsty! Every tree requires 1 water every three hours to produce TON. If you have extra time, watch ads for water and stack up as much as possible!"],
+        ["Refrain from buying trees and water!", "The tree and water deals are hardly worth it, so it's not the best idea to spend your money on them."]
+        ],
+        pros: ["No withdrawal fee and low withdrawal threshold (0.02 TON)", "New tasks added daily", "Active developer team", "Random giveaways"],
+        cons: ["No notifications when your mining session is over", "Grinding for water can take up a lot of time", "After the first 10 days, trees lose value to an extent where it's not worth watching so many ads for water"],
         banner: "bin"
     }
 ];
@@ -312,7 +585,10 @@ function search(via) {
     if ([...document.getElementById("main").children].every(x => x.style.display === "none")) {
         let jmsg = document.getElementById("messagenone");
         jmsg.style.display = "block";
-        if (via.includes("nc")) jmsg.innerHTML = "There are no apps that match your filters and/or search query.<br>Are you perhaps looking for <a href='viewEarn.html?id=nc'>NC Wallet</a>?";
+        var xc = "There are no apps that match your filters and/or search query.<br>"
+        if (via.includes("nc") || via.includes("wall")) xc += "Are you perhaps looking for <a href='viewEarn.html?id=nc'>NC Wallet</a>?";
+        else if (via.includes("labr")) xc += "Are you perhaps looking for <a href='viewEarn.html?id=labrador'>Labrador Adventures</a>?";
+        jmsg.innerHTML = xc;
     } else {
         document.getElementById("messagenone").style.display = "none";
     }
@@ -585,6 +861,7 @@ function loadView(item) {
             break;
         default:
             xad.innerHTML = item.banner;
+            xad.setAttribute("onclick", "window.open('" + item.bannerLink +"', '_blank')");
     }
 
     for (i of item.features) {

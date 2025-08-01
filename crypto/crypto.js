@@ -26,6 +26,35 @@ function individualFiltersFalse(i) {
 function filter(x, y) {
     FILTERS[x][y] = !FILTERS[x][y];
     document.getElementById("f_" + x + "_" + y).classList.toggle("checked");
+    if (FILTERS["main"]["featured"] || FILTERS["main"]["dividend"]) {
+        FILTERS["main"]["ver0"] = false;
+        FILTERS["main"]["verm1"] = false;
+        document.getElementById("f_main_ver0").classList.remove("checked");
+        document.getElementById("f_main_verm1").classList.remove("checked");
+        document.getElementById("f_main_ver0").classList.add("disabled");
+        document.getElementById("f_main_verm1").classList.add("disabled");
+        if (FILTERS["main"]["featured"]) {
+            FILTERS["rating"]["high"] = false;
+            FILTERS["rating"]["medium"] = false;
+            FILTERS["rating"]["low"] = false;
+            FILTERS["rating"]["lowest"] = false;
+            document.getElementById("f_rating_high").classList.remove("checked");
+            document.getElementById("f_rating_medium").classList.remove("checked");
+            document.getElementById("f_rating_low").classList.remove("checked");
+            document.getElementById("f_rating_lowest").classList.remove("checked");
+            document.getElementById("f_rating_high").classList.add("disabled");
+            document.getElementById("f_rating_medium").classList.add("disabled");
+            document.getElementById("f_rating_low").classList.add("disabled");
+            document.getElementById("f_rating_lowest").classList.add("disabled");
+        }
+    } else {
+        document.getElementById("f_main_ver0").classList.remove("disabled");
+        document.getElementById("f_main_verm1").classList.remove("disabled");
+        document.getElementById("f_rating_high").classList.remove("disabled");
+        document.getElementById("f_rating_medium").classList.remove("disabled");
+        document.getElementById("f_rating_low").classList.remove("disabled");
+        document.getElementById("f_rating_lowest").classList.remove("disabled");
+    }
     search(document.getElementById("searchbarinput").value);
 }
 
@@ -39,8 +68,8 @@ function sortUpdate(use) {
         case "1":
             let els = Array.from(mdiv.children);
             els.sort((a, b) => {
-                const dateA = a.className.match(/added-(\d)+-(\d)+-(\d{4})/);
-                const dateB = b.className.match(/added-(\d)+-(\d)+-(\d{4})/);
+                const dateA = a.className.match(/added-(\d{1,2})+-(\d{1,2})+-(\d{4})/);
+                const dateB = b.className.match(/added-(\d{1,2})+-(\d{1,2})+-(\d{4})/);
                 const dA = dateA ? new Date(`${dateA[3]}-${dateA[1]}-${dateA[2]}`) : new Date(0);
                 const dB = dateB ? new Date(`${dateB[3]}-${dateB[1]}-${dateB[2]}`) : new Date(0);
                 if (dB - dA !== 0) return dB - dA;
