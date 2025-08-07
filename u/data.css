@@ -15,7 +15,7 @@ h1, h2, h3 {
     text-align: center;
 }
 
-@media(orientation:portrait) {
+@media(max-width:800px) {
     div.mainscroll {
         height: initial;
         padding: calc(2vh + 2vw);

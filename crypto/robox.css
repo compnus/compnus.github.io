@@ -124,7 +124,7 @@ h2 {
         overflow: scroll;
     }
 
-@media(orientation:portrait) {
+@media(max-width:800px) {
     #roboxmain {
         min-height: initial;
         padding: 4vw;

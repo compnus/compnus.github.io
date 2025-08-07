@@ -483,7 +483,79 @@ LIST = [
         ],
         pros: ["No withdrawal fee and low withdrawal threshold (0.02 TON)", "New tasks added daily", "Active developer team", "Random giveaways"],
         cons: ["No notifications when your mining session is over", "Grinding for water can take up a lot of time", "After the first 10 days, trees lose value to an extent where it's not worth watching so many ads for water"],
-        banner: "bin"
+        banner: "blum"
+    },
+    {
+        name: "LlamaPayday",
+        icon: "https://www.findmini.app/_astro/logo2_3nehfu5x0e_Zq6tU4.webp",
+        description: "Raise your cows and start milking TON! Complete tasks and don't forget to feed your cows so they can earn you even more!",
+        added: "7-31-2024",
+        id: "muton",
+        attr: {
+            verified: 1,
+            dividends: false,
+            platform: "t",
+            type: "mine",
+            coin: "ton",
+            effort: 2,
+            rating: 3
+        },
+        info: {
+            description: "MuTON allows you to raise and care for your own cow by feeding it and milking TON every three hours! Along with the farming, you can get extra TON for completing Tasks! This game is from the same developers as <a style='color:yellow' href='viewEarn.html?id=teabank'>TeaBank</a>, although it seems less advanced. There are no community challenges, no airdrops and no lucky wheel. Also, instead of requiring one ad per mining session, here you require two.",
+            effort: "Claim earnings and start mining every three hours. You will need water and food to start mining, which requires watching ads."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/muuton_bot/app?startapp=13130"
+        },
+        benefits: ["Free cow to help you get started", "Free water", "Free food"],
+        features: [["Buy a cow and milk TON", "Feed your cows to produce TON!"],
+        ["Tasks", "Complete tasks to get extra TON!"]
+        ],
+        tips: [
+            ["Get a reminder!", "This app has no notifications, so make sure to set alarms to never miss a chance to earn!"],
+            ["Stack up on water and food!", "These cows are pretty thirsty and hungry! Every cow requires 1 water and 1 food every three hours to produce TON. If you have extra time, watch ads for water and food and stack up as much as possible!"],
+            ["Refrain from buying cows, food and water!", "The cow, food and water deals are hardly worth it, so it's not the best idea to spend your money on them... Although we will get paid if you do? I suck at advertising."]
+        ],
+        pros: ["No withdrawal fee and low withdrawal threshold (0.01 TON)"],
+        cons: ["No notifications", "Grinding for water and food can take up a lot of time"],
+        banner: "blum"
+    },
+    {
+        name: "MuTON",
+        icon: "https://nicegram.s3.eu-north-1.amazonaws.com/features/telegram_channel_icons/32ad5d7f-3f38-4e09-9ad0-54c5f8a0d081.jpeg",
+        description: "Raise your cows and start milking TON! Complete tasks and don't forget to feed your cows so they can earn you even more!",
+        added: "7-31-2024",
+        id: "muton",
+        attr: {
+            verified: 1,
+            dividends: false,
+            platform: "t",
+            type: "mine",
+            coin: "ton",
+            effort: 2,
+            rating: 3
+        },
+        info: {
+            description: "MuTON allows you to raise and care for your own cow by feeding it and milking TON every three hours! Along with the farming, you can get extra TON for completing Tasks! This game is from the same developers as <a style='color:yellow' href='viewEarn.html?id=teabank'>TeaBank</a>, although it seems less advanced. There are no community challenges, no airdrops and no lucky wheel. Also, instead of requiring one ad per mining session, here you require two.",
+            effort: "Claim earnings and start mining every three hours. You will need water and food to start mining, which requires watching ads."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/muuton_bot/app?startapp=13130"
+        },
+        benefits: ["Free cow to help you get started", "Free water", "Free food"],
+        features: [["Buy a cow and milk TON", "Feed your cows to produce TON!"],
+        ["Tasks", "Complete tasks to get extra TON!"]
+        ],
+        tips: [
+            ["Get a reminder!", "This app has no notifications, so make sure to set alarms to never miss a chance to earn!"],
+            ["Stack up on water and food!", "These cows are pretty thirsty and hungry! Every cow requires 1 water and 1 food every three hours to produce TON. If you have extra time, watch ads for water and food and stack up as much as possible!"],
+            ["Refrain from buying cows, food and water!", "The cow, food and water deals are hardly worth it, so it's not the best idea to spend your money on them... Although we will get paid if you do? I suck at advertising."]
+        ],
+        pros: ["No withdrawal fee and low withdrawal threshold (0.01 TON)"],
+        cons: ["No notifications", "Grinding for water and food can take up a lot of time"],
+        banner: "blum"
     }
 ];
 
@@ -858,6 +930,17 @@ function loadView(item) {
             <button>LEARN MORE</button>
             </div>`;
             xad.setAttribute("onclick", "window.open('/promo/speed.html', '_blank')");
+            break;
+        case "blum":
+            xad.innerHTML = `<div class="promobannerad" style="background-color: #222">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpublic.bnbstatic.com%2Fimage%2Fpgc%2F202405%2F557fc5897e250bbf2bff985d98d8a8aa.png&f=1&nofb=1&ipt=e517bc01bf5e8f7b3f864ede50b53d9ecd1a22d2c5c25b6681d72e19bd25fcf0">
+            <div>
+            <h1>Trade TON tokens before they go live!</h1>
+            <p>Trade meme tokens on Blum before they are listed and get access to airdrops! Free tokens coming soon!</p>
+            </div>
+            <button>SIGN UP</button>
+            </div>`;
+            xad.setAttribute("onclick", "window.open('https://t.me/blum/app?startapp=ref_DMcaJgFZFZ', '_blank')");
             break;
         default:
             xad.innerHTML = item.banner;

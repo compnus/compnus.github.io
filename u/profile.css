@@ -427,7 +427,7 @@ a.linkstv {
     cursor: pointer;
 }
 
-@media(orientation:portrait) {
+@media(max-width:800px) {
     div.mainscroll {
         height: initial;
         padding: 0;

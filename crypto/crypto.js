@@ -107,6 +107,7 @@ function collapseFilters() {
             document.getElementById("main").style.gridColumn = "span 2";
         }
         document.getElementById("collapfilt").style.rotate = "180deg";
+        document.querySelector("main").classList.add("pcmarginfix");
     } else {
         if (mobile) {
             filters.style.height = "fit-content";
@@ -117,6 +118,7 @@ function collapseFilters() {
             document.getElementById("main").style.gridColumn = "span 1";
         }
         document.getElementById("collapfilt").style.rotate = "0deg";
+        document.querySelector("main").classList.remove("pcmarginfix");
     }
     filtercCollapsed = !filtercCollapsed;
 }

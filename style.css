@@ -469,8 +469,12 @@ div.popup > div > div.inside > h1 {
         box-shadow: yellow 0 0 1vh;
     }
 
+    .pcmarginfix {
+        margin: 0 5vw;
+    }
 
-@media(orientation:portrait){
+
+@media(max-width:800px){
     p, li, input {
         font-size: 4vw;
     }
@@ -679,4 +683,8 @@ div.popup > div > div.inside > h1 {
         .promobannerad:hover {
             transform: scale(1);
         }
+
+    .pcmarginfix {
+        margin: 0;
+    }
 }
