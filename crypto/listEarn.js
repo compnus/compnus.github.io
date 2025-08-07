@@ -246,6 +246,40 @@ LIST = [
         banner: "bin"
     },
     {
+        name: "Bitcoin Cloud Mining",
+        icon: "https://play-lh.googleusercontent.com/ZG9SFsjFboSHP6Req7E_9BbGXJUvp2eqQzB_xvdcCG5Vawk98uJVJiFVqbppcp51HLFT=w240-h480-rw",
+        featured: true,
+        description: "A classic service that allows you to either claim free mining contracts or purchase cloud miners. Offers daily free contracts, loyalty program with extra mining contracts and contracts for ads or microtasks.",
+        added: "8-5-2024",
+        id: "btccloud",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "wai",
+            type: "mine",
+            coin: "btc",
+            effort: 0,
+            rating: 5
+        },
+        info: {
+            description: "A classic service that allows you to rent mining servers through mining contracts and mine Bitcoin effortlessly. However, the bonus is: free contracts! Check in every day to claim free contracts from the loyalty program! You can also get a free contract every 8 hours! Other than that you can even more contracts by watching ads or completing micro tasks. Withdraw your earnings into your <a href='/promo/speed.html' style='color:yellow'>Speed Wallet</a> and enjoy some free Bitcoin!",
+            effort: "Check-in daily for free contracts. Optionally, you can watch ads or complete microtasks for more contracts."
+        },
+        go: {
+            type: 0,
+            link: "https://cloudminecrypto.com/?invite_code=3xLpJmDM8WakZ5O1"
+        },
+        features: [["Free Contracts", "Collect a free contract daily, another free contract is available every 8 hours and infinite more free contracts are available for watching ads and completing microtasks!"],
+        ["Loyalty Program", "Permanently multiply your earnings! Every time you watch an ad, claim a free contract or purchase a contract, you will get points to your loyalty program, which increase your loyalty multiplier!"]
+        ],
+        tips: [["Use dual apps if possible!", "Two accounts means twice as many free contracts! Also, if both of these accounts are created through the LET'S GO! button above, you'll increase the amount of dividends you get!"],
+        ["Only watch ads if it's worth it!", "Based on unknown parameters, the reward for watching an ad may vary. Do not watch an ad if the reward is below 1Gh/s - you'll waste time watching to ad only to get a fraction of a Satoshi."]],
+        benefits: ["10% bonus on all contracts"],
+        pros: ["Instant withdrawals with low fee (Lightning Network has only 5 Satoshi fee) and low withdrawal threshold (10 Satoshis)", "The app spoils you with free contracts"],
+        cons: ["Paid contracts take forever to pay off"],
+        banner: "speed"
+    },
+    {
         name: "Puparty",
         icon: "https://puparty.com/resource/image/logo.jpg",
         featured: true,
@@ -320,6 +354,46 @@ LIST = [
         pros: ["Quick withdrawals with low threshold","Seemingly endless supply of tasks", "Allows you to earn 10% extra when using <a href='viewEarn.html?id=honeygain' style='color:yellow'>Honeygain</a> in JumpTask mode"],
         cons: ["Impossible to change wallet address once set", "Many tasks have unclear completion conditions (especially \"search the web\" tasks) and won't pay out no matter what you do"],
         benefits: ["10% earning boost on your first task"],
+        banner: "bin"
+    },
+    {
+        name: "FoFo",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.crypto.com%2Ftoken%2Ficons%2Ffofo-token%2Fcolor_icon.png&f=1&nofb=1&ipt=ee6ada9e7d392198aebe284e88642fbc74e7ef8f394c17ad59f99f148ca5110c",
+        description: "Merge frogs, produce gems and exchange them for USDT! Click your frogs for candy and exchange that for even more USDT! Daily tasks, lucky wheel, leaderboard and minigames are also available!",
+        added: "8-2-2024",
+        id: "fofo",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "t",
+            type: "p2e",
+            coin: "usdt",
+            effort: 2,
+            rating: 4
+        },
+        info: {
+            description: "Get your frogs, merge them and make some money! FoFo allows you to purchase frogs (or get them for free by watching ads), merge them into gem-producing rainbow frogs and exchange gems for USDT! Complete daily tasks for extra coins and gems, visit the lab to upgrade your frogs, play minigames and exchange candy for even more USDT! There is a lot in this one, and we haven't even mentioned the lucky wheel or the leaderboards! Definitely a packed game!",
+            effort: "This is a game, so if you don't play you won't progress. There is one thing that works on its own however, and it's your rainbow frogs that produce gems even if you are offline."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/fofomemegamebot/game?startapp=uct7666m"
+        },
+        benefits: [],
+        features: [["Merge Frogs and See the Rainbow", "Purchase frogs, merge them into rainbow gem-producing frogs and invest gems into weekly USDT dividends!"],
+            ["Laboratory", "Upgrade your frogs using clovers and candy and make them produce even more gems! Or clovers! Or candy! The choice is yours!"],
+            ["Spin-a-Wheel", "Get extra coins, candy, gems and even USDT by spinning the wheel! Requires either watching ads or inviting friends, though."],
+        ["Minigames", "Play minigames to earn extra gems!"],
+        ["Leaderboards", "Get extra USDT by being the best!"]
+        ],
+        tips: [
+            ["Level up your VIP stat!", "Claim your quest rewards and watch ads to upgrade your VIP stat. It will permanently boost your coin and gem production!"],
+            ["Watch those ads!", "Every day you can get 5 frogs for watching ads. Do not let these go to waste! Also, there's an ad leaderboard - watch many ads and get up to 3.5 USDT a week! A great way to use your ad time is to claim double candies from your frogs! Don't forget this is Telegram, so you can skip the ads and still receive the reward!"],
+            ["Do not see the spin-a-wheel as the main source of USDT!", "Withdrawing USDT from the spin-a-wheel has requirements that the developers change whenever they feel like it, so do not count on it. Instead, focus on making more gems!"],
+            ["Don't forget to claim your USDT!", "Speaking of gems, after you invest them and the dividends are distributed, you won't actually get the USDT credited to your balance. Instead, they will be waiting to be collected in the Record button in the Earn screen. The same logic applies to candy dividends and leaderboard rewards."]
+        ],
+        pros: ["Low withdrawal fee (0.02 USDT)", "Minigames", "Generous dividends and leaderboard rewards", "For the amount of features the game is packing, it's very simple to understand"],
+        cons: ["Misleading 9$ bonus when you sign up that you can never withdraw", "Since candies are required in too many places and are extremely difficult to get, many features are annoying to access/use - especially the lab", "Too many ads"],
         banner: "bin"
     },
     {
@@ -488,38 +562,77 @@ LIST = [
     {
         name: "LlamaPayday",
         icon: "https://www.findmini.app/_astro/logo2_3nehfu5x0e_Zq6tU4.webp",
-        description: "Raise your cows and start milking TON! Complete tasks and don't forget to feed your cows so they can earn you even more!",
-        added: "7-31-2024",
-        id: "muton",
+        description: "Merge llamas, produce gems and exchange them for USDT! Click your llamas for candy and exchange that for airdropped Llama Tokens! Daily quests, lucky wheel, morse code challenge, minigames and much more available!",
+        added: "8-1-2024",
+        id: "llamapayday",
         attr: {
             verified: 1,
-            dividends: false,
+            dividends: true,
             platform: "t",
-            type: "mine",
-            coin: "ton",
+            type: "p2e",
+            coin: "usdt",
             effort: 2,
-            rating: 3
+            rating: 4
         },
         info: {
-            description: "MuTON allows you to raise and care for your own cow by feeding it and milking TON every three hours! Along with the farming, you can get extra TON for completing Tasks! This game is from the same developers as <a style='color:yellow' href='viewEarn.html?id=teabank'>TeaBank</a>, although it seems less advanced. There are no community challenges, no airdrops and no lucky wheel. Also, instead of requiring one ad per mining session, here you require two.",
-            effort: "Claim earnings and start mining every three hours. You will need water and food to start mining, which requires watching ads."
+            description: "Get your llamas, merge them and make some money! LlamaPayday allows you to purchase llamas (or get them for free by watching ads), merge them into gem-producing rainbow llamas and exchange gems for USDT! Sign-in daily for extra bonuses, complete daily tasks for extra coins, visit the lab to upgrade your llamas, play minigames and exchange candy for airdropped Llama Token! Woah there is a lot in this one, and we haven't even mentioned the lucky wheel, your card collection and morse code challenges! Certainly a packed game!",
+            effort: "This is a game, so if you don't play you won't progress. There is one thing that works on its own however, and it's your rainbow llamas that produce gems even if you are offline."
         },
         go: {
             type: 0,
-            link: "https://t.me/muuton_bot/app?startapp=13130"
+            link: "https://t.me/LlamaPaydayBot/game?startapp=cjmubexy-Njc3ODM=-invite"
         },
-        benefits: ["Free cow to help you get started", "Free water", "Free food"],
-        features: [["Buy a cow and milk TON", "Feed your cows to produce TON!"],
-        ["Tasks", "Complete tasks to get extra TON!"]
+        benefits: [],
+        features: [["Merge Llamas and See the Rainbow", "Purchase llamas, merge them into rainbow gem-producing llamas and invest gems into USDT dividends!"],
+            ["Laboratory", "Upgrade your llamas using wool and candy and make them produce even more gems! Or wool! Or candy! The choice is yours!"],
+            ["Shop and Cards", "Purchase chests, upgrade cards and get extra coins, which you can use to purchase more llamas!"],
+            ["Daily Sign-In, Quests and Tasks", "Sign in every day for extra coins, candy and gems! Complete daily quests for even more coins and gems! Tasks reward you with coins for participating in activities (usually through twitter)."],
+            ["Spin-a-Wheel", "Get extra coins, candy, gems and even USDT by spinning the wheel! Requires either watching ads or inviting friends, though."],
+            ["Minigames", "Play minigames to earn extra gems!"],
+            ["Morse Code Challenge", "Solve the morse code challenge to get extra coins!"],
+            ["Llama Token Airdrop", "Invest your excess candy into airdrops and get Llama Token!"]
         ],
         tips: [
-            ["Get a reminder!", "This app has no notifications, so make sure to set alarms to never miss a chance to earn!"],
-            ["Stack up on water and food!", "These cows are pretty thirsty and hungry! Every cow requires 1 water and 1 food every three hours to produce TON. If you have extra time, watch ads for water and food and stack up as much as possible!"],
-            ["Refrain from buying cows, food and water!", "The cow, food and water deals are hardly worth it, so it's not the best idea to spend your money on them... Although we will get paid if you do? I suck at advertising."]
+            ["Level up your VIP stat!", "Claim your quest rewards and watch ads to upgrade your VIP stat. It will permanently boost your coin and gem production!"],
+            ["Watch those ads!", "Every day you can get 5 llamas for watching ads. Do not let these go to waste! Don't forget this is Telegram, so you can skip the ads and still receive the reward!"],
+            ["Do not see the spin-a-wheel as the main source of USDT!", "Withdrawing USDT from the spin-a-wheel has requirements that the developers change whenever they feel like it, so do not count on it. Instead, focus on making more gems!"],
+            ["Don't forget to claim your USDT!", "Speaking of gems, after you invest them and the dividends are distributed, you won't actually get the USDT credited to your balance. Instead, they will be waiting to be collected in the Record button in the Earn screen. The same logic applies to the Llama Token airdrop."]
         ],
-        pros: ["No withdrawal fee and low withdrawal threshold (0.01 TON)"],
-        cons: ["No notifications", "Grinding for water and food can take up a lot of time"],
-        banner: "blum"
+        pros: ["Low withdrawal fee (0.02 USDT)", "Minigames", "Many things to do an explore", "Helpful support"],
+        cons: ["Due to high amount of people, the daily 12$ divident is extremely low", "The app is often updated, which means new bugs appear and certain features get removed", "Too many ads - most things do not cost any in-game currency but instead force you to watch an ad; This is especially problematic with candy, where the main source of it is watching ads on every llama you get"],
+        banner: "bin"
+    },
+    {
+        name: "Bitcoin Mining",
+        icon: "https://play-lh.googleusercontent.com/jgoOUOFt1N9ahKGlQNuXidA1-cHIHc0sdGEy7ncRzGLJbRs9ZyfbQ4fh-9x9rx11oKI=w240-h480-rw",
+        featured: false,
+        description: "An NFT-driven service that allows you to either claim free mining contracts or purchase NFT miners. Offers daily free contracts and contracts for ads.",
+        added: "8-7-2024",
+        id: "btcnft",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "a",
+            type: "mine",
+            coin: "btc",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "An NFT-driven service that allows you to rent NFT miners and mine Bitcoin effortlessly. But don't forget our speciality: free contracts! Check in every day to claim free contracts and watch ads to get even more contracts! Withdraw your earnings into your <a href='/promo/speed.html' style='color:yellow'>Speed Wallet</a> and enjoy some free Bitcoin!",
+            effort: "Check-in daily for free contracts. Optionally, you can watch ads for more contracts."
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=bitcoin.minning.com",
+            code: "DPNUXG"
+        },
+        features: [["Free Contracts", "Collect a free contract daily and up to 35 extra free contracts every day are available for watching ads!"]],
+        tips: [["Use dual apps if possible!", "Two accounts means twice as many free contracts! Also, if both of these accounts are created through the LET'S GO! button above, you'll increase the amount of dividends distributed by CompNUS!"]],
+        benefits: [],
+        pros: ["Instant withdrawals with no fee and low withdrawal threshold (20 Satoshis)"],
+        cons: ["Paid contracts take forever to pay off", "Ad contracts are extremely annoying"],
+        banner: "speed"
     },
     {
         name: "MuTON",
@@ -556,6 +669,36 @@ LIST = [
         pros: ["No withdrawal fee and low withdrawal threshold (0.01 TON)"],
         cons: ["No notifications", "Grinding for water and food can take up a lot of time"],
         banner: "blum"
+    },
+    {
+        name: "CT Pool",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FYv1_wJKJD2UVEUW35Jn6yTjiNs00H8I3oiIoRiHtWbwn_XL1m8mO8_noSRZBaqVmB-w&f=1&nofb=1&ipt=c82e99c93da2eda4f906be76a608b22b5f93887646f8362c88be86d9a24a5e49",
+        id: "ctpool",
+        description: "This is a standard pool mining service, except it has too many flaws to be actually used as one. However it will (probably) give you a free miner and 100 HSH when you sign up through CompNUS! Yeah... You can <b>probably</b> see why it only has one star. But it's legitimate! Legitimately terrible.",
+        added: "8-9-2024",
+        attr: {
+            verified: 1,
+            dividends: false,
+            platform: "ait",
+            type: "mine",
+            coin: "btc ton usdt other:Dogecoin other:Ethereum other:Polygon other:Solana other:TRON other:BNB",
+            effort: 1,
+            rating: 1
+        },
+        info: {
+            description: "Okay I will be straight up with you in this one. Do not use this app for what it's supposed to be used for. You will use your money. Install it, see if you get the sign up bonuses listed in the benefits, use them up, withdraw them to your NC Wallet and delete it. If you don't get the benefits, please report this to the support (visit your profile -> contact support). Generally do not touch CryptoTab products. The only decent one is NC Wallet.",
+            effort: "You have to reactivate mining at random periods."
+        },
+        go: {
+            type: 0,
+            link: "https://g.cb.click/I6tBqL"
+        },
+        benefits: ["Free miner (maybe, for some reasons certain people didn&apos;t get it)", "100 free HSH (same issue as the previous &quot;benefit&quot;)"],
+        features: [["Mining", "Don't forget to reactivate your mining at random time!"], ["HSH Bonuses", "Withdraw HSH to your NC Wallet and swap it for any crypto!"]],
+        tips: [["Refrain from buying miners!", "No matter what, the app is designed for you to lose money. I purchased a contract for 0.17mBTC to try it out and after 3 months (of constant monitoring mind you, because this app turns off the mining randomly without warning) I withdrew 0.11mBTC. Yeah that's what I call a scam."]],
+        pros: ["I guess they (sometimes) tell you in how many hours your mining is getting turned off?"],
+        cons: ["Useless notifications", "Paid miners will mostly result in a loss", "Non-transparent services", "Unhelpful support team", "Your mining gets turned off randomly", "Although HSH withdrawals are almost instant, other currencies can take weeks before the withdrawal is processed"],
+        banner: "ncct"
     }
 ];
 
@@ -899,10 +1042,11 @@ function loadView(item) {
     var xad = document.getElementById("banner");
     if (item.banner) switch (item.banner) {
         case "nc":
+        case "ncct":
             xad.innerHTML = `<div class="promobannerad" style="background-color: #f7931a">
             <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2Fv9x5O1Cul_XwbtKQtL3cQzyYwFRS54ww-yhQc94rLBgiOz0pqsCkK_iMqiW77_F2wAM&f=1&nofb=1&ipt=3b6ef67ef35288b5d12d828afefb670cda1b94c6864580fa8f5dfb7f181c0ce9">
             <div>
-            <h1>Withdraw your ROX to NC Wallet!</h1>
+            <h1>Withdraw your ${item.banner==="ncct"?"earnings":"ROX"} to NC Wallet!</h1>
             <p>From there, you can swap it to any crypto and withdraw it to your crypto wallet!</p>
             </div>
             <button>OPEN</button>
@@ -972,6 +1116,25 @@ function loadView(item) {
     switch (item.go.type) {
         case 0:
             document.getElementById("signupbutton").setAttribute("onclick", "window.open('" + item.go.link + "', '_blank')");
+            break;
+        case 1:
+            document.getElementById("signupbutton").onclick = function () {
+                popup(
+                    "Please read!",
+                    `Make sure to use the code <b id="copyCode${item.go.code}" title="Click to copy.">${item.go.code}</b> during sign-up to get access to the benefits (especially dividends)!</p>
+        <button class="fullwidth" onclick="window.open('${item.go.link}', '_blank')">LET'S GO!</button><p style="margin:0">`
+                );
+                setTimeout(function () {
+                    var copyElem = document.getElementById("copyCode"+item.go.code);
+                    if (copyElem) {
+                        copyElem.onclick = function () {
+                            navigator.clipboard.writeText(item.go.code);
+                            this.innerHTML = 'Copied!';
+                            setTimeout(() => { this.innerHTML = item.go.code; }, 2000);
+                        };
+                    }
+                }, 10);
+            };
             break;
     }
 
