@@ -55,7 +55,7 @@ LIST = [
             verified: 1,
             dividends: true,
             platform: "ai",
-            type: "Walk to Earn, Mining",
+            type: "mine",
             coin: "other:Robox",
             effort: 0,
             rating: 5
@@ -354,6 +354,45 @@ LIST = [
         pros: ["Quick withdrawals with low threshold","Seemingly endless supply of tasks", "Allows you to earn 10% extra when using <a href='viewEarn.html?id=honeygain' style='color:yellow'>Honeygain</a> in JumpTask mode"],
         cons: ["Impossible to change wallet address once set", "Many tasks have unclear completion conditions (especially \"search the web\" tasks) and won't pay out no matter what you do"],
         benefits: ["10% earning boost on your first task"],
+        banner: "bin"
+    },
+    {
+        name: "The OCT",
+        icon: "https://static.tildacdn.net/tild3065-3032-4233-a339-313932613831/Screenshot_2024-05-2.svg",
+        featured: false,
+        description: "Chip away pieces of the octahedron and gain $OCT, Fusion Gems and USDT! Upgrade your tools, excavate cells and uncover Jackpot Snitches worth up to 1BTC! Besides main rewards, every cell can contain Artifact Gems whose price ranges from 0.1USDT all the way to 200USDT! Fuse your tools and get more from every cell!",
+        added: "8-11-2024",
+        id: "oct",
+        attr: {
+            verified: 1,
+            dividends: false,
+            platform: "t",
+            type: "Excavation",
+            coin: "usdt",
+            effort: 3,
+            rating: 4
+        },
+        info: {
+            description: "In The OCT Game you chip away cells and slowly destroy layers of the octahedron - every cell is filled with $OCT, but can also contain Fusion Gems, USDT and mystery boxes! Although the minimum withdrawal is pretty high (15$) it is not that difficult to reach - without any investment! Earned USDT can be spent in the marketplace for better tools that let you excavate faster with higher efficiency - which means everything you excavate will be multiplied! Clearly the best feeling is finding a 1BTC Jackpot Snitch with a 120% efficiency drill. Who knows, maybe you will be the lucky one?",
+            effort: "Check-in daily for bonus rewards and free drills. In order to make any money you need to chip away cells, repair your drill, upgrade it and fuse it."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/The_OCT_Game_Bot?start=f9ed0435-a4af-4935-b56f-8f0d2e51afa2"
+        },
+        features: [["Excavation", "Chip away cells from the thing that arrived last night! Every cell is filled with rewards!"],
+            ["Drills", "Upgrade and fuse your drills to increase their efficiency and durability! Repair them after they lose their durability and be careful not to permanently break them! Even though, it is inevitable. But you should try to postpone it as much as possible!"],
+            ["Daily Rewards and Tasks", "Check-in every day to get free $OCT, Fuse Gems and Drills! Additionally, check out the Earn menu which allows you to earn even more free $OCT, Fuse Gems and Drills!"],
+            ["Market", "Purchase new drills with in-game USDT or using real USDT or Telegram Stars! You can also purchase Fuse Gems and Sprays! Though, the spray feature is heavily misused by the community. Beware."],
+            ["Jackpot Snitches and Mystery Boxes", "On every layer there's a 100TON worth Jackpot Snitch! Will you be the lucky one to find it? Every season also contains a single 1BTC worth Mega Snitch! Additionally, every cell can contain a Mystery Box, which can contain any resource or drill!"]
+        ],
+        tips: [["Smart fusions!", "You can fuse a working and a broken drill to produce a higher mark one. But you have to do it smart! Every durability unit counts! Example: You have a brand new Mark 2 tool and a broken one. Use the new Mark 2 tool until the remaining durability is exactly 1 (do not hit 0 or your new drill's durability will be decreased!). Now you can fuse this 1 durability remaining drill with the broken one and get a fully repaired Mark 3 drill! This will save you a lot of money!"],
+            ["Upgrade your drills!", "But do it smart. For example wasting 10000 $OCT on a Mark 1 drill is completely pointless. Mark 1 tools should be upgraded to level 3 at most. Mark 2 and 3 to level 4 and every mark over that to any level that you can. It's worth mentioning that later levels are extremely expensive, so you might never get a level 6 tool (it costs 1000000 $OCT)."],
+        ["Check in daily!", "This game has an extremely generous daily check-in bonus, which rewards you with a Mark 1 drill on the 6th day and a Mark 2 drill on the 7th day. Along with that, you will also receive Fuse Gems and $OCT. The total value of the daily check-in bonus reaches around 2$ per week."]
+        ],
+        benefits: ["Free Mark 1 tool to help you get started"],
+        pros: ["Generous rewards", "Active developer team and community", "Detailed statistics and transparent withdrawals", "No ads"],
+        cons: ["Higher mark drills are extremely expensive", "Drill repair system makes no sense and changes often", "Higher level fusions and upgrades cost and extreme amount of $OCT and Fuse Gems, forcing you to purchase them"],
         banner: "bin"
     },
     {

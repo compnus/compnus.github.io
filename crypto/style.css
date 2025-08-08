@@ -207,18 +207,20 @@ main {
     padding-left: 2vh;
     transition: 0.4s ease-out;
     border-radius: 5vh 0 0 5vh;
+    height: 2.5vh;
 }
 
 #searchbar > p {
     border-bottom: solid #aaa 3px;
     border-bottom-right-radius: 3px;
     margin: 0;
-    padding: 0.5vh 1vh;
+    padding: 0 1vh 0.5vh 1vh;
     font-size: 2.5vh;
     line-height: 1;
     transition: 0.4s ease-out;
     color: #ccc;
     cursor: pointer;
+    height: 2.5vh;
 }
 
 #searchbar > p:hover {
@@ -754,6 +756,7 @@ main {
         display: grid;
         grid-template-columns: 100%;
         grid-template-areas: "search" "filters" "list";
+        grid-template-rows: auto auto auto;
     }
 
     #filters {
@@ -790,11 +793,13 @@ main {
             padding-bottom: 0.5vw;
             padding-left: 2vw;
             border-radius: 0 0 0 3px;
+            height: 4.5vw;
         }
 
         #searchbar > p {
-            padding: 0.5vw 2vw;
+            padding: 0 2vw 0.5vw 2vw;
             font-size: 5vw;
+            height: 5vw;
         }
 
         #searchbar > h1 {
@@ -882,7 +887,7 @@ main {
         padding: 2vw;
         border-radius: 4vw;
         box-shadow: rgba(0 0 0 / 0.5) 0 1vw 2vw -1vw;
-        margin-top: 4vw;
+        margin-top: 2vw;
     }
 
         .filterdiv > h2 {
