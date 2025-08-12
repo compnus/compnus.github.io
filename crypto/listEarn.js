@@ -209,7 +209,7 @@ LIST = [
         name: "#mate",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2025%2F03%2Fhash-mate-logo.webp&f=1&nofb=1&ipt=32321a8cf968e78d8752d064e51501960af68a10b2c1625adee8d234decf24dc",
         featured: true,
-        description: "#mate allows you to mine TON, NOT, Telegram Stars and more without investment! Frequent event, NFT mining and random cases allow you to earn a lot of various cryptocurrencies effortlessly!",
+        description: "#mate allows you to mine TON, NOT, Telegram Stars and more without investment! Frequent events, NFT mining and random cases allow you to earn a lot of various cryptocurrencies effortlessly!",
         added: "7-16-2024",
         id: "hashmate",
         attr: {
@@ -741,6 +741,42 @@ LIST = [
         banner: "blum"
     },
     {
+        name: "UpRock",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdepinscan-prod.s3.us-east-1.amazonaws.com%2Fnext-s3-uploads%2F3052af85-94c3-437b-b764-079164c02a58%2Fuprock_color.png&f=1&nofb=1&ipt=9c1ff17d8ef0c29903a48cd5a9292ca281849b0cc7eb7ce1c5a72c1dd85c587e",
+        featured: false,
+        description: "Get paid for sharing your unused internet! Gain the UpRock token, stake it or withdraw to any Solana wallet! Also available on Windows, macOS and Linux!",
+        added: "9-1-2024",
+        id: "uprock",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "nw",
+            coin: "other:UPT",
+            effort: 0,
+            rating: 5
+        },
+        info: {
+            description: "UpRock shares your unused bandwidth - ideal if you are on WiFi or endless data supply, and pays you for them. Scientists and companies use your unused bandwidth to perform tasks like ad verification and more. UpRock pays you for helping them make the internet a better place! Additionally, UpRock doesn't slow down your internet connection which means there is literally no reason not to try it.<br><br>Although not listed in the platform section, UpRock is also available for <b>Windows</b>, <b>macOS</b> and <b>Linux</b> devices.",
+            effort: "Just leave the app running in the background. Start the app and withdraw, everything else is done automatically."
+        },
+        go: {
+            type: 0,
+            link: "https://link.uprock.com/i/a2475e1d"
+        },
+        features: [["Share Unused Bandwidth and Make Money", "UpRock pays you for using your internet bandwidth for research purposes, that would go to waste otherwise. That sounds like a win-win situation!"],
+            ["Staking", "Lock your earned tokens and earn interest!"],
+        ["Microtasks and Cashback", "Earn more $UPT by completing microtasks such as playing games and get cashback on supported stores!"]
+        ],
+        tips: [["Patience is key.", "Unlike <a href='viewEarn.html?id=honeygain' style='color:yellow'>Honeygain</a>, UpRock runs many tests to make sure your device is valid. This means it might take a couple weeks before you will start actually earning any tokens. The same logic applies to staking. The longer your lock your tokens for, the higher the APR! Just be patient and watch your earnings grow!"],
+        ["Connect multiple devices!", "If you can, make sure to install UpROck on your mobile device, computer, work laptop, etc. and link them all to the same account! This will exponentially increase your rewards!"]
+        ],
+        pros: ["No ads", "Doesn't affect network or device speed", "Many different ways to increase your earnings"],
+        cons: ["High withdrawal threshold (250 $UPT)"],
+        benefits: ["If the app gets verified, we will distribute dividends."],
+        banner: "bin"
+    },
+    {
         name: "The TON Bank",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3d.iconscout.com%2F3d%2Fpremium%2Fthumb%2Fton-coin-savings-3d-icon-download-in-png-blend-fbx-gltf-file-formats--digital-locker-bank-safe-stablecoin-cryptocurrency-pack-business-icons-10326803.png&f=1&nofb=1&ipt=756791c71b973fe333fa8efdce2a185fd1c4ed7e3787e33bea389c18675c143e",
         description: "Collect boosts and boost your position in the leaderboard! The higher amount of the boosts you have the higher the share of the reward pool! You can also watch ads or complete tasks to get extra boosts!",
@@ -809,6 +845,43 @@ LIST = [
         banner: "blum"
     },
     {
+        name: "Ember",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fsync%2Fv2%2FC5627AQGPHFOCqQabrg%2Farticleshare-shrink_800%2Farticleshare-shrink_800%2F0%2F1732020021145%3Fe%3D2147483647%26v%3Dbeta%26t%3D8dGxtwsgi7yjj0RZlUiMO20lbg7t0Xf6PO66NPZfAdM&f=1&nofb=1&ipt=796f699f6d25986cc639a101cf9e8a7011e67befddcb4856f2e82ce930fe4f84",
+        description: "Mine Bitcoin, wager it and withdraw! With new games added occasionally and new ways to earn being slowly introduced, you can enjoy all flavors of earnings! This includes: microtasks, gambling and predictions as of now! Another gambling app? Brooooooo why.",
+        added: "9-2-2024",
+        id: "ember",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "mine",
+            coin: "btc",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "Mine Bitcoin every day, wager it through gambling and predictions and watch your earnings grow! This is a gambling app so before you ask, yes, there is a way to deposit money and NO, you should NEVER do that with gambling apps. Because that's basically the best way to lose money. Do not deposit money through buying Ember tokens! Anyway, there are also microtasks ig.",
+            effort: "Restart mining every day. You will need to wager it in order to withdraw."
+        },
+        go: {
+            type: 1,
+            link: "https://emberfund.onelink.me/ljTI/l4g18zii?mining_referrer_id=MNGA3LNUO3A",
+            code: "MNGA3LNUO3A"
+        },
+        benefits: ["Extra 1 Satoshi/Hour mining speed (double from the regular).","If the app gets verified, we will distribute dividends."],
+        features: [["Mining and Gambling", "Start your mining daily! Use your mined Satoshis in various gambling games to wager them and make them eligible to withdraw!"],
+            ["Predictions and Microtasks", "Multiply your Satoshis (or lose them all) in predictions and earn extra through microtasks!"],
+        ["Tournaments", "Participate in tournaments and get a share of won Satoshis!"]
+        ],
+        tips: [
+            ["Turn off the notifications.", "This app has probably the most annoying notification service in the world. They can play the sound or light up your screen even in Do Not Disturb mode (somehow???) and never contain useful information. Downside of doing this is that whenever you start the app it will ask you to allow notifications. Do not agree to it."],
+            ["Safe wagers!", "Do not bet all your Satoshis on red! The point here isn't to win as much as possible but instead to wager and therefore secure your earned tokens. Safe bets, small loss and therefore guaranteed money!"]
+        ],
+        pros: ["Very generous free mining in comparison to other apps", "Low edge of the house"],
+        cons: ["Annoying and pointless notifications", "High withdrawal threshold (10000 Satoshis that must be wagered)"],
+        banner: "bin"
+    },
+    {
         name: "Stars Hub",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2F3d-white-star-blue-background_1332213-22.jpg&f=1&nofb=1&ipt=cbf60721dbddad7c31fcbc8cbfb9c5fb0848a26d830b357471c65897e95111d5",
         description: "Receive free star fragments and use those to purchase Telegram Gifts, which can be exchanged for Stars! Stars Hub offers multiple ways to earn stars every day! Just a quick side note: the entire app is in russian. Don't worry, though! It's fairly simple to figure out what all the buttons do! (especially super easy if you speak russian)",
@@ -845,6 +918,106 @@ LIST = [
         banner: "blum"
     },
     {
+        name: "Sweat Wallet",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJwkGy0o_DOQ8gWTY_8M3_bwp8wHDk766guJ-GR8FNgwBNE7m_hOLy8jDfBlSg0k2XgA&f=1&nofb=1&ipt=c1c17814f416141c8cdf186963b12194a468c4a291145f5e45f067765dc8becb",
+        description: "Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to collect even more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
+        added: "9-3-2024",
+        id: "sweat",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "ad",
+            coin: "other:SWEAT",
+            effort: 2,
+            rating: 3
+        },
+        info: {
+            description: "<b>Note: In order to make money from steps, you will need a <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> account.</b><br>Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to play games like spin-a-wheel or card flip and earn more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
+            effort: "Steps and jars create $SWEAT automatically, but watching ads is way more efficient."
+        },
+        go: {
+            type: 0,
+            link: "https://swe.at/wallet"
+        },
+        benefits: ["Whether you download this app through us or directly from the store, it won&apos;t make any difference.<br>We aren&apos;t getting any benefits and therefore you also won&apos;t."],
+        features: [["Spin-a-Wheel and Flip-a-Card", "Daily ad watch abilities allow you to earn $SWAET for free!"],
+            ["Sweat Jars", "Lock your $SWEAT in a jar and watch it grow! The longer you lock your $SWEAT for, the higher the APR becomes! Watch out for promotions that allow you to get even higher APR!"], 
+            ["Learn and Earn + Quests", "Learn about Sweat and its partners, answer quizzes and earn free $SWEAT! Check out quests, complete simple tasks and earn even more!"],
+            ["Prize Draw Reffles", "Grow your $SWEAT in jars and unlock Prize draws! Buy a raffle ticket for $SWEAT and get a chance to win great prizes!"]
+        ],
+        tips: [
+            ["Do not risk a higher prize.", "This tip might seem stupid, but one thing you should know about the wheel spin (and the card flip) is that it's rigged. After you win 4000 Steps (lowest reward on the wheel other than 0), you might want to spin again to try and get a higher prize. The chance for that should be 67% right? Well, it isn't. And you have a much greater chance that you will spin 0, even twice in a row. Once you win something from the wheel, take it immediately."],
+            ["Grow all your $SWEAT!", "Due to not-so-good decisions by the developers, $SWEAT fails to surge and increase in value. The only way to actively increase your earnings are jars. With up to 12% APR, or even more in certain promotions, you can secure a passive income, if you grow enough $SWEAT."]
+        ],
+        pros: ["Frequent prize draws", "Convert your <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> earnings to real money"],
+        cons: ["Rigged Spin-a-Wheel and Flip-a-Card minigames", "$SWEAT fails to increase its value due to questionable decisions by the developers"],
+        banner: "bin"
+    },
+    {
+        name: "Sweatcoin",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fsweatcoin-logo-coin-gradient-background-move-earn-concept-design-earn-cryptocurrency-by-exercising-moving-vector-eps-10_532800-733.jpg&f=1&nofb=1&ipt=acdf89b692c0bd1730e4d1e8684d7ffdb57bbfee5be0846c3aac342c7cb79909",
+        unlisted: true,
+        id: "sweatcoin",
+        attr: {
+            verified: 1,
+            dividends: false,
+            platform: "ai",
+            type: "Walk to Earn",
+            coin: "other:None",
+            effort: 0,
+            rating: 2
+        },
+        info: {
+            description: "<b>Note: In order to make money from steps, you will need to download <a style='color:yellow' href='viewEarn.html?id=sweat'>Sweat Wallet</a>.</b><br>This app is required in order to get $SWEAT from Sweat Wallet for steps.",
+            effort: "Just walk."
+        },
+        go: {
+            type: 0,
+            link: "https://swcapp.com/i/kingpvz"
+        },
+        benefits: ["There are no benefits. We will get Sweatcoins but those are useless anyway. So what are we supposed to share?"],
+        features: [["Convert Steps into $SWEAT", "Up to 7000 Steps will be converted to $SWEAT."]],
+        tips: [
+            ["Do not buy premium.","It's worthless."]],
+        pros: ["Used with <a style='color:yellow' href='viewEarn.html?id=sweat'>Sweat Wallet</a> to create $SWEAT tokens"],
+        cons: ["The only way to spend Sweatcoins is on prize draws, which with a community as big as Sweatcoin's means no chance to win anything"],
+        banner: "bin"
+    },
+    {
+        name: "BitTycoon",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F7IKdCkAvEwAYQrnuUUxYOJz1ScbS5TOn-RyOcCKGdcLz-7kJhbu3Ns5EWvGK1Cn9oLs&f=1&nofb=1&ipt=6a284dc07a418856f8f60ab5082de7b536ad33035112724cefbf14f07eb2c4a9",
+        description: "A classic mining service, except it's completely free! No way to deposit means no way to lose money! Watch ads to claim contracts and make them mine Bitcoin for you!",
+        added: "9-9-2024",
+        id: "bittycoon",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "mine",
+            coin: "btc",
+            effort: 1,
+            rating: 3
+        },
+        info: {
+            description: "Watch ads, get contracts and see your earnings grow! This is a classic mining service, minus the ability to purchase contracts for money - which means no way to lose money! Contracts are measured in batteries. Whatever that means. This app still needs to be explored better. I mean there are some TyconPoints too?",
+            effort: "Watch ads to get contracts, mining works automatically."
+        },
+        go: {
+            type: 1,
+            link: "https://Bit-Tycoon.com",
+            code: "27994586"
+        },
+        benefits: ["Free contract", "If the app gets verified, we will distribute dividends."],
+        features: [["Watch Ads and Get Contracts", "Watch an ad to get 7.5Gh/s daily contract and as many as you'd like 5.5Gh/s contracts!"]],
+        tips: [
+            ["There are no tips.", "This app is not well explored yet, but also looks pretty straightforward. Just watch ads and get money, seems simple enough."]
+        ],
+        pros: ["Simple and easy to understand"],
+        cons: ["High withdrawal threshold (2200 Satoshis) with high fee (790 Satoshis) due to no Lightning option"],
+        banner: "bin"
+    },
+    {
         name: "AIX Market",
         icon: "https://www.findmini.app/_astro/avatar_ev602uz51e_Z2036tn.webp",
         description: "Earn the AIX pseudo-coin, stake and exchange for TON! Get free AIX for daily tasks, participate in predictions (another gambling app? dang) and receive the Airdrop (a weird name for tasks but alright)!",
@@ -875,6 +1048,140 @@ LIST = [
         pros: ["Active developer team"],
         cons: ["The AIX pseudo-coin is hands down worthless"],
         banner: "blum"
+    },
+    {
+        name: "Pluto USDT",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FumgjaNl8AOCjq9SulcvHNksOWNF6c5Bj4HBX-s2VuLic5N33kc4LSRWOa73YZyuqDUI&f=1&nofb=1&ipt=abad052825d77aa1ffe1da6166a8a924c36cbe3709042480b81aafe9ddf678e7",
+        description: "Watch an ad every 45 minutes and claim USDT. I wish other apps were as easy to describe.",
+        added: "9-5-2024",
+        id: "pluto",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "a",
+            type: "ad",
+            coin: "usdt",
+            effort: 3,
+            rating: 3
+        },
+        info: {
+            description: "<b>Note: You can only withdraw to Binance. Check the banner below to create your account and even receive some benefits!</b><br>Watch an ad every 45 minutes to claim USDT! Yeah. That's it. There's nothing more to this app. I like when apps are simple.",
+            effort: "You must watch an ad every 45 minutes in order to earn."
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=com.codegreenie.quickbankcodes",
+            code: "YHi7M77"
+        },
+        benefits: ["If the app gets verified, we will distribute dividends."],
+        features: [["Watch and Earn", "Watch an ad every 45 minutes to get USDT! It's that simple!"]],
+        tips: [
+            ["There are no tips.", "This app is primitively simple, there are literally no tips that can be given. Maybe uhhh get a reminder for 45 minute cycles?"]
+        ],
+        pros: ["Absolute peak of simplicity"],
+        cons: ["High withdrawal threshold (5 USDT = 1000 ads @ 20 per day = 50 days)"],
+        banner: "bin"
+    },
+    {
+        name: "Brink USDC",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.kraken.com%2Fmarketing%2Fweb%2Ficons-uni-webp%2Fs_usdc.webp%3Fi%3Dkds&f=1&nofb=1&ipt=1443ad78977e82b1ca2e33c7048b4ea27c225cd3a32f24b1d4cc53527368eb4d",
+        description: "Watch an ad every 45 minutes and claim USDC. I wish other apps were as easy to describe.",
+        added: "9-6-2024",
+        id: "brink",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "a",
+            type: "ad",
+            coin: "usdt",
+            effort: 3,
+            rating: 3
+        },
+        info: {
+            description: "<b>Note: You can only withdraw to Binance. Check the banner below to create your account and even receive some benefits!</b><br>Watch an ad every 45 minutes to claim USDC! Yeah. That's it. There's nothing more to this app. I like when apps are simple.",
+            effort: "You must watch an ad every 45 minutes in order to earn."
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=com.codegreenie.quickblockchain",
+            code: "Zdu1K73"
+        },
+        benefits: ["If the app gets verified, we will distribute dividends."],
+        features: [["Watch and Earn", "Watch an ad every 45 minutes to get USDC! It's that simple!"]],
+        tips: [
+            ["There are no tips.", "This app is primitively simple, there are literally no tips that can be given. Maybe uhhh get a reminder for 45 minute cycles?"]
+        ],
+        pros: ["Absolute peak of simplicity"],
+        cons: ["High withdrawal threshold (5 USDC = 1000 ads @ 20 per day = 50 days)"],
+        banner: "bin"
+    },
+    {
+        name: "Bitcoin Mining and Ad Earn",
+        icon: "https://play-lh.googleusercontent.com/S7mwXS3fsFx387rTVOEZbbVXSnR5Na1B8a2TyrbzxIhWles1Sauirh4Apbfe1KZlrdx5=w240-h480-rw",
+        description: "Increase your speed and get more Satoshis! For some weird reason, you can only withdraw to apps like PayPal and Payoneer? Weird for a Bitcoin miner but alright.",
+        added: "9-7-2024",
+        id: "btcadearn",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "a",
+            type: "mine",
+            coin: "btc",
+            effort: 2,
+            rating: 2
+        },
+        info: {
+            description: "Watch ads to increase your mining speed and watch your earnings grow! The app works permanently, even if you forget about it for a couple months, you can come back to see all the Satoshis you've earned during that time! Withdraw to PayPal, Payoneer or Qiwi!",
+            effort: "Technically speaking, you don't have to do anything, but this way you will reach the withdrawal in a couple years. So instead, you should watch ads to increase your speed!"
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=com.CDMApps.BitcoinCloudMining&referrer=NIRBP",
+            code: "NIRBP"
+        },
+        benefits: ["50 Satoshis for free", "If the app gets verified, we will distribute dividends."],
+        features: [["Permanent Mining", "No need to reactivate mining! It just goes on and on and on!"],
+        ["Watch Ads to Increase Speed", "Mining going too slow? Watch an ad to permanently increase the speed!"]],
+        tips: [
+            ["Do not watch ads to get 0.27 Satoshis.", "0.27 Satoshis is literally nothing. Instead, focus on watching ads to increase speed, which will give you Satoshis forever!"]
+        ],
+        pros: ["Permanent mining"],
+        cons: ["Abysmal ad deals (You will have to watch 2000 ads to get the speed to 1 Satoshi/hour)"],
+        banner: "bin"
+    },
+    {
+        name: "ETH Cloud Mining",
+        icon: "https://play-lh.googleusercontent.com/8ZUnkcWEieLvHtVVdrphRpIBeMU5fFqfaMW7RfJdubQmEiqyttKnb6N3weNO0a_UAqM=w240-h480-rw",
+        description: "Increase your speed and get more Szabo! Whatever that is. For some weird reason, you can only withdraw to apps like PayPal and Payoneer? Weird for an Ethereum miner but alright.",
+        added: "9-8-2024",
+        id: "ethadearn",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "a",
+            type: "mine",
+            coin: "other:Ethereum",
+            effort: 2,
+            rating: 2
+        },
+        info: {
+            description: "Watch ads to increase your mining speed and watch your earnings grow! The app works permanently, even if you forget about it for a couple months, you can come back to see all the Szabo (like Satoshi but for Ethereum) you've earned during that time! Withdraw to PayPal, Payoneer or Qiwi!",
+            effort: "Technically speaking, you don't have to do anything, but this way you will reach the withdrawal in a couple years. So instead, you should watch ads to increase your speed!"
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=com.CDMApps.ETHCloudMining&referrer=CZWK8",
+            code: "CZWK8"
+        },
+        benefits: ["5 Szabo for free", "If the app gets verified, we will distribute dividends."],
+        features: [["Permanent Mining", "No need to reactivate mining! It just goes on and on and on!"],
+        ["Watch Ads to Increase Speed", "Mining going too slow? Watch an ad to permanently increase the speed!"]],
+        tips: [
+            ["Do not watch ads to get 0.059 Szabo.", "0.059 Szabo is (probably?) nothing. Instead, focus on watching ads to increase speed, which will give you Szabo forever!"]
+        ],
+        pros: ["Permanent mining"],
+        cons: ["Abysmal ad deals"],
+        banner: "bin"
     },
     {
         name: "Pea.AI",
@@ -1080,7 +1387,7 @@ FILTERS = {
 }
 
 function search(via) {
-    via = via.toLowerCase().replace(/ /g, "_").replace("#", "hash");
+    via = via.toLowerCase().replace(/ /g, "_").replace("#", "hash").trim();
     for (var i of document.getElementById("main").children) {
         i.style.display = "grid";
         if (!i.id.includes(via)) {
@@ -1137,6 +1444,7 @@ function search(via) {
         if (via.includes("nc") || via.includes("wall")) xc += "Are you perhaps looking for <a href='viewEarn.html?id=nc'>NC Wallet</a>?";
         else if (via.includes("labr")) xc += "Are you perhaps looking for <a href='viewEarn.html?id=labrador'>Labrador Adventures</a>?";
         else if (via.includes("bit") || via.includes("game")) xc += "Are you perhaps looking for <a href='viewEarn.html?id=bitgame'>BitGame</a>?";
+        else if (via.includes("sweat")) xc += "Are you perhaps looking for <a href='viewEarn.html?id=sweatcoin'>Sweatcoin</a>?";
         jmsg.innerHTML = xc;
     } else {
         document.getElementById("messagenone").style.display = "none";
