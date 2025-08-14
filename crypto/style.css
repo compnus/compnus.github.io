@@ -696,6 +696,29 @@ main {
     color: yellow;
 }
 
+.pickio {
+    display: flex;
+    align-items: center;
+    padding: 1vh;
+    margin: 1vh 0 0 0;
+}
+
+    .pickio > img {
+        height: 4vh;
+        width: 4vh;
+        margin-right: 1vh;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+
+    .pickio > p {
+        margin: 0;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 3vh;
+        flex: 1;
+    }
+
 @media(max-width:800px) {
     #header {
         position: sticky;
@@ -1080,5 +1103,20 @@ main {
         .procons > img {
             width: 10vw;
             height: 10vw;
+        }
+
+    .pickio {
+        padding: 2vw;
+        margin: 2vw 0 0 0;
+    }
+
+        .pickio > img {
+            height: 7vw;
+            width: 7vw;
+            margin-right: 2vw;
+        }
+
+        .pickio > p {
+            font-size: 6vw;
         }
 }

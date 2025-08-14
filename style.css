@@ -9,6 +9,11 @@
     --lightbgaccent: #36384e;
 }
 
+* {
+    scroll-behavior: smooth;
+    scroll-padding: 0;
+}
+
 @font-face {
     font-family: 'currencycompnus';
     src: url('/site/font/currencycompnus.eot?53016310');
@@ -190,11 +195,45 @@ footer {
     padding: 2vh;
 }
 
-#footnote{
+footer.full {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-gap: 2vh;
+    align-items: stretch;
+}
+
+.footerx {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1vh;
+    justify-items: end;
+    align-self: start;
+    text-align: right;
+}
+
+.footerx > .fnav {
+    font-size: 2.5vh !important;
+}
+
+.footerx > .fnav.fnavbot {
+    font-size: 2vh !important;
+    line-height: 1.2;
+}
+
+#footnote {
     margin: 0;
     font-family: 'Ubuntu';
     font-size: 2vh;
     line-height: 1;
+}
+
+footer.full > #footnote {
+    display: flex;
+    flex-direction: column;
+}
+
+footer.full > #footnote > p {
+    margin: 0;
 }
 
 main {
@@ -253,6 +292,10 @@ a {
         margin: 0;
         display: block;
         line-height: 1;
+    }
+
+    .link.fnav.fnavbot {
+        font-weight: 400;
     }
 
 .link.hnav {

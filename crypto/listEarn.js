@@ -777,72 +777,44 @@ LIST = [
         banner: "bin"
     },
     {
-        name: "The TON Bank",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3d.iconscout.com%2F3d%2Fpremium%2Fthumb%2Fton-coin-savings-3d-icon-download-in-png-blend-fbx-gltf-file-formats--digital-locker-bank-safe-stablecoin-cryptocurrency-pack-business-icons-10326803.png&f=1&nofb=1&ipt=756791c71b973fe333fa8efdce2a185fd1c4ed7e3787e33bea389c18675c143e",
-        description: "Collect boosts and boost your position in the leaderboard! The higher amount of the boosts you have the higher the share of the reward pool! You can also watch ads or complete tasks to get extra boosts!",
-        added: "8-27-2024",
-        id: "tonbank",
+        name: "freebitcoin",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-3hHoxMSdzvc%2FXlJfe9uTxSI%2FAAAAAAAAAFU%2FOg2RBuKDm2gbk9CSdZSRMIaOXakCj0BggCLcBGAsYHQ%2Fs1600%2FScAR5Tf2.jpg&f=1&nofb=1&ipt=0ea1ceb850eec21ab8d94b3e19a0cca40da39eb093d88f6842531cb578183993",
+        description: "Get free Bitcoin every hour! Test your luck, roll your lucky number and see how much you win! Get free lottery tickets and win ever more Bitcoin! Optionally, you can buy golden tickets to get a chance to win an actual Lamborghini? This site is crazy!",
+        added: "9-20-2024",
+        id: "freebitcoin",
         attr: {
             verified: 0,
             dividends: false,
-            platform: "t",
-            type: "Airdrop",
-            coin: "ton",
-            effort: 0,
+            platform: "w",
+            type: "faucet",
+            coin: "btc",
+            effort: 1,
             rating: 5
         },
         info: {
-            description: "Check-in every day to get boosts! One missed day and all of your boosts are gone! More boosts means higher share of the reward pool! Complete tasks or watch ads to get extra boosts! Don't forget to check the leaderboard to see how you are doing!",
-            effort: "Check-in every day. That's it."
+            description: "One of the OG crypto faucets! You can roll a lucky number every hour and get Bitcoin based on it! Every roll will also give you reward points and you have a chance to get lottery tickets! Buy golden tickets for the Lamborghini lottery, play the Hi-Lo gambling game to multiply your Bitcoin and check out premium features for holders of the FUN Token - such as the lucky wheel spin! This website is crazy and packed with features! Additionally, if you decide not to withdraw immediately, you will receive interest on your held Bitcoins!",
+            effort: "Collect Bitcoin every hour."
         },
         go: {
             type: 0,
-            link: "https://t.me/tonbank_game_bot/start?startapp=J8uceF4fm1LTP"
+            link: "https://freebitco.in/?r=29107736"
         },
-        benefits: ["If the app gets verified, we will distribute dividends."],
-        features: [["Daily Check-In and Tasks", "Check-in every day to get boosts! Complete tasks and watch ads to get even more boosts!"],
-        ["Leaderboard", "Climb the leaderbaord and increase your share of the reward pool!"]
+        benefits: ["Get on-site dividends based on your activity. (We will pay them out every once-in-a-while so don&apos;t forget to check back often!)<br><b>Note: These are not CompNUS dividends. You will receive your dividends on the freebitcoin website once we send them. They are based on your activity since last dividend distribution.</b>"],
+        features: [
+            ["Roll a Lucky Number", "Roll a lucky number every hour and win up to 200$ in Bitcoin! Although the chance for that is only 0.01%, you can still win less Bitcoin with way higher chance!"],
+            ["Lottery and Win a Lambo", "Participate in the weekly lottery for free or by buying tickets and get up to 1000$ in Bitcoin! You can also buy golden tickets and get a chance to win 200000$ in Bitcoin - just enought to buy a Lamborghini Huracan 610-4 Coupe!"],
+            ["Multiply Bitcoin with Hi-Lo and Betting", "Play the Hi-Lo game and wager your Bitcoin to multiply it (or lose it all)! You can also try to predict prices of crypto, bet on it and either win big or lose it all! The more you wager, the more Bitcoins you get for the free roll every hour!<br><b>Edge of the house: 5%</b>"],
+            ["Reward Points", "Use your reward points to buy gift cards, exchange them for Bitcoin or see them as a way to get access to premium features such as the lucky wheel spin! You can buy 1 spin for 8 Reward Points"],
+            ["Earn Bitcoin with 4% APR", "Once you reach 30000 Satoshis, you can withdraw. If you decide not to, you'll receive interest on your held Bitcoin - more than 4% APR!"]
         ],
         tips: [
-            ["There are no tips.", "This app is primitively simple. Maybe refrain from buying boosts? But that's about it. This app is so simple it doesn't need tips."]
+            ["Just claim it!", "Every hour you can claim free Bitcoin. But let's be real here, 98.85% chance is to get the lowest reward (1 Satoshi, you can increase it to 38 Satoshis if you wager enough). So this seems like a waste of time, right? Well actually, we are not here for the Bitcoin (ironic isn't it). We are here for Reward Points - these are guaranteed on every single claim. Use them to buy boosters to multiply your Bitcoin earnings up to 10 times (no we are talking), or exchange them for wheel spins!"],
+            ["Spin the wheel!", "Although this is a premium feature, you can spin for free every day by buying a wheel spin for 8 Reward Points. There is a chance you will get your 8 Reward Points back instead of getting any cool reward, but you never know, maybe it's your lucky day today?"],
+            ["Be active!", "We will earn commissions for your activity and of course, won't keep it all to ourselves! We will distribute dividends back to you through an in-build system on the freebitcoin website. Keep in mind, that this system tracks your activity. Higher your activity, higher your dividend share!"]
         ],
-        pros: ["Real-time calculation of your expected reward pool share", "Off-season boosts turn into bonus TON"],
-        cons: ["You need to watch 10 ads to complete ad-watch tasks with 20 minutes in-between in the span of 1 day"],
-        banner: "blum"
-    },
-    {
-        name: "#TonHash",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2025%2F05%2FTonhash-logo.webp&f=1&nofb=1&ipt=f2b20e9d92611013ac624416f888d893183748d25bbc31525f3b170be20375a4",
-        description: "Mine, check-in and watch ads to get TON! There is not much else to say about this one, it really is that simple!",
-        added: "8-28-2024",
-        id: "tonhash",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "t",
-            type: "mine",
-            coin: "ton",
-            effort: 2,
-            rating: 4
-        },
-        info: {
-            description: "#TonHash allows you to mine TON in exchange for energy - you get energy passively, but you need to have the app open in order to mine. You can optionally decrease the effort and purchase an offline miner, but it costs stars and themining feature isn't actually that generous. Instead, you should focus on collecting TON through daily check-ins and watching ads!",
-            effort: "The app needs to be open to mine, but you'll get energy even when idle."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/tonhash_game_bot/open?startapp=5782755258"
-        },
-        benefits: ["If the app gets verified, we will distribute dividends."],
-        features: [["Daily Check-In and Tasks", "Check-in every day to get TON! Complete tasks and watch ads to get even more TON!"],
-        ["Mining", "Turn your energy into TON by mining!"]
-        ],
-        tips: [
-            ["Reconsider purchases.", "This app has many purchases that seem as steals, but they are all related to mining. One thing you should know about the mining in this app, is that it's the single worst way to earn. The only way it might be worth it is if you buy all the upgrades (almost 3500 Stars). Which is a lot of money and might not actually be worth it. So you should consider this thoroughly. Also, this app is labeled as unknown, which means there is still a risk of it being a scam."]
-        ],
-        pros: ["Rich ad rewards", "Generous daily check-in"],
-        cons: ["This app is supposed to be a TON miner, but the mining aspect of it is the biggest flaw"],
-        banner: "blum"
+        pros: ["Many features to explore", "Many opportunities to earn", "Interest for holding Bitcoin", "Ability to use Reward Points to get extra crypto - Bitcoin or FUN token", "In-build dividend distribution system", "Wagering results in your faucet earnings being increased"],
+        cons: ["The website is confusing", "Too many ads", "High withdrawal threshold (30000 Satoshis)"],
+        banner: "bin"
     },
     {
         name: "Ember",
@@ -918,6 +890,222 @@ LIST = [
         banner: "blum"
     },
     {
+        name: "Litepick",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flitepick.io%2Fassets%2Fimg%2Flitepick_icon.png&f=1&nofb=1&ipt=af596cedd76e46aba59791b073ee2e1fe28c8970d8d8d0351781fd33e13adb35",
+        description: "Get free Litecoin every hour! Play games, wager earned Litecoin and increase your hourly earnings! Get bonus faucet rolls for verifying your email or playing games! Complete surveys for more Litecoin!",
+        added: "9-21-2024",
+        id: "litepick",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "w",
+            type: "faucet",
+            coin: "other:Litecoin",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "Welcome to the <b style='color: yellow; cursor: pointer' onclick='showPickio()'>Pick.io Family</b>!<br>Collect Litecoin every hour! You can play games to wager your coins and either win big or lose it all. The more you wager, however, the higher your hourly earnings get! You can also complete surveys to earn even more! Simple, right?",
+            effort: "Collect coins every hour."
+        },
+        go: {
+            type: 0,
+            link: "https://litepick.io/?ref=kingpvz"
+        },
+        benefits: ["10% Commission Share (you will receive 10% extra Litecoin for surveys and will get 10% back for playing games)"],
+        features: [
+            ["Hourly Faucet", "Collect free coins every hour!"],
+            ["Play Games", "Wager your coins to increase your hourly earnings! Just like with any gambling activity, you can either win big or lose it all!"], 
+            ["Surveys and Bonus Faucet Rolls", "Complete surveys to earn extra coins! You can also get bonus faucet rolls for verifying your email or playing games!"]
+        ],
+        tips: [
+            ["Safe wagers!", "Play games that allow you to get most of your bet back! This way you can wager a huge amount of coins even if you don't have that much, allowing you to quickly increase your hourly earnings!"]
+        ],
+        pros: ["Wagering results in your faucet earnings being increased", "Paid surveys"],
+        cons: ["The website signs you out very frequently", "You need to solve a captcha for everything - logging in, faucet claims, withdrawal, and so on with a simple problem - sometimes it just doesn't work"],
+        banner: "bin"
+    },
+    {
+        name: "Dogepick",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FcYh8pYpdRtocYxG_Xqzo8z-J_mWDhwQ5kwDZJKZZrG4E6lZbvV8P193FsQVsIue7rA&f=1&nofb=1&ipt=2657409ab05bed76422a5fcea59cc2bc2cec2fc2f1ba80a5dd7f10920e9606ec",
+        description: "Get free Dogecoin every hour! Play games, wager earned Dogecoin and increase your hourly earnings! Get bonus faucet rolls for verifying your email or playing games! Complete surveys for more Dogecoin!",
+        added: "9-22-2024",
+        id: "dogepick",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "w",
+            type: "faucet",
+            coin: "other:Dogecoin",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "Welcome to the <b style='color: yellow; cursor: pointer' onclick='showPickio()'>Pick.io Family</b>!<br>Collect Dogecoin every hour! You can play games to wager your coins and either win big or lose it all. The more you wager, however, the higher your hourly earnings get! You can also complete surveys to earn even more! Simple, right?",
+            effort: "Collect coins every hour."
+        },
+        go: {
+            type: 0,
+            link: "https://dogepick.io/?ref=kingpvz"
+        },
+        benefits: ["10% Commission Share (you will receive 10% extra Dogecoin for surveys and will get 10% back for playing games)"],
+        features: [
+            ["Hourly Faucet", "Collect free coins every hour!"],
+            ["Play Games", "Wager your coins to increase your hourly earnings! Just like with any gambling activity, you can either win big or lose it all!"],
+            ["Surveys and Bonus Faucet Rolls", "Complete surveys to earn extra coins! You can also get bonus faucet rolls for verifying your email or playing games!"]
+        ],
+        tips: [
+            ["Safe wagers!", "Play games that allow you to get most of your bet back! This way you can wager a huge amount of coins even if you don't have that much, allowing you to quickly increase your hourly earnings!"]
+        ],
+        pros: ["Wagering results in your faucet earnings being increased", "Paid surveys"],
+        cons: ["The website signs you out very frequently", "You need to solve a captcha for everything - logging in, faucet claims, withdrawal, and so on with a simple problem - sometimes it just doesn't work"],
+        banner: "bin"
+    },
+    {
+        name: "Tronpick",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftronpick.io%2Fassets%2Fimg%2Ftronpick_icon.png&f=1&nofb=1&ipt=4c926dbe276242cc1c02d5eefd3732ae0e136080e5634ef64a83d2d720caeec5",
+        description: "Get free TRON every hour! Play games, wager earned TRON and increase your hourly earnings! Get bonus faucet rolls for verifying your email or playing games! Complete surveys for more TRON!",
+        added: "9-23-2024",
+        id: "tronpick",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "w",
+            type: "faucet",
+            coin: "other:TRON",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "Welcome to the <b style='color: yellow; cursor: pointer' onclick='showPickio()'>Pick.io Family</b>!<br>Collect TRON every hour! You can play games to wager your coins and either win big or lose it all. The more you wager, however, the higher your hourly earnings get! You can also complete surveys to earn even more! Simple, right?",
+            effort: "Collect coins every hour."
+        },
+        go: {
+            type: 0,
+            link: "https://tronpick.io/?ref=kingpvz"
+        },
+        benefits: ["10% Commission Share (you will receive 10% extra TRON for surveys and will get 10% back for playing games)"],
+        features: [
+            ["Hourly Faucet", "Collect free coins every hour!"],
+            ["Play Games", "Wager your coins to increase your hourly earnings! Just like with any gambling activity, you can either win big or lose it all!"],
+            ["Surveys and Bonus Faucet Rolls", "Complete surveys to earn extra coins! You can also get bonus faucet rolls for verifying your email or playing games!"]
+        ],
+        tips: [
+            ["Safe wagers!", "Play games that allow you to get most of your bet back! This way you can wager a huge amount of coins even if you don't have that much, allowing you to quickly increase your hourly earnings!"]
+        ],
+        pros: ["Wagering results in your faucet earnings being increased", "Paid surveys"],
+        cons: ["The website signs you out very frequently", "You need to solve a captcha for everything - logging in, faucet claims, withdrawal, and so on with a simple problem - sometimes it just doesn't work"],
+        banner: "bin"
+    },
+    {
+        name: "BNBpick",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FUF_x9XhdoIvwoQQFuDorbTg7Vl0lwq9c14QRwlQqpU_EJ4ax7pkN-C4LRK-2C3coCh0y&f=1&nofb=1&ipt=a7c2290ab7ecd2135d6fda2fd6cb5727491badf55856fc10a82d19bf5b27043e",
+        description: "Get free BNB every hour! Play games, wager earned BNB and increase your hourly earnings! Get bonus faucet rolls for verifying your email or playing games! Complete surveys for more BNB!",
+        added: "9-24-2024",
+        id: "bnbpick",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "w",
+            type: "faucet",
+            coin: "other:BNB",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "Welcome to the <b style='color: yellow; cursor: pointer' onclick='showPickio()'>Pick.io Family</b>!<br>Collect BNB every hour! You can play games to wager your coins and either win big or lose it all. The more you wager, however, the higher your hourly earnings get! You can also complete surveys to earn even more! Simple, right?",
+            effort: "Collect coins every hour."
+        },
+        go: {
+            type: 0,
+            link: "https://bnbpick.io/?ref=kingpvz"
+        },
+        benefits: ["10% Commission Share (you will receive 10% extra BNB for surveys and will get 10% back for playing games)"],
+        features: [
+            ["Hourly Faucet", "Collect free coins every hour!"],
+            ["Play Games", "Wager your coins to increase your hourly earnings! Just like with any gambling activity, you can either win big or lose it all!"],
+            ["Surveys and Bonus Faucet Rolls", "Complete surveys to earn extra coins! You can also get bonus faucet rolls for verifying your email or playing games!"]
+        ],
+        tips: [
+            ["Safe wagers!", "Play games that allow you to get most of your bet back! This way you can wager a huge amount of coins even if you don't have that much, allowing you to quickly increase your hourly earnings!"]
+        ],
+        pros: ["Wagering results in your faucet earnings being increased", "Paid surveys"],
+        cons: ["The website signs you out very frequently", "You need to solve a captcha for everything - logging in, faucet claims, withdrawal, and so on with a simple problem - sometimes it just doesn't work"],
+        banner: "bin"
+    },
+    {
+        name: "Solpick",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fallinoneweb.ir%2Fwp-content%2Fuploads%2F2024%2F05%2FSolpick.png&f=1&nofb=1&ipt=d039bb390ed7e72a8c01f5a169acd4ce080409bf4a80dabc67be54ed371d9d0c",
+        description: "Get free Solana every hour! Play games, wager earned Solana and increase your hourly earnings! Get bonus faucet rolls for verifying your email or playing games! Complete surveys for more Solana!",
+        added: "9-25-2024",
+        id: "solpick",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "w",
+            type: "faucet",
+            coin: "other:Solana",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "Welcome to the <b style='color: yellow; cursor: pointer' onclick='showPickio()'>Pick.io Family</b>!<br>Collect Solana every hour! You can play games to wager your coins and either win big or lose it all. The more you wager, however, the higher your hourly earnings get! You can also complete surveys to earn even more! Simple, right?",
+            effort: "Collect coins every hour."
+        },
+        go: {
+            type: 0,
+            link: "https://solpick.io/?ref=kingpvz"
+        },
+        benefits: ["10% Commission Share (you will receive 10% extra Solana for surveys and will get 10% back for playing games)"],
+        features: [
+            ["Hourly Faucet", "Collect free coins every hour!"],
+            ["Play Games", "Wager your coins to increase your hourly earnings! Just like with any gambling activity, you can either win big or lose it all!"],
+            ["Surveys and Bonus Faucet Rolls", "Complete surveys to earn extra coins! You can also get bonus faucet rolls for verifying your email or playing games!"]
+        ],
+        tips: [
+            ["Safe wagers!", "Play games that allow you to get most of your bet back! This way you can wager a huge amount of coins even if you don't have that much, allowing you to quickly increase your hourly earnings!"]
+        ],
+        pros: ["Wagering results in your faucet earnings being increased", "Paid surveys"],
+        cons: ["The website signs you out very frequently", "You need to solve a captcha for everything - logging in, faucet claims, withdrawal, and so on with a simple problem - sometimes it just doesn't work"],
+        banner: "bin"
+    },
+    {
+        name: "TONpick",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.sur.ly%2Ffavicons%2Ft%2Ftonpick.game.ico&f=1&nofb=1&ipt=e04ea9550ee7b4461d95080208afdc405f3c01f4655593fc5ef91c0eaa78a0de",
+        description: "Get free TON every hour! Play games, wager earned TON and increase your hourly earnings! Get bonus faucet rolls for verifying your email or playing games! Complete surveys for more TON!",
+        added: "9-26-2024",
+        id: "tonpick",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "w",
+            type: "faucet",
+            coin: "ton",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "Welcome to the <b style='color: yellow; cursor: pointer' onclick='showPickio()'>Pick.io Family</b>!<br>Collect TON every hour! You can play games to wager your coins and either win big or lose it all. The more you wager, however, the higher your hourly earnings get! You can also complete surveys to earn even more! Simple, right?",
+            effort: "Collect coins every hour."
+        },
+        go: {
+            type: 0,
+            link: "https://tonpick.game/?ref=kingpvz"
+        },
+        benefits: ["10% Commission Share (you will receive 10% extra TON for surveys and will get 10% back for playing games)"],
+        features: [
+            ["Hourly Faucet", "Collect free coins every hour!"],
+            ["Play Games", "Wager your coins to increase your hourly earnings! Just like with any gambling activity, you can either win big or lose it all!"],
+            ["Surveys and Bonus Faucet Rolls", "Complete surveys to earn extra coins! You can also get bonus faucet rolls for verifying your email or playing games!"]
+        ],
+        tips: [
+            ["Safe wagers!", "Play games that allow you to get most of your bet back! This way you can wager a huge amount of coins even if you don't have that much, allowing you to quickly increase your hourly earnings!"]
+        ],
+        pros: ["Wagering results in your faucet earnings being increased", "Paid surveys"],
+        cons: ["The website signs you out very frequently", "You need to solve a captcha for everything - logging in, faucet claims, withdrawal, and so on with a simple problem - sometimes it just doesn't work"],
+        banner: "bin"
+    },
+    {
         name: "Sweat Wallet",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJwkGy0o_DOQ8gWTY_8M3_bwp8wHDk766guJ-GR8FNgwBNE7m_hOLy8jDfBlSg0k2XgA&f=1&nofb=1&ipt=c1c17814f416141c8cdf186963b12194a468c4a291145f5e45f067765dc8becb",
         description: "Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to collect even more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
@@ -982,6 +1170,76 @@ LIST = [
             ["Do not buy premium.","It's worthless."]],
         pros: ["Used with <a style='color:yellow' href='viewEarn.html?id=sweat'>Sweat Wallet</a> to create $SWEAT tokens"],
         cons: ["The only way to spend Sweatcoins is on prize draws, which with a community as big as Sweatcoin's means no chance to win anything"],
+        banner: "bin"
+    },
+    {
+        name: "FREEUSDT",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fallinoneweb.ir%2Fwp-content%2Fuploads%2F2024%2F05%2FFreeTether.jpg&f=1&nofb=1&ipt=a97499c9171351442a50f8199e8c944f96a8a848e1f1d6800456f49b0c3f8af3",
+        description: "Get free USDT every day! Complete surveys to get tokens and exchange them for even more USDT! Play games to increase the amount of rolls you get every day!",
+        added: "10-1-2024",
+        id: "faucetfreeusdt",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "w",
+            type: "faucet",
+            coin: "usdt",
+            effort: 0,
+            rating: 3
+        },
+        info: {
+            description: "Collect free USDT every day. You can collect multiple times if you play games. Buy getting enough tokens for surveys, you can also unlock the VIP status, which will multiply your faucet earnings!",
+            effort: "Collect coins every day."
+        },
+        go: {
+            type: 0,
+            link: "https://freetether.com/?ref=429807"
+        },
+        benefits: ["If the app gets verified, we will distribute dividends."],
+        features: [
+            ["Daily Faucet", "Collect free coins every day!"],
+            ["Surveys and Games", "Complete surveys to earn tokens, which can be then exchanged for USDT! You can also get extra faucet claims by playing games!"]
+        ],
+        tips: [
+            ["There are no tips.", "This is one of the simplest apps ever. There is nothing to advise."]
+        ],
+        pros: ["Playing games results in your faucet earnings being increased", "Paid surveys"],
+        cons: ["Extremely high withdrawal threshold (10 USDT)", "Extremely low earnings (98.85% chance per roll to get 0.0003$ worth of USDT)"],
+        banner: "bin"
+    },
+    {
+        name: "FREEXRP",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwebinvestor.pro%2Fwp-content%2Fuploads%2F2022%2F07%2Fkran-coinfaucet-io.png&f=1&nofb=1&ipt=656b67712166f787f7b2e1d0a126ceba959d652d561d10b0bc8f66096d5dc848",
+        description: "Get free XRP every day! Complete surveys to get tokens and exchange them for even more XRP! Play games to increase the amount of rolls you get every day!",
+        added: "10-1-2024",
+        id: "faucetfreexrp",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "w",
+            type: "faucet",
+            coin: "other:XRP",
+            effort: 0,
+            rating: 3
+        },
+        info: {
+            description: "Collect free XRP every day. You can collect multiple times if you play games. Buy getting enough tokens for surveys, you can also unlock the VIP status, which will multiply your faucet earnings!",
+            effort: "Collect coins every day."
+        },
+        go: {
+            type: 0,
+            link: "https://coinfaucet.io/?ref=1002766"
+        },
+        benefits: ["If the app gets verified, we will distribute dividends."],
+        features: [
+            ["Daily Faucet", "Collect free coins every day!"],
+            ["Surveys and Games", "Complete surveys to earn tokens, which can be then exchanged for XRP! You can also get extra faucet claims by playing games!"]
+        ],
+        tips: [
+            ["There are no tips.", "This is one of the simplest apps ever. There is nothing to advise."]
+        ],
+        pros: ["Playing games results in your faucet earnings being increased", "Paid surveys"],
+        cons: ["Extremely high withdrawal threshold (15 XRP)", "Extremely low earnings (98.85% chance per roll to get 0.0003$ worth of XRP)"],
         banner: "bin"
     },
     {
@@ -1517,7 +1775,7 @@ function load() {
         let coin = document.createElement("div");
         if (i.attr.coin === "btc") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexplore-feed.github.com%2Ftopics%2Fbitcoin%2Fbitcoin.png&f=1&nofb=1&ipt=0fc5f2026f1b50c404143ab248bb02156a85728bb713e9281df90d4b8e90e6ce'><p>Bitcoin</p>";
         else if (i.attr.coin === "ton") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoin-images.coingecko.com%2Fcoins%2Fimages%2F17980%2Flarge%2Fton_symbol.png%3F1696517498&f=1&nofb=1&ipt=90939ae1f3c6eb4ce309bc33f8ae788e1492abf53131bc126af4e0711d839d50'><p>TON</p>";
-        else if (i.attr.coin === "usdt") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoinivore.com%2Fwp-content%2Fuploads%2F2020%2F11%2FTether-USDT.png&f=1&nofb=1&ipt=5b05429fb157f5eb8f37b2f5060c8abecfc511658a8f2d3c621c65f9d6dbeba7'><p>USDT/USDC</p>";
+        else if (i.attr.coin === "usdt") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresource.cwallet.com%2Ftoken%2Flarge_icon%2Fusdt.png&f=1&nofb=1&ipt=f469902176a107dc91dcaf25aaf1c1464937d8ee8c51213dca9c4f4cb5635d80'><p>USDT/USDC</p>";
         else if (i.attr.coin === "stars") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'><p>Telegram Stars</p>";
         else if (i.attr.coin.startsWith("other:")) coin.innerHTML = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"><p>${i.attr.coin.substring(6)}</p>`;
         else coin.innerHTML = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F013%2F391%2F079%2Fnon_2x%2Fcryptocurrency-exchange-3d-illustration-free-png.png&f=1&nofb=1&ipt=923304f21fdaf94f5c47b4ec445165ba37fa57f98d6e8b258995325165034d74"><p>Multi-Coin</p>`;
@@ -1636,7 +1894,7 @@ function loadView(item) {
     switch (item.attr.coin) {
         case "btc": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexplore-feed.github.com%2Ftopics%2Fbitcoin%2Fbitcoin.png&f=1&nofb=1&ipt=0fc5f2026f1b50c404143ab248bb02156a85728bb713e9281df90d4b8e90e6ce'> Bitcoin"; break;
         case "ton": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoin-images.coingecko.com%2Fcoins%2Fimages%2F17980%2Flarge%2Fton_symbol.png%3F1696517498&f=1&nofb=1&ipt=90939ae1f3c6eb4ce309bc33f8ae788e1492abf53131bc126af4e0711d839d50'> TON"; break;
-        case "usdt": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoinivore.com%2Fwp-content%2Fuploads%2F2020%2F11%2FTether-USDT.png&f=1&nofb=1&ipt=5b05429fb157f5eb8f37b2f5060c8abecfc511658a8f2d3c621c65f9d6dbeba7'> USDT/USDC"; break;
+        case "usdt": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresource.cwallet.com%2Ftoken%2Flarge_icon%2Fusdt.png&f=1&nofb=1&ipt=f469902176a107dc91dcaf25aaf1c1464937d8ee8c51213dca9c4f4cb5635d80'> USDT/USDC"; break;
         case "stars": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'> Telegram Stars"; break;
         default:
             if (item.attr.coin.startsWith("other:")) curr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${item.attr.coin.substring(6)}`;
@@ -1648,7 +1906,7 @@ function loadView(item) {
                     switch (i) {
                         case "btc": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexplore-feed.github.com%2Ftopics%2Fbitcoin%2Fbitcoin.png&f=1&nofb=1&ipt=0fc5f2026f1b50c404143ab248bb02156a85728bb713e9281df90d4b8e90e6ce'> Bitcoin"; break;
                         case "ton": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoin-images.coingecko.com%2Fcoins%2Fimages%2F17980%2Flarge%2Fton_symbol.png%3F1696517498&f=1&nofb=1&ipt=90939ae1f3c6eb4ce309bc33f8ae788e1492abf53131bc126af4e0711d839d50'> TON"; break;
-                        case "usdt": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoinivore.com%2Fwp-content%2Fuploads%2F2020%2F11%2FTether-USDT.png&f=1&nofb=1&ipt=5b05429fb157f5eb8f37b2f5060c8abecfc511658a8f2d3c621c65f9d6dbeba7'> USDT/USDC"; break;
+                        case "usdt": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresource.cwallet.com%2Ftoken%2Flarge_icon%2Fusdt.png&f=1&nofb=1&ipt=f469902176a107dc91dcaf25aaf1c1464937d8ee8c51213dca9c4f4cb5635d80'> USDT/USDC"; break;
                         case "stars": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'> Telegram Stars"; break;
                         default: xpr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${i.substring(6)}`;
                     }
@@ -1781,4 +2039,20 @@ function loadView(item) {
     }
 
     mobileTab("0");
+}
+
+function showPickio() {
+    popup("Pick.io Family",
+        `
+        <span style="display:block; text-align:center; width: 1fr">Check out all the crypto you can earn with Pick.io!</span></p>
+
+        <button class="fullwidth pickio" onclick="window.location.assign('viewEarn.html?id=litepick')"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flitepick.io%2Fassets%2Fimg%2Flitepick_icon.png&f=1&nofb=1&ipt=af596cedd76e46aba59791b073ee2e1fe28c8970d8d8d0351781fd33e13adb35"><p>Litecoin</p></button>
+        <button class="fullwidth pickio" onclick="window.location.assign('viewEarn.html?id=dogepick')"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FcYh8pYpdRtocYxG_Xqzo8z-J_mWDhwQ5kwDZJKZZrG4E6lZbvV8P193FsQVsIue7rA&f=1&nofb=1&ipt=2657409ab05bed76422a5fcea59cc2bc2cec2fc2f1ba80a5dd7f10920e9606ec"><p>Dogecoin</p></button>
+        <button class="fullwidth pickio" onclick="window.location.assign('viewEarn.html?id=tronpick')"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftronpick.io%2Fassets%2Fimg%2Ftronpick_icon.png&f=1&nofb=1&ipt=4c926dbe276242cc1c02d5eefd3732ae0e136080e5634ef64a83d2d720caeec5"><p>TRON</p></button>
+        <button class="fullwidth pickio" onclick="window.location.assign('viewEarn.html?id=bnbpick')"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FUF_x9XhdoIvwoQQFuDorbTg7Vl0lwq9c14QRwlQqpU_EJ4ax7pkN-C4LRK-2C3coCh0y&f=1&nofb=1&ipt=a7c2290ab7ecd2135d6fda2fd6cb5727491badf55856fc10a82d19bf5b27043e"><p>BNB</p></button>
+        <button class="fullwidth pickio" onclick="window.location.assign('viewEarn.html?id=solpick')"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fallinoneweb.ir%2Fwp-content%2Fuploads%2F2024%2F05%2FSolpick.png&f=1&nofb=1&ipt=d039bb390ed7e72a8c01f5a169acd4ce080409bf4a80dabc67be54ed371d9d0c"><p>Solana</p></button>
+        <button class="fullwidth pickio" onclick="window.location.assign('viewEarn.html?id=tonpick')"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.sur.ly%2Ffavicons%2Ft%2Ftonpick.game.ico&f=1&nofb=1&ipt=e04ea9550ee7b4461d95080208afdc405f3c01f4655593fc5ef91c0eaa78a0de"><p>TON</p></button>
+
+        <p style="margin:0">
+        `);
 }

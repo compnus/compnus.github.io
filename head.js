@@ -54,15 +54,25 @@ footer.innerHTML = `
 
 fullfooter.innerHTML = `
 <footer class="full">
-<div id="footerline">
-<p id="footnote">&copy;<span id="footnoteyear">2069</span> CompNUS, All rights reserved.</p>
-<div id="footernav">
-<p class="link fnav"><a href="/legal/credits.html">Credits</a></p>
-<p class="link fnav"><a href="/legal/tos.html">Terms of Service</a></p>
+<div id="footnote">
+<p>&copy;<span id="footnoteyear">2069</span> CompNUS, All rights reserved.</p>
+<p style="flex:1">&nbsp;</p>
+<p>Support: <a class="link" href="mailto:supcompnus@gmail.com">supcompnus@gmail.com</a></p>
 </div>
+<div class="footerx">
+<p class="link fnav"><a href="/legal/">Legal</a></p>
+<p class="link fnav fnavbot"><a href="/legal/credits.html">Credits</a></p>
+<p class="link fnav fnavbot"><a href="/legal/tos.html">Terms of Service</a></p>
+<p class="link fnav fnavbot"><a href="/legal/faq.html">Frequently Asked Questions</a></p>
 </div>
-<div id="footerbottom">
+<div class="footerx">
+<p class="link fnav"><a href="/about.html">About Us</a></p>
+<p class="link fnav fnavbot"><a href="/">Homepage</a></p>
+<p class="link fnav fnavbot"><a href="/crypto/">CryptoNUS</a></p>
+<p class="link fnav fnavbot"><a href="/services.html">Services</a></p>
 </div>
+<br><br><br>
+<p style="grid-column: span 3; text-align:center">There's nothing to see here... for now.<br><span class="link" style="font-weight: bold; cursor: pointer" onclick="window.scrollTo(0, 0);">Back to top</span></p>
 </footer>
 `;
 
