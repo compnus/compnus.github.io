@@ -890,6 +890,45 @@ LIST = [
         banner: "blum"
     },
     {
+        name: "COIN",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FAjWzDunDrqkkARXhB9ExQbr541C0L98P6xAS9AEp_wPjHQ0-h0BzXgIQeMrZWKx0CmU&f=1&nofb=1&ipt=35b8b6eedbfbf6b42bcf97fba6d855dbd1e26372eec4845ab5c4e487eace4e53",
+        description: "Geomine the world! COIN allows you to claim world tiles and get COINs for it which can be redeemed for crypto or goods!",
+        added: "11-1-2024",
+        id: "xyocoin",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "Geomining",
+            coin: "btc other:XYO other:Ethereum",
+            effort: 3,
+            rating: 4
+        },
+        info: {
+            description: "Claim tiles, collect COINs and redeem for rewards! Witness big geomines to earn even more! Activate background rewards and earn non-stop! Once you have geomined enough you will unlock Auto Explore, which lets you geomine effortlessly! Check out all that this app has to offer!",
+            effort: "The app need to be open in order to geomine. You will also need location services enabled. Finally, most coins are available through watching ads and witnessing big geomines - everything is manual."
+        },
+        go: {
+            type: 0,
+            link: "https://coin.onelink.me/ePJg/4nfj1f0c"
+        },
+        benefits: ["1000 COIN (worth 38.6 XYO as of 8/15/25)", "If the app gets verified, we will distribute dividends."],
+        features: [
+            ["Geomining", "Claim tiles and collect COINs! Enable background rewards to earn even when offline!"],
+            ["Big Geomines and Ads", "Earn more COINs for witnessing big geomines and watching ads!"],
+            ["Geodrops", "Earn a bunch of coins every week by claiming the Geodrop package! You can also find/distribute geodrops on the map!"],
+            ["Geoclaim", "Claim an area on the map - whoever owns the most tiles will earn the most COINs once the season is over!"],
+            ["More Rewards", "Complete tasks or claim HODL rewards to earn more COINs!"]
+        ],
+        tips: [
+            ["Higher activity = more COINs but also higher multipliers!", "More claims you make the higher your background rewards and weekly geodrop multiplier become! So just maybe put your phone on the window with COIN open while you work and come back to a nice reward in a couple hours!"],
+            ["Do not claim HODL rewards!", "HODL rewards require watching an ad to claim. Per 1000 COIN you will get around 0.03 COIN per day. This is absolutely not worth it, since you can watch a rewarded ad to get 1 or 2 COINs."]
+        ],
+        pros: ["Many features", "Many ways to increase your earnings", "High quality map"],
+        cons: ["For being a geomining app, the geomining feature will bring you the least COINs"],
+        banner: "bin"
+    },
+    {
         name: "Litepick",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flitepick.io%2Fassets%2Fimg%2Flitepick_icon.png&f=1&nofb=1&ipt=af596cedd76e46aba59791b073ee2e1fe28c8970d8d8d0351781fd33e13adb35",
         description: "Get free Litecoin every hour! Play games, wager earned Litecoin and increase your hourly earnings! Get bonus faucet rolls for verifying your email or playing games! Complete surveys for more Litecoin!",

@@ -72,7 +72,7 @@ fullfooter.innerHTML = `
 <p class="link fnav fnavbot"><a href="/services.html">Services</a></p>
 </div>
 <br><br><br>
-<p style="grid-column: span 3; text-align:center">There's nothing to see here... for now.<br><span class="link" style="font-weight: bold; cursor: pointer" onclick="window.scrollTo(0, 0);">Back to top</span></p>
+<p id="footmes">There's nothing to see here... for now.<br><span class="link" style="font-weight: bold; cursor: pointer" onclick="window.scrollTo(0, 0);">Back to top</span></p>
 </footer>
 `;
 

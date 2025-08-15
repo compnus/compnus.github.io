@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js" defer></script>
+    <title>New Crypto Projects - CryptoNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="listNew.js"></script>
+    <script src="crypto.js" defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script>
+    <script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script>
+</head>
+<body>
+    <script>initHeader("New Crypto Projects");</script>
+
+    <main>
+        <div id="filters">
+
+            <div id="smallen" onclick="collapseFilters()"><h1>FILTERS</h1><p title="Collapse Filters" id="collapfilt">▲</p></div>
+            <p>Click on a filter to toggle it.</p>
+            <div class="filterdiv">
+                <h2>PLATFORM</h2>
+                <h3 title="Explain these filters." onclick="popup('Platform Filters', `You can use these filters to control which apps you see based on your prefered platform.<br>Keep in mind that some Telegram apps only work on mobile devices, however.`)">?</h3>
+                <div>
+                    <p class="filter" id="f_pf_web" onclick="filter('pf', 'web')"><img src="https://img.icons8.com/?size=100&id=89777&format=png&color=FFFFFF" />Web</p>
+                    <p class="filter" id="f_pf_android" onclick="filter('pf', 'android')"><img src="https://img.icons8.com/?size=100&id=86306&format=png&color=FFFFFF" />Android</p>
+                    <p class="filter" id="f_pf_ios" onclick="filter('pf', 'ios')"><img src="https://img.icons8.com/?size=100&id=30840&format=png&color=FFFFFF" />iOS</p>
+                    <p class="filter" id="f_pf_telegram" onclick="filter('pf', 'telegram')"><img src="https://img.icons8.com/?size=100&id=lUktdBVdL4Kb&format=png&color=FFFFFF" />Telegram</p>
+                </div>
+            </div>
+            <div class="filterdiv">
+                <h2>EARNING TYPE</h2>
+                <h3 title="Explain these filters." onclick="popup('Earning Types', `<b>Mining</b> - Use your device's (or pool's) computing power to generate coins.<br><b>Play to Earn</b> - Play a game and earn tokens for it!<br><b>Watch to Earn</b> - Watch ads and get tokens as a reward.<br><b>Other</b> - Unique ways to earn tokens.`)">?</h3>
+                <div>
+                    <p class="filter" id="f_type_mine" onclick="filter('type', 'mine')">Mining</p>
+                    <p class="filter" id="f_type_p2e" onclick="filter('type', 'p2e')">Play to Earn</p>
+                    <p class="filter" id="f_type_ad" onclick="filter('type', 'ad')">Watch to Earn</p>
+                    <p class="filter" id="f_type_other" onclick="filter('type', 'other')">Other</p>
+                </div>
+            </div>
+            <div class="filterdiv">
+                <h2>EFFORT</h2>
+                <h3 title="Explain these filters." onclick="popup('Effort', `This filter allows you to hide apps that require a specific level of effort.<br><br>Effort types:<br><b>No Effort</b> - The app earns on its own, you might need to activate it daily.<br><b>Low Effort</b> - The app earns on its own but needs to be activated often or left running in the background.<br><b>Medium Effort</b> - The app contains parts that work on their own, but also requires activity in order to earn.<br><b>High Effort</b> - If you aren't active, the app doesn't earn you anything.`)">?</h3>
+                <div>
+                    <p class="filter" id="f_effort_no" onclick="filter('effort', 'no')">None</p>
+                    <p class="filter" id="f_effort_low" onclick="filter('effort', 'low')">Low</p>
+                    <p class="filter" id="f_effort_medium" onclick="filter('effort', 'medium')">Medium</p>
+                    <p class="filter" id="f_effort_high" onclick="filter('effort', 'high')">High</p>
+                </div>
+            </div>
+            <div class="filterdiv">
+                <h2>APP RATING</h2>
+                <h3 title="Explain these filters." onclick="popup('App Rating Filters', `App rating is based on how easy to use the app is, whether there are bugs and most importantly, whether it seems trustworthy.<br>And yes, these filters could have been done better. We will redo them. Eventually. Maybe. If there's demand I guess.<br>Anyway yes 5 stars is the best and 1 star is the worst. Obviously.`)">?</h3>
+                <div>
+                    <p class="filter" id="f_rating_highest" onclick="filter('rating', 'highest')" style="color: yellow">&starf;&starf;&starf;&starf;&starf;</p>
+                    <p class="filter" id="f_rating_high" onclick="filter('rating', 'high')" style="color: yellow">&starf;&starf;&starf;&starf;&star;</p>
+                    <p class="filter" id="f_rating_medium" onclick="filter('rating', 'medium')" style="color: yellow">&starf;&starf;&starf;&star;&star;</p>
+                    <p class="filter" id="f_rating_low" onclick="filter('rating', 'low')" style="color: yellow">&starf;&starf;&star;&star;&star;</p>
+                    <p class="filter" id="f_rating_lowest" onclick="filter('rating', 'lowest')" style="color: yellow">&starf;&star;&star;&star;&star;</p>
+                </div>
+            </div>
+
+        </div>
+        <div id="searchbar">
+            <input id="searchbarinput" placeholder="Search by name..." oninput="search(this.value)" /><p title="Clear" onclick="document.getElementById('searchbarinput').value = ''; search('')">&times;</p>
+            <h1>Sort By:</h1>
+            <select id="searchbarselect" onchange="sortUpdate(this.value)">
+                <option value="0">Featured</option>
+                <option value="1">Newest</option>
+                <option value="2">Alphabetically</option>
+            </select>
+        </div>
+        <div id="main">
+
+        </div>
+        <p id="messagenone">There are no apps that match your filters and/or search query.</p>
+    </main>
+
+    <script>initFooter(true);
+        let DEFAULT = [];
+        window.addEventListener("DOMContentLoaded", () => load());
+        window.addEventListener('pageshow', function(event) {
+        if (document.getElementById('searchbarinput').value) search(document.getElementById('searchbarinput').value);
+});</script>
+</body>
+</html>

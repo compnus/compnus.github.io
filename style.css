@@ -220,6 +220,11 @@ footer.full {
     line-height: 1.2;
 }
 
+#footmes {
+    grid-column: span 3;
+    text-align: center
+}
+
 #footnote {
     margin: 0;
     font-family: 'Ubuntu';
@@ -601,6 +606,45 @@ div.popup > div > div.inside > h1 {
         flex-direction: column;
         padding: 3vw;
     }
+
+        footer.full {
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 3vw;
+            align-items: start;
+        }
+
+    #footmes {
+        grid-column: span 2;
+    }
+
+    .footerx {
+        grid-gap: 2vw;
+        justify-items: end;
+        text-align: right;
+    }
+
+    .footerx + .footerx {
+        justify-items: start;
+        text-align: left;
+    }
+
+        .footerx > .fnav {
+            font-size: 5vw !important;
+        }
+
+            .footerx > .fnav.fnavbot {
+                font-size: 4vw !important;
+            }
+
+    footer.full > #footnote {
+        grid-column: span 2;
+        align-items: center;
+        margin-bottom: 5vw;
+    }
+
+        footer.full > #footnote > p {
+            margin: 0;
+        }
 
     main {
         padding: 4vw;

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js"></script>
+    <title>New Crypto Projects - CryptoNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="listNew.js"></script>
+    <script src="crypto.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script><script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script></head>
+<body>
+    <script>
+        let hid = GetURLParameter("id");
+        if (!hid) {
+            window.location.href = "new.html";
+        }
+        initHeader(LIST.find(obj => obj.id === hid).name);</script>
+
+    <div class="pcmarginfix">
+        <div id="viewheader">
+            <img id="viewicon" src="" />
+            <p id="description"></p>
+            <div>
+                <button title="Start using this app and get benefits!" id="signupbutton">LET'S GO!</button>
+                <p onclick="popup('Why sign up to apps through us?','Signing up to apps through CompNUS can bring you many benefits, in both the app itself, but also on CompNUS in the form of dividends!<br>Furthermore, if an app is verified on CompNUS, you can be 100% sure there is no scam waiting for you, which is a much needed confirmation in this age of scams!<br><br>Click the \'See sign up benefits...\' button to see a detailed list of benefits you get thanks to us!')">Why sign up through CompNUS?</p>
+                <p id="benefits">See sign up benefits...</p>
+            </div>
+        </div><div id="banner"></div>
+
+        <div id="pc">
+            <div id="pcviewtabs">
+                <button onclick="viewTab(0)" class="selected" id="tabbutton0">
+                    INFO, FEATURES AND TIPS
+                </button>
+                <button onclick="viewTab(1)" id="tabbutton1">
+                    PROS AND CONS
+                </button>
+            </div>
+
+            <div id="pctab0" class="pctab selected">
+                <div id="mobiletab0">
+                    <div id="maininfogrid">
+                        <p class="infop">Platforms:&ensp;<span id="platforms"></span></p>
+                        <p class="infop">Earning Type: <span id="earningtype">Other</span> <span class="moreinfo" onclick="popup('Earning Type', `<b>Mining</b> - Use your device's (or pool's) computing power to generate tokens.<br><b>Play to Earn</b> - Play a game and earn tokens for it!<br><b>Watch to Earn</b> - Watch ads and get tokens as a reward.<br><b>Other</b> - Unique ways to earn tokens.`)">?</span></p>
+                        <p class="infop">Effort: <span id="effort">Loading</span> <span class="moreinfo" id="effortdetails">DETAILS</span></p>
+                        <p class="infop">Rating: <span id="rating" style="color:yellow">&star;&star;&star;&star;&star;</span></p>
+                    </div>
+                    <h1 id="maininfofeatures">App Features</h1>
+                    <div id="mainfeatures"></div>
+                    <p style="text-align:center; margin-bottom: 0">Click "LET'S GO!" at the top of the page to explore all of these features for yourself!</p>
+                </div>
+                <div style="background-color: var(--lightbgaccent)" id="mobiletab1">
+                    <h1 style="font-family:'Funnel Display'; text-align: center; margin: 0">NUS Tips&trade;</h1><br />
+                </div>
+            </div>
+
+            <div id="pctab1" class="pctab">
+                <div style="background-color: #294919" id="mobiletab2" class="procons"><h1>Advantages</h1></div>
+                <div style="background-color: #5b1717" id="mobiletab3" class="procons"><h1>Drawbacks</h1></div>
+            </div>
+        </div>
+
+        <div id="mobile">
+            <div id="mobiletabs">
+                <label for="mobiletabch">View:</label>
+                <select id="mobiletabch" onchange="mobileTab(this.value)">
+                    <option value="0">Info and Features</option>
+                    <option value="1">Tips</option>
+                    <option value="2">Pros</option>
+                    <option value="3">Cons</option>
+                </select>
+            </div>
+            <div id="mobileopentab">
+
+            </div>
+        </div>
+    </div>
+    
+
+    <script>initFooter(true);
+        window.addEventListener("DOMContentLoaded", () => loadView(LIST.find(obj => obj.id === hid)));</script>
+</body>
+</html>
