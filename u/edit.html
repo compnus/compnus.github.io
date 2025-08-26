@@ -9,13 +9,23 @@
     <link rel="stylesheet" href="credentials.css" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script><script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script></head>
 <body>
+    <style>
+        .editprfbutton {
+            margin: 0.5vh 0.5vh 0 0.5vh;
+        }
+        @media(max-width:800px) {
+            .editprfbutton {
+                margin: 1vw 0.5vw 0 0.5vw;
+            }
+        }
+    </style>
     <script>
         initHeader("Edit Account");
         document.querySelector("header").removeChild(document.getElementById("headernav"));
 
         async function unblockUsers() {
             const { data: { user }, error: authError } = await supabase.auth.getUser();
-            if (authError) {popup("An error occured.", authError.message); return; }
+            if (authError) { popup("An error occured.", authError.message); return; }
             const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single()
             if (authError) { popup("An error occured.", error.message); return; }
             var x = data.blocked_users.trim().split("|");
@@ -24,8 +34,8 @@
                 return;
             }
             var y = "";
-            for (var i of x) if (i!=="") y += `<p onclick="unblock(this.innerHTML)" id="blocked_${i}">${i}</p>`;
-            popup("Blocked Users",`</p><p id="hintmessage">This list contains all users you have blocked. Click on their username to unblock them.</p><div id="blockedusers">`+y+`</div><p>`);
+            for (var i of x) if (i !== "") y += `<p onclick="unblock(this.innerHTML)" id="blocked_${i}">${i}</p>`;
+            popup("Blocked Users", `</p><p id="hintmessage">This list contains all users you have blocked. Click on their username to unblock them.</p><div id="blockedusers">` + y + `</div><p>`);
         }
 
         async function unblock(whom) {
@@ -33,11 +43,66 @@
             if (authError) { popup("An error occured.", authError.message); return; }
             const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single();
             if (error) { popup("An error occured.", error.message); return; }
-            const { data: returned, error: errorMessage } = await supabase.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i !== whom }).join("|") }).eq("id",user.id);
+            const { data: returned, error: errorMessage } = await supabase.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i !== whom }).join("|") }).eq("id", user.id);
             if (errorMessage) { popup("An error occured.", errorMessage.message); return; }
             var x = document.getElementById("blockedusers");
             x.removeChild(document.getElementById("blocked_" + whom));
             if (x.childElementCount === 0) document.getElementById("hintmessage").innerHTML = "You've unblocked everyone!";
+        }
+
+        async function validateReferral(submit = false) {
+            var x = document.getElementById("referralcodeinput");
+            x.value = x.value.replaceAll(/[^a-zA-Z0-9]/g, '').toLowerCase().substring(0, 30);
+            if (submit) {
+                var status = document.getElementById("referralstatus");
+                var usr = getUser();
+                if (!usr.user) { window.location.href = "login.html"; return; }
+                if (x.value === usr.data.username) status.innerHTML = "You cannot use your own referral code.";
+                else if (["mia", "kingpvz", "compnus", "stanley"].includes(x.value)) status.innerHTML = "This referral code is not allowed.";
+                else {
+                    status.innerHTML = "Please wait...";
+                    document.getElementById("referralsubmit").classList.add("disabled");
+                    rfdt = {
+                        uid: usr.user.id,
+                        referral: x.value
+                    }
+                await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/referuser', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                        },
+                        body: JSON.stringify(rfdt)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.wongref) {
+                                status.innerHTML = "Invalid referral code.";
+                                document.getElementById("referralsubmit").classList.remove("disabled");
+                            } else if (data.sc) {
+                                status.innerHTML = "Referral code accepted! Please wait...";
+                                window.setTimeout(() => { location.reload() }, 1000);
+                            } else {
+                                status.innerHTML = "Error: " + data.response;
+                                document.getElementById("referralsubmit").classList.remove("disabled");
+                            }
+                        })
+                        .catch((error) => {
+                            console.error('Error invoking function:', error);
+                        });
+                }
+            }
+        }
+
+        function addReferral() {
+            popup("Add Referral Code", `</p>
+            <div class="input">
+            <input placeholder="Referral Code" id="referralcodeinput" oninput="validateReferral()" style="width:100% !important">
+            </div>
+            <p class="limited" style="max-width: 100%">Add the referral code and receive 0.01 $NUS for free!</p>
+            <p id="referralstatus"></p>
+            <button onclick="validateReferral(true)" class="fullwidth" id="referralsubmit">Submit</button>
+            <p style="margin:0">`);
         }
     </script>
     <style>
@@ -66,9 +131,9 @@
                 <button type="submit">Save &amp; Return</button>
             </form>
             <br /><br />
-            <button onclick="unblockUsers()">Unblock Users...</button>
-            <button onclick="addReferral()" id="referralcodebutton">Add Referral Code...</button>
-            <button onclick="window.location.href = 'profile.html';">Return</button>
+            <button onclick="unblockUsers()" class="editprfbutton">Unblock Users...</button>
+            <button onclick="addReferral()" id="referralcodebutton" class="editprfbutton">Add Referral Code...</button><br />
+            <button onclick="window.location.href = 'profile.html';" class="editprfbutton">Return</button>
         </div>
     </main>
     <script>document.addEventListener("DOMContentLoaded", async () => {
@@ -78,7 +143,7 @@
             const displayNameInput = document.getElementById("display_name");
 
             const { data: { user }, error: authError } = await supabase.auth.getUser();
-
+    /*
             if (!user) {
                  document.getElementById("mainhint").innerHTML = "You must be logged in to edit your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
                  document.getElementById("maindiv").style.display = 'none';
@@ -98,7 +163,7 @@
                 usernameInput.value = userData.username;
                 displayNameInput.value = userData.name;
             }
-
+            */
             const { data: isReferred, error: isntReferred } = await supabase.from("udata").select("referred").eq("id", user.id).single();
             if (isReferred.referred) document.getElementById("referralcodebutton").style.display = "none";
 

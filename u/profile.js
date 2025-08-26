@@ -13,7 +13,7 @@ async function main() {
     dt.referral = localStorage.getItem("referral") || "";
 
     const { data: userindt, error: problem } = await supabase.from("udata").select("user_id").eq("user_id", dt.user_id).single();
-    if (!userindt || problem || userindt.user_id!=dt.user_id) fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
+    if (!userindt || problem || userindt.user_id!=dt.user_id) await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -22,14 +22,15 @@ async function main() {
         body: JSON.stringify(dt)
     })
         .then(response => response.json())
+        .then(data => {
+            if (data.wongref) {
+                popup("Invalid Referral Code", "The referral code you used is incorrect and you have not received your 0.01 $NUS bonus.<br>If you want to receive this bonus, select Edit Account in Account Actions and click 'Add Referral Code...'.")
+                localStorage.removeItem("referral");
+            }
+        })
         .catch((error) => {
             console.error('Error invoking function:', error);
         });
-
-    if (userindt.wrongref) {
-        popup("Invalid Referral Code", "The referral code you used is incorrect and you have not received your 0.01 $NUS bonus.<br>If you want to receive this bonus, select Edit Account in Account Actions and click 'Add Referral Code...'.")
-        localStorage.removeItem("referral");
-    }
 
     const { data: nameddata, error: namederror } = await supabase
         .from("users")
