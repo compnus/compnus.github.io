@@ -110,7 +110,7 @@ Deno.serve(async (req) => {
                     }
                 });
 
-            const { data: realUser, error: noUser } = await supabase.from("users").select("id").eq("username", referral).single();
+            const { data: realUser, error: noUser } = await supabase.from("users").select("id, messages").eq("username", referral).single();
             if (noUser || !realUser || udataExistsError) return new Response(JSON.stringify({ response: "Wrong referral.", wrongref: true }), {
                 status: 500,
                 headers: {
@@ -137,6 +137,11 @@ Deno.serve(async (req) => {
                     }
                 });
             }
+            let upmessage: string = `%$t%You have successfully referred ${userExists.username}!%$,%%$f%CompNUS%$,%%$m%<p>You have received 0.001 $NUS. As long as the user is active, your dividend power is increased by 10.</p>%$$%`;
+            const { error: cannotSend } = await supabase
+                .from("users")
+                .update({ messages: upmessage + realUser.messages })
+                .eq("username", referrer);
         }
 
         return new Response(JSON.stringify({ response: "Referral set succesfully.", sc:true }), {
