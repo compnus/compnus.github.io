@@ -427,6 +427,63 @@ a.linkstv {
     cursor: pointer;
 }
 
+#referlanding {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+    #referlanding > div {
+        background: var(--maingradfallback);
+        background: var(--maingrad);
+        padding: 2vh;
+        border-radius: 3vh;
+        box-shadow: black 0 0 15px;
+        width: 30vh;
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+        #referlanding > div > h1 {
+            font-family: 'Funnel Display';
+            margin: 0;
+        }
+
+        #referlanding > div > div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        #referlanding > div > div > p {
+            text-align: center;
+            font-size: 3vh;
+            margin: 0;
+        }
+
+        #referlanding > div.dlink {
+            background: var(--lightbg);
+            padding: 2vh;
+            border-radius: 3vh;
+            box-shadow: black 0 0 15px;
+            width: calc(96vw - 80vh);
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 30vh;
+        }
+
+#dlinkurl {
+    cursor: pointer;
+    color: yellow;
+}
+
 @media(max-width:800px) {
     div.mainscroll {
         height: initial;

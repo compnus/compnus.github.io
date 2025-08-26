@@ -270,6 +270,10 @@ div.landing {
     justify-content: center;
 }
 
+.tc {
+    text-align: center;
+}
+
 a {
     display: inline-flex;
     align-items: center;

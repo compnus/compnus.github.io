@@ -15,10 +15,34 @@
     <script>initHeader("Refer and Earn!");</script>
 
     <div class="mainscroll">
-        
+        <h1 class="tc" style="font-family:Gabarito">Refer your friends and increase your dividend power!</h1>
+        <h2 class="tc">Not only that, but both you and your friend will receive $NUS for free!</h2>
+        <p class="tc">Keep in mind, besides friends, you can also invite your colleagues, your boss, neighbors, enemies, family members or anything in between!</p>
+        <br />
+        <div id="referlanding">
+            <div>
+                <h1>You Receive</h1>
+                <div><p>0.001 $NUS</p>
+                <p>+10 Dividend Power (while your invitee is active)</p></div>
+            </div>
+            <div>
+                <h1>Invitee Receives</h1>
+                <div><p>0.01 $NUS</p></div>
+            </div>
+            <div class="dlink">
+                <h2>Your referral code is your username ( <span id="dlinkusername" style="font-weight: normal; user-select: all; -webkit-user-select: all; -moz-user-select: all"></span> )</h2>
+                <p>You can also share the following link (click to copy):</p>
+                <p id="dlinkurl" onclick="r = this.innerHTML; navigator.clipboard.writeText(r); window.setTimeout(() => this.innerHTML = 'Copied!', 10); window.setTimeout(() => this.innerHTML = r, 2000);">https://loading...</p><br />
+                <p>You have invited <b id="invitees">0 users</b> and earned <b id="inviteres">0</b> <span style="font-family: 'currencycompnus'">$</span> so far!</p>
+            </div>
+        </div>
+        <br />
+        <p class="tc">Please keep in mind you will not receive dividend power boost if the invited user is offline for more than 30 consecutive days or deletes their account.<br />
+        Referring fake accounts will result in losing your eligibility to earn dividends.</p>
     </div>
 
-    <script>document.addEventListener("DOMContentLoaded", async () => {
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
             const { data, error } = await supabase.auth.getUser();
 
             if (!data.user) {
@@ -29,7 +53,14 @@
                 return;
             }
 
-            loadWallet();
+            var { data: username } = await supabase.from("users").select("username").eq("id", data.user.id).single();
+            document.getElementById("dlinkusername").innerHTML = username.username;
+            document.getElementById("dlinkurl").innerHTML = `https://compnus.com/u/signup.html?r=${username.username}`;
+            const { data: data1, error: error1 } = await supabase.from("udata").select("invitees").eq("user_id", dt.uid).single();
+            var invitees = data1.invitees.match(/\(([^)]+)\)/g)?.map(s => s.slice(1, -1)) || [];
+            var invites = invitees.length;
+            document.getElementById("invitees").innerHTML = invites + (invites == 1 ? " user" : " users");
+            document.getElementById("inviteres").innerHTML = parseFloat((invites * 0.001).toFixed(3)).toString();
         });
 
         initFooter();</script>
