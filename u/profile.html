@@ -328,6 +328,9 @@
         <button id="sendmoneyadiscard" class="fullwidth" onclick="document.getElementById('popup' + (popupid-1)).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + (popupid-1))), 201);" style="border-color: red">Discard</button>
         <p style="margin:0">
         `;
+
+    const offercontent = `<button class='fullwidth' onclick='window.location.href="refer.html"'>Refer and Earn!</button>
+    <button class='fullwidth' onclick="popup('Start Investing and Get 45$', 'Get 15$ in fractional shares on your first deposit + 30$ if you hold an account value of average >=1000$ for 30 days!<br>If you are interested, please contact support at supcompnus@gmail.com')">Start Investing and Get up to 45$ for free!`;
     </script>
 
     <main>
@@ -342,7 +345,7 @@
         </div>
 
         <div id="side" class="mainscroll">
-
+            <button class="fullwidth" onclick="popup('Offers', offercontent)">Offers</button>
             <div class="sideshmuck" id="wallet">
                 <p class="collapse" id="walletrefresh" title="Refresh Wallet" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
                 <p class="collapse" id="collapsewallet" title="Collapse/Reveal Wallet" onclick="collapse('wallet');">&#9650;</p>
