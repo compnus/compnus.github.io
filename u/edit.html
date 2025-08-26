@@ -55,12 +55,12 @@
             x.value = x.value.replaceAll(/[^a-zA-Z0-9]/g, '').toLowerCase().substring(0, 30);
             if (submit) {
                 var status = document.getElementById("referralstatus");
+                status.innerHTML = "Please wait...";
                 var usr = await getUser();
                 if (!usr.user) { window.location.href = "login.html"; return; }
-                if (x.value === usr.data.username) status.innerHTML = "You cannot use your own referral code.";
+                if (x.value === (await supabase.from("users").select("username").eq("id", usr.data.id).single())?.data.username) status.innerHTML = "You cannot use your own referral code.";
                 else if (["mia", "kingpvz", "compnus", "stanley"].includes(x.value)) status.innerHTML = "This referral code is not allowed.";
                 else {
-                    status.innerHTML = "Please wait...";
                     document.getElementById("referralsubmit").classList.add("disabled");
                     rfdt = {
                         uid: usr.data.id,
