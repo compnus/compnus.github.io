@@ -55,7 +55,7 @@
 
             var { data: username } = await supabase.from("users").select("username").eq("id", data.user.id).single();
             document.getElementById("dlinkusername").innerHTML = username.username;
-            document.getElementById("dlinkurl").innerHTML = `https://compnus.github.com/u/signup.html?r=${username.username}`;
+            document.getElementById("dlinkurl").innerHTML = `https://compnus.github.io/u/signup.html?r=${username.username}`;
             const { data: data1, error: error1 } = await supabase.from("udata").select("invitees").eq("user_id", dt.uid).single();
             var invitees = data1.invitees.match(/\(([^)]+)\)/g)?.map(s => s.slice(1, -1)) || [];
             var invites = invitees.length;
