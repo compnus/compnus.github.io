@@ -929,6 +929,45 @@ LIST = [
         banner: "bin"
     },
     {
+        name: "Macadam",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FuJjtybgwoiYkG_6zSdL8HwwWdc3-VhlYDWwU4cIkka0wzk-ZkwqquJj1tETHfA1sOGc&f=1&nofb=1&ipt=72f97f540ddc8bb07c8b09562fc74194b42c73a738f5de92c3df0f18e0699f92",
+        description: "Get paid to walk, literally! Walk, earn coins and redeem them for rewards! Or simply use them to withdraw money directly to your bank account!",
+        added: "8-25-2025",
+        id: "aix",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "Walk to Earn",
+            coin: "other:Bank&nbsp;Transfer",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "The app that actually pays for walking! Unlike <a class='link' href='viewEarn.html?id=sweatcoin'><b>Sweatcoin</b></a> or <a class='link' href='viewEarn.html?id=roboxfit'><b>Robox Fit</b></a> which simply use your steps as a way to distribute rewards (Sweatcoin has no value and Robox uses it as an excuse to make another mining app), Macadam will actually pay you for walking - you will get Coins which you can then use to purchase gift cards or withdraw money directly to your bank account! Now, the only thing you have to keep in mind - don't forget to claim them!",
+            effort: "Validate your steps every day (slide a slider) in order to receive coins."
+        },
+        go: {
+            type: 1,
+            link: "https://macadam.app/app/en",
+            code: "Z27787"
+        },
+        benefits: ["1000 Coins (about 100k steps worth of coins)", "If the app gets verified, we will distribute dividends."],
+        features: [["Validate Steps", "Validate your steps to collect coins! Certain step milestones might contain gifts of 25 extra coins!"],
+            ["Jackpot Express", "Watch an ad to spin the Jackpot Express slot machine! Win 5, 10, 20, 100 or 100000 coins on every spin!"],
+            ["Games and Surveys", "Get more coins and crowns by completing surveys and playing games!"], 
+            ["Challenges", "Complete challenges or visit certain places to earn even more coins!"],
+            ["The Map", "Check out the map to find extra coins randomly scattered around the world! Conquer Macadam Spots and get a chance to win the jackpot!"],
+            ["Crown Access", "Collect crowns to unlock premium features - more coins per day, cheaper cash out options and more gift cards!"]
+        ],
+        tips: [
+            ["There are no tips.", "It's interesting, but even with this high amount of functions and feature, the app is extremely simple to use and easy to understand. If anything maybe do not validate steps every 5 minutes? You will just waste your time. Also don't buy ice creams. The streak is useless."]
+        ],
+        pros: ["Simple to use and understand", "Premium features are not paid, rather they are for loyal users", "You can donate coins to charities", "Get extra coins for visiting famous cities"],
+        cons: ["(Subjective) Cringe art", "App is buggy and takes forever to open", "High minimum withdrawal (given the low step-to-coins exchange ratio)"],
+        banner: "speed"
+    },
+    {
         name: "Litepick",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flitepick.io%2Fassets%2Fimg%2Flitepick_icon.png&f=1&nofb=1&ipt=af596cedd76e46aba59791b073ee2e1fe28c8970d8d8d0351781fd33e13adb35",
         description: "Get free Litecoin every hour! Play games, wager earned Litecoin and increase your hourly earnings! Get bonus faucet rolls for verifying your email or playing games! Complete surveys for more Litecoin!",
@@ -1145,6 +1184,38 @@ LIST = [
         banner: "bin"
     },
     {
+        name: "AIX Market",
+        icon: "https://www.findmini.app/_astro/avatar_ev602uz51e_Z2036tn.webp",
+        description: "Earn the AIX pseudo-coin, stake and exchange for TON! Get free AIX for daily tasks, participate in predictions (another gambling app? dang) and receive the Airdrop (a weird name for tasks but alright)!",
+        added: "8-29-2024",
+        id: "aix",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "t",
+            type: "faucet",
+            coin: "ton",
+            effort: 1,
+            rating: 4
+        },
+        info: {
+            description: "AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 50 ads) is worth about 0.02TON at the point, which is not excellent, but it was only 0.0001 so it's certainly better!",
+            effort: "Collect tokens, stake them and that's it!"
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/AIXhashbot/AIXhash?startapp=5782755258"
+        },
+        benefits: ["If the app gets verified, we will distribute dividends."],
+        features: [["Staking", "Staking AIX is a decent way to earn more, however the APR changes very often and isn't very transparent. Nevertheless, it's still a very efficient way to earn!"]],
+        tips: [
+            ["Avoid predictions!", "In general, just avoid gambling."]
+        ],
+        pros: ["Active developer team", "Many opportunities to earn free AIX"],
+        cons: ["Gambling. Seriously? Why."],
+        banner: "blum"
+    },
+    {
         name: "Sweat Wallet",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJwkGy0o_DOQ8gWTY_8M3_bwp8wHDk766guJ-GR8FNgwBNE7m_hOLy8jDfBlSg0k2XgA&f=1&nofb=1&ipt=c1c17814f416141c8cdf186963b12194a468c4a291145f5e45f067765dc8becb",
         description: "Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to collect even more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
@@ -1313,38 +1384,6 @@ LIST = [
         pros: ["Simple and easy to understand"],
         cons: ["High withdrawal threshold (2200 Satoshis) with high fee (790 Satoshis) due to no Lightning option"],
         banner: "bin"
-    },
-    {
-        name: "AIX Market",
-        icon: "https://www.findmini.app/_astro/avatar_ev602uz51e_Z2036tn.webp",
-        description: "Earn the AIX pseudo-coin, stake and exchange for TON! Get free AIX for daily tasks, participate in predictions (another gambling app? dang) and receive the Airdrop (a weird name for tasks but alright)!",
-        added: "8-29-2024",
-        id: "aix",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "t",
-            type: "faucet",
-            coin: "ton",
-            effort: 1,
-            rating: 3
-        },
-        info: {
-            description: "AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 20 ads) is only worth 0.00001TON at the point, which is... not very good to say the least.",
-            effort: "Collect tokens, stake them and that's it!"
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/AIXhashbot/AIXhash?startapp=5782755258"
-        },
-        benefits: ["If the app gets verified, we will distribute dividends."],
-        features: [["Staking", "Stake your AIX because that's the only good way to earn in this app."]],
-        tips: [
-            ["Avoid predictions!", "This app already gives you no AIX to work with, losing them to a prediction is a terrible idea."]
-        ],
-        pros: ["Active developer team"],
-        cons: ["The AIX pseudo-coin is hands down worthless"],
-        banner: "blum"
     },
     {
         name: "Pluto USDT",

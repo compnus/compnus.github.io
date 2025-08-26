@@ -75,6 +75,7 @@
                 if (error) {
                     statusElement.textContent = `Error: ${error.message}`;
                 } else {
+                    localStorage.setItem("referral", GetURLParameter("r") || "");
                     statusElement.textContent = "Sign-up successful! Check your email to verify your account.";
                 }
             });

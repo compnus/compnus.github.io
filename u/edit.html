@@ -67,11 +67,11 @@
             </form>
             <br /><br />
             <button onclick="unblockUsers()">Unblock Users...</button>
+            <button onclick="addReferral()" id="referralcodebutton">Add Referral Code...</button>
             <button onclick="window.location.href = 'profile.html';">Return</button>
         </div>
     </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", async () => {
+    <script>document.addEventListener("DOMContentLoaded", async () => {
             const form = document.getElementById("setup-form");
             const statusElement = document.getElementById("status");
             const usernameInput = document.getElementById("username");
@@ -99,6 +99,9 @@
                 displayNameInput.value = userData.name;
             }
 
+            const { data: isReferred, error: isntReferred } = await supabase.from("udata").select("referred").eq("id", user.id).single();
+            if (isReferred.referred) document.getElementById("referralcodebutton").style.display = "none";
+
             form.addEventListener("submit", async (event) => {
                 event.preventDefault();
 
@@ -120,8 +123,7 @@
             });
         });
 
-        initFooter();
-    </script>
+        initFooter();</script>
 
 </body>
 </html>

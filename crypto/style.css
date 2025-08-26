@@ -98,7 +98,7 @@ main {
     object-fit: contain;
     grid-row: span 2;
     filter: drop-shadow(rgba(0,0,0,0.5) 0 0 5px);
-    z-index: 7;
+    z-index: 8;
 }
 
 .landingitem > h1 {

@@ -1,4 +1,4 @@
-var dt = { user_id: null, uid: null };
+var dt = { user_id: null, uid: null, referral: null };
 var messageid = 0;
 var loadedmessages = {};
 var messagecontainer = {};
@@ -10,6 +10,7 @@ async function main() {
     const { data, error } = await supabase.auth.getUser();
     dt.user_id = data.user.id;
     dt.uid = (await supabase.auth.getSession()).data.session?.user.id;
+    dt.referral = localStorage.getItem("referral") || "";
 
     const { data: userindt, error: problem } = await supabase.from("udata").select("user_id").eq("user_id", dt.user_id).single();
     if (!userindt || problem || userindt.user_id!=dt.user_id) fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
@@ -24,6 +25,11 @@ async function main() {
         .catch((error) => {
             console.error('Error invoking function:', error);
         });
+
+    if (userindt.wrongref) {
+        popup("Invalid Referral Code", "The referral code you used is incorrect and you have not received your 0.01 $NUS bonus.<br>If you want to receive this bonus, select Edit Account in Account Actions and click 'Add Referral Code...'.")
+        localStorage.removeItem("referral");
+    }
 
     const { data: nameddata, error: namederror } = await supabase
         .from("users")

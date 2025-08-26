@@ -125,11 +125,24 @@ function promoHeader(title, color, image) {
     });
 }
 
-function initFooter(full = false) {
+async function initFooter(full = false) {
     if (full) {
         document.body.appendChild(fullfooter.content);
     } else {
         document.body.appendChild(footer.content);
     }
     document.getElementById("footnoteyear").innerHTML = new Date().getFullYear().toString();
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    document.addEventListener("DOMContentLoaded", async () => {
+        var r = await getUser();
+        if ((localStorage.getItem("lastActive") !== today) && r.user) {
+            const { error } = await supabase.from("users").update({ last_active: today }).eq("id", r.data.id);
+            localStorage.setItem("lastActive", today);
+        }
+    });
 }
