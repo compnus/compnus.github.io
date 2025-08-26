@@ -133,10 +133,10 @@ Deno.serve(async (req) => {
             const { error: cannotSend } = await supabase
                 .from("users")
                 .update({ messages: upmessage + realUser.messages })
-                .eq("username", referrer);
+                .eq("username", referral);
             if (invitee || inviter || cannotSend) {
                 return new Response(JSON.stringify({ response: invitee.message||inviter.message||cannotSend.message }), {
-                    status: 200,
+                    status: 400,
                     headers: {
                         ...headers
                     }
