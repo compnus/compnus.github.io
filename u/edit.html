@@ -63,7 +63,7 @@
                     status.innerHTML = "Please wait...";
                     document.getElementById("referralsubmit").classList.add("disabled");
                     rfdt = {
-                        uid: usr.user.id,
+                        uid: usr.data.id,
                         referral: x.value
                     }
                 await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/referuser', {
