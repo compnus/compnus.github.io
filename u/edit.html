@@ -76,7 +76,7 @@
                     })
                         .then(response => response.json())
                         .then(data => {
-                            if (data.wongref) {
+                            if (data.wrongref) {
                                 status.innerHTML = "Invalid referral code.";
                                 document.getElementById("referralsubmit").classList.remove("disabled");
                             } else if (data.sc) {
@@ -164,7 +164,7 @@
                 displayNameInput.value = userData.name;
             }
             */
-            const { data: isReferred, error: isntReferred } = await supabase.from("udata").select("referred").eq("id", user.id).single();
+            const { data: isReferred, error: isntReferred } = await supabase.from("udata").select("referred").eq("user_id", user.id).single();
             if (isReferred.referred) document.getElementById("referralcodebutton").style.display = "none";
 
             form.addEventListener("submit", async (event) => {
