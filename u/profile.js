@@ -327,7 +327,7 @@ async function showAccountInfo() {
         popup("An Error Occured", "An error occurred while fetching your account information.<br>" + (error ? error.message : "") + (error1 ? "<br>" + error1.message : ""));
         return;
     }
-    var invitees = data1.invitees.replaceAll(/\(\)/g, ' ').trim().split();
+    var invitees = data1.invitees.replaceAll("(", ' ').replaceAll(")", ' ').trim().split();
     var invites = invitees.length;
     if (invites === 1 && invitees[0] === "") invites = 0;
     popup("Account Information", `

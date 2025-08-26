@@ -146,7 +146,7 @@ function popup(title, message, close = true) {
     <h1>${title}</h1>
     <h2 onclick="document.getElementById('${x.id}').style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('${x.id}')), 201)">X</h2>
     </div>
-    <p>
+    <p style="margin-bottom:0">
     ${message}
     </p>
     </div>
