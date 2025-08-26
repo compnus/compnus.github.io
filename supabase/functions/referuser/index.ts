@@ -129,19 +129,20 @@ Deno.serve(async (req) => {
                 });
             }
             const { error: inviter } = await supabase.from("udata").update({ "balance_nus": (referrer.balance_nus + 0.001), "invitees": referrer.invitees + "(" + userExists.username + ")" }).eq("user_id", realUser.id);
-            if (invitee || inviter) {
-                return new Response(JSON.stringify({ response: "Referral error.", wrongref: true }), {
+            let upmessage: string = `%$t%You have successfully referred ${userExists.username}!%$,%%$f%CompNUS%$,%%$m%<p>You have received 0.001 $NUS. As long as the user is active, your dividend power is increased by 10.</p>%$$%`;
+            const { error: cannotSend } = await supabase
+                .from("users")
+                .update({ messages: upmessage + realUser.messages })
+                .eq("username", referrer);
+            if (invitee || inviter || cannotSend) {
+                return new Response(JSON.stringify({ response: invitee.message||inviter.message||cannotSend.message }), {
                     status: 200,
                     headers: {
                         ...headers
                     }
                 });
             }
-            let upmessage: string = `%$t%You have successfully referred ${userExists.username}!%$,%%$f%CompNUS%$,%%$m%<p>You have received 0.001 $NUS. As long as the user is active, your dividend power is increased by 10.</p>%$$%`;
-            const { error: cannotSend } = await supabase
-                .from("users")
-                .update({ messages: upmessage + realUser.messages })
-                .eq("username", referrer);
+            
         }
 
         return new Response(JSON.stringify({ response: "Referral set succesfully.", sc:true }), {
