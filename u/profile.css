@@ -477,6 +477,7 @@ a.linkstv {
             align-items: center;
             justify-content: center;
             min-height: 30vh;
+            overflow: hidden;
         }
 
 #dlinkurl {
