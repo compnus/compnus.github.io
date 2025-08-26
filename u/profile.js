@@ -327,14 +327,16 @@ async function showAccountInfo() {
         popup("An Error Occured", "An error occurred while fetching your account information.<br>" + (error ? error.message : "") + (error1 ? "<br>" + error1.message : ""));
         return;
     }
-    var invites = data1.invitees.replaceAll(/\(\)/g, ' ').trim().split().length;
+    var invitees = data1.invitees.replaceAll(/\(\)/g, ' ').trim().split();
+    var invites = invitees.length;
+    if (invites === 1 && invitees[0] === "") invites = 0;
     popup("Account Information", `
     <b>Username:</b> ${data.username}<br>
     <b>Email:</b> ${data.email}<br>
     <b>Date of Birth:</b> ${new Date(data.birthdate).toLocaleDateString()}<br>
     <b>Banned from Sending Messages:</b> ${data1.can_message ? "No" : "Yes"}<br>
-    ${data1.referred ? "<b>Referred By:</b> " + data1.referred + "<br>" : ""}
-    <b>You invited ${invites} user${invites == 1 ? "" : "s"} to CompNUS.</b>
+    ${data1.referred ? "<b>Referred By:</b> " + data1.referred + "<br>" : ""}<br>
+    You invited <b>${invites} user${invites == 1 ? "" : "s"}</b> to CompNUS.
     `);
 }
 
