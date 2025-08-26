@@ -57,7 +57,7 @@ async function loadWallet() {
     x = balance[0];
     whole = Math.floor(x);
     rem = Math.round((x - whole) * 100000000);
-    document.getElementById("walletnus").innerHTML = `${whole}<span class="walletdecimal">.${"0".repeat(8 - rem.toString().length)}${rem}</span>`;
+    document.getElementById("walletnus").innerHTML = `${whole}<span class="walletdecimal" style="color: #ccc !important">.${"0".repeat(8 - rem.toString().length)}${rem}</span>`;
     document.getElementById("walletnoca").innerHTML = balance[1];
     y = balance[2];
     wholes = Math.floor(y);
