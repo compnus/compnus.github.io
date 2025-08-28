@@ -1,4 +1,6 @@
-LIST = [
+var FILTERID = "earn5";
+
+var LIST = [
     {
         name: "Robox",
         icon: "https://play-lh.googleusercontent.com/4WJT23_3x0VGuNia2wVJ0M6LO7ZkaiGwWl8avIaPkWpkY3XF6QN1otAA_iumCGWdKg=w240-h480-rw",
@@ -933,7 +935,7 @@ LIST = [
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FuJjtybgwoiYkG_6zSdL8HwwWdc3-VhlYDWwU4cIkka0wzk-ZkwqquJj1tETHfA1sOGc&f=1&nofb=1&ipt=72f97f540ddc8bb07c8b09562fc74194b42c73a738f5de92c3df0f18e0699f92",
         description: "Get paid to walk, literally! Walk, earn coins and redeem them for rewards! Or simply use them to withdraw money directly to your bank account!",
         added: "8-25-2025",
-        id: "aix",
+        id: "macadam",
         attr: {
             verified: 0,
             dividends: false,
@@ -1199,7 +1201,7 @@ LIST = [
             rating: 4
         },
         info: {
-            description: "AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 50 ads) is worth about 0.02TON at the point, which is not excellent, but it was only 0.0001 so it's certainly better!",
+            description: "AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 30 ads) is worth about 0.018TON at this point, which is not excellent, but it was only 0.0001 so it's certainly better!",
             effort: "Collect tokens, stake them and that's it!"
         },
         go: {
@@ -2099,7 +2101,7 @@ function loadView(item) {
             document.getElementById("signupbutton").onclick = function () {
                 popup(
                     "Please read!",
-                    `Make sure to use the code <b id="copyCode${item.go.code}" title="Click to copy.">${item.go.code}</b> during sign-up to get access to the benefits (especially dividends)!</p>
+                    `Make sure to use the code <b id="copyCode${item.go.code}" title="Click to copy.">${item.go.code}</b> during sign-up to get access to the benefits (especially dividends)!</p><br>
         <button class="fullwidth" onclick="window.open('${item.go.link}', '_blank')">LET'S GO!</button><p style="margin:0">`
                 );
                 setTimeout(function () {

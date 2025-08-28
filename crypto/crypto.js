@@ -26,34 +26,36 @@ function individualFiltersFalse(i) {
 function filter(x, y) {
     FILTERS[x][y] = !FILTERS[x][y];
     document.getElementById("f_" + x + "_" + y).classList.toggle("checked");
-    if (FILTERS["main"]["featured"] || FILTERS["main"]["dividend"]) {
-        FILTERS["main"]["ver0"] = false;
-        FILTERS["main"]["verm1"] = false;
-        document.getElementById("f_main_ver0").classList.remove("checked");
-        document.getElementById("f_main_verm1").classList.remove("checked");
-        document.getElementById("f_main_ver0").classList.add("disabled");
-        document.getElementById("f_main_verm1").classList.add("disabled");
-        if (FILTERS["main"]["featured"]) {
-            FILTERS["rating"]["high"] = false;
-            FILTERS["rating"]["medium"] = false;
-            FILTERS["rating"]["low"] = false;
-            FILTERS["rating"]["lowest"] = false;
-            document.getElementById("f_rating_high").classList.remove("checked");
-            document.getElementById("f_rating_medium").classList.remove("checked");
-            document.getElementById("f_rating_low").classList.remove("checked");
-            document.getElementById("f_rating_lowest").classList.remove("checked");
-            document.getElementById("f_rating_high").classList.add("disabled");
-            document.getElementById("f_rating_medium").classList.add("disabled");
-            document.getElementById("f_rating_low").classList.add("disabled");
-            document.getElementById("f_rating_lowest").classList.add("disabled");
+    if (FILTERID === "earn5") {
+        if (FILTERS["main"]["featured"] || FILTERS["main"]["dividend"]) {
+            FILTERS["main"]["ver0"] = false;
+            FILTERS["main"]["verm1"] = false;
+            document.getElementById("f_main_ver0").classList.remove("checked");
+            document.getElementById("f_main_verm1").classList.remove("checked");
+            document.getElementById("f_main_ver0").classList.add("disabled");
+            document.getElementById("f_main_verm1").classList.add("disabled");
+            if (FILTERS["main"]["featured"]) {
+                FILTERS["rating"]["high"] = false;
+                FILTERS["rating"]["medium"] = false;
+                FILTERS["rating"]["low"] = false;
+                FILTERS["rating"]["lowest"] = false;
+                document.getElementById("f_rating_high").classList.remove("checked");
+                document.getElementById("f_rating_medium").classList.remove("checked");
+                document.getElementById("f_rating_low").classList.remove("checked");
+                document.getElementById("f_rating_lowest").classList.remove("checked");
+                document.getElementById("f_rating_high").classList.add("disabled");
+                document.getElementById("f_rating_medium").classList.add("disabled");
+                document.getElementById("f_rating_low").classList.add("disabled");
+                document.getElementById("f_rating_lowest").classList.add("disabled");
+            }
+        } else {
+            document.getElementById("f_main_ver0").classList.remove("disabled");
+            document.getElementById("f_main_verm1").classList.remove("disabled");
+            document.getElementById("f_rating_high").classList.remove("disabled");
+            document.getElementById("f_rating_medium").classList.remove("disabled");
+            document.getElementById("f_rating_low").classList.remove("disabled");
+            document.getElementById("f_rating_lowest").classList.remove("disabled");
         }
-    } else {
-        document.getElementById("f_main_ver0").classList.remove("disabled");
-        document.getElementById("f_main_verm1").classList.remove("disabled");
-        document.getElementById("f_rating_high").classList.remove("disabled");
-        document.getElementById("f_rating_medium").classList.remove("disabled");
-        document.getElementById("f_rating_low").classList.remove("disabled");
-        document.getElementById("f_rating_lowest").classList.remove("disabled");
     }
     search(document.getElementById("searchbarinput").value);
 }

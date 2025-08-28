@@ -456,7 +456,7 @@ a.linkstv {
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-evenly;
         }
 
         #referlanding > div > div > p {
@@ -483,6 +483,10 @@ a.linkstv {
 #dlinkurl {
     cursor: pointer;
     color: yellow;
+}
+
+#referlanding > div.dlink > h2 {
+    margin: 0;
 }
 
 @media(max-width:800px) {
@@ -762,4 +766,41 @@ a.linkstv {
             width: 4vw;
             height: 4vw;
         }
+
+    #referlanding {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr auto;
+        padding: 2vw;
+    }
+
+        #referlanding > div {
+            padding: 3vw;
+            border-radius: 4vw;
+            width: auto;
+            margin: 2vw;
+            height: auto;
+            align-self: stretch;
+        }
+
+            #referlanding > div > h1 {
+                font-size: 5vw;
+                text-align: center;
+            }
+
+                #referlanding > div > div > p {
+                    font-size: 4vw;
+                    margin-top: 3vw;
+                }
+
+            #referlanding > div.dlink {
+                grid-column: span 2;
+                padding: 3vw;
+                border-radius: 4vw;
+                margin: 2vw;
+                width: auto;
+                height: auto;
+                display: flex;
+                min-height: 1vh;
+            }
 }

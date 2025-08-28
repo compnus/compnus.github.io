@@ -286,6 +286,7 @@ a {
     color: yellow;
     transition: ease-out 0.2s;
     line-height: 1;
+    cursor: pointer;
 }
 
 .link:hover {

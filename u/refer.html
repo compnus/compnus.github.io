@@ -46,6 +46,7 @@
             const { data, error } = await supabase.auth.getUser();
 
             if (!data.user) {
+                window.location.href = "login.html";
                 return;
             } else if (error) {
                 console.error(error);
