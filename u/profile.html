@@ -330,7 +330,21 @@
         `;
 
     const offercontent = `<button class='fullwidth' onclick='window.location.href="refer.html"'>Refer and Earn!</button><br>
-    <button class='fullwidth' onclick="popup('Start Investing and Get 45$', 'Get 15$ in fractional shares on your first deposit + 30$ if you hold an account value of average >=1000$ for 30 days!<br>If you are interested, please contact support at supcompnus@gmail.com')">Start Investing and Get up to 45$ for free!</button>`;
+    <div class='flex cc'><p><b>Regional Offers:</b></p></div>
+    <p style='margin:0 0 5px 0'>Available only for the European Union (and other selected countries):</p>
+    <button class='fullwidth' onclick="popup('Start Investing and Get up to 100€', 'Get a random value of shares (8-100 €) for free after you verify your identity and make your first deposit (minimum deposit varies from 1€ to 10€ based on your location).<br>If you are interested, please contact support at supcompnus@gmail.com')">Start Investing and Get up to 100€ for Free!</button>
+    <br>
+    <p style='margin:0 0 5px 0'>Available only for the USA:</p>
+    <button class='fullwidth' onclick="popup('Start Investing and Get 10$ in Selected Crypto', 'Get 10$ in Bitcoin, Ethereum or Bitcoin Cash after verifying your identity! We recommend depositing at least 100$ and trading (investing your money into something) for at least 24 hours before you attempt to withdraw, due to minimum withdrawal requirements.<br>If you are interested, please contact support at supcompnus@gmail.com')">Start Investing and Get 10$ Worth of Cryptocurrencies for Free!</button>
+    <br>
+    <p style='margin:0 0 5px 0'>Available only for Slovak Citizens:<br>Dostupn&eacute; iba pre ob&ccaron;anov Slovenska:</p>
+    <button class='fullwidth' onclick="popup('Za&ccaron;ni Investova&tcaron; a Z&iacute;skaj 45€', 'Z&iacute;skajte 15€ vo frak&ccaron;n&yacute;ch akci&aacute;ch za prv&yacute; vklad + 30€ ak V&aacute;&scaron; dr&zcaron;an&yacute; zostatok na &uacute;&ccaron;te bude v priemere >=1000€ po dobu 30 dn&iacute;!<br>Ak m&aacute;te z&aacute;ujem, pros&iacute;m, kontaktujte podporu na supcompnus@gmail.com')">Za&ccaron;ni Investova&tcaron; a Z&iacute;skaj a&zcaron; 45€ Zadarmo!</button><br>
+    <button class='fullwidth' onclick="popup('Peniaze Zadarmo z Kas&iacute;n a St&aacute;vkov&yacute;ch Kancel&aacute;ri&iacute;', 'Vyu&zcaron;ite free spiny v kas&iacute;nach a vstupn&eacute; bonusy v st&aacute;vkov&yacute;ch kancel&aacute;ri&aacute;ch a zarobte tak peniaze bez rizika! Okrem toho v&dcaron;aka n&aacute;m z&iacute;skate extra bonusy - free bety a free spiny navy&scaron;e, &ccaron;i nav&yacute;&scaron;en&eacute; vstupn&eacute; bonusy!<br>Ak m&aacute;te z&aacute;ujem, pros&iacute;m, kontaktujte podporu na supcompnus@gmail.com')">Vstupn&eacute; Bonusy? Tomu Hovor&iacute;me Peniaze Zadarmo!</button>
+    <p style="margin:0">`;
+
+    const promocontent = `
+    TBD
+    `;
     </script>
 
     <main>
@@ -346,6 +360,7 @@
 
         <div id="side" class="mainscroll">
             <button class="fullwidth" onclick="popup('Offers', offercontent)">Offers</button><br />
+            <button class="fullwidth" onclick="popup('Redeem Promo Code', promocontent)">Redeem Code</button><br />
             <div class="sideshmuck" id="wallet">
                 <p class="collapse" id="walletrefresh" title="Refresh Wallet" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
                 <p class="collapse" id="collapsewallet" title="Collapse/Reveal Wallet" onclick="collapse('wallet');">&#9650;</p>

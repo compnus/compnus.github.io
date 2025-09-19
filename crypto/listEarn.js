@@ -5,7 +5,7 @@ var LIST = [
         name: "Robox",
         icon: "https://play-lh.googleusercontent.com/4WJT23_3x0VGuNia2wVJ0M6LO7ZkaiGwWl8avIaPkWpkY3XF6QN1otAA_iumCGWdKg=w240-h480-rw",
         featured: true,
-        description: "Robox digital products allow you to mine the Robox stable coin in various different ways allowing you to earn a lot of money in a short period of time. Combine this with their special wallet which allows you to earn 6% APR interest and we have a great way to get some extra cash with little-to-no effort!",
+        description: "Robox digital products allow you to mine the Robox stable coin in various different ways allowing you to earn a lot of money in a short period of time. Combine this with their special wallet which allows you to earn 6% APY interest and we have a great way to get some extra cash with little-to-no effort!",
         added: "7-15-2024",
         id: "robox_main",
         attr: {
@@ -34,7 +34,7 @@ var LIST = [
             rating: 5
         },
         info: {
-            description: "Robox allows you to mine a Solana-based stable coin $ROX completely free and without any effort. Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APR interest on your tokens, which means even more money in your pocket! Not literally, since the money is actually in the cloud but you get the point.",
+            description: "Robox allows you to mine a Solana-based stable coin $ROX completely free and without any effort. Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APY interest on your tokens, which means even more money in your pocket! Not literally, since the money is actually in the cloud but you get the point.",
             effort: "Visit the app every three hours and press a button. How simpler could it even be?"
         },
         go: {
@@ -43,7 +43,7 @@ var LIST = [
         },
         benefits: [],
         features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"]],
-        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APR interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."], ["Use dual apps! (if possible)", "If your phone supports dual apps, make sure to use it to effectively double your earnings! When withdrawing to NC Wallet, don't forget to use your main account's email."]],
+        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APY interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."], ["Use dual apps! (if possible)", "If your phone supports dual apps, make sure to use it to effectively double your earnings! When withdrawing to NC Wallet, don't forget to use your main account's email."]],
         pros: ["Instant withdrawals with extremely low threshold", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN"],
         cons: ["Unreliable notification service", "Paid plans will mostly result in a loss"],
         banner: "nc"
@@ -63,7 +63,7 @@ var LIST = [
             rating: 5
         },
         info: {
-            description: "Robox Fit allows you to mine a Solana-based stable coin $ROX completely free for counting your steps! Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Don't forget to walk at least 1000 steps a day so that your miming doesn't unexpectedly stop. Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APR interest on your tokens, which means even more money in your pocket!",
+            description: "Robox Fit allows you to mine a Solana-based stable coin $ROX completely free for counting your steps! Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Don't forget to walk at least 1000 steps a day so that your miming doesn't unexpectedly stop. Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APY interest on your tokens, which means even more money in your pocket!",
             effort: "Visit the app every three hours and press a button. You need to make at least 1000 steps a day. Any excess steps carry on to the next day."
         },
         go: {
@@ -72,7 +72,7 @@ var LIST = [
         },
         benefits: [],
         features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"]],
-        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APR interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."], ["Use dual apps! (if possible)", "If your phone supports dual apps, make sure to use it to effectively double your earnings! When withdrawing to NC Wallet, don't forget to use your main account's email."]],
+        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APY interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."], ["Use dual apps! (if possible)", "If your phone supports dual apps, make sure to use it to effectively double your earnings! When withdrawing to NC Wallet, don't forget to use your main account's email."]],
         pros: ["Instant withdrawals with extremely low threshold", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN", "Steps carry on to the next day, which means eventually you won't have to care about them anymore, since you will have hundreds of thousands spare steps"],
         cons: ["Unreliable notification service", "Paid plans will mostly result in a loss"],
         banner: "nc"
@@ -92,7 +92,7 @@ var LIST = [
             rating: 4
         },
         info: {
-            description: "Robox VPN allows you to mine a Solana-based stable coin $ROX completely free for browsing the web while it protects you. Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APR interest on your tokens, which means even more money in your pocket!",
+            description: "Robox VPN allows you to mine a Solana-based stable coin $ROX completely free for browsing the web while it protects you. Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APY interest on your tokens, which means even more money in your pocket!",
             effort: "Visit the app every three hours and press a button. You need to browse a certain amount of websites every day. Excess web visits carry on to the next day."
         },
         go: {
@@ -101,7 +101,7 @@ var LIST = [
         },
         benefits: [],
         features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"], ["Free VPN Service", "7 free VPN locations to protect you online. Additional locations and special servers available for paid users."]],
-        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APR interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."]],
+        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APY interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."]],
         pros: ["Instant withdrawals with extremely low threshold", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN", "Excess website visits carry on to the next day, which means you won't have to visit as many websites if you have any spare visits"],
         cons: ["Unreliable notification service", "Paid plans will mostly result in a loss", "The free VPN service is painfully slow and the decent ones are locked behind a paid plan"],
         banner: "nc"
@@ -121,7 +121,7 @@ var LIST = [
             rating: 5
         },
         info: {
-            description: "Robox Relax allows you to mine a Solana-based stable coin $ROX completely free for listening to relaxing tunes. It also offers commands for correct breathing to help you relax your mind. Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APR interest on your tokens, which means even more money in your pocket! Now that sounds relaxing!",
+            description: "Robox Relax allows you to mine a Solana-based stable coin $ROX completely free for listening to relaxing tunes. It also offers commands for correct breathing to help you relax your mind. Simply click the claim button every 3 hours to perpetuate the mining process and watch your earnings grow! Withdraw to your NC Wallet, from which you can exchange $ROX for any coin and withdraw directly into your crypto wallet! Additionally, while in your NC Wallet, you are also earning 6% APY interest on your tokens, which means even more money in your pocket! Now that sounds relaxing!",
             effort: "Visit the app every three hours and press a button. You gain mining energy by listening to sounds, that require the app to be open."
         },
         go: {
@@ -130,7 +130,7 @@ var LIST = [
         },
         benefits: [],
         features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"], ["Breathing Tutorial and Relaxing Sounds", "Robox Relax offers 8 different breathing routines accompanied by soothing sounds that help you relax your mind."]],
-        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APR interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day. That's not very relaxing."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."]],
+        tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APY interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day. That's not very relaxing."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."]],
         pros: ["Instant withdrawals with extremely low threshold", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN", "Excess meditation energy carries on to the next day"],
         cons: ["Unreliable notification service", "Paid plans will mostly result in a loss"],
         banner: "nc"
@@ -150,7 +150,7 @@ var LIST = [
             rating: 4
         },
         info: {
-            description: "NC Wallet allows you to hold your earned $ROX and allows you to swap it to any currency you want! You can then withdraw that currency to any crypto wallet you want! Additionaly, while in your NC Wallet, you are earning an interest of 6% APR paid in CTC. An important thing to mention is that because this app is comission free, the withdrawal threshold is relatively high (8-10$, depending on the currency), therefore it's not recommended to use this as your main crypto wallet.",
+            description: "NC Wallet allows you to hold your earned $ROX and allows you to swap it to any currency you want! You can then withdraw that currency to any crypto wallet you want! Additionaly, while in your NC Wallet, you are earning an interest of 6% APY paid in CTC. An important thing to mention is that because this app is comission free, the withdrawal threshold is relatively high (8-10$, depending on the currency), therefore it's not recommended to use this as your main crypto wallet.",
             effort: "This wallet stakes your tokens automatically the second you deposit them."
         },
         go: {
@@ -158,9 +158,9 @@ var LIST = [
             link: "https://ncwallet.net/invite-app/YHWUTKQZ"
         },
         benefits: ['Boost your Robox dividend power. You can request this boost <a target="_blank" style="color: yellow" href="../nus/dividends.html"><b>here</b></a>.'],
-        features: [["Token Staking", "All your held tokens are automatically staked at 6% APR received in $CTC."], ["Token Swapping", "You can swap tokens between each other after their value reaches ~7$."]],
+        features: [["Token Staking", "All your held tokens are automatically staked at 6% APY received in $CTC."], ["Token Swapping", "You can swap tokens between each other after their value reaches ~7$."]],
         tips: [["Be patient!", "Swapping comes with exchange rate, which are not very favorable. Only swap once your tokens are worth over ~9$ to ensure comission-free withdrawal afterwards."]],
-        pros: ["Token staking at 6% APR", "Huge variety of supported currencies, including tokens like $ROX, $CTC and $HSH"],
+        pros: ["Token staking at 6% APY", "Huge variety of supported currencies, including tokens like $ROX, $CTC and $HSH"],
         cons: ["High minimum withdrawal threshold, making it unusable as an actual crypto wallet", "Unfavorable exchange rates making every swap a loss of money"],
         banner: "bin"
     },
@@ -206,46 +206,6 @@ var LIST = [
     <button>LET'S GO!</button>
             </div>`,
         bannerLink: "viewEarn.html?id=jumptask"
-    },
-    {
-        name: "#mate",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2025%2F03%2Fhash-mate-logo.webp&f=1&nofb=1&ipt=32321a8cf968e78d8752d064e51501960af68a10b2c1625adee8d234decf24dc",
-        featured: true,
-        description: "#mate allows you to mine TON, NOT, Telegram Stars and more without investment! Frequent events, NFT mining and random cases allow you to earn a lot of various cryptocurrencies effortlessly!",
-        added: "7-16-2024",
-        id: "hashmate",
-        attr: {
-            verified: 1,
-            dividends: true,
-            platform: "t",
-            type: "mine",
-            coin: "ton stars other:NOT other:Dogs other:Major other:Cati other:PX",
-            effort: 0,
-            rating: 5
-        },
-        info: {
-            description: "#mate allows you to mine TON, NOT, Telegram Stars and more cryptocurrencies without investment! Just start mining, complete daily tasks to get more miners and watch your earnings grow! #mate comes with frequent events to maximize earnings, NFT mining to get some extra drops while mining your coins and random case drops which you can open for extra miners, or, if you want to, sell them on the marketplace and make even more money! Speaking of the marketplace, you can purchase and sell miners to complete collections and get mining boosts!",
-            effort: "Everything you have to do is to start mining every 20 hours. It doesn't get simpler than that!"
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/hashmate_bot?start=8f86ot00"
-        },
-        tips: [["Periodically collect your loot!", "Collect your loot after you wake up and before you go to sleep. This will reset the 20 hour timer, making you never stop mining!"],
-            ["Join the Mate announcement and community channel!", "This way you can complete daily tasks, as well as get the secret word, allowing you to get 7 MATE coins every day for free!"],
-            ["Share with your \"friends\"!", "One of the daily tasks, which rewards you with 2 MATE coins requires you to share a message to someone on Telegram. You do not actually have to share this message to a person! Instead, share the message to the #mate bot and you'll receive your reward without bothering your friends!"],
-            ["Prioritize mining coins with low total hashrate!", "Obviously you will start mining TON as your first coin, only to realize you are making little to no money. Blocks can only give so many coins per reward, based on your hashrate. Mining coins with lower hashrate increases your share. Additionally, mining coins with low amount of active people increases your chances to win a block!"],
-            ["Do not rush withdrawal!", "Every withdrawal means a fee to pay. A fee that is not very low as seen in the Cons for #mate. You should only withdraw your coins if you don't want to mine them anymore. For instance, you can use your mined TON to make in-app purchases. Therefore you don't have to withdraw it, if you plan on using it in #mate."]
-        ],
-        pros: ["Daily tasks allowing you to get free $MATE, which can be used to buy miners", "Free NFTs and Cases", "Active developer team, frequent updates and events", "Helpful notification service", "No ads", "Fast withdrawals"],
-        cons: ["Relatively high withdrawal fee (0.1 TON, 35 STARS, ...)", "Cases require a key to open, which must be purchased with TON", "Pay-to-Win aspect with x50 block reward costing STARS to unlock", "The app has many little bugs that altogether can make the app tedious to use"],
-        benefits: ["Free miner to help you get started"],
-        features: [["Offline Mining of Your Chosen Currency", "You can choose a currency to mine and for the next 20 hours you will be mining it completely effort-free!"],
-            ["#Marketplace", "Buy and sell Limited Miners and Cases to maximize your earnings!"],
-            ["NFT and Case Drops", "While mining, there is a small chance you will get free cases or NFTs!"],
-            ["#Tasks", "Daily, General and Partner tasks reward you with MATE coin, which can be used to purchase miners!"]
-        ],
-        banner: "bin"
     },
     {
         name: "Bitcoin Cloud Mining",
@@ -356,6 +316,45 @@ var LIST = [
         pros: ["Quick withdrawals with low threshold","Seemingly endless supply of tasks", "Allows you to earn 10% extra when using <a href='viewEarn.html?id=honeygain' style='color:yellow'>Honeygain</a> in JumpTask mode"],
         cons: ["Impossible to change wallet address once set", "Many tasks have unclear completion conditions (especially \"search the web\" tasks) and won't pay out no matter what you do"],
         benefits: ["10% earning boost on your first task"],
+        banner: "bin"
+    },
+    {
+        name: "#mate",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2025%2F03%2Fhash-mate-logo.webp&f=1&nofb=1&ipt=32321a8cf968e78d8752d064e51501960af68a10b2c1625adee8d234decf24dc",
+        description: "#mate allows you to mine TON, NOT, Telegram Stars and more without investment! Frequent events, NFT mining and random cases allow you to earn a lot of various cryptocurrencies effortlessly!",
+        added: "7-16-2024",
+        id: "hashmate",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "t",
+            type: "mine",
+            coin: "ton stars other:NOT other:Dogs other:Major other:Cati other:PX",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "<b>Lately the developers have been going through unknown issues, they removed many features, increased the minimum withdrawal threshold and the overall mining speed has been radically decreased. There is no information about when previous mining speed is reestablished or when will removed features come back, this is why we decided to remove #mate from featured apps. If everything goes back to normal, we will bring back the fifth star and the featured label.</b><br><br>#mate allows you to mine TON, NOT, Telegram Stars and more cryptocurrencies without investment! Just start mining, complete daily tasks to get more miners and watch your earnings grow! #mate comes with frequent events to maximize earnings, NFT mining to get some extra drops while mining your coins and random case drops which you can open for extra miners, or, if you want to, sell them on the marketplace and make even more money! Speaking of the marketplace, you can purchase and sell miners to complete collections and get mining boosts!",
+            effort: "Everything you have to do is to start mining every 20 hours. It doesn't get simpler than that!"
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/hashmate_bot?start=8f86ot00"
+        },
+        tips: [["Periodically collect your loot!", "Collect your loot after you wake up and before you go to sleep. This will reset the 20 hour timer, making you never stop mining!"],
+        ["Join the Mate announcement and community channel!", "This way you can complete daily tasks, as well as get the secret word, allowing you to get 7 MATE coins every day for free!"],
+        ["Share with your \"friends\"!", "One of the daily tasks, which rewards you with 2 MATE coins requires you to share a message to someone on Telegram. You do not actually have to share this message to a person! Instead, share the message to the #mate bot and you'll receive your reward without bothering your friends!"],
+        ["Prioritize mining coins with low total hashrate!", "Obviously you will start mining TON as your first coin, only to realize you are making little to no money. Blocks can only give so many coins per reward, based on your hashrate. Mining coins with lower hashrate increases your share. Additionally, mining coins with low amount of active people increases your chances to win a block!"],
+        ["Do not rush withdrawal!", "Every withdrawal means a fee to pay. A fee that is not very low as seen in the Cons for #mate. You should only withdraw your coins if you don't want to mine them anymore. For instance, you can use your mined TON to make in-app purchases. Therefore you don't have to withdraw it, if you plan on using it in #mate."]
+        ],
+        pros: ["Daily tasks allowing you to get free $MATE, which can be used to buy miners", "Free NFTs and Cases", "Active developer team, frequent updates and events", "No ads", "Fast withdrawals"],
+        cons: ["High withdrawal fee (0.3 TON, 70 STARS, ...)", "Cases require a key to open, which must be purchased with TON", "Pay-to-Win aspect with x50 block reward costing STARS to unlock", "The app has many little bugs that altogether can make the app tedious to use", "No notifications (there used to be a notification service, but was completely removed for an unknown reason)"],
+        benefits: ["Free miner to help you get started"],
+        features: [["Offline Mining of Your Chosen Currency", "You can choose a currency to mine and for the next 20 hours you will be mining it completely effort-free!"],
+        ["#Marketplace", "Buy and sell Limited Miners and Cases to maximize your earnings!"],
+        ["NFT and Case Drops", "While mining, there is a small chance you will get free cases or NFTs!"],
+        ["#Tasks", "Daily, General and Partner tasks reward you with MATE coin, which can be used to purchase miners!"]
+        ],
         banner: "bin"
     },
     {
@@ -770,7 +769,7 @@ var LIST = [
             ["Staking", "Lock your earned tokens and earn interest!"],
         ["Microtasks and Cashback", "Earn more $UPT by completing microtasks such as playing games and get cashback on supported stores!"]
         ],
-        tips: [["Patience is key.", "Unlike <a href='viewEarn.html?id=honeygain' style='color:yellow'>Honeygain</a>, UpRock runs many tests to make sure your device is valid. This means it might take a couple weeks before you will start actually earning any tokens. The same logic applies to staking. The longer your lock your tokens for, the higher the APR! Just be patient and watch your earnings grow!"],
+        tips: [["Patience is key.", "Unlike <a href='viewEarn.html?id=honeygain' style='color:yellow'>Honeygain</a>, UpRock runs many tests to make sure your device is valid. This means it might take a couple weeks before you will start actually earning any tokens. The same logic applies to staking. The longer your lock your tokens for, the higher the APY! Just be patient and watch your earnings grow!"],
         ["Connect multiple devices!", "If you can, make sure to install UpROck on your mobile device, computer, work laptop, etc. and link them all to the same account! This will exponentially increase your rewards!"]
         ],
         pros: ["No ads", "Doesn't affect network or device speed", "Many different ways to increase your earnings"],
@@ -807,7 +806,7 @@ var LIST = [
             ["Lottery and Win a Lambo", "Participate in the weekly lottery for free or by buying tickets and get up to 1000$ in Bitcoin! You can also buy golden tickets and get a chance to win 200000$ in Bitcoin - just enought to buy a Lamborghini Huracan 610-4 Coupe!"],
             ["Multiply Bitcoin with Hi-Lo and Betting", "Play the Hi-Lo game and wager your Bitcoin to multiply it (or lose it all)! You can also try to predict prices of crypto, bet on it and either win big or lose it all! The more you wager, the more Bitcoins you get for the free roll every hour!<br><b>Edge of the house: 5%</b>"],
             ["Reward Points", "Use your reward points to buy gift cards, exchange them for Bitcoin or see them as a way to get access to premium features such as the lucky wheel spin! You can buy 1 spin for 8 Reward Points"],
-            ["Earn Bitcoin with 4% APR", "Once you reach 30000 Satoshis, you can withdraw. If you decide not to, you'll receive interest on your held Bitcoin - more than 4% APR!"]
+            ["Earn Bitcoin with 4% APY", "Once you reach 30000 Satoshis, you can withdraw. If you decide not to, you'll receive interest on your held Bitcoin - more than 4% APY!"]
         ],
         tips: [
             ["Just claim it!", "Every hour you can claim free Bitcoin. But let's be real here, 98.85% chance is to get the lowest reward (1 Satoshi, you can increase it to 38 Satoshis if you wager enough). So this seems like a waste of time, right? Well actually, we are not here for the Bitcoin (ironic isn't it). We are here for Reward Points - these are guaranteed on every single claim. Use them to buy boosters to multiply your Bitcoin earnings up to 10 times (no we are talking), or exchange them for wheel spins!"],
@@ -854,42 +853,6 @@ var LIST = [
         pros: ["Very generous free mining in comparison to other apps", "Low edge of the house"],
         cons: ["Annoying and pointless notifications", "High withdrawal threshold (10000 Satoshis that must be wagered)"],
         banner: "bin"
-    },
-    {
-        name: "Stars Hub",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2F3d-white-star-blue-background_1332213-22.jpg&f=1&nofb=1&ipt=cbf60721dbddad7c31fcbc8cbfb9c5fb0848a26d830b357471c65897e95111d5",
-        description: "Receive free star fragments and use those to purchase Telegram Gifts, which can be exchanged for Stars! Stars Hub offers multiple ways to earn stars every day! Just a quick side note: the entire app is in russian. Don't worry, though! It's fairly simple to figure out what all the buttons do! (especially super easy if you speak russian)",
-        added: "8-20-2024",
-        id: "starshub",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "t",
-            type: "faucet",
-            coin: "stars",
-            effort: 0,
-            rating: 4
-        },
-        info: {
-            description: "Complete tasks and check-in daily for free star fragments, and once you have enough, use them to purchase a common Telegram gift, which can be exchanged for stars! You can earn in various ways: Check-in every day to get star fragments and scratch cards, spin the roulette every day for a chance to win extra star fragments and complete tasks for even more star fragments and scratch cards! Speaking of scratch cards, these are the best way to earn star fragments! Definitely do not turn down this opportunity!",
-            effort: "Check-in every day, spin the roulette and scratch cards. Takes around 20 seconds per day."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/FreeStarsHubBot/app?startapp=r_2fef60aa2e55454f"
-        },
-        benefits: ["None really, but it will give us a single star and you will receive our eternal gratitude!"],
-        features: [["Daily Check-in", "The main aspect of any faucet is the free token distribution! Every day check in for free star fragments, with the exception of the last two days - they give you scratch cards instead!"],
-        ["Roulette", "Spin every day and get free stars if you are lucky!"],
-        ["Scratch Cards", "Scratch cards are packed with star fragments way more than the daily check-in! Don't forget to scratch them!"],
-            ["Tasks", "Join channels for extra star fragments! Don't forget to collect the check-in bonus! Every 7 days you can collect 4 extra scratch cards!"],
-            ["Gift Marketplace", "Exchange your star fragments for Telegram gifts, which can be then exchanged for stars!"]
-        ],
-        tips: [
-            ["Refrain from buying spins!", "Okay, simple logic. The most you can possibly win from the roulette spin is 0.05 Stars. So then why does a single spin cost 1 Star? That is not worth at all."]],
-        pros: ["Free roulette spins (allowing you to save 1 Star every day)"],
-        cons: ["The cheapest faucet out there - like come on, surely you can give me more than half a cent per week"],
-        banner: "blum"
     },
     {
         name: "COIN",
@@ -1201,7 +1164,7 @@ var LIST = [
             rating: 4
         },
         info: {
-            description: "AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 30 ads) is worth about 0.018TON at this point, which is not excellent, but it was only 0.0001 so it's certainly better!",
+            description: `AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 30 ads) is worth about 0.03TON <a class="link" onclick="popup('What does this mean?', 'This app gets updates almost daily and the thing that changes the most, is the amount of ads you can watch per day. For some reason. This means that the amount of ads and therefore the amount of AIX you can get for free every day will probably be different from the data seen here. We are trying to update this information as frequently as possible, but we might not be completely accurate.<br><br>Most ADs per day recorded: <b>50</b><br>Least ADs per day recorded: <b>5</b><br>Highest free AIX to TON value per day recorded: <b>0.06 TON</b><br>Lowest free AIX to TON value per day recorded: <b>0.0001 TON</b>')" title="What does this mean?">at this point</a>, which is not excellent, but it was only 0.0001 so it's certainly better!`,
             effort: "Collect tokens, stake them and that's it!"
         },
         go: {
@@ -1209,7 +1172,7 @@ var LIST = [
             link: "https://t.me/AIXhashbot/AIXhash?startapp=5782755258"
         },
         benefits: ["If the app gets verified, we will distribute dividends."],
-        features: [["Staking", "Staking AIX is a decent way to earn more, however the APR changes very often and isn't very transparent. Nevertheless, it's still a very efficient way to earn!"]],
+        features: [["Staking", "Staking AIX is a decent way to earn more, however the APY changes very often and isn't very transparent. Nevertheless, it's still a very efficient way to earn!"]],
         tips: [
             ["Avoid predictions!", "In general, just avoid gambling."]
         ],
@@ -1242,13 +1205,13 @@ var LIST = [
         },
         benefits: ["Whether you download this app through us or directly from the store, it won&apos;t make any difference.<br>We aren&apos;t getting any benefits and therefore you also won&apos;t."],
         features: [["Spin-a-Wheel and Flip-a-Card", "Daily ad watch abilities allow you to earn $SWAET for free!"],
-            ["Sweat Jars", "Lock your $SWEAT in a jar and watch it grow! The longer you lock your $SWEAT for, the higher the APR becomes! Watch out for promotions that allow you to get even higher APR!"], 
+            ["Sweat Jars", "Lock your $SWEAT in a jar and watch it grow! The longer you lock your $SWEAT for, the higher the APY becomes! Watch out for promotions that allow you to get even higher APY!"], 
             ["Learn and Earn + Quests", "Learn about Sweat and its partners, answer quizzes and earn free $SWEAT! Check out quests, complete simple tasks and earn even more!"],
             ["Prize Draw Reffles", "Grow your $SWEAT in jars and unlock Prize draws! Buy a raffle ticket for $SWEAT and get a chance to win great prizes!"]
         ],
         tips: [
             ["Do not risk a higher prize.", "This tip might seem stupid, but one thing you should know about the wheel spin (and the card flip) is that it's rigged. After you win 4000 Steps (lowest reward on the wheel other than 0), you might want to spin again to try and get a higher prize. The chance for that should be 67% right? Well, it isn't. And you have a much greater chance that you will spin 0, even twice in a row. Once you win something from the wheel, take it immediately."],
-            ["Grow all your $SWEAT!", "Due to not-so-good decisions by the developers, $SWEAT fails to surge and increase in value. The only way to actively increase your earnings are jars. With up to 12% APR, or even more in certain promotions, you can secure a passive income, if you grow enough $SWEAT."]
+            ["Grow all your $SWEAT!", "Due to not-so-good decisions by the developers, $SWEAT fails to surge and increase in value. The only way to actively increase your earnings are jars. With up to 12% APY, or even more in certain promotions, you can secure a passive income, if you grow enough $SWEAT."]
         ],
         pros: ["Frequent prize draws", "Convert your <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> earnings to real money"],
         cons: ["Rigged Spin-a-Wheel and Flip-a-Card minigames", "$SWEAT fails to increase its value due to questionable decisions by the developers"],
@@ -1554,6 +1517,42 @@ var LIST = [
         ],
         pros: ["Daily check-in bonus allows up to 9 free spins", "Auto spin feature", "No ads"],
         cons: ["Extremely high withdrawal threshold (5USDT/500000PEPE) with extreme fee (1USDT/50000PEPE)", "You can only spin 4 times per day without completing a task", "Certain tasks just... don't work?"],
+        banner: "blum"
+    },
+    {
+        name: "Stars Hub",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2F3d-white-star-blue-background_1332213-22.jpg&f=1&nofb=1&ipt=cbf60721dbddad7c31fcbc8cbfb9c5fb0848a26d830b357471c65897e95111d5",
+        description: "Receive free star fragments and use those to purchase Telegram Gifts, which can be exchanged for Stars! Stars Hub offers multiple ways to earn stars every day! Just a quick side note: the entire app is in russian. Don't worry, though! It's fairly simple to figure out what all the buttons do! (especially super easy if you speak russian)",
+        added: "8-20-2024",
+        id: "starshub",
+        attr: {
+            verified: -1,
+            dividends: false,
+            platform: "t",
+            type: "faucet",
+            coin: "stars",
+            effort: 0,
+            rating: 3
+        },
+        info: {
+            description: "<b>For the past couple weeks, the mini app does not work, and the bot only works as a way to distribute advertisements. If this does not get fixed in the coming months, this app will be determined to be a scam.</b><br>Complete tasks and check-in daily for free star fragments, and once you have enough, use them to purchase a common Telegram gift, which can be exchanged for stars! You can earn in various ways: Check-in every day to get star fragments and scratch cards, spin the roulette every day for a chance to win extra star fragments and complete tasks for even more star fragments and scratch cards! Speaking of scratch cards, these are the best way to earn star fragments! Definitely do not turn down this opportunity!",
+            effort: "Check-in every day, spin the roulette and scratch cards. Takes around 20 seconds per day."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/FreeStarsHubBot/app?startapp=r_2fef60aa2e55454f"
+        },
+        benefits: ["1 Star"],
+        features: [["Daily Check-in", "The main aspect of any faucet is the free token distribution! Every day check in for free star fragments, with the exception of the last two days - they give you scratch cards instead!"],
+        ["Roulette", "Spin every day and get free stars if you are lucky!"],
+        ["Scratch Cards", "Scratch cards are packed with star fragments way more than the daily check-in! Don't forget to scratch them!"],
+        ["Tasks", "Join channels for extra star fragments! Don't forget to collect the check-in bonus! Every 7 days you can collect 4 extra scratch cards!"],
+        ["Gift Marketplace", "Exchange your star fragments for Telegram gifts, which can be then exchanged for stars!"]
+        ],
+        tips: [
+            ["Refrain from buying spins!", "Okay, simple logic. The most you can possibly win from the roulette spin is 0.05 Stars. So then why does a single spin cost 1 Star? That is not worth at all."]],
+        pros: ["Free roulette spins (allowing you to save 1 Star every day)"],
+        cons: ["The cheapest faucet out there - like come on, surely you can give me more than half a cent per week", "Too many ads (as messages from the bot)"],
         banner: "blum"
     },
     {

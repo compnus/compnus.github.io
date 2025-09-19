@@ -15,7 +15,7 @@ var LIST = [
         rating: 5
     },
     info: {
-        description: `Spell wallet allows you to <a class="link" onclick="popup('Token Staking in Spell Wallet', 'Sewat Wallet allows you to stake <b>Solana</b> from 0.001 SOL at up to 6.7% APR.')">hold and stake various tokens</a>, while also allowing you to collect MANA through mining, daily check-ins and quests and earn money (or more MANA) by participating in missions! You will be able to use MANA in the future to unlock airdrops!`,
+        description: `Spell wallet allows you to <a class="link" onclick="popup('Token Staking in Spell Wallet', 'Sewat Wallet allows you to stake <b>Solana</b> from 0.001 SOL at up to 6.7% APY.')">hold and stake various tokens</a>, while also allowing you to collect MANA through mining, daily check-ins and quests and earn money (or more MANA) by participating in missions! You will be able to use MANA in the future to unlock airdrops!`,
         effort: "Claim MANA and activate autoclaim (this will allow you to be offline for 24 hours)"
     },
     go: {
@@ -29,10 +29,41 @@ var LIST = [
     ["Wallet Features", "Store your tokens in a secure wallet, swap them and stake held Solana to earn interest!"]
     ],
     tips: [["Always activate upgrades!", "Upgrades cost MANA, but are very much worth in the end! In order to minimize effort, check-in every day, click the Dragon Egg 6 times to activate mining, click upgrades, buy both Auto Claim and Boost and you can leave for the day! Once you come back, many MANA tokens will be waiting for you!"]],
-    pros: ["Secure wallet", "Frequent missions with generous rewards", "High staking APR"],
+    pros: ["Secure wallet", "Frequent missions with generous rewards", "High staking APY"],
     cons: ["Misleading banner that claims swapping is without fees (there is a fee of about 0.001 TON per swap)"],
     banner: "bin"
-}, {
+    }, {
+        name: "Imota",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FI_JDBJfD01PYKRAJZcYRUdgHaC58awW9Q0VYNOh5ZofD2nwO1j8H1m32LKHy-57rEA&f=1&nofb=1&ipt=4e99681faa43599d59f55a1ff4808af3b60fd1585064f1d871c8dd6b7ea34700",
+        description: "Join the Otarian community in Imota! Explore the world of Imota through games, mining and other ways to earn! Also, play the Ota Scratch game, the music is a banger. You can also bet matches, spin the wheel or open chests to earn even more!",
+        added: "10-11-2024",
+        id: "imota",
+        attr: {
+            platform: "ai",
+            type: "p2e",
+            coin: "OTARA",
+            effort: 2,
+            rating: 5
+        },
+        info: {
+            description: "Become an Otarian and mine OTARA with the Imota community! Earn OTARA tokens in various ways - play games (especially Ota Scratch, the music is amazing, it's worth playing it more for the music than the reward itself), collect mined OTARA, hire miners to mine even more OTARA, bet matches, spin the wheel, open chests, simply - have fun and earn something nice for it - a beautiful crypto money, you will be able to use once the mainet launches (soon, hopefully)!",
+            effort: "Collect OTARA periodically throughout the day, hire miners once the previous once have finished their mining cycle (this can take from a couple minutes to a couple hours), play games and bet matches to maximize your earnings."
+        },
+        go: {
+            type: 1,
+            link: "https://imota.io/download/qtxyMuPW?referrer=referral_code%3DqtxyMuPW%26utm_source%3Dtwitter%26utm_medium%3Dreferral_code",
+            code: "qtxyMuPW"
+        },
+        benefits: ["10% Mining Boost (probably, despite the explanation being very detailed, we did not really glean this fact from it properly)", "Empowering (whatever that means)"],
+        features: [["Home - Periodical Mining, Quests, Betting, Chests and Otara Wheel", "Collect OTARA periodically throughout the day and collect even more by watching ads! Complete quests and collect chests for more OTARA! Quests include betting on football matches to win OTARA and spinning the wheel to receive various rewards! Don't forget to verify your OTARA!"],
+            ["Mining", "Hire miners and get more OTARA! Different miners have different bonus rates and mining duration - make sure to select the best ones!"],
+            ["Games", "Scratch a card and win OTARA while listening to a banger in Ota Scratch! Let's go gambling in Ota Slot - don't worry, since you don't pay anything to spin, losing doesn't hurt that much! Chicken Road is a common modern scam ad, but imagine you could play a game similar to it, without risking anything! That is Ota Safari!"]        ],
+        tips: [["Hire miners with short duration and high bonus ratio!", "All miners have the same OTARA rate - 0.5 OTARA per duration you hire them for. The lowest duration you can get is 5 minutes - repick miners to decrease their work time! Also, check the bonus ratio - this one can be very broad (10-99) but also very narrow (30-50) - pick the one you feel comfortable with. If you feel like risking, broad bonus ratio allows you to almost double your OTARA reward, but on the other hand you can roll a 10% boost instead, which isn't very... amazing. If you want more OTARA with low risk, aim for narrow bonus ratios."],
+        ],
+        pros: ["Frequent events", "Banger music (<a href='https://youtu.be/39tIq__veUM' class='link' target='_blank'>Sakura Girl - Clown</a>)", "Many ways to earn"],
+        cons: ["Certain parts of the app do not work or are buggy/laggy"],
+        banner: "bin"
+    }, {
         name: "Dropee",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2024%2F11%2FDropee-logo.webp&f=1&nofb=1&ipt=c6760abe79b0ba76dfdef90e6b9a1d84fecd001225055a8938783e5d697d423b",
         description: "Spin the wheel, get tickets, open chests and win! Upgrade your cards or click the duck to receive $DROPEE tokens! Check out the lotteries to win some TON too!",
@@ -124,10 +155,100 @@ var LIST = [
         features: [["Missions", "Daily quiz, special mission quizzes, multiple daily check-ins and tasks give you a huge variety of available ways to earn gems and even learn something about the Xenea ecosystem!"],
         ["Mining", "Despite looking like a major part of the app, the amount of gems you earn from mining per day is miserably low."]
         ],
-        tips: [["There are no tips.", "The app is very simple to get acustomed to and does not need any tips."],
+        tips: [["There are no tips.", "The app is very simple to get accustomed to and does not need any tips."],
         ],
         pros: ["New missions added frequently", "Daily quizzes and generous gem rewards", "No ads"],
         cons: ["Difficult and buggy sign-up process", "No clear use for gems"],
+        banner: "bin"
+    }, {
+        name: "Orbaic Miner",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2Flsz4YcUbAEAqGJKvsxnIF6Osl0Tr4VMd1mJINLlzF8Msk-RHr3eHTABUye2WW4Akew&f=1&nofb=1&ipt=369e4325d4a495b7644514ab6ab1231fd680e1ef2721ba0ba442207d9e4240b4",
+        description: "Orbaic is a Layer 1 blockchain and this app allows you to mine its native coin - ACI. Mine every day, complete quizzes and stake your ACI to learn as much as possible before the listing, which is coming soon! You can also learn SHIB for mining and completing quizzes!",
+        added: "9-25-2024",
+        id: "orbaic",
+        attr: {
+            platform: "ai",
+            type: "mine",
+            coin: "ACI",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: `Orbaic Miner allows you to mine Orbaic Layer 1 blockchain's native coin ACI. You can also learn more ACI by completing quizzes or collecting random airdrops! Listing is coming soon according to the project's official website. By completing 1800 quizzes or mining for 2160 hours (90 days), you can also collect bonus in the form of Shiba Inu!<br>SHIB withdrawal status: <b>Unverified</b>`,
+            effort: "Start mining every 24 hours."
+        },
+        go: {
+            type: 1,
+            link: "https://orbaic.com/downlaodApp.php",
+            code: "79ZrEnhl"
+        },
+        benefits: ["2 ACI"],
+        features: [["Mining", "Activate mining every day to stock up on ACI!"],
+        ["Airdrops and Quizzes", "Collect bonus ACI in random airdrops that sometimes pop up on the homepage! Complete quizzes to collect even more ACI!"],
+        ["Staking", "Stake your ACI and collect profit after a duration ranging from one to four years!"]],
+        tips: [["There are no tips.", "This app is very simple to understand and therefore doesn't need any tips."]],
+        pros: ["Ability to earn SHIB as a bonus", "Simple interface", "Transparent"],
+        cons: ["Broken data management consent popup window"],
+        banner: "bin"
+    }, {
+        name: "QuBit Network",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FRbxKVN-UTiUsAApmuVDLDoXjiGqwHRZ_1y17olSXjqp7iAqO6i2ABgqkuMOBjf5XOYY&f=1&nofb=1&ipt=16ebe8324d22d87e53c9624966908ef156f5d013ca92745fe5bbea4335395d98",
+        description: "Mine QUBIT effortlessly in QuBit Network! Collect as much QUBIT as you can before it goes live!",
+        added: "10-10-2024",
+        id: "qubit",
+        attr: {
+            platform: "a",
+            type: "mine",
+            coin: "QUBIT",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "Another very simple project of an upcoming cryptocurrency - QUBIT! Collect QUBIT from mining, completing tasks, checking in and spinning the wheel, climb the leaderboards and stock up on QUBIT before it goes live!",
+            effort: "Restart mining every 24 hours."
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=com.qubit.network",
+            code: "kingpvz"
+        },
+        benefits: ["10 QUBIT", "Mining Boost"],
+        features: [["Mining", "Mine tokens, increase your streak and collect bonuses related to it - you can even collect bonus tokens for the days spent mining - even if they are not in a row!"],
+        ["Spin, Tasks and Leaderboard", "Spin the wheel up to 10 times every day and collect extra tokens! Can you get the 50 QUBIT jackpot? If not, do not worry! Increase your streak, climb the leaderboard and claim up to 2500 bonus tokens! If you still want more, check out your profile, where you can complete simple social tasks for 10 QUBIT each!"]        ],
+        tips: [["There are no tips.", "As we stated in the description, this is another very simple project. Simply check-in and mine!"],
+        ],
+        pros: ["Very simple", "No in-app purchases or red flags"],
+        cons: ["The developer team is relatively slow and the project is moving by baby steps"],
+        banner: "bin"
+    }, {
+        name: "MIRA Network",
+        icon: "https://cdn.prod.website-files.com/66d5b6a02b5afc0fcee740d5/6789767185e4a2719ffe308a_dada.png",
+        description: "MIRA Network (formely known as AirDrop Coin) has a simple premise: allow users to participate in upcoming airdrops. But time has passed and it became yet another mining app. The developer team is, however, about to change it and bring more to users!",
+        added: "9-22-2024",
+        id: "lumira",
+        attr: {
+            platform: "a",
+            type: "mine",
+            coin: "Lumira",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: `MIRA Network allows you to mine the Lumira token and is also supposed to show you upcoming airdrops and gaming events. Both of these features are either under development or unavailable. The developer team is actively updating the app, and according to their own website, both these features should be finished relatively soon. Only time will tell.`,
+            effort: "Start mining every 24 hours. (Optional boost via ads)"
+        },
+        go: {
+            type: 1,
+            link: "https://miranetwork.io",
+            code: "kingpvz"
+        },
+        benefits: ["1 Lumira Token", "0.005 LUM/h mining rate boost"],
+        features: [["Mining", "Activate mining and watch ads to multiply your mining rate!"],
+            ["Airdrops and Gaming", "Upcoming features that will allow users to participate in gaming events and collect token airdrops!"],
+        ["Ad Boosts", "Watch ads to double your base mining rate, or increase it temporarily!"]],
+        tips: [["There are no tips.", "Yet another very simple app that doesn't have much to offer. Therefore, no tips are needed."]],
+        pros: ["Extremely simple"],
+        cons: ["Most features do not work or are under development", "Flooded with ads"],
         banner: "bin"
     }, {
         name: "Rich Dog",
@@ -286,6 +407,36 @@ var LIST = [
         cons: ["Fake verification tick", "Non-transparent marketplace", "Unclear Roar Pass benefits", "Scammy price prediction"],
         banner: "blum"
     }, {
+        name: "Ai Coin",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F8klhhzMoBwN8kMT7lSpabSZnf2kJxLsn7UmB-uepbHCNgf94LYgUs4hHYVUWdKaD2_w&f=1&nofb=1&ipt=06effa116f2bdafded16bdb558b181cd75b5c2aa51cfaf7fd28894793554acdf",
+        description: "Mine &pi;SATS and stock up before the listing! Which will... probably happen? It was supposed to happen in July 2025. Then August. And now, we are still waiting. Awesome!",
+        added: "9-21-2024",
+        id: "aicoin",
+        attr: {
+            platform: "a",
+            type: "mine",
+            coin: "&pi;SATS",
+            effort: 0,
+            rating: 3
+        },
+        info: {
+            description: `Mine &pi;SATS every day, boost your production by watching ads, or stake your &pi;SATS to earn even more! However, for safety of your data, do not complete KYC in this app. There is no proof of their intentions to actually launch the token and generally, giving your ID card to random people isn't a good idea.`,
+            effort: "Start mining every 24 hours. (Optional boost via ads)"
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=com.ai.coin.mining",
+            code: "stano5340"
+        },
+        benefits: ["20% (That is everything we know. Twenty percent. Of something.)"],
+        features: [["Mining", "Activate mining and watch ads to multiply your production amount!"],
+        ["Wallet", "You can purchase &pi;SATS here, but we would not recommend doing so."],
+        ["Staking", "Lock your &pi;SATS for 90 days and see them grow with an incredible APY of 81%!"]],
+        tips: [["Be safe.", "Keep your ID card to yourself. This app keeps delaying the listing time, which is a massive red flag. Be safe and don't let anyone misuse your data."]],
+        pros: ["High staking APY", "Very simple to use"],
+        cons: ["Delaying listing date with no explanation", "KYC verification with no guarantee of data safety", "Scammy coin purchasing"],
+        banner: "bin"
+    }, {
         name: "Minati Mining",
         icon: "https://www.findmini.app/_astro/avatar_y5k4w4h8dp_ZXOySa.webp",
         description: "Mine $MNTCP and collect tokens to qualify for the airdrop! Climb the leaderboards and dominate the world! That sounds cool and all but not when there is absolutely nothing transparent about it.",
@@ -310,11 +461,55 @@ var LIST = [
         features: [["Daily Check-in and Tasks", "For every 15 days of the daily check-in, you will get 116500 $MNTCP in total. Complete simple tasks to get up to 300000 $MNTCP for free!"],
         ["Mining", "2000 $MNTCP for free every 3 hours (no idea who taught them math though, you receive 400 $MNTCP per hour and mine for 3 hours so 3*400=2000 for some reason???)"]
         ],
-        tips: [["Do not boost your mining!", "This is th only part of the app that requires TON and is totally not worth it."],
+        tips: [["Do not boost your mining!", "This is the only part of the app that requires TON and is totally not worth it."],
         ],
         pros: ["Generous daily check-in", "No ads"],
         cons: ["No updates", "Non-transparent token launching process", "Broken leaderboard", "Cannot send messages in the official group"],
         banner: "blum"
+    }, {
+        name: "Athene Network",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FKDYZdbDPArk0g1duIwJfq8A08XCm9Cjqcehy3L3g3ZiwsPdLGHtMrNUdaV-ahQr0Tlo&f=1&nofb=1&ipt=24147b304bb452d08621c20038ac1e09d167cfc3f3a5f4a84823aa3cd49a4173",
+        description: "Athene Network is a full-on blockchain in your pocket! Though this sounds awesome, it is worth pointing out that most features do not work. Most of the time to say the least. Uhhhh yeah, cool project.",
+        added: "9-29-2024",
+        id: "athene",
+        attr: {
+            platform: "ait",
+            type: "mine",
+            coin: "ATN",
+            effort: 1,
+            rating: 2
+        },
+        info: {
+            description: `Imagine a whole blockchain in your pocket. Quite literally, there are so many features it is quite difficult to find what you are looking for. However, most of these features do not work or are "under maintenance" for the past 6 months. That put aside, Athene certainly has a lot to offer, but after you discover everything, there is not much to do anymore. You will end up in a constant loop of checking in every day to collect streak and daily gems in the quests menu, collecting mining a PPick rewards and occasionally collecting a reward chest. Overall, the developers had too many ideas and not enough time to finish them, yet they decided to release the app anyway. Hey! That reminds me of someone!`,
+            effort: "Start mining every 24 hours. Complete KYC to collect KYC PPick reward. Check in every day to collect more GEM. Collect random chests. Complete quests to earn more GEM. Although all these tasks together will not take a lot of time, we have decide to label this effort as Low instead of None because of how many there are."
+        },
+        go: {
+            type: 2,
+            link: [{
+                name: "Android",
+                link: "https://play.google.com/store/apps/details?id=network.athene.app&pli=1",
+                description: "Use the code <b onclick='navigator.clipboard.writeText(this.innerHTML);'>a0ce074ad849</b> (click to copy) during sign-up!"
+            }, {
+                name: "iOS",
+                link: "https://apps.apple.com/us/app/athene-network/id6473136372",
+                description: "Use the code <b onclick='navigator.clipboard.writeText(this.innerHTML);'>a0ce074ad849</b> (click to copy) during sign-up!"
+            }, {
+                name: "Telegram",
+                link: "https://t.me/athene_official_bot/app?startapp=a0ce074ad849",
+                description: "Code is applied automatically."
+            }]
+        },
+        benefits: ["None"],
+        features: [["Mining", "Activate your Node to mine GEM, which will turn into ATN at the end of the month! Collect boosters and climb up the leaderboard!"],
+        ["Community", "Complete sponsor tasks to collect more GEM! Most other features from this section are &quot;Under Maintenance&quot; for the past couple months."],
+            ["Premium Privileges", "Complete KYC and collect PPick rewards - even more GEM! It is unknown whether you can actually do the KYC, or any other task related to Premium Privileges."],
+            ["Investment, Ecosystem and Entertainment", "All these features have something in common! They don't work. Yeap."],
+            ["Daily Check-in, Chests and Quests", "Check-in every day to increase your streak and get more GEM! Occasionally, you might notice a chest in the corner - tap it and receive more rewards! Don't forget about collecting extra 20000 GEM every day for checking in and even more gems for completing event quests!"],
+["Wallet", "Store your ATN, GEM, DOGE???, AUSD (no idea what that is), P2P (that's a token name?), ATX (cursed ethereum), USDT and LION (not related to <a href='viewNew.html?id=lions' class='link'>Lions</a> in any way) and withdraw them (USDT and DOGE) with a ridiculous 1USDT fee! You can also send a receive tokens this way, or Vest them - which allocates them for something in your wallet. No idea."]        ],
+        tips: [["Get into the routine and ignore everything else.", "This app is extremely overwhelming with the massive amount of features it has, so here is a simple routine we recommend: Open the app every day to receive streak reward, collect a chest (if available), collect PPick rewards (if you completed KYC), collect mining rewards and collect the daily check-in quest. Then, turn the app off and rest assured that you will not haver to do that for the next 24 hours."]],
+        pros: ["Many features to explore", "Many opportunities to earn", "No ads", "Active developer team with frequent events"],
+        cons: ["Extremely overwhelming", "Difficult to understand and learn what most features do or how to use them", "Many features never work", "Extremely buggy and slow - both with server requests and feature loading", "Latest updates remove features instead of finishing them, leading in issues such as many spin tickets, while the lucky wheel is under maintenance for the past 6 months", "Certain events contain red flags, making you unable to use certain features without paying, even if they are promised for free"],
+        banner: "bin"
     }, {
         name: "Bee Network",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FObXPOLnQRqz-ME8xyd1FSd4LCrd9pwWZjlzodzCvyzwJbjDtoiKSlqDdCFFRLT25lJI&f=1&nofb=1&ipt=c5d815e050808cac8d11de5a22394164f188f8ab296da0f06967214cf3a39121",
@@ -353,6 +548,37 @@ var LIST = [
         cons: ["Extremely laggy UX", "Both the app and the website take forever to load", "Most features lack proper explanation", "Way too complicated"],
         banner: "bin"
     }, {
+        name: "cPen",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cpen.io%2Fassets%2Fimages%2Flogo.png&f=1&nofb=1&ipt=5db09f158ef5731508d3df009fa36f35f0c1450dc092f9648750f7a129835e85",
+        description: "Mine $INK in the cPen network! Complete quests, accumulate $INK and collect airdrop on BSC! It really is that simple! Assuming the app is not a scam, of course.",
+        added: "10-12-2024",
+        id: "cpen",
+        attr: {
+            platform: "wai",
+            type: "mine",
+            coin: "INK",
+            effort: 0,
+            rating: 2
+        },
+        info: {
+            description: "cPen allows you to get $INK through mining and for completing quests. After completing KYC, you will get access to the wallet section, which, after the airdrop is announced, will be used to set a BSC address for your accumulated tokens to arrive. This app is very simple, but there are features that do not work (like Local Services) or are straight-up annoying (like pages not layering on top of each other, but rather replacing activities, meaning you can accidentally close the app when trying to return to the home screen. This happened to me twice. Today.) - other than that, the app's home screen already looks kitchy and all of this certainly lowers the trust levels.",
+            effort: "Restart mining every 24 hours, or earlier by watching an ad."
+        },
+        go: {
+            type: 1,
+            link: "https://cpen.io?r=kingpvz",
+            code: "kingpvz"
+        },
+        benefits: ["Unknown"],
+        features: [["Mining", "Collect $INK by mining every day! Collect even more and restart mining whenever you want by watching an ad!"],
+        ["Quests", "Get more $INK by completing quests - learn about crypto and get rewarded! New quests arrive every week!"],
+        ["Other Features", "Watch ads to collect Loot Boxes, promote your Local Services (doesn't work) and explore other services near you (doesn't work). There's also a leaderboard and everything."]],
+        tips: [["Don't waste your time!", "This is the first time I've seen a 120 second long unskippable ad. The lootbox worth 4.5 $INK is not worth this pain. Speaking of ads, you can activate ads without watching ads - the app will start mining immediately when the ad <b>loads</b>, meaning that if you close the app at that moment, you will start mining without having to suffer the ad!"],
+        ],
+        pros: ["Simple to use", "Active developer team"],
+        cons: ["Annoying to use (many times you might accidentally close the app in hopes to reach the home screen)", "Extremely long ads", "Certain features do not work", "App has multiple buttons that do the same thing slightly differently, making it a nightmare trying to navigate to and from a specific screen", "Kitchy look"],
+        banner: "bin"
+    }, {
         name: "Satoshi Game",
         icon: "https://www.findmini.app/_astro/img_1323_i7hyyxw9zt_ZdMWdm.webp",
         description: "Watch ads, mine SATS and! I wanted to say more but there is nothing else to this app.",
@@ -380,6 +606,68 @@ var LIST = [
         pros: ["App looks modern"],
         cons: ["Presumably dead developer team", "Bugs", "Non-transparent"],
         banner: "blum"
+    }, {
+        name: "Mineswap",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJeqyLgSEmRxW8iLD6l9jVAdxGj19SqvFnfB1b1NX7iwkSlT6DO9N474a_Y1Zuw7uzg&f=1&nofb=1&ipt=92bd992de62f8e1528f4a08e19cad60d0af02273b46fa8e4a3899e85ca6f9a5b",
+        description: "Create your own tokens and mine the tokens of others! Now this sounds lovely, however there are some issues to point out. Like the fact there is no option to withdraw, the official website doesn't work and the support will ignore you.",
+        added: "10-1-2024",
+        id: "mineswap",
+        attr: {
+            platform: "a",
+            type: "mine",
+            coin: "Various",
+            effort: 0,
+            rating: 1
+        },
+        info: {
+            description: "Imagine you could just create your own tokens effortlessly - this premise sounds awesome, but it probably doesn't take long before you realize whatps wrong with it. If anyone can create a token without even needing to specify the token address, it probably means most of the tokens are going to be fake. According to users who managed to mine tokens all the way until their allocation was used up state that withdrawals never arrived. The facts that the support doesn't respond and the official website doesn't exist also don't help the case here. Although the app is very easy to use and looks high quality, do not waste time watching ads or attempting to purchase anything.",
+            effort: "Restart mining every day. Effort depends on the amount of tokens you decide to mine = every extra token means extra activation."
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=com.mineswap.app&hl=en-US",
+            code: "CAWUNVTU"
+        },
+        benefits: ["20000 Referral Cash (Allows yo to increase your base mining rate by around 0.28 per hour per token)"],
+        features: [["Wallet", "Mine up to 6 tokens for free, gain EXP and level up to increase your mining rate! Explore new tokens and don't forget about the official MineSwap (MST) token!"],
+        ["Create", "Create your own token in minutes and see how others mine it! Then, once all of it was mined, distribute the token to the users!"],
+        ["Earn", "Earn more EXP every day by completing simple tasks!"]
+        ],
+        tips: [["Do not unlock extra wallet slots using the Unlock button! And do not buy VIP!", "Extra wallet slots cost around 2$. If you really want to mine more, gather 140000 Referral Cash and use it to buy extra slots. As it goes for VIP, it's straight-up useless. 50% extra EXP and mining rate sounds awesome until you realize both can be rewarded for free by completing tasks, using referral cash or by simply mining tokens. Priority support is a joke, since the support doesn't actually reply. Although they might if you have VIP? Welp, not gonna waste 4$ a month to figure that out."],
+        ],
+        pros: ["You can mine any token created by the community, or even launch your own"],
+        cons: ["Useless in-app purchases", "No support or official website", "Withdrawals take forever (assuming they arrive, which they probably won't)"],
+        banner: "bin"
+    }, {
+        name: "Delta",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.winudf.com%2Fv2%2Fimage1%2FMzk3NjQ1ODdfMTc0MzEwNjM2MV8wMjU%2Fscreen-0.png%3Ffakeurl%3D1%26type%3Dpng&f=1&nofb=1&ipt=c534c29e16d513eb760a4de7f33df4e9aa17086445429e6a9997abbf6ed87fcc",
+        description: "Mine &delta; every day and explore the Delta ecosystem with dApps and other features! The only catch is - the features do not work! Awesome! This app is also too complicated for what it is.",
+        added: "10-29-2024",
+        id: "delta",
+        attr: {
+            platform: "ai",
+            type: "mine",
+            coin: "&delta;",
+            effort: 0,
+            rating: 1
+        },
+        info: {
+            description: "Naming your token Delta and establishing its symbol as &delta; is super awesome - since it is not even UTF friendly! That aside, Delta has many interesting features, from earning USDT by watching ads, through dApps, all the way to a dedicated wallet. The only reason this app has one star is the fact, that neither of these features work, or they lack required information about their functionality, such that it is impossible to understand how these features work.",
+            effort: "Restart mining every 24 hours."
+        },
+        go: {
+            type: 1,
+            link: "https://delta.kim/?referrer=T8RH2P2C44KP3",
+            code: "T8RH2P2C44KP3"
+        },
+        benefits: ["Unknown"],
+        features: [["Mining", "Collect &delta; by mining every day! Check out your minting rate to see how much you can earn!"],
+        ["Other Features", "Watch ads to earn USDT (does not work), Dedicated wallet (no explanation to how it works), dApps (do not work), User distribution map (useless), Top notch and extremely secure verification system (for what the app is, this is extremely unnecessary)"]],
+        tips: [["Avoid the buttons on the left!", "The Ad button literally plays an ad - you can use that to sponsor the developers. I'm sorry guys, but after seeing your app, I really don't wanna sponsor you. The USDT button allows you to get USCT by watching ads (6 USCT/ad). The only issue is that there is no way to convert USCT to USDT, and it will be stuck pending forever."],
+        ],
+        pros: ["The user distribution map is colorful"],
+        cons: ["Many useless features, most of which do not work", "Extremely complicated and difficult to use", "Undocumented and unexplained features"],
+        banner: "bin"
     }, {
         name: "WORK DOGS",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftelegramchannels.me%2Fstorage%2Fmedia-logo%2F2412%2Fworkdogsnews.jpg&f=1&nofb=1&ipt=e51fa49cb0683791ef8ed0a9a46713e68b49b828a1a4c5938e97b0579fd05c9d",
