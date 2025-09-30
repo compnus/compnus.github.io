@@ -281,6 +281,42 @@ var LIST = [
         banner: "bin"
     },
     {
+        name: "UpRock",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdepinscan-prod.s3.us-east-1.amazonaws.com%2Fnext-s3-uploads%2F3052af85-94c3-437b-b764-079164c02a58%2Fuprock_color.png&f=1&nofb=1&ipt=9c1ff17d8ef0c29903a48cd5a9292ca281849b0cc7eb7ce1c5a72c1dd85c587e",
+        featured: true,
+        description: "Get paid for sharing your unused internet! Gain the UpRock token, stake it or withdraw to any Solana wallet! Also available on Windows, macOS and Linux!",
+        added: "9-1-2024",
+        id: "uprock",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "ai",
+            type: "nw",
+            coin: "other:UPT",
+            effort: 0,
+            rating: 5
+        },
+        info: {
+            description: "UpRock shares your unused bandwidth - ideal if you are on WiFi or endless data supply, and pays you for them. Scientists and companies use your unused bandwidth to perform tasks like ad verification and more. UpRock pays you for helping them make the internet a better place! Additionally, UpRock doesn't slow down your internet connection which means there is literally no reason not to try it.<br><br>Although not listed in the platform section, UpRock is also available for <b>Windows</b>, <b>macOS</b> and <b>Linux</b> devices.",
+            effort: "Just leave the app running in the background. Start the app and withdraw, everything else is done automatically."
+        },
+        go: {
+            type: 0,
+            link: "https://link.uprock.com/i/a2475e1d"
+        },
+        features: [["Share Unused Bandwidth and Make Money", "UpRock pays you for using your internet bandwidth for research purposes, that would go to waste otherwise. That sounds like a win-win situation!"],
+        ["Staking", "Lock your earned tokens and earn interest!"],
+        ["Microtasks and Cashback", "Earn more $UPT by completing microtasks such as playing games and get cashback on supported stores!"]
+        ],
+        tips: [["Patience is key.", "Unlike <a href='viewEarn.html?id=honeygain' style='color:yellow'>Honeygain</a>, UpRock runs many tests to make sure your device is valid. This means it might take a couple weeks before you will start actually earning any tokens. The same logic applies to staking. The longer your lock your tokens for, the higher the APY! Just be patient and watch your earnings grow!"],
+        ["Connect multiple devices!", "If you can, make sure to install UpRock on your mobile device, computer, work laptop, etc. and link them all to the same account! This will exponentially increase your rewards!"]
+        ],
+        pros: ["No ads", "Doesn't affect network or device speed", "Many different ways to increase your earnings"],
+        cons: ["High withdrawal threshold (250 $UPT) with high fee (about 53 $UPT)"],
+        benefits: [],
+        banner: "bin"
+    },
+    {
         name: "JumpTask",
         icon: "https://play-lh.googleusercontent.com/x_5u0RcjMK9WdyJ5QR9ZNnVF4dQDeDGs2C9GVzDzhsmgaQYX43cIYBO4O8nLVXgU8Vk=w240-h480-rw",
         featured: false,
@@ -320,6 +356,7 @@ var LIST = [
     },
     {
         name: "#mate",
+        unlisted: true,
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2025%2F03%2Fhash-mate-logo.webp&f=1&nofb=1&ipt=32321a8cf968e78d8752d064e51501960af68a10b2c1625adee8d234decf24dc",
         description: "#mate allows you to mine TON, NOT, Telegram Stars and more without investment! Frequent events, NFT mining and random cases allow you to earn a lot of various cryptocurrencies effortlessly!",
         added: "7-16-2024",
@@ -742,42 +779,6 @@ var LIST = [
         banner: "blum"
     },
     {
-        name: "UpRock",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdepinscan-prod.s3.us-east-1.amazonaws.com%2Fnext-s3-uploads%2F3052af85-94c3-437b-b764-079164c02a58%2Fuprock_color.png&f=1&nofb=1&ipt=9c1ff17d8ef0c29903a48cd5a9292ca281849b0cc7eb7ce1c5a72c1dd85c587e",
-        featured: false,
-        description: "Get paid for sharing your unused internet! Gain the UpRock token, stake it or withdraw to any Solana wallet! Also available on Windows, macOS and Linux!",
-        added: "9-1-2024",
-        id: "uprock",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "ai",
-            type: "nw",
-            coin: "other:UPT",
-            effort: 0,
-            rating: 5
-        },
-        info: {
-            description: "UpRock shares your unused bandwidth - ideal if you are on WiFi or endless data supply, and pays you for them. Scientists and companies use your unused bandwidth to perform tasks like ad verification and more. UpRock pays you for helping them make the internet a better place! Additionally, UpRock doesn't slow down your internet connection which means there is literally no reason not to try it.<br><br>Although not listed in the platform section, UpRock is also available for <b>Windows</b>, <b>macOS</b> and <b>Linux</b> devices.",
-            effort: "Just leave the app running in the background. Start the app and withdraw, everything else is done automatically."
-        },
-        go: {
-            type: 0,
-            link: "https://link.uprock.com/i/a2475e1d"
-        },
-        features: [["Share Unused Bandwidth and Make Money", "UpRock pays you for using your internet bandwidth for research purposes, that would go to waste otherwise. That sounds like a win-win situation!"],
-            ["Staking", "Lock your earned tokens and earn interest!"],
-        ["Microtasks and Cashback", "Earn more $UPT by completing microtasks such as playing games and get cashback on supported stores!"]
-        ],
-        tips: [["Patience is key.", "Unlike <a href='viewEarn.html?id=honeygain' style='color:yellow'>Honeygain</a>, UpRock runs many tests to make sure your device is valid. This means it might take a couple weeks before you will start actually earning any tokens. The same logic applies to staking. The longer your lock your tokens for, the higher the APY! Just be patient and watch your earnings grow!"],
-        ["Connect multiple devices!", "If you can, make sure to install UpROck on your mobile device, computer, work laptop, etc. and link them all to the same account! This will exponentially increase your rewards!"]
-        ],
-        pros: ["No ads", "Doesn't affect network or device speed", "Many different ways to increase your earnings"],
-        cons: ["High withdrawal threshold (250 $UPT)"],
-        benefits: ["If the app gets verified, we will distribute dividends."],
-        banner: "bin"
-    },
-    {
         name: "freebitcoin",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-3hHoxMSdzvc%2FXlJfe9uTxSI%2FAAAAAAAAAFU%2FOg2RBuKDm2gbk9CSdZSRMIaOXakCj0BggCLcBGAsYHQ%2Fs1600%2FScAR5Tf2.jpg&f=1&nofb=1&ipt=0ea1ceb850eec21ab8d94b3e19a0cca40da39eb093d88f6842531cb578183993",
         description: "Get free Bitcoin every hour! Test your luck, roll your lucky number and see how much you win! Get free lottery tickets and win ever more Bitcoin! Optionally, you can buy golden tickets to get a chance to win an actual Lamborghini? This site is crazy!",
@@ -1164,7 +1165,7 @@ var LIST = [
             rating: 4
         },
         info: {
-            description: `AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 30 ads) is worth about 0.03TON <a class="link" onclick="popup('What does this mean?', 'This app gets updates almost daily and the thing that changes the most, is the amount of ads you can watch per day. For some reason. This means that the amount of ads and therefore the amount of AIX you can get for free every day will probably be different from the data seen here. We are trying to update this information as frequently as possible, but we might not be completely accurate.<br><br>Most ADs per day recorded: <b>50</b><br>Least ADs per day recorded: <b>5</b><br>Highest free AIX to TON value per day recorded: <b>0.06 TON</b><br>Lowest free AIX to TON value per day recorded: <b>0.0001 TON</b>')" title="What does this mean?">at this point</a>, which is not excellent, but it was only 0.0001 so it's certainly better!`,
+            description: `AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 30 ads) is worth about 0.02TON <a class="link" onclick="popup('What does this mean?', 'This app gets updates almost daily and the thing that changes the most, is the amount of ads you can watch per day. For some reason. This means that the amount of ads and therefore the amount of AIX you can get for free every day will probably be different from the data seen here. We are trying to update this information as frequently as possible, but we might not be completely accurate.<br><br>Most ADs per day recorded: <b>50</b><br>Least ADs per day recorded: <b>5</b><br>Highest free AIX to TON value per day recorded: <b>0.06 TON</b><br>Lowest free AIX to TON value per day recorded: <b>0.0001 TON</b>')" title="What does this mean?">at this point</a>, which is not excellent, but it was only 0.0001 so it's certainly better!`,
             effort: "Collect tokens, stake them and that's it!"
         },
         go: {

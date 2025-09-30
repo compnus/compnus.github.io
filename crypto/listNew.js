@@ -378,6 +378,7 @@ var LIST = [
         banner: "bin"
     }, {
         name: "Lions",
+        unlisted: true,
         icon: "https://www.findmini.app/_astro/avatar_jCEfHhyLy9_1SPw6L.webp",
         description: "Check out the next soon-to-be huge meme coin! Maybe. Maybe not. Who knows. If we hype it? Perhaps. Get free $LIONS for completing simple tasks and checking in daily!",
         added: "7-30-2024",
@@ -467,9 +468,9 @@ var LIST = [
         cons: ["No updates", "Non-transparent token launching process", "Broken leaderboard", "Cannot send messages in the official group"],
         banner: "blum"
     }, {
-        name: "Athene Network",
+        name: "Atheus (Athene Network)",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FKDYZdbDPArk0g1duIwJfq8A08XCm9Cjqcehy3L3g3ZiwsPdLGHtMrNUdaV-ahQr0Tlo&f=1&nofb=1&ipt=24147b304bb452d08621c20038ac1e09d167cfc3f3a5f4a84823aa3cd49a4173",
-        description: "Athene Network is a full-on blockchain in your pocket! Though this sounds awesome, it is worth pointing out that most features do not work. Most of the time to say the least. Uhhhh yeah, cool project.",
+        description: "Atheus is a full-on blockchain in your pocket! Though this sounds awesome, it is worth pointing out that most features do not work. Most of the time to say the least. Uhhhh yeah, cool project.",
         added: "9-29-2024",
         id: "athene",
         attr: {
@@ -666,7 +667,7 @@ var LIST = [
         tips: [["Avoid the buttons on the left!", "The Ad button literally plays an ad - you can use that to sponsor the developers. I'm sorry guys, but after seeing your app, I really don't wanna sponsor you. The USDT button allows you to get USCT by watching ads (6 USCT/ad). The only issue is that there is no way to convert USCT to USDT, and it will be stuck pending forever."],
         ],
         pros: ["The user distribution map is colorful"],
-        cons: ["Many useless features, most of which do not work", "Extremely complicated and difficult to use", "Undocumented and unexplained features"],
+        cons: ["Many useless features, most of which do not work", "Extremely complicated and difficult to use and sign in", "Undocumented and unexplained features"],
         banner: "bin"
     }, {
         name: "WORK DOGS",
