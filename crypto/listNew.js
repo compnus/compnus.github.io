@@ -46,7 +46,7 @@ var LIST = [
             rating: 5
         },
         info: {
-            description: "Become an Otarian and mine OTARA with the Imota community! Earn OTARA tokens in various ways - play games (especially Ota Scratch, the music is amazing, it's worth playing it more for the music than the reward itself), collect mined OTARA, hire miners to mine even more OTARA, bet matches, spin the wheel, open chests, simply - have fun and earn something nice for it - a beautiful crypto money, you will be able to use once the mainet launches (soon, hopefully)!",
+            description: "Become an Otarian and mine OTARA with the Imota community! Earn OTARA tokens in various ways - play games (especially Ota Scratch, the music is amazing, it's worth playing it more for the music than the reward itself), collect mined OTARA, hire miners to mine even more OTARA, bet matches, spin the wheel, open chests, simply - have fun and earn something nice for it - a beautiful crypto money, you will be able to use once the mainnet launches (soon, hopefully)!",
             effort: "Collect OTARA periodically throughout the day, hire miners once the previous once have finished their mining cycle (this can take from a couple minutes to a couple hours), play games and bet matches to maximize your earnings."
         },
         go: {
@@ -100,6 +100,37 @@ var LIST = [
         pros: ["Offline mining", "Many cards to upgrade and explore", "Active developer team", "Frequent events and lotteries"],
         cons: ["Mocking with USDT you cannot withdraw (you can earn up to 6USDT from spinning the wheel, but since the withdrawal threshold is 10USDT, you will never be able to withdraw)", "Poor UX", "Most special cards stay in the game for a very short period of time, making it impossible to upgrade them to a decent level"],
         banner: "blum"
+    }, {
+        name: "TTcoin Trees",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FOjaaAfMav6epiru4Pu0rn0IjomikI9zA78efje_lApt_DivRZ2ENtRsYinB8AVTcVeI&f=1&nofb=1&ipt=027def713ed2a9739f0d7a7cb953905bda19a76886c0e09655df12985c9cd670",
+        description: "Plant trees and harvest TC! Stake your TC, complete achievements and earn even more! Check out the games and if you want to decide the future of TTcoin, you may also purchase council shares! Truly a netowrk of all time!",
+        added: "12-20-2024",
+        id: "tctrees",
+        attr: {
+            platform: "a",
+            type: "mine",
+            coin: "TC",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "Gain more TC by growing your tree! This app is part of the <a href='viewNew.html?id=tcnetwork' class='link'>TTcoin Network</a>.<br><br>TTcoin Trees allow you to grow your tree and harvest tokens, 25 TC per 12 hours. Besides that, you can stake your earned TC on up to 80% APY when locking your TC for 9 months. Complete achievements to earn even more TC - up to 5000 per task! Another part of this app are the various games provided, however two of them require paying real money to reward you with TC, and the other is straight up impossible after some time, unless you upgrade your equipment, which costs a massive amount of TC. Not recommended. Another thing you can do is buy council shares to shape the future of the TTcoin Network!",
+            effort: "Restart mining every 12 hours."
+        },
+        go: {
+            type: 0,
+            link: "https://play.google.com/store/apps/details?id=com.ttcoin.trees&referrer=JWsCEq0N"
+        },
+        benefits: ["Ticket for prizes (no idea what that is, we will specify it once we find out)"],
+        features: [["Harvesting", "Water your tree, level it up and collect TC every time you harvest + bonus TC for achievements from leveling up!"],
+            ["Staking and Achievements", "Multiply your TC by completing tasks and staking with up to 80% APY!"],
+        ["Council and Games", "Both of these features require paying real money to use. Enter the council and shape the future of TTcoin Network! Play games to increase the amount of TTcoin you make!"]],
+        tips: [["Do not buy KYC for 0.1$!", "You can purchase KYC (which grants you access to staking and games) by either paying 0.1$ or 3000 TC. The latter is a much better deal, since you can get the TC back in many ways, especially achievements. Even though 10 cents might not seem like a lot, if this project turns out to be a scam (which it really does not seem like), you will rest assured that you did not lose any money."],
+        ["Patience pays off!", "Locking your TC for 3 months might seem like a really neat way to get extra tokens, until you realize, that by locking them for 9 months, your APY more than triples. The more patient you are, the higher the yield of TC becomes!"]
+        ],
+        pros: ["Very easy to use", "Notification services ensures you will not forget to harvest your tokens", "Many neat features and ways to earn extra tokens"],
+        cons: ["Games cost money to play, or get impossible to continue in without spending a huge amount of TC", "Unclear rewards for certain features"],
+        banner: "bin"
     }, {
         name: "DuckChain",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.cryptorank.io%2Fcoins%2Fduck_chain1730984683577.png&f=1&nofb=1&ipt=473cebed1f1af7cabb59dc3488cd6627dc357f528e9a829b6eaf63dec25c1250",
@@ -249,6 +280,34 @@ var LIST = [
         tips: [["There are no tips.", "Yet another very simple app that doesn't have much to offer. Therefore, no tips are needed."]],
         pros: ["Extremely simple"],
         cons: ["Most features do not work or are under development", "Flooded with ads"],
+        banner: "bin"
+    }, {
+        name: "TTcoin Network",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FmgPNi6R9yikJdN6wCS7xiFUOZY6REJtqgToyrWzhS8QCcb6mJK1K45gn4VE61a_lN84&f=1&nofb=1&ipt=49b22a5a1132a6519ba00f384fd33ad4b8f73d4a2acc1be7c15c79b8b41c35f2",
+        description: "Mine TC and explore the network! Withdraw to TSC Mainnet wallet and even work with TC on certain exchanges!",
+        added: "12-21-2024",
+        id: "tcnetwork",
+        attr: {
+            platform: "a",
+            type: "mine",
+            coin: "TC",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "Check out other apps in the TTcoin Network: <a href='viewNew.html?id=tctrees' class='link'><b>TTcoin Trees</b></a><br><br>For being the &quot;main&quot; app of the TTcoin Network, it really does not offer much. You can watch an ad to get energy, which then allows you to start your 6 hour mining cycle, which will bring you 30 TC - This is 70 more TC per day then TTcoin Trees, however that is actually the only advantage in comparison. Especially becuase there are no other features. Yeah. Cool stuff?",
+            effort: "Restart mining every 6 hours."
+        },
+        go: {
+            type: 0,
+            link: "https://play.google.com/store/apps/details?id=com.ttcoin.network&referrer=cljv05H1J9M4EWwhxYZMX4tz3jz1"
+        },
+        benefits: ["100 TC"],
+        features: [["Mining", "Mine TC every 6 hours and watch it accumulate in your wallet! You can then withdraw it to any TSC Mainnet wallet, including special exchanges."]],
+        tips: [["There are no tips.", "There is literally only one feature. Just uh... mine? To your heart's content???"]
+        ],
+        pros: ["Very easy to use", "Notification services ensures you will not forget to harvest your tokens"],
+        cons: ["Too few features for an app that is supposed to be the &quot;main&quot; app of the ecosystem"],
         banner: "bin"
     }, {
         name: "Rich Dog",
