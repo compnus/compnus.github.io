@@ -107,6 +107,8 @@ function collapseFilters() {
             filters.style.gridRow = "span 1";
             filters.style.overflowY = "hidden";
             document.getElementById("main").style.gridColumn = "span 2";
+            document.getElementById("utilitybuttons").style.transform = "rotate(-90deg) translateY(-4vh) translateX(4vh)";
+            document.getElementById("thouthasflag").style.transform = "rotate(90deg)";
         }
         document.getElementById("collapfilt").style.rotate = "180deg";
         document.querySelector("main").classList.add("pcmarginfix");
@@ -118,6 +120,8 @@ function collapseFilters() {
             filters.style.gridRow = "span 2";
             filters.style.overflowY = "scroll";
             document.getElementById("main").style.gridColumn = "span 1";
+            document.getElementById("utilitybuttons").style.transform = "rotate(0) translateY(0) translateX(0)";
+            document.getElementById("thouthasflag").style.transform = "rotate(0)";
         }
         document.getElementById("collapfilt").style.rotate = "0deg";
         document.querySelector("main").classList.remove("pcmarginfix");

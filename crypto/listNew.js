@@ -940,6 +940,9 @@ function load() {
 function loadView(item) {
     document.getElementById("viewicon").src = item.icon;
     document.getElementById("description").innerHTML = item.info.description;
+    let reportButton = document.getElementById("thouthasflag");
+    reportButton.title = "Report " + item.name;
+    reportButton.href = "report.html?l=new&id=" + item.id;
     document.getElementById("benefits").setAttribute("onclick", "popup('Benefits for using " + item.name + " through CompNUS', '<ul>" + (item.benefits.length ? "<li>" + item.benefits.join("</li><li>") + "</li>" : "") + (item.attr.dividends ? `<li>Get dividends from CompNUS (you can request them <a target="_blank" style="color:yellow" href="../nus/dividends.html"><b>here</b></a>)</li>` : "") + "</ul>')");
         for (j of item.attr.platform) {
         var x = document.createElement("img");

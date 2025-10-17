@@ -435,6 +435,7 @@ var LIST = [
     },
     {
         name: "FoFo",
+        unlisted: true,
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.crypto.com%2Ftoken%2Ficons%2Ffofo-token%2Fcolor_icon.png&f=1&nofb=1&ipt=ee6ada9e7d392198aebe284e88642fbc74e7ef8f394c17ad59f99f148ca5110c",
         description: "Merge frogs, produce gems and exchange them for USDT! Click your frogs for candy and exchange that for even more USDT! Daily tasks, lucky wheel, leaderboard and minigames are also available!",
         added: "8-2-2024",
@@ -449,7 +450,7 @@ var LIST = [
             rating: 4
         },
         info: {
-            description: "Get your frogs, merge them and make some money! FoFo allows you to purchase frogs (or get them for free by watching ads), merge them into gem-producing rainbow frogs and exchange gems for USDT! Complete daily tasks for extra coins and gems, visit the lab to upgrade your frogs, play minigames and exchange candy for even more USDT! There is a lot in this one, and we haven't even mentioned the lucky wheel or the leaderboards! Definitely a packed game!",
+            description: "<b>CUrrently stuck at withdrawal processing. Until solved, this app is to be considered a scam.</b><br><br>Get your frogs, merge them and make some money! FoFo allows you to purchase frogs (or get them for free by watching ads), merge them into gem-producing rainbow frogs and exchange gems for USDT! Complete daily tasks for extra coins and gems, visit the lab to upgrade your frogs, play minigames and exchange candy for even more USDT! There is a lot in this one, and we haven't even mentioned the lucky wheel or the leaderboards! Definitely a packed game!",
             effort: "This is a game, so if you don't play you won't progress. There is one thing that works on its own however, and it's your rainbow frogs that produce gems even if you are offline."
         },
         go: {
@@ -515,50 +516,6 @@ var LIST = [
         banner: "bin"
     },
     {
-        name: "WeMine",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcombomanager.com%2Fwp-content%2Fuploads%2F2024%2F12%2Fge23.jpg&f=1&nofb=1&ipt=da13b6da19fb3b7d391f70e99dffe3191ff5084d6952451008733aa27359fb2f",
-        description: "Mine USDT, $LABR and WeMine's own token $WM for free! Solve daily cases to get extra wUSDT and WM that can be used to upgrade your miners and enjoy extra income!",
-        added: "7-23-2024",
-        id: "wemine",
-        attr: {
-            verified: 1,
-            dividends: true,
-            platform: "t",
-            type: "mine",
-            coin: "usdt other:LABR other:WM",
-            effort: 1,
-            rating: 4
-        },
-        info: {
-            description: "WeMine offers 4 different mines, each offering a different currency to earn with its own utility! Main mine allows you to mine wBTC which can be used to upgrade $WM mine or exchanged for wUSDT to upgrade main mine, USDT mine and LABR mine. Every day you can also solve a case for extra wUSDT! USDT mine allows you to mine for USDT from the community pool. Be sure to mine as much as possible, because the supply is limited! LABR mine is connected to Labrador Adventures (see banner below) and allows you to mine $LABR based on your Labrador's speed + miner level. $LABR will be transfered to Labrador Adventures from which it can be withdrawn. Finally, the $WM Miner is the latest addition to WeMine! After the TGE, you can use this mine to collect your airdrop rewards, as well as mine for $WM or solve cases for even more $WM!",
-            effort: "Collecting mining rewards requires watching an ad and is happening fairly often if you refuse to pay stars."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/WeMineBot/mine?startapp=ref_JKO5DUOI74"
-        },
-        benefits: [],
-        features: [["Four Different Mines Offering 3 Different Tokens to Mine", "Mine USDT, $LABR and $WM - your choice! But obviously the best option is to mine them all!"],
-            ["Daily Cases", "Every day you can solve four cases for extra wUSDT and $WM! Two cases are community-wide, meaning that you don't have to solve anything! Simply ask the community! The other two are user-exclusive, meaning you have to try to guess the code yourself."]
-        ],
-        tips: [
-            ["Do not waste any time!", "WeMine will send you a notification after your miner has finished mining. Do not waste a single second a collect your rewards!"],
-            ["Solve the daily cases!", "Daily cases can give you more wUSDT and WM than the mining itself, meaning they are extremely important to solve for extra rewards!"],
-            ["Max out your wBTC miner!", "After ensuring a stable wBTC and therefore wUSDT income, you can invest it into other miners. This approach might take extra time before you start earning real money, but it will pay off in the long run!"]
-        ],
-        pros: ["Excellent notification service", "Active developer team"],
-        cons: ["The app is unstable and may refuse to start or get stuck at the loading screen on certain devices", "Mining USDT requires inviting friends", "Unhelpful support"],
-        banner: `<div class="promobannerad" style="background-color:#9f5500">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdb.stickerswiki.app%2Fapi%2Ffiles%2F1nlpavfhdos0lje%2Fkqxu070ljh98k3z%2Favatar_aq5bx17dxd.jpg&f=1&nofb=1&ipt=167cbbcefb0cc09f95864377bdd562b3d824ddd1696a708641af9a3519229978">
-            <div>
-            <h1>Withdraw $LABR through Labrador Adventures!</h1>
-            <p>In order to mine and withdraw $LABR using WeMine, you will need Labrador Adventures.</p>
-            </div>
-    <button>OPEN</button>
-            </div>`,
-        bannerLink: "viewEarn.html?id=labrador"
-    },
-    {
         name: "Labrador Adventures",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdb.stickerswiki.app%2Fapi%2Ffiles%2F1nlpavfhdos0lje%2Fkqxu070ljh98k3z%2Favatar_aq5bx17dxd.jpg&f=1&nofb=1&ipt=167cbbcefb0cc09f95864377bdd562b3d824ddd1696a708641af9a3519229978",
         unlisted: true,
@@ -601,6 +558,7 @@ var LIST = [
     },
     {
         name: "TeaBank",
+        unlisted: true,
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapp.teabank.io%2Flogo.jpg&f=1&nofb=1&ipt=48c1f89cd915b1b0e8021e92bb285e1768d06f3ec661363ae640885fbda09da9",
         description: "Grow your trees and harvest TON! Complete tasks, participate in challenges and don't forget to water your trees so they can grow even more!",
         added: "7-26-2024",
@@ -615,7 +573,7 @@ var LIST = [
             rating: 4
         },
         info: {
-            description: "TeaBank allows you to plant and care for your own tea tree by watering it and harvesting TON every three hours! Along with TON, you are also earning tbPoints, which will be used for future airdrops. Along with the farming, you can get extra TON for spinning the Lucky Wheel, completing Tasks (new added daily) and participating in community challenges!",
+            description: "<b>Does't work rn<b><br>TeaBank allows you to plant and care for your own tea tree by watering it and harvesting TON every three hours! Along with TON, you are also earning tbPoints, which will be used for future airdrops. Along with the farming, you can get extra TON for spinning the Lucky Wheel, completing Tasks (new added daily) and participating in community challenges!",
             effort: "Claim earnings and start mining every three hours. You will need water to start mining, which requires watching ads."
         },
         go: {
@@ -712,6 +670,50 @@ var LIST = [
         banner: "speed"
     },
     {
+        name: "WeMine",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcombomanager.com%2Fwp-content%2Fuploads%2F2024%2F12%2Fge23.jpg&f=1&nofb=1&ipt=da13b6da19fb3b7d391f70e99dffe3191ff5084d6952451008733aa27359fb2f",
+        description: "Mine USDT, $LABR and WeMine's own token $WM for free! Solve daily cases to get extra wUSDT and WM that can be used to upgrade your miners and enjoy extra income!",
+        added: "7-23-2024",
+        id: "wemine",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "t",
+            type: "mine",
+            coin: "usdt other:LABR other:WM",
+            effort: 1,
+            rating: 3
+        },
+        info: {
+            description: "WeMine offers 4 different mines, each offering a different currency to earn with its own utility! Main mine allows you to mine wBTC which can be used to upgrade $WM mine or exchanged for wUSDT to upgrade main mine, USDT mine and LABR mine. Every day you can also solve a case for extra wUSDT! USDT mine allows you to mine for USDT from the community pool. Be sure to mine as much as possible, because the supply is limited! LABR mine is connected to Labrador Adventures (see banner below) and allows you to mine $LABR based on your Labrador's speed + miner level. $LABR will be transfered to Labrador Adventures from which it can be withdrawn. Finally, the $WM Miner is the latest addition to WeMine! After the TGE, you can use this mine to collect your airdrop rewards, as well as mine for $WM or solve cases for even more $WM!",
+            effort: "Collecting mining rewards requires watching an ad and is happening fairly often if you refuse to pay stars."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/WeMineBot/mine?startapp=ref_JKO5DUOI74"
+        },
+        benefits: [],
+        features: [["Four Different Mines Offering 3 Different Tokens to Mine", "Mine USDT, $LABR and $WM - your choice! But obviously the best option is to mine them all!"],
+        ["Daily Cases", "Every day you can solve four cases for extra wUSDT and $WM! Two cases are community-wide, meaning that you don't have to solve anything! Simply ask the community! The other two are user-exclusive, meaning you have to try to guess the code yourself."]
+        ],
+        tips: [
+            ["Do not waste any time!", "WeMine will send you a notification after your miner has finished mining. Do not waste a single second a collect your rewards!"],
+            ["Solve the daily cases!", "Daily cases can give you more wUSDT and WM than the mining itself, meaning they are extremely important to solve for extra rewards!"],
+            ["Max out your wBTC miner!", "After ensuring a stable wBTC and therefore wUSDT income, you can invest it into other miners. This approach might take extra time before you start earning real money, but it will pay off in the long run!"]
+        ],
+        pros: ["Active developer team"],
+        cons: ["The app is unstable and may refuse to start or get stuck at the loading screen on certain devices", "Mining USDT requires inviting friends", "Unhelpful support", "Notifications only appear when they feel like it"],
+        banner: `<div class="promobannerad" style="background-color:#9f5500">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdb.stickerswiki.app%2Fapi%2Ffiles%2F1nlpavfhdos0lje%2Fkqxu070ljh98k3z%2Favatar_aq5bx17dxd.jpg&f=1&nofb=1&ipt=167cbbcefb0cc09f95864377bdd562b3d824ddd1696a708641af9a3519229978">
+            <div>
+            <h1>Withdraw $LABR through Labrador Adventures!</h1>
+            <p>In order to mine and withdraw $LABR using WeMine, you will need Labrador Adventures.</p>
+            </div>
+    <button>OPEN</button>
+            </div>`,
+        bannerLink: "viewEarn.html?id=labrador"
+    },
+    {
         name: "CT Pool",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FYv1_wJKJD2UVEUW35Jn6yTjiNs00H8I3oiIoRiHtWbwn_XL1m8mO8_noSRZBaqVmB-w&f=1&nofb=1&ipt=c82e99c93da2eda4f906be76a608b22b5f93887646f8362c88be86d9a24a5e49",
         id: "ctpool",
@@ -777,6 +779,41 @@ var LIST = [
         pros: ["No withdrawal fee and low withdrawal threshold (0.01 TON)"],
         cons: ["No notifications", "Grinding for water and food can take up a lot of time", "Withdrawing for the first time requires purchasing a cow for 0.5 TON"],
         banner: "blum"
+    },
+    {
+        name: "Gift Go",
+        icon: "https://static.nicegram.app/features/telegram_channel_icons/be8c0f96-dac6-4a00-836b-f9915cc0db08.jpeg",
+        description: "Collect Crystals, roll the spinner and win! Gift Go allows you to win Telegram Stars, Gifts, or even Telegram Premium! We have to mention the gambling aspect - yes, you can spin for free... every 25 days. And if you wanna do it more often, you will need to deposit. For that (once the app gets verified), we will provide you with cashback!",
+        added: "5-20-2025",
+        id: "giftgo",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "w",
+            type: "faucet",
+            coin: "stars",
+            effort: 0,
+            rating: 5
+        },
+        info: {
+            description: "Gift Go allows you to get free gifts on the go! Okay that sounds terrible. Anyway! Use Gift Go to collect Crystals, use those to roll the spinner and see the prize you get! The prizes include Telegram Premium, Telegram Stars and Telegram Gifts! Sell common gifts for Crystals and collect NFT Gifts to sell them on the marketplace for Stars and TON! Besides free gems you can purchase them, which supports the gambling aspect (which we are against). For this, every time Gift Go pays us, we will distribute the money between the people who deposited real money into this app in the form of cashback dividends!",
+            effort: "Collect a Crystal every day. Spin once you have enough Crystals."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/GiftGoBot?startapp=ref_f358a5"
+        },
+        benefits: ["5 Crystals","When the app gets verified, we will distribute cashback in the form of dividends. (You will only be able to request this cashback after you have deposited at least 10 Stars and the cashback will be proportional to the amount you have deposited in total)"],
+        features: [
+            ["Spin to Win", "Roll the spinner and get Stars, Premium or Gifts!"],
+            ["Tasks", "Collect your daily free CRystal or complete tasks to get even more!"]
+        ],
+        tips: [
+            ["Patience is key.", "This app might test your patience really well. Saving up 25 Crystals only to roll a gift worth 15 Stars (which you won't withdraw because doing that makes you unable to sell it, so you will sell it in-app for 15 Crystals) might be really tiring. There are certainly better apps out there that guarantee income. As it goes for this one, maybe that roll for 25 Crystals will be your lucky day?"]
+        ],
+        pros: ["Very simple to use", "Unlike most apps with gambling aspect, it allows you to collect freebies without depositing (this might be wrong about withdrawing, we will update you)", "Giveaways are planned"],
+        cons: ["Withdrawn common gifts cannot be sold for stars"],
+        banner: "bin"
     },
     {
         name: "freebitcoin",
@@ -1165,7 +1202,7 @@ var LIST = [
             rating: 4
         },
         info: {
-            description: `AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 30 ads) is worth about 0.02TON <a class="link" onclick="popup('What does this mean?', 'This app gets updates almost daily and the thing that changes the most, is the amount of ads you can watch per day. For some reason. This means that the amount of ads and therefore the amount of AIX you can get for free every day will probably be different from the data seen here. We are trying to update this information as frequently as possible, but we might not be completely accurate.<br><br>Most ADs per day recorded: <b>50</b><br>Least ADs per day recorded: <b>5</b><br>Highest free AIX to TON value per day recorded: <b>0.06 TON</b><br>Lowest free AIX to TON value per day recorded: <b>0.0001 TON</b>')" title="What does this mean?">at this point</a>, which is not excellent, but it was only 0.0001 so it's certainly better!`,
+            description: `AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 30 ads) is worth about 0.01TON <a class="link" onclick="popup('What does this mean?', 'This app gets updates almost daily and the thing that changes the most, is the amount of ads you can watch per day. For some reason. This means that the amount of ads and therefore the amount of AIX you can get for free every day will probably be different from the data seen here. We are trying to update this information as frequently as possible, but we might not be completely accurate.<br><br>Most ADs per day recorded: <b>50</b><br>Least ADs per day recorded: <b>5</b><br>Highest free AIX to TON value per day recorded: <b>0.06 TON</b><br>Lowest free AIX to TON value per day recorded: <b>0.0001 TON</b>')" title="What does this mean?">at this point</a>, which is not excellent, but it was only 0.0001 so it's certainly better!`,
             effort: "Collect tokens, stake them and that's it!"
         },
         go: {
@@ -1930,11 +1967,17 @@ function load() {
 function loadView(item) {
     document.getElementById("viewicon").src = item.icon;
     document.getElementById("description").innerHTML = item.info.description;
+    let reportButton = document.getElementById("thouthasflag");
+    reportButton.title = "Report " + item.name;
+    reportButton.href = "report.html?l=earn&id=" + item.id;
     document.getElementById("benefits").setAttribute("onclick", "popup('Benefits for using "+item.name+" through CompNUS', '<ul>"+(item.benefits.length?"<li>"+ item.benefits.join("</li><li>") +"</li>":"") + (item.attr.dividends?`<li>Get dividends from CompNUS (you can request them <a target="_blank" style="color:yellow" href="../nus/dividends.html"><b>here</b></a>)</li>`:"")+"</ul>')");
     let verf;
     if (item.attr.verified === -1) verf = "Possible Scam";
     else if (item.attr.verified === 0) verf = "Unknown";
-    else if (item.attr.verified === 1) verf = "Verified";
+    else if (item.attr.verified === 1) {
+        verf = "Verified";
+        reportButton.style.display = "none";
+    }
     document.getElementById("legitimacy").innerHTML = verf;
     for (j of item.attr.platform) {
         var x = document.createElement("img");

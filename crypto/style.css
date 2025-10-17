@@ -719,6 +719,44 @@ main {
         flex: 1;
     }
 
+#utilitybuttons {
+    position: fixed;
+    bottom: 2vh;
+    left: 2vh;
+    height: 6.5vh;
+    display: flex;
+    margin-left: -1vh;
+    z-index: 1;
+    transition: 0.2s ease-out;
+}
+
+    #utilitybuttons > a {
+        display: block;
+        border: solid 0.5vh var(--border);
+        padding: 0.75vh;
+        margin: 0 1vh;
+        border-radius: 10vh;
+        background-color: var(--lightbg);
+        box-shadow: rgb(0 0 0 / 50%) 0 0 1vh;
+        transition: 0.2s;
+    }
+
+        #utilitybuttons > a:hover {
+            box-shadow: rgb(255 255 255 / 25%) 0 0 1vh;
+            border-color: yellow;
+        }
+
+        #utilitybuttons > a > img {
+            height: 4vh;
+            width: 4vh;
+            filter: invert(0.1);
+            transition: 0.2s;
+        }
+
+        #utilitybuttons > a:hover > img {
+            filter: invert(0);
+        }
+
 @media(max-width:800px) {
     #header {
         position: sticky;
@@ -1119,4 +1157,31 @@ main {
         .pickio > p {
             font-size: 6vw;
         }
+
+    #utilitybuttons {
+        bottom: 3vw;
+        left: 5vw;
+        height: initial;
+        flex-direction: column-reverse;
+        margin-left: 0;
+        transition: 0.2s ease-out;
+    }
+
+        #utilitybuttons > a {
+            border: solid 1vw var(--border);
+            padding: 1vw;
+            margin: 2vw 0;
+            box-shadow: rgb(0 0 0) 0 0 2vw, rgb(0 0 0 / 75%) 0 0 5vw, rgb(0 0 0 / 50%) 0 0 10vw;
+            height: 7.5vw;
+        }
+
+            #utilitybuttons > a:hover {
+                box-shadow: rgb(255 255 255 / 25%) 0 0 1vh;
+                border-color: yellow;
+            }
+
+            #utilitybuttons > a > img {
+                height: 7.5vw;
+                width: 7.5vw;
+            }
 }

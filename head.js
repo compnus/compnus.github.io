@@ -22,7 +22,7 @@ header.innerHTML = `
 </div>
 <div id="headernav">
 <p class="link hnav" id="cryptonus" title="Free crypto, new crypto projects, scam list and so much more!"><a href="/crypto/">CryptoNUS</a></p>
-<p class="link hnav" id="servicenus" title="Projects, tools and other services by CompNUS, or by partners of CompNUS."><a href="/services.html">Services</a></p>
+<p class="link hnav" id="servicenus" title="Explore the world of NUS! Versatile apps, services and features are only one click away!"><a href="/apps.html">Apps</a></p>
 <p class="link hnav" id="userlogin" title="Gateway to everything NUS: mine $NUS crypto and more!"><a href="/u/signup.html">Sign Up</a> <span style="color: white !important">/</span> <a href="/u/login.html">Log In</a></p>
 </div>
 </header>
@@ -36,7 +36,7 @@ promoheader.innerHTML = `
 </div>
 <div id="headernav">
 <p class="link hnav" id="cryptonus" title="Free crypto, new crypto projects, scam list and so much more!"><a href="/crypto/">CryptoNUS</a></p>
-<p class="link hnav" id="servicenus" title="Projects, tools and other services by CompNUS, or by partners of CompNUS."><a href="/services.html">Services</a></p>
+<p class="link hnav" id="servicenus" title="Explore the world of NUS! Versatile apps, services and features are only one click away!"><a href="/apps.html">Apps</a></p>
 <p class="link hnav" id="userlogin" title="Gateway to everything NUS: mine $NUS crypto and more!"><a href="/u/signup.html">Sign Up</a> <span style="color: white !important">/</span> <a href="/u/login.html">Log In</a></p>
 </div>
 </header>
@@ -67,9 +67,8 @@ fullfooter.innerHTML = `
 </div>
 <div class="footerx">
 <p class="link fnav"><a href="/about.html">About Us</a></p>
-<p class="link fnav fnavbot"><a href="/">Homepage</a></p>
-<p class="link fnav fnavbot"><a href="/crypto/">CryptoNUS</a></p>
-<p class="link fnav fnavbot"><a href="/services.html">Services</a></p>
+<p class="link fnav fnavbot"><a href="#telegramnews#">News <img class="footerpng" src="https://img.icons8.com/?size=100&id=lUktdBVdL4Kb&format=png&color=FFFFFF"></a></p>
+<p class="link fnav fnavbot"><a href="/apps.html">Apps</a></p>
 </div>
 <br><br><br>
 <p id="footmes">There's nothing to see here... for now.<br><span class="link" style="font-weight: bold; cursor: pointer" onclick="window.scrollTo(0, 0);">Back to top</span></p>

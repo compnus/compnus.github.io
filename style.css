@@ -193,6 +193,8 @@ footer {
     background: var(--maingradfallback);
     box-shadow: black 0 0 10px;
     padding: 2vh;
+    position: relative;
+    z-index: 3;
 }
 
 footer.full {
@@ -219,6 +221,19 @@ footer.full {
     font-size: 2vh !important;
     line-height: 1.2;
 }
+
+    .footerx > .fnav.fnavbot > a > .footerpng {
+        display: inline-block;
+        height: 2.4vh;
+        width: 2.4vh;
+        padding-left: 1vh;
+        transition: ease-out 0.2s;
+        vertical-align: middle;
+    }
+
+    .footerx > .fnav.fnavbot > a:hover > .footerpng {
+        filter: brightness(50%) sepia(100) saturate(100) hue-rotate(60deg) brightness(1000%);
+    }
 
 #footmes {
     grid-column: span 3;
@@ -640,6 +655,12 @@ div.popup > div > div.inside > h1 {
             .footerx > .fnav.fnavbot {
                 font-size: 4vw !important;
             }
+
+                .footerx > .fnav.fnavbot > a > .footerpng {
+                    height: 4.8vw;
+                    width: 4.8vw;
+                    padding-left: 2vw;
+                }
 
     footer.full > #footnote {
         grid-column: span 2;
