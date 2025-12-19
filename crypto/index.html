@@ -54,7 +54,7 @@
     var user = await getUser();
     var usern;
     if (user.user) {
-        const { data: username, error: dbError } = await supabase
+        const { data: username, error: dbError } = await sb
             .from("users")
             .select("username")
             .eq("id", user.data.id)

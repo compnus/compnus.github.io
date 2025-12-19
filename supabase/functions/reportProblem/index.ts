@@ -3,7 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
-    const supabase = createClient(
+    const sb = createClient(
         Deno.env.get('SUPABASE_URL'),
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
     );
@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const { data: user, error } = await supabase.auth.getUser(token);
+    const { data: user, error } = await sb.auth.getUser(token);
     if (error || !user) {
         return new Response(JSON.stringify({ response: 'Invalid JWT' }), {
             status: 401,
@@ -70,7 +70,7 @@ Deno.serve(async (req) => {
     }
 
     try {
-        const { data: recuser, error: userExistsErrorn } = await supabase
+        const { data: recuser, error: userExistsErrorn } = await sb
             .from("users")
             .select("username")
             .eq("id", uid)
@@ -87,7 +87,7 @@ Deno.serve(async (req) => {
             from = recuser.username;
         }
 
-        const { error: logError } = await supabase
+        const { error: logError } = await sb
             .from("logs")
             .insert([{ created_by: from, type: "problem", attributes: "type->" + cat, message: dsc }]);
         if (logError) {

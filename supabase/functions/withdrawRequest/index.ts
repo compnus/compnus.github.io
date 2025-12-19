@@ -3,7 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
-    const supabase = createClient(
+    const sb = createClient(
         Deno.env.get('SUPABASE_URL'),
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
     );
@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const { data: user, error } = await supabase.auth.getUser(token);
+    const { data: user, error } = await sb.auth.getUser(token);
     if (error || !user) {
         return new Response(JSON.stringify({ response: 'Invalid JWT' }), {
             status: 401,
@@ -83,7 +83,7 @@ Deno.serve(async (req) => {
     else if (network === "lgn") fee = 100;
     else if (network === "btc") fee = 3000;
 
-    const { data: balance, error: balanceError } = await supabase.from("udata")
+    const { data: balance, error: balanceError } = await sb.from("udata")
         .select("balance_sats").eq("user_id", uid).single();
 
     if (balanceError || !balance) return new Response(JSON.stringify({ response: "Something went wrong." }), {
@@ -103,7 +103,7 @@ Deno.serve(async (req) => {
 
     try {
         let from: string = "";
-        const { data: recuser, error: userExistsErrorn } = await supabase
+        const { data: recuser, error: userExistsErrorn } = await sb
             .from("users")
             .select("username")
             .eq("id", uid)
@@ -119,7 +119,7 @@ Deno.serve(async (req) => {
             from = recuser.username;
         }
 
-        const { error: balanceupError } = await supabase.from("udata")
+        const { error: balanceupError } = await sb.from("udata")
             .update({ "balance_sats": balance.balance_sats - amount - fee }).eq("user_id", uid).single();
         if (balanceupError) return new Response(JSON.stringify({ response: "Something went wrong." }), {
             status: 400,
@@ -128,7 +128,7 @@ Deno.serve(async (req) => {
             }
         });
 
-        const { error: logError } = await supabase
+        const { error: logError } = await sb
             .from("logs")
             .insert([{ created_by: from, type: "WITHDRAWAL_REQUEST", attributes: "network->" + network + "\nfee->" + fee, message: "amount->"+amount+"\naddress->"+address }]);
         if (logError) {

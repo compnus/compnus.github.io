@@ -82,7 +82,7 @@ function initHeader(title) {
         var user = await getUser();
         var usern;
         if (user.user) {
-            const { data: username, error: dbError } = await supabase
+            const { data: username, error: dbError } = await sb
                 .from("users")
                 .select("username")
                 .eq("id", user.data.id)
@@ -108,7 +108,7 @@ function promoHeader(title, color, image) {
         var user = await getUser();
         var usern;
         if (user.user) {
-            const { data: username, error: dbError } = await supabase
+            const { data: username, error: dbError } = await sb
                 .from("users")
                 .select("username")
                 .eq("id", user.data.id)
@@ -140,7 +140,7 @@ async function initFooter(full = false) {
     document.addEventListener("DOMContentLoaded", async () => {
         var r = await getUser();
         if ((localStorage.getItem("lastActive") !== today) && r.user) {
-            const { error } = await supabase.from("users").update({ last_active: today }).eq("id", r.data.id);
+            const { error } = await sb.from("users").update({ last_active: today }).eq("id", r.data.id);
             localStorage.setItem("lastActive", today);
         }
     });

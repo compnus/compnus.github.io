@@ -3,7 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
-    const supabase = createClient(
+    const sb = createClient(
         Deno.env.get('SUPABASE_URL'),
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
     );
@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const { data: user, error } = await supabase.auth.getUser(token);
+    const { data: user, error } = await sb.auth.getUser(token);
     if (error || !user) {
         return new Response(JSON.stringify({ response: 'Invalid JWT' }), {
             status: 401,
@@ -80,7 +80,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    const { data: nData, error: nError } = await supabase.from("udata").select("can_message").eq("user_id", uid).single();
+    const { data: nData, error: nError } = await sb.from("udata").select("can_message").eq("user_id", uid).single();
     if (!nData || nError) {
         return new Response(JSON.stringify({ response: "We had problems processing the transaction."}), {
             status: 501,
@@ -96,7 +96,7 @@ Deno.serve(async (req) => {
     }
 
     if (currency == "sat") currency = "sats";
-    const { data: balancenoca, error: userExistsError } = await supabase
+    const { data: balancenoca, error: userExistsError } = await sb
         .from("udata")
         .select("balance_"+currency)
         .eq("user_id", uid)
@@ -169,7 +169,7 @@ Deno.serve(async (req) => {
     }
 
     try {
-        const { data: recuser, error: userExistsErrorn } = await supabase
+        const { data: recuser, error: userExistsErrorn } = await sb
             .from("users")
             .select("username")
             .eq("id", uid)
@@ -186,7 +186,7 @@ Deno.serve(async (req) => {
             from = recuser.username;
         }
 
-        const { data: bData, error: bError } = await supabase.from("users").select("blocked_users, id").eq("username", to).single();
+        const { data: bData, error: bError } = await sb.from("users").select("blocked_users, id").eq("username", to).single();
         if (!bData || bError) {
             return new Response(JSON.stringify({ response: "The recipient does not exist." }), {
                 status: 501,
@@ -210,13 +210,13 @@ Deno.serve(async (req) => {
 
         let upmessage: string = `%$t%You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!%$,%%$f%CompNUS%$,%%$m%<p>The amount has been added to your balance.${finalMessage}</p>%$$%`;
 
-        const { data: senuser, error: userExistsError } = await supabase
+        const { data: senuser, error: userExistsError } = await sb
             .from("users")
             .select("messages")
             .eq("username", to)
             .single();
 
-        const { data: senuserc, error: userExistsErrorc } = await supabase
+        const { data: senuserc, error: userExistsErrorc } = await sb
             .from("udata")
             .select("balance_" + currency)
             .eq("user_id", bData.id)
@@ -251,15 +251,15 @@ Deno.serve(async (req) => {
                         }
                     });
             }
-            const { error: cannotDeduct } = await supabase
+            const { error: cannotDeduct } = await sb
                 .from("udata")
                 .update(updateds)
                 .eq("user_id", uid);
-            const { error: cannotAdd } = await supabase
+            const { error: cannotAdd } = await sb
                 .from("udata")
                 .update(sends)
                 .eq("user_id", bData.id);
-            const { error: cannotSend } = await supabase
+            const { error: cannotSend } = await sb
                 .from("users")
                 .update({ messages: upmessage + senuser.messages })
                 .eq("username", to);
@@ -271,7 +271,7 @@ Deno.serve(async (req) => {
                     }
                 });
             }
-            const { error: logError } = await supabase
+            const { error: logError } = await sb
                 .from("logs")
                 .insert([{ created_by: from, type: "transaction", attributes: "to->" + to + "\ncurrency->" + currency + "\nsent->" + totalToSend + "\nreceived->" + totalReceived, message: "message->" + message }]);
             if (logError) {

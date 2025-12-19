@@ -1,12 +1,12 @@
 var dt = null;
 
 async function main() {
-    const { data, error } = await supabase.auth.getUser();
+    const { data, error } = await sb.auth.getUser();
     if (!data || error) {
         window.location.href = '/u/';
     }
     dt = data.user.id;
-    const { data: msgadm, error: msgadmerror } = await supabase
+    const { data: msgadm, error: msgadmerror } = await sb
         .from("udata")
         .select("admin")
         .eq("user_id", dt)
@@ -46,7 +46,7 @@ async function sendMessage() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
         },
         body: JSON.stringify(body)
     })

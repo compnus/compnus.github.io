@@ -14,7 +14,7 @@ function messageType(type) {
 }
 
 async function loadNocas() {
-    const { data, error } = await supabase.auth.getUser();
+    const { data, error } = await sb.auth.getUser();
     dt.user_id = data.user.id;
     var balance = await getBalance(dt.user_id);
     var y = balance[1];
@@ -37,10 +37,10 @@ async function sendMessage() {
         }
         var bt = document.getElementById("limitedsend");
         bt.innerHTML = "Please wait...";
-        const { data, error } = await supabase.auth.getUser();
+        const { data, error } = await sb.auth.getUser();
         if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = "Send"; return }
         mt.user_id = data.user.id;
-        mt.uid = (await supabase.auth.getSession()).data.session?.user.id;
+        mt.uid = (await sb.auth.getSession()).data.session?.user.id;
         mt.to = document.getElementById("normalreciever").value;
         mt.title = document.getElementById("normaltitle").value;
         mt.message = document.getElementById("normalmsg").value;
@@ -48,7 +48,7 @@ async function sendMessage() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
             },
             body: JSON.stringify(mt)
         })
@@ -88,10 +88,10 @@ async function sendMessage() {
         var bt = document.getElementById("mainsend");
         var mn = "Send (<span id='messagecost'>1</span> &curren;)";
         bt.innerHTML = "Please wait...";
-        const { data, error } = await supabase.auth.getUser();
+        const { data, error } = await sb.auth.getUser();
         if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = mn; increaseChar(); return }
         mt.user_id = data.user.id;
-        mt.uid = (await supabase.auth.getSession()).data.session?.user.id;
+        mt.uid = (await sb.auth.getSession()).data.session?.user.id;
         mt.to = document.getElementById("advreciever").value;
         mt.title = document.getElementById("advtitle").value;
         mt.message = document.getElementById("advmsg").value;
@@ -99,7 +99,7 @@ async function sendMessage() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
             },
             body: JSON.stringify(mt)
         })

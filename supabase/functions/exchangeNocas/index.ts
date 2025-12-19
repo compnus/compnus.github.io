@@ -3,7 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
-    const supabase = createClient(
+    const sb = createClient(
         Deno.env.get('SUPABASE_URL'),
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
     );
@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const { data: user, error } = await supabase.auth.getUser(token);
+    const { data: user, error } = await sb.auth.getUser(token);
     if (error || !user) {
         return new Response(JSON.stringify({ response: 'Invalid JWT' }), {
             status: 401,
@@ -68,7 +68,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    const { data: nData, error: nError } = await supabase.from("udata").select("balance_nus, balance_noca, balance_sats").eq("user_id", uid).single();
+    const { data: nData, error: nError } = await sb.from("udata").select("balance_nus, balance_noca, balance_sats").eq("user_id", uid).single();
     if (!nData || nError) {
         return new Response(JSON.stringify({ response: "We had problems processing the exchange." }), {
             status: 501,
@@ -85,7 +85,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    var toPay: number = parseFloat((parseInt(amount) / parseInt((await supabase.from("variable").select("value").eq("key", (btc ? "nocaforsat" : "nocafornus")).single()).data.value)).toFixed(4));
+    var toPay: number = parseFloat((parseInt(amount) / parseInt((await sb.from("variable").select("value").eq("key", (btc ? "nocaforsat" : "nocafornus")).single()).data.value)).toFixed(4));
     if (toPay > (btc ? nData.balance_sats : nData.balance_nus)) {
         return new Response(JSON.stringify({ response: "Insufficient funds.", sc: true }), {
             status: 400,
@@ -96,7 +96,7 @@ Deno.serve(async (req) => {
     }
 
     try {
-        const { error: sendError } = await supabase.from("udata").update(btc ? { balance_noca: nData.balance_noca + parseInt(amount), balance_sats: Math.round((nData.balance_sats - toPay)*10000)/10000 } : { balance_noca: nData.balance_noca + parseInt(amount), balance_nus: Math.round((nData.balance_nus - toPay)*100000000)/100000000 }).eq("user_id", uid);
+        const { error: sendError } = await sb.from("udata").update(btc ? { balance_noca: nData.balance_noca + parseInt(amount), balance_sats: Math.round((nData.balance_sats - toPay)*10000)/10000 } : { balance_noca: nData.balance_noca + parseInt(amount), balance_nus: Math.round((nData.balance_nus - toPay)*100000000)/100000000 }).eq("user_id", uid);
 
         if (sendError) {
             return new Response(JSON.stringify({ response: "There was a problem updating your balance." }), {

@@ -1,12 +1,12 @@
 const SUPABASE_URL = "https://jwpvozanqtemykhdqhvk.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3cHZvemFucXRlbXlraGRxaHZrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkzNzY3MDgsImV4cCI6MjA1NDk1MjcwOH0.uoNqHwXBalSEoaJgtlmPE8gMr4VmTGmL-XDPFJq1Xr0";
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 var popupid = 0;
 
 async function signUpUser(email, password) {
-    const { data, error } = await supabase.auth.signUp({
+    const { data, error } = await sb.auth.signUp({
         email,
         password
     });
@@ -20,7 +20,7 @@ async function signUpUser(email, password) {
 }
 
 async function logInUser(email, password) {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await sb.auth.signInWithPassword({
         email,
         password
     });
@@ -29,13 +29,13 @@ async function logInUser(email, password) {
 }
 
 async function logOut() {
-    await supabase.auth.signOut();
+    await sb.auth.signOut();
     window.location.href = "/";
 }
 
 async function signInWithProvider(provider) {
     try {
-        const { data: authData, error: authError } = await supabase.auth.signInWithOAuth({
+        const { data: authData, error: authError } = await sb.auth.signInWithOAuth({
             provider: provider,
             options: {
                 redirectTo: "https://compnus.github.io/u/verify.html"
@@ -49,7 +49,7 @@ async function signInWithProvider(provider) {
         const user = authData.user;
         const email = user.email;
 
-        const { data: existingUser, error: userError } = await supabase
+        const { data: existingUser, error: userError } = await sb
             .from("users")
             .select("id")
             .eq("email", email)
@@ -60,12 +60,12 @@ async function signInWithProvider(provider) {
         }
 
         if (existingUser) {
-            await supabase
+            await sb
                 .from("users")
                 .update({ provider: provider })
                 .eq("email", email);
         } else {
-            const { error: insertError } = await supabase
+            const { error: insertError } = await sb
                 .from("users")
                 .insert({ id: user.id, email, provider: provider });
 
@@ -90,7 +90,7 @@ async function resetPassword() {
         return;
     }
 
-    const { error } = await supabase.auth.resetPasswordForEmail(email);
+    const { error } = await sb.auth.resetPasswordForEmail(email);
 
     if (error) {
         console.log("Error: " + error.message);
@@ -101,14 +101,14 @@ async function resetPassword() {
 }
 
 async function handlePostVerification() {
-    const { data, error } = await supabase.auth.getUser();
+    const { data, error } = await sb.auth.getUser();
 
     if (error || !data.user) {
         window.location.href = "/u/signup.html?error=oauth_failed";
         return error;
     }
 
-    const { error: dbError } = await supabase.from("users").insert([
+    const { error: dbError } = await sb.from("users").insert([
         {
             id: data.user.id,
             email: data.user.email,
@@ -125,7 +125,7 @@ async function handlePostVerification() {
 }
 
 async function getUser() {
-    const { data, error } = await supabase.auth.getUser();
+    const { data, error } = await sb.auth.getUser();
 
     if (error || !data.user) {
         return { user:false, data:error };
@@ -163,7 +163,7 @@ function popup(title, message, close = true) {
 }
 
 async function getBalance(uid) {
-    const { data: balance, error: userExistsErrorn } = await supabase
+    const { data: balance, error: userExistsErrorn } = await sb
         .from("udata")
         .select("balance_nus, balance_noca, balance_sats")
         .eq("user_id", uid)
@@ -186,7 +186,7 @@ function GetURLParameter(sParam) {
 }
 
 async function getVariable(vars) {
-    const { data, error } = await supabase
+    const { data, error } = await sb
         .from("variable")
         .select("value")
         .eq("key", vars)

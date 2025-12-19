@@ -3,7 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
-    const supabase = createClient(
+    const sb = createClient(
         Deno.env.get('SUPABASE_URL'),
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
     );
@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const { data: user, error } = await supabase.auth.getUser(token);
+    const { data: user, error } = await sb.auth.getUser(token);
     if (error || !user) {
         return new Response(JSON.stringify({ response: 'Invalid JWT' }), {
             status: 401,
@@ -71,7 +71,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    const { data: nData, error: nError } = await supabase.from("udata").select("admin").eq("user_id", uid).single();
+    const { data: nData, error: nError } = await sb.from("udata").select("admin").eq("user_id", uid).single();
     if (!nData || nError) {
         return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue persists, please contact support." }), {
             status: 501,
@@ -90,7 +90,7 @@ Deno.serve(async (req) => {
         let upmessage: string = `%$t%${title}%$,%%$f%CompNUS%$,%%$m%<p>${message}</p>%$$%`;
 
         if (to && to.length > 1) {
-            const { data: senuser, error: userExistsError } = await supabase
+            const { data: senuser, error: userExistsError } = await sb
                 .from("users")
                 .select("messages")
                 .eq("username", to)
@@ -104,7 +104,7 @@ Deno.serve(async (req) => {
                     }
                 });
             } else {
-                const { error: cannotSend } = await supabase
+                const { error: cannotSend } = await sb
                     .from("users")
                     .update({ messages: upmessage + senuser.messages })
                     .eq("username", to);
@@ -116,7 +116,7 @@ Deno.serve(async (req) => {
                         }
                     });
                 }
-                const { error: logError } = await supabase
+                const { error: logError } = await sb
                     .from("logs")
                     .insert([{ created_by: uid, type: "adminMessage", attributes: "to->" + to, message: "title->" + title + "\ncontent->" + message }]);
                 if (logError) {
@@ -129,7 +129,7 @@ Deno.serve(async (req) => {
                 }
             }
         } else {
-            const { data: senuser, error: userExistsError } = await supabase
+            const { data: senuser, error: userExistsError } = await sb
                 .from("users")
                 .select("username, messages")
 
@@ -143,7 +143,7 @@ Deno.serve(async (req) => {
             } else {
                
                 for (const user of senuser) {
-                    const { error: cannotSend } = await supabase
+                    const { error: cannotSend } = await sb
                         .from("users")
                         .update({ messages: upmessage + user.messages })
                         .eq("username", user.username);
@@ -153,7 +153,7 @@ Deno.serve(async (req) => {
                     }
                 }
                
-                const { error: logError } = await supabase
+                const { error: logError } = await sb
                     .from("logs")
                     .insert([{ created_by: uid, type: "adminMessage", attributes: "to->@", message: "title->" + title + "\ncontent->" + message }]);
                 if (logError) {

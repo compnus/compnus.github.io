@@ -7,17 +7,17 @@ var reclinktype = 0;
 var dtusername = "";
 
 async function main() {
-    const { data, error } = await supabase.auth.getUser();
+    const { data, error } = await sb.auth.getUser();
     dt.user_id = data.user.id;
-    dt.uid = (await supabase.auth.getSession()).data.session?.user.id;
+    dt.uid = (await sb.auth.getSession()).data.session?.user.id;
     dt.referral = localStorage.getItem("referral") || "";
 
-    const { data: userindt, error: problem } = await supabase.from("udata").select("user_id").eq("user_id", dt.user_id).single();
+    const { data: userindt, error: problem } = await sb.from("udata").select("user_id").eq("user_id", dt.user_id).single();
     if (!userindt || problem || userindt.user_id!=dt.user_id) await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
         },
         body: JSON.stringify(dt)
     })
@@ -32,7 +32,7 @@ async function main() {
             console.error('Error invoking function:', error);
         });
 
-    const { data: nameddata, error: namederror } = await supabase
+    const { data: nameddata, error: namederror } = await sb
         .from("users")
         .select("name, username")
         .eq("id", dt.user_id)
@@ -74,7 +74,7 @@ async function loadMessages() {
     loadedmessages = {};
     messagecontainer = {};
     messageid = 0;
-    var { data: x, error: y } = await supabase.from("users").select("messages").eq("id", dt.uid).single();
+    var { data: x, error: y } = await sb.from("users").select("messages").eq("id", dt.uid).single();
     try {
         if (!x || y) {
             throw new DOMException(y.message);
@@ -148,7 +148,7 @@ async function loadMessages() {
 }
 
 async function administr() {
-    const { data: msgadm, error: msgadmerror } = await supabase
+    const { data: msgadm, error: msgadmerror } = await sb
         .from("udata")
         .select("can_message, admin")
         .eq("user_id", dt.uid)
@@ -196,7 +196,7 @@ async function reportMessage(message, offense, dsc, status) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
         },
         body: JSON.stringify({ uid: dt.uid, type: offense, msg: `from->${message.from}\ntitle->${message.title}\nmessage->${message.message}`, concern: dsc })
     })
@@ -232,17 +232,17 @@ async function blockUserConfirm(username) {
     username = username.trim();
     const status = document.getElementById("blockuserstatus");
     status.innerHTML = "Please wait...";
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    const { data: { user }, error: authError } = await sb.auth.getUser();
     var stableID = popupid - 1;
     if (authError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", authError.message); return; }
-    const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single();
+    const { data, error } = await sb.from("users").select("blocked_users").eq("id", user.id).single();
     if (error) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", error.message); return; }
     if (data.blocked_users.startsWith(username + "|") || data.blocked_users.endsWith("|" + username) || data.blocked_users.includes("|" + username + "|")) {
         document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201);
         popup("You have already blocked " + username + "!", "This user is already blocked. You cannot block them again.<br>You can try blocking them IRL. Dunno how that would work tho...");
         return;
     }
-    const { data: finalize, error: finalizeError } = await supabase.from("users").update({ blocked_users: data.blocked_users + username + "|" }).eq("id", user.id).single();
+    const { data: finalize, error: finalizeError } = await sb.from("users").update({ blocked_users: data.blocked_users + username + "|" }).eq("id", user.id).single();
     if (finalizeError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", authError.message); return; }
     else {
         document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201);
@@ -256,7 +256,7 @@ async function deleteMessage(id) {
     var newmessages = "";
     for (var i in loadedmessages) newmessages+=(loadedmessages[i].trim() + "%$$%");
     newmessages = newmessages.replace(/%\$\$%$/, '').trim();
-    const { data, error } = await supabase
+    const { data, error } = await sb
         .from("users")
         .update({ messages: newmessages })
         .eq("id", dt.uid);
@@ -291,7 +291,7 @@ function collapse(id) {
 async function attemptRecovery() {
     var status = document.getElementById('passresetstatus');
     status.innerHTML = "Please wait...";
-    const { data:email, error:noemail } = await supabase.from('users').select('email').eq('id', dt.uid).single();
+    const { data:email, error:noemail } = await sb.from('users').select('email').eq('id', dt.uid).single();
     if (!email || noemail) {
         status.innerHTML = "Error fetching user data.<br>Try refreshing the page.";
         return;
@@ -301,7 +301,7 @@ async function attemptRecovery() {
         status.innerHTML = "Emails do not match."
         return;
     }
-    const { error } = await supabase.auth.resetPasswordForEmail(email);
+    const { error } = await sb.auth.resetPasswordForEmail(email);
 
     if (error) {
         status.innerHTML = error.message;
@@ -321,8 +321,8 @@ I do acknowledge, that I will lose access to everything connected to my CompNUS 
 }
 
 async function showAccountInfo() {
-    const { data, error } = await supabase.from("users").select("username, email, birthdate").eq("id", dt.uid).single();
-    const { data: data1, error: error1 } = await supabase.from("udata").select("can_message, referred, invitees").eq("user_id", dt.uid).single();
+    const { data, error } = await sb.from("users").select("username, email, birthdate").eq("id", dt.uid).single();
+    const { data: data1, error: error1 } = await sb.from("udata").select("can_message, referred, invitees").eq("user_id", dt.uid).single();
     if (error || !data || error1 || !data1) {
         popup("An Error Occured", "An error occurred while fetching your account information.<br>" + (error ? error.message : "") + (error1 ? "<br>" + error1.message : ""));
         return;

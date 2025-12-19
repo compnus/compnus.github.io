@@ -43,7 +43,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
-            const { data, error } = await supabase.auth.getUser();
+            const { data, error } = await sb.auth.getUser();
 
             if (!data.user) {
                 window.location.href = "login.html";
@@ -53,10 +53,10 @@
                 return;
             }
 
-            var { data: username } = await supabase.from("users").select("username").eq("id", data.user.id).single();
+            var { data: username } = await sb.from("users").select("username").eq("id", data.user.id).single();
             document.getElementById("dlinkusername").innerHTML = username.username;
             document.getElementById("dlinkurl").innerHTML = `https://compnus.com/u/signup.html?r=${username.username}`;
-            const { data: data1, error: error1 } = await supabase.from("udata").select("invitees").eq("user_id", data.user.id).single();
+            const { data: data1, error: error1 } = await sb.from("udata").select("invitees").eq("user_id", data.user.id).single();
             var invitees = data1.invitees.match(/\(([^)]+)\)/g)?.map(s => s.slice(1, -1)) || [];
             var invites = invitees.length;
             document.getElementById("invitees").innerHTML = invites + (invites == 1 ? " user" : " users");

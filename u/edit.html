@@ -24,9 +24,9 @@
         document.querySelector("header").removeChild(document.getElementById("headernav"));
 
         async function unblockUsers() {
-            const { data: { user }, error: authError } = await supabase.auth.getUser();
+            const { data: { user }, error: authError } = await sb.auth.getUser();
             if (authError) { popup("An error occured.", authError.message); return; }
-            const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single()
+            const { data, error } = await sb.from("users").select("blocked_users").eq("id", user.id).single()
             if (authError) { popup("An error occured.", error.message); return; }
             var x = data.blocked_users.trim().split("|");
             if (x.length === 1 && x[0] === '') {
@@ -39,11 +39,11 @@
         }
 
         async function unblock(whom) {
-            const { data: { user }, error: authError } = await supabase.auth.getUser();
+            const { data: { user }, error: authError } = await sb.auth.getUser();
             if (authError) { popup("An error occured.", authError.message); return; }
-            const { data, error } = await supabase.from("users").select("blocked_users").eq("id", user.id).single();
+            const { data, error } = await sb.from("users").select("blocked_users").eq("id", user.id).single();
             if (error) { popup("An error occured.", error.message); return; }
-            const { data: returned, error: errorMessage } = await supabase.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i !== whom }).join("|") }).eq("id", user.id);
+            const { data: returned, error: errorMessage } = await sb.from("users").update({ blocked_users: data.blocked_users.trim().split("|").filter(function (i) { return i !== whom }).join("|") }).eq("id", user.id);
             if (errorMessage) { popup("An error occured.", errorMessage.message); return; }
             var x = document.getElementById("blockedusers");
             x.removeChild(document.getElementById("blocked_" + whom));
@@ -58,7 +58,7 @@
                 status.innerHTML = "Please wait...";
                 var usr = await getUser();
                 if (!usr.user) { window.location.href = "login.html"; return; }
-                if (x.value === (await supabase.from("users").select("username").eq("id", usr.data.id).single())?.data.username) status.innerHTML = "You cannot use your own referral code.";
+                if (x.value === (await sb.from("users").select("username").eq("id", usr.data.id).single())?.data.username) status.innerHTML = "You cannot use your own referral code.";
                 else if (["mia", "kingpvz", "compnus", "stanley"].includes(x.value)) status.innerHTML = "This referral code is not allowed.";
                 else {
                     document.getElementById("referralsubmit").classList.add("disabled");
@@ -70,7 +70,7 @@
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
                         },
                         body: JSON.stringify(rfdt)
                     })
@@ -142,7 +142,7 @@
             const usernameInput = document.getElementById("username");
             const displayNameInput = document.getElementById("display_name");
 
-            const { data: { user }, error: authError } = await supabase.auth.getUser();
+            const { data: { user }, error: authError } = await sb.auth.getUser();
     
             if (!user) {
                  document.getElementById("mainhint").innerHTML = "You must be logged in to edit your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
@@ -151,7 +151,7 @@
                  return;
             }
 
-            const { data: userData, error: dbError } = await supabase
+            const { data: userData, error: dbError } = await sb
                 .from("users")
                 .select("username, name")
                 .eq("id", user.id)
@@ -164,7 +164,7 @@
                 displayNameInput.value = userData.name;
             }
 
-            const { data: isReferred, error: isntReferred } = await supabase.from("udata").select("referred").eq("user_id", user.id).single();
+            const { data: isReferred, error: isntReferred } = await sb.from("udata").select("referred").eq("user_id", user.id).single();
             if (isReferred.referred) document.getElementById("referralcodebutton").style.display = "none";
 
             form.addEventListener("submit", async (event) => {
@@ -173,7 +173,7 @@
                 const username = usernameInput.value.trim();
                 const displayName = displayNameInput.value === "" ? username : displayNameInput.value.trim();
 
-                const { data, error } = await supabase
+                const { data, error } = await sb
                     .from("users")
                     .update({ username, name: displayName })
                     .eq("id", user.id);

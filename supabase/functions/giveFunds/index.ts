@@ -3,7 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
-    const supabase = createClient(
+    const sb = createClient(
         Deno.env.get('SUPABASE_URL'),
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
     );
@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const { data: user, error } = await supabase.auth.getUser(token);
+    const { data: user, error } = await sb.auth.getUser(token);
     if (error || !user) {
         return new Response(JSON.stringify({ response: 'Invalid JWT' }), {
             status: 401,
@@ -73,7 +73,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    const { data: nData, error: nError } = await supabase.from("udata").select("admin").eq("user_id", uid).single();
+    const { data: nData, error: nError } = await sb.from("udata").select("admin").eq("user_id", uid).single();
     if (!nData || nError) {
         return new Response(JSON.stringify({ response: "We had problems processing the transaction." }), {
             status: 501,
@@ -108,13 +108,13 @@ Deno.serve(async (req) => {
 
         let upmessage: string = `%$t%You have received ${parsedAmount} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span>%$,%%$f%CompNUS%$,%%$m%<p>${finalMessage}The amount has been added to your balance.</p>%$$%`;
 
-        const { data: senuser, error: userExistsError } = await supabase
+        const { data: senuser, error: userExistsError } = await sb
             .from("users")
             .select("messages")
             .eq("username", to)
             .single();
 
-        const { data: bData, error: bError } = await supabase.from("users").select("id").eq("username", to).single();
+        const { data: bData, error: bError } = await sb.from("users").select("id").eq("username", to).single();
         if (!bData || bError) {
             return new Response(JSON.stringify({ response: `User ${to} does not exist.` }), {
                 status: 404,
@@ -124,7 +124,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        const { data: senuserc, error: userExistsErrorc } = await supabase
+        const { data: senuserc, error: userExistsErrorc } = await sb
             .from("udata")
             .select("balance_" + currency)
             .eq("user_id", bData.id)
@@ -145,11 +145,11 @@ Deno.serve(async (req) => {
             } else if (currency === "noca") {
                 sends = { balance_noca: senuserc.balance_noca + parsedAmount };
             }
-            const { error: cannotAdd } = await supabase
+            const { error: cannotAdd } = await sb
                 .from("udata")
                 .update(sends)
                 .eq("user_id", bData.id);
-            const { error: cannotSend } = await supabase
+            const { error: cannotSend } = await sb
                 .from("users")
                 .update({ messages: upmessage + senuser.messages })
                 .eq("username", to);
@@ -161,7 +161,7 @@ Deno.serve(async (req) => {
                     }
                 });
             }
-            const { error: logError } = await supabase
+            const { error: logError } = await sb
                 .from("logs")
                 .insert([{ created_by: uid, type: "adminTransaction", attributes: "to->" + to + "\ncurrency->" + currency + "\ngiven->" + parsedAmount, message: "message->" + message }]);
             if (logError) {

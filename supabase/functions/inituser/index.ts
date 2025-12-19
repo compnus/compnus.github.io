@@ -3,7 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
-    const supabase = createClient(
+    const sb = createClient(
         Deno.env.get('SUPABASE_URL'),
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
     );
@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const { data: user, error } = await supabase.auth.getUser(token);
+    const { data: user, error } = await sb.auth.getUser(token);
     if (error || !user) {
         return new Response(JSON.stringify({ response: 'Invalid JWT' }), {
             status: 401,
@@ -67,7 +67,7 @@ Deno.serve(async (req) => {
     }
 
     try {
-        const { data: userExists, error: userExistsError } = await supabase
+        const { data: userExists, error: userExistsError } = await sb
             .from("users")
             .select("id, username")
             .eq("id", uid)
@@ -82,7 +82,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        const { data: udataExists, error: udataExistsError } = await supabase
+        const { data: udataExists, error: udataExistsError } = await sb
             .from("udata")
             .select("user_id")
             .eq("user_id", uid)
@@ -97,7 +97,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        const { error: insertError } = await supabase
+        const { error: insertError } = await sb
             .from("udata")
             .insert([{ user_id: uid }]);
 
@@ -123,7 +123,7 @@ Deno.serve(async (req) => {
                     }
                 });
 
-            const { data: realUser, error: noUser } = await supabase.from("users").select("id").eq("username", referral).single();
+            const { data: realUser, error: noUser } = await sb.from("users").select("id").eq("username", referral).single();
             if (noUser || !realUser) return new Response(JSON.stringify({ response: "User data processed successfully, wrong referral.", wrongref: true }), {
                 status: 200,
                 headers: {
@@ -131,8 +131,8 @@ Deno.serve(async (req) => {
                 }
             });
             
-            const { error: invitee } = await supabase.from("udata").update({ "referred": referral, "balance_nus": 0.01 }).eq("user_id", uid);
-            const { data: referrer, error: referrerError } = await supabase.from("udata").select("balance_nus, invitees").eq("user_id", realUser.id).single();
+            const { error: invitee } = await sb.from("udata").update({ "referred": referral, "balance_nus": 0.01 }).eq("user_id", uid);
+            const { data: referrer, error: referrerError } = await sb.from("udata").select("balance_nus, invitees").eq("user_id", realUser.id).single();
             if (referrerError || !referrer) {
                 return new Response(JSON.stringify({ response: "User data processed successfully, referral error.", wrongref: true }), {
                     status: 200,
@@ -141,9 +141,9 @@ Deno.serve(async (req) => {
                     }
                 });
             }
-            const { error: inviter } = await supabase.from("udata").update({ "balance_nus": (referrer.balance_nus + 0.001), "invitees": referrer.invitees + "(" + userExists.username + ")" }).eq("user_id", realUser.id);
+            const { error: inviter } = await sb.from("udata").update({ "balance_nus": (referrer.balance_nus + 0.001), "invitees": referrer.invitees + "(" + userExists.username + ")" }).eq("user_id", realUser.id);
             let upmessage: string = `%$t%You have successfully referred ${userExists.username}!%$,%%$f%CompNUS%$,%%$m%<p>You have received 0.001 $NUS. As long as the user is active, your dividend power is increased by 10.</p>%$$%`;
-            const { error: cannotSend } = await supabase
+            const { error: cannotSend } = await sb
                 .from("users")
                 .update({ messages: upmessage + realUser.messages })
                 .eq("username", referral);

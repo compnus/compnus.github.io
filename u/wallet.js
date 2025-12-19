@@ -1,5 +1,5 @@
 async function loadWallet() {
-    balance = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
+    balance = await getBalance((await sb.auth.getSession()).data.session?.user.id);
     document.getElementById("walletnus").innerHTML = balance[0];
     document.getElementById("walletnoca").innerHTML = balance[1];
     document.getElementById("walletsats").innerHTML = balance[2];
@@ -17,7 +17,7 @@ async function refreshs(btc, ...nodes) {
 }
 
 async function setMax(btc, ...nodes) {
-    var bls = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
+    var bls = await getBalance((await sb.auth.getSession()).data.session?.user.id);
     var setting = btc ? bls[2] : bls[0];
     var nocavals = btc ? await getVariable("nocaforsat") : await getVariable("nocafornus");
     nodes[2].value = Math.floor(setting * nocavals) + ((setting * nocavals) - Math.floor(setting * nocavals) > 0.9995 ?1:0);
@@ -27,7 +27,7 @@ async function setMax(btc, ...nodes) {
 
 async function exchangeNocas(btc, amount, status) {
     status.innerHTML = "Please wait...";
-    var uid = (await supabase.auth.getSession()).data.session?.user.id;
+    var uid = (await sb.auth.getSession()).data.session?.user.id;
     if (btc && (amount < 100)) { status.innerHTML = "Minimum exchange for Satoshis is 100 Nocas."; return; }
     else if (amount < 10) { status.innerHTML = "Minimum exchange for $NUS is 10 Nocas."; return; }
     var bls = await getBalance(uid);
@@ -39,7 +39,7 @@ async function exchangeNocas(btc, amount, status) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
         },
         body: JSON.stringify({ uid: uid, btc: btc, amount: amount })
     })
@@ -79,7 +79,7 @@ async function convertNocas(btc = false) {
 }
 
 async function setMaxW(fee, num, passd) {
-    var bls = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
+    var bls = await getBalance((await sb.auth.getSession()).data.session?.user.id);
     if (!bls) {
         location.href = "login.html";
         return;
@@ -217,7 +217,7 @@ async function finalizeWithdraw(amount, network, status) {
         status.innerHTML = "Please enter a valid amount.";
     }
 
-    var bls = await getBalance((await supabase.auth.getSession()).data.session?.user.id);
+    var bls = await getBalance((await sb.auth.getSession()).data.session?.user.id);
     if (!bls) {
         location.href = "login.html";
         return;
@@ -238,9 +238,9 @@ async function finalizeWithdraw(amount, network, status) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
         },
-        body: JSON.stringify({ uid: (await supabase.auth.getSession()).data.session?.user.id, network: network, amount: amount, address: address })
+        body: JSON.stringify({ uid: (await sb.auth.getSession()).data.session?.user.id, network: network, amount: amount, address: address })
     })
         .then(response => response.json())
         .then(data => {

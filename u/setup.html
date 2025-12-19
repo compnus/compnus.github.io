@@ -61,7 +61,7 @@
                 document.getElementById("rfrlimited").innerHTML = "Using this referral code will reward you with 0.01 $NUS!";
             }
 
-            const { data: { user }, error: authError } = await supabase.auth.getUser();
+            const { data: { user }, error: authError } = await sb.auth.getUser();
 
            /* if (!user) {
                  document.getElementById("mainhint").innerHTML = "You must be logged in to set up your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
@@ -69,7 +69,7 @@
                  return;
              } */
 
-            const { data: userData, error: dbError } = await supabase
+            const { data: userData, error: dbError } = await sb
                 .from("users")
                 .select("username, name, birthdate")
                 .eq("id", user.id)
@@ -101,7 +101,7 @@
                     return;
                 }
 
-                const { data, error } = await supabase
+                const { data, error } = await sb
                     .from("users")
                     .update({ username, name: displayName, birthdate: birthdate })
                     .eq("id", user.id);

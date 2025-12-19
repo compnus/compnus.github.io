@@ -28,7 +28,7 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                    'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
                 },
                 body: JSON.stringify({uid:dt.uid,name:name,dsc:dsc})
             })
@@ -53,7 +53,7 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                    'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
                 },
                 body: JSON.stringify({ uid: dt.uid, type: cat, dsc: dsc })
             })
@@ -120,7 +120,7 @@
             if (ismsgban && (message.length > 0)) { status.innerHTML = "You are banned from sending messages.<br>Please refresh the website and try again."; return; }
             status.innerHTML = "Please wait...";
             if (!recipient) { status.innerHTML = "Please enter the recipient's username."; return; }
-            var { data: myUsername, error } = await supabase.from('users').select('username').eq('id', dt.uid).single();
+            var { data: myUsername, error } = await sb.from('users').select('username').eq('id', dt.uid).single();
             if (recipient == myUsername.username) { status.innerHTML = "You cannot send funds to yourself."; return; }
             if (!amount || (amount <= 0) || (pays[0] <= 0)) { status.innerHTML = "Please enter a valid amount to send."; return; }
             var bals = await getBalance(dt.uid);
@@ -132,7 +132,7 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                    'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
                 },
                 body: JSON.stringify({ uid: dt.uid, currency: type, fee: document.getElementById('sendmoneyfeetype').value, amount: amount, message: message, to: recipient })
             })
@@ -165,7 +165,7 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'authorization': `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
+                    'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
                 },
                 body: JSON.stringify({ uid: dt.uid, currency: type, amount: amount, message: message, to: recipient })
             })
@@ -189,7 +189,7 @@
             message = message.substring(0, 100).replaceAll("<", "").replaceAll(">", "").replaceAll("\n", " ").replaceAll("  ", " ").replaceAll("&", "");
             status.innerHTML = "Please wait...";
             if (dtusername == "") {
-                const { data, error } = await supabase
+                const { data, error } = await sb
                     .from("users")
                     .select("username")
                     .eq("id", dt.user_id)
@@ -462,7 +462,7 @@
             if (mhmcount) document.getElementById("updatespop").innerHTML = mhmcount;
             else document.getElementById("updatespop").style.display = "none";
 
-            const { data, error } = await supabase.auth.getUser();
+            const { data, error } = await sb.auth.getUser();
 
             if (!data.user) {
                 window.location.href = "/u/login.html";

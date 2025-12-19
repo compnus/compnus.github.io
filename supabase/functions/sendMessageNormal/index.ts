@@ -3,7 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 
 Deno.serve(async (req) => {
-    const supabase = createClient(
+    const sb = createClient(
         Deno.env.get('SUPABASE_URL'),
         Deno.env.get('SUPABASE_SERVICE_ROLE_KEY'),
     );
@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const { data: user, error } = await supabase.auth.getUser(token);
+    const { data: user, error } = await sb.auth.getUser(token);
     if (error || !user) {
         return new Response(JSON.stringify({ response: 'Invalid JWT' }), {
             status: 401,
@@ -71,7 +71,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    const { data: nData, error: nError } = await supabase.from("udata").select("can_message").eq("user_id", uid).single();
+    const { data: nData, error: nError } = await sb.from("udata").select("can_message").eq("user_id", uid).single();
     if (!nData || nError) {
         return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue persists, please contact support." }), {
             status: 501,
@@ -103,7 +103,7 @@ Deno.serve(async (req) => {
     title = title.split("<").join("").split(">").join("").split("&").join("&amp;");
 
     try {
-        const { data: recuser, error: userExistsErrorn } = await supabase
+        const { data: recuser, error: userExistsErrorn } = await sb
             .from("users")
             .select("username")
             .eq("id", uid)
@@ -120,7 +120,7 @@ Deno.serve(async (req) => {
             from = recuser.username;
         }
 
-        const { data: bData, error: bError } = await supabase.from("users").select("blocked_users").eq("username", to).single();
+        const { data: bData, error: bError } = await sb.from("users").select("blocked_users").eq("username", to).single();
         if (!bData || bError) {
             return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue persists, please contact support." }), {
                 status: 501,
@@ -136,7 +136,7 @@ Deno.serve(async (req) => {
 
         let upmessage: string = `%$t%${title}%$,%%$f%${from}%$,%%$m%<p>${message}</p>%$$%`;
 
-        const { data: senuser, error: userExistsError } = await supabase
+        const { data: senuser, error: userExistsError } = await sb
             .from("users")
             .select("messages")
             .eq("username", to)
@@ -150,7 +150,7 @@ Deno.serve(async (req) => {
                 }
             });
         } else {
-            const { error: cannotSend } = await supabase
+            const { error: cannotSend } = await sb
                 .from("users")
                 .update({ messages: upmessage + senuser.messages })
                 .eq("username", to);
@@ -162,7 +162,7 @@ Deno.serve(async (req) => {
                     }
                 });
             }
-            const { error: logError } = await supabase
+            const { error: logError } = await sb
                 .from("logs")
                 .insert([{ created_by: from, type: "normalMessage", attributes: "to->" + to, message: "title->" + title + "\ncontent->" + message }]);
             if (logError) {
