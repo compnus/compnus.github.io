@@ -43,7 +43,7 @@ var LIST = [
             type: "p2e",
             coin: "OTARA",
             effort: 2,
-            rating: 5
+            rating: 4
         },
         info: {
             description: "Become an Otarian and mine OTARA with the Imota community! Earn OTARA tokens in various ways - play games (especially Ota Scratch, the music is amazing, it's worth playing it more for the music than the reward itself), collect mined OTARA, hire miners to mine even more OTARA, bet matches, spin the wheel, open chests, simply - have fun and earn something nice for it - a beautiful crypto money, you will be able to use once the mainnet launches (soon, hopefully)!",
@@ -65,8 +65,8 @@ var LIST = [
         banner: "bin"
     }, {
         name: "Dropee",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2024%2F11%2FDropee-logo.webp&f=1&nofb=1&ipt=c6760abe79b0ba76dfdef90e6b9a1d84fecd001225055a8938783e5d697d423b",
-        description: "Spin the wheel, get tickets, open chests and win! Upgrade your cards or click the duck to receive $DROPEE tokens! Check out the lotteries to win some TON too!",
+        icon: "https://miningcombo.com/wp-content/uploads/2026/01/Dropee-logo2.webp",
+        description: "Spin the wheel, get tickets, open chests and win! Upgrade your cards or click the duck to receive Dropee coins! Get as many $DROPEE tokens from the wheel as you can and prepare for the airdrop!",
         added: "7-16-2024",
         id: "dropee",
         attr: {
@@ -77,28 +77,28 @@ var LIST = [
             rating: 4
         },
         info: {
-            description: "Gamified mining in Droppee allows you to upgrade your cards and receive passive $DROPEE coin income! Spin the wheel, get tickets, open chests and maybe you will win something? Frequent events and lotteries allow you to win not only more $DROPEE coin, but occasionally also TON!",
+            description: "Gamified mining in Droppee allows you to upgrade your cards and receive passive Dropee coin income! Spin the wheel, get tickets, open chests and maybe you will win something?",
             effort: "Passive mining only works for 3 hours (it can be increased via random rewards, but only temporarily). You need to spin the wheel and upgrade your cards."
         },
         go: {
             type: 2,
             link: [{ name: "Affiliate Link", link: "https://t.me/DropeeBot?start=_tgr_Aa3DHIhmMDU0", description: "Increase main CompNUS dividends and get more Satoshis!" }, { name: "Game Referral", link: "https://t.me/DropeeBot/play?startapp=ref_LAfjXgNtbyN", description: "Receive in-game benefits listed in the 'See sign up benefits...' popup."}]
         },
-        benefits: ["5 Spins", "5000 $DROPEE (or 25000 if you have Telegram Premium)"],
+        benefits: ["5 Spins", "5000 Dropee coins (or 25000 if you have Telegram Premium)"],
         features: [["Cards and Mining", "Upgrade your cards to increase the amount of tokens you mine per hour (Trading Per Hour)! Feel free to leave the app, as for the next 3+ hours, the mining is completely automatic!"],
-            ["Spin the Wheel", "Spin the wheel to receive tickets, chests, feathers or $DROPEE! Spin the wheel every day to receive the ultimate golden spin, which rewards you with more spins!"],
-            ["Pathways", "Use feathers to complete pathways and receive more spins and $DROPEE!"],
+            ["Spin the Wheel", "Spin the wheel to receive tickets, chests, ideas, Dropee coins or $DROPEE! Spin the wheel every day to receive the ultimate golden spin, which rewards you with more spins!"],
+            ["Pathways", "Use ideas to complete pathways and receive more spins and Dropee coins!"],
             ["Boxes and Chests", "Open your free box every day to get random rewards! Get chests from spins and get even more random rewards!"],
-            ["Daily Quests", "Complete daily quests for more $DROPEE and spins!"],
+            ["Daily Quests", "Complete daily quests for more Dropee and spins!"],
             ["Achievements", "Complete achievements and increase your airdrop share!"]
         ],
         tips: [["Complete free pathways!", "From time to time, a completely free pathway opens up and completing many will give you achievements, which are the main point based on which the airdrop is going to be allocated."],
-            ["Invest your $DROPEE!", "Upgrade cards not only to increase your TPH, but also to get achievements!"],
+            ["Invest your Dropee coins!", "Upgrade cards not only to increase your TPH, but also to get achievements!"],
             ["Do not click the duck!", "It might be useful when you are starting out, but later it's a waste of time. What you will earn from clicking for 5 minutes, you will earn from TPH in around a second."],
-            ["Ignore the daily check-in!", "After 28 days, you will earn 3.4B $DROPEE. After a bit of playing, this is something you can earn in 1 minute. Daily check-in might be useful for achievements, but that's about it."]
+            ["Ignore the daily check-in!", "After 28 days, you will earn 3.4B Dropee coins. After a bit of playing, this is something you can earn in 1 minute. Daily check-in might be useful for achievements, but that's about it."]
         ],
         pros: ["Offline mining", "Many cards to upgrade and explore", "Active developer team", "Frequent events and lotteries"],
-        cons: ["Mocking with USDT you cannot withdraw (you can earn up to 6USDT from spinning the wheel, but since the withdrawal threshold is 10USDT, you will never be able to withdraw)", "Poor UX", "Most special cards stay in the game for a very short period of time, making it impossible to upgrade them to a decent level"],
+        cons: ["Poor UX", "Most special cards stay in the game for a very short period of time, making it impossible to upgrade them to a decent level", "Constant tricking (after you upgrade a card, the game might show you a 'once in a lifetime' deal which is absolutely not worth it but you might accidentally click it and if you have any stars deposited, it will deduct them without confirmation (unlike other purchases that do require confirmation))"],
         banner: "blum"
     }, {
         name: "TTcoin Trees",
@@ -133,6 +133,7 @@ var LIST = [
         banner: "bin"
     }, {
         name: "DuckChain",
+        unlisted: true,
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.cryptorank.io%2Fcoins%2Fduck_chain1730984683577.png&f=1&nofb=1&ipt=473cebed1f1af7cabb59dc3488cd6627dc357f528e9a829b6eaf63dec25c1250",
         description: "DuckChain is a popular meme token that already passed its golden age. Now, however, it's back with AIQ - new token that will be airdropping soon! So don't forget to check-in!",
         added: "8-1-2024",
@@ -323,7 +324,7 @@ var LIST = [
             rating: 3
         },
         info: {
-            description: "Spin the wheel and the slots, invest your coins and see your profit grow! Collect gems, purchase slot spins, get aliens to unlock wheel spins and spin the wheel to either get more gems or secure your position in the leaderboard to win TON and $RICH! Although you can win USDT in the slots, the amount is ridiculously low (if you are lucky enough to get 3 dollar signs and you spin with 10 gems - already more than possible daily unless you are very lucky - you will get whopping 3 cents. Where the minimum withdrawl is 10 USDT. Just see it as another 'nothing' won). Predict price of $RICH and either win 60% extra or lose it all! Welp, here goes the gambling again.",
+            description: "Spin the wheel and the slots, invest your coins and see your profit grow! Collect gems, purchase slot spins, get aliens to unlock wheel spins and spin the wheel to either get more gems or secure your position in the leaderboard to win TON and $RICH! Although you can win Stars in the slots, the amount is ridiculously low (if you are lucky enough to get 3 star symbols and you spin with 10 gems - already more than possible daily unless you are very lucky - you will get whopping 3 stars. Where the minimum withdrawl is 3000. Just see it as another 'nothing' won). Predict price of $RICH and either win 60% extra or lose it all! Welp, here goes the gambling again.",
             effort: "Upgrade cards to increase profit, spin the slots and the wheel. For the next 3 hours, profit is automatic."
         },
         go: {
@@ -332,7 +333,7 @@ var LIST = [
         },
         benefits: ["Permanent profit boost (20000 coins per hour or 80000 if you have Telegram Premium)"],
         features: [["Invest and Profit", "Invest coins and increase your profit! Upgrade cards and earn passive income for the next 3 hours!"],
-            ["Fortune Wheel and Doggy Slots", "Spin the slots every day for gems (you get 6 free per hour, up to 3 hours), get aliens and unlock wheel spins! Spin the wheel to get more gems or secure your position in the leaderboard to win TON and $RICH!"], 
+            ["Fortune Wheel and Doggy Slots", "Spin the slots every day for gems (you get 6 free per hour, up to 3 hours)! Spin the wheel to get more gems or secure your position in the leaderboard to win TON and $RICH!"], 
             ["Trade $RICH", "No idea why it's called that, uh anyway, Check out the ultimate gambling aspect of invest your $RICH to either get 60% bonus or lose it all! Wow! 40% edge of the house! That is actually insane."]
         ],
         tips: [["Check-in often!", "Passive coin production only lasts for 3 hours. Check-in often to claim your coins! Also, you can only get up to 18 gems for being offline! That's exactly 3 hours. Spin the slots!"],
@@ -342,20 +343,20 @@ var LIST = [
         cons: ["Many 'scammy' features (being able to purchase wheel spins even if you only have a slight chance of getting to the leaderboard and even slimmer chance of actually being between those who win TON; being able to purchase coin hash miner even if coins cannot be used to get $RICH, ...)", "Not exclusive, rewarding and addictive as they claim but rather tame, almost no rewards and boring"],
         banner: "blum"
     }, {
-        name: "AnyCard (formely Remint Network)",
+        name: "Perp100 (formelly AnyCard (formely Remint Network))",
         icon: "https://play-lh.googleusercontent.com/QpiETMyJBreX1Bp0cdwmgXxQA_nAROHpShnvXpUFB_IlQItZeJYcFhNqoj_cofliDZg=w240-h480-rw",
-        description: "Collect ACP points and exchange them for various rewards! Which are... coming soon... still. This app used to be a miner for an already existing Remint Token, but out of nowhere changed to this. And the Remind Tokens are now lost forever. That is the sole reason it has 3 stars, since the app is decent, just the developers... are not.",
+        description: "Collect points and exchange them for nothing! This app used to be a miner for an already existing Remint Token, but out of nowhere changed to this. And the Remint Tokens are now lost forever.",
         added: "8-3-2024",
         id: "remint",
         attr: {
             platform: "a",
             type: "mine",
-            coin: "ACP",
+            coin: "who knows",
             effort: 0,
-            rating: 3
+            rating: 2
         },
         info: {
-            description: "Mine ACP, complete tasks and use it to purchase various products - ranging from airdrops to... Actually, that is the only product available for now. And it still did not arrive. Hmmm, hopefully it will. Otherwise, the <a class='link' href='scam.html'>Scam List</a> is going to be very happy.<br>Before ACP, this app was used to mine the RMT token (Remint) which changed without any prior warning and tokens were lost. For this sole reason we only gave AnyCard 3 stars. It is a decent miner, but due to actions like this, it is hard to trust.",
+            description: "Mine points, complete tasks and use it to purchase nothing. Check out the <a class='link' href='scam.html'>Scam List</a> by the way.<br>Before points, this app was used to mine the RMT token (Remint) which changed without any prior warning and tokens were lost.",
             effort: "Restrt mining every 24 hours."
         },
         go: {
@@ -363,15 +364,14 @@ var LIST = [
             link: "https://www.anycardapp.com",
             code: "COMPNUSX"
         },
-        benefits: ["500 ACP"],
-        features: [["Mining", "Collect 10 ACP/h for 24 hours every day! Mining also rewards you with 50 EXP - you need 1000 EXP to increase your level, but there is not explanation regarding the leveling system and it does not seem to do anything."],
-            ["Bonus ACP Rewards", "Complete daily tasks to get up to 300 ACP for free! Complete social tasks to get even more ACP!"],
-        ["Store", "Use your ACP to purchase various products such as airdrops and gift cards! Right now, only airdrops are available, however."]
+        benefits: ["500 points"],
+        features: [["Mining", "Collect 10 points/h for 24 hours every day! Mining also rewards you with 50 EXP - you need 1000 EXP to increase your level, which gives you extra points."],
+            ["Bonus point Rewards", "Complete daily tasks to get up to 40 points for free! Complete social tasks to get even more points!"]
         ],
-        tips: [["Refrain from buying VIP!", "5$ a month for a service that gives you VIP support (useless), x2 EXP rate (no one knows what levels are even for), x2 Referral bonus (extra 500 ACP is cool but it's definitely not worth 5$) and the only actually useful feature - x2 Earning rate is certainly not worth it."],
-            ["Collect 100 ACP daily for sharing on social media! <img src='https://pngimg.com/uploads/trollface/trollface_PNG43.png' style='width: 1em; height: 1em; vertical-align: baseline'>", "Yeah so, you don't actually have to do it to receive the extra ACP, just click claim and dismiss the button that prompts you to share it, you will receive the reward nevertheless."]
+        tips: [["Refrain from buying VIP!", "5$ a month for a service that gives you VIP support (useless), x2 EXP rate (very useless), x2 Referral bonus (extra 500 points is cool but it's definitely not worth 5$) and the only actually useful feature - x2 Earning rate is certainly not worth it."],
+            ["Collect 20 points daily for sharing on social media! <img src='https://pngimg.com/uploads/trollface/trollface_PNG43.png' style='width: 1em; height: 1em; vertical-align: baseline'>", "Yeah so, you don't actually have to do it to receive the extra points, just click claim and dismiss the button that prompts you to share it, you will receive the reward nevertheless."]
         ],
-        pros: ["Active developer team", "Huge potential", "Decent and simple mining app"],
+        pros: ["Active developer team", "Decent and simple mining app"],
         cons: ["Features with no clear use (VIP support, leveling system)", "No guarantee that the app will not change to something different and you will lose your tokens when you wake up next morning"],
         banner: "bin"
     }, {
@@ -528,6 +528,7 @@ var LIST = [
         banner: "blum"
     }, {
         name: "Atheus (Athene Network)",
+        unlisted: true,
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FKDYZdbDPArk0g1duIwJfq8A08XCm9Cjqcehy3L3g3ZiwsPdLGHtMrNUdaV-ahQr0Tlo&f=1&nofb=1&ipt=24147b304bb452d08621c20038ac1e09d167cfc3f3a5f4a84823aa3cd49a4173",
         description: "Atheus is a full-on blockchain in your pocket! Though this sounds awesome, it is worth pointing out that most features do not work. Most of the time to say the least. Uhhhh yeah, cool project.",
         added: "9-29-2024",
@@ -730,6 +731,7 @@ var LIST = [
         banner: "bin"
     }, {
         name: "WORK DOGS",
+        unlisted: true,
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftelegramchannels.me%2Fstorage%2Fmedia-logo%2F2412%2Fworkdogsnews.jpg&f=1&nofb=1&ipt=e51fa49cb0683791ef8ed0a9a46713e68b49b828a1a4c5938e97b0579fd05c9d",
         description: "Have we just met the successor of DOGS? Or just another scam project by an infamous group? Only time will tell.",
         added: "7-20-2024",

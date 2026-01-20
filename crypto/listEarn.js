@@ -355,49 +355,10 @@ var LIST = [
         banner: "bin"
     },
     {
-        name: "#mate",
-        unlisted: true,
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fminingcombo.com%2Fwp-content%2Fuploads%2F2025%2F03%2Fhash-mate-logo.webp&f=1&nofb=1&ipt=32321a8cf968e78d8752d064e51501960af68a10b2c1625adee8d234decf24dc",
-        description: "#mate allows you to mine TON, NOT, Telegram Stars and more without investment! Frequent events, NFT mining and random cases allow you to earn a lot of various cryptocurrencies effortlessly!",
-        added: "7-16-2024",
-        id: "hashmate",
-        attr: {
-            verified: 1,
-            dividends: true,
-            platform: "t",
-            type: "mine",
-            coin: "ton stars other:NOT other:Dogs other:Major other:Cati other:PX",
-            effort: 0,
-            rating: 4
-        },
-        info: {
-            description: "<b>Lately the developers have been going through unknown issues, they removed many features, increased the minimum withdrawal threshold and the overall mining speed has been radically decreased. There is no information about when previous mining speed is reestablished or when will removed features come back, this is why we decided to remove #mate from featured apps. If everything goes back to normal, we will bring back the fifth star and the featured label.</b><br><br>#mate allows you to mine TON, NOT, Telegram Stars and more cryptocurrencies without investment! Just start mining, complete daily tasks to get more miners and watch your earnings grow! #mate comes with frequent events to maximize earnings, NFT mining to get some extra drops while mining your coins and random case drops which you can open for extra miners, or, if you want to, sell them on the marketplace and make even more money! Speaking of the marketplace, you can purchase and sell miners to complete collections and get mining boosts!",
-            effort: "Everything you have to do is to start mining every 20 hours. It doesn't get simpler than that!"
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/hashmate_bot?start=8f86ot00"
-        },
-        tips: [["Periodically collect your loot!", "Collect your loot after you wake up and before you go to sleep. This will reset the 20 hour timer, making you never stop mining!"],
-        ["Join the Mate announcement and community channel!", "This way you can complete daily tasks, as well as get the secret word, allowing you to get 7 MATE coins every day for free!"],
-        ["Share with your \"friends\"!", "One of the daily tasks, which rewards you with 2 MATE coins requires you to share a message to someone on Telegram. You do not actually have to share this message to a person! Instead, share the message to the #mate bot and you'll receive your reward without bothering your friends!"],
-        ["Prioritize mining coins with low total hashrate!", "Obviously you will start mining TON as your first coin, only to realize you are making little to no money. Blocks can only give so many coins per reward, based on your hashrate. Mining coins with lower hashrate increases your share. Additionally, mining coins with low amount of active people increases your chances to win a block!"],
-        ["Do not rush withdrawal!", "Every withdrawal means a fee to pay. A fee that is not very low as seen in the Cons for #mate. You should only withdraw your coins if you don't want to mine them anymore. For instance, you can use your mined TON to make in-app purchases. Therefore you don't have to withdraw it, if you plan on using it in #mate."]
-        ],
-        pros: ["Daily tasks allowing you to get free $MATE, which can be used to buy miners", "Free NFTs and Cases", "Active developer team, frequent updates and events", "No ads", "Fast withdrawals"],
-        cons: ["High withdrawal fee (0.3 TON, 70 STARS, ...)", "Cases require a key to open, which must be purchased with TON", "Pay-to-Win aspect with x50 block reward costing STARS to unlock", "The app has many little bugs that altogether can make the app tedious to use", "No notifications (there used to be a notification service, but was completely removed for an unknown reason)"],
-        benefits: ["Free miner to help you get started"],
-        features: [["Offline Mining of Your Chosen Currency", "You can choose a currency to mine and for the next 20 hours you will be mining it completely effort-free!"],
-        ["#Marketplace", "Buy and sell Limited Miners and Cases to maximize your earnings!"],
-        ["NFT and Case Drops", "While mining, there is a small chance you will get free cases or NFTs!"],
-        ["#Tasks", "Daily, General and Partner tasks reward you with MATE coin, which can be used to purchase miners!"]
-        ],
-        banner: "bin"
-    },
-    {
         name: "The OCT",
         icon: "https://static.tildacdn.net/tild3065-3032-4233-a339-313932613831/Screenshot_2024-05-2.svg",
         featured: false,
+        unlisted: true,
         description: "Chip away pieces of the octahedron and gain $OCT, Fusion Gems and USDT! Upgrade your tools, excavate cells and uncover Jackpot Snitches worth up to 1BTC! Besides main rewards, every cell can contain Artifact Gems whose price ranges from 0.1USDT all the way to 200USDT! Fuse your tools and get more from every cell!",
         added: "8-11-2024",
         id: "oct",
@@ -557,46 +518,9 @@ var LIST = [
         bannerLink: "viewEarn.html?id=wemine"
     },
     {
-        name: "TeaBank",
-        unlisted: true,
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapp.teabank.io%2Flogo.jpg&f=1&nofb=1&ipt=48c1f89cd915b1b0e8021e92bb285e1768d06f3ec661363ae640885fbda09da9",
-        description: "Grow your trees and harvest TON! Complete tasks, participate in challenges and don't forget to water your trees so they can grow even more!",
-        added: "7-26-2024",
-        id: "teabank",
-        attr: {
-            verified: 1,
-            dividends: true,
-            platform: "t",
-            type: "mine",
-            coin: "ton",
-            effort: 1,
-            rating: 4
-        },
-        info: {
-            description: "<b>Does't work rn<b><br>TeaBank allows you to plant and care for your own tea tree by watering it and harvesting TON every three hours! Along with TON, you are also earning tbPoints, which will be used for future airdrops. Along with the farming, you can get extra TON for spinning the Lucky Wheel, completing Tasks (new added daily) and participating in community challenges!",
-            effort: "Claim earnings and start mining every three hours. You will need water to start mining, which requires watching ads."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/tea_bank_bot/app?startapp=155293"
-        },
-        benefits: ["Free tree to help you get started", "Free Lucky Wheel tickets"],
-        features: [["Plant a Tree and Farm TON", "Water your trees to produce TON! The older they are, the less they earn."],
-            ["Tasks and Challenges", "Complete tasks to get extra TON! From time to time, you can also participate in community challenges by solving a riddle! All the winners will then split the reward pool!"],
-            ["Lucky Wheel", "Spin the Lucky Wheel to get extra TON, Trees and Water!"]
-        ],
-        tips: [
-            ["Get a reminder!", "This app has notifications, but not for when your mining stops. Make sure to set alarms to never miss a chance to earn!"],
-            ["Stack up on water!", "These trees are pretty thirsty! Every tree requires 1 water every three hours to produce TON. If you have extra time, watch ads for water and stack up as much as possible!"],
-        ["Refrain from buying trees and water!", "The tree and water deals are hardly worth it, so it's not the best idea to spend your money on them."]
-        ],
-        pros: ["No withdrawal fee and low withdrawal threshold (0.02 TON)", "New tasks added daily", "Active developer team", "Random giveaways"],
-        cons: ["No notifications when your mining session is over", "Grinding for water can take up a lot of time", "After the first 10 days, trees lose value to an extent where it's not worth watching so many ads for water"],
-        banner: "blum"
-    },
-    {
         name: "LlamaPayday",
         icon: "https://www.findmini.app/_astro/logo2_3nehfu5x0e_Zq6tU4.webp",
+        unlisted: true,
         description: "Merge llamas, produce gems and exchange them for USDT! Click your llamas for candy and exchange that for airdropped Llama Tokens! Daily quests, lucky wheel, morse code challenge, minigames and much more available!",
         added: "8-1-2024",
         id: "llamapayday",
@@ -744,43 +668,6 @@ var LIST = [
         banner: "ncct"
     },
     {
-        name: "MuTON",
-        icon: "https://nicegram.s3.eu-north-1.amazonaws.com/features/telegram_channel_icons/32ad5d7f-3f38-4e09-9ad0-54c5f8a0d081.jpeg",
-        description: "<b>ALERT! Recent update locked withdrawals behind a paywall!</b><br>Raise your cows and start milking TON! Complete tasks and don't forget to feed your cows so they can earn you even more!",
-        added: "7-31-2024",
-        id: "muton",
-        attr: {
-            verified: 1,
-            dividends: false,
-            platform: "t",
-            type: "mine",
-            coin: "ton",
-            effort: 2,
-            rating: 1
-        },
-        info: {
-            description: "<b>ALERT! Recent update locked withdrawals behind a paywall!</b><br>MuTON allows you to raise and care for your own cow by feeding it and milking TON every three hours! Along with the farming, you can get extra TON for completing Tasks! This game is from the same developers as <a style='color:yellow' href='viewEarn.html?id=teabank'>TeaBank</a>, although it seems less advanced. There are no community challenges, no airdrops and no lucky wheel. Also, instead of requiring one ad per mining session, here you require two.",
-            effort: "Claim earnings and start mining every three hours. You will need water and food to start mining, which requires watching ads."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/muuton_bot/app?startapp=13130"
-        },
-        benefits: ["Free cow to help you get started", "Free water", "Free food"],
-        features: [["Buy a cow and milk TON", "Feed your cows to produce TON!"],
-        ["Tasks", "Complete tasks to get extra TON!"]
-        ],
-        tips: [
-            ["ALERT! Recent update locked withdrawals behind a paywall!", "You will need to purchase at least 1 cow to be able to witdraw your earnings (0.5 TON). This service is verified but keep in mind you have to watch 2 ads for every mining session. 5 mining sessions a day for 90 days of the cow's life means 0.675 TON, which is an obvious profit, but don't forget that you'll have to watch 900 ads. There are better apps out there you should try."],
-            ["Get a reminder!", "This app has no notifications, so make sure to set alarms to never miss a chance to earn!"],
-            ["Stack up on water and food!", "These cows are pretty thirsty and hungry! Every cow requires 1 water and 1 food every three hours to produce TON. If you have extra time, watch ads for water and food and stack up as much as possible!"],
-            ["Refrain from buying cows, food and water!", "The cow, food and water deals are hardly worth it, so it's not the best idea to spend your money on them... Although we will get paid if you do? I suck at advertising."]
-        ],
-        pros: ["No withdrawal fee and low withdrawal threshold (0.01 TON)"],
-        cons: ["No notifications", "Grinding for water and food can take up a lot of time", "Withdrawing for the first time requires purchasing a cow for 0.5 TON"],
-        banner: "blum"
-    },
-    {
         name: "Gift Go",
         icon: "https://static.nicegram.app/features/telegram_channel_icons/be8c0f96-dac6-4a00-836b-f9915cc0db08.jpeg",
         description: "Collect Crystals, roll the spinner and win! Gift Go allows you to win Telegram Stars, Gifts, or even Telegram Premium! We have to mention the gambling aspect - yes, you can spin for free... every 25 days. And if you wanna do it more often, you will need to deposit. For that (once the app gets verified), we will provide you with cashback!",
@@ -809,7 +696,8 @@ var LIST = [
             ["Tasks", "Collect your daily free CRystal or complete tasks to get even more!"]
         ],
         tips: [
-            ["Patience is key.", "This app might test your patience really well. Saving up 25 Crystals only to roll a gift worth 15 Stars (which you won't withdraw because doing that makes you unable to sell it, so you will sell it in-app for 15 Crystals) might be really tiring. There are certainly better apps out there that guarantee income. As it goes for this one, maybe that roll for 25 Crystals will be your lucky day?"]
+            ["Patience is key.", "This app might test your patience really well. Saving up 25 Crystals only to roll a gift worth 15 Stars (which you won't withdraw because doing that makes you unable to sell it, so you will sell it in-app for 15 Crystals) might be really tiring. There are certainly better apps out there that guarantee income. As it goes for this one, maybe that roll for 25 Crystals will be your lucky day?"],
+            ["Save up!", "If you want to earn gifts you can sell, you must play the expensive rolls. Just wait a couple months, complete quests and collect free Crystals daily to save up for a big win!"]
         ],
         pros: ["Very simple to use", "Unlike most apps with gambling aspect, it allows you to collect freebies without depositing (this might be wrong about withdrawing, we will update you)", "Giveaways are planned"],
         cons: ["Withdrawn common gifts cannot be sold for stars"],
@@ -853,43 +741,6 @@ var LIST = [
         ],
         pros: ["Many features to explore", "Many opportunities to earn", "Interest for holding Bitcoin", "Ability to use Reward Points to get extra crypto - Bitcoin or FUN token", "In-build dividend distribution system", "Wagering results in your faucet earnings being increased"],
         cons: ["The website is confusing", "Too many ads", "High withdrawal threshold (30000 Satoshis)"],
-        banner: "bin"
-    },
-    {
-        name: "Ember",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fsync%2Fv2%2FC5627AQGPHFOCqQabrg%2Farticleshare-shrink_800%2Farticleshare-shrink_800%2F0%2F1732020021145%3Fe%3D2147483647%26v%3Dbeta%26t%3D8dGxtwsgi7yjj0RZlUiMO20lbg7t0Xf6PO66NPZfAdM&f=1&nofb=1&ipt=796f699f6d25986cc639a101cf9e8a7011e67befddcb4856f2e82ce930fe4f84",
-        description: "Mine Bitcoin, wager it and withdraw! With new games added occasionally and new ways to earn being slowly introduced, you can enjoy all flavors of earnings! This includes: microtasks, gambling and predictions as of now! Another gambling app? Brooooooo why.",
-        added: "9-2-2024",
-        id: "ember",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "ai",
-            type: "mine",
-            coin: "btc",
-            effort: 1,
-            rating: 4
-        },
-        info: {
-            description: "Mine Bitcoin every day, wager it through gambling and predictions and watch your earnings grow! This is a gambling app so before you ask, yes, there is a way to deposit money and NO, you should NEVER do that with gambling apps. Because that's basically the best way to lose money. Do not deposit money through buying Ember tokens! Anyway, there are also microtasks ig.",
-            effort: "Restart mining every day. You will need to wager it in order to withdraw."
-        },
-        go: {
-            type: 1,
-            link: "https://emberfund.onelink.me/ljTI/l4g18zii?mining_referrer_id=MNGA3LNUO3A",
-            code: "MNGA3LNUO3A"
-        },
-        benefits: ["Extra 1 Satoshi/Hour mining speed (double from the regular).","If the app gets verified, we will distribute dividends."],
-        features: [["Mining and Gambling", "Start your mining daily! Use your mined Satoshis in various gambling games to wager them and make them eligible to withdraw!"],
-            ["Predictions and Microtasks", "Multiply your Satoshis (or lose them all) in predictions and earn extra through microtasks!"],
-        ["Tournaments", "Participate in tournaments and get a share of won Satoshis!"]
-        ],
-        tips: [
-            ["Turn off the notifications.", "This app has probably the most annoying notification service in the world. They can play the sound or light up your screen even in Do Not Disturb mode (somehow???) and never contain useful information. Downside of doing this is that whenever you start the app it will ask you to allow notifications. Do not agree to it."],
-            ["Safe wagers!", "Do not bet all your Satoshis on red! The point here isn't to win as much as possible but instead to wager and therefore secure your earned tokens. Safe bets, small loss and therefore guaranteed money!"]
-        ],
-        pros: ["Very generous free mining in comparison to other apps", "Low edge of the house"],
-        cons: ["Annoying and pointless notifications", "High withdrawal threshold (10000 Satoshis that must be wagered)"],
         banner: "bin"
     },
     {
@@ -1188,6 +1039,7 @@ var LIST = [
     },
     {
         name: "AIX Market",
+        unlisted: true,
         icon: "https://www.findmini.app/_astro/avatar_ev602uz51e_Z2036tn.webp",
         description: "Earn the AIX pseudo-coin, stake and exchange for TON! Get free AIX for daily tasks, participate in predictions (another gambling app? dang) and receive the Airdrop (a weird name for tasks but alright)!",
         added: "8-29-2024",
@@ -1218,6 +1070,43 @@ var LIST = [
         cons: ["Gambling. Seriously? Why."],
         banner: "blum"
     },
+    {
+        name: "Ember",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fsync%2Fv2%2FC5627AQGPHFOCqQabrg%2Farticleshare-shrink_800%2Farticleshare-shrink_800%2F0%2F1732020021145%3Fe%3D2147483647%26v%3Dbeta%26t%3D8dGxtwsgi7yjj0RZlUiMO20lbg7t0Xf6PO66NPZfAdM&f=1&nofb=1&ipt=796f699f6d25986cc639a101cf9e8a7011e67befddcb4856f2e82ce930fe4f84",
+        description: "Mine Bitcoin, wager it and withdraw! With new games added occasionally and new ways to earn being slowly introduced, you can enjoy all flavors of earnings! This includes: microtasks, gambling and predictions as of now! Another gambling app? Brooooooo why.",
+        added: "9-2-2024",
+        id: "ember",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "mine",
+            coin: "btc",
+            effort: 1,
+            rating: 3
+        },
+        info: {
+            description: "Mine Bitcoin every day, wager it through gambling and predictions and watch your earnings grow! This is a gambling app so before you ask, yes, there is a way to deposit money and NO, you should NEVER do that with gambling apps. Because that's basically the best way to lose money. Do not deposit money through buying Ember tokens! Anyway, there are also microtasks ig.",
+            effort: "Restart mining every day. You will need to wager it in order to withdraw."
+        },
+        go: {
+            type: 1,
+            link: "https://emberfund.onelink.me/ljTI/l4g18zii?mining_referrer_id=MNGA3LNUO3A",
+            code: "MNGA3LNUO3A"
+        },
+        benefits: ["Extra 1 Satoshi/Hour mining speed (double from the regular).", "If the app gets verified, we will distribute dividends."],
+        features: [["Mining and Gambling", "Start your mining daily! Use your mined Satoshis in various gambling games to wager them and make them eligible to withdraw!"],
+        ["Predictions and Microtasks", "Multiply your Satoshis (or lose them all) in predictions and earn extra through microtasks!"],
+        ["Tournaments", "Participate in tournaments and get a share of won Satoshis!"]
+        ],
+        tips: [
+            ["Turn off the notifications.", "This app has probably the most annoying notification service in the world. They can play the sound or light up your screen even in Do Not Disturb mode (somehow???) and never contain useful information. Downside of doing this is that whenever you start the app it will ask you to allow notifications. Do not agree to it."],
+            ["Safe wagers!", "Do not bet all your Satoshis on red! The point here isn't to win as much as possible but instead to wager and therefore secure your earned tokens. Safe bets, small loss and therefore guaranteed money!"]
+        ],
+        pros: ["Very generous free mining in comparison to other apps", "Low edge of the house"],
+        cons: ["Annoying and pointless notifications", "High withdrawal threshold (10000 Satoshis that must be wagered)", "You can only mine 10 times per month without wagering an insane amount of Satoshis"],
+        banner: "bin"
+    }
     {
         name: "Sweat Wallet",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJwkGy0o_DOQ8gWTY_8M3_bwp8wHDk766guJ-GR8FNgwBNE7m_hOLy8jDfBlSg0k2XgA&f=1&nofb=1&ipt=c1c17814f416141c8cdf186963b12194a468c4a291145f5e45f067765dc8becb",
@@ -1535,7 +1424,7 @@ var LIST = [
             type: "Spin to Win",
             coin: "ton usdt other:Pepe",
             effort: 3,
-            rating: 3
+            rating: 2
         },
         info: {
             description: "Pea.AI allows you to spin a wheel for points you get from daily check-ins and completing taks to get USDT and Pepe. There are also various events and minigames that allow you to earn USDT and TON. Most of these require inviting friends. We need to mention the fact that the minimum withdrawal is 5USDT or 500000PEPE, which wouldn't be an issue, if the average reward from 100 spins wasn't 10000PEPE and 0.01USDT. This makes it take insanely long to make it to the withdrawal. Also, the fee is excessive. There is a way to remove it, but it's a subscription with no instructions how to cancel it. Do not put any money into this app until it becomes verified! If it disappears completely, check the <a style='color:yellow' href='scam.html'>Scam List</a>.",
@@ -1558,82 +1447,9 @@ var LIST = [
         banner: "blum"
     },
     {
-        name: "Stars Hub",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2F3d-white-star-blue-background_1332213-22.jpg&f=1&nofb=1&ipt=cbf60721dbddad7c31fcbc8cbfb9c5fb0848a26d830b357471c65897e95111d5",
-        description: "Receive free star fragments and use those to purchase Telegram Gifts, which can be exchanged for Stars! Stars Hub offers multiple ways to earn stars every day! Just a quick side note: the entire app is in russian. Don't worry, though! It's fairly simple to figure out what all the buttons do! (especially super easy if you speak russian)",
-        added: "8-20-2024",
-        id: "starshub",
-        attr: {
-            verified: -1,
-            dividends: false,
-            platform: "t",
-            type: "faucet",
-            coin: "stars",
-            effort: 0,
-            rating: 3
-        },
-        info: {
-            description: "<b>For the past couple weeks, the mini app does not work, and the bot only works as a way to distribute advertisements. If this does not get fixed in the coming months, this app will be determined to be a scam.</b><br>Complete tasks and check-in daily for free star fragments, and once you have enough, use them to purchase a common Telegram gift, which can be exchanged for stars! You can earn in various ways: Check-in every day to get star fragments and scratch cards, spin the roulette every day for a chance to win extra star fragments and complete tasks for even more star fragments and scratch cards! Speaking of scratch cards, these are the best way to earn star fragments! Definitely do not turn down this opportunity!",
-            effort: "Check-in every day, spin the roulette and scratch cards. Takes around 20 seconds per day."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/FreeStarsHubBot/app?startapp=r_2fef60aa2e55454f"
-        },
-        benefits: ["1 Star"],
-        features: [["Daily Check-in", "The main aspect of any faucet is the free token distribution! Every day check in for free star fragments, with the exception of the last two days - they give you scratch cards instead!"],
-        ["Roulette", "Spin every day and get free stars if you are lucky!"],
-        ["Scratch Cards", "Scratch cards are packed with star fragments way more than the daily check-in! Don't forget to scratch them!"],
-        ["Tasks", "Join channels for extra star fragments! Don't forget to collect the check-in bonus! Every 7 days you can collect 4 extra scratch cards!"],
-        ["Gift Marketplace", "Exchange your star fragments for Telegram gifts, which can be then exchanged for stars!"]
-        ],
-        tips: [
-            ["Refrain from buying spins!", "Okay, simple logic. The most you can possibly win from the roulette spin is 0.05 Stars. So then why does a single spin cost 1 Star? That is not worth at all."]],
-        pros: ["Free roulette spins (allowing you to save 1 Star every day)"],
-        cons: ["The cheapest faucet out there - like come on, surely you can give me more than half a cent per week", "Too many ads (as messages from the bot)"],
-        banner: "blum"
-    },
-    {
-        name: "V-Coin",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fen.numista.com%2Fcatalogue%2Fphotos%2Fetats-unis%2Fg1620.jpg&f=1&nofb=1&ipt=b41bd6a5f62071809e3ef89af66783192406d4efa06f3a474cb1147f041563bf",
-        description: "Passive miner of a pseudo-coin with many interesting investment opportunities! Accelerate your earnings, HODL Vcoin and see its price increase!",
-        added: "8-19-2024",
-        id: "vcoin",
-        attr: {
-            verified: -1,
-            dividends: false,
-            platform: "t",
-            type: "mine",
-            coin: "usdt",
-            effort: 0,
-            rating: 2
-        },
-        info: {
-            description: "Mine a pseudo-coin and exchange it for USDT! Accelerate your earnings, spin the wheel or check out the LuckyGroup lottery! Without purchasing a mining NFT for USDT (must be bought with in-app money, but allows you to deposit, which is always a red flag) you will only be able to withdraw 1.01USDT with 1USDT fee. So uh. One single cent. Not worth it, so certainly save up until you can buy the NFT. It takes forever though. We haven't reached 2USDT (or rather, 2$ worth of Vcoin) yet. Updates to come!",
-            effort: "Restart mining every day."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/VCNFT_bot/VCOIN_NFT?startapp=ref_6335111_lQWNuOE5"
-        },
-        benefits: ["If the app gets verified, we will distribute dividends."],
-        features: [["Mine and Upgrade", "Collect Vcoins every day and use them to upgrade your mining speed!"],
-            ["Tasks", "Complete tasks to get extra Vcoin! Check in every day for 100 Vcoin! Most tasks don't work however."],
-            ["Rewarded and Prize Pool", "Rewarded allows you to spin a wheel and get extra Vcoin! Big Prize Pool allows you to invest Vcoin and share rewards. Actually the Big Prize Pool thingy is weird, no idea how it works."],
-        ["Lucky Group", "Gamble and lose most of your Vcoin in the Lucky Group lottery with almost no chance of winning! How awesome, right?"]
-        ],
-        tips: [
-            ["Upgrade your miner to level 10 before doing anything else!", "Do not invest your Vcoin into anything other than upgrades before you get level 10 - this will allow you to make 550 Vcoin per day permanently. You will also get 10k Vcoin as a bonus when you reach level 10 miner!"],
-            ["Do not participate in the LuckyGroup", "The lucky group should distribute an NFT miner to a lucky winner from the 9 member group. Long story short, it's rigged. Even after over 100 entires, we haven't won once. They also claim that if you don't win, they will return your Vcoin with 0.01USDT as a bonus, which is a lie."]
-        ],
-        pros: ["Daily 100 Vcoin from tasks", "Excellent notification service"],
-        cons: ["Extreme withdrawal fee (1 USDT)", "Rigged lotteries", "Straight up lying in certain info boxes", "Fake market graph"],
-        banner: "blum"
-    },
-    {
         name: "SpinFi",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fthumbnails%2F017%2F222%2F025%2Fsmall_2x%2Fspinning-fortune-wheel-lucky-roulette-online-promotion-events-png.png&f=1&nofb=1&ipt=70d40684a96846f7be0e03130bea179af1074b5f5e3173df16e6cc66ca196130",
-        description: "Spin the wheel and get USDT! Actually you can apparently win 300USDT here! Wow! Well actually, only 299.96, then you'll need 80 Diamonds to exchange for 0.04USDT. That's okay right? Well you can only get 77 Diamonds. Then you will need 3000 Crystals to exchange for 3 Diamonds. Oh okay that makes sense. But what are the coins and gems for? And why is my withdrawal processing for 2 months already? Yeah I don't think this app is worth the pain.",
+        description: "Spin the wheel and get USDT! Actually you can apparently win 300USDT here! Wow! Well actually, only 299.96, then you'll need 80 Diamonds to exchange for 0.04USDT. That's okay right? Well you can only get 77 Diamonds. Then you will need 3000 Crystals to exchange for 3 Diamonds. Oh okay that makes sense. But what are the coins and gems for? And why is my withdrawal processing for 6 months already? Yeah I don't think this app is worth the pain.",
         added: "8-21-2024",
         id: "spinfi",
         attr: {
@@ -1646,8 +1462,8 @@ var LIST = [
             rating: 1
         },
         info: {
-            description: "Spin the wheel and get USDT! Actually you can apparently win 300USDT here! Wow! Well actually, only 299.96, then you'll need 80 Diamonds to exchange for 0.04USDT. That's okay right? Well you can only get 77 Diamonds. Then you will need 3000 Crystals to exchange for 3 Diamonds. Oh okay that makes sense. But what are the coins and gems for? And why is my withdrawal processing for 2 months already? Yeah I don't think this app is worth the pain. Pain huh? Well basically you get 5 spins per day, which is exactly what you'd expect it to be. Lame rewards. The good rewards come when you watch ads. One ad per spin, up to 30 per day. That sound as bad, but it's horrible. See, sometimes the app doesn't register you watching the ad. So it will force you into watching another one. This can continue into a super annoying loop of up to 10 ads per spin. Also sometimes the spin just doesn't work? That ad plays, another one isn't forced on you, but the wheel just... doesn't spin? Also this app contains a casino. Please no matter what you do, do not deposit.",
-            effort: "Spin 5 times per day and watch 30 ads (actually more like 300) to spin for the good rewards."
+            description: "<b>How much can you actually earn? 0.01$ from coins and 0.01$ once you reach 300$. Yeah.</b><br>Spin the wheel and get USDT! Actually you can apparently win 300USDT here! Wow! Well actually, only 299.96, then you'll need 80 Diamonds to exchange for 0.04USDT. That's okay right? Well you can only get 77 Diamonds. Then you will need 3000 Crystals to exchange for 3 Diamonds. Oh okay that makes sense. But what are the coins and gems for? And why is my withdrawal processing for 2 months already? Yeah I don't think this app is worth the pain. Pain huh? Well basically you get 5 spins per day, which is exactly what you'd expect it to be. Lame rewards. The good rewards come when you watch ads. One ad per spin, up to 30 per day. That sound as bad, but it's horrible. See, sometimes the app doesn't register you watching the ad. So it will force you into watching another one. This can continue into a super annoying loop of up to 10 ads per spin. Also sometimes the spin just doesn't work? That ad plays, another one isn't forced on you, but the wheel just... doesn't spin? Also this app contains a casino. Please no matter what you do, do not deposit.",
+            effort: "Spin 5 times per day and watch 30 ads (actually more like 300) to spin for rewards."
         },
         go: {
             type: 0,
