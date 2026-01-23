@@ -1106,7 +1106,7 @@ var LIST = [
         pros: ["Very generous free mining in comparison to other apps", "Low edge of the house"],
         cons: ["Annoying and pointless notifications", "High withdrawal threshold (10000 Satoshis that must be wagered)", "You can only mine 10 times per month without wagering an insane amount of Satoshis"],
         banner: "bin"
-    }
+    },
     {
         name: "Sweat Wallet",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJwkGy0o_DOQ8gWTY_8M3_bwp8wHDk766guJ-GR8FNgwBNE7m_hOLy8jDfBlSg0k2XgA&f=1&nofb=1&ipt=c1c17814f416141c8cdf186963b12194a468c4a291145f5e45f067765dc8becb",
