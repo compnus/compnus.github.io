@@ -372,7 +372,7 @@
                 status.innerHTML = `Please wait ${difference} second${difference == 1 ? "" : "s"} before trying again.`;
                 button.classList.remove("disabled");
                 return;
-            } else localStorage.setItem("promoused", JSON.stringify({ used: 0, exp: new Date(0).toISOString() }));
+            } else localStorage.removeItem("promoused");
         }
 
         const { data: promodata, error: promoerr } = await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/redeemCode', {
