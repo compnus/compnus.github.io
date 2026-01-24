@@ -363,13 +363,14 @@
             button.classList.remove("disabled");
             return;
         }
+        console.log("test");
         var last = localStorage.getItem("promoused") || `{"used": 0, "exp": "${new Date(0).toISOString()}"}`;
         last = JSON.parse(last);
         last.exp = new Date(last.exp).getTime();
-        console.log(last.exp, last.used)
+        console.log(last.exp, last.used);
         if (last.used >= 3) {
             var difference = Math.ceil((last.exp - Date.now()) / 1000);
-            console.log(difference)
+            console.log(difference);
             if (difference > 0) {
                 status.innerHTML = `Please wait ${difference} second${difference == 1 ? "" : "s"} before trying again.`;
                 button.classList.remove("disabled");

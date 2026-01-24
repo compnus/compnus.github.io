@@ -67,32 +67,33 @@ Deno.serve(async (req) => {
         });
     }
 
+   
+    const { data: recuser, error: userExistsErrorn } = await sb
+        .from("users")
+        .select("username")
+        .eq("id", uid)
+        .single();
+
+    if (userExistsErrorn || !recuser) {
+        return new Response(JSON.stringify({ response: `User ${uid} does not exist in the 'users' table.` }), {
+            status: 400,
+            headers: {
+                ...headers
+            }
+        });
+    }
+
+    const { data: pcode, error: perr } = await sb.from("promocodes").select("*").eq("code", code).single();
+    if (perr || !pcode) {
+        return new Response(JSON.stringify({ response: `Invalid promo code.` }), {
+            status: 400,
+            headers: {
+                ...headers
+            }
+        });
+    }
+
     try {
-        const { data: recuser, error: userExistsErrorn } = await sb
-            .from("users")
-            .select("username")
-            .eq("id", uid)
-            .single();
-
-        if (userExistsErrorn || !recuser) {
-            return new Response(JSON.stringify({ response: `User ${uid} does not exist in the 'users' table.` }), {
-                status: 400,
-                headers: {
-                    ...headers
-                }
-            });
-        }
-
-        const { data: pcode, error: perr } = await sb.from("promocodes").select("*").eq("code", code).single();
-        if (perr || !pcode) {
-            return new Response(JSON.stringify({ response: `Invalid promo code.` }), {
-                status: 400,
-                headers: {
-                    ...headers
-                }
-            });
-        }
-
         var usedby = pcode.used_by.split(" ").filter(Boolean);
         let isExpired = false;
         const expRaw = (pcode.expiration instanceof Date) ? pcode.expiration.toISOString().slice(0, 10) : String(pcode.expiration);
@@ -121,6 +122,15 @@ Deno.serve(async (req) => {
                 }
             });
         }
+    } catch (error) {
+        console.error("Error processing request", error);
+        return new Response(JSON.stringify({ response: "Internal Server Error.3" }), {
+            status: 500,
+            headers: {
+                ...headers
+            }
+        });
+    } try {
         var rewards: Object = JSON.parse(pcode.rewards);
         if (rewards["noca"]) {
             if (!(rewards["noca"] instanceof Number)) {
@@ -143,6 +153,15 @@ Deno.serve(async (req) => {
                 rewards["sats"] = rndm(tmp[0], tmp[1], tmp[2])
             }
         }
+    } catch (error) {
+        console.error("Error processing request", error);
+        return new Response(JSON.stringify({ response: "Internal Server Error.4" }), {
+            status: 500,
+            headers: {
+                ...headers
+            }
+        });
+    } try {
         var updateds: Object = {};
         var messageparts: string[] = [];
         updateds["balance_noca"] = balance["balance_noca"] + (rewards["noca"] || 0);
@@ -153,11 +172,19 @@ Deno.serve(async (req) => {
         if (rewards["sats"] > 0) messageparts.push(`${rewards["sats"]} Satoshis`);
         updateds["inventory"] = balance["inventory"]; //do this one later
         usedby.push(recuser.username);
+    } catch (error) {
+        console.error("Error processing request", error);
+        return new Response(JSON.stringify({ response: "Internal Server Error.5" }), {
+            status: 500,
+            headers: {
+                ...headers
+            }
+        });
+    } try {
         const { error: cannotAdd } = await sb.from("promocodes").update({ used_by: usedby.join(" ") }).eq("code", code);
         const { error: cannotUpdate } = await sb.from("udata").update(updateds).eq("user_id", uid);
-
         if (cannotUpdate || cannotAdd) {
-            return new Response(JSON.stringify({ response: `Error: ${cannotSend.message || cannotDeduct.message || cannotAdd.message}`, sc:true }), {
+            return new Response(JSON.stringify({ response: `Error: ${cannotUpdate.message || cannotAdd.message}`, sc:true }), {
                 status: 401,
                 headers: {
                     ...headers
@@ -173,7 +200,7 @@ Deno.serve(async (req) => {
         });
     } catch (error) {
         console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error."+error }), {
+        return new Response(JSON.stringify({ response: "Internal Server Error.999" }), {
             status: 500,
             headers: {
                 ...headers
