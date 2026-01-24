@@ -104,7 +104,7 @@ Deno.serve(async (req) => {
                 isExpired = Date.now() >= expMs;
             }
         }
-        if (usedby.includes(recuser.username) || usedby.length >= pcode.limit_uses || pcode.expiration) {
+        if (usedby.includes(recuser.username) || usedby.length >= pcode.limit_uses || pcode.isExpired) {
             return new Response(JSON.stringify({ response: `This promo code already expired.` }), {
                 status: 400,
                 headers: {
