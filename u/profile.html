@@ -342,9 +342,62 @@
     <button class='fullwidth' onclick="popup('Peniaze Zadarmo z Kas&iacute;n a St&aacute;vkov&yacute;ch Kancel&aacute;ri&iacute;', 'Vyu&zcaron;ite free spiny v kas&iacute;nach a vstupn&eacute; bonusy v st&aacute;vkov&yacute;ch kancel&aacute;ri&aacute;ch a zarobte tak peniaze bez rizika! Okrem toho v&dcaron;aka n&aacute;m z&iacute;skate extra bonusy - free bety a free spiny navy&scaron;e, &ccaron;i nav&yacute;&scaron;en&eacute; vstupn&eacute; bonusy!<br>Ak m&aacute;te z&aacute;ujem, pros&iacute;m, kontaktujte podporu na supcompnus@gmail.com')">Vstupn&eacute; Bonusy? Tomu Hovor&iacute;me Peniaze Zadarmo!</button>
     <p style="margin:0">`;
 
-    const promocontent = `
-    TBD
+    const promocontent = `</p>
+    <div class="input fullwidth">
+    <input id="promocodeinput" style="width:calc(100% - 2vh)" placeholder="ENTER CODE HERE" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9]/g, '').toUpperCase().substring(0,20)">
+    </div>
+    <p id="promocodestatus" style="margin: 1vh 0 2vh 0; display: none; font-weight: bold; text-align: center">Please wait...</p>
+    <button onclick="promoRedeem()" class="fullwidth" id="promocodebutton">Redeem</button>
+        <p style="display:none">
     `;
+
+    async function promoRedeem() {
+        var status = document.getElementById("promocodestatus");
+        status.style.display = "block";
+        status.innerHTML = "Please wait...";
+        var button = document.getElementById("promocodebutton");
+        button.classList.add("disabled");
+        var code = document.getElementById("promocodeinput").value;
+        if (code == "") {
+            status.innerHTML = "Please input the code first.";
+            button.classList.remove("disabled");
+            return;
+        }
+        var last = localStorage.getItem("promoused") || `{"used": 0, "exp": "${new Date(0).toISOString()}"}`;
+        last = JSON.parse(last);
+        last.exp = new Date(last.exp).getTime();
+        if (last.used >= 3) {
+            var difference = Math.ceil((Date.now() - last.exp) / 1000);
+            if (difference > 0) {
+                status.innerHTML = `Please wait ${difference} second${difference == 1 ? "" : "s"} before trying again.`;
+                button.classList.remove("disabled");
+                return;
+            } else localStorage.setItem("promoused", JSON.stringify({ used: 0, exp: new Date(0).toISOString() }));
+        }
+
+        const { data: promodata, error: promoerr } = await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/redeemCode', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+            },
+            body: JSON.stringify({uid: dt.uid, code: code})
+        })
+            .then(response => response.json())
+            .then(data => {
+                status.innerHTML = data.response;
+                if (data.sc) {
+                    loadWallet();
+                    localStorage.removeItem("promoused");
+                }
+                else {
+                    last.used += 1;
+                    if (last.used == 3) last.exp = new Date(Date.now() + 60000).toISOString();
+                    localStorage.setItem("promoused", JSON.stringify(last));
+                }
+                button.classList.remove("disabled");
+            });
+    }
     </script>
 
     <main>
@@ -465,7 +518,7 @@
             const { data, error } = await sb.auth.getUser();
 
             if (!data.user) {
-                window.location.href = "/u/login.html";
+                //window.location.href = "/u/login.html";
                 return;
             }
             if (error) {
