@@ -122,15 +122,6 @@ Deno.serve(async (req) => {
                 }
             });
         }
-    } catch (error) {
-        console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error.3" }), {
-            status: 500,
-            headers: {
-                ...headers
-            }
-        });
-    } try {
         var rewards: Object = JSON.parse(pcode.rewards);
         if (rewards["noca"]) {
             if (!(rewards["noca"] instanceof Number)) {
@@ -153,15 +144,7 @@ Deno.serve(async (req) => {
                 rewards["sats"] = rndm(tmp[0], tmp[1], tmp[2])
             }
         }
-    } catch (error) {
-        console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error.4" }), {
-            status: 500,
-            headers: {
-                ...headers
-            }
-        });
-    } try {
+    
         var updateds: Object = {};
         var messageparts: string[] = [];
         updateds["balance_noca"] = balance["balance_noca"] + (rewards["noca"] || 0);
@@ -172,15 +155,7 @@ Deno.serve(async (req) => {
         if (rewards["sats"] > 0) messageparts.push(`${rewards["sats"]} Satoshis`);
         updateds["inventory"] = balance["inventory"]; //do this one later
         usedby.push(recuser.username);
-    } catch (error) {
-        console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error.5" }), {
-            status: 500,
-            headers: {
-                ...headers
-            }
-        });
-    } try {
+ 
         const { error: cannotAdd } = await sb.from("promocodes").update({ used_by: usedby.join(" ") }).eq("code", code);
         const { error: cannotUpdate } = await sb.from("udata").update(updateds).eq("user_id", uid);
         if (cannotUpdate || cannotAdd) {
@@ -200,7 +175,7 @@ Deno.serve(async (req) => {
         });
     } catch (error) {
         console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error.999" }), {
+        return new Response(JSON.stringify({ response: "Internal Server Error."+JSON.stringify(rewards) + error }), {
             status: 500,
             headers: {
                 ...headers
