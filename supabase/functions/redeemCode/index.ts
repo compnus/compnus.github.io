@@ -105,7 +105,7 @@ Deno.serve(async (req) => {
                 isExpired = Date.now() >= expMs;
             }
         }
-        if (usedby.includes(recuser.username) || usedby.length >= pcode.limit_uses || pcode.isExpired) {
+        if (usedby.includes(recuser.username) || usedby.length >= pcode.limit_uses || isExpired) {
             return new Response(JSON.stringify({ response: `This promo code already expired.` }), {
                 status: 400,
                 headers: {
@@ -167,7 +167,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        return new Response(JSON.stringify({ response: pcode.message + "\n" + "You have received: "+messageparts.join(", ")+"!", sc:true }), {
+        return new Response(JSON.stringify({ response: pcode.message + "<br>" + "You have received: "+messageparts.join(", ")+"!", sc:true }), {
             status: 200,
             headers: {
                 ...headers
