@@ -416,7 +416,7 @@
 
         <div id="side" class="mainscroll">
             <button class="fullwidth" onclick="popup('Offers', offercontent)">Offers</button><br />
-            <button class="fullwidth" onclick="popup('Redeem Promo Code', promocontent)">Redeem Code</button><br />
+            <button class="fullwidth" onclick="popup('Redeem Promo Code', promocontent, true, true)">Redeem Code</button><br />
             <div class="sideshmuck" id="wallet">
                 <p class="collapse" id="walletrefresh" title="Refresh Wallet" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
                 <p class="collapse" id="collapsewallet" title="Collapse/Reveal Wallet" onclick="collapse('wallet');">&#9650;</p>

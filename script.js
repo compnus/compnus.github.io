@@ -134,14 +134,14 @@ async function getUser() {
     return { user: true, data: data.user };
 }
 
-function popup(title, message, close = true) {
+function popup(title, message, close = true, compact = false) {
     var x = document.createElement("div");
     x.style.opacity = 0;
     x.style.transition = '0.1s';
     x.id = "popup" + popupid++;
     x.className = "popup";
     x.innerHTML = `
-    <div onclick="e = window.event; e.stopPropagation()">
+    <div onclick="e = window.event; e.stopPropagation()" class="${compact?"cm":""}">
     <div class="inside">
     <h1>${title}</h1>
     <h2 onclick="document.getElementById('${x.id}').style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('${x.id}')), 201)">X</h2>

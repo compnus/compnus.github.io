@@ -442,6 +442,10 @@ div.popup > div {
     box-shadow: black 0 0 25px;
 }
 
+div.popup > div.cm {
+    max-width: 50vw;
+}
+
 div.popup > div > div.inside {
     display: flex;
     align-items: flex-start;
@@ -686,6 +690,10 @@ div.popup > div > div.inside > h1 {
             margin-left: 3vw;
             font-size: 4vw;
         }
+
+    div.popup > div.cm {
+        max-width: 80vw;
+    }
 
     div.landing {
         padding: 4vw;

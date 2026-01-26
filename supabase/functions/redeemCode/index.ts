@@ -152,7 +152,7 @@ Deno.serve(async (req) => {
         updateds["balance_nus"] = balance["balance_nus"] + (rewards["nus"] || 0);
         if (rewards["nus"] > 0) messageparts.push(`${rewards["nus"]} $NUS`);
         updateds["balance_sats"] = balance["balance_sats"] + (rewards["sats"] || 0);
-        if (rewards["sats"] > 0) messageparts.push(`${rewards["sats"]} Satoshis`);
+        if (rewards["sats"] > 0) messageparts.push(rewards["sats"] === 1 ? "1 Satoshi" : `${rewards["sats"]} Satoshis`);
         updateds["inventory"] = balance["inventory"]; //do this one later
         usedby.push(recuser.username);
  
