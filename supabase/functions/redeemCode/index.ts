@@ -124,21 +124,21 @@ Deno.serve(async (req) => {
         }
         var rewards: Object = pcode.rewards;
         if (rewards["noca"]) {
-            if (!(rewards["noca"] instanceof Number)) {
+            if (!(typeof rewards["noca"] === "number")) {
                 var tmp = rewards["noca"].split("-");
                 tmp = tmp.map((x: string) => parseFloat(x));
                 rewards["noca"] = Math.floor(rndm(tmp[0], tmp[1], tmp[2]))
             }
         }
         if (rewards["nus"]) {
-            if (!(rewards["nus"] instanceof Number)) {
+            if (!(typeof rewards["nus"] === "number")) {
                 var tmp = rewards["nus"].split("-");
                 tmp = tmp.map((x: string) => parseFloat(x));
                 rewards["nus"] = rndm(tmp[0], tmp[1], tmp[2])
             }
         }
         if (rewards["sats"]) {
-            if (!(rewards["sats"] instanceof Number)) {
+            if (!(typeof rewards["sats"] === "number")) {
                 var tmp = rewards["sats"].split("-");
                 tmp = tmp.map((x: string) => parseFloat(x));
                 rewards["sats"] = rndm(tmp[0], tmp[1], tmp[2])
