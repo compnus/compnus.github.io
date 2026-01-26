@@ -122,7 +122,7 @@ Deno.serve(async (req) => {
                 }
             });
         }
-        var rewards: Object = JSON.parse(pcode.rewards);
+        var rewards: Object = pcode.rewards;
         if (rewards["noca"]) {
             if (!(rewards["noca"] instanceof Number)) {
                 var tmp = rewards["noca"].split("-");
@@ -175,7 +175,7 @@ Deno.serve(async (req) => {
         });
     } catch (error) {
         console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error."+JSON.stringify(rewards) + error }), {
+        return new Response(JSON.stringify({ response: "Internal Server Error." }), {
             status: 500,
             headers: {
                 ...headers
