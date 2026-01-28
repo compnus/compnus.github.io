@@ -963,7 +963,7 @@ main#nofilters > #messagenone {
     }
         main#nofilters {
             grid-template-areas: "search" "list";
-            grid-template-rows: calc(21.5vw + 6px) auto;
+            grid-template-rows: 0 calc(21.5vw + 6px) auto 1fr;
         }
 
     #filters {
@@ -1314,8 +1314,9 @@ main#nofilters > #messagenone {
     }
 
     #nofilters > #utilitybuttons {
-        position: fixed;
-        top: initial;
+        position: sticky;
+        top: 98vh;
+        width: fit-content;
     }
 
         #utilitybuttons > a {
@@ -1374,5 +1375,44 @@ main#nofilters > #messagenone {
         border-radius: 2vw;
         margin-right: 4vw;
     }
+
+    #learn {
+        padding: calc(3vw - 2px);
+        border-radius: 6vw;
+        margin-top: 0;
+        margin-bottom: 4vw;
+    }
+
+    #learn > div {
+        margin-top: 3.5vw;
+    }
+
+            #learn > div > h1 {
+                margin: 0;
+                font-family: Gabarito;
+                margin-right: 7vw;
+                font-size: 5vw;
+            }
+
+            #learn > div > button {
+                font-size: 4vw;
+                font-family: 'Funnel Display';
+                border-radius: 3vw;
+                max-width: 40vw;
+                padding: 3vw;
+            }
+
+        #learn > p {
+            margin: 2vw 0 0 0;
+            font-size: 3.5vw;
+        }
+
+        #learn > h2 {
+            text-align: center;
+            font-size: 3vw;
+            width: 100%;
+            padding: 1vw 0;
+            border-radius: 0;
+        }
 
 }
