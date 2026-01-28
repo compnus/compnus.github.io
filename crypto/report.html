@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js" defer></script>
+    <title>Report an App - CryptoNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="util.css" />
+    <script src="util.js" defer></script>
+    <script src="listEarn.js"></script>
+    <script src="listView.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script>
+    <script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script>
+</head>
+<body>
+    <script>
+        initHeader("Report an App");
+        var list = GetURLParameter("l");
+        var app = GetURLParameter("id");
+    </script>
+    <main id="main" class="flex cc" style="flex-direction: column">
+       
+    </main>
+    <main id="loginfirst" style="display: none; flex-direction: column" class="flex cc">
+        <h1>You must be logged in to report apps.</h1><br /><br />
+        <a href='login.html' class='link' style='font-size: 40px;'><h2>Log In</h2></a>
+    </main>
+    <script>
+        initFooter();
+        document.addEventListener("DOMContentLoaded", async () => {/*
+            const { data, error } = await sb.auth.getUser();
+
+            if (!data.user) {
+                document.getElementById("main").style.display = "none";
+                document.getElementById("loginfirst").style.display = "flex";
+                return;
+            }
+            if (error) {
+                console.error(error);
+                return;
+            }*/
+
+            rmain();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js" defer></script>
+    <title>Scam List - CryptoNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="listScam.js"></script>
+    <script src="crypto.js" defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script>
+    <script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script>
+</head>
+<body>
+    <script>initHeader("Scam List");</script>
+
+    <main id="nofilters">
+        <div id="utilitybuttons">
+            <a href="add.html?to=scam" title="Report a Scam"><img src="https://img.icons8.com/?size=100&id=95779&format=png&color=FFFFFF" /></a>
+        </div>
+        <div id="searchbar">
+            <input id="searchbarinput" placeholder="Search..." oninput="search(this.value)" /><p title="Clear" onclick="document.getElementById('searchbarinput').value = ''; search('')">&times;</p>
+            <h1>Sort By:</h1>
+            <select id="searchbarselect" onchange="sortUpdate(this.value)">
+                <option value="0">Newest</option>
+                <option value="2">Alphabetically</option>
+            </select>
+        </div>
+        <div id="learn">
+            <h2>CompNUS Academy &nbsp; &nbsp; - &nbsp; &nbsp; <a onclick="x = document.getElementById('learn'); x.style.height = 0; x.style.padding = 0; x.style.borderWidth = 0; x.style.margin = 0; x.style.boxShadow = 'yellow 0 0 0'; x.style.borderRadius = '2vh'; window.setTimeout(()=>{ x.style.display = 'none' }, 510)" style="cursor: pointer"><u>Close This Banner</u></a></h2>
+            <div><h1>LEARN RED FLAGS AND HOW TO SPOT THEM!</h1><button onclick="window.location.assign('academy.html')">LET'S GO!</button></div>
+            <p>The best way to avoid scams is to recognize them. Check out our anti-scam academy to learn how to avoid scam projects! Learn about the most common red flags, how to spot them and report them!</p>
+        </div>
+        <div id="main" class="scammain">
+
+        </div>
+        <p id="messagenone">There are no apps that match your search query.</p>
+    </main>
+
+    <script>
+initFooter(true);
+        let DEFAULT = [];
+        window.addEventListener("DOMContentLoaded", () => load());
+        window.addEventListener('pageshow', function(event) {
+        if (document.getElementById('searchbarinput').value) search(document.getElementById('searchbarinput').value);
+        });
+        x = document.getElementById('learn');
+        x.height = 0;
+        window.setTimeout(() => {
+            x = document.getElementById('learn');
+            x.style.transition = 0;
+            x.style.height = "calc(" + x.offsetHeight + "px - " + parseFloat(getComputedStyle(x).paddingTop) + "px * 2 - 4px)";
+            x.style.transition = "0.5s cubic-bezier(0, 0, 0, 1), 0.3s ease-out border-width";
+        }, 500);
+        window.addEventListener("resize", () => {
+            x = document.getElementById('learn');
+            x.style.transition = 0;
+            x.style.height = "";
+            x.style.height = "calc(" + x.offsetHeight + "px - " + parseFloat(getComputedStyle(x).paddingTop) + "px * 2 - 4px)";
+            x.style.transition = "0.5s cubic-bezier(0, 0, 0, 1), 0.3s ease-out border-width";
+        });
+    </script>
+</body>
+</html>

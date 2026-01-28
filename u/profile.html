@@ -521,7 +521,7 @@
             const { data, error } = await sb.auth.getUser();
 
             if (!data.user) {
-                //window.location.href = "/u/login.html";
+                window.location.href = "/u/login.html";
                 return;
             }
             if (error) {

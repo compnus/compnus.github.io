@@ -379,6 +379,10 @@ a {
         transition: 0.3s ease;
     }
 
+        .input > input.max, .input > select.max {
+            width: initial;
+        }
+
     .input > .halve {
         display: flex;
         align-items: center;
