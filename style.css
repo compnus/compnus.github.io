@@ -268,7 +268,7 @@ main.landing {
     justify-content: center;
 }
 
-div.landing {
+div.landing, form.landing {
     background-color: var(--accent);
     padding: 2vh;
     border-radius: 4vh;
@@ -387,6 +387,14 @@ a {
         display: flex;
         align-items: center;
         width: calc(15vw + 2vh + 4px);
+    }
+
+    .input > .halve.max {
+        width: initial;
+    }
+
+    .input > .halve.max > input, .input > .halve.max > select {
+        width: initial;
     }
 
     .input > .halve > input, .input > .halve > select {
@@ -699,7 +707,7 @@ div.popup > div > div.inside > h1 {
         max-width: 80vw;
     }
 
-    div.landing {
+    div.landing, form.landing {
         padding: 4vw;
         border-radius: 8vw;
     }

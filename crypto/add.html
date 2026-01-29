@@ -13,21 +13,98 @@
     <script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script>
 </head>
 <body>
-    <script>initHeader("Add a Crypto App");
-        var list = GetURLParameter("to");
-    </script>
-    <main id="main" class="flex cc" style="flex-direction: column">
+    <script>initHeader("Add a Crypto App");</script>
+    <main id="main" class="landing">
         <div class="input">
             <label style="font-family: Ubuntu">I want to</label>
-            <select style="font-weight: bold" class="max">
-                <option value="null">-- please select --</option>
-                <option value="new">submit a new crypto project.</option>
-                <option value="earn">submit a free crypto app.</option>
-                <option value="scam">report a scam project.</option>
-            </select>
-        </div>
+            <div class="halve max">
+                <select style="font-weight: bold" onchange="setScreen(this.value)" id="setter">
+                    <option value="null">-- please select --</option>
+                    <option value="new">submit a new crypto project.</option>
+                    <option value="earn">submit a free crypto app.</option>
+                    <option value="scam">report a scam project.</option>
+                </select>
+                <button onclick="popup('Rewards', 'We value every submission and will reward contributors accordingly.<br><br><b>New Crypto Projects</b><br>You will earn Nocas for every app you submit which looks at least somewhat legit.<br><br><b>Free Crypto Apps</b><br>Submitting apps that get verified will reward you with a boost in the main dividends + $NUS reward.<br><br><b>Reporting Scams</b><br>If you report a scam with enough proof, you will be rewarded with $NUS.<br><br><br><b>Punishment</b><br><b>Submitting scam projects</b> as new crypto projects or free crypto apps, <b>submitting the same app multiple times</b>, <b>submitting fake apps</b> and <b>falsely reporting legit apps as scams</b> may lead to your main dividends being decreased or removed altogether.', true, true)">?</button>
+            </div></div>
+        <br />
+        <form id="new" class="landing utilScreen">
+            <div class="input">
+                <label for="newname">* App Name:</label>
+                <input oninput="this.value = this.value.substring(0,90)" required id="newname" placeholder="New Bitcoin" />
+            </div>
+            <div class="input">
+                <label for="newlink">* Link:</label>
+                <input required id="newlink" placeholder="https://newbtc.com/ref?id=1234" />
+            </div>
+            <p class="limited">Provide the link to the app. Feel free to use your referral link.</p><br />
+            <p class="limited">Optionally, you may provide us with more links:</p>
+            <div class="input">
+                <label for="newlw">Website:</label>
+                <input id="newlw" placeholder="newbtc.com" />
+            </div>
+            <div class="input">
+                <label for="newla">Android:</label>
+                <input id="newla" placeholder="play.google.com/1234" />
+            </div>
+            <div class="input">
+                <label for="newli">iOS:</label>
+                <input id="newli" placeholder="apps.apple.com/1234" />
+            </div>
+            <div class="input">
+                <label for="newlt">Telegram:</label>
+                <input id="newlt" placeholder="t.me/app/1234" />
+            </div>
+            <p style="font-weight: bold; display: none" id="newstatus"></p>
+            <button type="submit" id="newsubmit">Submit</button>
+        </form>
+        <form id="earn" class="landing utilScreen">
+            <div class="input">
+                <label for="earnname">* App Name:</label>
+                <input oninput="this.value = this.value.substring(0,90)" required id="earnname" placeholder="Free Bitcoin" />
+            </div>
+            <div class="input">
+                <label for="earnlink">* Link:</label>
+                <input required id="earnlink" placeholder="https://frebtc.com/ref?id=1234" />
+            </div>
+            <p class="limited">Provide the link to the app. Feel free to use your referral link.</p>
+            <p class="limited">If you are certain that the app is legit, submit it, and when it gets added, use the report button to add it.</p><br />
+            <p class="limited">Optionally, you may provide us with more links:</p>
+            <div class="input">
+                <label for="earnlw">Website:</label>
+                <input id="earnlw" placeholder="frebtc.com" />
+            </div>
+            <div class="input">
+                <label for="earnla">Android:</label>
+                <input id="earnla" placeholder="play.google.com/1234" />
+            </div>
+            <div class="input">
+                <label for="earnli">iOS:</label>
+                <input id="earnli" placeholder="apps.apple.com/1234" />
+            </div>
+            <div class="input">
+                <label for="earnlt">Telegram:</label>
+                <input id="earnlt" placeholder="t.me/app/1234" />
+            </div>
+            <p style="font-weight: bold; display: none" id="earnstatus"></p>
+            <button type="submit" id="earnsubmit">Submit</button>
+        </form>
+        <form id="scam" class="landing utilScreen">
+            <div class="input">
+                <label for="scamname">* App Name:</label>
+                <input oninput="this.value = this.value.substring(0,90)" required id="scamname" placeholder="1000$ on singup legit!!" />
+            </div>
+            <div class="input">
+                <label for="scamlink">* Link:</label>
+                <input required id="scamlink" placeholder="http://notascamatall.com/" />
+            </div>
+            <p class="limited">Provide the link to the app, so that we can verify whether it is actually a scam.</p><br />
+            <p class="limited">* Please describe the scam aspect. This can be anything from pointing out the red flags to showing any proof of it actually being a scam (being locked out after deposit, paying a massive amount of money to get nearly nothing, ...):</p>
+            <textarea id="scamprf" style="resize: none; margin-bottom: calc((0.5vw + 0.5vh) / 2)" required></textarea>
+            <p style="font-weight: bold; display: none" id="scamstatus"></p>
+            <button type="submit" id="scamsubmit">Submit</button>
+        </form>
     </main>
-    <main id="loginfirst" style="display: none; flex-direction: column" class="flex cc">
+    <main id="loginfirst" style="display: none;" class="landing">
         <h1>You must be logged in to submit crypto apps.</h1><br /><br />
         <a href='login.html' class='link' style='font-size: 40px;'><h2>Log In</h2></a>
     </main>
@@ -47,6 +124,18 @@
             }*/
 
             main();
+        });
+        document.getElementById('new').addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitForm('add', 'new');
+        });
+        document.getElementById('earn').addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitForm('add', 'earn');
+        });
+        document.getElementById('scam').addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitForm('add', 'scam');
         });
     </script>
 </body>

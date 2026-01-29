@@ -1,4 +1,4 @@
-var FILTERID = null;
+var FILTERID = 0;
 
 var LIST = [
     {
@@ -6,7 +6,24 @@ var LIST = [
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.bitgetimg.com%2FmultiLang%2Fweb%2F62e18cee66b35accc2bc058b443ebe34.png&f=1&nofb=1&ipt=3906f68d603756784f2c35345e24d61f662d7b519e652d1eb13211f48caa0827",
         short: "An actual wallet by the way! Spell Wallet not only holds your tokens and stakes them (SOL only), but also allows you to earn MANA and participate in Missions to earn money!",
         long: `Spell wallet allows you to <a class="link" onclick="popup('Token Staking in Spell Wallet', 'Sewat Wallet allows you to stake <b>Solana</b> from 0.001 SOL at up to 6.7% APY.')">hold and stake various tokens</a>, while also allowing you to collect MANA through mining, daily check-ins and quests and earn money (or more MANA) by participating in missions! You will be able to use MANA in the future to unlock airdrops!`,
-        id: "test"
+        id: "test",
+        category: 1
+    },
+    {
+        name: "Test",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.bitgetimg.com%2FmultiLang%2Fweb%2F62e18cee66b35accc2bc058b443ebe34.png&f=1&nofb=1&ipt=3906f68d603756784f2c35345e24d61f662d7b519e652d1eb13211f48caa0827",
+        short: "An actual wallet by the way! Spell Wallet not only holds your tokens and stakes them (SOL only), but also allows you to earn MANA and participate in Missions to earn money!",
+        long: `Spell wallet allows you to <a class="link" onclick="popup('Token Staking in Spell Wallet', 'Sewat Wallet allows you to stake <b>Solana</b> from 0.001 SOL at up to 6.7% APY.')">hold and stake various tokens</a>, while also allowing you to collect MANA through mining, daily check-ins and quests and earn money (or more MANA) by participating in missions! You will be able to use MANA in the future to unlock airdrops!`,
+        id: "testh",
+        category: 3
+    },
+    {
+        name: "Test",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.bitgetimg.com%2FmultiLang%2Fweb%2F62e18cee66b35accc2bc058b443ebe34.png&f=1&nofb=1&ipt=3906f68d603756784f2c35345e24d61f662d7b519e652d1eb13211f48caa0827",
+        short: "An actual wallet by the way! Spell Wallet not only holds your tokens and stakes them (SOL only), but also allows you to earn MANA and participate in Missions to earn money!",
+        long: `Spell wallet allows you to <a class="link" onclick="popup('Token Staking in Spell Wallet', 'Sewat Wallet allows you to stake <b>Solana</b> from 0.001 SOL at up to 6.7% APY.')">hold and stake various tokens</a>, while also allowing you to collect MANA through mining, daily check-ins and quests and earn money (or more MANA) by participating in missions! You will be able to use MANA in the future to unlock airdrops!`,
+        id: "testk",
+        category: 2
     }
 ];
 
@@ -14,7 +31,7 @@ function search(via) {
     via = via.toLowerCase().replace(/ /g, "_").trim();
     for (var i of document.getElementById("main").children) {
         i.style.display = "grid";
-        if (!i.id.includes(via)) {
+        if (!i.id.includes(via) || (FILTERID != 0 && !i.classList.contains("cat-"+FILTERID))) {
             i.style.display = "none";
             continue;
         }
@@ -22,10 +39,14 @@ function search(via) {
     if ([...document.getElementById("main").children].every(x => x.style.display === "none")) {
         let jmsg = document.getElementById("messagenone");
         jmsg.style.display = "block";
-        var xc = "There are no apps that match your filters and/or search query.<br>"
     } else {
         document.getElementById("messagenone").style.display = "none";
     }
+}
+
+function scamFilter(cat) {
+    FILTERID = cat;
+    search(document.getElementById('searchbarinput').value);
 }
 
 function load() {
@@ -41,6 +62,9 @@ function load() {
 
         cnt.id = `${i.id}___${i.name.replace(/ /g, "_").replace("#", "hash").toLowerCase()}`;
         cnt.setAttribute("onclick", "loadView('" + i.id + "')");
+        cnt.classList.add("cat-" + i.category);
+        if (i.category == 2) cnt.style.borderColor = "orange";
+        else if (i.category == 3) cnt.style.borderColor = "lightblue";
         document.getElementById("main").appendChild(cnt);
         DEFAULT.push(cnt);
     }

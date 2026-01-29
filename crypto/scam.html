@@ -21,6 +21,14 @@
         </div>
         <div id="searchbar">
             <input id="searchbarinput" placeholder="Search..." oninput="search(this.value)" /><p title="Clear" onclick="document.getElementById('searchbarinput').value = ''; search('')">&times;</p>
+            <h1>Category:</h1>
+            <select id="searchbarcat" onchange="scamFilter(this.value)">
+                <option value="0">All</option>
+                <option value="1">VerS</option>
+                <option value="2">TMRF</option>
+                <option value="3">NWYT</option>
+            </select>
+            <button onclick="popup('Scam Categories', `<b>VerS</b> = <b>Verified Scam</b> (<span style='color:red'>red outline</span>)<br>These apps are scams with no questions asked.<br><br><b>TMRF</b> = <b>Too Many Red Flags</b> (<span style='color:orange'>orange outline</span>)<br>These apps have way too many red flags to be trusted even slightly. They <b>may not be scams</b>! But all information available is against them.<br><br><b>NWYT</b> = <b>Not Worth Your Time</b> (<span style='color:lightblue'>blue outline</span>)<br>These apps are <b>not scams</b>, however, they are built in a way that makes it impossible to withdraw without spending your money or wasting and insane amount of time. They do not scam you for your wallet, rather for your time.`,true,true)">?</button>
             <h1>Sort By:</h1>
             <select id="searchbarselect" onchange="sortUpdate(this.value)">
                 <option value="0">Newest</option>

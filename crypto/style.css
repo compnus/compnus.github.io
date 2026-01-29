@@ -242,9 +242,9 @@ main {
 }
 
 #searchbar > h1 {
-    padding-left: 5vh;
+    padding-left: 3vh;
     padding-right: 1vh;
-    font-size: 3vh;
+    font-size: 2.5vh;
 }
 
 #searchbar > select {
@@ -262,20 +262,30 @@ main {
         outline: none;
     }
 
-.mainitem {
-    display: grid;
-    grid-template-columns: 12vh auto;
-    grid-template-rows: 1fr auto;
-    grid-gap: 1.5vh 1vh;
-    background-color: var(--lightbg);
-    padding: calc(1vh - 2px);
-    border-radius: 2vh;
-    border: solid 2px var(--lightbg);
-    margin-top: 2vh;
-    position: relative;
-    transition: 0.5s ease-out;
-    cursor: pointer;
-}
+    #searchbar > select#searchbarcat {
+        border-radius: 3px;
+    }
+
+    #searchbar > button {
+        padding: 1vh 1.5vh;
+        margin-left: 1vh;
+        border-radius: 100%;
+    }
+
+    .mainitem {
+        display: grid;
+        grid-template-columns: 12vh auto;
+        grid-template-rows: 1fr auto;
+        grid-gap: 1.5vh 1vh;
+        background-color: var(--lightbg);
+        padding: calc(1vh - 2px);
+        border-radius: 2vh;
+        border: solid 2px var(--lightbg);
+        margin-top: 2vh;
+        position: relative;
+        transition: 0.5s ease-out;
+        cursor: pointer;
+    }
 
 .mainitem.fmainfeatured { border-color: yellow }
 
@@ -784,7 +794,7 @@ main#nofilters > #messagenone {
     background-color: var(--lightbg);
     padding: calc(1vh - 2px);
     border-radius: 2vh;
-    border: solid 2px var(--lightbg);
+    border: solid 2px red;
     position: relative;
     transition: 0.5s ease-out box-shadow, 0.5s ease-out transform;
     cursor: pointer;
@@ -963,7 +973,7 @@ main#nofilters > #messagenone {
     }
         main#nofilters {
             grid-template-areas: "search" "list";
-            grid-template-rows: 0 calc(21.5vw + 6px) auto 1fr;
+            grid-template-rows: 0 calc(29.5vw + 9px) auto 1fr;
         }
 
     #filters {
@@ -1021,6 +1031,18 @@ main#nofilters > #messagenone {
             margin-right: 0;
             font-size: 4.5vw;
             border-radius: 0 0 3px 3px;
+        }
+
+
+            #searchbar > select#searchbarcat {
+                grid-column: span 1;
+            }
+
+        #searchbar > button {
+            padding: 0.5vw 1vw;
+            font-size: 4vw;
+            margin: 0 0 0 0.5vw;
+            border-radius: 100%;
         }
 
     .mainitem {
@@ -1147,6 +1169,10 @@ main#nofilters > #messagenone {
         top: 50vh;
         right: 50%;
         transform: translateX(50%);
+    }
+
+    main#nofilters > #messagenone {
+        top: 65vh;
     }
 
     #mobile {
