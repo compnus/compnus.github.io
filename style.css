@@ -414,6 +414,11 @@ a {
             height: 100%;
         }
 
+        .input > .halve > button > img {
+            width: 2vh;
+            height: 2vh;
+        }
+
     .input > input:focus, .input > .halve > input:focus, .input > .halve > button:hover {
         outline: none;
         box-shadow: var(--border) 0 0 5px, var(--border) 0 0 5px inset;
@@ -760,6 +765,11 @@ div.popup > div > div.inside > h1 {
                 width: 10vw;
                 margin: 0;
             }
+
+                .input > .halve > button > img {
+                    width: 5vw;
+                    height: 5vw;
+                }
 
         div.popup > div {
             max-width: 80vw;
