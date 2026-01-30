@@ -62,7 +62,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    if (!uid) {
+    if (!uid || uid !== user.user.id) {
         return new Response(JSON.stringify({ response: "UID is required" }), {
             status: 400,
             headers: {

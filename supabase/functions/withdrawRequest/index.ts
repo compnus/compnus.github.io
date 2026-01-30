@@ -40,7 +40,8 @@ Deno.serve(async (req) => {
         });
     }
 
-    let uid: string | null = null;
+    let uid: string = user.user.id;
+    let muid: string | null = null;
     let network: string | null = null;
     let amount: number | null = null;
     let address: string | null = null;
@@ -68,6 +69,17 @@ Deno.serve(async (req) => {
                 ...headers
             }
         });
+    }
+
+    if (muid !== null && muid !== uid) {
+        const { error } = await sb
+            .from("logs")
+            .insert([{ created_by: "SYSTEM", type: "WARNING", attributes: "?user_impersonation_withdraw", message: "user " + uid + " tried to impersonate " + muid }]);
+        return new Response(JSON.stringify({ response: "You have been reported for attempting to impersonate another user and steal their money.<br>Please be aware that this will most likely lead to your account being deleted." }), {
+            status: 400,
+            headers: {
+                ...headers
+            }
     }
 
     let fee: number = 0;

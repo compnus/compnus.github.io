@@ -21,7 +21,7 @@ function submitForm(page, screen) {
     status.innerHTML = "Please wait...";
     status.style.display = "block";
     button.classList.add("disabled");
-    var body = { uid: getUser().data.id, type: screen };
+    var body = { type: screen };
     if (page == "add") {
         body.name = document.getElementById(screen + "name").value;
         body.link = document.getElementById(screen + "link").value;

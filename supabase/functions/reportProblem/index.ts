@@ -40,14 +40,13 @@ Deno.serve(async (req) => {
         });
     }
 
-    let uid: string | null = null;
+    let uid: string = user.user.id;
     let cat: string | null = null;
     let dsc: string | null = null;
     let from: string | null = null;
 
     try {
         const body = await req.json();
-        uid = body.uid || null;
         cat = body.type || null;
         dsc = body.dsc || null;
     } catch (error) {

@@ -40,7 +40,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    let uid: string | null = user.user.id;
+    let uid: string = user.user.id;
     let muid: string | null = null;
     let to: string | null = null;
     let currency: string | null = null;
@@ -73,10 +73,10 @@ Deno.serve(async (req) => {
         });
     }
 
-    if (muid !== uid) {
+    if (muid !== null && muid !== uid) {
         const { error } = await sb
             .from("logs")
-            .insert([{ created_by: uid, type: "WARNING", attributes: "?admin_impersonation_funds", message: "user " + uid + " tried to impersonate " + muid }]);
+            .insert([{ created_by: "SYSTEM", type: "WARNING", attributes: "?admin_impersonation_funds", message: "user " + uid + " tried to impersonate " + muid }]);
         return new Response(JSON.stringify({ response: "You have been reported for attempting to impersonate an admin." }), {
             status: 403,
             headers: { ...headers }

@@ -40,7 +40,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    let uid: string | null = null;
+    let uid: string = user.user.id;
     let name: string | null = null;
     let link: string | null = null;
     let links: Object | null = null;
@@ -48,7 +48,6 @@ Deno.serve(async (req) => {
 
     try {
         const body = await req.json();
-        uid = body.uid || null;
         name = body.name || null;
         link = body.link || null;
         links = body.links || null;
@@ -64,7 +63,7 @@ Deno.serve(async (req) => {
     }
 
     if (!uid) {
-        return new Response(JSON.stringify({ response: "Invalid user. Please log-in first." }), {
+        return new Response(JSON.stringify({ response: "UID is required." }), {
             status: 400,
             headers: {
                 ...headers
