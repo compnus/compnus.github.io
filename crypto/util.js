@@ -15,7 +15,6 @@ function setScreen(to) {
 }
 
 async function submitForm(page, screen) {
-    console.log(page, screen)
     var status = document.getElementById(screen + "status");
     var button = document.getElementById(screen + "submit");
     status.innerHTML = "Please wait...";

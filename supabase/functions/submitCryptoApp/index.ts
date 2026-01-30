@@ -94,7 +94,7 @@ Deno.serve(async (req) => {
 
         const { error: logError } = await sb
             .from("logs")
-            .insert([{ created_by: from, type: "submission_add", attributes: "name->" + name + " link->" + link, message: (type == "scam" ? dsc : links) }]);
+            .insert([{ created_by: from, type: "submission_add", attributes: "name->" + name + "; link->" + link + "; type->"+type, message: (type == "scam" ? dsc : links) }]);
         if (logError) {
             return new Response(JSON.stringify({ response: `Internal server error.` }), {
                 status: 500,
@@ -104,7 +104,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        return new Response(JSON.stringify({ response: "Suggestion sent successfully!", sc: true }), {
+        return new Response(JSON.stringify({ response: (type=="scam"?"Scam reported successfully":"App submitted successfully!"), sc: true }), {
             status: 200,
             headers: {
                 ...headers
