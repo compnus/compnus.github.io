@@ -25,12 +25,12 @@ function submitForm(page, screen) {
     if (page == "add") {
         body.name = document.getElementById(screen + "name").value;
         body.link = document.getElementById(screen + "link").value;
-        if (screen != "scam") body.links = {
+        if (screen != "scam") body.links = JSON.stringify({
             web: document.getElementById(screen + "lw").value,
             android: document.getElementById(screen + "la").value,
             ios: document.getElementById(screen + "li").value,
             tg: document.getElementById(screen + "lt").value
-        };
+        });
         else body.dsc = document.getElementById("scamprf").value;
         await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/submitCryptoApp', {
             method: 'POST',

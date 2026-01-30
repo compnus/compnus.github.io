@@ -41,10 +41,12 @@ Deno.serve(async (req) => {
     }
 
     let uid: string = user.user.id;
+    let type: string | null = null;
     let name: string | null = null;
     let link: string | null = null;
-    let links: Object | null = null;
+    let links: string | null = null;
     let dsc: string | null = null;
+    let from: string | null = null;
 
     try {
         const body = await req.json();
@@ -52,6 +54,7 @@ Deno.serve(async (req) => {
         link = body.link || null;
         links = body.links || null;
         dsc = body.dsc || null;
+        type = body.type || null;
     } catch (error) {
         console.error("Failed to parse JSON body", error);
         return new Response(JSON.stringify({ response: "Failed to parse request body" }), {
@@ -91,7 +94,7 @@ Deno.serve(async (req) => {
 
         const { error: logError } = await sb
             .from("logs")
-            .insert([{ created_by: from, type: "suggestion", attributes: "name->" + name, message: dsc }]);
+            .insert([{ created_by: from, type: "submission_add", attributes: "name->" + name + " link->" + link, message: (type == "scam" ? dsc : links) }]);
         if (logError) {
             return new Response(JSON.stringify({ response: `Internal server error.` }), {
                 status: 500,
