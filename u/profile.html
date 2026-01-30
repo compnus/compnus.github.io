@@ -534,7 +534,6 @@
     .eq("id", data.user.id)
     .single();
     if (!userData.username || !userData.name || !userData.birthdate) window.location.href = "setup.html";
-    else console.log(userData.username, userData.name, userData.birthdate);
 
             main();
 

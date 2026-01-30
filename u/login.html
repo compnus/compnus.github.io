@@ -23,7 +23,10 @@
         </div>
         <div class="input">
             <label for="password">Password:</label>
-            <input type="password" id="password" required>
+            <div class="halve">
+                <input type="password" id="password" required>
+                <button onclick="var y = document.getElementById('password'); if (y.type == 'password') {y.type = 'text'} else {y.type = 'password'}" type="button">eye</button>
+            </div>
         </div>
         <button type="button" onclick="resetPassword()">Forgot Password</button>
         <button type="submit">Log in</button>
