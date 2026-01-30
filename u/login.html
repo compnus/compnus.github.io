@@ -25,7 +25,7 @@
             <label for="password">Password:</label>
             <div class="halve">
                 <input type="password" id="password" required>
-                <button onclick="var y = document.getElementById('password'); if (y.type == 'password') {y.type = 'text'} else {y.type = 'password'}" type="button">eye</button>
+                <button onclick="var y = document.getElementById('password'); var z = document.getElementById('passwordeye'); if (y.type == 'password') { y.type = 'text'; z.src = 'https://img.icons8.com/?size=100&id=0ciqibcg6iLl&format=png&color=FFFFFF' } else { y.type = 'password'; z.src='https://img.icons8.com/?size=100&id=30M9wv1iFkcH&format=png&color=FFFFFF' }" type="button"><img src="https://img.icons8.com/?size=100&id=30M9wv1iFkcH&format=png&color=FFFFFF" id="passwordeye" /></button>
             </div>
         </div>
         <button type="button" onclick="resetPassword()">Forgot Password</button>
