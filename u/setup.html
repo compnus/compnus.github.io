@@ -63,11 +63,11 @@
 
             const { data: { user }, error: authError } = await sb.auth.getUser();
 
-           /* if (!user) {
+            if (!user) {
                  document.getElementById("mainhint").innerHTML = "You must be logged in to set up your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
                  document.getElementById("maindiv").style.display = 'none';
                  return;
-             } */
+             }
 
             const { data: userData, error: dbError } = await sb
                 .from("users")

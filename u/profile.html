@@ -528,6 +528,12 @@
                 console.error(error);
                 return;
             }
+            const { data: userData, error: dbError } = await sb
+    .from("users")
+    .select("username, name, birthdate")
+    .eq("id", data.user.id)
+    .single();
+    if (!userData.username || !userData.name ||!userData.birthdate) window.location.href = "setup.html";
 
             main();
 
