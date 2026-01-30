@@ -104,7 +104,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        return new Response(JSON.stringify({ response: (type=="scam"?"Scam reported successfully":"App submitted successfully!"), sc: true }), {
+        return new Response(JSON.stringify({ response: (type=="scam"?"Scam reported successfully!<br>Thank you!":"App submitted successfully!<br>Thank you!"), sc: true }), {
             status: 200,
             headers: {
                 ...headers
