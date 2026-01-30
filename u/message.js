@@ -19,6 +19,7 @@ async function loadNocas() {
     var balance = await getBalance(dt.user_id);
     var y = balance[1];
     document.getElementById("nocabalance").innerHTML = y;
+    return y;
 }
 
 async function sendMessage() {
@@ -36,9 +37,10 @@ async function sendMessage() {
             return;
         }
         var bt = document.getElementById("limitedsend");
+        bt.classList.add("disabled");
         bt.innerHTML = "Please wait...";
         const { data, error } = await sb.auth.getUser();
-        if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = "Send"; return }
+        if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = "Send"; bt.classList.remove("disabled"); return; }
         mt.user_id = data.user.id;
         mt.uid = (await sb.auth.getSession()).data.session?.user.id;
         mt.to = document.getElementById("normalreciever").value;
@@ -56,12 +58,12 @@ async function sendMessage() {
             .then(data => {
                 if (data.type === null || data.type === undefined) {
                     popup("Error!", data.response);
-                    bt.innerHTML = "Send";
+                    bt.innerHTML = "Send"; bt.classList.remove("disabled");
                     return;
                 }
                 if (data.type === 0) {
                     popup(data.response, data.message);
-                    bt.innerHTML = "Send";
+                    bt.innerHTML = "Send"; bt.classList.remove("disabled");
                     return;
                 }
                 if (data.type === 1) popup(data.response, "</p><div class='flex cc'><button onclick='history.back()'>Return</button></div><p style='margin:0'");
@@ -69,7 +71,7 @@ async function sendMessage() {
             .catch((error) => {
                 console.error('Error invoking function:', error);
             });
-        bt.innerHTML = "Send";
+        bt.innerHTML = "Send"; bt.classList.remove("disabled");
     }
 
     if (selected === 1) {
@@ -85,11 +87,14 @@ async function sendMessage() {
             popup("Message is missing!", "There is no message to send.");
             return;
         }
-        var bt = document.getElementById("mainsend");
+        var bt = document.getElementById("mainsend"); bt.classList.add("disabled");
         var mn = "Send (<span id='messagecost'>1</span> &curren;)";
         bt.innerHTML = "Please wait...";
+        if (loadNocas() < increaseChar()) {
+            popup("Not enough Nocas!", "You do not have enough Nocas to send this message.<br><a href='/crypto/nus/free.html'><b>Get some for free here!</b></a>"); bt.innerHTML = mn; bt.classList.remove("disabled"); increaseChar(); return
+        }
         const { data, error } = await sb.auth.getUser();
-        if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = mn; increaseChar(); return }
+        if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = mn; bt.classList.remove("disabled"); increaseChar(); return }
         mt.user_id = data.user.id;
         mt.uid = (await sb.auth.getSession()).data.session?.user.id;
         mt.to = document.getElementById("advreciever").value;
@@ -107,13 +112,13 @@ async function sendMessage() {
             .then(data => {
                 if (data.type === null || data.type === undefined) {
                     popup("Error!", data.response);
-                    bt.innerHTML = mn;
+                    bt.innerHTML = mn; bt.classList.remove("disabled");
                     increaseChar();
                     return;
                 }
                 if (data.type === 0) {
                     popup(data.response, data.message);
-                    bt.innerHTML = mn;
+                    bt.innerHTML = mn; bt.classList.remove("disabled");
                     increaseChar();
                     return;
                 }
@@ -122,7 +127,7 @@ async function sendMessage() {
             .catch((error) => {
                 console.error('Error invoking function:', error);
             });
-        bt.innerHTML = mn;
+        bt.innerHTML = mn; bt.classList.remove("disabled");
         increaseChar();
         loadNocas();
     }
@@ -171,7 +176,9 @@ function increaseChar() {
     var imgsts = (advmsg.split("{img1}").length - 1) + (advmsg.split("{img2}").length - 1) + (advmsg.split("{img3}").length - 1) + (advmsg.split("{img4}").length - 1) + (advmsg.split("{img5}").length - 1) + (advmsg.split("{img6}").length - 1) + (advmsg.split("{img7}").length - 1) + (advmsg.split("{img8}").length - 1);
     length = length + ((breaks + amps + eqs) * 4) + ((lefts + rights + nbsps) * 3) + ((lbr + rbr) * 6) + (hs + nhs) + quts * 5 + (imgs * 2) + (imgsts * 15) + hrs * 8 + links * 30;
     rm.innerHTML = "Characters: " + length;
-    document.getElementById("messagecost").innerHTML = 1 + links + (Math.floor((length - 1) / 50) >= 0 ? Math.floor((length - 1) / 50):0);
+    msgcost = 1 + links + (Math.floor((length - 1) / 50) >= 0 ? Math.floor((length - 1) / 50) : 0);
+    document.getElementById("messagecost").innerHTML = msgcost;
+    return msgcost;
 }
 
 function preview() {
