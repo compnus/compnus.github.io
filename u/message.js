@@ -90,7 +90,7 @@ async function sendMessage() {
         var bt = document.getElementById("mainsend"); bt.classList.add("disabled");
         var mn = "Send (<span id='messagecost'>1</span> &curren;)";
         bt.innerHTML = "Please wait...";
-        if (loadNocas() < increaseChar()) {
+        if (loadNocas() < increaseChar(true)) {
             popup("Not enough Nocas!", "You do not have enough Nocas to send this message.<br><a href='/crypto/nus/free.html'><b>Get some for free here!</b></a>"); bt.innerHTML = mn; bt.classList.remove("disabled"); increaseChar(); return
         }
         const { data, error } = await sb.auth.getUser();
@@ -155,7 +155,7 @@ function remainingChar() {
     else x.classList.add("disabled");
 }
 
-function increaseChar() {
+function increaseChar(only = false) {
     var advmsg = document.getElementById("advmsg").value;
     var rm = document.getElementById("charcount");
     var length = advmsg.length;
@@ -177,8 +177,8 @@ function increaseChar() {
     length = length + ((breaks + amps + eqs) * 4) + ((lefts + rights + nbsps) * 3) + ((lbr + rbr) * 6) + (hs + nhs) + quts * 5 + (imgs * 2) + (imgsts * 15) + hrs * 8 + links * 30;
     rm.innerHTML = "Characters: " + length;
     msgcost = 1 + links + (Math.floor((length - 1) / 50) >= 0 ? Math.floor((length - 1) / 50) : 0);
-    document.getElementById("messagecost").innerHTML = msgcost;
-    return msgcost;
+    if (only) return msgcost;
+    else document.getElementById("messagecost").innerHTML = msgcost;
 }
 
 function preview() {
