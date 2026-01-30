@@ -66,9 +66,9 @@
                 if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password)) {
                     problms = [];
                     if (password.length < 8) problms.push("Password must be at least 8 characters long.");
-                    if (!/^(?=.*[a-z])$/.test(password)) problms.push("Password must contain a lowercase letter.");
-                    if (!/^(?=.*[A-Z])$/.test(password)) problms.push("Password must contain an UPPERCASE letter.");
-                    if (!/^(?=.*\d)$/.test(password)) problms.push("Password must contain a numb3r.");
+                    if (!/^(?=.*[a-z]).{0,}$/.test(password)) problms.push("Password must contain a lowercase letter.");
+                    if (!/^(?=.*[A-Z]).{0,}$/.test(password)) problms.push("Password must contain an UPPERCASE letter.");
+                    if (!/^(?=.*\d).{0,}$/.test(password)) problms.push("Password must contain a numb3r.");
 
                     statusElement.textContent = "Password doesn't meet requirements!\n"+problms.join("\n");
 
