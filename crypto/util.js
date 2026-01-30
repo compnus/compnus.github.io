@@ -21,7 +21,7 @@ function submitForm(page, screen) {
     status.innerHTML = "Please wait...";
     status.style.display = "block";
     button.classList.add("disabled");
-    var body = {uid: getUser().data.id, type: screen};
+    var body = { uid: getUser().data.id, type: screen };
     if (page == "add") {
         body.name = document.getElementById(screen + "name").value;
         body.link = document.getElementById(screen + "link").value;
@@ -32,5 +32,18 @@ function submitForm(page, screen) {
             tg: document.getElementById(screen + "lt").value
         };
         else body.dsc = document.getElementById("scamprf").value;
+        await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/submitCryptoApp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+            },
+            body: JSON.stringify(body)
+        })
+            .then(response => response.json())
+            .then(data => {
+                status.innerHTML = data.response;
+            });
+        return;
     }
 }

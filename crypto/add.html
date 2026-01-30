@@ -34,25 +34,25 @@
             </div>
             <div class="input">
                 <label for="newlink">* Link:</label>
-                <input required id="newlink" placeholder="https://newbtc.com/ref?id=1234" />
+                <input required id="newlink" placeholder="https://newbtc.com/ref?id=1234" oninput="this.value = this.value.substring(0,511)" />
             </div>
             <p class="limited">Provide the link to the app. Feel free to use your referral link.</p><br />
             <p class="limited">Optionally, you may provide us with more links:</p>
             <div class="input">
                 <label for="newlw">Website:</label>
-                <input id="newlw" placeholder="newbtc.com" />
+                <input id="newlw" placeholder="newbtc.com" oninput="this.value = this.value.substring(0,255)" />
             </div>
             <div class="input">
                 <label for="newla">Android:</label>
-                <input id="newla" placeholder="play.google.com/1234" />
+                <input id="newla" placeholder="play.google.com/1234" oninput="this.value = this.value.substring(0,255)" />
             </div>
             <div class="input">
                 <label for="newli">iOS:</label>
-                <input id="newli" placeholder="apps.apple.com/1234" />
+                <input id="newli" placeholder="apps.apple.com/1234" oninput="this.value = this.value.substring(0,255)" />
             </div>
             <div class="input">
                 <label for="newlt">Telegram:</label>
-                <input id="newlt" placeholder="t.me/app/1234" />
+                <input id="newlt" placeholder="t.me/app/1234" oninput="this.value = this.value.substring(0,255)" />
             </div>
             <p style="font-weight: bold; display: none" id="newstatus"></p>
             <button type="submit" id="newsubmit">Submit</button>
@@ -64,26 +64,26 @@
             </div>
             <div class="input">
                 <label for="earnlink">* Link:</label>
-                <input required id="earnlink" placeholder="https://frebtc.com/ref?id=1234" />
+                <input required id="earnlink" placeholder="https://frebtc.com/ref?id=1234" oninput="this.value = this.value.substring(0,511)" />
             </div>
             <p class="limited">Provide the link to the app. Feel free to use your referral link.</p>
             <p class="limited">If you are certain that the app is legit, submit it, and when it gets added, use the report button to add it.</p><br />
             <p class="limited">Optionally, you may provide us with more links:</p>
             <div class="input">
                 <label for="earnlw">Website:</label>
-                <input id="earnlw" placeholder="frebtc.com" />
+                <input id="earnlw" placeholder="frebtc.com" oninput="this.value = this.value.substring(0,255)" />
             </div>
             <div class="input">
                 <label for="earnla">Android:</label>
-                <input id="earnla" placeholder="play.google.com/1234" />
+                <input id="earnla" placeholder="play.google.com/1234" oninput="this.value = this.value.substring(0,255)" />
             </div>
             <div class="input">
                 <label for="earnli">iOS:</label>
-                <input id="earnli" placeholder="apps.apple.com/1234" />
+                <input id="earnli" placeholder="apps.apple.com/1234" oninput="this.value = this.value.substring(0,255)" />
             </div>
             <div class="input">
                 <label for="earnlt">Telegram:</label>
-                <input id="earnlt" placeholder="t.me/app/1234" />
+                <input id="earnlt" placeholder="t.me/app/1234" oninput="this.value = this.value.substring(0,255)" />
             </div>
             <p style="font-weight: bold; display: none" id="earnstatus"></p>
             <button type="submit" id="earnsubmit">Submit</button>
@@ -95,7 +95,7 @@
             </div>
             <div class="input">
                 <label for="scamlink">* Link:</label>
-                <input required id="scamlink" placeholder="http://notascamatall.com/" />
+                <input required id="scamlink" placeholder="http://notascamatall.com/" oninput="this.value = this.value.substring(0,511)" />
             </div>
             <p class="limited">Provide the link to the app, so that we can verify whether it is actually a scam.</p><br />
             <p class="limited">* Please describe the scam aspect. This can be anything from pointing out the red flags to showing any proof of it actually being a scam (being locked out after deposit, paying a massive amount of money to get nearly nothing, ...):</p>
@@ -110,7 +110,7 @@
     </main>
     <script>
         initFooter();
-        document.addEventListener("DOMContentLoaded", async () => {/*
+        document.addEventListener("DOMContentLoaded", async () => {
             const { data, error } = await sb.auth.getUser();
 
             if (!data.user) {
@@ -121,7 +121,7 @@
             if (error) {
                 console.error(error);
                 return;
-            }*/
+            }
 
             main();
         });

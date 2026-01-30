@@ -41,17 +41,21 @@ Deno.serve(async (req) => {
     }
 
     let uid: string | null = null;
-    let btc: boolean | null = null;
-    let amount: string | null = null;
+    let name: string | null = null;
+    let link: string | null = null;
+    let links: Object | null = null;
+    let dsc: string | null = null;
 
     try {
         const body = await req.json();
         uid = body.uid || null;
-        btc = body.btc || null;
-        amount = body.amount || null;
+        name = body.name || null;
+        link = body.link || null;
+        links = body.links || null;
+        dsc = body.dsc || null;
     } catch (error) {
         console.error("Failed to parse JSON body", error);
-        return new Response(JSON.stringify({ response: "Failed to parse request body" + error }), {
+        return new Response(JSON.stringify({ response: "Failed to parse request body" }), {
             status: 400,
             headers: {
                 ...headers
@@ -59,35 +63,8 @@ Deno.serve(async (req) => {
         });
     }
 
-    if (!uid || uid != user.id) {
-        return new Response(JSON.stringify({ response: "UID is required" }), {
-            status: 400,
-            headers: {
-                ...headers
-            }
-        });
-    }
-
-    const { data: nData, error: nError } = await sb.from("udata").select("balance_nus, balance_noca, balance_sats").eq("user_id", uid).single();
-    if (!nData || nError) {
-        return new Response(JSON.stringify({ response: "We had problems processing the exchange." }), {
-            status: 501,
-            headers: { ...headers }
-        });
-    }
-
-    if (parseInt(amount) < (btc?100:10)) {
-        return new Response(JSON.stringify({ response: "Please enter a valid amount to send.", sc:true }), {
-            status: 400,
-            headers: {
-                ...headers
-            }
-        });
-    }
-
-    var toPay: number = parseFloat((parseInt(amount) / parseInt((await sb.from("variable").select("value").eq("key", (btc ? "nocaforsat" : "nocafornus")).single()).data.value)).toFixed(4));
-    if (toPay > (btc ? nData.balance_sats : nData.balance_nus)) {
-        return new Response(JSON.stringify({ response: "Insufficient funds.", sc: true }), {
+    if (!uid) {
+        return new Response(JSON.stringify({ response: "Invalid user. Please log-in first." }), {
             status: 400,
             headers: {
                 ...headers
@@ -96,18 +73,36 @@ Deno.serve(async (req) => {
     }
 
     try {
-        const { error: sendError } = await sb.from("udata").update(btc ? { balance_noca: nData.balance_noca + parseInt(amount), balance_sats: Math.round((nData.balance_sats - toPay)*10000)/10000 } : { balance_noca: nData.balance_noca + parseInt(amount), balance_nus: Math.round((nData.balance_nus - toPay)*100000000)/100000000 }).eq("user_id", uid);
+        const { data: recuser, error: userExistsErrorn } = await sb
+            .from("users")
+            .select("username")
+            .eq("id", uid)
+            .single();
 
-        if (sendError) {
-            return new Response(JSON.stringify({ response: "There was a problem updating your balance." }), {
+        if (userExistsErrorn || !recuser) {
+            return new Response(JSON.stringify({ response: `User ${uid} does not exist in the 'users' table.` }), {
                 status: 400,
+                headers: {
+                    ...headers
+                }
+            });
+        } else {
+            from = recuser.username;
+        }
+
+        const { error: logError } = await sb
+            .from("logs")
+            .insert([{ created_by: from, type: "suggestion", attributes: "name->" + name, message: dsc }]);
+        if (logError) {
+            return new Response(JSON.stringify({ response: `Internal server error.` }), {
+                status: 500,
                 headers: {
                     ...headers
                 }
             });
         }
 
-        return new Response(JSON.stringify({ response: "Exchange was successful!", sc:true }), {
+        return new Response(JSON.stringify({ response: "Suggestion sent successfully!", sc: true }), {
             status: 200,
             headers: {
                 ...headers
