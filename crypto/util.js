@@ -21,18 +21,16 @@ function submitForm(page, screen) {
     status.innerHTML = "Please wait...";
     status.style.display = "block";
     button.classList.add("disabled");
-    var body = {uid: getUser().data.id};
+    var body = {uid: getUser().data.id, type: screen};
     if (page == "add") {
         body.name = document.getElementById(screen + "name").value;
         body.link = document.getElementById(screen + "link").value;
-        body.type = screen;
-        if (screen != "scam") {
-            body.links = {
-                web: document.getElementById(screen + "lw").value,
-                android: document.getElementById(screen + "la").value,
-                ios: document.getElementById(screen + "li").value,
-                tg: document.getElementById(screen + "lt").value
-            }
-        }
+        if (screen != "scam") body.links = {
+            web: document.getElementById(screen + "lw").value,
+            android: document.getElementById(screen + "la").value,
+            ios: document.getElementById(screen + "li").value,
+            tg: document.getElementById(screen + "lt").value
+        };
+        else body.dsc = document.getElementById("scamprf").value;
     }
 }
