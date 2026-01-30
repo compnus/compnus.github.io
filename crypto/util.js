@@ -14,7 +14,7 @@ function setScreen(to) {
     document.getElementById(to).style.display = "flex";
 }
 
-function submitForm(page, screen) {
+async function submitForm(page, screen) {
     console.log(page, screen)
     var status = document.getElementById(screen + "status");
     var button = document.getElementById(screen + "submit");
