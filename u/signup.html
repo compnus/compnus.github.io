@@ -70,7 +70,7 @@
                     if (!/^(?=.*[A-Z]).{0,}$/.test(password)) problms.push("Password must contain an UPPERCASE letter.");
                     if (!/^(?=.*\d).{0,}$/.test(password)) problms.push("Password must contain a numb3r.");
 
-                    statusElement.textContent = "Password doesn't meet requirements!\n"+problms.join("\n");
+                    statusElement.innerHTML = "Password doesn't meet requirements!<br>"+problms.join("<br>");
 
                     document.getElementById("password").style.borderColor = "red";
                     return;
