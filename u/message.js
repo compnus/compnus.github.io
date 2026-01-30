@@ -90,7 +90,7 @@ async function sendMessage() {
         var bt = document.getElementById("mainsend"); bt.classList.add("disabled");
         var mn = "Send (<span id='messagecost'>1</span> &curren;)";
         bt.innerHTML = "Please wait...";
-        if (loadNocas() < increaseChar(true)) {
+        if ((await loadNocas()) < increaseChar(true)) {
             popup("Not enough Nocas!", "You do not have enough Nocas to send this message.<br><a href='/crypto/nus/free.html'><b>Get some for free here!</b></a>"); bt.innerHTML = mn; bt.classList.remove("disabled"); increaseChar(); return
         }
         const { data, error } = await sb.auth.getUser();
