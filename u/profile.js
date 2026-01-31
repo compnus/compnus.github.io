@@ -134,6 +134,7 @@ async function loadMessages() {
         from.innerHTML = "From: " + z.from + (z.from === "CompNUS" ? `<img class="msgverified" src="https://img.icons8.com/?size=100&id=85190&format=png&color=FFFFFF" title="This is an official message from CompNUS."/>`
             : `${replyButton}<img class="msgaction" src="https://img.icons8.com/?size=100&id=94733&format=png&color=FFFFFF" title="Report Message" onclick="reportMsg(${z.id})"/><img class="msgaction" src="https://img.icons8.com/?size=100&id=83222&format=png&color=FFFFFF" title="Block User" onclick="blockUser('${z.from}')"/>`);
         cont.appendChild(from);
+        if (z.from === "CompNUS") cont.style.backgroundColor = "var(--lightbg)";
         var msg = document.createElement("div");
         msg.classList.add("msgmsg");
         msg.innerHTML = z.message;
