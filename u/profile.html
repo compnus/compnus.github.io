@@ -223,7 +223,7 @@
             <input type="text" id="sendmoneyto" placeholder="username" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30);">
         </div>
         <div class="input">
-            <label for="sendmoneyselect">Resource:</label>
+            <label for="sendmoneyselect">Asset:</label>
             <select style="font-family: 'currencycompnus',Ubuntu !important; width:initial !important; flex:10" id="sendmoneyselect" onchange="x=document.getElementById('sendmoneyamount'); x.placeholder = (this.value=='noca'?'0':'0.00'); x.step = (this.value=='noca'?'1':(this.value=='sat'?'0.0001':'0.00000001')); x.value = (this.value=='noca'?Math.floor(x.value):x.value); calcFees()">
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="nus">$ &nbsp; NUS</option>
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="noca">¤ &nbsp; Nocas</option>
@@ -278,7 +278,7 @@
         var receivefundsrq = `</p>
         <form id="recmoneyform" onsubmit="event.preventDefault(); getFunds(document.getElementById('recmoneyselect').value, document.getElementById('recmoneyamount').value, document.getElementById('recmoneymsg').value, document.getElementById('recmoneystatus'));">
         <div class="input">
-            <label for="recmoneyselect">Resource:</label>
+            <label for="recmoneyselect">Asset:</label>
             <select style="font-family: 'currencycompnus',Ubuntu !important; width:initial !important; flex:10" id="recmoneyselect" onchange="x=document.getElementById('recmoneyamount'); x.placeholder = (this.value=='noca'?'0':'0.00'); x.step = (this.value=='noca'?'1':(this.value=='sat'?'0.0001':'0.00000001')); x.value = (this.value=='noca'?Math.floor(x.value):x.value); fixRecValues()">
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="nus">$ &nbsp; NUS</option>
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="noca">¤ &nbsp; Nocas</option>
@@ -309,7 +309,7 @@
             <input type="text" id="sendmoneyato" placeholder="username" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (this.value.length>30) this.value = this.value.substring(0,30);">
         </div>
         <div class="input">
-            <label for="sendmoneyaselect">Resource:</label>
+            <label for="sendmoneyaselect">Asset:</label>
             <select style="font-family: 'currencycompnus',Ubuntu !important; width:initial !important; flex:10" id="sendmoneyaselect" onchange="x=document.getElementById('sendmoneyaamount'); x.placeholder = (this.value=='noca'?'0':'0.00'); x.step = (this.value=='noca'?'1':'0.00000001'); x.value = (this.value=='noca'?Math.floor(x.value):x.value)">
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="nus">$ &nbsp; NUS</option>
                 <option style="font-family: 'currencycompnus',Ubuntu !important" value="noca">¤ &nbsp; Nocas</option>
@@ -437,10 +437,10 @@
                 </div>
                 <p style="margin: 0; width: 100%; text-align: right;" id="valuebtcsats" title="Approximate value based on the current price of Bitcoin (provided by CoinDesk)">&asymp; $0.00<span style="color: #999; font-weight: 300">0</span></p>
                 <div id="walletactions">
-                    <button class="fullwidth" title="Send wallet resources to other users!" onclick="sendfundsrqpopupid = popupid; popup('Send Assets', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send Assets</button>
-                    <button class="fullwidth" title="Receive wallet resources to other users!" onclick="recfundsrqpopupid = popupid; popup('Receive Assets', receivefundsrq, false)">Receive Assets</button>
+                    <button class="fullwidth" title="Send assets to other users!" onclick="sendfundsrqpopupid = popupid; popup('Send Assets', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send Assets</button>
+                    <button class="fullwidth" title="Receive assets from other users!" onclick="recfundsrqpopupid = popupid; popup('Receive Assets', receivefundsrq, false)">Receive Assets</button>
                 </div>
-                <button class="fullwidth" title="Detailed view of your wallet resources. You can withdraw your Bitcoin Satoshi here." onclick="location.assign('wallet.html')">Open Wallet</button>
+                <button class="fullwidth" title="Detailed view of your assets. You can withdraw your Bitcoin Satoshi here." onclick="location.assign('wallet.html')">Open Wallet</button>
             </div>
             <br />
             <div class="sideshmuck collapsed" id="accact" style="height:3.5vh">
