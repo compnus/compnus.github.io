@@ -295,6 +295,7 @@ onclick="popup('Formatting Help','You can use braces {} to format your text. The
                 messageRe = messageRe.replaceAll("%3CCHQTE%3E", '"').replaceAll("%3CCHAMP%3E", "&").replaceAll("%20", " ").replaceAll("%27", "'").replaceAll("%25","%");
                 document.getElementById('normaltitle').value = messageRe;
                 document.getElementById('advtitle').value = messageRe;
+                fixTitle('normal');
             }
         });
     </script>
