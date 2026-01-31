@@ -316,7 +316,7 @@ async function copyTemplate() {
 Username: [[Put your username here, as a confirmation]]
 Reason: [[Optionally, you can tell us why you are leaving CompNUS]]
 
-I do acknowledge, that I will lose access to everything connected to my CompNUS account, and funds in my wallet will be lost forever: [[Write "YES" here]]`;
+I do acknowledge, that I will lose access to everything connected to my CompNUS account, and assets in my wallet will be lost forever: [[Write "YES" here]]`;
     navigator.clipboard.writeText(x);
     popup("Template copied!", "Template preview:<br><br>"+x.replaceAll("\n","<br>"));
 }

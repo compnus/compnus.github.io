@@ -409,7 +409,7 @@
             <div class="mainactions">
                 <button class="fullwidth" title="All your items in one place." onclick="location.assign('inventory.html')">Inventory</button>
                 <button class="fullwidth" title="Mine CompNUS's own cryptocurrency - $NUS!" onclick="location.assign('../crypto/nus/')">Mine $NUS</button>
-                <button class="fullwidth" title="Get Bitcoin, $NUS and Nocas (&curren;) from dividends and tasks!" onclick="location.assign('../crypto/nus/free.html')">Get Free Funds</button>
+                <button class="fullwidth" title="Get Bitcoin, $NUS and Nocas (&curren;) from dividends and tasks!" onclick="location.assign('../crypto/nus/free.html')">Get Free Assets</button>
                 <button class="fullwidth" title="Access and manage all your data!" onclick="location.assign('data.html')">Manage Data</button>
             </div>
         </div>
@@ -437,8 +437,8 @@
                 </div>
                 <p style="margin: 0; width: 100%; text-align: right;" id="valuebtcsats" title="Approximate value based on the current price of Bitcoin (provided by CoinDesk)">&asymp; $0.00<span style="color: #999; font-weight: 300">0</span></p>
                 <div id="walletactions">
-                    <button class="fullwidth" title="Send wallet resources to other users!" onclick="sendfundsrqpopupid = popupid; popup('Send Funds', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send Funds</button>
-                    <button class="fullwidth" title="Receive wallet resources to other users!" onclick="recfundsrqpopupid = popupid; popup('Receive Funds', receivefundsrq, false)">Receive Funds</button>
+                    <button class="fullwidth" title="Send wallet resources to other users!" onclick="sendfundsrqpopupid = popupid; popup('Send Assets', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send Assets</button>
+                    <button class="fullwidth" title="Receive wallet resources to other users!" onclick="recfundsrqpopupid = popupid; popup('Receive Assets', receivefundsrq, false)">Receive Assets</button>
                 </div>
                 <button class="fullwidth" title="Detailed view of your wallet resources. You can withdraw your Bitcoin Satoshi here." onclick="location.assign('wallet.html')">Open Wallet</button>
             </div>
@@ -497,7 +497,7 @@
             <div id="adminactions" class="mainactions" style="padding-right: 1vh">
                 <h2 class="fullwidth" style="margin:0;text-align:center;align-self:center">Admin Actions:</h2>
                 <button class="fullwidth" onclick="location.assign('admin/message.html')">Send Message</button>
-                <button class="fullwidth" onclick="popup('Give Funds', sendfundsrqa, false);">Give Funds</button>
+                <button class="fullwidth" onclick="popup('Give Assets', sendfundsrqa, false);">Give Assets</button>
                 <button class="fullwidth" onclick="location.assign('admin/dividends.html')">Create Dividends</button>
             </div>
 
@@ -544,7 +544,7 @@
                 let amount = GetURLParameter("amount");
                 let message = GetURLParameter("message") || "";
                 sendfundsrqpopupid = popupid;
-                popup('Send Funds', sendfundsrq, false);
+                popup('Send Assets', sendfundsrq, false);
                 if (ismsgban) { document.getElementById('blockedmessaging').classList.add('disabled'); message = "" };
                 document.getElementById('sendmoneyto').value = to;
                 document.getElementById('sendmoneyselect').value = type;
