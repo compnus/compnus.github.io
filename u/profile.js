@@ -178,7 +178,7 @@ function reportMsg(msg) {
               <option value="other">Other</option>
             </select>
         </div>
-        <p style="margin-bottom: 0.5vw">Anything you would like to add?<br><i>Feel free to add additional notes regarding your concern.</i></p>
+        <p style="margin-bottom: calc(0.25vw + 0.25vh)">Anything you would like to add?<br><i>Feel free to add additional notes regarding your concern.</i></p>
         <textarea id="describerep"></textarea>
         <br>
         <p id="reportmsgstatus" style="font-weight:bold;text-align:center"></p>
