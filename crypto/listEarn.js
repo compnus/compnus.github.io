@@ -1,6 +1,6 @@
 var FILTERID = "earn5";
 
-var LIST = [
+const LISTE = [
     {
         name: "Robox",
         icon: "https://play-lh.googleusercontent.com/4WJT23_3x0VGuNia2wVJ0M6LO7ZkaiGwWl8avIaPkWpkY3XF6QN1otAA_iumCGWdKg=w240-h480-rw",
@@ -1643,7 +1643,7 @@ function search(via) {
 }
 
 function load() {
-    for (i of LIST) {
+    for (i of LISTE) {
         if (i.unlisted) continue;
         let cnt = document.createElement("div");
         cnt.classList.add("mainitem");

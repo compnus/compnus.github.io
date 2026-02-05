@@ -1,6 +1,6 @@
 var FILTERID = "new1x";
 
-var LIST = [
+const LISTN = [
     {
     name: "Spell Wallet",
     icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.bitgetimg.com%2FmultiLang%2Fweb%2F62e18cee66b35accc2bc058b443ebe34.png&f=1&nofb=1&ipt=3906f68d603756784f2c35345e24d61f662d7b519e652d1eb13211f48caa0827",
@@ -842,7 +842,7 @@ function search(via) {
 }
 
 function load() {
-    for (i of LIST) {
+    for (i of LISTN) {
         if (i.unlisted) continue;
         let cnt = document.createElement("div");
         cnt.classList.add("mainitem");

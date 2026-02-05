@@ -1,6 +1,6 @@
 var FILTERID = 0;
 
-var LIST = [
+var LISTS = [
     {
         name: "Test",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.bitgetimg.com%2FmultiLang%2Fweb%2F62e18cee66b35accc2bc058b443ebe34.png&f=1&nofb=1&ipt=3906f68d603756784f2c35345e24d61f662d7b519e652d1eb13211f48caa0827",
@@ -50,7 +50,7 @@ function scamFilter(cat) {
 }
 
 function load() {
-    for (i of LIST) {
+    for (i of LISTS) {
         let cnt = document.createElement("div");
         cnt.classList.add("scamitem");
         cnt.innerHTML = `<div>
@@ -73,7 +73,7 @@ function load() {
 }
 
 function loadView(iteid) {
-    let item = LIST.find(obj => obj.id === iteid)
+    let item = LISTS.find(obj => obj.id === iteid)
     popup(`<img src="${item.icon}" class="scamicon">`+item.name, `
     <p class="scamtext">${item.long}</p>
     <button class="fullwidth" onclick="navigator.clipboard.writeText('https://compnus.com/crypto/scam.html?id=${item.id}'); this.innerHTML='Copied!'; this.classList.add('disabled')">Copy Link to This App</button>

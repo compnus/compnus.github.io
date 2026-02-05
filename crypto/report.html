@@ -8,20 +8,32 @@
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="util.css" />
-    <script src="util.js" defer></script>
     <script src="listEarn.js"></script>
-    <script src="listView.js"></script>
+    <script src="listNew.js"></script>
+    <script src="util.js" defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script>
-    <script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-ZW8SQ3EQ1B');</script>
 </head>
 <body>
-    <script>
-        initHeader("Report an App");
-        var list = GetURLParameter("l");
-        var app = GetURLParameter("id");
-    </script>
-    <main id="main" class="flex cc" style="flex-direction: column">
-       
+    <script>initHeader("Report an App");</script>
+    <main id="main" class="landing">
+        <div class="input">
+            <label style="font-family: Ubuntu">I want to report a</label>
+            <div class="halve max">
+                <select style="font-weight: bold" onchange="setScreen(this.value)" id="setter">
+                    <option value="null">-- please select --</option>
+                    <option value="new">new crypto project.</option>
+                    <option value="earn">free crypto app.</option>
+                </select>
+                <button onclick="popup('Rewards', 'We value every report and will reward contributors accordingly.<br><br><b>Reporting Scams</b><br>You will earn Nocas for reporting a scam with enough proof.<br><br><b>Proving Legitimacy</b><br>If we promised dividends when this app gets verified, you will earn a significant boost. Otherwise, you will earn $NUS.<br><br><br><b>Punishment</b><br><b>Falsely reporting legit apps as scams</b> and <b>providing fake legitimacy proofs</b> will lead to removing your ability to earn any dividends.', true, true)">?</button>
+            </div>
+        </div>
+        <div class="input">
+            <label style="font-family: Ubuntu">App:</label>
+            <select style="font-weight: bold" id="appselect" class="disabled max">
+                <option value="null">Please select what you want to report first.</option>
+            </select>
+        </div>
     </main>
     <main id="loginfirst" style="display: none; flex-direction: column" class="flex cc">
         <h1>You must be logged in to report apps.</h1><br /><br />

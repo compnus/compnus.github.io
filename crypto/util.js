@@ -1,8 +1,12 @@
 function main() {
-    var list = GetURLParameter("to");
+    var list = GetURLParameter("to") || GetURLParameter("l");
     if (list) {
         document.getElementById("setter").value = list;
         setScreen(list);
+    }
+    var app = GetURLParameter("id");
+    if (app) {
+        document.getElementById("appselect").value = app;
     }
 }
 
@@ -12,6 +16,12 @@ function setScreen(to) {
         i.style.display = "none";
     });
     document.getElementById(to).style.display = "flex";
+    updateSelect(to);
+}
+
+function updateSelect(to) {
+    if (to == "new") LIQ = LISTN;
+    else if (to == "earn") LIQ = LISTE;
 }
 
 async function submitForm(page, screen) {
