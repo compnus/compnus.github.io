@@ -242,45 +242,6 @@ const LISTE = [
         banner: "speed"
     },
     {
-        name: "Puparty",
-        icon: "https://puparty.com/resource/image/logo.jpg",
-        featured: true,
-        description: "A game based on the mobile classic \"Coin Master\", except it allows you to make money while playing! Great combination! Additionally, you can mine $PPT and exchange it for wUSDT, which can be withdrawn as USDT! Even more money!",
-        added: "7-17-2024",
-        id: "puparty",
-        attr: {
-            verified: 1,
-            dividends: true,
-            platform: "t",
-            type: "p2e",
-            coin: "usdt",
-            effort: 2,
-            rating: 5
-        },
-        info: {
-            description: "Puparty makes you play a game similar to Coin Masters - spin the slots and get coins! Other than coins, however, you can steal other's $PPT, coins, or even destroy their village! Speaking of the village, make sure you build your own, as every upgrade gives you PPP and completing a village gives you extra spins and even cards - whose dupes can be sold for $PPT. Now what's PPP for? The more PPP you have, the more $PPT per hour you earn! $PPT can be then exchanged for 1000PPT - a token with real value, which you can sell for wUSDT and withdraw it as USDT! Complete card collections to get pets or USDT! There are also daily rewards, platform dividends and more!",
-            effort: "You must spin manually and collect $PPT from your mine manually by clicking it. This game requires you to be active, but once you run out of Spins, there isn't much to do, which means you can turn it off and come back the next day."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/puparty_bot/index?startapp=10530568"
-        },
-        features: [["Offline $PPT Mining", "Every day you can visit your mine to collect accumulated $PPT!"],
-        ["Gameplay", "Simple yet engaging gameplay with simple to understand progression and many rewards along the way!"],
-        ["Card Marketplace", "Sell your dupe cards for $PPT or merge them for higher star cards and finish your collection for the best prizes!"],
-        ["Tasks and Tournaments", "Complete tasks to get PPP and compete in tournaments to get extra coins, PPP and USDT!"]
-        ],
-        tips: [["Collect $PPT every day!", "$PPT stops accumulating after 48 hours. Because of that make sure to collect it every day to prevent missing out on potential rewards."],
-        ["Do not buy low star cards!", "You are way more likely to get these from chests, so do not waste your $PPT on them. Their price is also usually higher than their value."],
-        ["Don't forget to spend your coins before logging off!", "Don't forget that just as you can steal other's coins, they can steal yours. Always make sure to spend them before logging off to prevent others from taking them."],
-        ["Log in daily for extra rewards!", "You will get a free reward every day. However, if you check in for more than 7 days in a row, the calendar upgrades and gives you better rewards. Every 7 days, the calendar upgrades even more, giving even better rewards. Miss out a single day, and the calendar resets back to its original, lame version."]
-        ],
-        benefits: [],
-        pros: ["Fast withdrawals with unitary fee", "Live 1000PPT price chart", "Generous tournaments", "Dividends for people who collected all cards"],
-        cons: ["Your $PPT can be stolen if you have no shields left","Annoying pop-ups", "AI music (luckily can be turned off)", "Outdated event names (like the Happy New Year event in August)"],
-        banner: "bin"
-    },
-    {
         name: "UpRock",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdepinscan-prod.s3.us-east-1.amazonaws.com%2Fnext-s3-uploads%2F3052af85-94c3-437b-b764-079164c02a58%2Fuprock_color.png&f=1&nofb=1&ipt=9c1ff17d8ef0c29903a48cd5a9292ca281849b0cc7eb7ce1c5a72c1dd85c587e",
         featured: true,
@@ -1038,143 +999,6 @@ const LISTE = [
         banner: "bin"
     },
     {
-        name: "AIX Market",
-        unlisted: true,
-        icon: "https://www.findmini.app/_astro/avatar_ev602uz51e_Z2036tn.webp",
-        description: "Earn the AIX pseudo-coin, stake and exchange for TON! Get free AIX for daily tasks, participate in predictions (another gambling app? dang) and receive the Airdrop (a weird name for tasks but alright)!",
-        added: "8-29-2024",
-        id: "aix",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "t",
-            type: "faucet",
-            coin: "ton",
-            effort: 1,
-            rating: 4
-        },
-        info: {
-            description: `AIX was originally supposed to release as an actual token, but then the entire app changed to a prediction-driven staking pseudo-coin airdrop thing we see today. The prediction gambling-like aspect really makes this feel like a poor attempt to make more money. Another red flag is the ability to deposit, but as long as you avoid these two features, this app seems rather legit. Free AIX you can get in this app every day (daily check in + 30 ads) is worth about 0.01TON <a class="link" onclick="popup('What does this mean?', 'This app gets updates almost daily and the thing that changes the most, is the amount of ads you can watch per day. For some reason. This means that the amount of ads and therefore the amount of AIX you can get for free every day will probably be different from the data seen here. We are trying to update this information as frequently as possible, but we might not be completely accurate.<br><br>Most ADs per day recorded: <b>50</b><br>Least ADs per day recorded: <b>5</b><br>Highest free AIX to TON value per day recorded: <b>0.06 TON</b><br>Lowest free AIX to TON value per day recorded: <b>0.0001 TON</b>')" title="What does this mean?">at this point</a>, which is not excellent, but it was only 0.0001 so it's certainly better!`,
-            effort: "Collect tokens, stake them and that's it!"
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/AIXhashbot/AIXhash?startapp=5782755258"
-        },
-        benefits: ["If the app gets verified, we will distribute dividends."],
-        features: [["Staking", "Staking AIX is a decent way to earn more, however the APY changes very often and isn't very transparent. Nevertheless, it's still a very efficient way to earn!"]],
-        tips: [
-            ["Avoid predictions!", "In general, just avoid gambling."]
-        ],
-        pros: ["Active developer team", "Many opportunities to earn free AIX"],
-        cons: ["Gambling. Seriously? Why."],
-        banner: "blum"
-    },
-    {
-        name: "Ember",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fsync%2Fv2%2FC5627AQGPHFOCqQabrg%2Farticleshare-shrink_800%2Farticleshare-shrink_800%2F0%2F1732020021145%3Fe%3D2147483647%26v%3Dbeta%26t%3D8dGxtwsgi7yjj0RZlUiMO20lbg7t0Xf6PO66NPZfAdM&f=1&nofb=1&ipt=796f699f6d25986cc639a101cf9e8a7011e67befddcb4856f2e82ce930fe4f84",
-        description: "Mine Bitcoin, wager it and withdraw! With new games added occasionally and new ways to earn being slowly introduced, you can enjoy all flavors of earnings! This includes: microtasks, gambling and predictions as of now! Another gambling app? Brooooooo why.",
-        added: "9-2-2024",
-        id: "ember",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "ai",
-            type: "mine",
-            coin: "btc",
-            effort: 1,
-            rating: 3
-        },
-        info: {
-            description: "Mine Bitcoin every day, wager it through gambling and predictions and watch your earnings grow! This is a gambling app so before you ask, yes, there is a way to deposit money and NO, you should NEVER do that with gambling apps. Because that's basically the best way to lose money. Do not deposit money through buying Ember tokens! Anyway, there are also microtasks ig.",
-            effort: "Restart mining every day. You will need to wager it in order to withdraw."
-        },
-        go: {
-            type: 1,
-            link: "https://emberfund.onelink.me/ljTI/l4g18zii?mining_referrer_id=MNGA3LNUO3A",
-            code: "MNGA3LNUO3A"
-        },
-        benefits: ["Extra 1 Satoshi/Hour mining speed (double from the regular).", "If the app gets verified, we will distribute dividends."],
-        features: [["Mining and Gambling", "Start your mining daily! Use your mined Satoshis in various gambling games to wager them and make them eligible to withdraw!"],
-        ["Predictions and Microtasks", "Multiply your Satoshis (or lose them all) in predictions and earn extra through microtasks!"],
-        ["Tournaments", "Participate in tournaments and get a share of won Satoshis!"]
-        ],
-        tips: [
-            ["Turn off the notifications.", "This app has probably the most annoying notification service in the world. They can play the sound or light up your screen even in Do Not Disturb mode (somehow???) and never contain useful information. Downside of doing this is that whenever you start the app it will ask you to allow notifications. Do not agree to it."],
-            ["Safe wagers!", "Do not bet all your Satoshis on red! The point here isn't to win as much as possible but instead to wager and therefore secure your earned tokens. Safe bets, small loss and therefore guaranteed money!"]
-        ],
-        pros: ["Very generous free mining in comparison to other apps", "Low edge of the house"],
-        cons: ["Annoying and pointless notifications", "High withdrawal threshold (10000 Satoshis that must be wagered)", "You can only mine 10 times per month without wagering an insane amount of Satoshis"],
-        banner: "bin"
-    },
-    {
-        name: "Sweat Wallet",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJwkGy0o_DOQ8gWTY_8M3_bwp8wHDk766guJ-GR8FNgwBNE7m_hOLy8jDfBlSg0k2XgA&f=1&nofb=1&ipt=c1c17814f416141c8cdf186963b12194a468c4a291145f5e45f067765dc8becb",
-        description: "Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to collect even more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
-        added: "9-3-2024",
-        id: "sweat",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "ai",
-            type: "ad",
-            coin: "other:SWEAT",
-            effort: 2,
-            rating: 3
-        },
-        info: {
-            description: "<b>Note: In order to make money from steps, you will need a <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> account.</b><br>Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to play games like spin-a-wheel or card flip and earn more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
-            effort: "Steps and jars create $SWEAT automatically, but watching ads is way more efficient."
-        },
-        go: {
-            type: 0,
-            link: "https://swe.at/wallet"
-        },
-        benefits: ["Whether you download this app through us or directly from the store, it won&apos;t make any difference.<br>We aren&apos;t getting any benefits and therefore you also won&apos;t."],
-        features: [["Spin-a-Wheel and Flip-a-Card", "Daily ad watch abilities allow you to earn $SWAET for free!"],
-            ["Sweat Jars", "Lock your $SWEAT in a jar and watch it grow! The longer you lock your $SWEAT for, the higher the APY becomes! Watch out for promotions that allow you to get even higher APY!"], 
-            ["Learn and Earn + Quests", "Learn about Sweat and its partners, answer quizzes and earn free $SWEAT! Check out quests, complete simple tasks and earn even more!"],
-            ["Prize Draw Reffles", "Grow your $SWEAT in jars and unlock Prize draws! Buy a raffle ticket for $SWEAT and get a chance to win great prizes!"]
-        ],
-        tips: [
-            ["Do not risk a higher prize.", "This tip might seem stupid, but one thing you should know about the wheel spin (and the card flip) is that it's rigged. After you win 4000 Steps (lowest reward on the wheel other than 0), you might want to spin again to try and get a higher prize. The chance for that should be 67% right? Well, it isn't. And you have a much greater chance that you will spin 0, even twice in a row. Once you win something from the wheel, take it immediately."],
-            ["Grow all your $SWEAT!", "Due to not-so-good decisions by the developers, $SWEAT fails to surge and increase in value. The only way to actively increase your earnings are jars. With up to 12% APY, or even more in certain promotions, you can secure a passive income, if you grow enough $SWEAT."]
-        ],
-        pros: ["Frequent prize draws", "Convert your <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> earnings to real money"],
-        cons: ["Rigged Spin-a-Wheel and Flip-a-Card minigames", "$SWEAT fails to increase its value due to questionable decisions by the developers"],
-        banner: "bin"
-    },
-    {
-        name: "Sweatcoin",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fsweatcoin-logo-coin-gradient-background-move-earn-concept-design-earn-cryptocurrency-by-exercising-moving-vector-eps-10_532800-733.jpg&f=1&nofb=1&ipt=acdf89b692c0bd1730e4d1e8684d7ffdb57bbfee5be0846c3aac342c7cb79909",
-        unlisted: true,
-        id: "sweatcoin",
-        attr: {
-            verified: 1,
-            dividends: false,
-            platform: "ai",
-            type: "Walk to Earn",
-            coin: "other:None",
-            effort: 0,
-            rating: 2
-        },
-        info: {
-            description: "<b>Note: In order to make money from steps, you will need to download <a style='color:yellow' href='viewEarn.html?id=sweat'>Sweat Wallet</a>.</b><br>This app is required in order to get $SWEAT from Sweat Wallet for steps.",
-            effort: "Just walk."
-        },
-        go: {
-            type: 0,
-            link: "https://swcapp.com/i/kingpvz"
-        },
-        benefits: ["There are no benefits. We will get Sweatcoins but those are useless anyway. So what are we supposed to share?"],
-        features: [["Convert Steps into $SWEAT", "Up to 7000 Steps will be converted to $SWEAT."]],
-        tips: [
-            ["Do not buy premium.","It's worthless."]],
-        pros: ["Used with <a style='color:yellow' href='viewEarn.html?id=sweat'>Sweat Wallet</a> to create $SWEAT tokens"],
-        cons: ["The only way to spend Sweatcoins is on prize draws, which with a community as big as Sweatcoin's means no chance to win anything"],
-        banner: "bin"
-    },
-    {
         name: "FREEUSDT",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fallinoneweb.ir%2Fwp-content%2Fuploads%2F2024%2F05%2FFreeTether.jpg&f=1&nofb=1&ipt=a97499c9171351442a50f8199e8c944f96a8a848e1f1d6800456f49b0c3f8af3",
         description: "Get free USDT every day! Complete surveys to get tokens and exchange them for even more USDT! Play games to increase the amount of rolls you get every day!",
@@ -1341,6 +1165,110 @@ const LISTE = [
         ],
         pros: ["Absolute peak of simplicity"],
         cons: ["High withdrawal threshold (5 USDC = 1000 ads @ 20 per day = 50 days)"],
+        banner: "bin"
+    },
+    {
+        name: "Ember",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fsync%2Fv2%2FC5627AQGPHFOCqQabrg%2Farticleshare-shrink_800%2Farticleshare-shrink_800%2F0%2F1732020021145%3Fe%3D2147483647%26v%3Dbeta%26t%3D8dGxtwsgi7yjj0RZlUiMO20lbg7t0Xf6PO66NPZfAdM&f=1&nofb=1&ipt=796f699f6d25986cc639a101cf9e8a7011e67befddcb4856f2e82ce930fe4f84",
+        description: "Mine Bitcoin, wager it and withdraw! With new games added occasionally and new ways to earn being slowly introduced, you can enjoy all flavors of earnings! This includes: microtasks, gambling and predictions as of now! Another gambling app? Brooooooo why.",
+        added: "9-2-2024",
+        id: "ember",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "mine",
+            coin: "btc",
+            effort: 1,
+            rating: 2
+        },
+        info: {
+            description: "Mine Bitcoin every day, wager it through gambling and predictions and watch your earnings grow! This is a gambling app so before you ask, yes, there is a way to deposit money and NO, you should NEVER do that with gambling apps. Because that's basically the best way to lose money. Do not deposit money through buying Ember tokens! Anyway, there are also microtasks ig.",
+            effort: "Restart mining every day. You will need to wager it in order to withdraw."
+        },
+        go: {
+            type: 1,
+            link: "https://emberfund.onelink.me/ljTI/l4g18zii?mining_referrer_id=MNGA3LNUO3A",
+            code: "MNGA3LNUO3A"
+        },
+        benefits: ["Extra 1 Satoshi/Hour mining speed (double from the regular).", "If the app gets verified, we will distribute dividends."],
+        features: [["Mining and Gambling", "Start your mining daily! Use your mined Satoshis in various gambling games to wager them and make them eligible to withdraw!"],
+        ["Predictions and Microtasks", "Multiply your Satoshis (or lose them all) in predictions and earn extra through microtasks!"],
+        ["Tournaments", "Participate in tournaments and get a share of won Satoshis!"]
+        ],
+        tips: [
+            ["Turn off the notifications.", "This app has probably the most annoying notification service in the world. They can play the sound or light up your screen even in Do Not Disturb mode (somehow???) and never contain useful information. Downside of doing this is that whenever you start the app it will ask you to allow notifications. Do not agree to it."],
+            ["Safe wagers!", "Do not bet all your Satoshis on red! The point here isn't to win as much as possible but instead to wager and therefore secure your earned tokens. Safe bets, small loss and therefore guaranteed money!"]
+        ],
+        pros: ["Low edge of the house"],
+        cons: ["Annoying and pointless notifications", "High withdrawal threshold (10000 Satoshis that must be wagered)", "You can only mine 10 times per month without wagering an insane amount of Satoshis"],
+        banner: "bin"
+    },
+    {
+        name: "Sweat Wallet",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJwkGy0o_DOQ8gWTY_8M3_bwp8wHDk766guJ-GR8FNgwBNE7m_hOLy8jDfBlSg0k2XgA&f=1&nofb=1&ipt=c1c17814f416141c8cdf186963b12194a468c4a291145f5e45f067765dc8becb",
+        description: "Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to collect even more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
+        added: "9-3-2024",
+        id: "sweat",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "ad",
+            coin: "other:SWEAT",
+            effort: 2,
+            rating: 2
+        },
+        info: {
+            description: "<b>Note: In order to make money from steps, you will need a <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> account.</b><br>Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to play games like spin-a-wheel or card flip and earn more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
+            effort: "Steps and jars create $SWEAT automatically, but watching ads is way more efficient."
+        },
+        go: {
+            type: 0,
+            link: "https://swe.at/wallet"
+        },
+        benefits: ["Whether you download this app through us or directly from the store, it won&apos;t make any difference.<br>We aren&apos;t getting any benefits and therefore you also won&apos;t."],
+        features: [["Spin-a-Wheel and Flip-a-Card", "Daily ad watch abilities allow you to earn $SWAET for free!"],
+        ["Sweat Jars", "Lock your $SWEAT in a jar and watch it grow! The longer you lock your $SWEAT for, the higher the APY becomes! Watch out for promotions that allow you to get even higher APY!"],
+        ["Learn and Earn + Quests", "Learn about Sweat and its partners, answer quizzes and earn free $SWEAT! Check out quests, complete simple tasks and earn even more!"],
+        ["Prize Draw Reffles", "Grow your $SWEAT in jars and unlock Prize draws! Buy a raffle ticket for $SWEAT and get a chance to win great prizes!"]
+        ],
+        tips: [
+            ["Do not risk a higher prize.", "This tip might seem stupid, but one thing you should know about the wheel spin (and the card flip) is that it's rigged. After you win 4000 Steps (lowest reward on the wheel other than 0), you might want to spin again to try and get a higher prize. The chance for that should be 67% right? Well, it isn't. And you have a much greater chance that you will spin 0, even twice in a row. Once you win something from the wheel, take it immediately."],
+            ["Grow all your $SWEAT!", "Due to not-so-good decisions by the developers, $SWEAT fails to surge and increase in value. The only way to actively increase your earnings are jars. With up to 12% APY, or even more in certain promotions, you can secure a passive income, if you grow enough $SWEAT."]
+        ],
+        pros: ["Frequent prize draws", "Convert your <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> earnings to real money"],
+        cons: ["Rigged Spin-a-Wheel and Flip-a-Card minigames", "$SWEAT fails to increase its value due to questionable decisions by the developers", "The app breaks more with every update"],
+        banner: "bin"
+    },
+    {
+        name: "Sweatcoin",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fsweatcoin-logo-coin-gradient-background-move-earn-concept-design-earn-cryptocurrency-by-exercising-moving-vector-eps-10_532800-733.jpg&f=1&nofb=1&ipt=acdf89b692c0bd1730e4d1e8684d7ffdb57bbfee5be0846c3aac342c7cb79909",
+        unlisted: true,
+        id: "sweatcoin",
+        attr: {
+            verified: 1,
+            dividends: false,
+            platform: "ai",
+            type: "Walk to Earn",
+            coin: "other:None",
+            effort: 0,
+            rating: 2
+        },
+        info: {
+            description: "<b>Note: In order to make money from steps, you will need to download <a style='color:yellow' href='viewEarn.html?id=sweat'>Sweat Wallet</a>.</b><br>This app is required in order to get $SWEAT from Sweat Wallet for steps.",
+            effort: "Just walk."
+        },
+        go: {
+            type: 0,
+            link: "https://swcapp.com/i/kingpvz"
+        },
+        benefits: ["There are no benefits. We will get Sweatcoins but those are useless anyway. So what are we supposed to share?"],
+        features: [["Convert Steps into $SWEAT", "Up to 7000 Steps will be converted to $SWEAT."]],
+        tips: [
+            ["Do not buy premium.", "It's worthless."]],
+        pros: ["Used with <a style='color:yellow' href='viewEarn.html?id=sweat'>Sweat Wallet</a> to create $SWEAT tokens"],
+        cons: ["The only way to spend Sweatcoins is on prize draws, which with a community as big as Sweatcoin's means no chance to win anything"],
         banner: "bin"
     },
     {

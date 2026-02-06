@@ -63,7 +63,7 @@
     </main>
     <script>
         initFooter();
-        document.addEventListener("DOMContentLoaded", async () => {/*
+        document.addEventListener("DOMContentLoaded", async () => {
             const { data, error } = await sb.auth.getUser();
 
             if (!data.user) {
@@ -74,7 +74,7 @@
             if (error) {
                 console.error(error);
                 return;
-            }*/
+            }
 
             main();
         });
