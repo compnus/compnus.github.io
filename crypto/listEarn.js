@@ -469,7 +469,7 @@ const LISTE = [
         pros: ["Great notification service"],
         cons: ["Earning $LABR is impossible without investment", "Pay to win leaderboard rewards", "Unexplained upgrades that seem to do nothing but wasting bones and gold"],
         banner: `<div class="promobannerad" style="background-color:#f48f27">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcombomanager.com%2Fwp-content%2Fuploads%2F2024%2F12%2Fge23.jpg&f=1&nofb=1&ipt=da13b6da19fb3b7d391f70e99dffe3191ff5084d6952451008733aa27359fb2f">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.E1g-yjbboAD6wz_myPC8cwAAAA%3Fpid%3DApi&f=1&ipt=bf97f72a9fb6c087219b63c6fe858dc8b318bc3596c0c41cd6ecf73f4d8aa2fe">
             <div>
             <h1>Mine $LABR using WeMine!</h1>
             <p>Use your Labrador's speed in WeMine to mine $LABR for free!</p>
@@ -589,7 +589,7 @@ const LISTE = [
         pros: ["Active developer team"],
         cons: ["The app is unstable and may refuse to start or get stuck at the loading screen on certain devices", "Mining USDT requires inviting friends", "Unhelpful support", "Notifications only appear when they feel like it"],
         banner: `<div class="promobannerad" style="background-color:#9f5500">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdb.stickerswiki.app%2Fapi%2Ffiles%2F1nlpavfhdos0lje%2Fkqxu070ljh98k3z%2Favatar_aq5bx17dxd.jpg&f=1&nofb=1&ipt=167cbbcefb0cc09f95864377bdd562b3d824ddd1696a708641af9a3519229978">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.googleusercontent.com%2FiH3J6FwTuWdMLT4LpOpG8tk1mqXWC70Vu4y9n7Qfi4euiHoFWn44jcq3HQI3w3fM7xYbzK3cVQ%3Ds900-c-k-c0x00ffffff-no-rj&f=1&nofb=1&ipt=f43d041799b9336f2284912d3a3262d0956adbb8d67b6ff00598e5643519d98e">
             <div>
             <h1>Withdraw $LABR through Labrador Adventures!</h1>
             <p>In order to mine and withdraw $LABR using WeMine, you will need Labrador Adventures.</p>
