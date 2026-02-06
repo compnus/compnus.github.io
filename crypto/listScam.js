@@ -1,4 +1,4 @@
-var FILTERID = 0;
+var FILTERID = "scam0";
 
 var LISTS = [
     {
@@ -31,7 +31,7 @@ function search(via) {
     via = via.toLowerCase().replace(/ /g, "_").trim();
     for (var i of document.getElementById("main").children) {
         i.style.display = "grid";
-        if (!i.id.includes(via) || (FILTERID != 0 && !i.classList.contains("cat-"+FILTERID))) {
+        if (!i.id.includes(via) || (FILTERID != "scam0" && !i.classList.contains("cat-"+FILTERID))) {
             i.style.display = "none";
             continue;
         }
@@ -45,7 +45,7 @@ function search(via) {
 }
 
 function scamFilter(cat) {
-    FILTERID = cat;
+    FILTERID = "scam"+cat;
     search(document.getElementById('searchbarinput').value);
 }
 
@@ -62,7 +62,7 @@ function load() {
 
         cnt.id = `${i.id}___${i.name.replace(/ /g, "_").replace("#", "hash").toLowerCase()}`;
         cnt.setAttribute("onclick", "loadView('" + i.id + "')");
-        cnt.classList.add("cat-" + i.category);
+        cnt.classList.add("cat-scam" + i.category);
         if (i.category == 2) cnt.style.borderColor = "orange";
         else if (i.category == 3) cnt.style.borderColor = "lightblue";
         document.getElementById("main").appendChild(cnt);

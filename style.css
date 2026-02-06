@@ -187,6 +187,10 @@ header {
     display: flex;
 }
 
+#headernav {
+    align-items: center;
+}
+
 footer {
     display: flex;
     align-items: center;
@@ -319,6 +323,13 @@ a {
         line-height: 1;
     }
 
+    .link.inav {
+        height: 4vh;
+        width: 4vh;
+        margin-right: 1vw;
+        transition: ease-out 0.2s;
+    }
+
     .link.fnav.fnavbot {
         font-weight: 400;
     }
@@ -337,6 +348,10 @@ a {
 .link.nav:hover, .link.hnav:hover, .link.fnav:hover {
     color: yellow;
 }
+
+    a:hover > .link.inav {
+        filter: brightness(50%) sepia(100) saturate(100) hue-rotate(60deg) brightness(1000%);
+    }
 
 .grid {
     display: grid;
@@ -708,6 +723,15 @@ div.popup > div > div.inside > h1 {
             margin-left: 3vw;
             font-size: 4vw;
         }
+
+    .link.inav {
+        height: 7vw;
+        width: 7vw;
+        margin-right: 0;
+        position: absolute;
+        right: 2vw;
+        top: 18vw;
+    }
 
     div.popup > div.cm {
         max-width: 80vw;

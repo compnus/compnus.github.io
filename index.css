@@ -12,6 +12,7 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     animation: gradientScroll 20s ease infinite;
+    z-index: 5;
 }
 
 @keyframes gradientScroll {
@@ -51,6 +52,63 @@
     margin-bottom: 3vh;
 }
 
+#searchbar {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 8vh;
+}
+
+    #searchbar > div {
+        width: fit-content;
+        background-color: var(--accent);
+        padding: 1vh;
+        border-radius: calc(3vh + 2px);
+        cursor: pointer;
+        box-shadow: var(--shadow) 0 5px 5px -3px;
+        border: solid 2px var(--accent);
+        transform: translateX(0);
+        transition: 1s ease-out, transform .3s ease-out, .3s ease-out box-shadow;
+        will-change: transform;
+    }
+
+        #searchbar > div:hover, #searchbar.compacted > div:hover {
+            box-shadow: yellow 0 0 10px 0;
+            transform: translateX(var(--shift, 0px)) scale(1.05);
+        }
+
+#searchbar > div > input {
+    width: 30vw;
+    font-family: 'Funnel Display';
+    font-weight: bold;
+    font-size: 3vh;
+    transition: .3s ease-out;
+}
+
+#searchbar > div > img {
+    height: 5vh;
+    width: 5vh;
+    margin-left: 1vh;
+    transition: .3s ease-out;
+}
+
+    #searchbar.compacted > div {
+        border-radius: 4vh;
+        box-shadow: black 0 3px 3px -2px;
+        border-color: var(--border);
+        transform: translateX(var(--shift, 0px));
+    }
+
+#searchbar.compacted > div > input {
+    width: 0;
+    padding: 0;
+    border-width: 0;
+}
+
+#searchbar.compacted > div > img {
+    margin-left: 0;
+}
+
 @media(max-width:800px) {
     #main {
         position: sticky;
@@ -74,4 +132,28 @@
         margin: 0;
         margin-bottom: 4vw;
     }
+
+    #searchbar {
+        top: 22vw;
+    }
+
+        #searchbar > div {
+            flex-direction: row;
+            padding: 2vw;
+            border-radius: calc(6vw + 2px);
+        }
+
+            #searchbar > div > input {
+                width: 72vw;
+                font-size: 6vw;
+            }
+
+            #searchbar > div > img {
+                height: 10vw;
+                width: 10vw;
+                margin-left: 2vw;
+            }
+        #searchbar.compacted > div {
+            border-radius: 8vw;
+        }
 }

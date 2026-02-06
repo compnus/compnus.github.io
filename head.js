@@ -24,6 +24,7 @@ header.innerHTML = `
 <p class="link hnav" id="cryptonus" title="Free crypto, new crypto projects, scam list and so much more!"><a href="/crypto/">CryptoNUS</a></p>
 <p class="link hnav" id="servicenus" title="Explore the world of NUS! Versatile apps, services and features are only one click away!"><a href="/apps.html">Apps</a></p>
 <p class="link hnav" id="userlogin" title="Gateway to everything NUS: mine $NUS crypto and more!"><a href="/u/signup.html">Sign Up</a> <span style="color: white !important">/</span> <a href="/u/login.html">Log In</a></p>
+<a href="/search/" id="searchnusa"><img class="link inav" id="searchnus" title="Search" src="https://img.icons8.com/?size=100&id=83218&format=png&color=FFFFFF"></a>
 </div>
 </header>
 `;
@@ -46,6 +47,7 @@ footer.innerHTML = `
 <footer>
 <p id="footnote">&copy;<span id="footnoteyear">2069</span> CompNUS, All rights reserved.</p>
 <div id="footernav">
+<p class="link fnav"><a href="/search">Search</a></p>
 <p class="link fnav"><a href="/legal/faq.html">FAQ</a></p>
 <p class="link fnav"><a href="/legal/">Legal</a></p>
 </div>
@@ -69,6 +71,7 @@ fullfooter.innerHTML = `
 <p class="link fnav"><a href="/about.html">About Us</a></p>
 <p class="link fnav fnavbot"><a href="#telegramnews#">News <img class="footerpng" src="https://img.icons8.com/?size=100&id=lUktdBVdL4Kb&format=png&color=FFFFFF"></a></p>
 <p class="link fnav fnavbot"><a href="/apps.html">Apps</a></p>
+<p class="link fnav fnavbot"><a href="/search">Search</a></p>
 </div>
 <br><br><br>
 <p id="footmes">There's nothing to see here... for now.<br><span class="link" style="font-weight: bold; cursor: pointer" onclick="window.scrollTo(0, 0);">Back to top</span></p>

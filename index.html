@@ -22,7 +22,12 @@
     </div>
 
     <main>
-
+        <div id="searchbar" onclick="window.location.assign('search')">
+            <div class="input">
+                <input oninput="window.location.assign('search')" placeholder="Seach CompNUS..." id="mockupsearch" />
+                <img src="https://img.icons8.com/?size=100&id=83218&format=png&color=FFFFFF" title="Search" />
+            </div>
+        </div>
     </main>
 
     <script>
@@ -43,8 +48,91 @@
                 }
                 document.getElementById("userlogin").innerHTML = `<a href="u/profile.html">My Account (${usern})</a>`;
             }
+            document.getElementById("mockupsearch").value = "";
         });
         initFooter(true);
+        (function () {
+            const getThreshold = () => {
+                return window.innerWidth >= 800
+                    ? window.innerHeight * 0.18
+                    : window.innerWidth * 0.25;
+            };
+
+            const getSearchBar = () => document.getElementById("searchbar");
+            let threshold = getThreshold();
+            function gapPx() {
+                return window.innerWidth >= 800
+                    ? window.innerHeight * 0.02
+                    : window.innerWidth * 0.04;
+            }
+            function compactedInputWidthPx(child) {
+                const img = child.querySelector('img');
+                const imgW = img ? img.getBoundingClientRect().width : 0;
+                const padding = window.innerWidth >= 800
+                    ? window.innerHeight * 0.01
+                    : window.innerWidth * 0.02;
+
+                const border = 2;
+                return imgW + (padding * 2) + (border * 2);
+            }
+            function computeShift(container, useCompactedWidth = true) {
+                const child = container.querySelector('.input');
+                if (!child) return '0px';
+
+                const containerRect = container.getBoundingClientRect();
+                const viewportWidth = window.innerWidth;
+                const gap = gapPx();
+
+                const currentCenter = containerRect.width / 2;
+                const childWidth = useCompactedWidth
+                    ? compactedInputWidthPx(child)
+                    : child.getBoundingClientRect().width;
+
+                const desiredCenter = (viewportWidth - gap) - (childWidth / 2) - containerRect.left;
+
+                let shift = desiredCenter - currentCenter;
+                if (shift < 0) shift = 0;
+                return `${Math.round(shift)}px`;
+            }
+
+            function applyCompaction() {
+                const el = getSearchBar();
+                if (!el) return;
+                const scrollY = window.scrollY || 0;
+
+                if (scrollY > threshold) {
+                    if (!el.classList.contains("compacted")) {
+                        el.classList.add("compacted");
+                        requestAnimationFrame(() => {
+                            el.style.setProperty('--shift', computeShift(el, true));
+                        });
+                    } else {
+                        el.style.setProperty('--shift', computeShift(el, true));
+                    }
+                } else {
+                    el.style.setProperty('--shift', '0px');
+                    if (el.classList.contains("compacted")) {
+                        window.setTimeout(() => el.classList.remove("compacted"), 5);
+                    }
+                }
+            }
+
+            window.addEventListener("scroll", applyCompaction, { passive: true });
+            window.addEventListener("resize", () => {
+                threshold = getThreshold();
+                const el = getSearchBar();
+                if (el && el.classList.contains('compacted')) {
+                    el.style.setProperty('--shift', computeShift(el, true));
+                }
+                applyCompaction();
+            });
+            document.addEventListener("DOMContentLoaded", () => {
+                threshold = getThreshold();
+                applyCompaction();
+            });
+            threshold = getThreshold();
+            applyCompaction();
+        })();
     </script>
 </body>
 </html>
