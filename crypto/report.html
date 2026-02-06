@@ -29,11 +29,33 @@
             </div>
         </div>
         <div class="input">
-            <label style="font-family: Ubuntu">App:</label>
+            <label style="font-family: Ubuntu" for="appselect">App:</label>
             <select style="font-weight: bold" id="appselect" class="disabled max">
                 <option value="null">Please select what you want to report first.</option>
             </select>
         </div>
+        <br />
+        <form id="new" class="landing utilScreen">
+            <h2 style="margin-top: 0">I hereby declare,<br />that the selected project is a <i>scam</i>.</h2>
+            <p class="limited">* Please describe the scam aspect. This can be anything from pointing out the red flags to showing any proof of it actually being a scam (provide links to reliable media, show the background of the developers, etc.):</p>
+            <textarea id="newprf" style="resize: none; margin-bottom: calc((0.5vw + 0.5vh) / 2)" required></textarea>
+            <p style="font-weight: bold; display: none" id="newstatus"></p>
+            <button type="submit" id="newsubmit">Submit</button>
+        </form>
+        <form id="earn" class="landing utilScreen">
+            <div class="input">
+                <label for="earntype" style="flex: 0">The selected app is</label>
+                <select id="earntype" onchange="setText(this.value)" style="flex: 1">
+                    <option value="scam">a scam.</option>
+                    <option value="legit">legit.</option>
+                </select>
+            </div>
+            <h2>I hereby declare,<br />that the selected app is <span id="earnspan">a <i>scam</i></span>.</h2>
+            <p class="limited" id="earntext">* Please describe the scam aspect and provide proof. This can be anything from pointing out the red flags to showing any proof of it actually being a scam (provide links to reliable media, show the background of the developers, etc.):</p>
+            <textarea id="earnprf" style="resize: none; margin-bottom: calc((0.5vw + 0.5vh) / 2)" required></textarea>
+            <p style="font-weight: bold; display: none" id="earnstatus"></p>
+            <button type="submit" id="earnsubmit">Submit</button>
+        </form>
     </main>
     <main id="loginfirst" style="display: none; flex-direction: column" class="flex cc">
         <h1>You must be logged in to report apps.</h1><br /><br />
@@ -55,6 +77,15 @@
             }*/
 
             main();
+        });
+
+        document.getElementById('new').addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitForm('rep', 'new');
+        });
+        document.getElementById('earn').addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitForm('rep', 'earn');
         });
     </script>
 </body>

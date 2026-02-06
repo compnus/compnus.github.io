@@ -343,7 +343,7 @@ const LISTN = [
         cons: ["Many 'scammy' features (being able to purchase wheel spins even if you only have a slight chance of getting to the leaderboard and even slimmer chance of actually being between those who win TON; being able to purchase coin hash miner even if coins cannot be used to get $RICH, ...)", "Not exclusive, rewarding and addictive as they claim but rather tame, almost no rewards and boring"],
         banner: "blum"
     }, {
-        name: "Perp100 (formelly AnyCard (formely Remint Network))",
+        name: "Perp100 (formely AnyCard/Remint Network))",
         icon: "https://play-lh.googleusercontent.com/QpiETMyJBreX1Bp0cdwmgXxQA_nAROHpShnvXpUFB_IlQItZeJYcFhNqoj_cofliDZg=w240-h480-rw",
         description: "Collect points and exchange them for nothing! This app used to be a miner for an already existing Remint Token, but out of nowhere changed to this. And the Remint Tokens are now lost forever.",
         added: "8-3-2024",
