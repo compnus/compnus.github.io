@@ -80,6 +80,7 @@ Deno.serve(async (req) => {
             headers: {
                 ...headers
             }
+        });
     }
 
     let fee: number = 0;
