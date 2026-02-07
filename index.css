@@ -135,6 +135,7 @@
 
     #searchbar {
         top: 22vw;
+        justify-content: flex-end;
     }
 
         #searchbar > div {
@@ -155,5 +156,6 @@
             }
         #searchbar.compacted > div {
             border-radius: 8vw;
+            transform: translateX(0px);
         }
 }

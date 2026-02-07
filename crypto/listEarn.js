@@ -318,7 +318,6 @@ const LISTE = [
     {
         name: "The OCT",
         icon: "https://static.tildacdn.net/tild3065-3032-4233-a339-313932613831/Screenshot_2024-05-2.svg",
-        featured: false,
         unlisted: true,
         description: "Chip away pieces of the octahedron and gain $OCT, Fusion Gems and USDT! Upgrade your tools, excavate cells and uncover Jackpot Snitches worth up to 1BTC! Besides main rewards, every cell can contain Artifact Gems whose price ranges from 0.1USDT all the way to 200USDT! Fuse your tools and get more from every cell!",
         added: "8-11-2024",
@@ -614,7 +613,7 @@ const LISTE = [
             rating: 1
         },
         info: {
-            description: "Okay I will be straight up with you in this one. Do not use this app for what it's supposed to be used for. You will use your money. Install it, see if you get the sign up bonuses listed in the benefits, use them up, withdraw them to your NC Wallet and delete it. If you don't get the benefits, please report this to the support (visit your profile -> contact support). Generally do not touch CryptoTab products. The only decent one is NC Wallet.",
+            description: "Okay I will be straight up with you in this one. Do not use this app for what it's supposed to be used for. You will lose your money. Install it, see if you get the sign up bonuses listed in the benefits, use them up, withdraw them to your NC Wallet and delete it. If you don't get the benefits, please report this to the support (visit your profile -> contact support). Generally do not touch CryptoTab products. The only decent one is NC Wallet.",
             effort: "You have to reactivate mining at random periods."
         },
         go: {
@@ -705,6 +704,72 @@ const LISTE = [
         banner: "bin"
     },
     {
+        name: "Tapmining",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FBk8C7Ev2sUXdKoTMW9tOnI5VGKqs73jkuBIncnawNnMSU2rvB14FmLrcBahHy9tQIA&f=1&nofb=1&ipt=c4ee8ecff2a25329472af0f379b3fdbe34686afbc7d50a4774038b52f980a7c0",
+        featured: false,
+        description: "Simple Bitcoin miner, allowing you to mine bitcoin passively or for watching ads. Offers daily contracts for passive mining and extra mining contracts for ads!",
+        added: "2-2-2024",
+        id: "btctap",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "mine",
+            coin: "btc",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "Classic mining service that allows you to purchase computing power and mine Bitcoin effortlessly. But don't forget our speciality: free contracts! Check in every day to claim free contracts and watch ads to get even more contracts! Withdraw your earnings into your <a href='/promo/speed.html' style='color:yellow'>Speed Wallet</a> and enjoy some free Bitcoin!",
+            effort: "Check-in daily for free contracts. Optionally, you can watch ads for more contracts."
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=tap.miner.cloudmining.tool&hl=en",
+            code: "SR2T8B"
+        },
+        features: [["Free Contracts", "Collect a free contract daily and up to 30 extra free contracts every day are available for watching ads!"]],
+        tips: [["There are no tips.", "This is usually the part where you would see &quot;Use dual apps!&quot;, however, this app somehow knows how to prevent it. So just get on there and mine, mine, mine!"]],
+        benefits: ["This app is not exactly transparent about this. But it probably relates to passive boost in mining power.", "If this app gets verified, we will distribute dividends."],
+        pros: ["Computing power rewarded for watching ads increases with every ad watched (this means that for watching one ad you will get for example 5GH/s, but after watching 2 ads, the next one will give you 5.2GH/s instead)"],
+        cons: ["Paid contracts take forever to pay off", "Random ad popups"],
+        banner: "speed"
+    },
+    {
+        name: "Klink",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F_PcIU1QQes7yZcd7NrquhTYlfLC6GAT8TJDWwiY7G5wefq_9aiXVsrvCWhICBiLHZTk&f=1&nofb=1&ipt=9711e442d4e3cbcc807926a1e57b46aee2062d1468d5ee8b6789c7f29af11058",
+        description: "Earn for surveys, microtasks, playing games and more! Explore offers and get paid for things you would probably do anyway!",
+        added: "2-3-2026",
+        id: "klink",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "wai",
+            type: "mt",
+            coin: "btc usdt other:Ethereum",
+            effort: 3,
+            rating: 4
+        },
+        info: {
+            description: "Wanna fill out surveys? Klink. Wanna play some games? Klink. Signing up on a website? Well you should first check if it is not on Klink - because every survey, every game and every website you sign up for can bring you money! Play fun games, earn money and climb the leaderboard! Show everyone who knows how to earn money for having fun the best!",
+            effort: "As it is with microtask apps - completing microtasks takes time. So, naturally, the more you want to earn, the more time you have to spend."
+        },
+        go: {
+            type: 0,
+            link: "https://klink.smart.link/sxneud6nm?referralCode=itaswb2510&source=referral"
+        },
+        benefits: ["If the app gets verified, we will distribute dividends."],
+        features: [
+            ["Explore Offers and Get Paid!", "Complete surveys, play games and sign up to websites. That all can bring you money!"]
+        ],
+        tips: [
+            ["Just go for it!", "No tips here, perhaps before signing up to a website check if Klink does not support it by any chance - you could get some extra buck in your pocket!"],
+        ],
+        pros: ["Hundreds of offers thanks to multiple survey and task providers that Klink works with", "Relatively low withdrawal threshold (5$ for bank transfer and 10$ for crypto)"],
+        cons: ["1.5% withdrawal fee on crypto"],
+        banner: "bin"
+    },
+    {
         name: "COIN",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FAjWzDunDrqkkARXhB9ExQbr541C0L98P6xAS9AEp_wPjHQ0-h0BzXgIQeMrZWKx0CmU&f=1&nofb=1&ipt=35b8b6eedbfbf6b42bcf97fba6d855dbd1e26372eec4845ab5c4e487eace4e53",
         description: "Geomine the world! COIN allows you to claim world tiles and get COINs for it which can be redeemed for crypto or goods!",
@@ -721,7 +786,7 @@ const LISTE = [
         },
         info: {
             description: "Claim tiles, collect COINs and redeem for rewards! Witness big geomines to earn even more! Activate background rewards and earn non-stop! Once you have geomined enough you will unlock Auto Explore, which lets you geomine effortlessly! Check out all that this app has to offer!",
-            effort: "The app need to be open in order to geomine. You will also need location services enabled. Finally, most coins are available through watching ads and witnessing big geomines - everything is manual."
+            effort: "The app needs to be open in order to geomine. You will also need location services enabled. Finally, most coins are available through watching ads and witnessing big geomines - everything is manual."
         },
         go: {
             type: 0,
@@ -996,6 +1061,40 @@ const LISTE = [
         ],
         pros: ["Wagering results in your faucet earnings being increased", "Paid surveys"],
         cons: ["The website signs you out very frequently", "You need to solve a captcha for everything - logging in, faucet claims, withdrawal, and so on with a simple problem - sometimes it just doesn't work"],
+        banner: "bin"
+    },
+    {
+        name: "ByteBenefit",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F8XVsm7Z-dsD5cq6iCRH8-YOK5Be5g0NZn2dVfUYzCuPxQbTc8Js0jd0bLvS5OovCLKc&f=1&nofb=1&ipt=9c5069547879f8aec9ceab8c496d32571f570f2ff171a6847f365a60b57dbd2e",
+        description: "Get paid for sharing your unused internet! Complete tasks and surveys for even more coins! Also available on Windows!",
+        added: "2-1-2026",
+        id: "byteb",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "a",
+            type: "nw",
+            coin: "other:PayPal",
+            effort: 0,
+            rating: 3
+        },
+        info: {
+            description: "ByteBenefit shares your unused bandwidth - ideal if you are on WiFi or endless data supply, and pays you for them. Scientists and companies use your unused bandwidth to perform tasks like ad verification and more. ByteBenefit pays you for helping them make the internet a better place! Additionally, ByteBenefit doesn't slow down your internet connection which means there is literally no reason not to try it.<br><br>Although not listed in the platform section, ByteBenefit is also available for <b>Windows</b> devices.",
+            effort: "Just leave the app running in the background. Start the app and withdraw, restart occasionally because the app likes to stop working."
+        },
+        go: {
+            type: 0,
+            link: "https://bytebenefit.io/invited?ref=lKeYh_"
+        },
+        features: [["Share Unused Bandwidth and Make Money", "ByteBenefit pays you for using your internet bandwidth for research purposes, that would go to waste otherwise. That sounds like a win-win situation!"],
+        ["Microtasks and Surveys", "Earn more coins by completing microtasks such as playing games and filling out surveys!"]
+        ],
+        tips: [["Patience is key.", "Unlike <a href='viewEarn.html?id=honeygain' class='link'>Honeygain</a> or <a href='viewEarn.html?id=uprock' class='link'>UpRock</a>, ByteBenefit constantly makes sure the network is stable, which might cause it to stop earning for prolonged periods of time. Make sure to avoid using VPNs to prevent this!"],
+        ["Connect multiple devices!", "If you can, make sure to install ByteBenefit on your mobile device, computer, work laptop, etc. and link them all to the same account! This will exponentially increase your rewards!"]
+        ],
+        pros: ["No ads", "Doesn't affect network or device speed", "Many different ways to increase your earnings"],
+        cons: ["Extremely unstable, causing bandwidth to go to waste oftentimes"],
+        benefits: ["10000 Coins (1$)", "If this app gets verified, we will distribute dividends."],
         banner: "bin"
     },
     {
@@ -1302,7 +1401,7 @@ const LISTE = [
             ["Do not watch ads to get 0.27 Satoshis.", "0.27 Satoshis is literally nothing. Instead, focus on watching ads to increase speed, which will give you Satoshis forever!"]
         ],
         pros: ["Permanent mining"],
-        cons: ["Abysmal ad deals (You will have to watch 2000 ads to get the speed to 1 Satoshi/hour)"],
+        cons: ["Abysmal ad deals (You will have to watch 2000 ads to get the speed to 1 Satoshi/hour <i>[update: this is no longer true, they made it even worse]</i>)"],
         banner: "bin"
     },
     {
@@ -1373,91 +1472,6 @@ const LISTE = [
         pros: ["Daily check-in bonus allows up to 9 free spins", "Auto spin feature", "No ads"],
         cons: ["Extremely high withdrawal threshold (5USDT/500000PEPE) with extreme fee (1USDT/50000PEPE)", "You can only spin 4 times per day without completing a task", "Certain tasks just... don't work?"],
         banner: "blum"
-    },
-    {
-        name: "SpinFi",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fthumbnails%2F017%2F222%2F025%2Fsmall_2x%2Fspinning-fortune-wheel-lucky-roulette-online-promotion-events-png.png&f=1&nofb=1&ipt=70d40684a96846f7be0e03130bea179af1074b5f5e3173df16e6cc66ca196130",
-        description: "Spin the wheel and get USDT! Actually you can apparently win 300USDT here! Wow! Well actually, only 299.96, then you'll need 80 Diamonds to exchange for 0.04USDT. That's okay right? Well you can only get 77 Diamonds. Then you will need 3000 Crystals to exchange for 3 Diamonds. Oh okay that makes sense. But what are the coins and gems for? And why is my withdrawal processing for 6 months already? Yeah I don't think this app is worth the pain.",
-        added: "8-21-2024",
-        id: "spinfi",
-        attr: {
-            verified: -1,
-            dividends: false,
-            platform: "t",
-            type: "ad",
-            coin: "usdt ton",
-            effort: 3,
-            rating: 1
-        },
-        info: {
-            description: "<b>How much can you actually earn? 0.01$ from coins and 0.01$ once you reach 300$. Yeah.</b><br>Spin the wheel and get USDT! Actually you can apparently win 300USDT here! Wow! Well actually, only 299.96, then you'll need 80 Diamonds to exchange for 0.04USDT. That's okay right? Well you can only get 77 Diamonds. Then you will need 3000 Crystals to exchange for 3 Diamonds. Oh okay that makes sense. But what are the coins and gems for? And why is my withdrawal processing for 2 months already? Yeah I don't think this app is worth the pain. Pain huh? Well basically you get 5 spins per day, which is exactly what you'd expect it to be. Lame rewards. The good rewards come when you watch ads. One ad per spin, up to 30 per day. That sound as bad, but it's horrible. See, sometimes the app doesn't register you watching the ad. So it will force you into watching another one. This can continue into a super annoying loop of up to 10 ads per spin. Also sometimes the spin just doesn't work? That ad plays, another one isn't forced on you, but the wheel just... doesn't spin? Also this app contains a casino. Please no matter what you do, do not deposit.",
-            effort: "Spin 5 times per day and watch 30 ads (actually more like 300) to spin for rewards."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/SpinFiOnline_Bot/SpinFi?startapp=adj_share_invite_DaQdLrkCdQ"
-        },
-        benefits: ["Extra suffering (perfect for masochists)"],
-        features: [["Spin a Wheel", "This is too complicated to simplify. Refer to the description above to see how the wheel works."],
-            ["Tasks", "They aren't worth completing or explaining. Like come on 2 coins (0.000012TON) per task? That's absolutely nothing."],
-        ["Casino", "Gambling in two games, easy to understand and even easier to lose your money on. You can actually buy gems. Please don't do it."]],
-        tips: [
-            ["Under any circumstances, do NOT purchase gems!", "This app feels scammy. It might not be, after all, your first withdrawal of 0.003 TON will get processed instantly, but one thing you should know about the gambling in this game, is that the edge of the house is about 25% (although they claim it's only 5%). This means it's practically impossible to make money here, and you'll always lose. Do not deposit money into this app, no matter what."]
-        ],
-        pros: ["The opening animation is cool ig"],
-        cons: ["Withdrawals (besides the first one) take forever to be processed (literally forever)", "Ads don't play as they are supposed to, overlap with each other and sometimes don't give you the promised reward", "Rigged casino", "No support or community", "Fake recent community withdrawals"],
-        banner: `<div class="promobannerad" style="background-color: #222">
-            <img src="https://www.bitgame.fun/assets/cat101-DEgCg-UG.png">
-            <div>
-            <h1>Get more spins by playing BitGame!</h1>
-            <p>Play BitGame and get extra spins without having the watch the tedious ads in this app! Also, apparently you can also get 300USDT from this game. There are connections between SpinFi and BitGame that shouldn't be ignored.</p>
-            </div>
-            <button>LET'S PLAY!</button>
-            </div>`,
-            bannerLink: "viewEarn.html?id=bitgame"
-    },
-    {
-        name: "BitGame",
-        icon: "https://www.bitgame.fun/favicon/apple-touch-icon.png",
-        unlisted: true,
-        id: "bitgame",
-        attr: {
-            verified: -1,
-            dividends: false,
-            platform: "t",
-            type: "p2e",
-            coin: "usdt",
-            effort: 3,
-            rating: 3
-        },
-        info: {
-            description: "This is an actual game, where you have your miners that mine rocks and gems, you can upgrade them, merg them, unlock and automate services, collect cards and improve your equipment! Very frequent events and many ways to make the gameplay more interesting! But that's not what we are here for! You cannot make money in this game (except for the 300USDT bonus, which might still be a scam). So the only reason to play it would be to get free spins for SpinFi. This means you can stop playing the game after you reach Mine 21.",
-            effort: "You must manually move your miners towards the rocks, gems and chests you want them to mine. However it's also a waiting simulator. Which means you both have to wait but the game doesn't do anything on its own."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/BitGame_Online_bot/MINER_Play2Earn?startapp=adj_share_invite_8nDlr1UTnvENNShz"
-        },
-        benefits: ["100 Points to seasonal MinerCoin share"],
-        features: [["Mining and Events", "Play a game where you mine! Events work the same way. Mine stones, activate and automate facilities and progress to better mines!"],
-        ["Cards", "Upgrade your miners and cards to increase profits!"],
-        ["Many Things to Do", "Listing everything is pointless - go check it all out! This includes the spin-a-wheel, chests, reward track and more!"]],
-        tips: [
-            ["Do not bother watching ads for MinerCoins.", "Unlike all other resources, MinerCoins are completely useless. Yes, they are supposed to be exchanged for MINER tokens and sold for USDT, but this feature doesn't work for whatever reason and the support doesn't answer our questions."],
-            ["Only upgrade cards when you need to!", "Game Enhancers are extremely precious, so do not waste them on cards you do not need!"],
-            ["Don't forget to claim daily bonuses!", "Every day, you can claim a free wheel spin and a free chest in the shop!"]
-        ],
-        pros: ["Somewhat engaging gameplay"],
-        cons: ["No support", "Exchanging MinerCoins into MINER Tokens is impossible due to \"Gems Insufficient\" error"],
-        banner: `<div class="promobannerad" style="background-color: #222">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fthumbnails%2F017%2F222%2F025%2Fsmall_2x%2Fspinning-fortune-wheel-lucky-roulette-online-promotion-events-png.png&f=1&nofb=1&ipt=70d40684a96846f7be0e03130bea179af1074b5f5e3173df16e6cc66ca196130">
-            <div>
-            <h1>SpinFi</h1>
-            <p>The only reason to play BitGame if you want to earn money should be to get free spins to SpinFi.</p>
-            </div>
-            <button>CHECK IT OUT</button>
-            </div>`,
-        bannerLink: "viewEarn.html?id=spinfi"
     }
 ];
 

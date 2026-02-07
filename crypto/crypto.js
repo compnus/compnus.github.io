@@ -99,6 +99,7 @@ let filtercCollapsed = window.visualViewport.width < window.visualViewport.heigh
 function collapseFilters() {
     let filters = document.getElementById("filters");
     let mobile = window.visualViewport.width < window.visualViewport.height;
+    filters.scrollTop = 0;
     if (!filtercCollapsed) {
         if (mobile) {
             filters.style.height = "7vw";

@@ -909,7 +909,7 @@ main#nofilters > #messagenone {
         box-shadow: yellow 0 0 3px;
     }
 
-@media(max-width:800px) {
+@media(orientation:portrait) {
     #header {
         position: sticky;
         top: -25vw;

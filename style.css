@@ -579,7 +579,7 @@ div.popup > div > div.inside > h1 {
     }
 
 
-@media(max-width:800px){
+@media(orientation:portrait){
     p, li, input {
         font-size: 4vw;
     }
