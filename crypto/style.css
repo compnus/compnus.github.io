@@ -813,6 +813,12 @@ main#nofilters > #messagenone {
     }
 }
 
+@media(max-width: 720px) {
+    .scamitem {
+        width: calc((100vw - 6vh) / 2 - 2vh - 4px);
+    }
+}
+
     .scamitem:hover {
         box-shadow: red 0 0 1vh;
         transform: scale(1.01);
@@ -836,6 +842,7 @@ main#nofilters > #messagenone {
         line-height: 1;
         margin: 0.5vh;
         font-family: Gabarito;
+        text-align: right;
     }
 
     .scamitem > p {
