@@ -355,51 +355,11 @@ const LISTE = [
         banner: "bin"
     },
     {
-        name: "FoFo",
-        unlisted: true,
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.crypto.com%2Ftoken%2Ficons%2Ffofo-token%2Fcolor_icon.png&f=1&nofb=1&ipt=ee6ada9e7d392198aebe284e88642fbc74e7ef8f394c17ad59f99f148ca5110c",
-        description: "Merge frogs, produce gems and exchange them for USDT! Click your frogs for candy and exchange that for even more USDT! Daily tasks, lucky wheel, leaderboard and minigames are also available!",
-        added: "8-2-2024",
-        id: "fofo",
-        attr: {
-            verified: 1,
-            dividends: true,
-            platform: "t",
-            type: "p2e",
-            coin: "usdt",
-            effort: 2,
-            rating: 4
-        },
-        info: {
-            description: "<b>CUrrently stuck at withdrawal processing. Until solved, this app is to be considered a scam.</b><br><br>Get your frogs, merge them and make some money! FoFo allows you to purchase frogs (or get them for free by watching ads), merge them into gem-producing rainbow frogs and exchange gems for USDT! Complete daily tasks for extra coins and gems, visit the lab to upgrade your frogs, play minigames and exchange candy for even more USDT! There is a lot in this one, and we haven't even mentioned the lucky wheel or the leaderboards! Definitely a packed game!",
-            effort: "This is a game, so if you don't play you won't progress. There is one thing that works on its own however, and it's your rainbow frogs that produce gems even if you are offline."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/fofomemegamebot/game?startapp=uct7666m"
-        },
-        benefits: [],
-        features: [["Merge Frogs and See the Rainbow", "Purchase frogs, merge them into rainbow gem-producing frogs and invest gems into weekly USDT dividends!"],
-            ["Laboratory", "Upgrade your frogs using clovers and candy and make them produce even more gems! Or clovers! Or candy! The choice is yours!"],
-            ["Spin-a-Wheel", "Get extra coins, candy, gems and even USDT by spinning the wheel! Requires either watching ads or inviting friends, though."],
-        ["Minigames", "Play minigames to earn extra gems!"],
-        ["Leaderboards", "Get extra USDT by being the best!"]
-        ],
-        tips: [
-            ["Level up your VIP stat!", "Claim your quest rewards and watch ads to upgrade your VIP stat. It will permanently boost your coin and gem production!"],
-            ["Watch those ads!", "Every day you can get 5 frogs for watching ads. Do not let these go to waste! Also, there's an ad leaderboard - watch many ads and get up to 3.5 USDT a week! A great way to use your ad time is to claim double candies from your frogs! Don't forget this is Telegram, so you can skip the ads and still receive the reward!"],
-            ["Do not see the spin-a-wheel as the main source of USDT!", "Withdrawing USDT from the spin-a-wheel has requirements that the developers change whenever they feel like it, so do not count on it. Instead, focus on making more gems!"],
-            ["Don't forget to claim your USDT!", "Speaking of gems, after you invest them and the dividends are distributed, you won't actually get the USDT credited to your balance. Instead, they will be waiting to be collected in the Record button in the Earn screen. The same logic applies to candy dividends and leaderboard rewards."]
-        ],
-        pros: ["Low withdrawal fee (0.02 USDT)", "Minigames", "Generous dividends and leaderboard rewards", "For the amount of features the game is packing, it's very simple to understand"],
-        cons: ["Misleading 9$ bonus when you sign up that you can never withdraw", "Since candies are required in too many places and are extremely difficult to get, many features are annoying to access/use - especially the lab", "Too many ads"],
-        banner: "bin"
-    },
-    {
         name: "GenkiMiner",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplaytoearn.com%2Fimg%2Fdapp%2Fgenki-miner%2Fprofile_picture%2F100_genki-miner.jpg&f=1&nofb=1&ipt=34a474bc7b503cf7309931997fe797b1eba0c55e04bfd501d3be4a071aceaf80",
         description: "Mine ores, upgrade your pickaxe, open chests and withdraw money! Leave it running in the background and enjoy passive earning of ores and automatic chest opening for extra income!",
         added: "7-22-2024",
+        unlisted: true,
         id: "genki",
         attr: {
             verified: 1,
@@ -476,50 +436,6 @@ const LISTE = [
     <button>OPEN</button>
             </div>`,
         bannerLink: "viewEarn.html?id=wemine"
-    },
-    {
-        name: "LlamaPayday",
-        icon: "https://www.findmini.app/_astro/logo2_3nehfu5x0e_Zq6tU4.webp",
-        unlisted: true,
-        description: "Merge llamas, produce gems and exchange them for USDT! Click your llamas for candy and exchange that for airdropped Llama Tokens! Daily quests, lucky wheel, morse code challenge, minigames and much more available!",
-        added: "8-1-2024",
-        id: "llamapayday",
-        attr: {
-            verified: 1,
-            dividends: true,
-            platform: "t",
-            type: "p2e",
-            coin: "usdt",
-            effort: 2,
-            rating: 4
-        },
-        info: {
-            description: "Get your llamas, merge them and make some money! LlamaPayday allows you to purchase llamas (or get them for free by watching ads), merge them into gem-producing rainbow llamas and exchange gems for USDT! Sign-in daily for extra bonuses, complete daily tasks for extra coins, visit the lab to upgrade your llamas, play minigames and exchange candy for airdropped Llama Token! Woah there is a lot in this one, and we haven't even mentioned the lucky wheel, your card collection and morse code challenges! Certainly a packed game!",
-            effort: "This is a game, so if you don't play you won't progress. There is one thing that works on its own however, and it's your rainbow llamas that produce gems even if you are offline."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/LlamaPaydayBot/game?startapp=cjmubexy-Njc3ODM=-invite"
-        },
-        benefits: [],
-        features: [["Merge Llamas and See the Rainbow", "Purchase llamas, merge them into rainbow gem-producing llamas and invest gems into USDT dividends!"],
-            ["Laboratory", "Upgrade your llamas using wool and candy and make them produce even more gems! Or wool! Or candy! The choice is yours!"],
-            ["Shop and Cards", "Purchase chests, upgrade cards and get extra coins, which you can use to purchase more llamas!"],
-            ["Daily Sign-In, Quests and Tasks", "Sign in every day for extra coins, candy and gems! Complete daily quests for even more coins and gems! Tasks reward you with coins for participating in activities (usually through twitter)."],
-            ["Spin-a-Wheel", "Get extra coins, candy, gems and even USDT by spinning the wheel! Requires either watching ads or inviting friends, though."],
-            ["Minigames", "Play minigames to earn extra gems!"],
-            ["Morse Code Challenge", "Solve the morse code challenge to get extra coins!"],
-            ["Llama Token Airdrop", "Invest your excess candy into airdrops and get Llama Token!"]
-        ],
-        tips: [
-            ["Level up your VIP stat!", "Claim your quest rewards and watch ads to upgrade your VIP stat. It will permanently boost your coin and gem production!"],
-            ["Watch those ads!", "Every day you can get 5 llamas for watching ads. Do not let these go to waste! Don't forget this is Telegram, so you can skip the ads and still receive the reward!"],
-            ["Do not see the spin-a-wheel as the main source of USDT!", "Withdrawing USDT from the spin-a-wheel has requirements that the developers change whenever they feel like it, so do not count on it. Instead, focus on making more gems!"],
-            ["Don't forget to claim your USDT!", "Speaking of gems, after you invest them and the dividends are distributed, you won't actually get the USDT credited to your balance. Instead, they will be waiting to be collected in the Record button in the Earn screen. The same logic applies to the Llama Token airdrop."]
-        ],
-        pros: ["Low withdrawal fee (0.02 USDT)", "Minigames", "Many things to do an explore", "Helpful support"],
-        cons: ["Due to high amount of people, the daily 12$ divident is extremely low", "The app is often updated, which means new bugs appear and certain features get removed", "Too many ads - most things do not cost any in-game currency but instead force you to watch an ad; This is especially problematic with candy, where the main source of it is watching ads on every llama you get"],
-        banner: "bin"
     },
     {
         name: "Bitcoin Mining",
@@ -1467,7 +1383,8 @@ const LISTE = [
         ],
         tips: [
             ["Do not buy VIP!", "The only way these are anyhow worth it is the removal of withdrawal fee. If you want to try it, only buy it when you have enough to withdraw. Report this app to us and Telegram if you are unable to cancel the subscription. Please not that we strongly advise against purchases in apps labeled as \"Possible Scam\"."],
-            ["Do not play minigames!", "Most minigames require inviting people to actually pay you, so if you do not plan on doing that, you might as well save some time and not play them."]
+            ["Do not play minigames!", "Most minigames require inviting people to actually pay you, so if you do not plan on doing that, you might as well save some time and not play them."],
+            ["Do not attempt to double your winnings!", "The double game seems to have a 50/50 chance of success or fail, but in reality, from over 100 attempts, not a single time had we won the double game."]
         ],
         pros: ["Daily check-in bonus allows up to 9 free spins", "Auto spin feature", "No ads"],
         cons: ["Extremely high withdrawal threshold (5USDT/500000PEPE) with extreme fee (1USDT/50000PEPE)", "You can only spin 4 times per day without completing a task", "Certain tasks just... don't work?"],

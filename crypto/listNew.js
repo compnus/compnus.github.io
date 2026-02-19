@@ -641,6 +641,7 @@ const LISTN = [
         banner: "bin"
     }, {
         name: "Satoshi Game",
+        unlisted: true,
         icon: "https://www.findmini.app/_astro/img_1323_i7hyyxw9zt_ZdMWdm.webp",
         description: "Watch ads, mine SATS and! I wanted to say more but there is nothing else to this app.",
         added: "7-22-2024",
