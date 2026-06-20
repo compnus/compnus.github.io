@@ -239,15 +239,14 @@ async function blockUserConfirm(username) {
 
 async function deleteMessage(id) {
     var buffer = loadedmessages[id];
-    delete loadedmessages[id];
     const { data, error } = await sb
         .from("message")
         .delete()
         .eq("id", buffer.mid);
     if (error) {
         alert("An error occured while trying to delete the message.\n" + error.message);
-        loadedmessages[id] = buffer;
     } else {
+        delete loadedmessages[id];
         document.getElementById("messagecont").removeChild(document.getElementById("message" + id));
         if (JSON.stringify(loadedmessages) === "{}") {
             document.getElementById("messagecont").innerHTML = `<p>You have no messages.</p>`;
