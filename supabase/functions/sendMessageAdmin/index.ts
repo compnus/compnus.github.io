@@ -98,12 +98,12 @@ Deno.serve(async (req) => {
     }
 
     try {
-        let upmessage: string = `%$t%${title}%$,%%$f%CompNUS%$,%%$m%<p>${message}</p>%$$%`;
+        let upmessage = { subject: title, from: "CompNUS", content: `<p>${message}</p>`, owner: null };
 
         if (to && to.length > 1) {
             const { data: senuser, error: userExistsError } = await sb
                 .from("users")
-                .select("messages")
+                .select("id")
                 .eq("username", to)
                 .single();
 
@@ -115,10 +115,10 @@ Deno.serve(async (req) => {
                     }
                 });
             } else {
+                upmessage.owner = senuser.id;
                 const { error: cannotSend } = await sb
-                    .from("users")
-                    .update({ messages: upmessage + senuser.messages })
-                    .eq("username", to);
+                    .from("message")
+                    .insert(upmessage);
                 if (cannotSend) {
                     return new Response(JSON.stringify({ response: `Could not send message to ${to} due to error: ${cannotSend}` }), {
                         status: 401,
