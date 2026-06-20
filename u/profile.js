@@ -240,7 +240,6 @@ async function blockUserConfirm(username) {
 async function deleteMessage(id) {
     var buffer = loadedmessages[id];
     delete loadedmessages[id];
-    newmessages = newmessages.replace(/%\$\$%$/, '').trim();
     const { data, error } = await sb
         .from("message")
         .delete()
