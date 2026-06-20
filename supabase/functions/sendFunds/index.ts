@@ -266,10 +266,10 @@ Deno.serve(async (req) => {
                 .eq("user_id", bData.id);
             let upmessage = { from: "CompNUS", subject: `You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!`, content: `<p>The amount has been added to your balance.${finalMessage}</p>`, owner: bData.id};
             const { error: cannotSend } = await sb
-                .from("messages")
+                .from("message")
                 .insert(upmessage);
             if (cannotSend || cannotDeduct || cannotAdd) {
-                return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend?.message || cannotDeduct?.message || cannotAdd?.message}`+cannotSend.message, sc:true }), {
+                return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend?.message || cannotDeduct?.message || cannotAdd?.message}`, sc:true }), {
                     status: 401,
                     headers: {
                         ...headers
