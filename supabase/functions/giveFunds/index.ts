@@ -116,14 +116,6 @@ Deno.serve(async (req) => {
 
         var finalMessage: string = (message && (message.length > 0)) ? `${message}<br>` : ``;
 
-        let upmessage: string = `%$t%You have received ${parsedAmount} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span>%$,%%$f%CompNUS%$,%%$m%<p>${finalMessage}The amount has been added to your balance.</p>%$$%`;
-
-        const { data: senuser, error: userExistsError } = await sb
-            .from("users")
-            .select("messages")
-            .eq("username", to)
-            .single();
-
         const { data: bData, error: bError } = await sb.from("users").select("id").eq("username", to).single();
         if (!bData || bError) {
             return new Response(JSON.stringify({ response: `User ${to} does not exist.` }), {
@@ -140,7 +132,7 @@ Deno.serve(async (req) => {
             .eq("user_id", bData.id)
             .single();
 
-        if (userExistsError || !senuser || userExistsErrorc || !senuserc) {
+        if (userExistsErrorc || !senuserc) {
             return new Response(JSON.stringify({ response: `User ${to} does not exist.` }), {
                 status: 404,
                 headers: {
@@ -160,9 +152,10 @@ Deno.serve(async (req) => {
                 .update(sends)
                 .eq("user_id", bData.id);
             const { error: cannotSend } = await sb
-                .from("users")
-                .update({ messages: upmessage + senuser.messages })
-                .eq("username", to);
+                .from("message").insert({
+                    from: "CompNUS", subject: `You have received ${parsedAmount} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span>`,
+                    owner: bData.id, content: `<p>${finalMessage}The amount has been added to your balance.</p>`
+                });
             if (cannotSend || cannotAdd) {
                 return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend.message || cannotAdd.message}`, sc:true }), {
                     status: 401,
