@@ -102,7 +102,8 @@ Deno.serve(async (req) => {
                 (referral === "mia") ||
                 (referral === "staney") ||
                 (referral === "compnus") ||
-                (referral === "kingpvz")) 
+                (referral === "nus") ||
+                (referral === "kingpvz"))
                 return new Response(JSON.stringify({ response: "Wrong referral.", wrongref: true }), {
                     status: 500,
                     headers: {
@@ -117,8 +118,8 @@ Deno.serve(async (req) => {
                     ...headers
                 }
             });
-            
-            const { error: invitee } = await sb.from("udata").update({ "referred": referral, "balance_nus": udataExists.balance_nus+0.01 }).eq("user_id", uid);
+
+            const { error: invitee } = await sb.from("udata").update({ "referred": referral, "balance_nus": udataExists.balance_nus + 0.01 }).eq("user_id", uid);
             const { data: referrer, error: referrerError } = await sb.from("udata").select("balance_nus, invitees").eq("user_id", realUser.id).single();
             if (referrerError || !referrer) {
                 return new Response(JSON.stringify({ response: "Referral error.", wrongref: true }), {
@@ -129,11 +130,10 @@ Deno.serve(async (req) => {
                 });
             }
             const { error: inviter } = await sb.from("udata").update({ "balance_nus": (referrer.balance_nus + 0.001), "invitees": referrer.invitees + "(" + userExists.username + ")" }).eq("user_id", realUser.id);
-            let upmessage: string = `%$t%You have successfully referred ${userExists.username}!%$,%%$f%CompNUS%$,%%$m%<p>You have received 0.001 $NUS. As long as the user is active, your dividend power is increased by 10.</p>%$$%`;
+            let upmessage = { from: "CompNUS", owner: realUser.id, subject: `You have successfully referred ${userExists.username}!`, content: `<p>You have received 0.001 $NUS. As long as the user is active, your dividend power is increased by 10.</p>` };
             const { error: cannotSend } = await sb
-                .from("users")
-                .update({ messages: upmessage + realUser.messages })
-                .eq("username", referral);
+                .from("message")
+                .insert(upmessage);
             if (invitee || inviter || cannotSend) {
                 return new Response(JSON.stringify({ response: invitee.message||inviter.message||cannotSend.message }), {
                     status: 400,

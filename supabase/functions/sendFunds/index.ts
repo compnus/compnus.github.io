@@ -221,14 +221,6 @@ Deno.serve(async (req) => {
 
         var finalMessage: string = (message && (message.length > 0)) ? `<br><b>Message from sender:</b> ${message}` : ``;
 
-        let upmessage: string = `%$t%You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!%$,%%$f%CompNUS%$,%%$m%<p>The amount has been added to your balance.${finalMessage}</p>%$$%`;
-
-        const { data: senuser, error: userExistsError } = await sb
-            .from("users")
-            .select("messages")
-            .eq("username", to)
-            .single();
-
         const { data: senuserc, error: userExistsErrorc } = await sb
             .from("udata")
             .select("balance_" + currency)
@@ -272,10 +264,11 @@ Deno.serve(async (req) => {
                 .from("udata")
                 .update(sends)
                 .eq("user_id", bData.id);
+            let upmessage = { from: "CompNUS", subject: `You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!`, content: `<p>The amount has been added to your balance.${finalMessage}</p>`, owner: bData.id};
+
             const { error: cannotSend } = await sb
-                .from("users")
-                .update({ messages: upmessage + senuser.messages })
-                .eq("username", to);
+                .from("messages")
+                .insert(upmessage);
             if (cannotSend || cannotDeduct || cannotAdd) {
                 return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend.message || cannotDeduct.message || cannotAdd.message}`, sc:true }), {
                     status: 401,
@@ -296,6 +289,7 @@ Deno.serve(async (req) => {
                 });
             }
         }
+
 
         return new Response(JSON.stringify({ response: "Transaction successful!", sc:true }), {
             status: 200,
