@@ -167,7 +167,7 @@ Deno.serve(async (req) => {
                 }
             });
         }
-        sb.from("transaction").insert({ from: "admin:CompNUS", to: recuser.username, resource: resources, message: "Redeemed Code" })
+        await sb.from("transaction").insert({ from: "admin:CompNUS", to: recuser.username, resource: resources, message: "Redeemed Code" })
         return new Response(JSON.stringify({ response: pcode.message + "<br>" + "You have received: "+messageparts.join(", ")+"!", sc:true }), {
             status: 200,
             headers: {
