@@ -269,7 +269,7 @@ Deno.serve(async (req) => {
                 .from("messages")
                 .insert(upmessage);
             if (cannotSend || cannotDeduct || cannotAdd) {
-                return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend?.message || cannotDeduct?.message || cannotAdd?.message}`, sc:true }), {
+                return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend?.message || cannotDeduct?.message || cannotAdd?.message}`+cannotSend.message, sc:true }), {
                     status: 401,
                     headers: {
                         ...headers
@@ -298,7 +298,7 @@ Deno.serve(async (req) => {
         });
     } catch (error) {
         console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error."+error.message }), {
+        return new Response(JSON.stringify({ response: "Internal Server Error." }), {
             status: 500,
             headers: {
                 ...headers
