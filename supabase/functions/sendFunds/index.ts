@@ -276,11 +276,13 @@ Deno.serve(async (req) => {
                     }
                 });
             }
+            let resources = {};
+            resources[currency] = parsedAmount;
             const { error: logError } = await sb
-                .from("logs")
-                .insert({ created_by: from, type: "transaction", attributes: "to->" + to + "\ncurrency->" + currency + "\nsent->" + totalToSend + "\nreceived->" + totalReceived, message: "message->" + message });
+                .from("transaction")
+                .insert({ from: from, to: to, resource: resources, message: message });
             if (logError) {
-                return new Response(JSON.stringify({ response: `Internal server error.` }), {
+                return new Response(JSON.stringify({ response: `Transaction was successful, but was not logged.<br>Please contact support.`, sc: true }), {
                     status: 500,
                     headers: {
                         ...headers

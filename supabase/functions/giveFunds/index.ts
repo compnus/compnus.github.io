@@ -157,18 +157,20 @@ Deno.serve(async (req) => {
                     owner: bData.id, content: `<p>${finalMessage}The amount has been added to your balance.</p>`
                 });
             if (cannotSend || cannotAdd) {
-                return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend.message || cannotAdd.message}`, sc:true }), {
+                return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend?.message || cannotAdd?.message}`, sc:true }), {
                     status: 401,
                     headers: {
                         ...headers
                     }
                 });
             }
+            let resources = {};
+            resources[currency] = parsedAmount;
             const { error: logError } = await sb
-                .from("logs")
-                .insert([{ created_by: uid, type: "adminTransaction", attributes: "to->" + to + "\ncurrency->" + currency + "\ngiven->" + parsedAmount, message: "message->" + message }]);
+                .from("transaction")
+                .insert({ from: "admin:" + uid, to: to, resource: resources, message: message });
             if (logError) {
-                return new Response(JSON.stringify({ response: `Internal server error.` }), {
+                return new Response(JSON.stringify({ response: `Transaction was successful, but was not logged.<br>Please contact support.`, sc:true }), {
                     status: 500,
                     headers: {
                         ...headers

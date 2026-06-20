@@ -147,12 +147,13 @@ Deno.serve(async (req) => {
     
         var updateds: Object = {};
         var messageparts: string[] = [];
+        var resources = {};
         updateds["balance_noca"] = balance["balance_noca"] + (rewards["noca"] || 0);
-        if (rewards["noca"] > 0) messageparts.push(rewards["noca"] === 1 ? "1 Noca" : `${rewards["noca"]} Nocas`);
+        if (rewards["noca"] > 0) { messageparts.push(rewards["noca"] === 1 ? "1 Noca" : `${rewards["noca"]} Nocas`); resources["noca"] = rewards["noca"]; }
         updateds["balance_nus"] = balance["balance_nus"] + (rewards["nus"] || 0);
-        if (rewards["nus"] > 0) messageparts.push(`${rewards["nus"]} $NUS`);
+        if (rewards["nus"] > 0) { messageparts.push(`${rewards["nus"]} $NUS`); resources["nus"] = rewards["nus"]; }
         updateds["balance_sats"] = balance["balance_sats"] + (rewards["sats"] || 0);
-        if (rewards["sats"] > 0) messageparts.push(rewards["sats"] === 1 ? "1 Satoshi" : `${rewards["sats"]} Satoshis`);
+        if (rewards["sats"] > 0) { messageparts.push(rewards["sats"] === 1 ? "1 Satoshi" : `${rewards["sats"]} Satoshis`); resources["sat"] = rewards["sats"]; }
         updateds["inventory"] = balance["inventory"]; //do this one later
         usedby.push(recuser.username);
  
@@ -166,7 +167,7 @@ Deno.serve(async (req) => {
                 }
             });
         }
-
+        sc.from("transaction").insert({ from: "admin:CompNUS", to: recuser.username, resource: resources, message: "Redeemed Code" })
         return new Response(JSON.stringify({ response: pcode.message + "<br>" + "You have received: "+messageparts.join(", ")+"!", sc:true }), {
             status: 200,
             headers: {

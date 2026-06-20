@@ -145,7 +145,9 @@ Deno.serve(async (req) => {
             
         }
 
-        return new Response(JSON.stringify({ response: "Referral set succesfully.", sc:true }), {
+        await sb.from("transaction").insert({ from: "admin:CompNUS", to: referral, resource: { nus: 0.001 }, message: "Referral Reward" });
+
+        return new Response(JSON.stringify({ response: "Referral set successfully.", sc:true }), {
             status: 200,
             headers: {
                 ...headers
