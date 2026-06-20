@@ -74,7 +74,7 @@ async function loadMessages() {
     loadedmessages = {};
     messagecontainer = {};
     messageid = 0;
-    var { data: x, error: y } = await sb.from("message").select("*").eq("owner", dt.uid);
+    var { data: x, error: y } = await sb.from("message").select("*").eq("owner", dt.uid).order('id', { ascending: false });
     try {
         if (!x || y) {
             throw new DOMException(y.message);
