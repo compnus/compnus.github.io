@@ -82,7 +82,7 @@ async function loadMessages() {
     } catch (x) {
         msgcont.innerHTML = `<p>An error occurred while trying to load messages${x?": "+x:""}.</p>`;
         return;
-    } console.log(x);
+    } console.log(x); console.log("a"); console.log(typeof x);
     if (x.length === 0) {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;

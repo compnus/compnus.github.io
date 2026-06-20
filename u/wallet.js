@@ -273,7 +273,7 @@ function withdraw() {
     <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FaYGRdyHW07ic-jZf8xyeYg34x-Br9Ya7aUg6vFgA-zYtNmv8R7pOWSTl-i2bW2GwRA&f=1&nofb=1&ipt=b7637308ff3bee0fb8895fbae06a4c7192e110b46463ef95d0764474d5dac6f5">
     <div>
     <h1>Bitcoin at the speed of light.</h1>
-    <p>Use Speed Wallet to store your Satoshis, and get 500 Satoshis for free!<br>Click "Learn More" to claim this offer!</p>
+    <p>Use Speed Wallet to store your Satoshis, and get 500 <span title="Satoshis">SATS</span> for free!<br>Click "Learn More" to claim this offer!</p>
     </div>
     <button>LEARN MORE</button>
     </div>
