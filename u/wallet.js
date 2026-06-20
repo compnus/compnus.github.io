@@ -4,7 +4,7 @@ async function loadWallet() {
     document.getElementById("walletnoca").innerHTML = balance[1];
     document.getElementById("walletsats").innerHTML = balance[2];
     var pricebtc;
-    await fetch('https://data-api.coindesk.com/index/cc/v1/latest/tick?market=ccix&instruments=BTC-USD').then(response => response.json()).then(json => { pricebtc = json.Data["BTC-USD"].VALUE });
+    await fetch('https://api.coinlore.net/api/ticker/?id=90').then(response => response.json()).then(json => json.forEach(x => { pricebtc = x.price_usd }));
     var pricebtcnew = (balance[2] * (pricebtc / 100000000)).toFixed(3);
     document.getElementById("bitcoinss").innerHTML = (balance[2] / 100000000).toFixed(8);
     document.getElementById("bitcoinpr").innerHTML = pricebtcnew;
