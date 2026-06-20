@@ -89,7 +89,6 @@ async function loadMessages() {
     }
     msgcont.innerHTML = "";
     for (var i of x) {
-        loadedmessages[messageid] = i;
         var z = {
             id: messageid,
             mid: i.id,
@@ -97,6 +96,7 @@ async function loadMessages() {
             from: i.from,
             message: i.content
         }
+        loadedmessages[messageid] = z;
 
         messageid++;
 
