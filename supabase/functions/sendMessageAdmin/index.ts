@@ -156,10 +156,10 @@ Deno.serve(async (req) => {
                 for (const user of senuser) {
                     const { error: cannotSend } = await sb
                         .from("message")
-                        .insert({ subject: title, from: "CompNUS", content: `<p>${message.split("{{NAME}}").join(user.name).split("{{USER}}").join(user.username)}</p>`, owner: user });
+                        .insert({ subject: title, from: "CompNUS", content: `<p>${message.split("{{NAME}}").join(user.name).split("{{USER}}").join(user.username)}</p>`, owner: user.id });
 
                     if (cannotSend) {
-                        packedResponse += "Could not send message to " + user.username + " due to error: " + cannotSend + "\n";
+                        packedResponse += "Could not send message to " + user.username + " due to error: " + cannotSend.message + "\n";
                     }
                 }
                
