@@ -83,34 +83,20 @@ async function loadMessages() {
         msgcont.innerHTML = `<p>An error occurred while trying to load messages${x?": "+x:""}.</p>`;
         return;
     }
-    alert("hit");
     console.log(x); console.log("a"); console.log(typeof x);
     if (x.length === 0) {
-        msgcont.innerHTML = `<p>You have no messages.</p>`;
-        return;
-    }
-    /*
-    x = x.split("%$$%");
-    if (x.length === 1 && x[0].trim() === '') {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
     }
     msgcont.innerHTML = "";
     for (var i of x) {
         loadedmessages[messageid] = i;
-        if (i.trim() === "") continue;
-        var y = i.trim().split("%$,%");
         var z = {
             id: messageid,
-            title: "",
-            from: "",
-            message: ``
-        }
-
-        for (var j of y) {
-            if (j.startsWith("%$t%")) z.title = j.substring(4);
-            else if (j.startsWith("%$f%")) z.from = j.substring(4);
-            else if (j.startsWith("%$m%")) z.message = j.substring(4);
+            mid: i.id,
+            title: i.subject,
+            from: i.from,
+            message: i.content
         }
 
         messageid++;
@@ -146,7 +132,7 @@ async function loadMessages() {
     }
     if (msgcont.innerHTML.trim() === "") {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
-    }*/
+    }
 }
 
 async function administr() {
