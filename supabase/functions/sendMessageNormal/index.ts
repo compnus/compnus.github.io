@@ -132,9 +132,9 @@ Deno.serve(async (req) => {
             from = recuser.username;
         }
 
-        const { data: bData, error: bError } = await sb.from("users").select("blocked_users").eq("username", to).single();
+        const { data: bData, error: bError } = await sb.from("users").select("blocked_users, id").eq("username", to).single();
         if (!bData || bError) {
-            return new Response(JSON.stringify({ response: "We had problems processing the message.", type: 0, message: "You can try sending the message again. If the issue persists, please contact support." }), {
+            return new Response(JSON.stringify({ response: `User ${to} does not exist.` }), {
                 status: 501,
                 headers: { ...headers }
             });
@@ -146,45 +146,28 @@ Deno.serve(async (req) => {
             });
         }
 
-        let upmessage: string = `%$t%${title}%$,%%$f%${from}%$,%%$m%<p>${message}</p>%$$%`;
-
-        const { data: senuser, error: userExistsError } = await sb
-            .from("users")
-            .select("messages")
-            .eq("username", to)
-            .single();
-
-        if (userExistsError || !senuser) {
-            return new Response(JSON.stringify({ response: `User ${to} does not exist.` }), {
-                status: 404,
+        let upmessage = {subject: title, content: `<p>${message}</p>`, from: from, owner: bData.id};
+        const { error: cannotSend } = await sb
+            .from("message")
+            .insert(upmessage);
+        if (cannotSend) {
+            return new Response(JSON.stringify({ response: `Could not send message to ${to} due to error: ${cannotSend.message}` }), {
+                status: 401,
                 headers: {
                     ...headers
                 }
             });
-        } else {
-            const { error: cannotSend } = await sb
-                .from("users")
-                .update({ messages: upmessage + senuser.messages })
-                .eq("username", to);
-            if (cannotSend) {
-                return new Response(JSON.stringify({ response: `Could not send message to ${to} due to error: ${cannotSend}` }), {
-                    status: 401,
-                    headers: {
-                        ...headers
-                    }
-                });
-            }
-            const { error: logError } = await sb
-                .from("logs")
-                .insert([{ created_by: from, type: "normalMessage", attributes: "to->" + to, message: "title->" + title + "\ncontent->" + message }]);
-            if (logError) {
-                return new Response(JSON.stringify({ response: `Internal server error.` }), {
-                    status: 500,
-                    headers: {
-                        ...headers
-                    }
-                });
-            }
+        }
+        const { error: logError } = await sb
+            .from("logs")
+            .insert([{ created_by: from, type: "normalMessage0", attributes: "to->" + to, message: "title->" + title + "\ncontent->" + message }]);
+        if (logError) {
+            return new Response(JSON.stringify({ response: `Internal server error.` }), {
+                status: 500,
+                headers: {
+                    ...headers
+                }
+            });
         }
 
         return new Response(JSON.stringify({ response: "Message sent successfully!", type:1 }), {
