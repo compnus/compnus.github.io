@@ -281,7 +281,7 @@ Deno.serve(async (req) => {
                 .from("logs")
                 .insert([{ created_by: from, type: "transaction", attributes: "to->" + to + "\ncurrency->" + currency + "\nsent->" + totalToSend + "\nreceived->" + totalReceived, message: "message->" + message }]);
             if (logError) {
-                return new Response(JSON.stringify({ response: `Internal server error.` }), {
+                return new Response(JSON.stringify({ response: `Internal server error.`+logError.message }), {
                     status: 500,
                     headers: {
                         ...headers
