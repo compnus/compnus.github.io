@@ -227,7 +227,7 @@ Deno.serve(async (req) => {
             .eq("user_id", bData.id)
             .single();
 
-        if (userExistsError || !senuser || userExistsErrorc || !senuserc) {
+        if (userExistsErrorc || !senuserc) {
             return new Response(JSON.stringify({ response: `User ${to} does not exist.` }), {
                 status: 404,
                 headers: {
@@ -299,7 +299,7 @@ Deno.serve(async (req) => {
         });
     } catch (error) {
         console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error."+error.message }), {
+        return new Response(JSON.stringify({ response: "Internal Server Error." }), {
             status: 500,
             headers: {
                 ...headers
