@@ -83,7 +83,6 @@ async function loadMessages() {
         msgcont.innerHTML = `<p>An error occurred while trying to load messages${x?": "+x:""}.</p>`;
         return;
     }
-    console.log(x); console.log("a"); console.log(typeof x);
     if (x.length === 0) {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
@@ -241,13 +240,11 @@ async function blockUserConfirm(username) {
 async function deleteMessage(id) {
     var buffer = loadedmessages[id];
     delete loadedmessages[id];
-    var newmessages = "";
-    for (var i in loadedmessages) newmessages+=(loadedmessages[i].trim() + "%$$%");
     newmessages = newmessages.replace(/%\$\$%$/, '').trim();
     const { data, error } = await sb
-        .from("users")
-        .update({ messages: newmessages })
-        .eq("id", dt.uid);
+        .from("message")
+        .delete()
+        .eq("id", buffer.mid);
     if (error) {
         alert("An error occured while trying to delete the message.\n" + error.message);
         loadedmessages[id] = buffer;
