@@ -142,7 +142,7 @@ Deno.serve(async (req) => {
         } else {
             const { data: senuser, error: userExistsError } = await sb
                 .from("users")
-                .select("username, messages")
+                .select("id, username, name");
 
             if (userExistsError || !senuser) {
                 return new Response(JSON.stringify({ response: `Problems happened. Idk what problems just... problems.` }), {
@@ -155,9 +155,8 @@ Deno.serve(async (req) => {
                
                 for (const user of senuser) {
                     const { error: cannotSend } = await sb
-                        .from("users")
-                        .update({ messages: upmessage + user.messages })
-                        .eq("username", user.username);
+                        .from("message")
+                        .insert({ subject: title, from: "CompNUS", content: `<p>${message.split("{{NAME}}").join(user.name).split("{{USER}}").join(user.username)}</p>`, owner: user });
 
                     if (cannotSend) {
                         packedResponse += "Could not send message to " + user.username + " due to error: " + cannotSend + "\n";
