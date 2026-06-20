@@ -155,7 +155,7 @@ Deno.serve(async (req) => {
         });
     } catch (error) {
         console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error." }), {
+        return new Response(JSON.stringify({ response: "Internal Server Error."+error.message }), {
             status: 500,
             headers: {
                 ...headers
