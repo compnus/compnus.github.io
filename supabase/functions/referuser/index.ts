@@ -111,7 +111,7 @@ Deno.serve(async (req) => {
                     }
                 });
 
-            const { data: realUser, error: noUser } = await sb.from("users").select("id, messages").eq("username", referral).single();
+            const { data: realUser, error: noUser } = await sb.from("users").select("id").eq("username", referral).single();
             if (noUser || !realUser || udataExistsError) return new Response(JSON.stringify({ response: "Wrong referral.", wrongref: true }), {
                 status: 500,
                 headers: {
