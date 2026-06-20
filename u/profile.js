@@ -86,7 +86,7 @@ async function loadMessages() {
     if (x.length === 0) {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
-    } else console.out(JSON.stringify(x));
+    } else console.log(JSON.stringify(x));
 
     x = x.split("%$$%");
     if (x.length === 1 && x[0].trim() === '') {
