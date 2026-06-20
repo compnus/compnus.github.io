@@ -74,7 +74,7 @@ async function loadMessages() {
     loadedmessages = {};
     messagecontainer = {};
     messageid = 0;
-    var { data: x, error: y } = await sb.from("users").select("messages").eq("id", dt.uid).single();
+    var { data: x, error: y } = await sb.from("message").select("*").eq("owner", dt.uid);
     try {
         if (!x || y) {
             throw new DOMException(y.message);
@@ -83,11 +83,10 @@ async function loadMessages() {
         msgcont.innerHTML = `<p>An error occurred while trying to load messages${x?": "+x:""}.</p>`;
         return;
     }
-    x = x.messages;
-    if (x === null) {
+    if (x.length === 0) {
         msgcont.innerHTML = `<p>You have no messages.</p>`;
         return;
-    }
+    } else console.out(JSON.stringify(x));
 
     x = x.split("%$$%");
     if (x.length === 1 && x[0].trim() === '') {
