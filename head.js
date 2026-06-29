@@ -21,10 +21,10 @@ header.innerHTML = `
 <h1 id="title"></h1>
 </div>
 <div id="headernav">
-<p class="link hnav" id="cryptonus" title="Free crypto, new crypto projects, scam list and so much more!"><a href="/crypto/">CryptoNUS</a></p>
-<p class="link hnav" id="servicenus" title="Explore the world of NUS! Versatile apps, services and features are only one click away!"><a href="/apps.html">Apps</a></p>
-<p class="link hnav" id="userlogin" title="Gateway to everything NUS: mine $NUS crypto and more!"><a href="/u/signup.html">Sign Up</a> <span style="color: white !important">/</span> <a href="/u/login.html">Log In</a></p>
-<a href="/search/" id="searchnusa"><img class="link inav" id="searchnus" title="Search" src="https://img.icons8.com/?size=100&id=83218&format=png&color=FFFFFF"></a>
+<a href="/crypto/" class="link inav"id="cryptonus" title="CryptoNUS\nFree crypto, new crypto projects, scam list and so much more!"><img src="https://img.icons8.com/?size=100&id=89901&format=png&color=FFFF00"></a>
+<a href="/apps.html" class="link inav" id="servicenus" title="Apps\nExplore the world of NUS! Versatile apps, services and features are only one click away!"><img src="https://img.icons8.com/?size=100&id=84146&format=png&color=FFFF00"></a>
+<a href="/search/" class="link inav" id="searchnus"><img title="Search" src="https://img.icons8.com/?size=100&id=83218&format=png&color=FFFF00"></a>
+<a href="/u/signup.html" class="link inav" id="userlogin" title="My Account\nGateway to everything NUS: mine $NUS crypto and more!"><img src="https://img.icons8.com/?size=100&id=9680FcFsSgSd&format=png&color=FFFF00"></a>
 </div>
 </header>
 `;
@@ -36,9 +36,10 @@ promoheader.innerHTML = `
 <h1 id="title"></h1>
 </div>
 <div id="headernav">
-<p class="link hnav" id="cryptonus" title="Free crypto, new crypto projects, scam list and so much more!"><a href="/crypto/">CryptoNUS</a></p>
-<p class="link hnav" id="servicenus" title="Explore the world of NUS! Versatile apps, services and features are only one click away!"><a href="/apps.html">Apps</a></p>
-<p class="link hnav" id="userlogin" title="Gateway to everything NUS: mine $NUS crypto and more!"><a href="/u/signup.html">Sign Up</a> <span style="color: white !important">/</span> <a href="/u/login.html">Log In</a></p>
+<a href="/crypto/" class="link inav"id="cryptonus" title="CryptoNUS\nFree crypto, new crypto projects, scam list and so much more!"><img src="https://img.icons8.com/?size=100&id=89901&format=png&color=FFFF00"></a>
+<a href="/apps.html" class="link inav" id="servicenus" title="Apps\nExplore the world of NUS! Versatile apps, services and features are only one click away!"><img src="https://img.icons8.com/?size=100&id=84146&format=png&color=FFFF00"></a>
+<a href="/search/" class="link inav" id="searchnus"><img title="Search" src="https://img.icons8.com/?size=100&id=83218&format=png&color=FFFF00"></a>
+<a href="/u/signup.html" class="link inav" id="userlogin" title="My Account\nGateway to everything NUS: mine $NUS crypto and more!"><img src="https://img.icons8.com/?size=100&id=9680FcFsSgSd&format=png&color=FFFF00"></a>
 </div>
 </header>
 `;
@@ -96,7 +97,12 @@ function initHeader(title) {
             } else {
                 if (username.username) usern = username.username;
             }
-            document.getElementById("userlogin").innerHTML = `<a href="/u/profile.html">My Profile (${usern})</a>`;
+            var ul = document.getElementById("userlogin");
+            if (ul.nodeName == 'P') ul.innerHTML = `<a href="/u/profile.html">My Account (${usern})</a>`;
+            else {
+                ul.title = `My Account (Logged in as ${usern})\nGateway to everything NUS: mine $NUS crypto and more!`;
+                ul.href = "/u/profile.html";
+            }
         }
     });
 }

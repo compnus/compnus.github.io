@@ -17,7 +17,7 @@
         `;
 
         initHeader("Dashboard");
-        document.getElementById("headernav").removeChild(document.getElementById("userlogin"));
+        document.getElementById("userlogin").classList.add("present");
 
         async function suggestFeature(name, dsc, status) {
             status.innerHTML = "Please wait...";
