@@ -152,7 +152,7 @@ Deno.serve(async (req) => {
                 }
             });
         }
-        await sb.from("transaction").insert({ from: from, to: "CompNUS", resource: { sat: amount+fee }, message: "Withdrawal Request" });
+        await sb.from("transaction").insert({ from: from, to: "CompNUS", resource: { sat: amount+fee }, message: `Withdrawal Request (Fee: ${fee} Satoshis; Status: Pending)` });
 
         return new Response(JSON.stringify({ response: "Withdrawal request was submitted!<br>Please wait patiently before we process it.", sc:true }), {
             status: 200,
