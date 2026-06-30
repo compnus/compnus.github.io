@@ -217,14 +217,14 @@ Deno.serve(async (req) => {
             .eq("user_id", uid);
 
         if (cannotDeduct) {
-            return new Response(JSON.stringify({ response: `Database Update Error`, type:0, message: "The message might have been sent, but the database wasn't able to process it.\nIt is unknown whether the message was actually be delivered.\nYou have not been charged any Nocas." }), {
+            return new Response(JSON.stringify({ response: `Database Update Error`, type:0, message: "The message might have been sent, but the database wasn't able to process it.\nIt is unknown whether the message was actually be delivered.\nPlease contact the support immediately." }), {
                 status: 500,
                 headers: {
                     ...headers
                 }
             });
         }
-
+        await sb.from("transaction").insert({ from: from, to: "CompNUS", resource: {"noca":price}, message: "Message Fee" });
         return new Response(JSON.stringify({ response: "Message sent successfully!", type:1 }), {
             status: 200,
             headers: {

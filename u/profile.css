@@ -489,7 +489,11 @@ a.linkstv {
     margin: 0;
 }
 
-@media(max-width:800px) {
+.flex.cc > .input > .ttinput {
+    width: 24em;
+}
+
+@media(orientation:portrait) {
     div.mainscroll {
         height: initial;
         padding: 0;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../script.js" defer></script>
+    <script src="wallet.js" defer></script>
+    <title>Transactions - CompNUS</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="profile.css" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script><script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script></head>
+<body>
+    <script>
+        initHeader("Transactions");
+        var incomingt = [];
+        var outgoingt = [];
+    </script>
+
+    <div class="mainscroll mainwallet pcmarginfix">
+        <div class="flex cc">
+            <div class="input">
+                <label for="tselect">Please select transactions to view:</label><p>&emsp;</p>
+                <select id="tselect" class="ttinput">
+                    <option value="up">Verify Transaction ID</option>
+                    <option value="in">Incoming</option>
+                    <option value="out">Outgoing</option>
+                </select>
+            </div>
+        </div>
+
+        <br />
+
+        <div id="ttverify" class="ttmain">
+            <div class="flex cc">
+                <div class="input">
+                    <label for="ttid">Input the Transaction ID:</label><p>&emsp;</p>
+                    <input id="ttid" placeholder="ff000000-abcd-1234-5678-0000aaff0000" class="ttinput"/>
+                    <p>&emsp;</p>
+                    <button onclick="verifyTID(document.getElementById('ttid').value)">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>initFooter();
+    </script>
+</body>
+</html>

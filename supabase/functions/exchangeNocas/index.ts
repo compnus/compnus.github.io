@@ -67,14 +67,15 @@ Deno.serve(async (req) => {
             }
         });
     }
-
+    const { data: uname, error: unoerr } = await sb.from("users").select("username").eq("id", uid).single();
     const { data: nData, error: nError } = await sb.from("udata").select("balance_nus, balance_noca, balance_sats").eq("user_id", uid).single();
-    if (!nData || nError) {
+    if (!nData || nError || unoerr) {
         return new Response(JSON.stringify({ response: "We had problems processing the exchange." }), {
             status: 501,
             headers: { ...headers }
         });
     }
+    var from: string = uname.username;
 
     if (parseInt(amount) < (btc?100:10)) {
         return new Response(JSON.stringify({ response: "Please enter a valid amount to send.", sc:true }), {
@@ -106,6 +107,11 @@ Deno.serve(async (req) => {
                 }
             });
         }
+
+        let resources = {};
+        resources[btc ? "sat" : "nus"] = toPay;
+        await sb.from("transaction").insert({ from: from, to: "CompNUS", resource: resources, message: "Exchange for Nocas" });
+        await sb.from("transaction").insert({ from: "CompNUS", to: from, resource: {"noca": parseInt(amount)}, message: "Received from exchange" });
 
         return new Response(JSON.stringify({ response: "Exchange was successful!", sc:true }), {
             status: 200,

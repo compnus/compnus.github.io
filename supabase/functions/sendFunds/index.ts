@@ -277,11 +277,16 @@ Deno.serve(async (req) => {
                 });
             }
             let resources = {};
-            resources[currency] = parsedAmount;
+            resources[currency] = totalReceived;
             const { error: logError } = await sb
                 .from("transaction")
                 .insert({ from: from, to: to, resource: resources, message: message });
-            if (logError) {
+            resources = {};
+            resources[currency] = totalToSend-totalReceived;
+            const { error: logError2 } = await sb
+                .from("transaction")
+                .insert({ from: from, to: "CompNUS", resource: resources, message: "Transaction Fee" });
+            if (logError || logError2) {
                 return new Response(JSON.stringify({ response: `Transaction was successful, but was not logged.<br>Please contact support.`, sc: true }), {
                     status: 500,
                     headers: {
