@@ -282,7 +282,7 @@ Deno.serve(async (req) => {
                 .from("transaction")
                 .insert({ from: from, to: to, resource: resources, message: message });
             resources = {};
-            resources[currency] = totalToSend-totalReceived;
+            resources[currency] = parseFloat((totalToSend-totalReceived).toFixed(8));
             const { error: logError2 } = await sb
                 .from("transaction")
                 .insert({ from: from, to: "CompNUS", resource: resources, message: "Transaction Fee" });

@@ -325,3 +325,11 @@ function withdraw() {
         `
     );
 }
+
+function ttload(id) {
+
+}
+
+async function verifyTID(tid) {
+
+}

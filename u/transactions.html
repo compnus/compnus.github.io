@@ -20,7 +20,7 @@
         <div class="flex cc">
             <div class="input">
                 <label for="tselect">Please select transactions to view:</label><p>&emsp;</p>
-                <select id="tselect" class="ttinput">
+                <select id="tselect" class="ttinput" onchange="ttload(this.value)">
                     <option value="up">Verify Transaction ID</option>
                     <option value="in">Incoming</option>
                     <option value="out">Outgoing</option>
