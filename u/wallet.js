@@ -401,7 +401,8 @@ async function verifyTID(tid) {
         await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/viewTransaction', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authorization': `Bearer Anonymous`
             },
             body: JSON.stringify({ action: 0, data: tid })
         }).then(response => response.json())
@@ -416,12 +417,11 @@ async function verifyTID(tid) {
                 document.getElementById("ttv_mes").innerHTML = data.data.message;
                 fillResources(assets, data.data.resource);
                 document.getElementById("ttid").value = "";
-            } else {
-                status.innerHTML = data.response;
-            }
+            } else status.innerHTML = data.response;
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
+            status.innerHTML = "Something went wrong.";
         });
     }
     document.getElementById("ttverfbutton").classList.remove("disabled");
