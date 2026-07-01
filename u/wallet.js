@@ -330,6 +330,10 @@ function ttloadTransactions(to) {
 
 }
 
+function fillResources(div, data) {
+
+}
+
 async function ttload(id) {
     document.getElementById("ttverify").style.display = "none";
     document.getElementById("ttlist").style.display = "none";
@@ -411,7 +415,7 @@ async function verifyTID(tid) {
                 status.style.display = "none";
                 view.style.display = "block";
                 document.getElementById("ttv_id").innerHTML = data.data.id;
-                document.getElementById("ttv_date").innerHTML = formatDate(data.data.date);
+                document.getElementById("ttv_date").innerHTML = formatDate(data.data.created);
                 document.getElementById("ttv_from").innerHTML = data.data.from;
                 document.getElementById("ttv_to").innerHTML = data.data.to;
                 document.getElementById("ttv_mes").innerHTML = data.data.message;
