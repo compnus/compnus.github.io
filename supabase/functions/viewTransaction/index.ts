@@ -50,7 +50,7 @@ Deno.serve(async (req) => {
             }
         });
 
-        const { data: trs, error } = await sb.from('transactions').select('*').eq('id', data).single();
+        const { data: trs, error } = await sb.from('transaction').select('*').eq('id', data).single();
         if (!trs || error) return new Response(JSON.stringify({ response: "Transaction not found." }), {
             status: 404,
             headers: {
@@ -98,7 +98,7 @@ Deno.serve(async (req) => {
 
     try {
 
-        const { data: trs, error } = await sb.from('transactions').select('*').eq(action == 2 ? 'from' : 'to', un.username);
+        const { data: trs, error } = await sb.from('transaction').select('*').eq(action === 2 ? 'from' : 'to', un.username);
         if (error) return new Response(JSON.stringify({ response: `Operation failed.<br>If the issue persists, please contact support.` }), {
             status: 400,
             headers: {
