@@ -35,7 +35,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    if (action === null || (action !== 0 && action !== 1 && action !== 2)) return new Response(JSON.stringify({ response: "Invalid request." }), {
+    if (action === null || (action !== 0 && action !== 1 && action !== 2)) return new Response(JSON.stringify({ response: "Invalid request. because action"+action }), {
         status: 400,
         headers: {
             ...headers
@@ -43,7 +43,7 @@ Deno.serve(async (req) => {
     });
 
     if (action === 0) {
-        if (data === null || !data.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) return new Response(JSON.stringify({ response: "Invalid request." }), {
+        if (data === null || !data.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) return new Response(JSON.stringify({ response: "Invalid request. because format"+data }), {
             status: 400,
             headers: {
                 ...headers
