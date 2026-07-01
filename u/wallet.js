@@ -402,7 +402,7 @@ async function verifyTID(tid) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'authorization': `Bearer Anonymous`
+                'authorization': `Bearer ${SUPABASE_ANON_KEY}`
             },
             body: JSON.stringify({ action: 0, data: tid })
         }).then(response => response.json())
