@@ -489,9 +489,58 @@ a.linkstv {
     margin: 0;
 }
 
+/*transactions*/
 .flex.cc > .input > .ttinput {
     width: 24em;
 }
+
+.ttview {
+    max-width: 50em;
+    margin: 2vh auto;
+    padding: 2vh;
+    border-radius: 2vh;
+    background-color: var(--lightbg);
+    box-shadow: rgba(0 0 0 / 50%) 0 3px 5px;
+}
+
+    .ttview > p {
+        margin: 0 0 1vh 0;
+        font-size: 1.5vh;
+        color: #aaa;
+        text-align: center;
+    }
+
+    .ttview > div.flex.cc > p {
+        margin: 0 0 1vh 0;
+        font-size: 2vh;
+        color: #ccc;
+    }
+
+    .ttview > div.flex.cc > p > span {
+        color: #fff;
+    }
+
+        .ttview > p > span, .ttview > div.flex.cc > p > span {
+            user-select: all;
+            -moz-user-select: all;
+            -webkit-user-select: all;
+            font-weight: 500;
+        }
+
+    .ttview > h2 {
+        font-size: 2.5vh;
+        margin: 1vh 0;
+    }
+
+    .ttview > h3 {
+        font-size: 2vh;
+        font-weight: normal;
+        margin: 1vh 0 3vh 0;
+    }
+
+    #ttv_res > p {
+        margin: 0;
+    }
 
 @media(orientation:portrait) {
     div.mainscroll {
@@ -573,6 +622,7 @@ a.linkstv {
         grid-gap: 4vw;
         margin-bottom: 4vw;
     }
+
         .mainactions > button:hover {
             box-shadow: black 0 5px 10px -5px;
             bottom: 0;
@@ -613,9 +663,9 @@ a.linkstv {
             filter: invert(0.25);
         }
 
-        msgtrash:active {
-            filter: invert(0);
-        }
+    msgtrash:active {
+        filter: invert(0);
+    }
 
     .msgtitle {
         margin-bottom: 2vw;
@@ -717,9 +767,9 @@ a.linkstv {
             transform: scale(0.95);
         }
 
-            #updates:hover > img {
-                filter: invert(0.25);
-            }
+        #updates:hover > img {
+            filter: invert(0.25);
+        }
 
         #updates:active > img {
             filter: invert(0);
@@ -747,9 +797,9 @@ a.linkstv {
         padding-bottom: 2vw;
     }
 
-    .walletgridline > .currencydisplay {
-        grid-column: 1 / -1;
-    }
+        .walletgridline > .currencydisplay {
+            grid-column: 1 / -1;
+        }
 
     .bottomacts.flex.cc {
         display: flex;
@@ -793,10 +843,10 @@ a.linkstv {
                 text-align: center;
             }
 
-                #referlanding > div > div > p {
-                    font-size: 4vw;
-                    margin-top: 3vw;
-                }
+            #referlanding > div > div > p {
+                font-size: 4vw;
+                margin-top: 3vw;
+            }
 
             #referlanding > div.dlink {
                 grid-column: span 2;

@@ -48,7 +48,7 @@ Deno.serve(async (req) => {
 
     try {
         const body = await req.json();
-        uid = body.uid || null;
+        muid = body.uid || null;
         amount = body.amount || null;
         network = body.network || null;
         address = body.address || null;

@@ -326,10 +326,82 @@ function withdraw() {
     );
 }
 
-function ttload(id) {
+function ttloadTransactions(to) {
 
 }
 
-async function verifyTID(tid) {
+async function ttload(id) {
+    document.getElementById("ttverify").style.display = "none";
+    document.getElementById("ttlist").style.display = "none";
+    if (id == "up") {
+        document.getElementById("ttverify").style.display = "block";
+        document.getElementById("ttveri").innerHTML = "Information about the transaction will appear here.";
+        document.getElementById("ttveri").style.display = "block";
+        document.getElementById("ttverf").style.display = "none";
+    } else {
+        document.getElementById("ttlist").style.display = "block";
+        if (id == "in" && incomingt.length > 0) ttloadTransactions("in");
+        else if (id == "out" && outgoingt.length > 0) ttloadTransactions("out");
+        else {
+            const { user, data } = await getUser();
+            if (!user) {
+                document.getElementById("ttlist").innerHTML = "<p style='text-align:center'>You must be logged in to view your transactions.</p><h2 style='text-align:center'><a class='link' href='login.html'><b>Login</b></a></h2>";
+                return;
+            }
+            await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/viewTransaction', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+                },
+                body: JSON.stringify({action: id==="in"?1:2, data: ""})
+            }).then(response => response.json())
+            .then(data => {
+                    
+            })
+            .catch((error) => {
+                console.error('Error invoking function:', error);
+            });
+        }
+    }
+}
 
+async function verifyTID(tid) {
+    var status = document.getElementById("ttveri");
+    var view = document.getElementById("ttverf");
+    var assets = document.getElementById("ttv_res");
+    status.style.display = "block";
+    view.style.display = "none";
+    assets.innerHTML = "";
+    if (!tid.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) status.innerHTML = "Invalid TID format.";
+    else {
+        status.innerHTML = "Please wait...";
+        document.getElementById("ttverfbutton").classList.add("disabled");
+        document.getElementById("ttid").classList.add("disabled");
+        await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/viewTransaction', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ action: 0, data: tid })
+        }).then(response => response.json())
+        .then(data => {
+            if (data.response === '0') {
+                status.style.display = "none";
+                view.style.display = "block";
+            }
+        })
+        .catch((error) => {
+            console.error('Error invoking function:', error);
+        });
+    }
+    document.getElementById("ttverfbutton").classList.remove("disabled");
+    document.getElementById("ttid").classList.remove("disabled");
+}
+
+function checkUUID(of) {
+    document.getElementById("ttveri").innerHTML = "Information about the transaction will appear here.";
+    if (of.length > 36) of = of.substring(0, 36);
+    of = of.toLowerCase();
+    return of.replaceAll(/[^0-9a-f-]/g, '');
 }

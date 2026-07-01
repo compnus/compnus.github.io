@@ -111,7 +111,7 @@ Deno.serve(async (req) => {
         let resources = {};
         resources[btc ? "sat" : "nus"] = toPay;
         await sb.from("transaction").insert({ from: from, to: "CompNUS", resource: resources, message: "Exchange for Nocas" });
-        await sb.from("transaction").insert({ from: "CompNUS", to: from, resource: {"noca": parseInt(amount)}, message: "Received from exchange" });
+        await sb.from("transaction").insert({ from: "admin:CompNUS", to: from, resource: {"noca": parseInt(amount)}, message: "Received from exchange" });
 
         return new Response(JSON.stringify({ response: "Exchange was successful!", sc:true }), {
             status: 200,
