@@ -35,15 +35,15 @@ Deno.serve(async (req) => {
         });
     }
 
-    if (action === null || (action !== 0 && action !== 1 && action !== 2)) return new Response(JSON.stringify({ response: "Invalid request. because action"+action }), {
+    if (action !== 1 && action !== 2 && action !== 3) return new Response(JSON.stringify({ response: "Invalid request." }), {
         status: 400,
         headers: {
             ...headers
         }
     });
 
-    if (action === 0) {
-        if (data === null || !data.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) return new Response(JSON.stringify({ response: "Invalid request. because format"+data }), {
+    if (action === 1) {
+        if (data === null || !data.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) return new Response(JSON.stringify({ response: "Invalid request." }), {
             status: 400,
             headers: {
                 ...headers
@@ -98,7 +98,7 @@ Deno.serve(async (req) => {
 
     try {
 
-        const { data: trs, error } = await sb.from('transaction').select('*').eq(action === 2 ? 'from' : 'to', un.username);
+        const { data: trs, error } = await sb.from('transaction').select('*').eq(action === 3 ? 'from' : 'to', un.username);
         if (error) return new Response(JSON.stringify({ response: `Operation failed.<br>If the issue persists, please contact support.` }), {
             status: 400,
             headers: {
@@ -112,7 +112,9 @@ Deno.serve(async (req) => {
                 ...headers
             }
         });
-
+        if (action === 2) for (let i = 0; i < trs.length; i++) {
+            if (trs[i].from.indexOf('admin:') !== -1) trs[i].from = "CompNUS";
+        }
         return new Response(JSON.stringify({ response: '0', data: trs }), {
             status: 200,
             headers: {

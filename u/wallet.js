@@ -354,7 +354,7 @@ async function ttload(id) {
                     'Content-Type': 'application/json',
                     'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
                 },
-                body: JSON.stringify({action: id==="in"?1:2, data: ""})
+                body: JSON.stringify({action: id==="in"?2:3, data: ""})
             }).then(response => response.json())
             .then(data => {
                     
@@ -404,7 +404,7 @@ async function verifyTID(tid) {
                 'Content-Type': 'application/json',
                 'authorization': `Bearer ${SUPABASE_ANON_KEY}`
             },
-            body: JSON.stringify({ action: 0, data: tid })
+            body: JSON.stringify({ action: 1, data: tid })
         }).then(response => response.json())
         .then(data => {
             if (data.response === '0') {
