@@ -354,7 +354,7 @@ function fillResources(div, data) {
         x.title = `${data[res]} ${name}${config===1?(data[res]!==1?"s":""):""}`;
         div.appendChild(x);
     }
-    if (div.innerHTML === "") div.innerHTML = "<p style='text-align:center'>No assets were transferred.</p>";
+    if (div.innerHTML === "") div.innerHTML = "<p style='text-align:center'><i style='color: #ccc;'>No assets were transferred.</i></p>";
 }
 
 async function ttload(id) {
@@ -384,7 +384,7 @@ async function ttload(id) {
                 body: JSON.stringify({action: id==="in"?2:3, data: ""})
             }).then(response => response.json())
             .then(data => {
-                    
+                console.log(JSON.stringify(data));
             })
             .catch((error) => {
                 console.error('Error invoking function:', error);
@@ -441,7 +441,7 @@ async function verifyTID(tid) {
                 document.getElementById("ttv_date").innerHTML = formatDate(data.data.created);
                 document.getElementById("ttv_from").innerHTML = data.data.from;
                 document.getElementById("ttv_to").innerHTML = data.data.to;
-                document.getElementById("ttv_mes").innerHTML = data.data.message;
+                document.getElementById("ttv_mes").innerHTML = data.data.message || "<i style='color: #ccc;'>No message.</i>";
                 fillResources(assets, data.data.resource);
                 document.getElementById("ttid").value = "";
             } else status.innerHTML = data.response;
