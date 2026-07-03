@@ -525,6 +525,8 @@ a.linkstv {
             -moz-user-select: all;
             -webkit-user-select: all;
             font-weight: 500;
+            overflow-wrap: break-word;
+            word-break: break-word;
             hyphens: auto;
         }
 
@@ -541,6 +543,8 @@ a.linkstv {
         font-size: 2vh;
         font-weight: normal;
         margin: 0;
+        overflow-wrap: break-word;
+        word-break: break-word;
         hyphens: auto;
     }
 
