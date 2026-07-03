@@ -60,8 +60,11 @@
             </div>
         </div>
 
-        <div id="ttlist" class="ttmain">
-            
+        <div id="ttlist" class="ttmain" style="display: none">
+            <div class="flex cc" style="position:relative"><h1 id="ttl_title">Transactions</h1><p class="collapse" id="ttl_refresh" title="Force Refresh" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; ttforceload(document.getElementById('tselect').value);">↻</p></div>
+            <div id="ttl_list">
+                <p style="text-align: center" id="ttl_status">Loading transactions...</p>
+            </div>
         </div>
     </div>
 

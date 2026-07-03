@@ -327,7 +327,33 @@ function withdraw() {
 }
 
 function ttloadTransactions(to) {
-
+    let list = null;
+    let view = document.getElementById("ttl_list");
+    if (to === "in") list = incomingt;
+    else if (to === "out") list = outgoingt;
+    else view.innerHTML = `<p style="text-align: center" id="ttl_status">Unknown transaction type.</p>`;
+    view.innerHTML = "";
+    for (i of list) {
+        var x = document.createElement("div");
+        x.classList.add("ttview");
+        x.innerHTML = `
+        <p>Transaction <span title="Transaction ID (TID)">${i.id}</span>&emsp;&emsp;Sent <span>${formatDate(i.created)}</span></p>
+        <div class="flex cc"><p>Sender: <span">${i.from}</span></p><p>&emsp;</p><p>Recipient: <span>${i.to}</span></p></div>
+        <div class="ttvgrid">
+            <div class="ttvgridl">
+                <h2>Message:</h2><h3>${i.message}</h3>
+            </div>
+            <div class="ttvgridr">
+                <h2>Assets transferred:</h2>
+                <div id="ttv_${i.id}">
+                    <p>Please wait while we load transaction details...</p>
+                </div>
+            </div>
+        </div>`;
+        view.appendChild(x);
+        fillResources(document.getElementById(`ttv_${i.id}`), i.resource);
+    }
+    if (view.innerHTML === "") view.innerHTML = `<p style="text-align: center" id="ttl_status">No transactions found.</p>`;
 }
 
 const RESOURCE = {
@@ -357,6 +383,41 @@ function fillResources(div, data) {
     if (div.innerHTML === "") div.innerHTML = "<p style='text-align:center'><i style='color: #ccc;'>No assets were transferred.</i></p>";
 }
 
+async function ttforceload(id) {
+    const { user, data } = await getUser();
+    if (!user) {
+        document.getElementById("ttlist").innerHTML = "<p style='text-align:center'>You must be logged in to view your transactions.</p><h2 style='text-align:center'><a class='link' href='login.html'><b>Login</b></a></h2>";
+        return;
+    }
+    document.getElementById("ttl_title").innerHTML = id === "in" ? "Incoming Transactions" : "Outgoing Transactions";
+    document.getElementById("ttl_refresh").classList.add("disabled");
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/viewTransaction', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+        },
+        body: JSON.stringify({ action: id === "in" ? 2 : 3, data: "" })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.response !== 0) document.getElementById("ttl_status").innerHTML = data.response;
+        else {
+            if (id == "in") {
+                incomingt = data.data;
+                ttloadTransactions("in");
+            } else if (id == "out") {
+                outgoingt = data.data;
+                ttloadTransactions("out");
+            }
+        }
+    })
+    .catch((error) => {
+        console.error('Error invoking function:', error);
+    });
+    document.getElementById("ttl_refresh").classList.remove("disabled");
+}
+
 async function ttload(id) {
     document.getElementById("ttverify").style.display = "none";
     document.getElementById("ttlist").style.display = "none";
@@ -367,29 +428,10 @@ async function ttload(id) {
         document.getElementById("ttverf").style.display = "none";
     } else {
         document.getElementById("ttlist").style.display = "block";
+        document.getElementById("ttl_list").innerHTML = `<p style='text-align:center' id="ttl_status">Loading transactions...</p>`;
         if (id == "in" && incomingt.length > 0) ttloadTransactions("in");
         else if (id == "out" && outgoingt.length > 0) ttloadTransactions("out");
-        else {
-            const { user, data } = await getUser();
-            if (!user) {
-                document.getElementById("ttlist").innerHTML = "<p style='text-align:center'>You must be logged in to view your transactions.</p><h2 style='text-align:center'><a class='link' href='login.html'><b>Login</b></a></h2>";
-                return;
-            }
-            await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/viewTransaction', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
-                },
-                body: JSON.stringify({action: id==="in"?2:3, data: ""})
-            }).then(response => response.json())
-            .then(data => {
-                console.log(JSON.stringify(data));
-            })
-            .catch((error) => {
-                console.error('Error invoking function:', error);
-            });
-        }
+        else await ttforceload(id);
     }
 }
 

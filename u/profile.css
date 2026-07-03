@@ -576,6 +576,19 @@ a.linkstv {
         flex: 1;
     }
 
+#ttl_title {
+    font-family: Gabarito;
+    font-size: 3vh;
+}
+
+#ttl_refresh {
+    font-size: 3vh;
+    font-weight: 900;
+    color: white;
+    right: 0;
+    left: initial;
+}
+
 
 @media(orientation:portrait) {
     div.mainscroll {
