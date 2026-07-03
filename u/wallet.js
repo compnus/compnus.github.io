@@ -341,7 +341,7 @@ function ttloadTransactions(to) {
         <div class="flex cc"><p>Sender: <span>${i.from}</span></p><p>&emsp;</p><p>Recipient: <span>${i.to}</span></p></div>
         <div class="ttvgrid">
             <div class="ttvgridl">
-                <h2>Message:</h2><h3>${i.message.length > 0 ? i.message.length : "<i style='color: #ccc;'>No message.</i>"}</h3>
+                <h2>Message:</h2><h3>${i.message.length > 0 ? i.message : "<i style='color: #ccc;'>No message.</i>"}</h3>
             </div>
             <div class="ttvgridr">
                 <h2>Assets transferred:</h2>
