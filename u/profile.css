@@ -533,10 +533,14 @@ a.linkstv {
         margin: 1vh 0;
     }
 
+    .ttvgridr > div > h2 {
+        text-align: right;
+    }
+
     .ttvgrid > div > h3 {
         font-size: 2vh;
         font-weight: normal;
-        margin: 1vh 0 3vh 0;
+        margin: 0;
         hyphens: auto;
     }
 
@@ -552,7 +556,6 @@ a.linkstv {
 
     .ttv_res_obj {
         margin: 0 0 0.5vh 0;
-        box-shadow: #000 0 5px 10px -10px;
         display: flex;
         align-items: center;
     }
