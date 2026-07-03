@@ -525,17 +525,19 @@ a.linkstv {
             -moz-user-select: all;
             -webkit-user-select: all;
             font-weight: 500;
+            hyphens: auto;
         }
 
-    .ttview > h2 {
+    .ttvgrid > div > h2 {
         font-size: 1.5vh;
         margin: 1vh 0;
     }
 
-    .ttview > h3 {
+    .ttvgrid > div > h3 {
         font-size: 2vh;
         font-weight: normal;
         margin: 1vh 0 3vh 0;
+        hyphens: auto;
     }
 
     #ttv_res > p {
@@ -555,12 +557,12 @@ a.linkstv {
         align-items: center;
     }
     .ttv_res_obj > img {
-        width: 2vh;
-        height: 2vh;
+        width: 3vh;
+        height: 3vh;
         margin-right: 2vh;
     }
     .ttv_res_obj > p {
-        font-size: 1.8vh;
+        font-size: 2vh;
         font-weight: 700;
         text-align: right;
         margin: 0;
