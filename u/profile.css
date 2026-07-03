@@ -497,7 +497,7 @@ a.linkstv {
 .ttview {
     max-width: 50em;
     margin: 2vh auto;
-    padding: 2vh;
+    padding: 1vh;
     border-radius: 2vh;
     background-color: var(--lightbg);
     box-shadow: rgba(0 0 0 / 50%) 0 3px 5px;
