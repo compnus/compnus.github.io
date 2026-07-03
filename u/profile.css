@@ -550,7 +550,7 @@ a.linkstv {
 
     .ttvgrid {
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: repeat(2, calc(50%-1vw));
         grid-gap: 2vw;
     }
 
