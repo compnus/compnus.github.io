@@ -401,7 +401,7 @@ async function ttforceload(id) {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.response !== 0) document.getElementById("ttl_status").innerHTML = data.response;
+        if (data.response !== "0") document.getElementById("ttl_status").innerHTML = data.response;
         else {
             if (id == "in") {
                 incomingt = data.data;
