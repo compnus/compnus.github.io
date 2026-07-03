@@ -596,7 +596,7 @@ a.linkstv {
     padding-bottom: calc(2vh - 4px);
 }
 
-#ttlist {
+#ttl_list {
     height: 71vh;
     overflow-y: auto;
 }

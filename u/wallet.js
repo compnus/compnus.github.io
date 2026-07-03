@@ -380,7 +380,7 @@ function fillResources(div, data) {
         x.title = `${data[res]} ${name}${config===1?(data[res]!==1?"s":""):""}`;
         div.appendChild(x);
     }
-    if (div.innerHTML === "") div.innerHTML = "<p style='text-align:center; margin:0'><i style='color: #ccc;'>No assets were transferred.</i></p>";
+    if (div.innerHTML === "") div.innerHTML = "<p style='text-align:right; margin:0'><i style='color: #ccc;'>No assets were transferred.</i></p>";
 }
 
 async function ttforceload(id) {
