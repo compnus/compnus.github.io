@@ -542,9 +542,15 @@ a.linkstv {
         margin: 0;
     }
 
+    .ttvgrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2vw;
+    }
+
     .ttv_res_obj {
         margin: 0 0 0.5vh 0;
-        box-shadow: #000 0 3px 5px -5px;
+        box-shadow: #000 0 3px 10px -10px;
         display: flex;
         align-items: center;
     }
@@ -558,6 +564,7 @@ a.linkstv {
         font-weight: 700;
         text-align: right;
         margin: 0;
+        flex: 1;
     }
 
 
