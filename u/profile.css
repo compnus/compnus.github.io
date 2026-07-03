@@ -552,7 +552,7 @@ a.linkstv {
 
     .ttv_res_obj {
         margin: 0 0 0.5vh 0;
-        box-shadow: #000 0 3px 10px -10px;
+        box-shadow: #000 0 5px 10px -10px;
         display: flex;
         align-items: center;
     }
