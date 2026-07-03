@@ -338,10 +338,10 @@ function ttloadTransactions(to) {
         x.classList.add("ttview");
         x.innerHTML = `
         <p>Transaction <span title="Transaction ID (TID)">${i.id}</span>&emsp;&emsp;Sent <span>${formatDate(i.created)}</span></p>
-        <div class="flex cc"><p>Sender: <span">${i.from}</span></p><p>&emsp;</p><p>Recipient: <span>${i.to}</span></p></div>
+        <div class="flex cc"><p>Sender: <span>${i.from}</span></p><p>&emsp;</p><p>Recipient: <span>${i.to}</span></p></div>
         <div class="ttvgrid">
             <div class="ttvgridl">
-                <h2>Message:</h2><h3>${i.message}</h3>
+                <h2>Message:</h2><h3>${i.message.length > 0 ? i.message.length : "<i style='color: #ccc;'>No message.</i>"}</h3>
             </div>
             <div class="ttvgridr">
                 <h2>Assets transferred:</h2>
@@ -380,7 +380,7 @@ function fillResources(div, data) {
         x.title = `${data[res]} ${name}${config===1?(data[res]!==1?"s":""):""}`;
         div.appendChild(x);
     }
-    if (div.innerHTML === "") div.innerHTML = "<p style='text-align:center'><i style='color: #ccc;'>No assets were transferred.</i></p>";
+    if (div.innerHTML === "") div.innerHTML = "<p style='text-align:center; margin:0'><i style='color: #ccc;'>No assets were transferred.</i></p>";
 }
 
 async function ttforceload(id) {
@@ -389,7 +389,6 @@ async function ttforceload(id) {
         document.getElementById("ttlist").innerHTML = "<p style='text-align:center'>You must be logged in to view your transactions.</p><h2 style='text-align:center'><a class='link' href='login.html'><b>Login</b></a></h2>";
         return;
     }
-    document.getElementById("ttl_title").innerHTML = id === "in" ? "Incoming Transactions" : "Outgoing Transactions";
     document.getElementById("ttl_refresh").classList.add("disabled");
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/viewTransaction', {
         method: 'POST',
@@ -427,6 +426,7 @@ async function ttload(id) {
         document.getElementById("ttveri").style.display = "block";
         document.getElementById("ttverf").style.display = "none";
     } else {
+        document.getElementById("ttl_title").innerHTML = id === "in" ? "Incoming Transactions" : "Outgoing Transactions";
         document.getElementById("ttlist").style.display = "block";
         document.getElementById("ttl_list").innerHTML = `<p style='text-align:center' id="ttl_status">Loading transactions...</p>`;
         if (id == "in" && incomingt.length > 0) ttloadTransactions("in");

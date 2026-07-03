@@ -33,13 +33,13 @@
         <div id="ttverify" class="ttmain">
             <div class="flex cc">
                 <div class="input">
-                    <label for="ttid">Input the Transaction ID:</label><p>&emsp;</p>
+                    <label for="ttid">Input the Transaction ID:</label><p style="margin: 0">&emsp;</p>
                     <input id="ttid" placeholder="ff000000-abcd-1234-5678-0000aaff0000" class="ttinput" oninput="this.value=checkUUID(this.value)" />
                     <p>&emsp;</p>
                     <button id="ttverfbutton">Verify</button>
                 </div>
             </div>
-            <br />
+            <p class="ttsp">&nbsp;</p>
             <div class="ttview" id="ttverf" style="display:none">
                 <p>Transaction <span id="ttv_id" title="Transaction ID (TID)">ID loading...</span>&emsp;&emsp;Sent <span id="ttv_date">Date loading...</span></p>
                 <div class="flex cc"><p>Sender: <span id="ttv_from">loading sender...</span></p><p>&emsp;</p><p>Recipient: <span id="ttv_to">loading recipient...</span></p></div>

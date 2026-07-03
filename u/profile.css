@@ -579,6 +579,7 @@ a.linkstv {
 #ttl_title {
     font-family: Gabarito;
     font-size: 3vh;
+    margin: 1vh;
 }
 
 #ttl_refresh {
@@ -587,6 +588,17 @@ a.linkstv {
     color: white;
     right: 0;
     left: initial;
+}
+
+.ttsp {
+    margin: 0;
+    font-size: 0;
+    padding-bottom: calc(2vh - 4px);
+}
+
+#ttlist {
+    height: 71vh;
+    overflow-y: auto;
 }
 
 
