@@ -330,8 +330,31 @@ function ttloadTransactions(to) {
 
 }
 
-function fillResources(div, data) {
+const RESOURCE = {
+    "nus": ["$NUS", "/site/image/logo/currency.svg", 0],
+    "noca": ["Noca", "/site/image/logo/noca.svg", 1],
+    "sat": ["Satoshi", "/site/image/logo/sats.svg", 1],
+}
+function resolveResource(id) {
+    var x = RESOURCE[id];
+    if (x) return {name: x[0], icon: x[1], config: x[2]};
+    else return { name: "Unknown Resource "+id, icon: "https://img.icons8.com/?size=100&id=85965&format=png&color=FFFFFF", config: 1};
+}
 
+function fillResources(div, data) {
+    div.innerHTML = "";
+    for (var res in data) {
+        var x = document.createElement("div");
+        x.classList.add("ttv_res_obj");
+        const { name, icon, config } = resolveResource(res);
+        x.innerHTML = `
+            <img src="${icon}">
+            <p>${data[res]}</p>
+        `;
+        x.title = `${data[res]} ${name}${config===1?(data[res]!==1?"s":""):""}`;
+        div.appendChild(x);
+    }
+    if (div.innerHTML === "") div.innerHTML = "<p style='text-align:center'>No assets were transferred.</p>";
 }
 
 async function ttload(id) {
