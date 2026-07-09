@@ -918,4 +918,122 @@ a.linkstv {
                 display: flex;
                 min-height: 1vh;
             }
+
+    /*transactions*/
+    .flex.cc > .input > .ttinput {
+        width: 100%;
+    }
+
+    .ttlmobnn {
+        display: none;
+    }
+
+    .ttview {
+        max-width: 50em;
+        margin: 2vh auto;
+        padding: 1vh;
+        border-radius: 2vh;
+        background-color: var(--lightbg);
+        box-shadow: rgba(0 0 0 / 50%) 0 3px 5px;
+    }
+
+        .ttview > p {
+            margin: 0 0 1vh 0;
+            font-size: 1.5vh;
+            color: #aaa;
+            text-align: center;
+        }
+
+        .ttview > div.flex.cc > p {
+            margin: 0 0 1vh 0;
+            font-size: 2vh;
+            color: #ccc;
+        }
+
+            .ttview > div.flex.cc > p > span {
+                color: #fff;
+            }
+
+            .ttview > p > span, .ttview > div.flex.cc > p > span {
+                user-select: all;
+                -moz-user-select: all;
+                -webkit-user-select: all;
+                font-weight: 500;
+                overflow-wrap: break-word;
+                word-break: break-word;
+                hyphens: auto;
+            }
+
+    .ttvgrid > div > h2 {
+        font-size: 1.5vh;
+        margin: 1vh 0;
+    }
+
+    .ttvgridr > h2 {
+        text-align: right;
+    }
+
+    .ttvgrid > div > h3 {
+        font-size: 2vh;
+        font-weight: normal;
+        margin: 0;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    #ttv_res > p {
+        margin: 0;
+    }
+
+    .ttvgrid {
+        display: grid;
+        grid-template-columns: repeat(2, calc(50% - 1vw));
+        grid-gap: 2vw;
+    }
+
+    .ttv_res_obj {
+        margin: 0.5vh 0 0 0;
+        display: flex;
+        align-items: center;
+    }
+
+        .ttv_res_obj > img {
+            width: 3vh;
+            height: 3vh;
+            margin-right: 2vh;
+        }
+
+        .ttv_res_obj > p {
+            font-size: 2vh;
+            font-weight: 700;
+            text-align: right;
+            margin: 0;
+            flex: 1;
+        }
+
+    #ttl_title {
+        font-family: Gabarito;
+        font-size: 3vh;
+        margin: 1vh;
+    }
+
+    #ttl_refresh {
+        font-size: 3vh;
+        font-weight: 900;
+        color: white;
+        right: 0;
+        left: initial;
+    }
+
+    .ttsp {
+        margin: 0;
+        font-size: 0;
+        padding-bottom: calc(2vh - 4px);
+    }
+
+    #ttl_list {
+        height: 67vh;
+        overflow-y: auto;
+    }
 }

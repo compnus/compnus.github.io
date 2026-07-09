@@ -426,12 +426,17 @@ async function ttload(id) {
         document.getElementById("ttveri").style.display = "block";
         document.getElementById("ttverf").style.display = "none";
     } else {
-        document.getElementById("ttl_title").innerHTML = id === "in" ? "Incoming Transactions" : "Outgoing Transactions";
         document.getElementById("ttlist").style.display = "block";
-        document.getElementById("ttl_list").innerHTML = `<p style='text-align:center' id="ttl_status">Loading transactions...</p>`;
-        if (id == "in" && incomingt.length > 0) ttloadTransactions("in");
-        else if (id == "out" && outgoingt.length > 0) ttloadTransactions("out");
-        else await ttforceload(id);
+        const { user, data } = await getUser();
+        if (!user) {
+            document.getElementById("ttlist").innerHTML = "<p style='text-align:center'>You must be logged in to view your transactions.</p><h2 style='text-align:center'><a class='link' href='login.html'><b>Login</b></a></h2>";
+            return;
+        } else {
+            document.getElementById("ttl_list").innerHTML = `<p style='text-align:center' id="ttl_status">Loading transactions...</p>`;
+            if (id == "in" && incomingt.length > 0) ttloadTransactions("in");
+            else if (id == "out" && outgoingt.length > 0) ttloadTransactions("out");
+            else await ttforceload(id);
+        }
     }
 }
 

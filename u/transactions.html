@@ -19,7 +19,7 @@
     <div class="mainscroll mainwallet pcmarginfix">
         <div class="flex cc">
             <div class="input">
-                <label for="tselect">Please select transactions to view:</label><p>&emsp;</p>
+                <label for="tselect">Please select transactions to view:</label><p class="ttlmobnn">&emsp;</p>
                 <select id="tselect" class="ttinput" onchange="ttload(this.value)">
                     <option value="up">Verify Transaction ID</option>
                     <option value="in">Incoming</option>
@@ -31,14 +31,16 @@
         <br />
 
         <div id="ttverify" class="ttmain">
-            <div class="flex cc">
-                <div class="input">
-                    <label for="ttid">Input the Transaction ID:</label><p style="margin: 0">&emsp;</p>
-                    <input id="ttid" placeholder="ff000000-abcd-1234-5678-0000aaff0000" class="ttinput" oninput="this.value=checkUUID(this.value)" />
-                    <p>&emsp;</p>
-                    <button id="ttverfbutton">Verify</button>
+            <form id="verifyformthing">
+                <div class="flex cc">
+                    <div class="input">
+                        <label for="ttid">Input the Transaction ID:</label><p style="margin: 0" class="ttlmobnn">&emsp;</p>
+                        <input id="ttid" placeholder="ff000000-abcd-1234-5678-0000aaff0000" class="ttinput" oninput="this.value=checkUUID(this.value)" />
+                        <p style="margin: 0">&emsp;</p>
+                        <button id="ttverfbutton" type="submit">Verify</button>
+                    </div>
                 </div>
-            </div>
+            </form>
             <p class="ttsp">&nbsp;</p>
             <div class="ttview" id="ttverf" style="display:none">
                 <p>Transaction <span id="ttv_id" title="Transaction ID (TID)">ID loading...</span>&emsp;&emsp;Sent <span id="ttv_date">Date loading...</span></p>
@@ -70,7 +72,8 @@
 
     <script>initFooter();
         document.addEventListener("DOMContentLoaded", async () => {
-            document.getElementById("ttverfbutton").addEventListener('click', async () =>{
+            document.getElementById("verifyformthing").addEventListener('submit', async (e) => {
+                e.preventDefault();
                 await verifyTID(document.getElementById('ttid').value);
             });
         });
