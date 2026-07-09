@@ -561,7 +561,7 @@ async function fetchTID(tid) {
 }
 
 async function blockUser(username) {
-    let { user, data } = getUser();
+    let { user, data } = await getUser();
     if (!user) window.location.href = "login.html";
     const { data: nameData, error: nameError } = await sb
         .from("users")
