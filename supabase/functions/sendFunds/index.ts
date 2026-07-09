@@ -264,11 +264,7 @@ Deno.serve(async (req) => {
                 .from("udata")
                 .update(sends)
                 .eq("user_id", bData.id);
-            let upmessage = { from: "CompNUS", subject: `You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!`, content: `<p>The amount has been added to your balance.${finalMessage}</p>`, owner: bData.id};
-            const { error: cannotSend } = await sb
-                .from("message")
-                .insert(upmessage);
-            if (cannotSend || cannotDeduct || cannotAdd) {
+            if (cannotDeduct || cannotAdd) {
                 return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend?.message || cannotDeduct?.message || cannotAdd?.message}`, sc:true }), {
                     status: 401,
                     headers: {
@@ -278,7 +274,7 @@ Deno.serve(async (req) => {
             }
             let resources = {};
             resources[currency] = totalReceived;
-            const { error: logError } = await sb
+            const { data: logData, error: logError } = await sb
                 .from("transaction")
                 .insert({ from: from, to: to, resource: resources, message: message });
             resources = {};
@@ -288,6 +284,18 @@ Deno.serve(async (req) => {
                 .insert({ from: from, to: "CompNUS", resource: resources, message: "Transaction Fee" });
             if (logError || logError2) {
                 return new Response(JSON.stringify({ response: `Transaction was successful, but was not logged.<br>Please contact support.`, sc: true }), {
+                    status: 500,
+                    headers: {
+                        ...headers
+                    }
+                });
+            }
+            let upmessage = { from: "CompNUS", subject: `You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!`, content: `<p>The amount has been added to your balance.${finalMessage}<br><i>Something wrong? <a class="link" href="transaction.html?report=${logData[0].id}">Report Transaction></a></i></p>`, owner: bData.id};
+            const { error: cannotSend } = await sb
+                .from("message")
+                .insert(upmessage);
+            if (cannotSend) {
+                return new Response(JSON.stringify({ response: `Transaction was successful, but the recipient did not receive the confirmation message.<br>Please contact support.`, sc: true }), {
                     status: 500,
                     headers: {
                         ...headers
