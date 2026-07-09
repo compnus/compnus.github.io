@@ -24,6 +24,7 @@
                     <option value="up">Verify Transaction ID</option>
                     <option value="in">Incoming</option>
                     <option value="out">Outgoing</option>
+                    <option value="rep">Report Transaction</option>
                 </select>
             </div>
         </div>
@@ -68,6 +69,33 @@
                 <p style="text-align: center" id="ttl_status">Loading transactions...</p>
             </div>
         </div>
+
+        <div id="ttreport" class="ttmain" style="display: none">
+            <form id="reportformthing">
+                <div class="flex cc">
+                    <div class="input">
+                        <label for="trid">Input the Transaction ID:</label><p style="margin: 0" class="ttlmobnn">&emsp;</p>
+                        <input id="trid" placeholder="ff000000-abcd-1234-5678-0000aaff0000" class="ttinput" oninput="this.value=checkUUID(this.value)" />
+                        <p style="margin: 0">&emsp;</p>
+                        <button id="ttrepbutton" type="submit">Fetch</button>
+                    </div>
+                </div>
+            </form>
+            <p class="ttsp">&nbsp;</p>
+            <div class="ttview" id="ttrepv" style="display:none">
+                <div class="flex cc"><p>Sender: <span id="ttr_from">loading sender...</span></p><p>&emsp;</p><p>Recipient: <span id="ttr_to">loading recipient...</span></p></div>
+                <div class="ttvgridl">
+                    <h2>Message:</h2><h3 id="ttv_mes">loading message...</h3>
+                </div>
+                <p><span id="ttr_cc" title="Asset count">0</span> types of assets transferred.</p>
+            </div>
+            <div class="flex cc">
+                <p id="ttrep" style="text-align: center">Please fetch the transaction you want to report to proceed.</p>
+            </div>
+            <form id="reportingform">
+
+            </form>
+        </div>
     </div>
 
     <script>initFooter();
@@ -76,6 +104,21 @@
                 e.preventDefault();
                 await verifyTID(document.getElementById('ttid').value);
             });
+
+            document.getElementById("reportformthing").addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await fetchTID(document.getElementById('trid').value);
+            });
+
+            var reportt = GetURLParameter("report");
+            if (reportt != null) {
+                if (reportt.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) {
+                    document.getElementById("tselect").value = 'rep';
+                    ttload('rep');
+                    document.getElementById('trid').value = reportt;
+                    await fetchTID(reportt);
+                } else history.replaceState('Incorrect TID', true, 'transactions.html');
+            }
         });
     </script>
 </body>

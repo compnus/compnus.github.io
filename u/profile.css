@@ -530,7 +530,7 @@ a.linkstv {
             hyphens: auto;
         }
 
-    .ttvgrid > div > h2 {
+    .ttvgrid > div > h2, .ttview > .ttvgridl > h2 {
         font-size: 1.5vh;
         margin: 1vh 0;
     }
@@ -539,7 +539,7 @@ a.linkstv {
         text-align: right;
     }
 
-    .ttvgrid > div > h3 {
+    .ttvgrid > div > h3, .ttview > .ttvgridl > h3 {
         font-size: 2vh;
         font-weight: normal;
         margin: 0;

@@ -420,11 +420,18 @@ async function ttforceload(id) {
 async function ttload(id) {
     document.getElementById("ttverify").style.display = "none";
     document.getElementById("ttlist").style.display = "none";
+    document.getElementById("ttreport").style.display = "none";
     if (id == "up") {
         document.getElementById("ttverify").style.display = "block";
         document.getElementById("ttveri").innerHTML = "Information about the transaction will appear here.";
         document.getElementById("ttveri").style.display = "block";
         document.getElementById("ttverf").style.display = "none";
+    } else if (id == "rep") {
+        document.getElementById("ttreport").style.display = "block";
+        document.getElementById("ttrep").innerHTML = "Please fetch the transaction you want to report to proceed.";
+        document.getElementById("ttrep").style.display = "block";
+        document.getElementById("ttrepv").style.display = "none";
+        document.getElementById("reportingform").style.display = "none";
     } else {
         document.getElementById("ttlist").style.display = "block";
         const { user, data } = await getUser();
@@ -500,6 +507,54 @@ async function verifyTID(tid) {
     }
     document.getElementById("ttverfbutton").classList.remove("disabled");
     document.getElementById("ttid").classList.remove("disabled");
+}
+
+async function fetchTID(tid) {
+    var status = document.getElementById("ttrep");
+    var view = document.getElementById("ttrepv");
+    status.style.display = "block";
+    view.style.display = "none";
+    if (!tid.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) {
+        status.innerHTML = `Invalid TID format.<br>Are you sure you did not mean to <a onclick="document.getElementById('tselect').value = 'up';ttload('up');" class="link">verify</a> a transaction instead?`;
+        return;
+    }
+    const { user, data } = await getUser();
+    if (!user) status.innerHTML = `<p style='text-align:center'>You must be logged in to report transactions.</p><h2 style='text-align:center'><a class='link' href='login.html'><b>Login</b></a></h2><br><br>Maybe you meant to <a onclick="document.getElementById('tselect').value = 'up';ttload('up');document.getElementById('ttid').value = '${tid}';verifyTID('${tid}');" class="link">verify</a> a transaction instead?`;
+    else {
+        status.innerHTML = "Please wait...";
+        document.getElementById("ttrepbutton").classList.add("disabled");
+        document.getElementById("trid").classList.add("disabled");
+        await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/viewTransaction', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${SUPABASE_ANON_KEY}`
+            },
+            body: JSON.stringify({ action: 1, data: tid })
+        }).then(response => response.json())
+            .then(data => {
+                if (data.response === '0') {
+                    status.style.display = "none";
+                    view.style.display = "block";
+                    document.getElementById("ttr_from").innerHTML = data.data.from;
+                    document.getElementById("ttr_to").innerHTML = data.data.to;
+                    document.getElementById("ttr_mes").innerHTML = data.data.message || "<i style='color: #ccc;'>No message.</i>";
+                    document.getElementById("ttr_cc").innerHTML = data.data.resource.length;
+                    document.getElementById("trid").value = "";
+                    document.getElementById("reportingform").style.display = "block";
+                } else {
+                    status.innerHTML = data.response + `<br><br>Maybe you meant to <a onclick="document.getElementById('tselect').value = 'up';ttload('up');document.getElementById('ttid').value = '${tid}';verifyTID('${tid}');" class="link">verify</a> a transaction instead?`;
+                    document.getElementById("ttverfbutton").classList.remove("disabled");
+                    document.getElementById("trid").classList.remove("disabled");
+                }
+            })
+            .catch((error) => {
+                console.error('Error invoking function:', error);
+                status.innerHTML = "Something went wrong.";
+                document.getElementById("ttverfbutton").classList.remove("disabled");
+                document.getElementById("trid").classList.remove("disabled");
+            });
+    }
 }
 
 function checkUUID(of) {

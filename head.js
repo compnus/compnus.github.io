@@ -128,7 +128,12 @@ function promoHeader(title, color, image) {
             } else {
                 if (username.username) usern = username.username;
             }
-            document.getElementById("userlogin").innerHTML = `<a href="/u/profile.html">My Profile (${usern})</a>`;
+            var ul = document.getElementById("userlogin");
+            if (ul.nodeName == 'P') ul.innerHTML = `<a href="/u/profile.html">My Account (${usern})</a>`;
+            else {
+                ul.title = `My Account (Logged in as ${usern})\nGateway to everything NUS: mine $NUS crypto and more!`;
+                ul.href = "/u/profile.html";
+            }
         }
     });
 }

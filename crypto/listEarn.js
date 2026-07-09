@@ -5,7 +5,7 @@ const LISTE = [
         name: "Robox",
         icon: "https://play-lh.googleusercontent.com/4WJT23_3x0VGuNia2wVJ0M6LO7ZkaiGwWl8avIaPkWpkY3XF6QN1otAA_iumCGWdKg=w240-h480-rw",
         featured: true,
-        feateredinfo: "Best Overall",
+        featuredinfo: "Best Overall",
         description: "Robox digital products allow you to mine the Robox stable coin in various different ways allowing you to earn a lot of money in a short period of time. Combine this with their special wallet which allows you to earn 6% APY interest and we have a great way to get some extra cash with little-to-no effort!",
         added: "7-15-2024",
         id: "robox_main",
@@ -1302,7 +1302,7 @@ const LISTE = [
             type: "Spin to Win",
             coin: "ton usdt other:Pepe",
             effort: 3,
-            rating: 2
+            rating: 1
         },
         info: {
             description: "Pea.AI allows you to spin a wheel for points you get from daily check-ins and completing taks to get USDT and Pepe. There are also various events and minigames that allow you to earn USDT and TON. Most of these require inviting friends. We need to mention the fact that the minimum withdrawal is 5USDT or 500000PEPE, which wouldn't be an issue, if the average reward from 100 spins wasn't 10000PEPE and 0.01USDT. This makes it take insanely long to make it to the withdrawal. Also, the fee is excessive. There is a way to remove it, but it's a subscription with no instructions how to cancel it. Do not put any money into this app until it becomes verified! If it disappears completely, check the <a style='color:yellow' href='scam.html'>Scam List</a>.",

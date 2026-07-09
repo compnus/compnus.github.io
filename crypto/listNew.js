@@ -2,36 +2,36 @@ var FILTERID = "new1x";
 
 const LISTN = [
     {
-    name: "Spell Wallet",
-    icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.bitgetimg.com%2FmultiLang%2Fweb%2F62e18cee66b35accc2bc058b443ebe34.png&f=1&nofb=1&ipt=3906f68d603756784f2c35345e24d61f662d7b519e652d1eb13211f48caa0827",
-    description: "An actual wallet by the way! Spell Wallet not only holds your tokens and stakes them (SOL only), but also allows you to earn MANA and participate in Missions to earn money!",
-    added: "7-21-2024",
-    id: "spellwallet",
-    attr: {
-        platform: "at",
-        type: "mine",
-        coin: "MANA",
-        effort: 0,
-        rating: 5
-    },
-    info: {
-        description: `Spell wallet allows you to <a class="link" onclick="popup('Token Staking in Spell Wallet', 'Sewat Wallet allows you to stake <b>Solana</b> from 0.001 SOL at up to 6.7% APY.')">hold and stake various tokens</a>, while also allowing you to collect MANA through mining, daily check-ins and quests and earn money (or more MANA) by participating in missions! You will be able to use MANA in the future to unlock airdrops!`,
-        effort: "Claim MANA and activate autoclaim (this will allow you to be offline for 24 hours)"
-    },
-    go: {
-        type: 0,
-        link: "https://t.me/spell_wallet_bot/wallet?startapp=r-LYKGH1B__utm-friendsTabRef_telegram"
-    },
-    benefits: ["Dividends in the future."],
-    features: [["Dragon Egg", "Claim MANA and use it to purchase temporary upgrades - Auto Claim, which allow you to be offline for 24 hours and mine MANA, and Boost, which triples your MANA production for the next 6 hours!"],
-        ["Spin-the-Wheel for Daily Check-in", "Check-in for 7 days in a row to unlock the wheel spin! Spin to win more MANA!"],
-        ["Missions, Quests and Magic Boxes", "Complete quests to get extra MANA! Participate in missions to earn money and Magic Boxes! Magic Boxes contain MANA, wheel spins and achievement badges!"],
-    ["Wallet Features", "Store your tokens in a secure wallet, swap them and stake held Solana to earn interest!"]
-    ],
-    tips: [["Always activate upgrades!", "Upgrades cost MANA, but are very much worth in the end! In order to minimize effort, check-in every day, click the Dragon Egg 6 times to activate mining, click upgrades, buy both Auto Claim and Boost and you can leave for the day! Once you come back, many MANA tokens will be waiting for you!"]],
-    pros: ["Secure wallet", "Frequent missions with generous rewards", "High staking APY"],
-    cons: ["Misleading banner that claims swapping is without fees (there is a fee of about 0.001 TON per swap)"],
-    banner: "bin"
+        name: "Spell Wallet",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.bitgetimg.com%2FmultiLang%2Fweb%2F62e18cee66b35accc2bc058b443ebe34.png&f=1&nofb=1&ipt=3906f68d603756784f2c35345e24d61f662d7b519e652d1eb13211f48caa0827",
+        description: "An actual wallet by the way! Spell Wallet not only holds your tokens and stakes them (SOL only), but also allows you to earn MANA and participate in Missions to earn money!",
+        added: "7-21-2024",
+        id: "spellwallet",
+        attr: {
+            platform: "at",
+            type: "mine",
+            coin: "MANA",
+            effort: 0,
+            rating: 5
+        },
+        info: {
+            description: `Spell wallet allows you to <a class="link" onclick="popup('Token Staking in Spell Wallet', 'Sewat Wallet allows you to stake <b>Solana</b> from 0.001 SOL at up to 6.7% APY.')">hold and stake various tokens</a>, while also allowing you to collect MANA through mining, daily check-ins and quests and earn money (or more MANA) by participating in missions! You will be able to use MANA in the future to unlock airdrops!`,
+            effort: "Claim MANA and activate autoclaim (this will allow you to be offline for 24 hours)"
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/spell_wallet_bot/wallet?startapp=r-LYKGH1B__utm-friendsTabRef_telegram"
+        },
+        benefits: ["Dividends in the future."],
+        features: [["Dragon Egg", "Claim MANA and use it to purchase temporary upgrades - Auto Claim, which allow you to be offline for 24 hours and mine MANA, and Boost, which triples your MANA production for the next 6 hours!"],
+            ["Spin-the-Wheel for Daily Check-in", "Check-in for 7 days in a row to unlock the wheel spin! Spin to win more MANA!"],
+            ["Missions, Quests and Magic Boxes", "Complete quests to get extra MANA! Participate in missions to earn money and Magic Boxes! Magic Boxes contain MANA, wheel spins and achievement badges!"],
+        ["Wallet Features", "Store your tokens in a secure wallet, swap them and stake held Solana to earn interest!"]
+        ],
+        tips: [["Always activate upgrades!", "Upgrades cost MANA, but are very much worth in the end! In order to minimize effort, check-in every day, click the Dragon Egg 6 times to activate mining, click upgrades, buy both Auto Claim and Boost and you can leave for the day! Once you come back, many MANA tokens will be waiting for you!"]],
+        pros: ["Secure wallet", "Frequent missions with generous rewards", "High staking APY"],
+        cons: ["Misleading banner that claims swapping is without fees (there is a fee of about 0.001 TON per swap)"],
+        banner: "bin"
     }, {
         name: "Imota",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FI_JDBJfD01PYKRAJZcYRUdgHaC58awW9Q0VYNOh5ZofD2nwO1j8H1m32LKHy-57rEA&f=1&nofb=1&ipt=4e99681faa43599d59f55a1ff4808af3b60fd1585064f1d871c8dd6b7ea34700",
@@ -60,8 +60,8 @@ const LISTN = [
             ["Games", "Scratch a card and win OTARA while listening to a banger in Ota Scratch! Let's go gambling in Ota Slot - don't worry, since you don't pay anything to spin, losing doesn't hurt that much! Chicken Road is a common modern scam ad, but imagine you could play a game similar to it, without risking anything! That is Ota Safari!"]        ],
         tips: [["Hire miners with short duration and high bonus ratio!", "All miners have the same OTARA rate - 0.5 OTARA per duration you hire them for. The lowest duration you can get is 5 minutes - repick miners to decrease their work time! Also, check the bonus ratio - this one can be very broad (10-99) but also very narrow (30-50) - pick the one you feel comfortable with. If you feel like risking, broad bonus ratio allows you to almost double your OTARA reward, but on the other hand you can roll a 10% boost instead, which isn't very... amazing. If you want more OTARA with low risk, aim for narrow bonus ratios."],
         ],
-        pros: ["Frequent events", "Banger music (<a href='https://youtu.be/39tIq__veUM' class='link' target='_blank'>Sakura Girl - Clown</a>)", "Many ways to earn"],
-        cons: ["Certain parts of the app do not work or are buggy/laggy"],
+        pros: ["Banger music (<a href='https://youtu.be/39tIq__veUM' class='link' target='_blank'>Sakura Girl - Clown</a>)", "Many ways to earn"],
+        cons: ["Certain parts of the app do not work or are buggy/laggy", "The project feels abandoned"],
         banner: "bin"
     }, {
         name: "Dropee",
@@ -98,7 +98,7 @@ const LISTN = [
             ["Ignore the daily check-in!", "After 28 days, you will earn 3.4B Dropee coins. After a bit of playing, this is something you can earn in 1 minute. Daily check-in might be useful for achievements, but that's about it."]
         ],
         pros: ["Offline mining", "Many cards to upgrade and explore", "Active developer team", "Frequent events and lotteries"],
-        cons: ["Poor UX", "Most special cards stay in the game for a very short period of time, making it impossible to upgrade them to a decent level", "Constant tricking (after you upgrade a card, the game might show you a 'once in a lifetime' deal which is absolutely not worth it but you might accidentally click it and if you have any stars deposited, it will deduct them without confirmation (unlike other purchases that do require confirmation))"],
+        cons: ["Poor UX", "Most special cards stay in the game for a very short period of time, making it impossible to upgrade them to a decent level", "Constant tricking (after you upgrade a card, the game might show you a 'once in a lifetime' deal which is absolutely not worth it but you might accidentally click it and if you have any stars deposited, it will deduct them without confirmation (unlike other purchases that do require confirmation))", "Annoying and constant notifications that cannot be turned off"],
         banner: "blum"
     }, {
         name: "TTcoin Trees",
@@ -163,66 +163,6 @@ const LISTN = [
         cons: ["Many events that already ended and there is no information about what is going to happen next with them", "Unclear airdrop process (problematic for people who are new to crypto)"],
         banner: "blum"
     }, {
-        name: "Xenea Wallet",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F47qjFziXRvnk_9JPIJPuYeaC1U2mDs1dhSOUEQV2QB8nHIp5H2VmLcHYH9XjkSToh7Wv&f=1&nofb=1&ipt=ce9d3e94d16365c84e54a72a698ccd580a8541d7d0b498c3094596bdedbf78dd",
-        description: "Besides being an actual wallet, Xenea also allows you to participate in a 'Gem Campaign'. Based on the amount of gems you own, Xenea will provide you with 'incentives'. You can also explore the whole ecosystems with partners and many interesting services!",
-        added: "8-2-2024",
-        id: "xenea",
-        attr: {
-            platform: "ai",
-            type: "mine",
-            coin: "None",
-            effort: 2,
-            rating: 4
-        },
-        info: {
-            description: "<b>Wallet</b><br>Xenea Wallet functions as a decent enough wallet.<br><br><b>Gem Campaign</b><br>Collect gems through mining and completing quizzes, checking in daily or completing simble tasks and improve your position in the leaderboards! Discover the Xenea ecosystem and check out many apps and services they have to offer! Every app has their own mission with its own quiz, tasks and daily check-in bonus! Keep in mind that gems are not a token, and currently it is not clear whether Xenea will actually release one as an airdrop reward for gems collected.",
-            effort: "Despite mining being active even while offline, the mining rewards are extremely low. In order to get a decent amount of gems you will have to check-in daily on every mission and complete occasional tasks."
-        },
-        go: {
-            type: 0,
-            link: "https://xenea.app/register/15Noeb7uv0"
-        },
-        benefits: ["1000 Gems"],
-        features: [["Missions", "Daily quiz, special mission quizzes, multiple daily check-ins and tasks give you a huge variety of available ways to earn gems and even learn something about the Xenea ecosystem!"],
-        ["Mining", "Despite looking like a major part of the app, the amount of gems you earn from mining per day is miserably low."]
-        ],
-        tips: [["There are no tips.", "The app is very simple to get accustomed to and does not need any tips."],
-        ],
-        pros: ["New missions added frequently", "Daily quizzes and generous gem rewards", "No ads"],
-        cons: ["Difficult and buggy sign-up process", "No clear use for gems"],
-        banner: "bin"
-    }, {
-        name: "Orbaic Miner",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2Flsz4YcUbAEAqGJKvsxnIF6Osl0Tr4VMd1mJINLlzF8Msk-RHr3eHTABUye2WW4Akew&f=1&nofb=1&ipt=369e4325d4a495b7644514ab6ab1231fd680e1ef2721ba0ba442207d9e4240b4",
-        description: "Orbaic is a Layer 1 blockchain and this app allows you to mine its native coin - ACI. Mine every day, complete quizzes and stake your ACI to learn as much as possible before the listing, which is coming soon! You can also learn SHIB for mining and completing quizzes!",
-        added: "9-25-2024",
-        id: "orbaic",
-        attr: {
-            platform: "ai",
-            type: "mine",
-            coin: "ACI",
-            effort: 0,
-            rating: 4
-        },
-        info: {
-            description: `Orbaic Miner allows you to mine Orbaic Layer 1 blockchain's native coin ACI. You can also learn more ACI by completing quizzes or collecting random airdrops! Listing is coming soon according to the project's official website. By completing 1800 quizzes or mining for 2160 hours (90 days), you can also collect bonus in the form of Shiba Inu!<br>SHIB withdrawal status: <b>Unverified</b>`,
-            effort: "Start mining every 24 hours."
-        },
-        go: {
-            type: 1,
-            link: "https://orbaic.com/downlaodApp.php",
-            code: "79ZrEnhl"
-        },
-        benefits: ["2 ACI"],
-        features: [["Mining", "Activate mining every day to stock up on ACI!"],
-        ["Airdrops and Quizzes", "Collect bonus ACI in random airdrops that sometimes pop up on the homepage! Complete quizzes to collect even more ACI!"],
-        ["Staking", "Stake your ACI and collect profit after a duration ranging from one to four years!"]],
-        tips: [["There are no tips.", "This app is very simple to understand and therefore doesn't need any tips."]],
-        pros: ["Ability to earn SHIB as a bonus", "Simple interface", "Transparent"],
-        cons: ["Broken data management consent popup window"],
-        banner: "bin"
-    }, {
         name: "QuBit Network",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FRbxKVN-UTiUsAApmuVDLDoXjiGqwHRZ_1y17olSXjqp7iAqO6i2ABgqkuMOBjf5XOYY&f=1&nofb=1&ipt=16ebe8324d22d87e53c9624966908ef156f5d013ca92745fe5bbea4335395d98",
         description: "Mine QUBIT effortlessly in QuBit Network! Collect as much QUBIT as you can before it goes live!",
@@ -253,7 +193,7 @@ const LISTN = [
         cons: ["The developer team is relatively slow and the project is moving by baby steps"],
         banner: "bin"
     }, {
-        name: "MIRA Network",
+        name: "MIREX Network",
         icon: "https://cdn.prod.website-files.com/66d5b6a02b5afc0fcee740d5/6789767185e4a2719ffe308a_dada.png",
         description: "MIRA Network (formely known as AirDrop Coin) has a simple premise: allow users to participate in upcoming airdrops. But time has passed and it became yet another mining app. The developer team is, however, about to change it and bring more to users!",
         added: "9-22-2024",
@@ -435,37 +375,6 @@ const LISTN = [
         pros: ["Frequent events and AMAs", "Extremely secure wallet (so secure not even you might make it in! wait is this even an advantage then?)"],
         cons: ["Misleading RUBI value display", "Bugs regarding signing in", "Many buttons in the app just... do not work", "Annoying pop-up ads"],
         banner: "bin"
-    }, {
-        name: "Lions",
-        unlisted: true,
-        icon: "https://www.findmini.app/_astro/avatar_jCEfHhyLy9_1SPw6L.webp",
-        description: "Check out the next soon-to-be huge meme coin! Maybe. Maybe not. Who knows. If we hype it? Perhaps. Get free $LIONS for completing simple tasks and checking in daily!",
-        added: "7-30-2024",
-        id: "lions",
-        attr: {
-            platform: "t",
-            type: "Check-in Rewards",
-            coin: "LIONS",
-            effort: 0,
-            rating: 3
-        },
-        info: {
-            description: "Another meme coin based on the popular TON token Dogs is here! Check-in every day for up to 600 $LIONS per day and complete tasks for another up to 500 $LIONS per day! That's 1100 $LIONS every day for free, allowing you to pass on purchasing $LIONS and therefore saving more than 0.12 TON per day! There is also a misleading price prediction based on which 100000 $LIONS which you can purchase for 1 TON would be valued 290 USD. Yeah that's way too good to be true.",
-            effort: "Check-in daily to collect tokens."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/Lionsapp_bot/LIONS?startapp=r_5782755258"
-        },
-        benefits: ["If the token launches, we will distribute dividends."],
-        features: [["Activity Rewards", "Get up to 600 $LIONS for free every day for checking in and another 500 $LIONS for completing simple tasks!"],
-        ["Roar Pass and Lions NFT", "More scammy looking part of this app is certainly the ability to purchase the Roar Pass - claiming to give you 2 TON worth of benefits for only 1 TON. There is no clear indication of what the \"benefits\" in question are. The only thing you can see is the daily calendar with about 0.02 TON rewards per day, which would result in 0.6 TON for the duration of your Roar Pass. Yeah. Feels... scammy. Another thing is the Lions NFT marketplace, where you can buy and sell overpriced images of Simpsons-ahh lions which is very non-transparent."]
-        ],
-        tips: [["Avoid purchases.", "Due to the red flags we have to advise you do not invest money into this app. You can already get 3 USDT worth of $LIONS per day for free (based on their price prediction), so why bother investing (and possibly losing) your hard earned TON?"],
-        ],
-        pros: ["Generous daily check-in", "Active developer team", "No ads"],
-        cons: ["Fake verification tick", "Non-transparent marketplace", "Unclear Roar Pass benefits", "Scammy price prediction"],
-        banner: "blum"
     }, {
         name: "Ai Coin",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F8klhhzMoBwN8kMT7lSpabSZnf2kJxLsn7UmB-uepbHCNgf94LYgUs4hHYVUWdKaD2_w&f=1&nofb=1&ipt=06effa116f2bdafded16bdb558b181cd75b5c2aa51cfaf7fd28894793554acdf",
@@ -731,37 +640,35 @@ const LISTN = [
         cons: ["Many useless features, most of which do not work", "Extremely complicated and difficult to use and sign in", "Undocumented and unexplained features"],
         banner: "bin"
     }, {
-        name: "WORK DOGS",
-        unlisted: true,
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftelegramchannels.me%2Fstorage%2Fmedia-logo%2F2412%2Fworkdogsnews.jpg&f=1&nofb=1&ipt=e51fa49cb0683791ef8ed0a9a46713e68b49b828a1a4c5938e97b0579fd05c9d",
-        description: "Have we just met the successor of DOGS? Or just another scam project by an infamous group? Only time will tell.",
-        added: "7-20-2024",
-        id: "workdogs",
+        name: "Orbaic Miner",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2Flsz4YcUbAEAqGJKvsxnIF6Osl0Tr4VMd1mJINLlzF8Msk-RHr3eHTABUye2WW4Akew&f=1&nofb=1&ipt=369e4325d4a495b7644514ab6ab1231fd680e1ef2721ba0ba442207d9e4240b4",
+        description: "Orbaic is a Layer 1 blockchain and this app allows you to mine its native coin - ACI. Mine every day, complete quizzes and stake your ACI to learn as much as possible before the listing, which is coming soon! You can also learn SHIB for mining and completing quizzes!",
+        added: "9-25-2024",
+        id: "orbaic",
         attr: {
-            platform: "t",
-            type: "Microtasks",
-            coin: "WD",
-            effort: 1,
+            platform: "ai",
+            type: "mine",
+            coin: "ACI",
+            effort: 0,
             rating: 1
         },
         info: {
-            description: "<b>NOTE: This app closely resembles apps made by an infamous group known for making scam projects like RCH (thankfully most of their apps were banned by Telegram). Under any circumstances do not invest any money into this app!</b><br>Get WORKDOGS by completing tasks and checking in daily and exchange them for $WD!",
-            effort: "Check-in every day and exchange WORKDOGS for $WD. Tasks are optional and do not pay as much as the daily check-in."
+            description: `Orbaic Miner allows you to mine Orbaic Layer 1 blockchain's native coin ACI. You can also learn more ACI by completing quizzes or collecting random airdrops! Listing is coming soon according to the project's official website. By completing 1800 quizzes or mining for 2160 hours (90 days), you can also collect bonus in the form of Shiba Inu!<br>SHIB withdrawal status: <b>Unverified</b>`,
+            effort: "Start mining every 24 hours."
         },
         go: {
-            type: 0,
-            link: "https://app.workdog.cc/go?i=gnhzej_5782755258_copy"
+            type: 1,
+            link: "https://orbaic.com/downlaodApp.php",
+            code: "79ZrEnhl"
         },
-        benefits: ["None"],
-        features: [["Tasks and Daily Check-in", "Complete simple tasks to get WORKDOGS and Keys. Check in every day for up to 10000 WORKDOGS!"],
-            ["Games", "Use keys to play various games and get more WORKDOGS. Obviously an app needs some sort of gambling aspect, so we present: BET AND WIN! Bet WORKDOGS, predict Bitcoin price and wither win it or lose it all! <b>Edge of the house: 5%</b>"]
-        ],
-        tips: [["Check-in every day!", "Checking in for 7 days in a row gives you a total of 12100 WORKDOGS, which is over 1700 per day on average - way more than you can get for tasks (most give you 100 or 200, special ones can give you more but are rare or require paying money)."],
-        ["Do not buy $WD!", "1 $WD for 5$ is insane, since you can get 12.1 $WD every week for free. To top it off, this app closely resembles apps made by an infamous group that got most of their apps banned by Telegram for scamming people. This is the sole reason this app has one star - the sheer amount of red flags."]
-        ],
-        pros: ["Generous daily check-in bonus"],
-        cons: ["Fake verification tick", "Scammy look (based on banned Telegram apps)", "Official group does not allow texting", "Non-transparent token launching process"],
-        banner: "blum"
+        benefits: ["2 ACI"],
+        features: [["Mining", "Activate mining every day to stock up on ACI!"],
+        ["Airdrops and Quizzes", "Collect bonus ACI in random airdrops that sometimes pop up on the homepage! Complete quizzes to collect even more ACI!"],
+        ["Staking", "Stake your ACI and collect profit after a duration ranging from one to four years!"]],
+        tips: [["There are no tips.", "This app is very simple to understand and therefore doesn't need any tips."]],
+        pros: ["Ability to earn SHIB as a bonus", "Simple interface"],
+        cons: ["Broken data management consent popup window", "Suspicious and expensive KYC"],
+        banner: "bin"
     }
 ];
 
