@@ -627,7 +627,7 @@ async function reportTT() {
     }
     status.style.display = "block";
     status.innerHTML = "Please wait...";
-    let { user, data } = getUser();
+    let { user, data } = await getUser();
     if (!user) status.innerHTML = "You must login in order to report a transaction.";
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/reportTransaction', {
         method: 'POST',
