@@ -539,7 +539,7 @@ async function fetchTID(tid) {
                     document.getElementById("ttr_from").innerHTML = data.data.from;
                     document.getElementById("ttr_to").innerHTML = data.data.to;
                     document.getElementById("ttr_mes").innerHTML = data.data.message || "<i style='color: #ccc;'>No message.</i>";
-                    document.getElementById("ttr_cc").innerHTML = data.data.resource.length;
+                    document.getElementById("ttr_cc").innerHTML = Object.keys(data.data.resource).length || 0;
                     document.getElementById("trid").value = "";
                     document.getElementById("reportingform").style.display = "block";
                 } else {
