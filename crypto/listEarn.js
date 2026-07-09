@@ -500,11 +500,11 @@ const LISTE = [
         ],
         tips: [
             ["Do not waste any time!", "WeMine will send you a notification after your miner has finished mining. Do not waste a single second a collect your rewards!"],
-            ["Solve the daily cases!", "Daily cases can give you more wUSDT and WM than the mining itself, meaning they are extremely important to solve for extra rewards!"],
+            ["Solve the daily cases!", "Daily cases can give you more wUSDT and WM than the mining itself, meaning they are extremely important to solve for extra rewards!<br><br>Speaking of daily cases, the code has weird rules, which makes it easier to guess! All digits are different and the entire number is greater than 100. For some reason."],
             ["Max out your wBTC miner!", "After ensuring a stable wBTC and therefore wUSDT income, you can invest it into other miners. This approach might take extra time before you start earning real money, but it will pay off in the long run!"]
         ],
-        pros: ["Active developer team"],
-        cons: ["The app is unstable and may refuse to start or get stuck at the loading screen on certain devices", "Mining USDT requires inviting friends", "Unhelpful support", "Notifications only appear when they feel like it"],
+        pros: ["Active developer team", "Helpful notifications"],
+        cons: ["The app is unstable and may refuse to start or get stuck at the loading screen on certain devices", "Mining USDT requires inviting friends", "Unhelpful support"],
         banner: `<div class="promobannerad" style="background-color:#9f5500">
             <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.googleusercontent.com%2FiH3J6FwTuWdMLT4LpOpG8tk1mqXWC70Vu4y9n7Qfi4euiHoFWn44jcq3HQI3w3fM7xYbzK3cVQ%3Ds900-c-k-c0x00ffffff-no-rj&f=1&nofb=1&ipt=f43d041799b9336f2284912d3a3262d0956adbb8d67b6ff00598e5643519d98e">
             <div>
@@ -546,42 +546,6 @@ const LISTE = [
         banner: "ncct"
     },
     {
-        name: "Gift Go",
-        icon: "https://static.nicegram.app/features/telegram_channel_icons/be8c0f96-dac6-4a00-836b-f9915cc0db08.jpeg",
-        description: "Collect Crystals, roll the spinner and win! Gift Go allows you to win Telegram Stars, Gifts, or even Telegram Premium! We have to mention the gambling aspect - yes, you can spin for free... every 25 days. And if you wanna do it more often, you will need to deposit. For that (once the app gets verified), we will provide you with cashback!",
-        added: "5-20-2025",
-        id: "giftgo",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "w",
-            type: "faucet",
-            coin: "stars",
-            effort: 0,
-            rating: 5
-        },
-        info: {
-            description: "Gift Go allows you to get free gifts on the go! Okay that sounds terrible. Anyway! Use Gift Go to collect Crystals, use those to roll the spinner and see the prize you get! The prizes include Telegram Premium, Telegram Stars and Telegram Gifts! Sell common gifts for Crystals and collect NFT Gifts to sell them on the marketplace for Stars and TON! Besides free gems you can purchase them, which supports the gambling aspect (which we are against). For this, every time Gift Go pays us, we will distribute the money between the people who deposited real money into this app in the form of cashback dividends!",
-            effort: "Collect a Crystal every day. Spin once you have enough Crystals."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/GiftGoBot?startapp=ref_f358a5"
-        },
-        benefits: ["5 Crystals","When the app gets verified, we will distribute cashback in the form of dividends. (You will only be able to request this cashback after you have deposited at least 10 Stars and the cashback will be proportional to the amount you have deposited in total)"],
-        features: [
-            ["Spin to Win", "Roll the spinner and get Stars, Premium or Gifts!"],
-            ["Tasks", "Collect your daily free CRystal or complete tasks to get even more!"]
-        ],
-        tips: [
-            ["Patience is key.", "This app might test your patience really well. Saving up 25 Crystals only to roll a gift worth 15 Stars (which you won't withdraw because doing that makes you unable to sell it, so you will sell it in-app for 15 Crystals) might be really tiring. There are certainly better apps out there that guarantee income. As it goes for this one, maybe that roll for 25 Crystals will be your lucky day?"],
-            ["Save up!", "If you want to earn gifts you can sell, you must play the expensive rolls. Just wait a couple months, complete quests and collect free Crystals daily to save up for a big win!"]
-        ],
-        pros: ["Very simple to use", "Unlike most apps with gambling aspect, it allows you to collect freebies without depositing (this might be wrong about withdrawing, we will update you)", "Giveaways are planned"],
-        cons: ["Withdrawn common gifts cannot be sold for stars"],
-        banner: "bin"
-    },
-    {
         name: "freebitcoin",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-3hHoxMSdzvc%2FXlJfe9uTxSI%2FAAAAAAAAAFU%2FOg2RBuKDm2gbk9CSdZSRMIaOXakCj0BggCLcBGAsYHQ%2Fs1600%2FScAR5Tf2.jpg&f=1&nofb=1&ipt=0ea1ceb850eec21ab8d94b3e19a0cca40da39eb093d88f6842531cb578183993",
         description: "Get free Bitcoin every hour! Test your luck, roll your lucky number and see how much you win! Get free lottery tickets and win ever more Bitcoin! Optionally, you can buy golden tickets to get a chance to win an actual Lamborghini? This site is crazy!",
@@ -619,6 +583,43 @@ const LISTE = [
         ],
         pros: ["Many features to explore", "Many opportunities to earn", "Interest for holding Bitcoin", "Ability to use Reward Points to get extra crypto - Bitcoin or FUN token", "In-build dividend distribution system", "Wagering results in your faucet earnings being increased"],
         cons: ["The website is confusing", "Too many ads", "High withdrawal threshold (30000 Satoshis)"],
+        banner: "bin"
+    },
+    {
+        name: "Gift Go",
+        icon: "https://static.nicegram.app/features/telegram_channel_icons/be8c0f96-dac6-4a00-836b-f9915cc0db08.jpeg",
+        description: "Collect Crystals, roll the spinner and win! Gift Go allows you to win Telegram Stars, Gifts, or even Telegram Premium! We have to mention the gambling aspect - yes, you can spin for free... every 25 days. And if you wanna do it more often, you will need to deposit. For that (once the app gets verified), we will provide you with cashback!",
+        added: "5-20-2025",
+        id: "giftgo",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "t",
+            type: "faucet",
+            coin: "stars",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "Gift Go allows you to get free gifts on the go! Okay that sounds terrible. Anyway! Use Gift Go to collect Crystals, use those to roll the spinner and see the prize you get! The prizes include Telegram Premium, Telegram Stars and Telegram Gifts! Sell common gifts for Crystals and collect NFT Gifts to sell them on the marketplace for Stars and TON! Besides free gems you can purchase them, which supports the gambling aspect (which we are against). For this, every time Gift Go pays us, we will distribute the money between the people who deposited real money into this app in the form of cashback dividends!",
+            effort: "Collect a Crystal every day. Spin once you have enough Crystals."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/GiftGoBot?startapp=ref_f358a5"
+        },
+        benefits: ["5 Crystals","When the app gets verified, we will distribute cashback in the form of dividends. (You will only be able to request this cashback after you have deposited at least 10 Stars and the cashback will be proportional to the amount you have deposited in total)"],
+        features: [
+            ["Spin to Win", "Roll the spinner and get Stars, Premium or Gifts!"],
+            ["Tasks", "Collect your daily free Crystal or complete tasks to get even more!"],
+            ["Giveaways", "Collect tickets and participate in giveaways to win extra gifts!"]
+        ],
+        tips: [
+            ["Patience is key.", "This app might test your patience really well. Saving up 25 Crystals only to roll a gift worth 15 Stars (which you won't withdraw because doing that makes you unable to sell it, so you will sell it in-app for 15 Crystals) might be really tiring. There are certainly better apps out there that guarantee income. As it goes for this one, maybe that roll for 25 Crystals will be your lucky day?"],
+            ["Save up!", "If you want to earn gifts you can sell, you must play the expensive rolls. Just wait a couple months, complete quests and collect free Crystals daily to save up for a big win!"]
+        ],
+        pros: ["Very simple to use", "Unlike most apps with gambling aspect, it allows you to collect freebies without depositing (this might be wrong about withdrawing, we will update you)", "Free Giveaways"],
+        cons: ["Withdrawn common gifts cannot be sold for stars", "Unstable App (might have troubles opening on certain devices)"],
         banner: "bin"
     },
     {
@@ -685,45 +686,6 @@ const LISTE = [
         ],
         pros: ["Hundreds of offers thanks to multiple survey and task providers that Klink works with", "Relatively low withdrawal threshold (5$ for bank transfer and 10$ for crypto)"],
         cons: ["1.5% withdrawal fee on crypto"],
-        banner: "bin"
-    },
-    {
-        name: "COIN",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FAjWzDunDrqkkARXhB9ExQbr541C0L98P6xAS9AEp_wPjHQ0-h0BzXgIQeMrZWKx0CmU&f=1&nofb=1&ipt=35b8b6eedbfbf6b42bcf97fba6d855dbd1e26372eec4845ab5c4e487eace4e53",
-        description: "Geomine the world! COIN allows you to claim world tiles and get COINs for it which can be redeemed for crypto or goods!",
-        added: "11-1-2024",
-        id: "xyocoin",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "ai",
-            type: "Geomining",
-            coin: "btc other:XYO other:Ethereum",
-            effort: 3,
-            rating: 4
-        },
-        info: {
-            description: "Claim tiles, collect COINs and redeem for rewards! Witness big geomines to earn even more! Activate background rewards and earn non-stop! Once you have geomined enough you will unlock Auto Explore, which lets you geomine effortlessly! Check out all that this app has to offer!",
-            effort: "The app needs to be open in order to geomine. You will also need location services enabled. Finally, most coins are available through watching ads and witnessing big geomines - everything is manual."
-        },
-        go: {
-            type: 0,
-            link: "https://coin.onelink.me/ePJg/4nfj1f0c"
-        },
-        benefits: ["1000 COIN (worth 38.6 XYO as of 8/15/25)", "If the app gets verified, we will distribute dividends."],
-        features: [
-            ["Geomining", "Claim tiles and collect COINs! Enable background rewards to earn even when offline!"],
-            ["Big Geomines and Ads", "Earn more COINs for witnessing big geomines and watching ads!"],
-            ["Geodrops", "Earn a bunch of coins every week by claiming the Geodrop package! You can also find/distribute geodrops on the map!"],
-            ["Geoclaim", "Claim an area on the map - whoever owns the most tiles will earn the most COINs once the season is over!"],
-            ["More Rewards", "Complete tasks or claim HODL rewards to earn more COINs!"]
-        ],
-        tips: [
-            ["Higher activity = more COINs but also higher multipliers!", "More claims you make the higher your background rewards and weekly geodrop multiplier become! So just maybe put your phone on the window with COIN open while you work and come back to a nice reward in a couple hours!"],
-            ["Do not claim HODL rewards!", "HODL rewards require watching an ad to claim. Per 1000 COIN you will get around 0.03 COIN per day. This is absolutely not worth it, since you can watch a rewarded ad to get 1 or 2 COINs."]
-        ],
-        pros: ["Many features", "Many ways to increase your earnings", "High quality map"],
-        cons: ["For being a geomining app, the geomining feature will bring you the least COINs"],
         banner: "bin"
     },
     {
@@ -982,6 +944,45 @@ const LISTE = [
         banner: "bin"
     },
     {
+        name: "COIN",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FAjWzDunDrqkkARXhB9ExQbr541C0L98P6xAS9AEp_wPjHQ0-h0BzXgIQeMrZWKx0CmU&f=1&nofb=1&ipt=35b8b6eedbfbf6b42bcf97fba6d855dbd1e26372eec4845ab5c4e487eace4e53",
+        description: "Geomine the world! COIN allows you to claim world tiles and get COINs for it which can be redeemed for crypto or goods!",
+        added: "11-1-2024",
+        id: "xyocoin",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "ai",
+            type: "Geomining",
+            coin: "btc other:XYO other:Ethereum",
+            effort: 3,
+            rating: 3
+        },
+        info: {
+            description: "Claim tiles, collect COINs and redeem for rewards! Witness big geomines to earn even more! Activate background rewards and earn non-stop! Once you have geomined enough you will unlock Auto Explore, which lets you geomine effortlessly! Check out all that this app has to offer!",
+            effort: "The app needs to be open in order to geomine. You will also need location services enabled. Finally, most coins are available through watching ads and witnessing big geomines - everything is manual."
+        },
+        go: {
+            type: 0,
+            link: "https://coin.onelink.me/ePJg/4nfj1f0c"
+        },
+        benefits: ["1000 COIN (worth 38.6 XYO as of 8/15/25)", "If the app gets verified, we will distribute dividends."],
+        features: [
+            ["Geomining", "Claim tiles and collect COINs! Enable background rewards to earn even when offline!"],
+            ["Big Geomines and Ads", "Earn more COINs for witnessing big geomines and watching ads!"],
+            ["Geodrops", "Earn a bunch of coins every week by claiming the Geodrop package! You can also find/distribute geodrops on the map!"],
+            ["Geoclaim", "Claim an area on the map - whoever owns the most tiles will earn the most COINs once the season is over!"],
+            ["More Rewards", "Complete tasks or claim HODL rewards to earn more COINs!"]
+        ],
+        tips: [
+            ["Higher activity = more COINs but also higher multipliers!", "More claims you make the higher your background rewards and weekly geodrop multiplier become! So just maybe put your phone on the window with COIN open while you work and come back to a nice reward in a couple hours!"],
+            ["Do not claim HODL rewards!", "HODL rewards require watching an ad to claim. Per 1000 COIN you will get around 0.03 COIN per day. This is absolutely not worth it, since you can watch a rewarded ad to get 1 or 2 COINs."]
+        ],
+        pros: ["Many features", "Many ways to increase your earnings", "High quality map"],
+        cons: ["For being a geomining app, the geomining feature will bring you the least COINs"],
+        banner: "bin"
+    },
+    {
         name: "ByteBenefit",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F8XVsm7Z-dsD5cq6iCRH8-YOK5Be5g0NZn2dVfUYzCuPxQbTc8Js0jd0bLvS5OovCLKc&f=1&nofb=1&ipt=9c5069547879f8aec9ceab8c496d32571f570f2ff171a6847f365a60b57dbd2e",
         description: "Get paid for sharing your unused internet! Complete tasks and surveys for even more coins! Also available on Windows!",
@@ -1185,43 +1186,6 @@ const LISTE = [
         banner: "bin"
     },
     {
-        name: "Ember",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fsync%2Fv2%2FC5627AQGPHFOCqQabrg%2Farticleshare-shrink_800%2Farticleshare-shrink_800%2F0%2F1732020021145%3Fe%3D2147483647%26v%3Dbeta%26t%3D8dGxtwsgi7yjj0RZlUiMO20lbg7t0Xf6PO66NPZfAdM&f=1&nofb=1&ipt=796f699f6d25986cc639a101cf9e8a7011e67befddcb4856f2e82ce930fe4f84",
-        description: "Mine Bitcoin, wager it and withdraw! With new games added occasionally and new ways to earn being slowly introduced, you can enjoy all flavors of earnings! This includes: microtasks, gambling and predictions as of now! Another gambling app? Brooooooo why.",
-        added: "9-2-2024",
-        id: "ember",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "ai",
-            type: "mine",
-            coin: "btc",
-            effort: 1,
-            rating: 2
-        },
-        info: {
-            description: "Mine Bitcoin every day, wager it through gambling and predictions and watch your earnings grow! This is a gambling app so before you ask, yes, there is a way to deposit money and NO, you should NEVER do that with gambling apps. Because that's basically the best way to lose money. Do not deposit money through buying Ember tokens! Anyway, there are also microtasks ig.",
-            effort: "Restart mining every day. You will need to wager it in order to withdraw."
-        },
-        go: {
-            type: 1,
-            link: "https://emberfund.onelink.me/ljTI/l4g18zii?mining_referrer_id=MNGA3LNUO3A",
-            code: "MNGA3LNUO3A"
-        },
-        benefits: ["Extra 1 Satoshi/Hour mining speed (double from the regular).", "If the app gets verified, we will distribute dividends."],
-        features: [["Mining and Gambling", "Start your mining daily! Use your mined Satoshis in various gambling games to wager them and make them eligible to withdraw!"],
-        ["Predictions and Microtasks", "Multiply your Satoshis (or lose them all) in predictions and earn extra through microtasks!"],
-        ["Tournaments", "Participate in tournaments and get a share of won Satoshis!"]
-        ],
-        tips: [
-            ["Turn off the notifications.", "This app has probably the most annoying notification service in the world. They can play the sound or light up your screen even in Do Not Disturb mode (somehow???) and never contain useful information. Downside of doing this is that whenever you start the app it will ask you to allow notifications. Do not agree to it."],
-            ["Safe wagers!", "Do not bet all your Satoshis on red! The point here isn't to win as much as possible but instead to wager and therefore secure your earned tokens. Safe bets, small loss and therefore guaranteed money!"]
-        ],
-        pros: ["Low edge of the house"],
-        cons: ["Annoying and pointless notifications", "High withdrawal threshold (10000 Satoshis that must be wagered)", "You can only mine 10 times per month without wagering an insane amount of Satoshis"],
-        banner: "bin"
-    },
-    {
         name: "Sweat Wallet",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJwkGy0o_DOQ8gWTY_8M3_bwp8wHDk766guJ-GR8FNgwBNE7m_hOLy8jDfBlSg0k2XgA&f=1&nofb=1&ipt=c1c17814f416141c8cdf186963b12194a468c4a291145f5e45f067765dc8becb",
         description: "Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to collect even more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
@@ -1289,71 +1253,40 @@ const LISTE = [
         banner: "bin"
     },
     {
-        name: "Bitcoin Mining and Ad Earn",
-        icon: "https://play-lh.googleusercontent.com/S7mwXS3fsFx387rTVOEZbbVXSnR5Na1B8a2TyrbzxIhWles1Sauirh4Apbfe1KZlrdx5=w240-h480-rw",
-        description: "Increase your speed and get more Satoshis! For some weird reason, you can only withdraw to apps like PayPal and Payoneer? Weird for a Bitcoin miner but alright.",
-        added: "9-7-2024",
-        id: "btcadearn",
+        name: "Ember",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fsync%2Fv2%2FC5627AQGPHFOCqQabrg%2Farticleshare-shrink_800%2Farticleshare-shrink_800%2F0%2F1732020021145%3Fe%3D2147483647%26v%3Dbeta%26t%3D8dGxtwsgi7yjj0RZlUiMO20lbg7t0Xf6PO66NPZfAdM&f=1&nofb=1&ipt=796f699f6d25986cc639a101cf9e8a7011e67befddcb4856f2e82ce930fe4f84",
+        description: "Mine Bitcoin, wager it and withdraw! With new games added occasionally and new ways to earn being slowly introduced, you can enjoy all flavors of earnings! This includes: microtasks, gambling and predictions as of now! Another gambling app? Brooooooo why.",
+        added: "9-2-2024",
+        id: "ember",
         attr: {
-            verified: 0,
+            verified: -1,
             dividends: false,
-            platform: "a",
+            platform: "ai",
             type: "mine",
             coin: "btc",
-            effort: 2,
+            effort: 1,
             rating: 2
         },
         info: {
-            description: "Watch ads to increase your mining speed and watch your earnings grow! The app works permanently, even if you forget about it for a couple months, you can come back to see all the Satoshis you've earned during that time! Withdraw to PayPal, Payoneer or Qiwi!",
-            effort: "Technically speaking, you don't have to do anything, but this way you will reach the withdrawal in a couple years. So instead, you should watch ads to increase your speed!"
+            description: "Mine Bitcoin every day, wager it through gambling and predictions and watch your earnings grow! This is a gambling app so before you ask, yes, there is a way to deposit money and NO, you should NEVER do that with gambling apps. Because that's basically the best way to lose money. Do not deposit money through buying Ember tokens! Anyway, there are also microtasks ig.",
+            effort: "Restart mining every day. You will need to wager it in order to withdraw."
         },
         go: {
             type: 1,
-            link: "https://play.google.com/store/apps/details?id=com.CDMApps.BitcoinCloudMining&referrer=NIRBP",
-            code: "NIRBP"
+            link: "https://emberfund.onelink.me/ljTI/l4g18zii?mining_referrer_id=MNGA3LNUO3A",
+            code: "MNGA3LNUO3A"
         },
-        benefits: ["50 Satoshis for free", "If the app gets verified, we will distribute dividends."],
-        features: [["Permanent Mining", "No need to reactivate mining! It just goes on and on and on!"],
-        ["Watch Ads to Increase Speed", "Mining going too slow? Watch an ad to permanently increase the speed!"]],
-        tips: [
-            ["Do not watch ads to get 0.27 Satoshis.", "0.27 Satoshis is literally nothing. Instead, focus on watching ads to increase speed, which will give you Satoshis forever!"]
+        benefits: ["Extra 1 Satoshi/Hour mining speed (double from the regular).", "If the app gets verified, we will distribute dividends."],
+        features: [["Mining and Gambling", "Start your mining daily! Use your mined Satoshis in various gambling games to wager them and make them eligible to withdraw!"],
+        ["Predictions and Microtasks", "Multiply your Satoshis (or lose them all) in predictions and earn extra through microtasks!"],
+        ["Tournaments", "Participate in tournaments and get a share of won Satoshis!"]
         ],
-        pros: ["Permanent mining"],
-        cons: ["Abysmal ad deals (You will have to watch 2000 ads to get the speed to 1 Satoshi/hour <i>[update: this is no longer true, they made it even worse]</i>)"],
-        banner: "bin"
-    },
-    {
-        name: "ETH Cloud Mining",
-        icon: "https://play-lh.googleusercontent.com/8ZUnkcWEieLvHtVVdrphRpIBeMU5fFqfaMW7RfJdubQmEiqyttKnb6N3weNO0a_UAqM=w240-h480-rw",
-        description: "Increase your speed and get more Szabo! Whatever that is. For some weird reason, you can only withdraw to apps like PayPal and Payoneer? Weird for an Ethereum miner but alright.",
-        added: "9-8-2024",
-        id: "ethadearn",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "a",
-            type: "mine",
-            coin: "other:Ethereum",
-            effort: 2,
-            rating: 2
-        },
-        info: {
-            description: "Watch ads to increase your mining speed and watch your earnings grow! The app works permanently, even if you forget about it for a couple months, you can come back to see all the Szabo (like Satoshi but for Ethereum) you've earned during that time! Withdraw to PayPal, Payoneer or Qiwi!",
-            effort: "Technically speaking, you don't have to do anything, but this way you will reach the withdrawal in a couple years. So instead, you should watch ads to increase your speed!"
-        },
-        go: {
-            type: 1,
-            link: "https://play.google.com/store/apps/details?id=com.CDMApps.ETHCloudMining&referrer=CZWK8",
-            code: "CZWK8"
-        },
-        benefits: ["5 Szabo for free", "If the app gets verified, we will distribute dividends."],
-        features: [["Permanent Mining", "No need to reactivate mining! It just goes on and on and on!"],
-        ["Watch Ads to Increase Speed", "Mining going too slow? Watch an ad to permanently increase the speed!"]],
         tips: [
-            ["Do not watch ads to get 0.059 Szabo.", "0.059 Szabo is (probably?) nothing. Instead, focus on watching ads to increase speed, which will give you Szabo forever!"]
+            ["Turn off the notifications.", "This app has probably the most annoying notification service in the world. They can play the sound or light up your screen even in Do Not Disturb mode (somehow???) and never contain useful information. Downside of doing this is that whenever you start the app it will ask you to allow notifications. Do not agree to it."],
+            ["Safe wagers!", "Do not bet all your Satoshis on red! The point here isn't to win as much as possible but instead to wager and therefore secure your earned tokens. Safe bets, small loss and therefore guaranteed money!"]
         ],
-        pros: ["Permanent mining"],
-        cons: ["Abysmal ad deals"],
+        pros: ["Low edge of the house"],
+        cons: ["Annoying and pointless notifications", "Extreme withdrawal threshold (50000 Satoshis that must be wagered => this is about 9 years if you join through us, always win wagers and never invite anyone. yikes.)", "You can only mine 10 times per month without wagering an insane amount of Satoshis"],
         banner: "bin"
     },
     {

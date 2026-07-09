@@ -276,7 +276,7 @@ Deno.serve(async (req) => {
             resources[currency] = totalReceived;
             const { data: logData, error: logError } = await sb
                 .from("transaction")
-                .insert({ from: from, to: to, resource: resources, message: message });
+                .insert({ from: from, to: to, resource: resources, message: message }).select();
             resources = {};
             resources[currency] = parseFloat((totalToSend-totalReceived).toFixed(8));
             const { error: logError2 } = await sb
@@ -290,7 +290,6 @@ Deno.serve(async (req) => {
                     }
                 });
             }
-            console.log(JSON.stringify(logData));
             let upmessage = { from: "CompNUS", subject: `You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!`, content: `<p>The amount has been added to your balance.${finalMessage}<br><i>Something wrong? <a class="link" href="transaction.html?report=${logData[0].id}">Report Transaction></a></i></p>`, owner: bData.id};
             const { error: cannotSend } = await sb
                 .from("message")
@@ -314,7 +313,7 @@ Deno.serve(async (req) => {
         });
     } catch (error) {
         console.error("Error processing request", error);
-        return new Response(JSON.stringify({ response: "Internal Server Error."+error.message }), {
+        return new Response(JSON.stringify({ response: "Internal Server Error." }), {
             status: 500,
             headers: {
                 ...headers
