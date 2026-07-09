@@ -84,7 +84,7 @@
             <p class="ttsp">&nbsp;</p>
             <div class="ttview" id="ttrepv" style="display:none">
                 <div class="flex cc"><p>Sender: <span id="ttr_from">loading sender...</span></p><p>&emsp;</p><p>Recipient: <span id="ttr_to">loading recipient...</span></p></div>
-                <p><span id="ttr_cc" title="Asset count">0</span> types of assets transferred.</p>
+                <p>Unique assets transferred: <span id="ttr_cc" title="Asset count">0</span></p>
                 <div class="ttvgridl">
                     <h2>Message:</h2><h3 id="ttr_mes">loading message...</h3>
                 </div>
@@ -93,7 +93,24 @@
                 <p id="ttrep" style="text-align: center">Please fetch the transaction you want to report to proceed.</p>
             </div>
             <form id="reportingform" style="display: none">
-                <p class="ttlimited">Please fill out the following fields to help us better understand the issue with this transaction.</p>
+                <p class="ttlimited">If there is no issue with the transferred assets, and instead with the message, you may <a class="link" onclick="blockUser(document.getElementById('ttr_from').innerHTML)">block the user</a> that initiated the transaction.<br />
+                This will not prevent them from sending assets, but they will not be able to send messages to you.</p>
+                <div class="input">
+                    <label for="ttr_type" class="ttrnof">Issue:</label>
+                    <div class="halve">
+                        <select id="ttr_type">
+                            <option value="mes">Inappropriate Message</option>
+                            <option value="sus">Suspicious Transaction</option>
+                            <option value="dif">Different Issue</option>
+                        </select>
+                        <button onclick="popup('Issue Types', `<b>Inappropriate Message</b> - The message contains inappropriate content, or spam. We advise you to block this user instead of reporting the transaction.<br><b>Suspicious Transaction</b> - This transaction is not trustworthy or feels illegitimate.<br><b>Different Issue</b> - Please provide details about the issue in the area below.`)" type="button">?</button>
+                    </div>
+                </div>
+                <p style="margin-bottom: 0.5vw">Feel free to provide additional details about your issue:</p>
+                <textarea id="ttr_details" placeholder="Enter details here..." oninput="this.value = this.value.substring(0,5000)"></textarea>
+                <br /><br />
+                <p id="ttr_status" style="display:none"></p>
+                <button type="submit" style="border-color: red">Report Transaction</button>
             </form>
         </div>
     </div>
@@ -110,14 +127,18 @@
                 await fetchTID(document.getElementById('trid').value);
             });
 
+            document.getElementById("reportingform").addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await reportTT();
+            });
+
             var reportt = GetURLParameter("report");
             if (reportt != null) {
                 if (reportt.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) {
                     document.getElementById("tselect").value = 'rep';
                     ttload('rep');
                     document.getElementById('trid').value = reportt;
-                    //await fetchTID(reportt);
-                    /*delete*/ document.getElementById('reportingform').style.display = "block";
+                    await fetchTID(reportt);
                 } else history.replaceState('Incorrect TID', true, 'transactions.html');
             }
         });

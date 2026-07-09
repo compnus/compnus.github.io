@@ -432,6 +432,9 @@ async function ttload(id) {
         document.getElementById("ttrep").style.display = "block";
         document.getElementById("ttrepv").style.display = "none";
         document.getElementById("reportingform").style.display = "none";
+        document.getElementById("ttverfbutton").classList.remove("disabled");
+        document.getElementById("trid").classList.remove("disabled");
+        document.getElementById("trid").value = "";
     } else {
         document.getElementById("ttlist").style.display = "block";
         const { user, data } = await getUser();
@@ -540,11 +543,10 @@ async function fetchTID(tid) {
                     document.getElementById("ttr_to").innerHTML = data.data.to;
                     document.getElementById("ttr_mes").innerHTML = data.data.message || "<i style='color: #ccc;'>No message.</i>";
                     document.getElementById("ttr_cc").innerHTML = Object.keys(data.data.resource).length || 0;
-                    document.getElementById("trid").value = "";
                     document.getElementById("reportingform").style.display = "block";
                 } else {
                     status.innerHTML = data.response + `<br><br>Maybe you meant to <a onclick="document.getElementById('tselect').value = 'up';ttload('up');document.getElementById('ttid').value = '${tid}';verifyTID('${tid}');" class="link">verify</a> a transaction instead?`;
-                    document.getElementById("ttverfbutton").classList.remove("disabled");
+                    document.getElementById("ttrepbutton").classList.remove("disabled");
                     document.getElementById("trid").classList.remove("disabled");
                 }
             })
@@ -557,9 +559,67 @@ async function fetchTID(tid) {
     }
 }
 
+async function blockUser(username) {
+    let { user, data } = getUser();
+    if (!user) window.location.href = "login.html";
+    const { data: nameData, error: nameError } = await sb
+        .from("users")
+        .select("username")
+        .eq("id", dt.user_id)
+        .single();
+    if (username == "CompNUS") {
+        popup("Cannot block CompNUS!", "This is a system transaction. If you still think this transaction should be reported, please contact the support.");
+    } else if (username == nameData.username) {
+        popup("Cannot block yourself!", "You cannot block yourself. If you still think this transaction should be reported, please contact the support.");
+    } else
+    popup("Do you want to block " + username + "?", `
+        Blocking this user will remove their ability to send you messages.<br>
+        You can unblock them from the Edit Account page.<br>
+        Do you wish to proceed?</p>
+        <p id="blockuserstatus" style="font-weight:bold;text-align:center"></p>
+        <button class="fullwidth" style="border-color: red" onclick="blockUserConfirm('${username}')">Yes, block ${username}</button><br>
+        <button class="fullwidth" onclick="document.getElementById('popup' + (popupid-1)).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + (popupid-1))), 201)">Cancel</button>
+        <p style="margin:0">
+    `);
+}
+
+async function blockUserConfirm(username) {
+    username = username.trim();
+    const status = document.getElementById("blockuserstatus");
+    status.innerHTML = "Please wait...";
+    const { data: { user }, error: authError } = await sb.auth.getUser();
+    var stableID = popupid - 1;
+    if (authError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occurred.", authError.message); return; }
+    const { data, error } = await sb.from("users").select("blocked_users").eq("id", user.id).single();
+    if (error) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occurred.", error.message); return; }
+    if (data.blocked_users.startsWith(username + "|") || data.blocked_users.endsWith("|" + username) || data.blocked_users.includes("|" + username + "|")) {
+        document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201);
+        popup("You have already blocked " + username + "!", "This user is already blocked. You cannot block them again.<br>You can try blocking them IRL. Dunno how that would work tho...");
+        return;
+    }
+    const { data: finalize, error: finalizeError } = await sb.from("users").update({ blocked_users: data.blocked_users + username + "|" }).eq("id", user.id).single();
+    if (finalizeError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occurred.", authError.message); return; }
+    else {
+        document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201);
+        popup("You have blocked " + username + "!", "You will no longer receive messages from this user.<br>To unblock them, go to the Edit Account page.");
+    }
+}
+
 function checkUUID(of) {
     document.getElementById("ttveri").innerHTML = "Information about the transaction will appear here.";
     if (of.length > 36) of = of.substring(0, 36);
     of = of.toLowerCase();
     return of.replaceAll(/[^0-9a-f-]/g, '');
+}
+
+function reportTT() {
+    let tid = document.getElementById("trid").value;
+    let type = document.getElementById("ttr_type").value;
+    let mes = document.getElementById("ttr_details").value.trim();
+    let status = document.getElementById("ttr_status");
+    if (!tid.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) {
+        status.innerHTML = "The fetched transaction is invalid. Please try fetching again.";
+        document.getElementById("ttverfbutton").classList.remove("disabled");
+        document.getElementById("trid").classList.remove("disabled");
+    }
 }

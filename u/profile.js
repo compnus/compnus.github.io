@@ -166,7 +166,7 @@ function reportMsg(msg) {
             </select>
         </div>
         <p style="margin-bottom: calc(0.25vw + 0.25vh)">Anything you would like to add?<br><i>Feel free to add additional notes regarding your concern.</i></p>
-        <textarea id="describerep"></textarea>
+        <textarea id="describerep" oninput="this.value = this.value.substring(0,5000)"></textarea>
         <br>
         <p id="reportmsgstatus" style="font-weight:bold;text-align:center"></p>
         <button type="submit" class="fullwidth" style="border-color: red">Report Message</button>
@@ -221,16 +221,16 @@ async function blockUserConfirm(username) {
     status.innerHTML = "Please wait...";
     const { data: { user }, error: authError } = await sb.auth.getUser();
     var stableID = popupid - 1;
-    if (authError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", authError.message); return; }
+    if (authError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occurred.", authError.message); return; }
     const { data, error } = await sb.from("users").select("blocked_users").eq("id", user.id).single();
-    if (error) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", error.message); return; }
+    if (error) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occurred.", error.message); return; }
     if (data.blocked_users.startsWith(username + "|") || data.blocked_users.endsWith("|" + username) || data.blocked_users.includes("|" + username + "|")) {
         document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201);
         popup("You have already blocked " + username + "!", "This user is already blocked. You cannot block them again.<br>You can try blocking them IRL. Dunno how that would work tho...");
         return;
     }
     const { data: finalize, error: finalizeError } = await sb.from("users").update({ blocked_users: data.blocked_users + username + "|" }).eq("id", user.id).single();
-    if (finalizeError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occured.", authError.message); return; }
+    if (finalizeError) { document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201); popup("An error occurred.", authError.message); return; }
     else {
         document.getElementById('popup' + stableID).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + stableID)), 201);
         popup("You have blocked " + username + "!", "You will no longer receive messages from this user.<br>To unblock them, go to the Edit Account page.");

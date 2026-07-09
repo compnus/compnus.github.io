@@ -77,7 +77,7 @@
             <input type="text" id="feature_name" oninput='this.value = this.value.replaceAll("\"", ""); if (this.value.length>50) this.value = this.value.substring(0,50);'>
         </div>
         <p style="margin-bottom: 0.5vw">Describe the feature:</p>
-        <textarea id="describesgst"></textarea>
+        <textarea id="describesgst" oninput="this.value = this.value.substring(0,5000)"></textarea>
         <br>
         <p id="suggstftrstatus" style="font-weight:bold;text-align:center"></p>
         <button type="submit" class="fullwidth">Send</button>
@@ -105,7 +105,7 @@
             </div>
         </div>
         <p style="margin-bottom: 0.5vw">Describe the problem:</p>
-        <textarea id="describeprb"></textarea>
+        <textarea id="describeprb" oninput="this.value = this.value.substring(0,5000)"></textarea>
         <br>
         <p id="reportprbstatus" style="font-weight:bold;text-align:center"></p>
         <button type="submit" class="fullwidth">Send</button>

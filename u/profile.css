@@ -605,6 +605,35 @@ a.linkstv {
     display: none;
 }
 
+#reportingform {
+    text-align: center;
+}
+
+.ttlimited {
+    font-size: 1.5vh;
+}
+
+#reportingform > .input > label.ttrnof {
+    flex:0;
+}
+
+#reportingform > .input {
+    justify-content: center;
+}
+
+#reportingform > .input > .halve {
+    width: auto;
+}
+
+#reportingform > .input > .halve > select {
+    width: fit-content;
+}
+
+#ttr_details {
+    min-height: 10vh;
+    resize: none;
+    max-width: 50em;
+}
 
 @media(orientation:portrait) {
     div.mainscroll {
