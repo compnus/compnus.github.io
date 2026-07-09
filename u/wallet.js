@@ -337,7 +337,7 @@ function ttloadTransactions(to) {
         var x = document.createElement("div");
         x.classList.add("ttview");
         x.innerHTML = `
-        <p>Transaction <span title="Transaction ID (TID)">${i.id}</span><span class="ttlmobnn">&emsp;&emsp;</span<br class="mobileonlytt" />Sent <span>${formatDate(i.created)}</span></p>
+        <p>Transaction <span title="Transaction ID (TID)">${i.id}</span><span class="ttlmobnn">&emsp;&emsp;</span><br class="mobileonlytt" />Sent <span>${formatDate(i.created)}</span></p>
         <div class="flex cc"><p>Sender: <span>${i.from}</span></p><p>&emsp;</p><p>Recipient: <span>${i.to}</span></p></div>
         <div class="ttvgrid">
             <div class="ttvgridl">

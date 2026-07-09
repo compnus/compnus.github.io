@@ -733,6 +733,12 @@ div.popup > div > div.inside > h1 {
         top: 18vw;
     }
 
+
+        .link.inav > img {
+            height: 7vw;
+            width: 7vw;
+        }
+
     div.popup > div.cm {
         max-width: 80vw;
     }

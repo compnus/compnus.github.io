@@ -343,11 +343,13 @@
     <p style="margin:0">`;
 
     const promocontent = `</p>
+    <form id="llpromocontentform" onsubmit="event.preventDefault(); promoRedeem()">
     <div class="input fullwidth" style="padding: 0">
     <input id="promocodeinput" style="width:calc(100% - 2vh);" placeholder="ENTER CODE HERE" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9]/g, '').toUpperCase().substring(0,20)">
     </div>
     <p id="promocodestatus" style="margin: 1vh 0 2vh 0; display: none; font-weight: bold; text-align: center">Please wait...</p>
-    <button onclick="promoRedeem()" class="fullwidth" id="promocodebutton">Redeem</button>
+    <button type="submit" class="fullwidth" id="promocodebutton">Redeem</button>
+    </form>
         <p style="display:none">
     `;
 
