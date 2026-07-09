@@ -135,8 +135,8 @@ Deno.serve(async (req) => {
         });
     }
     if (currency == "nus") {
-        if (parsedAmount / 20 <= 0.005) calcFee = 0.005;
-        else if (parsedAmount / 20 >= 1) calcFee = 1;
+        if (parsedAmount / 20 <= 0.0005) calcFee = 0.0005;
+        else if (parsedAmount / 20 >= 0.1) calcFee = 0.1;
         else calcFee = parseFloat((parsedAmount / 20).toFixed(3));
     } else if (currency == "noca") {
         parsedAmount = Math.floor(parsedAmount);
