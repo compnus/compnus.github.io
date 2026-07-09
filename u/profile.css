@@ -633,6 +633,7 @@ a.linkstv {
     min-height: 10vh;
     resize: none;
     max-width: 50em;
+    font-size: inherit;
 }
 
 @media(orientation:portrait) {
@@ -1029,5 +1030,16 @@ a.linkstv {
 
     #ttl_list {
         height: initial;
+    }
+
+    .ttlimited {
+        font-size: 3vw;
+    }
+
+    #ttr_details {
+        max-height: 40vw;
+        height: 40vw;
+        max-width: auto;
+        font-size: 4vw;
     }
 }

@@ -432,7 +432,7 @@ async function ttload(id) {
         document.getElementById("ttrep").style.display = "block";
         document.getElementById("ttrepv").style.display = "none";
         document.getElementById("reportingform").style.display = "none";
-        document.getElementById("ttverfbutton").classList.remove("disabled");
+        document.getElementById("ttrepbutton").classList.remove("disabled");
         document.getElementById("trid").classList.remove("disabled");
         document.getElementById("trid").value = "";
     } else {
