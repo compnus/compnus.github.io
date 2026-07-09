@@ -544,6 +544,7 @@ async function fetchTID(tid) {
                     document.getElementById("ttr_mes").innerHTML = data.data.message || "<i style='color: #ccc;'>No message.</i>";
                     document.getElementById("ttr_cc").innerHTML = Object.keys(data.data.resource).length || 0;
                     document.getElementById("reportingform").style.display = "block";
+                    document.getElementById("ttr_status").style.display = "none";
                 } else {
                     status.innerHTML = data.response + `<br><br>Maybe you meant to <a onclick="document.getElementById('tselect').value = 'up';ttload('up');document.getElementById('ttid').value = '${tid}';verifyTID('${tid}');" class="link">verify</a> a transaction instead?`;
                     document.getElementById("ttrepbutton").classList.remove("disabled");
@@ -565,7 +566,7 @@ async function blockUser(username) {
     const { data: nameData, error: nameError } = await sb
         .from("users")
         .select("username")
-        .eq("id", dt.user_id)
+        .eq("id", data.id)
         .single();
     if (username == "CompNUS") {
         popup("Cannot block CompNUS!", "This is a system transaction. If you still think this transaction should be reported, please contact the support.");
@@ -612,14 +613,40 @@ function checkUUID(of) {
     return of.replaceAll(/[^0-9a-f-]/g, '');
 }
 
-function reportTT() {
+async function reportTT() {
     let tid = document.getElementById("trid").value;
     let type = document.getElementById("ttr_type").value;
     let mes = document.getElementById("ttr_details").value.trim();
     let status = document.getElementById("ttr_status");
     if (!tid.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) {
         status.innerHTML = "The fetched transaction is invalid. Please try fetching again.";
+        status.style.display = "block";
         document.getElementById("ttverfbutton").classList.remove("disabled");
         document.getElementById("trid").classList.remove("disabled");
+        return;
     }
+    status.style.display = "block";
+    status.innerHTML = "Please wait...";
+    let { user, data } = getUser();
+    if (!user) status.innerHTML = "You must login in order to report a transaction.";
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/reportTransaction', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+        },
+        body: JSON.stringify({ uid: data.id, type: type, tid: tid, concern: mes })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.sc) {
+                status.innerHTML = "Error: " + data.response;
+            } else {
+                status.innerHTML = data.response;
+                popup(data.response, "We will get back to you as soon as possible.<br>Thank you for your help!");
+            }
+        })
+        .catch((error) => {
+            console.error('Error invoking function:', error);
+        });
 }

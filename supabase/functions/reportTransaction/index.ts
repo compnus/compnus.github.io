@@ -42,7 +42,7 @@ Deno.serve(async (req) => {
 
     let uid: string | null = null;
     let type: string | null = null;
-    let msg: string | null = null;
+    let tid: string | null = null;
     let concern: string | null = null;
     let from: string | null = null;
 
@@ -50,7 +50,7 @@ Deno.serve(async (req) => {
         const body = await req.json();
         uid = body.uid || null;
         type = body.type || null;
-        msg = body.msg || null;
+        tid = body.tid || null;
         concern = body.concern || null;
     } catch (error) {
         console.error("Failed to parse JSON body", error);
@@ -91,7 +91,7 @@ Deno.serve(async (req) => {
 
         const { error: logError } = await sb
             .from("logs")
-            .insert([{ created_by: from, type: "report", attributes: "type->" + type + "\nconcern->" + concern, message: msg }]);
+            .insert([{ created_by: from, type: "transactionReport", attributes: "type->" + type + "\ntid->" + tid, message: concern }]);
         if (logError) {
             return new Response(JSON.stringify({ response: `Internal server error.` }), {
                 status: 500,
@@ -101,7 +101,7 @@ Deno.serve(async (req) => {
             });
         }
 
-        return new Response(JSON.stringify({ response: "Message reported successfully!", sc: true }), {
+        return new Response(JSON.stringify({ response: "Transaction reported successfully!", sc: true }), {
             status: 200,
             headers: {
                 ...headers

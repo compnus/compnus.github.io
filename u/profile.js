@@ -193,7 +193,7 @@ async function reportMessage(message, offense, dsc, status) {
                 status.innerHTML = "Error: " + data.response;
             } else {
                 status.innerHTML = data.response;
-                var toremove = popupid - 1
+                var toremove = popupid - 1;
                 document.getElementById('popup' + toremove).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + toremove)), 201);
                 popup(data.response, "We advise you to block this user as well, to prevent any other messages from them.<br>Thank you for your help!");
             }
