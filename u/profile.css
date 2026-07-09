@@ -935,6 +935,10 @@ a.linkstv {
         display: inline;
     }
 
+    #ttveri {
+        text-align: center;
+    }
+
     .ttview {
         max-width: initial;
         margin: 4vw auto;
