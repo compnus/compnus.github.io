@@ -137,7 +137,7 @@ Deno.serve(async (req) => {
     if (currency == "nus") {
         if (parsedAmount / 20 <= 0.0005) calcFee = 0.0005;
         else if (parsedAmount / 20 >= 0.1) calcFee = 0.1;
-        else calcFee = parseFloat((parsedAmount / 20).toFixed(3));
+        else calcFee = parseFloat((parsedAmount / 20).toFixed(4));
     } else if (currency == "noca") {
         parsedAmount = Math.floor(parsedAmount);
         if (parsedAmount / 100 >= 95) calcFee = 100;
@@ -265,7 +265,7 @@ Deno.serve(async (req) => {
                 .update(sends)
                 .eq("user_id", bData.id);
             if (cannotDeduct || cannotAdd) {
-                return new Response(JSON.stringify({ response: `Transaction failed: ${cannotSend?.message || cannotDeduct?.message || cannotAdd?.message}`, sc:true }), {
+                return new Response(JSON.stringify({ response: `Transaction failed: ${cannotDeduct?.message || cannotAdd?.message}`, sc:true }), {
                     status: 401,
                     headers: {
                         ...headers

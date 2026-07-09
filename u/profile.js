@@ -341,7 +341,7 @@ function calcFees() {
         totalPaidCur.innerHTML = "$";
         if (amount / 20 <= 0.0005) fee.innerHTML = 0.0005;
         else if (amount / 20 >= 0.1) fee.innerHTML = 0.1;
-        else fee.innerHTML = (amount / 20).toFixed(3);
+        else fee.innerHTML = (amount / 20).toFixed(4);
     } else if (type == "noca") {
         feecur.innerHTML = "¤";
         totalReceivedCur.innerHTML = "¤";
