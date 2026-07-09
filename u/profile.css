@@ -601,6 +601,10 @@ a.linkstv {
     overflow-y: auto;
 }
 
+.mobileonlytt {
+    display: none;
+}
+
 
 @media(orientation:portrait) {
     div.mainscroll {
@@ -918,7 +922,6 @@ a.linkstv {
                 display: flex;
                 min-height: 1vh;
             }
-
     /*transactions*/
     .flex.cc > .input > .ttinput {
         width: 100%;
@@ -928,24 +931,24 @@ a.linkstv {
         display: none;
     }
 
+    .mobileonlytt {
+        display: inline;
+    }
+
     .ttview {
-        max-width: 50em;
-        margin: 2vh auto;
-        padding: 1vh;
-        border-radius: 2vh;
-        background-color: var(--lightbg);
-        box-shadow: rgba(0 0 0 / 50%) 0 3px 5px;
+        max-width: initial;
+        margin: 4vw auto;
+        padding: 2vw;
+        border-radius: 4vw;
     }
 
         .ttview > p {
-            margin: 0 0 1vh 0;
-            font-size: 1.5vh;
-            color: #aaa;
-            text-align: center;
+            margin: 0 0 2vw 0;
+            font-size: 3vw;
         }
 
         .ttview > div.flex.cc > p {
-            margin: 0 0 1vh 0;
+            margin: 0 0 2vw 0;
             font-size: 2vh;
             color: #ccc;
         }
