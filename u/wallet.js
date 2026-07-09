@@ -551,7 +551,7 @@ async function fetchTID(tid) {
             .catch((error) => {
                 console.error('Error invoking function:', error);
                 status.innerHTML = "Something went wrong.";
-                document.getElementById("ttverfbutton").classList.remove("disabled");
+                document.getElementById("ttrepbutton").classList.remove("disabled");
                 document.getElementById("trid").classList.remove("disabled");
             });
     }
