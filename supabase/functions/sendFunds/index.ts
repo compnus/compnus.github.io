@@ -290,7 +290,8 @@ Deno.serve(async (req) => {
                     }
                 });
             }
-            let upmessage = { from: "CompNUS", subject: `You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!`, content: `<p>The amount has been added to your balance.${finalMessage}<br><i>Something wrong? <a class="link" href="transaction.html?report=${logData.id}">Report Transaction></a></i></p>`, owner: bData.id};
+            console.log(JSON.stringify(logData));
+            let upmessage = { from: "CompNUS", subject: `You have received ${totalReceived} <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal !important;">${currencyThing}</span> from ${from}!`, content: `<p>The amount has been added to your balance.${finalMessage}<br><i>Something wrong? <a class="link" href="transaction.html?report=${logData[0].id}">Report Transaction></a></i></p>`, owner: bData.id};
             const { error: cannotSend } = await sb
                 .from("message")
                 .insert(upmessage);

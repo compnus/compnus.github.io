@@ -5,6 +5,7 @@ const LISTE = [
         name: "Robox",
         icon: "https://play-lh.googleusercontent.com/4WJT23_3x0VGuNia2wVJ0M6LO7ZkaiGwWl8avIaPkWpkY3XF6QN1otAA_iumCGWdKg=w240-h480-rw",
         featured: true,
+        feateredinfo: "Best Overall",
         description: "Robox digital products allow you to mine the Robox stable coin in various different ways allowing you to earn a lot of money in a short period of time. Combine this with their special wallet which allows you to earn 6% APY interest and we have a great way to get some extra cash with little-to-no effort!",
         added: "7-15-2024",
         id: "robox_main",
@@ -168,6 +169,7 @@ const LISTE = [
         name: "Honeygain",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F76%2Fca%2F8e%2F76ca8ea85b973ad8168da76b5ab4ceb3.jpg&f=1&nofb=1&ipt=cf6dcdd9d641ccfc089223691b7883e1f40abd128ebe2ac4e87a8a3bdecc08f5",
         featured: true,
+        featuredinfo: "Highest Payouts",
         description: "Get paid for sharing your unused internet! Honeygain is the most popular app for sharing internet in exchange from money or crypto! Also available on Windows, macOS and Linux!",
         added: "7-20-2024",
         id: "honeygain",
@@ -238,7 +240,7 @@ const LISTE = [
         ["Only watch ads if it's worth it!", "Based on unknown parameters, the reward for watching an ad may vary. Do not watch an ad if the reward is below 1Gh/s - you'll waste time watching to ad only to get a fraction of a Satoshi."]],
         benefits: ["10% bonus on all contracts"],
         pros: ["Instant withdrawals with low fee (Lightning Network has only 5 Satoshi fee) and low withdrawal threshold (10 Satoshis)", "The app spoils you with free contracts"],
-        cons: ["Paid contracts take forever to pay off"],
+        cons: ["Paid contracts are basically a scam (you pay 1000 satoshis and after the contract ends you will get around 30 back, which is a net loss of 97%)"],
         banner: "speed"
     },
     {
@@ -1509,7 +1511,7 @@ function load() {
         cnt.innerHTML = `
         <img src="${i.icon}" alt="${i.name} icon" class="icon">
         <div>
-            ${i.featured ? "<h2 title='This app is featured by CompNUS for being a reliable way to earn!'>Featured</h2>" : ""}
+            ${i.featured ? `<h2 title='This app is featured by CompNUS for being a reliable way to earn!'>${i.featuredinfo ? i.featuredinfo : "Featured"}</h2>` : ""}
             <h1>${i.name}</h1>
             <p>${i.description}</p>
         </div>
