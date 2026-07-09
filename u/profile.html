@@ -234,7 +234,7 @@
             <label for="sendmoneyamount">Amount:</label>
             <input type="number" id="sendmoneyamount" placeholder="0.00" step="0.00000001" min="0" oninput="if(document.getElementById('sendmoneyselect').value=='noca'){this.value = Math.floor(this.value)} if(this.value<0){this.value = -this.value} calcFees();">
         </div>
-        <p style="margin:0; color:#ccc">Fee: <span id="sendmoneyfee">0.005</span> <span id="sendmoneyfeecur" style="font-family: 'currencycompnus',Ubuntu !important">$</span> &nbsp;
+        <p style="margin:0; color:#ccc">Fee: <span id="sendmoneyfee">0.0005</span> <span id="sendmoneyfeecur" style="font-family: 'currencycompnus',Ubuntu !important">$</span> &nbsp;
         <span style="font-weight: bold; cursor: pointer" onclick="popup('How is Fee Calculated?','<b>NUS</b><br>Transaction fee for $NUS is 5% of the sent amount, min 0.0005 NUS, max 0.1 NUS.<br><br><b>Nocas</b><br>Transaction fee for Nocas is 1% of the sent amount + 5 Nocas, max 100 Nocas.<br><br><b>Satoshis</b><br>Transaction fee for Satoshis is 5 Sats.')">
         &#9432;</span></p>
         <div id="blockedmessaging">
@@ -439,8 +439,8 @@
                 </div>
                 <p style="margin: 0; width: 100%; text-align: right;" id="valuebtcsats" title="Approximate value based on the current price of Bitcoin (provided by CoinLore)">&asymp; $0.00<span style="color: #999; font-weight: 300">0</span></p>
                 <div id="walletactions">
-                    <button class="fullwidth" title="Send assets to other users!" onclick="sendfundsrqpopupid = popupid; popup('Send Assets', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send Assets</button>
-                    <button class="fullwidth" title="Receive assets from other users!" onclick="recfundsrqpopupid = popupid; popup('Receive Assets', receivefundsrq, false)">Receive Assets</button>
+                    <button class="fullwidth" title="Send assets to other users!" onclick="sendfundsrqpopupid = popupid; popup('Send Assets', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send</button>
+                    <button class="fullwidth" title="Receive assets from other users!" onclick="recfundsrqpopupid = popupid; popup('Receive Assets', receivefundsrq, false)">Receive</button>
                 </div>
                 <button class="fullwidth" title="Detailed view of your assets. You can withdraw your Bitcoin Satoshi here." onclick="location.assign('wallet.html')">Open Wallet</button>
             </div>
