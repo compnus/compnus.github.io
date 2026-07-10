@@ -1,0 +1,25 @@
+main {
+    padding-left: 0;
+    padding-right: 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 2vw;
+}
+
+.sidebar {
+    background-color: var(--lightbg);
+    padding: 2vh;
+    box-shadow: black 0 0 5px;
+}
+
+.sidebar#leftsd {
+    border-radius: 0 2vh 2vh 0;
+}
+
+.sidebar#rightsd {
+    border-radius: 2vh 0 0 2vh;
+}
+
+@media(max-width:800px) {
+
+}

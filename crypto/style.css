@@ -29,6 +29,7 @@
     margin-right: 1vw;
     margin-bottom: 2vh;
     animation: logoPulse 30s ease-in-out infinite;
+    filter: drop-shadow(0 0 3px black);
 }
 
 @keyframes logoPulse {
