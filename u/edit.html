@@ -179,7 +179,7 @@
                     .eq("id", user.id);
 
                 if (error) {
-                    statusElement.textContent = `Error: ${error.message.replace("duplicate key value violates unique constraint \"users_username_key\"", "This username is taken.")}`;
+                    statusElement.textContent = `Error: ${error.message.replace("duplicate key value violates unique constraint \"users_username_key\"", "This username is already taken.")}`;
                 } else {
                     statusElement.textContent = "Account was edited successfully! Returning to dashboard...";
                     setTimeout(() => window.location.href = "profile.html", 1000);

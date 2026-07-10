@@ -36,10 +36,6 @@
                     <input type="text" id="display_name" oninput='this.value = this.value.replaceAll(/[<>"]/g, ""); if (this.value.length>30) this.value = this.value.substring(0,30);'>
                 </div><p class="limited">This name will not be publicly visible, it's merely a name for us to address you. If you choose to leave this empty, it will be set to your username.</p>
                 <div class="input">
-                    <label for="birthdate">* Date of birth:</label>
-                    <input type="date" id="birthdate" required>
-                </div><p class="limited">You must be at least 13 years old to use our services.</p>
-                <div class="input">
                     <label for="rfr">Referral Code:</label>
                     <input type="text" id="rfr">
                 </div><p class="limited" id="rfrlimited">If you input a valid referral code, you will receive 0.01 $NUS for free!</p>
@@ -54,7 +50,6 @@
             const statusElement = document.getElementById("status");
             const usernameInput = document.getElementById("username");
             const displayNameInput = document.getElementById("display_name");
-            const birthdateInput = document.getElementById("birthdate");
             if (localStorage.getItem("referral")) {
                 document.getElementById("rfr").value = localStorage.getItem("referral");
                 document.getElementById("rfr").classList.add("disabled");
@@ -71,7 +66,7 @@
 
             const { data: userData, error: dbError } = await sb
                 .from("users")
-                .select("username, name, birthdate")
+                .select("username, name")
                 .eq("id", user.id)
                 .single();
 
@@ -80,7 +75,6 @@
             } else {
                 if (userData.username) usernameInput.value = userData.username;
                 if (userData.name) displayNameInput.value = userData.name;
-                if (userData.birthdate) birthdateInput.value = userData.birthdate;
                 if (userData.birthdate) window.location.href = "profile.html";
             }
 
@@ -89,25 +83,14 @@
 
                 const username = usernameInput.value.trim();
                 const displayName = displayNameInput.value === "" ? usernameInput.value.trim() : displayNameInput.value.trim();
-                const birthdate = birthdateInput.value;
-
-                const today = new Date();
-                const birthDateObj = new Date(birthdate);
-                const age = today.getFullYear() - birthDateObj.getFullYear();
-                const month = today.getMonth() - birthDateObj.getMonth();
-
-                if (age < 13 || (age === 13 && month < 0)) {
-                    statusElement.textContent = "You are too young.";
-                    return;
-                }
 
                 const { data, error } = await sb
                     .from("users")
-                    .update({ username, name: displayName, birthdate: birthdate })
+                    .update({ username, name: displayName })
                     .eq("id", user.id);
 
                 if (error) {
-                    statusElement.textContent = `Error: ${error.message.replace("duplicate key value violates unique constraint \"users_username_key\"", "This username is taken.")}`;
+                    statusElement.textContent = `Error: ${error.message.replace("duplicate key value violates unique constraint \"users_username_key\"", "This username is already taken.")}`;
                 } else {
                     localStorage.setItem("referral", localStorage.getItem("referral") || document.getElementById("rfr").value);
                     statusElement.textContent = "Setup complete! Redirecting...";
