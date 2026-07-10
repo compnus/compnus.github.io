@@ -166,11 +166,18 @@ main {
         .mainactions > .button:hover, .allActions > .button:hover {
             bottom: 0.2vh;
         }
-
             .mainactions > .button:hover > img, .allActions > .button:hover > img {
                 box-shadow: white 0 0 1vh -0.5vh;
                 background-color: var(--lightbg);
             }
+        .mainactions > .button:active, .allActions > .button:active {
+            transform: scale(0.9);
+        }
+
+        .mainactions > .button:active > img, .allActions > .button:active > img {
+            background-color: var(--bg);
+            transform: scale(0.9);
+        }
 
         .mainactions > .button > p, .allActions > .button > p {
             margin: 0.5vh 0 0 0;
@@ -183,6 +190,15 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10vh,1fr));
     grid-gap: 1vh;
+}
+
+.onhoverglow {
+    transition: 0.2s ease;
+    filter: brightness(100%);
+}
+.onhoverglow:hover {
+    filter: brightness(200%) drop-shadow(0.3vh 0.3vh 0.2vh rgba(255 255 255 / 0.25));
+    color:white;
 }
 
 #adminactions {
@@ -747,20 +763,45 @@ a.linkstv {
         }
 
     .mainactions {
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 4vw;
         margin-bottom: 4vw;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 4vw;
+        height: 42vw;
+        padding-top: 0;
     }
 
-        .mainactions > button:hover {
-            box-shadow: black 0 5px 10px -5px;
-            bottom: 0;
-        }
+            .mainactions > .button > img, .allActions > .button > img {
+                width: 9vw;
+                height: 9vw;
+                background-color: var(--bg);
+                border-radius: 2vw;
+                padding: 2vw;
+                border: var(--border) solid 3px;
+            }
 
-        .mainactions > button:active {
-            box-shadow: white 0 0 10px -5px;
-            bottom: 0.4vw;
-        }
+            .mainactions > .button:hover, .allActions > .button:hover {
+                bottom: 0;
+            }
+
+                .mainactions > .button:active > img, .allActions > .button:active > img {
+                    transform: scale(0.8);
+                }
+
+            .mainactions > .button > p, .allActions > .button > p {
+                margin: 1vw 0 0 0;
+                font-size: 3vw;
+            }
+
+    .allActions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15vw,1fr));
+        grid-gap: 4vw;
+    }
+
+    .allActions > a.button > p {
+        font-size: 2.5vw;
+        font-weight: normal;
+    }
 
     #messagerefresh {
         margin: 0;

@@ -506,8 +506,8 @@
 
             <div class="flex cc">
                 <h1 style="flex:1;text-align:center;cursor:default" class="title">Messages:</h1>
-                <img id="messagenew" title="Send a Message" onclick="location.assign('message.html')" src="https://img.icons8.com/?size=100&id=93480&format=png&color=CCCCCC" />
-                <p id="messagerefresh" title="Refresh Messages" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadMessages();" style="transform: rotate(45deg);">&orarr;</p>
+                <img id="messagenew" title="Send a Message" onclick="location.assign('message.html')" src="https://img.icons8.com/?size=100&id=93480&format=png&color=CCCCCC" class="onhoverglow" />
+                <p id="messagerefresh" title="Refresh Messages" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadMessages();" style="transform: rotate(45deg);" class="onhoverglow">&orarr;</p>
             </div>
             <div id="messagecont">
                 <p>You have no messages.</p>
