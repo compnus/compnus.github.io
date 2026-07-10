@@ -75,7 +75,7 @@
             } else {
                 if (userData.username) usernameInput.value = userData.username;
                 if (userData.name) displayNameInput.value = userData.name;
-                if (userData.birthdate) window.location.href = "profile.html";
+                if (userData.username && userData.name) window.location.href = "profile.html";
             }
 
             form.addEventListener("submit", async (event) => {
