@@ -167,6 +167,7 @@ header {
     width: 6vh;
     margin-right: 1vw;
     transition: filter ease 1s, transform ease 1s;
+    filter: drop-shadow(black 0 0 3px);
 }
 
 #headerlogo:hover {
