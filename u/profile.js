@@ -304,7 +304,7 @@ I do acknowledge, that I will lose access to everything connected to my CompNUS 
 }
 
 async function showAccountInfo() {
-    const { data, error } = await sb.from("users").select("username, email, birthdate").eq("id", dt.uid).single();
+    const { data, error } = await sb.from("users").select("username, email").eq("id", dt.uid).single();
     const { data: data1, error: error1 } = await sb.from("udata").select("can_message, referred, invitees").eq("user_id", dt.uid).single();
     if (error || !data || error1 || !data1) {
         popup("An Error Occured", "An error occurred while fetching your account information.<br>" + (error ? error.message : "") + (error1 ? "<br>" + error1.message : ""));
@@ -316,7 +316,6 @@ async function showAccountInfo() {
     popup("Account Information", `
     <b>Username:</b> ${data.username}<br>
     <b>Email:</b> ${data.email}<br>
-    <b>Date of Birth:</b> ${new Date(data.birthdate).toLocaleDateString()}<br>
     <b>Banned from Sending Messages:</b> ${data1.can_message ? "No" : "Yes"}<br>
     ${data1.referred ? "<b>Referred By:</b> " + data1.referred + "<br>" : ""}<br>
     You invited <b>${invites} user${invites == 1 ? "" : "s"}</b> to CompNUS.
