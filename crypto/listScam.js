@@ -2,6 +2,46 @@ var FILTERID = "scam0";
 
 var LISTS = [
     {
+        name: "TON Miner",
+        icon: "https://minitelegram.com/_next/image?url=https%3A%2F%2Fminitelegram-media.s3.eu-central-003.backblazeb2.com%2F3e38a1b6cf44c9f27552aa8422a6760a2e6a8afd-320x320.jpg&w=256&q=70",
+        short: "When something seems too good to be true, it's probably a scam.",
+        long: `This app is one of like a hundred apps built of the same template - free mining, want to withdraw? well deposit one TON to protect from bots. Oh! Oh no! Suddenly, it's impossible to log in! Oh shoot! So unfortunate!`,
+        id: "minetonapp_",
+        category: 1
+    },
+    {
+        name: "NiTon Mining",
+        icon: "https://static.nicegram.app/features/telegram_channel_icons/3db6bedf-62a1-40fa-9c7e-4e60885f56ee.jpeg",
+        short: "When something seems too good to be true, it's probably a scam.",
+        long: `This app is one of like a hundred apps built of the same template - free mining, want to withdraw? well deposit one TON to protect from bots. Oh! Oh no! Suddenly, it's impossible to log in! Oh shoot! So unfortunate!`,
+        id: "nitonntonapp_",
+        category: 1
+    },
+    {
+        name: "BlueTon",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Feasy-peasy.ai%2Fcdn-cgi%2Fimage%2Fquality%3D80%2Cformat%3Dauto%2Cwidth%3D700%2Fhttps%3A%2F%2Fmedia.easy-peasy.ai%2F27feb2bb-aeb4-4a83-9fb6-8f3f2a15885e%2Fdbadee08-c5a9-4e50-9ea6-ea81c85eaa09.png&f=1&nofb=1&ipt=cc0429e4433bc1f35237d9d2b15f4fe92aeb9fdf96df4fd2dff3d53df322e447",
+        short: "When something seems too good to be true, it's probably a scam.",
+        long: `This app is one of like a hundred apps built of the same template - free mining, want to withdraw? well deposit one TON to protect from bots. Oh! Oh no! Suddenly, it's impossible to log in! Oh shoot! So unfortunate!`,
+        id: "bluertonapp_",
+        category: 1
+    },
+    {
+        name: "Fast Miner",
+        icon: "https://minitelegram.com/_next/image?url=https%3A%2F%2Fminitelegram-media.s3.eu-central-003.backblazeb2.com%2F43427ce03ee84ddd274909c187837240b042aa5f-320x320.jpg&w=256&q=70",
+        short: "Look at how fast your money leave your wallet!",
+        long: `This app is one of like a hundred apps built of the same template - free mining, want to withdraw? well deposit one TON to protect from bots. Oh! Oh no! Suddenly, it's impossible to log in! Oh shoot! So unfortunate!`,
+        id: "fastminerapp_",
+        category: 1
+    },
+    {
+        name: "Solanix App",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpublic.bnbstatic.com%2Fimage%2Fcms%2Fcrawler%2FWALLETINVESTOR_NEWS%2FBest_Telegram_Trading_Bots.webp&f=1&nofb=1&ipt=1520a71c7bd5e50c29a41de1bda578836b73ef6e7ca85d43e1cfe85a89baceda",
+        short: "When something seems too good to be true, it's probably a scam.",
+        long: `This app is one of like a hundred apps built of the same template - free mining, want to withdraw? well deposit one TON to protect from bots. Oh! Oh no! Suddenly, it's impossible to log in! Oh shoot! So unfortunate!`,
+        id: "solanixapp_",
+        category: 1
+    },
+    {
         name: "Qzino",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoingape.com%2Fwp-content%2Fuploads%2F2024%2F03%2FQzino-square-logo-2.webp&f=1&nofb=1&ipt=72bb292163f9b9b9b53b8e8a06e71f41507e564e32822f8ade5ac6871929664d",
         short: "Now the casino may not be a scam, but the project that preceeded it definitely was.",
@@ -67,7 +107,7 @@ var LISTS = [
     },
     {
         name: "kegli",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpixy.org%2Fsrc%2F294%2Fthumbs350%2F2941790.jpg&f=1&nofb=1&ipt=05e894678db10dc0d7ba2517d7989e65171b31e7f9f9607211e2b0e00c19b234",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.DlI-A7D5siIRkmmbu9BBGgAAAA%3Fr%3D0%26pid%3DApi&f=1&ipt=c66abde8aed93623d95f102d8e01eea48fbf72be9666264dc5408fb2b395ce33",
         short: "Want some stars? Well too bad!",
         long: `Yet another one of those infinite ad loop holes like <a class="link" href="?id=zvjozdyzaum">Stars for intelligence</a>.`,
         id: "kegli",

@@ -46,7 +46,7 @@ const LISTE = [
         features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"]],
         tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APY interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."], ["Use dual apps! (if possible)", "If your phone supports dual apps, make sure to use it to effectively double your earnings! When withdrawing to NC Wallet, don't forget to use your main account's email."]],
         pros: ["Instant withdrawals with extremely low threshold", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN"],
-        cons: ["Unreliable notification service", "Paid plans will mostly result in a loss"],
+        cons: ["Rather annoying notification service", "Paid plans will mostly result in a loss"],
         banner: "nc"
     },
     {
@@ -75,7 +75,7 @@ const LISTE = [
         features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"]],
         tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APY interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."], ["Use dual apps! (if possible)", "If your phone supports dual apps, make sure to use it to effectively double your earnings! When withdrawing to NC Wallet, don't forget to use your main account's email."]],
         pros: ["Instant withdrawals with extremely low threshold", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN", "Steps carry on to the next day, which means eventually you won't have to care about them anymore, since you will have hundreds of thousands spare steps"],
-        cons: ["Unreliable notification service", "Paid plans will mostly result in a loss"],
+        cons: ["Rather annoying notification service", "Paid plans will mostly result in a loss"],
         banner: "nc"
     },
     {
@@ -104,7 +104,7 @@ const LISTE = [
         features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"], ["Free VPN Service", "7 free VPN locations to protect you online. Additional locations and special servers available for paid users."]],
         tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APY interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."]],
         pros: ["Instant withdrawals with extremely low threshold", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN", "Excess website visits carry on to the next day, which means you won't have to visit as many websites if you have any spare visits"],
-        cons: ["Unreliable notification service", "Paid plans will mostly result in a loss", "The free VPN service is painfully slow and the decent ones are locked behind a paid plan"],
+        cons: ["Rather annoying notification service", "Paid plans will mostly result in a loss", "The free VPN service is painfully slow and the decent ones are locked behind a paid plan"],
         banner: "nc"
     },
     {
@@ -133,7 +133,7 @@ const LISTE = [
         features: [["Single-Tap Mining", "Mine with a single click and that's it! Simple and effortless!"], ["Instant, Low-Limit Withdrawals", "Withdraw from 0.1ROX instantly into your NC Wallet!"], ["Breathing Tutorial and Relaxing Sounds", "Robox Relax offers 8 different breathing routines accompanied by soothing sounds that help you relax your mind."]],
         tips: [["Rush withdrawals!", "Withdrawing is fee-free - so why would you wait? Once you reach 0.1ROX, withdraw it to your NC Wallet to enjoy 6% APY interest!"], ["Refrain from buying premium plans!", "You'd literally have to claim EVERY. THREE. HOURS. in order to get any value from them. Assuming you sleep for 8 hours a day, the max amount of claims you can get per day is 5, and the plans are only profitable if you claim 7 or more times per day. That's not very relaxing."], ["Do not rely on notifications!", "A massive drawback of this app is the notification service, which is not always accurate. If you want to maximize your earnings (although increasing the effort), set an alarm to remind you to claim every three hours."]],
         pros: ["Instant withdrawals with extremely low threshold", "Comes with its own wallet you can use to send or receive $ROX", "Very high app security offering pass keys and withdrawal PIN", "Excess meditation energy carries on to the next day"],
-        cons: ["Unreliable notification service", "Paid plans will mostly result in a loss"],
+        cons: ["Rather annoying notification service", "Paid plans will mostly result in a loss"],
         banner: "nc"
     },
     {
@@ -472,6 +472,70 @@ const LISTE = [
         banner: "speed"
     },
     {
+        name: "Tapmining",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FBk8C7Ev2sUXdKoTMW9tOnI5VGKqs73jkuBIncnawNnMSU2rvB14FmLrcBahHy9tQIA&f=1&nofb=1&ipt=c4ee8ecff2a25329472af0f379b3fdbe34686afbc7d50a4774038b52f980a7c0",
+        featured: false,
+        description: "Simple Bitcoin miner, allowing you to mine bitcoin passively or for watching ads. Offers daily contracts for passive mining and extra mining contracts for ads!",
+        added: "2-2-2024",
+        id: "btctap",
+        attr: {
+            verified: 1,
+            dividends: true,
+            platform: "ai",
+            type: "mine",
+            coin: "btc",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "Classic mining service that allows you to purchase computing power and mine Bitcoin effortlessly. But don't forget our speciality: free contracts! Check in every day to claim free contracts and watch ads to get even more contracts! Withdraw your earnings into your <a href='/promo/speed.html' style='color:yellow'>Speed Wallet</a> and enjoy some free Bitcoin!",
+            effort: "Check-in daily for free contracts. Optionally, you can watch ads for more contracts."
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=tap.miner.cloudmining.tool&hl=en",
+            code: "SR2T8B"
+        },
+        features: [["Free Contracts", "Collect a free contract daily and up to 30 extra free contracts every day are available for watching ads!"]],
+        tips: [["There are no tips.", "This is usually the part where you would see &quot;Use dual apps!&quot;, however, this app somehow knows how to prevent it. So just get on there and mine, mine, mine!"]],
+        benefits: [],
+        pros: ["Computing power rewarded for watching ads increases with every ad watched (this means that for watching one ad you will get for example 5GH/s, but after watching 2 ads, the next one will give you 5.2GH/s instead)"],
+        cons: ["Paid contracts take forever to pay off", "Random ad popups"],
+        banner: "speed"
+    },
+    {
+        name: "Launch Bitcoin Mining",
+        icon: "https://play-lh.googleusercontent.com/guAhvwpT6iT_SSjiFVynYO6vWd7Cj6WUquuFnR4DqVxEZ-lNQXI9YDSNukYpntiTzwIztdwKlDf1kRshY6pr=w240-h480-rw",
+        featured: false,
+        description: "Simple Bitcoin miner, allowing you to mine bitcoin passively or for watching ads. Offers daily contracts for passive mining and extra mining contracts for ads, along with daily tasks for even more free contracts!",
+        added: "2-10-2026",
+        id: "btclaunch",
+        attr: {
+            verified: 1,
+            dividends: false,
+            platform: "a",
+            type: "mine",
+            coin: "btc",
+            effort: 0,
+            rating: 4
+        },
+        info: {
+            description: "Classic mining service that allows you to purchase computing power and mine Bitcoin effortlessly. But don't forget about our favorite part: free contracts! Check in 8 hours to claim a free contract and watch ads to get even more contracts! Complete daily tasks for, you got that right, <b>EVEN MORE</b> contracts! Withdraw your earnings into your <a href='/promo/speed.html' style='color:yellow'>Speed Wallet</a> and enjoy some free Bitcoin!",
+            effort: "Check-in daily for free contracts. Optionally, you can watch ads and complete daily tasks for more contracts."
+        },
+        go: {
+            type: 1,
+            link: "https://play.google.com/store/apps/details?id=com.wind.ebox.wbtc",
+            code: "124156"
+        },
+        features: [["Free Contracts", "Collect a free contract every 8 hours and up to 30 extra free contracts every day are available for watching ads!"], ["Daily Tasks", "Complete daily tasks to earn more free contracts! Without spending a dime, you can earn two special contracts a day this way!"]],
+        tips: [["There are no tips.", "This is usually the part where you would see &quot;Use dual apps!&quot;, however, this app somehow knows how to prevent it. So just get on there and mine, mine, mine!"]],
+        benefits: ["We are not quite sure how this app's referral program works yet, but if it means income, we will distribute dividends!"],
+        pros: ["Generous ad rewards"],
+        cons: ["Paid contracts take forever to pay off"],
+        banner: "speed"
+    },
+    {
         name: "WeMine",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.E1g-yjbboAD6wz_myPC8cwAAAA%3Fpid%3DApi&f=1&ipt=bf97f72a9fb6c087219b63c6fe858dc8b318bc3596c0c41cd6ecf73f4d8aa2fe",
         description: "Mine USDT, $LABR and WeMine's own token $WM for free! Solve daily cases to get extra wUSDT and WM that can be used to upgrade your miners and enjoy extra income!",
@@ -623,36 +687,42 @@ const LISTE = [
         banner: "bin"
     },
     {
-        name: "Tapmining",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FBk8C7Ev2sUXdKoTMW9tOnI5VGKqs73jkuBIncnawNnMSU2rvB14FmLrcBahHy9tQIA&f=1&nofb=1&ipt=c4ee8ecff2a25329472af0f379b3fdbe34686afbc7d50a4774038b52f980a7c0",
-        featured: false,
-        description: "Simple Bitcoin miner, allowing you to mine bitcoin passively or for watching ads. Offers daily contracts for passive mining and extra mining contracts for ads!",
-        added: "2-2-2024",
-        id: "btctap",
+        name: "Easy Gift",
+        icon: "https://dbc.fmsnsr.xyz/api/files/1nlpavfhdos0lje/ee95935j2vc83f0/avatar_4p5x6m84a1.jpg",
+        description: "Collect stars, open cases and win awesome gifts! Border of regular cases? Check out more game modes! As for the gambling aspect - yes, you can spin for free once per day. And if you want to do it more often, you will need to risk your earned stars. Just, try not to deposit.",
+        added: "1-20-2026",
+        id: "easygiftru",
         attr: {
             verified: 0,
             dividends: false,
-            platform: "ai",
-            type: "mine",
-            coin: "btc",
+            platform: "t",
+            type: "faucet",
+            coin: "stars",
             effort: 0,
             rating: 4
         },
         info: {
-            description: "Classic mining service that allows you to purchase computing power and mine Bitcoin effortlessly. But don't forget our speciality: free contracts! Check in every day to claim free contracts and watch ads to get even more contracts! Withdraw your earnings into your <a href='/promo/speed.html' style='color:yellow'>Speed Wallet</a> and enjoy some free Bitcoin!",
-            effort: "Check-in daily for free contracts. Optionally, you can watch ads for more contracts."
+            description: "Get a wide selection of Telegram gifts for free in Easy Gift! While it is easy to get common gifts, it is way better to save up those free stars and then spin a case with 100% NFT guarantee, which you can withdraw and sell for real money! Sell common gifts for Stars and collect NFT Gifts to sell them on the marketplace for Stars and TON! If you decide to deposit (although we are strongly against depositing to gambling apps), we will provide cashback in the form of dividends!",
+            effort: "Spin a case for one star every day. Complete tasks to earn free stars."
         },
         go: {
-            type: 1,
-            link: "https://play.google.com/store/apps/details?id=tap.miner.cloudmining.tool&hl=en",
-            code: "SR2T8B"
+            type: 0,
+            link: "https://t.me/EasyGiftDropbot?startapp=ref_1539770"
         },
-        features: [["Free Contracts", "Collect a free contract daily and up to 30 extra free contracts every day are available for watching ads!"]],
-        tips: [["There are no tips.", "This is usually the part where you would see &quot;Use dual apps!&quot;, however, this app somehow knows how to prevent it. So just get on there and mine, mine, mine!"]],
-        benefits: ["This app is not exactly transparent about this. But it probably relates to passive boost in mining power.", "If this app gets verified, we will distribute dividends."],
-        pros: ["Computing power rewarded for watching ads increases with every ad watched (this means that for watching one ad you will get for example 5GH/s, but after watching 2 ads, the next one will give you 5.2GH/s instead)"],
-        cons: ["Paid contracts take forever to pay off", "Random ad popups"],
-        banner: "speed"
+        benefits: ["When the app gets verified, we will distribute dividends for bonus cases, and cashback in the form of dividends. (You will only be able to request this cashback after you have deposited at least 10 Stars and the cashback will be proportional to the amount you have deposited in total)"],
+        features: [
+            ["Open Cases to Win Gifts", "Open cases to win stars, common gifts to sell or NFTs to withdraw! Watch out for limited NFT-only cases!"],
+            ["Tasks", "Check out tasks to get free stars and open cases without the need of depositing!"],
+            ["Crash and PvP", "Just some game modes to feed your gambling addiction."],
+            ["Modes", "Check out new game modes for interesting rewards!"]
+        ],
+        tips: [
+            ["Patience is key.", "While cheap cases might seem appealing, they come with a huge risk of losing up to 90% of their cost. Instead, save up for limited NFT-only cases which guarantee NFT rewards which you can withdraw and sell for real money!"],
+            ["Season pass - Scam but not really", "If you are a casual and you want to earn free stars and get free gifts, the season pass might seem like a scam. But if you actually want to deposit at least 1700 Stars (yes, it's a ridiculous amount), the season pass will actually give you more than you invest - for 99 Stars you will get 60 Stars back + gifts worth another 55 Stars."]
+        ],
+        pros: ["Very simple to use", "Unlike most apps with gambling aspect, it allows you to collect freebies without depositing (this might be wrong about withdrawing, we will update you)", "Occasional NFT-guaranteed cases"],
+        cons: ["Withdrawn common gifts cannot be sold for stars", "Support ignores you most of the time"],
+        banner: "bin"
     },
     {
         name: "Klink",
@@ -941,6 +1011,42 @@ const LISTE = [
         ],
         pros: ["Wagering results in your faucet earnings being increased", "Paid surveys"],
         cons: ["The website signs you out very frequently", "You need to solve a captcha for everything - logging in, faucet claims, withdrawal, and so on with a simple problem - sometimes it just doesn't work"],
+        banner: "bin"
+    },
+    {
+        name: "Swag Gift",
+        icon: "https://telegifter.ru/wp-content/themes/gifts/assets/img/gifts/noupdate/Snoop%20Dogg.webp",
+        description: "Collect Gram, open cases and win 'swag' gifts! As for the gambling aspect - yes, you can spin for free once per day. And if you want to do it more often, you will need to risk your earned Gram. Just, try not to deposit.",
+        added: "1-21-2026",
+        id: "swaggiftru",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "t",
+            type: "faucet",
+            coin: "ton",
+            effort: 0,
+            rating: 3
+        },
+        info: {
+            description: "Get a wide selection of Telegram gifts for free in Swag Gift! While it is easy to get common gifts, it is way better to save up that free Gram and then spin a case with 100% NFT guarantee, which you can withdraw and sell for real money! Sell common gifts for Gram and collect NFT Gifts to sell them on the marketplace for Stars and Gram (TON)! If you decide to deposit (although we are strongly against depositing to gambling apps), we will provide cashback in the form of dividends!",
+            effort: "Spin a case for free every day. Complete tasks to earn free Gram."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/SwagGiftBot?startapp=ref_64522"
+        },
+        benefits: ["When the app gets verified, we will distribute cashback in the form of dividends. (You will only be able to request this cashback after you have deposited at least 0.1 Gram (TON) and the cashback will be proportional to the amount you have deposited in total)"],
+        features: [
+            ["Open Cases to Win Gifts", "Open cases to win Gram, common gifts to sell or NFTs to withdraw! Watch out for limited NFT-only cases!"],
+            ["Tasks", "Check out tasks to get free Gram!"],
+            ["Crash and PvP", "Just some game modes to feed your gambling addiction."]
+        ],
+        tips: [
+            ["Patience is key.", "While cheap cases might seem appealing, they come with a huge risk of losing up to 90% of their cost. Instead, save up for limited NFT-only cases which guarantee NFT rewards which you can withdraw and sell for real money!"]
+        ],
+        pros: ["Unlike most apps with gambling aspect, it allows you to collect freebies without depositing (this might be wrong about withdrawing, we will update you)", "Occasional NFT-guaranteed cases"],
+        cons: ["Withdrawn common gifts cannot be sold for stars", "Due to the amount of animations, the app is straight-up unusable on mobile devices"],
         banner: "bin"
     },
     {
@@ -1253,6 +1359,42 @@ const LISTE = [
         banner: "bin"
     },
     {
+        name: "MineSwap",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJeqyLgSEmRxW8iLD6l9jVAdxGj19SqvFnfB1b1NX7iwkSlT6DO9N474a_Y1Zuw7uzg&f=1&nofb=1&ipt=92bd992de62f8e1528f4a08e19cad60d0af02273b46fa8e4a3899e85ca6f9a5b",
+        description: "Why focus on mining a single coin when you can just... not? Why not focus on mining ALL OF THEM? MineSwap allows you to mine multiple cryptocurrencies of your choice at once! Although there is a limitation of how many at once, you can expand this by opening your daily loot box!",
+        added: "2-1-2026",
+        id: "mineswaptg",
+        attr: {
+            verified: -1,
+            dividends: false,
+            platform: "t",
+            type: "mine",
+            coin: "other:MineSwap other:NOTAI other:MRSOON other:Dogecoin other:NOT other:Pepe other:DOGS other:SHIB other:BABYDOGE other:HMSTR other:CATI other:Pump.fun other:MISSION other:Bonk other:FLOKI other:XEmpire other:MOG other:DuckChain other:REDX",
+            effort: 0,
+            rating: 3
+        },
+        info: {
+            description: "Mine all of them at once! MineSwap allows you to choose your favorite cryptocurrencies and mine them all at the same time! Open loot boxes to increase your hashrate and wallet slots, level up for even more hashrate and complete tasks for even more rewards! Not enough? Boost your rewards by doubling them via watching an ad!",
+            effort: "Start mining every day and open the loot box."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/mine_swap_bot?startapp=44E3ZQ36"
+        },
+        benefits: ["If the app gets verified, we will distribute dividends."],
+        features: [["Mining", "Choose from a variety of cryptocurrencies to mine at once!"],
+            ["Loot Boxes", "Open your free loot box every day to get extra XP, Hashrate, Wallet Slots or even VIP!"],
+        ["Tasks", "Complete tasks for extra XP!"]
+        ],
+        tips: [
+            ["Do not buy VIP!", "Not only is this app extremely suspicious, given the negative reviews of the <a href='viewNew.html?id=mineswap' target='_blank'>MineSwap Mobile App</a>. Other than that, you can get VIP for free from epic and legendary loot boxes (so around 5% chance per day)."],
+            ["Do not buy wallet slots and hashrate!", "This is the exact same case as with the previous tip - you can get both for free from loot boxes, and spending money on an app with a shady background is generally never a good idea."]
+        ],
+        pros: ["Clean Interface", "New coins added frequently", "Active developer team", "Generous loot box rewards"],
+        cons: ["Withdrawing requires inviting people", "Advertisements in form of notifications"],
+        banner: "blum"
+    },
+    {
         name: "Ember",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fsync%2Fv2%2FC5627AQGPHFOCqQabrg%2Farticleshare-shrink_800%2Farticleshare-shrink_800%2F0%2F1732020021145%3Fe%3D2147483647%26v%3Dbeta%26t%3D8dGxtwsgi7yjj0RZlUiMO20lbg7t0Xf6PO66NPZfAdM&f=1&nofb=1&ipt=796f699f6d25986cc639a101cf9e8a7011e67befddcb4856f2e82ce930fe4f84",
         description: "Mine Bitcoin, wager it and withdraw! With new games added occasionally and new ways to earn being slowly introduced, you can enjoy all flavors of earnings! This includes: microtasks, gambling and predictions as of now! Another gambling app? Brooooooo why.",
@@ -1428,7 +1570,6 @@ function search(via) {
         var xc = "There are no apps that match your filters and/or search query.<br>"
         if (via.includes("nc") || via.includes("wall")) xc += "Are you perhaps looking for <a href='viewEarn.html?id=nc'>NC Wallet</a>?";
         else if (via.includes("labr")) xc += "Are you perhaps looking for <a href='viewEarn.html?id=labrador'>Labrador Adventures</a>?";
-        else if (via.includes("bit") || via.includes("game")) xc += "Are you perhaps looking for <a href='viewEarn.html?id=bitgame'>BitGame</a>?";
         else if (via.includes("sweat")) xc += "Are you perhaps looking for <a href='viewEarn.html?id=sweatcoin'>Sweatcoin</a>?";
         jmsg.innerHTML = xc;
     } else {
@@ -1501,7 +1642,7 @@ function load() {
         atr.appendChild(type);
         let coin = document.createElement("div");
         if (i.attr.coin === "btc") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexplore-feed.github.com%2Ftopics%2Fbitcoin%2Fbitcoin.png&f=1&nofb=1&ipt=0fc5f2026f1b50c404143ab248bb02156a85728bb713e9281df90d4b8e90e6ce'><p>Bitcoin</p>";
-        else if (i.attr.coin === "ton") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoin-images.coingecko.com%2Fcoins%2Fimages%2F17980%2Flarge%2Fton_symbol.png%3F1696517498&f=1&nofb=1&ipt=90939ae1f3c6eb4ce309bc33f8ae788e1492abf53131bc126af4e0711d839d50'><p>TON</p>";
+        else if (i.attr.coin === "ton") coin.innerHTML = "<img src='https://ton.org/_astro/gram-diamond.j6fi5JxQ.svg'><p>Gram (TON)</p>";
         else if (i.attr.coin === "usdt") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresource.cwallet.com%2Ftoken%2Flarge_icon%2Fusdt.png&f=1&nofb=1&ipt=f469902176a107dc91dcaf25aaf1c1464937d8ee8c51213dca9c4f4cb5635d80'><p>USDT/USDC</p>";
         else if (i.attr.coin === "stars") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'><p>Telegram Stars</p>";
         else if (i.attr.coin.startsWith("other:")) coin.innerHTML = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"><p>${i.attr.coin.substring(6)}</p>`;
@@ -1626,7 +1767,7 @@ function loadView(item) {
     let curr;
     switch (item.attr.coin) {
         case "btc": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexplore-feed.github.com%2Ftopics%2Fbitcoin%2Fbitcoin.png&f=1&nofb=1&ipt=0fc5f2026f1b50c404143ab248bb02156a85728bb713e9281df90d4b8e90e6ce'> Bitcoin"; break;
-        case "ton": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoin-images.coingecko.com%2Fcoins%2Fimages%2F17980%2Flarge%2Fton_symbol.png%3F1696517498&f=1&nofb=1&ipt=90939ae1f3c6eb4ce309bc33f8ae788e1492abf53131bc126af4e0711d839d50'> TON"; break;
+        case "ton": curr = "<img src='https://ton.org/_astro/gram-diamond.j6fi5JxQ.svg'> Gram (TON)"; break;
         case "usdt": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresource.cwallet.com%2Ftoken%2Flarge_icon%2Fusdt.png&f=1&nofb=1&ipt=f469902176a107dc91dcaf25aaf1c1464937d8ee8c51213dca9c4f4cb5635d80'> USDT/USDC"; break;
         case "stars": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'> Telegram Stars"; break;
         default:
@@ -1638,7 +1779,7 @@ function loadView(item) {
                     let xpr = "";
                     switch (i) {
                         case "btc": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexplore-feed.github.com%2Ftopics%2Fbitcoin%2Fbitcoin.png&f=1&nofb=1&ipt=0fc5f2026f1b50c404143ab248bb02156a85728bb713e9281df90d4b8e90e6ce'> Bitcoin"; break;
-                        case "ton": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcoin-images.coingecko.com%2Fcoins%2Fimages%2F17980%2Flarge%2Fton_symbol.png%3F1696517498&f=1&nofb=1&ipt=90939ae1f3c6eb4ce309bc33f8ae788e1492abf53131bc126af4e0711d839d50'> TON"; break;
+                        case "ton": xpr = "<img src='https://ton.org/_astro/gram-diamond.j6fi5JxQ.svg'> Gram (TON)"; break;
                         case "usdt": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresource.cwallet.com%2Ftoken%2Flarge_icon%2Fusdt.png&f=1&nofb=1&ipt=f469902176a107dc91dcaf25aaf1c1464937d8ee8c51213dca9c4f4cb5635d80'> USDT/USDC"; break;
                         case "stars": xpr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'> Telegram Stars"; break;
                         default: xpr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${i.substring(6)}`;
@@ -1648,7 +1789,7 @@ function loadView(item) {
                     xpe.innerHTML = xpr;
                     xpt.push(xpe.outerHTML);
                 }
-                document.getElementById("currency").setAttribute("onclick", `popup('Earning Currencies', '${xpt.join(" ")}')`);
+                document.getElementById("currency").setAttribute("onclick", `popup('Earning Currencies', '${xpt.join(" ")}<p style="margin:0">')`);
                 document.getElementById("currency").classList.add("clickableCurr");
             }
     }
