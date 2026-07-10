@@ -584,17 +584,20 @@ div.popup > div > div.inside > h1 {
     }
 
 
-@media(orientation:portrait){
+@media(max-width:800px) {
     p, li, input {
         font-size: 4vw;
     }
+
     h0 {
         font-size: 6vw;
     }
+
     h2 > .resm {
         font-size: 4vw;
         margin: 0 0 0 2vw;
     }
+
     textarea {
         resize: none;
         min-height: 50vh;
@@ -604,19 +607,23 @@ div.popup > div > div.inside > h1 {
         border-radius: 4vw;
         padding: 2vw;
     }
+
     button {
         font-size: 4vw;
         border-radius: 4vw;
         padding: 2vw 4vw;
     }
+
     .link.nav {
         font-size: 5vw;
     }
+
     .grid.unirow {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
         row-gap: 2vw;
     }
+
     #userlogin {
         grid-column: 1 / -1;
     }
@@ -681,10 +688,10 @@ div.popup > div > div.inside > h1 {
         text-align: right;
     }
 
-    .footerx + .footerx {
-        justify-items: start;
-        text-align: left;
-    }
+        .footerx + .footerx {
+            justify-items: start;
+            text-align: left;
+        }
 
         .footerx > .fnav {
             font-size: 5vw !important;
@@ -715,15 +722,15 @@ div.popup > div > div.inside > h1 {
         min-height: calc(100vh - 52vw);
     }
 
-        .link.hnav {
-            margin-right: 0;
-            font-size: 6vw;
-        }
+    .link.hnav {
+        margin-right: 0;
+        font-size: 6vw;
+    }
 
-        .link.fnav {
-            margin-left: 3vw;
-            font-size: 4vw;
-        }
+    .link.fnav {
+        margin-left: 3vw;
+        font-size: 4vw;
+    }
 
     .link.inav {
         height: 7vw;
@@ -802,9 +809,9 @@ div.popup > div > div.inside > h1 {
                     height: 5vw;
                 }
 
-        div.popup > div {
-            max-width: 80vw;
-        }
+    div.popup > div {
+        max-width: 80vw;
+    }
 
     div.popup > div {
         max-width: 80vw;
@@ -816,10 +823,10 @@ div.popup > div > div.inside > h1 {
             margin-bottom: 2vw;
         }
 
-                div.popup > div > div.inside > h1 {
-                    margin-right: 3vw;
-                    font-size: 7vw;
-                }
+            div.popup > div > div.inside > h1 {
+                margin-right: 3vw;
+                font-size: 7vw;
+            }
 
             div.popup > div > div.inside > h2 {
                 font-size: 6vw;
@@ -832,6 +839,7 @@ div.popup > div > div.inside > h1 {
         grid-gap: 2vw 4vw;
         height: initial;
     }
+
         .promobannerad > img {
             width: 20vw;
             height: 20vw;

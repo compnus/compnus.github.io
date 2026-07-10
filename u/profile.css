@@ -636,7 +636,7 @@ a.linkstv {
     font-size: inherit;
 }
 
-@media(orientation:portrait) {
+@media(max-width:800px) {
     div.mainscroll {
         height: initial;
         padding: 0;

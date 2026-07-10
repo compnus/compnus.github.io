@@ -916,7 +916,7 @@ main#nofilters > #messagenone {
         box-shadow: yellow 0 0 3px;
     }
 
-@media(orientation:portrait) {
+@media(max-width:800px) {
     #header {
         position: sticky;
         top: -25vw;
@@ -978,6 +978,7 @@ main#nofilters > #messagenone {
         grid-template-areas: "search" "filters" "list";
         grid-template-rows: auto auto auto;
     }
+
         main#nofilters {
             grid-template-areas: "search" "list";
             grid-template-rows: 0 calc(29.5vw + 9px) auto 1fr;
@@ -1167,9 +1168,9 @@ main#nofilters > #messagenone {
             color: white;
         }
 
-            .filter.checked:hover {
-                color: white;
-            }
+        .filter.checked:hover {
+            color: white;
+        }
 
     #messagenone {
         position: absolute;
@@ -1245,19 +1246,19 @@ main#nofilters > #messagenone {
         margin-bottom: 2vw;
     }
 
-    #mobiletabs > label {
-        font: bold 6vw Gabarito;
-    }
+        #mobiletabs > label {
+            font: bold 6vw Gabarito;
+        }
 
-    #mobiletabs > select {
-        font: bold 5vw Gabarito;
-        flex: 1;
-        border-radius: 2vw;
-        background-color: var(--bg);
-        border: 2px solid var(--border);
-        padding: 1vw;
-        margin-left: 4vw;
-    }
+        #mobiletabs > select {
+            font: bold 5vw Gabarito;
+            flex: 1;
+            border-radius: 2vw;
+            background-color: var(--bg);
+            border: 2px solid var(--border);
+            padding: 1vw;
+            margin-left: 4vw;
+        }
 
     #mobileopentab {
         border-radius: 2vw;
@@ -1287,17 +1288,17 @@ main#nofilters > #messagenone {
         grid-gap: 4vw;
     }
 
-    #maininfogrid > * {
-        justify-self: center;
+        #maininfogrid > * {
+            justify-self: center;
+        }
+
+    #maininfofeatures::after {
+        margin: 1vw 0 2vw 0;
     }
 
-        #maininfofeatures::after {
-            margin: 1vw 0 2vw 0;
-        }
-
-        #maininfofeatures::before {
-            margin: 4vw 0;
-        }
+    #maininfofeatures::before {
+        margin: 4vw 0;
+    }
 
     #platforms > img, #currency > img {
         height: 7vw;
@@ -1352,23 +1353,23 @@ main#nofilters > #messagenone {
         width: fit-content;
     }
 
-        #utilitybuttons > a {
-            border: solid 1vw var(--border);
-            padding: 1vw;
-            margin: 2vw 0;
-            box-shadow: rgb(0 0 0) 0 0 2vw, rgb(0 0 0 / 75%) 0 0 5vw, rgb(0 0 0 / 50%) 0 0 10vw;
-            height: 7.5vw;
+    #utilitybuttons > a {
+        border: solid 1vw var(--border);
+        padding: 1vw;
+        margin: 2vw 0;
+        box-shadow: rgb(0 0 0) 0 0 2vw, rgb(0 0 0 / 75%) 0 0 5vw, rgb(0 0 0 / 50%) 0 0 10vw;
+        height: 7.5vw;
+    }
+
+        #utilitybuttons > a:hover {
+            box-shadow: rgb(255 255 255 / 25%) 0 0 1vh;
+            border-color: yellow;
         }
 
-            #utilitybuttons > a:hover {
-                box-shadow: rgb(255 255 255 / 25%) 0 0 1vh;
-                border-color: yellow;
-            }
-
-            #utilitybuttons > a > img {
-                height: 7.5vw;
-                width: 7.5vw;
-            }
+        #utilitybuttons > a > img {
+            height: 7.5vw;
+            width: 7.5vw;
+        }
 
     .scammain {
         gap: 4vw;
@@ -1382,25 +1383,25 @@ main#nofilters > #messagenone {
         width: calc((88vw) / 2 - 4vw - 4px);
     }
 
-    .scamitem > div {
-        flex-direction: column;
-    }
-
-        .scamitem > div > img {
-            width: 14vw;
-            height: 14vw;
-            border-radius: 2vw;
+        .scamitem > div {
+            flex-direction: column;
         }
 
-        .scamitem > div > h1 {
-            font-size: 7vw;
-            margin: 1vw;
-        }
+            .scamitem > div > img {
+                width: 14vw;
+                height: 14vw;
+                border-radius: 2vw;
+            }
 
-    .scamitem > p {
-        margin: 2vw 0 0 0;
-        font-size: 3vw;
-    }
+            .scamitem > div > h1 {
+                font-size: 7vw;
+                margin: 1vw;
+            }
+
+        .scamitem > p {
+            margin: 2vw 0 0 0;
+            font-size: 3vw;
+        }
 
     .scamicon {
         width: 8vw;
@@ -1416,9 +1417,9 @@ main#nofilters > #messagenone {
         margin-bottom: 4vw;
     }
 
-    #learn > div {
-        margin-top: 3.5vw;
-    }
+        #learn > div {
+            margin-top: 3.5vw;
+        }
 
             #learn > div > h1 {
                 margin: 0;
@@ -1447,5 +1448,4 @@ main#nofilters > #messagenone {
             padding: 1vw 0;
             border-radius: 0;
         }
-
 }
