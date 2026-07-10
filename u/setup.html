@@ -80,7 +80,7 @@
 
             form.addEventListener("submit", async (event) => {
                 event.preventDefault();
-
+                usernameInput.value = usernameInput.value.replaceAll(/[^a-zA-Z0-9_]/g, '').toLowerCase(); if (usernameInput.value.length > 30) usernameInput.value = usernameInput.value.substring(0, 30);
                 const username = usernameInput.value.trim();
                 const displayName = displayNameInput.value === "" ? usernameInput.value.trim() : displayNameInput.value.trim();
 
@@ -94,7 +94,7 @@
                 } else {
                     localStorage.setItem("referral", localStorage.getItem("referral") || document.getElementById("rfr").value);
                     statusElement.textContent = "Setup complete! Redirecting...";
-                    setTimeout(() => window.location.href = "profile.html", 1000);
+                    setTimeout(() => window.location.href = "profile.html", 500);
                 }
 
             });
