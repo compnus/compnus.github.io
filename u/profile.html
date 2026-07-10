@@ -329,8 +329,7 @@
         <p style="margin:0">
         `;
 
-    const offercontent = `<button class='fullwidth' onclick='window.location.href="refer.html"'>Refer and Earn!</button><br>
-    <div class='flex cc'><p><b>Regional Offers:</b></p></div>
+    const offercontent = `
     <p style='margin:0 0 5px 0'>Available only for the European Union (and other selected countries):</p>
     <button class='fullwidth' onclick="popup('Start Investing and Get up to 100€', 'Get a random value of shares (8-100 €) for free after you verify your identity and make your first deposit (minimum deposit varies from 1€ to 10€ based on your location).<br>If you are interested, please contact support at supcompnus@gmail.com')">Start Investing and Get up to 100€ for Free!</button>
     <br>
@@ -408,17 +407,19 @@
     <main>
         <div id="main">
             <div class="flex cc"><h1 id="welcomer">Welcome, User!</h1></div>
-            <div class="mainactions">
-                <button class="fullwidth" title="All your items in one place." onclick="location.assign('inventory.html')">Inventory</button>
-                <button class="fullwidth" title="Mine CompNUS's own cryptocurrency - $NUS!" onclick="location.assign('../crypto/nus/')">Mine $NUS</button>
-                <button class="fullwidth" title="Get Bitcoin, $NUS and Nocas (&curren;) from dividends and tasks!" onclick="location.assign('../crypto/nus/free.html')">Free Assets</button>
-                <button class="fullwidth" title="Access and manage all your data!" onclick="location.assign('data.html')">Manage Data</button>
+            <div id="mainactions" class="mainactions">
+                <a class="button" title="All quick actions available." onclick="allActions()" id="allactionsbutton"><img style="border-color: white" src="https://img.icons8.com/?size=100&id=83195&format=png&color=FFFFFF" /><p>All Actions</p></a>
+                <a class="button" title="All your items in one place." href="inventory.html"><img src="https://img.icons8.com/?size=100&id=85157&format=png&color=FFFFFF" /><p>Inventory</p></a>
+                <a class="button" title="Mine CompNUS's own cryptocurrency - $NUS" href="../crypto/nus/"><img src="https://img.icons8.com/?size=100&id=3hnKkALv4z7Y&format=png&color=FFFFFF" /><p>Mine $NUS</p></a>
+                <a class="button" title="Get Bitcoin, $NUS and Nocas (&curren;) from dividends and tasks!" href="../crypto/nus/free.html"><img src="https://img.icons8.com/?size=100&id=85174&format=png&color=FFFFFF" /><p>Free Assets</p></a>
+                <a class="button" title="Access and manage all your data!" href="data.html"><img src="https://img.icons8.com/?size=100&id=116172&format=png&color=FFFFFF" /><p>Manage Data</p></a>
+                <a class="button" title="Check out offers and get some sweet rewards!" onclick="popup('Offers', offercontent)"><img src="https://img.icons8.com/?size=100&id=88943&format=png&color=FFFFFF" /><p>Offers</p></a>
+                <a class="button" title="Redeem promo codes and get extra rewards!" onclick="popup('Redeem Promo Code', promocontent, true, true)"><img src="https://img.icons8.com/?size=100&id=7055&format=png&color=FFFFFF" /><p>Redeem Code</p></a>
+                <a class="button" title="Refer your friends to join CompNUS and earn rewards together!" href="refer.html"><img src="https://img.icons8.com/?size=100&id=87049&format=png&color=FFFFFF" /><p>Refer and Earn</p></a>
             </div>
         </div>
 
         <div id="side" class="mainscroll">
-            <button class="fullwidth" onclick="popup('Offers', offercontent)">Offers</button><br />
-            <button class="fullwidth" onclick="popup('Redeem Promo Code', promocontent, true, true)">Redeem Code</button><br />
             <div class="sideshmuck" id="wallet">
                 <p class="collapse" id="walletrefresh" title="Refresh Wallet" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
                 <p class="collapse" id="collapsewallet" title="Collapse/Reveal Wallet" onclick="collapse('wallet');">&#9650;</p>
@@ -523,7 +524,7 @@
             const { data, error } = await sb.auth.getUser();
 
             if (!data.user) {
-                window.location.href = "/u/login.html";
+               // window.location.href = "/u/login.html";
                 return;
             }
             if (error) {

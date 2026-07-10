@@ -28,14 +28,14 @@ div.mainscroll::-webkit-scrollbar {
 #welcomer {
     font-size: 4vh;
     line-height: 1;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     margin-top: 0;
 }
 
 main {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 13vh 1fr;
+    grid-template-rows: 17vh 1fr;
     grid-gap: 1vh;
     padding: 0 1vh 0 2vh;
 }
@@ -54,7 +54,7 @@ main {
 
 #messages {
     grid-area: 2/1/2/1;
-    height: 68vh;
+    height: 64vh;
 }
 
 .sideshmuck {
@@ -133,21 +133,56 @@ main {
 }
 
 .mainactions {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 2vh;
     margin-bottom: 2vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10vh,1fr));
+    grid-gap: 1vh;
+    height: 9vh;
+    overflow: hidden;
+    padding-top: 1vh;
 }
 
-.mainactions > button {
-    box-shadow: black 0 5px 10px -5px;
-    bottom: 0;
-    position: relative;
-}
+    .mainactions > .button, .allActions > .button {
+        bottom: 0;
+        position: relative;
+        transition: 0.2s;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        cursor: pointer;
+    }
 
-.mainactions > button:hover {
-    box-shadow: white 0 0 10px -5px;
-    bottom: 0.2vh;
+        .mainactions > .button > img, .allActions > .button > img {
+            box-shadow: black 0 5px 1vh -0.5vh;
+            transition: 0.2s;
+            width: 4vh;
+            height: 4vh;
+            background-color: var(--bg);
+            border-radius: 1vh;
+            padding: 1vh;
+            border: var(--border) solid 3px;
+        }
+
+        .mainactions > .button:hover, .allActions > .button:hover {
+            bottom: 0.2vh;
+        }
+
+            .mainactions > .button:hover > img, .allActions > .button:hover > img {
+                box-shadow: white 0 0 1vh -0.5vh;
+                background-color: var(--lightbg);
+            }
+
+        .mainactions > .button > p, .allActions > .button > p {
+            margin: 0.5vh 0 0 0;
+            font-size: 1.5vh;
+            font-weight: bold;
+            text-wrap: nowrap;
+        }
+
+.allActions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10vh,1fr));
+    grid-gap: 1vh;
 }
 
 #adminactions {

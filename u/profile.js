@@ -385,4 +385,17 @@ function calcTotals() {
     return [parseFloat(totalReceived.innerHTML), parseFloat(totalPaid.innerHTML)];
 }
 
+function allActions() {
+    let elmdd = `</p>
+    <div style='width:80vw'></div>
+    `;
+    let x = document.createElement("div");
+    x.classList.add("allActions");
+    for (const i of document.getElementById("mainactions").children) {
+        if (i.id === "allactionsbutton") continue;
+        x.appendChild(i.cloneNode(true));
+    }
+    popup("Quick Actions", elmdd+x.outerHTML+"<p style='margin:0'>");
+}
+
 console.log("profile loaded");
