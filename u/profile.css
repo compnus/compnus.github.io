@@ -202,7 +202,14 @@ main {
 }
 
 #adminactions {
+    gap: 1vw;
+    flex-wrap: wrap;
+    padding-bottom: 1vh;
     display: none;
+}
+
+#adminactions > button {
+    flex: 1;
 }
 
 #messagerefresh {
