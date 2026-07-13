@@ -31,7 +31,7 @@ main {
     .sidebar > .content {
         padding: 2vh;
         transition: 0.2s ease-out;
-        height: 74vh;
+        height: 78vh;
         overflow-y: auto;
     }
 
@@ -63,7 +63,7 @@ main {
 .sideentry {
     display: flex;
     align-items: center;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
 }
 
 .sideentry > img {
