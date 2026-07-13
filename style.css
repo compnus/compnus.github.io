@@ -610,9 +610,14 @@ div.popup > div > div.inside > h1 {
     }
 
     button {
-        font-size: 4vw;
+        font-size: 5vw;
         border-radius: 4vw;
         padding: 2vw 4vw;
+        margin: 1vw 0.5vw 0 0.5vw;
+    }
+
+    button.fullwidth {
+        width: calc(100% - 1vw);
     }
 
     .link.nav {
@@ -754,11 +759,6 @@ div.popup > div > div.inside > h1 {
     div.landing, form.landing {
         padding: 4vw;
         border-radius: 8vw;
-    }
-
-    button {
-        font-size: 5vw;
-        margin: 1vw 0.5vw 0 0.5vw;
     }
 
     .input {

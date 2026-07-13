@@ -694,6 +694,23 @@ a.linkstv {
     font-size: inherit;
 }
 
+.accountactionicon {
+    width: 4vh;
+    height: 4vh;
+    filter: saturate(0%) brightness(500%);
+    transition: cubic-bezier(0, 0, 0, 1) 0.2s;
+    margin: 0 2.5vh;
+    cursor: pointer;
+}
+
+.accountactionicon:hover {
+    filter: saturate(100%) brightness(100%);
+}
+
+.accountactionicon:active {
+    transform: scale(0.9);
+}
+
 @media(max-width:800px) {
     div.mainscroll {
         height: initial;
@@ -777,27 +794,27 @@ a.linkstv {
         padding-top: 0;
     }
 
-            .mainactions > .button > img, .allActions > .button > img {
-                width: 9vw;
-                height: 9vw;
-                background-color: var(--bg);
-                border-radius: 2vw;
-                padding: 2vw;
-                border: var(--border) solid 3px;
-            }
+        .mainactions > .button > img, .allActions > .button > img {
+            width: 9vw;
+            height: 9vw;
+            background-color: var(--bg);
+            border-radius: 2vw;
+            padding: 2vw;
+            border: var(--border) solid 3px;
+        }
 
-            .mainactions > .button:hover, .allActions > .button:hover {
-                bottom: 0;
-            }
+        .mainactions > .button:hover, .allActions > .button:hover {
+            bottom: 0;
+        }
 
-                .mainactions > .button:active > img, .allActions > .button:active > img {
-                    transform: scale(0.8);
-                }
+        .mainactions > .button:active > img, .allActions > .button:active > img {
+            transform: scale(0.8);
+        }
 
-            .mainactions > .button > p, .allActions > .button > p {
-                margin: 1vw 0 0 0;
-                font-size: 3vw;
-            }
+        .mainactions > .button > p, .allActions > .button > p {
+            margin: 1vw 0 0 0;
+            font-size: 3vw;
+        }
 
     .allActions {
         display: grid;
@@ -805,10 +822,10 @@ a.linkstv {
         grid-gap: 4vw;
     }
 
-    .allActions > a.button > p {
-        font-size: 2.5vw;
-        font-weight: normal;
-    }
+        .allActions > a.button > p {
+            font-size: 2.5vw;
+            font-weight: normal;
+        }
 
     #messagerefresh {
         margin: 0;
@@ -921,10 +938,14 @@ a.linkstv {
         }
 
     #walletactions {
-        grid-template-columns: 1fr;
-        grid-gap: 1vw;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2vw;
         margin: 2vw 0;
     }
+
+        #walletactions > button {
+            margin: 0;
+        }
 
     #updates {
         padding: 2vw;
@@ -1124,5 +1145,11 @@ a.linkstv {
         height: 40vw;
         max-width: auto;
         font-size: 4vw;
+    }
+
+    .accountactionicon {
+        width: 10vw;
+        height: 10vw;
+        margin: 0 5vw;
     }
 }

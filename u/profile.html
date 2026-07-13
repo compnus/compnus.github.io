@@ -450,14 +450,10 @@
                 <p class="collapse collapsed" id="collapseaccact" title="Collapse/Reveal Account Actions" onclick="collapse('accact');">&#9650;</p>
                 <div class="flex cc"><h1 class="title" onclick="collapse('accact');">Account Actions</h1></div>
                 <div class="flex cc">
-                    <p style="text-decoration: underline; color: #ccc; margin: 0; cursor: pointer" onclick="showAccountInfo()">View Account Info</p>
-                </div><br />
-                <button class="fullwidth" onclick="location.assign('edit.html')">Edit Account</button>
-                <br />
-                <button class="fullwidth"
-                        onclick="popup('Log Out', `Please confirm that you want to log out.</p><br><div class='flex cc'><br><button onclick='logOut()' class='fullwidth'>Log Out</button></div><p style='margin:0'>`)">
-                    Log Out
-                </button>
+                    <img class="accountactionicon" src="https://img.icons8.com/?size=100&id=83180&format=png&color=FFFF00" title="View Account Info" onclick="showAccountInfo()"/>
+                    <img class="accountactionicon" src="https://img.icons8.com/?size=100&id=87402&format=png&color=FFFF00" title="Edit Account" onclick="location.assign('edit.html')"/>
+                    <img class="accountactionicon" src="https://img.icons8.com/?size=100&id=83179&format=png&color=FFFF00" title="Log Out" onclick="popup('Log Out', `Please confirm that you want to log out.</p><br><div class='flex cc'><br><button onclick='logOut()' class='fullwidth'>Log Out</button></div><p style='margin:0'>`)"/>
+                </div>
                 <br />
                 <button class="fullwidth"
                         onclick="popup('Reset Password', `<div class='input'><label for='resetpassword'>Your Email:</label><input id='resetpassword' type='email' placeholder='johndoe@mail.com'></div><p>This email must match the one you signed up with.<br>We will send the password reset link there.</p><p id='passresetstatus' style='font-weight:bold;text-align:center' class='fullwidth'></p><div class='flex cc'><button onclick='attemptRecovery()'>Submit</button>`)">
@@ -524,7 +520,7 @@
             const { user, data } = await getUser();
 
             if (!user) {
-                window.location.href = "/u/login.html";
+               // window.location.href = "/u/login.html";
                 return;
             }
             const { data: userData, error: dbError } = await sb
