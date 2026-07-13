@@ -46,7 +46,8 @@
                 } else {
                     if (username.username) usern = username.username;
                 }
-                document.getElementById("userlogin").innerHTML = `<a href="u/profile.html">My Account (${usern})</a>`;
+                document.getElementById("userlogin").innerHTML = `<a href="u/profile.html">My Account</a>`;
+                document.getElementById("userlogin").title = `Logged in as ${usern}`;
             }
             document.getElementById("mockupsearch").value = "";
         });
