@@ -59,7 +59,7 @@
                 var usr = await getUser();
                 if (!usr.user) { window.location.href = "login.html"; return; }
                 if (x.value === (await sb.from("users").select("username").eq("id", usr.data.id).single())?.data.username) status.innerHTML = "You cannot use your own referral code.";
-                else if (["mia", "kingpvz", "compnus", "stanley"].includes(x.value)) status.innerHTML = "This referral code is not allowed.";
+                else if (["mia", "kingpvz", "compnus", "stanley", "admin"].includes(x.value)) status.innerHTML = "This referral code is not allowed.";
                 else {
                     document.getElementById("referralsubmit").classList.add("disabled");
                     rfdt = {
@@ -166,7 +166,7 @@
                 displayNameInput.value = userData.name;
             }
 
-            const { data: isReferred, error: isntReferred } = await sb.from("udata").select("referred").eq("user_id", user.id).single();
+            const { data: isReferred, error: isntReferred } = await sb.from("udata").select("referred").eq("user_id", data.id).single();
             if (isReferred.referred) document.getElementById("referralcodebutton").style.display = "none";
 
             form.addEventListener("submit", async (event) => {
