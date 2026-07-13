@@ -14,8 +14,6 @@ main {
     display: grid;
     position: relative;
     width: 25vw;
-    height: 74vh;
-    overflow-y: auto;
 }
 
     .sidebar#leftsd {
@@ -33,6 +31,8 @@ main {
     .sidebar > .content {
         padding: 2vh;
         transition: 0.2s ease-out;
+        height: 74vh;
+        overflow-y: auto;
     }
 
     .sidebar > .collapse {
@@ -81,7 +81,7 @@ main {
 }
 
 .myhr {
-    margin: 2vh;
+    margin: 3vh 1vh;
     height: 2px;
     background: #ffffff;
     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
