@@ -11,14 +11,16 @@ async function logOut() {
     window.location.href = "/";
 }
 
-async function getUser() {
+async function getUser(bypass=false) {
     const { data, error } = await sb.auth.getUser();
 
     if (error || !data.user) {
         return { user:false, data:error };
     }
-    const { data: d, error: e } = await sb.from("users").select("username").eq("id", data.user.id).single();
-    if (!d || e || d.username[0] === ".") window.location.assign("/u/setup.html");
+    if (!bypass) {
+        const { data: d, error: e } = await sb.from("users").select("username").eq("id", data.user.id).single();
+        if (!d || e || d.username[0] === ".") window.location.assign("/u/setup.html");
+    }
     return { user: true, data: data.user };
 }
 

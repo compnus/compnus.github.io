@@ -152,7 +152,7 @@ async function initFooter(full = false) {
     var yyyy = today.getFullYear();
     today = yyyy + '-' + mm + '-' + dd;
     document.addEventListener("DOMContentLoaded", async () => {
-        var r = await getUser();
+        var r = await getUser(true);
         if ((localStorage.getItem("lastActive") !== today) && r.user) {
             const { error } = await sb.from("users").update({ last_active: today }).eq("id", r.data.id);
             localStorage.setItem("lastActive", today);
