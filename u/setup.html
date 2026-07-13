@@ -73,9 +73,9 @@
             if (dbError) {
                 statusElement.textContent = "Error fetching user data.<br>" + dbError;
             } else {
-                if (userData.username) usernameInput.value = userData.username;
+                if (userData.username && userData.username[0] !== ".") usernameInput.value = userData.username;
                 if (userData.name) displayNameInput.value = userData.name;
-                if (userData.username && userData.name) window.location.href = "profile.html";
+                if (userData.username && userData.username[0] !== "." && userData.name) window.location.href = "profile.html";
             }
 
             form.addEventListener("submit", async (event) => {

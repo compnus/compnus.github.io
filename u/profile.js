@@ -38,7 +38,7 @@ async function main() {
         .eq("id", dt.user_id)
         .single();
 
-    if (namederror || !nameddata) {
+    if (namederror || !nameddata || nameddata.username[0]==".") {
         window.location.href = "setup.html";
     }
 
