@@ -130,7 +130,7 @@
                     <input type="text" id="display_name" oninput='this.value = this.value.replaceAll(/[<>"]/g, ""); if (this.value.length>30) this.value = this.value.substring(0,30);'>
                 </div><p class="limited">This name will not be publicly visible, it's merely a name for us to address you. If you choose to leave this empty, it will be set to your username.</p>
                 <p id="status"></p>
-                <button type="submit">Save &amp; Return</button>
+                <button type="submit" class="disabled" id="setupform_submit">Save &amp; Return</button>
             </form>
             <br /><br />
             <button onclick="unblockUsers()" class="editprfbutton">Unblock Users...</button>
@@ -168,6 +168,7 @@
 
             const { data: isReferred, error: isntReferred } = await sb.from("udata").select("referred").eq("user_id", data.id).single();
             if (isReferred.referred) document.getElementById("referralcodebutton").style.display = "none";
+            document.getElementById("setupform_submit").classList.remove("disabled");
 
             form.addEventListener("submit", async (event) => {
                 event.preventDefault();
@@ -190,7 +191,8 @@
             });
         });
 
-        initFooter();</script>
+        initFooter();
+    </script>
 
 </body>
 </html>
