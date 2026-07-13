@@ -344,7 +344,7 @@
     const promocontent = `</p>
     <form id="llpromocontentform" onsubmit="event.preventDefault(); promoRedeem()">
     <div class="input fullwidth" style="padding: 0">
-    <input id="promocodeinput" style="width:calc(100% - 2vh);" placeholder="ENTER CODE HERE" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9]/g, '').toUpperCase().substring(0,20)">
+    <input id="promocodeinput" style="width:calc(100% - 2vh - 4px);" placeholder="ENTER CODE HERE" oninput="this.value = this.value.replaceAll(/[^a-zA-Z0-9]/g, '').toUpperCase().substring(0,20)">
     </div>
     <p id="promocodestatus" style="margin: 1vh 0 2vh 0; display: none; font-weight: bold; text-align: center">Please wait...</p>
     <button type="submit" class="fullwidth" id="promocodebutton">Redeem</button>
@@ -422,8 +422,8 @@
         <div id="side" class="mainscroll">
             <div class="sideshmuck" id="wallet">
                 <p class="collapse" id="walletrefresh" title="Refresh Wallet" onclick="this.style.transform = 'rotate('+(Number(this.style.transform.substring(7,this.style.transform.length-4))+360)+'deg)'; loadWallet();" style="transform: rotate(45deg);">&orarr;</p>
-                <p class="collapse" id="collapsewallet" title="Collapse/Reveal Wallet" onclick="collapse('wallet');">&#9650;</p>
-                <div class="flex cc"><h1 class="title" onclick="collapse('wallet');">Wallet</h1></div>
+                <p class="collapse" id="collapsewallet" title="Collapse/Reveal Wallet" onclick="collapse('wallet'); hideWalletRefresh();">&#9650;</p>
+                <div class="flex cc"><h1 class="title" onclick="collapse('wallet'); hideWalletRefresh();">Wallet</h1></div>
                 <div class="flex" title="$NUS">
                     <img src="../site/image/logo/currency.svg" class="currencylogo" />
                     <h2 class="currencydisplay" id="walletnus">Loading...</h2>
@@ -455,7 +455,7 @@
                 <button class="fullwidth" onclick="location.assign('edit.html')">Edit Account</button>
                 <br />
                 <button class="fullwidth"
-                        onclick="popup('Log Out', `Please confirm that you want to log out.</p><div class='flex cc'><br><button onclick='logOut()' class='fullwidth'>Log Out</button></div><p style='margin:0'>`)">
+                        onclick="popup('Log Out', `Please confirm that you want to log out.</p><br><div class='flex cc'><br><button onclick='logOut()' class='fullwidth'>Log Out</button></div><p style='margin:0'>`)">
                     Log Out
                 </button>
                 <br />

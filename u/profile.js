@@ -271,6 +271,13 @@ function collapse(id) {
     }
 }
 
+function hideWalletRefresh() {
+    let button = document.getElementById("walletrefresh");
+    let obj = document.getElementById("collapsewallet");
+    if (obj.classList.contains("collapsed")) button.style.filter = "opacity(0)";
+    else button.style.filter = "opacity(1)";
+}
+
 async function attemptRecovery() {
     var status = document.getElementById('passresetstatus');
     status.innerHTML = "Please wait...";
