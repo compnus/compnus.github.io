@@ -83,7 +83,7 @@ function initHeader(title) {
     document.body.appendChild(header.content);
     document.getElementById("title").innerHTML = title;
     document.addEventListener("DOMContentLoaded", async () => {
-        var user = await getUser();
+        var user = await getUser(true);
         var usern;
         if (user.user) {
             const { data: username, error: dbError } = await sb
@@ -114,7 +114,7 @@ function promoHeader(title, color, image) {
     document.getElementById("headerlogo").style.borderRadius = "10%";
     document.querySelector("header").style.background = color;
     document.addEventListener("DOMContentLoaded", async () => {
-        var user = await getUser();
+        var user = await getUser(true);
         var usern;
         if (user.user) {
             const { data: username, error: dbError } = await sb
