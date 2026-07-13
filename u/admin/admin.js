@@ -1,11 +1,11 @@
 var dt = null;
 
 async function main() {
-    const { data, error } = await sb.auth.getUser();
-    if (!data || error) {
+    const { user, data } = await getUser();
+    if (!user) {
         window.location.href = '/u/';
     }
-    dt = data.user.id;
+    dt = data.id;
     const { data: msgadm, error: msgadmerror } = await sb
         .from("udata")
         .select("admin")

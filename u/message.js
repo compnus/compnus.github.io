@@ -14,8 +14,9 @@ function messageType(type) {
 }
 
 async function loadNocas() {
-    const { data, error } = await sb.auth.getUser();
-    dt.user_id = data.user.id;
+    const { user, data } = await getUser();
+    if (!user) window.location.assign("login.html");
+    dt.user_id = data.id;
     var balance = await getBalance(dt.user_id);
     var y = balance[1];
     document.getElementById("nocabalance").innerHTML = y;
@@ -39,9 +40,9 @@ async function sendMessage() {
         var bt = document.getElementById("limitedsend");
         bt.classList.add("disabled");
         bt.innerHTML = "Please wait...";
-        const { data, error } = await sb.auth.getUser();
-        if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = "Send"; bt.classList.remove("disabled"); return; }
-        mt.user_id = data.user.id;
+        const { user, data } = await getUser();
+        if (!user) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = "Send"; bt.classList.remove("disabled"); return; }
+        mt.user_id = data.id;
         mt.uid = (await sb.auth.getSession()).data.session?.user.id;
         mt.to = document.getElementById("normalreciever").value;
         mt.title = document.getElementById("normaltitle").value;
@@ -93,9 +94,9 @@ async function sendMessage() {
         if ((await loadNocas()) < increaseChar(true)) {
             popup("Not enough Nocas!", "You do not have enough Nocas to send this message.<br><a href='/crypto/nus/free.html' class='link'><b>Get some for free here!</b></a>"); bt.innerHTML = mn; bt.classList.remove("disabled"); increaseChar(); return
         }
-        const { data, error } = await sb.auth.getUser();
+        const { user, data } = await getUser();
         if (error) { popup("Error!", "You need to be logged-in to send messages!"); bt.innerHTML = mn; bt.classList.remove("disabled"); increaseChar(); return }
-        mt.user_id = data.user.id;
+        mt.user_id = data.id;
         mt.uid = (await sb.auth.getSession()).data.session?.user.id;
         mt.to = document.getElementById("advreciever").value;
         mt.title = document.getElementById("advtitle").value;

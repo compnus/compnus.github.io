@@ -349,7 +349,7 @@ async function showAccountInfo() {
     popup("Account Information", `
     <b>Username:</b> ${data.username}<br>
     <b>Email:</b> ${data.email}<br>
-    <b>Account created on </b>${formatDate(data.created)}<br><br>
+    <b>Account Created on: </b>${formatDate(data.created)}<br><br>
     ${data1.telegram ? "<b>Telegram Username:</b> "+data1.telegram + "<br>":""}
     <b>Banned from Sending Messages:</b> ${data1.can_message ? "No" : "Yes"}<br>
     ${data1.referred ? "<b>Referred By:</b> " + data1.referred + "<br>" : ""}<br>
