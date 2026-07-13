@@ -156,7 +156,7 @@
             const { data: userData, error: dbError } = await sb
                 .from("users")
                 .select("username, name")
-                .eq("id", user.id)
+                .eq("id", data.id)
                 .single();
 
             if (dbError) {
@@ -175,10 +175,10 @@
                 const username = usernameInput.value.trim();
                 const displayName = displayNameInput.value === "" ? username : displayNameInput.value.trim();
 
-                const { data, error } = await sb
+                const { datad, error } = await sb
                     .from("users")
                     .update({ username, name: displayName })
-                    .eq("id", user.id);
+                    .eq("id", data.id);
 
                 if (error) {
                     statusElement.textContent = `Error: ${error.message.replace("duplicate key value violates unique constraint \"users_username_key\"", "This username is already taken.")}`;

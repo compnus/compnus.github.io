@@ -541,6 +541,7 @@ a.linkstv {
 #dlinkurl {
     cursor: pointer;
     color: yellow;
+    overflow-wrap: anywhere;
 }
 
 #referlanding > div.dlink > h2 {
