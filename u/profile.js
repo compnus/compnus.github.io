@@ -274,8 +274,14 @@ function collapse(id) {
 function hideWalletRefresh() {
     let button = document.getElementById("walletrefresh");
     let obj = document.getElementById("collapsewallet");
-    if (obj.classList.contains("collapsed")) button.style.filter = "opacity(0)";
-    else button.style.filter = "opacity(1)";
+    if (obj.classList.contains("collapsed")) {
+        button.style.filter = "opacity(0)";
+        button.style.pointerEvents = "none";
+    }
+    else {
+        button.style.filter = "opacity(1)";
+        button.style.pointerEvents = "auto";
+    }
 }
 
 async function attemptRecovery() {
