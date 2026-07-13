@@ -84,7 +84,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
-            const { data, error } = await getUser();
+            const { user, data } = await getUser();
 
             if (!user) {
                 window.location.href = "/u/login.html";
