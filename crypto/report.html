@@ -64,15 +64,11 @@
     <script>
         initFooter();
         document.addEventListener("DOMContentLoaded", async () => {
-            const { data, error } = await sb.auth.getUser();
+            const { user, data } = await getUser();
 
-            if (!data.user) {
+            if (!user) {
                 document.getElementById("main").style.display = "none";
                 document.getElementById("loginfirst").style.display = "flex";
-                return;
-            }
-            if (error) {
-                console.error(error);
                 return;
             }
 

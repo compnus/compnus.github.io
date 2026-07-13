@@ -122,6 +122,8 @@
                 </div><p class="limited">
                     You can change this later.<br />We reserve the right to change your username for any reason.
                     <span style="color:yellow" onclick="popup('Us Changing Your Username','You will receive a message with the reason for your username being changed. If your username contains hate speech, or the promotion of it, you will not be compensated in any way. If we need your username for administrative purposes (e.g. Your username is \'john\'. Someone called John will start working with CompNUS and want the username john. We will change your username so that John can have the john username.) you will be compensated with $NUS and Nocas. You can contact support if you want to appeal this change.')">Read the full diclosure here.</span>
+                <br />
+                    Keep in mind that changing your username will make your current invite link invalid.
                 </p>
                 <div class="input">
                     <label for="display_name">Name:</label>
@@ -142,7 +144,7 @@
             const usernameInput = document.getElementById("username");
             const displayNameInput = document.getElementById("display_name");
 
-            const { data: { user }, error: authError } = await sb.auth.getUser();
+            const { user, data } = await getUser();
     
             if (!user) {
                  document.getElementById("mainhint").innerHTML = "You must be logged in to edit your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
@@ -182,7 +184,7 @@
                     statusElement.textContent = `Error: ${error.message.replace("duplicate key value violates unique constraint \"users_username_key\"", "This username is already taken.")}`;
                 } else {
                     statusElement.textContent = "Account was edited successfully! Returning to dashboard...";
-                    setTimeout(() => window.location.href = "profile.html", 1000);
+                    setTimeout(() => window.location.href = "profile.html", 500);
                 }
 
             });

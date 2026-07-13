@@ -43,13 +43,10 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
-            const { data, error } = await sb.auth.getUser();
+            const { data, error } = await getUser();
 
-            if (!data.user) {
+            if (!user) {
                 window.location.href = "login.html";
-                return;
-            } else if (error) {
-                console.error(error);
                 return;
             }
 

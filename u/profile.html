@@ -521,14 +521,10 @@
             if (mhmcount) document.getElementById("updatespop").innerHTML = mhmcount;
             else document.getElementById("updatespop").style.display = "none";
 
-            const { data, error } = await sb.auth.getUser();
+            const { user, data } = await getUser();
 
-            if (!data.user) {
+            if (!user) {
                 window.location.href = "/u/login.html";
-                return;
-            }
-            if (error) {
-                console.error(error);
                 return;
             }
             const { data: userData, error: dbError } = await sb
@@ -536,7 +532,7 @@
     .select("username, name")
     .eq("id", data.user.id)
     .single();
-    if (!userData.username || !userData.name) window.location.href = "setup.html";
+    if (!userData.username || !userData.name || userData.username[0] === ".") window.location.href = "setup.html";
 
             main();
 

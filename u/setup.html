@@ -59,7 +59,7 @@
                 document.getElementById("rfrlimited").innerHTML = "Using this referral code will reward you with 0.01 $NUS!";
             }
 
-            const { data: { user }, error: authError } = await sb.auth.getUser();
+            const { user, udata } = await getUser(true);
 
             if (!user) {
                  document.getElementById("mainhint").innerHTML = "You must be logged in to set up your account.<br><br><a href='login.html' class='link' style='font-size: 40px;'><b>Log In</b></a>";
@@ -70,7 +70,7 @@
             const { data: userData, error: dbError } = await sb
                 .from("users")
                 .select("username, name")
-                .eq("id", user.id)
+                .eq("id", udata.id)
                 .single();
 
             if (dbError) {
@@ -90,7 +90,7 @@
                 const { data, error } = await sb
                     .from("users")
                     .update({ username, name: displayName })
-                    .eq("id", user.id);
+                    .eq("id", udata.id);
 
                 if (error) {
                     statusElement.textContent = `Error: ${error.message.replace("duplicate key value violates unique constraint \"users_username_key\"", "This username is already taken.")}`;
