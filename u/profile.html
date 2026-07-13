@@ -530,7 +530,7 @@
             const { data: userData, error: dbError } = await sb
     .from("users")
     .select("username, name")
-    .eq("id", data.user.id)
+    .eq("id", data.id)
     .single();
     if (!userData.username || !userData.name || userData.username[0] === ".") window.location.href = "setup.html";
 
