@@ -18,27 +18,43 @@
 
     <main>
         <div class="sidebar" id="leftsd">
+            <div class="content">
 
+            </div>
+            <div class="collapse" onclick="collapseSide('left')">
+                <img id="collapserleft" src="../../site/icon/collapse.png" class="collapsed" />
+            </div>
         </div>
 
         <div id="main">
-
+            hdfsghdfsghdfsghdfsghdfsg hdfsghdfs ghdfsghdfsghdfsghdfsghdfs ghdfsghdfs ghdfsghdfs ghdfsghdfsg hdfsghdfsgh dfsghdfsghdfsghd fsghdfsghdfs ghdf sghdf sghdfsgh dfsghdfsghdfsghdfs hdfsghdfsghd ghdfsgh ghdfsghdfsgh dfsg
         </div>
 
         <div class="sidebar" id="rightsd">
-
+            <div class="collapse" onclick="collapseSide('right')">
+                <img id="collapserright" src="../../site/icon/collapse.png" />
+            </div>
+            <div class="content">
+                <div class="sideentry" title="$NUS">
+                    <img src="../../site/image/logo/currency.svg" />
+                    <h2 id="walletnus">Loading...</h2>
+                </div>
+                <br />
+                <div class="sideentry" title="Nocas">
+                    <img src="../../site/image/logo/noca.svg" />
+                    <h2 id="walletnoca">Loading...</h2>
+                </div>
+                <br />
+                <div class="sideentry" title="Bitcoin Satoshi (0.00000001BTC)">
+                    <img src="../../site/image/logo/sats.svg" />
+                    <h2 id="walletsats">Loading...</h2>
+                </div>
+            </div>
         </div>
     </main>
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
-            const { user, data } = await getUser();
-
-            if (!user) {
-                //window.location.href = "/u/login.html";
-                return;
-            }
-
             main();
         });
         initFooter();
