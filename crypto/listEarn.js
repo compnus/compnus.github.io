@@ -1304,7 +1304,7 @@ const LISTE = [
             type: "ad",
             coin: "other:SWEAT",
             effort: 2,
-            rating: 2
+            rating: 1
         },
         info: {
             description: "<b>Note: In order to make money from steps, you will need a <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> account.</b><br>Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to play games like spin-a-wheel or card flip and earn more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
@@ -1325,7 +1325,7 @@ const LISTE = [
             ["Grow all your $SWEAT!", "Due to not-so-good decisions by the developers, $SWEAT fails to surge and increase in value. The only way to actively increase your earnings are jars. With up to 12% APY, or even more in certain promotions, you can secure a passive income, if you grow enough $SWEAT."]
         ],
         pros: ["Frequent prize draws", "Convert your <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> earnings to real money"],
-        cons: ["Rigged Spin-a-Wheel and Flip-a-Card minigames", "$SWEAT fails to increase its value due to questionable decisions by the developers", "The app breaks more with every update"],
+        cons: ["Rigged Spin-a-Wheel and Flip-a-Card minigames", "$SWEAT fails to increase its value due to questionable decisions by the developers", "The app breaks more with every update", "ABsolutely unhelpful support", "Impossible to claim $SWEAT in the last few updates"],
         banner: "bin"
     },
     {

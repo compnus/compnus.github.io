@@ -112,7 +112,7 @@ async function handlePostVerification() {
         {
             id: data.user.id,
             email: data.user.email,
-            username: data.user.email.split("@")[0],
+            username: "." + random(0, 29),
             created: data.user.created_at
         }
     ], { onConflict: ['id'] });
@@ -132,6 +132,19 @@ async function getUser() {
     }
 
     return { user: true, data: data.user };
+}
+
+function random(type, ...settings) {
+    switch (type) {
+        case 0:
+            let count = settings[0] || 10;
+            let result = "";
+            const chars = "qwertyuiopasdfghjklzxcvbnm0123456789_";
+            for (let i = 0; i < count; i++) result += chars.charAt(Math.floor(Math.random() * chars.length));
+            return result;
+        default:
+            return "Unknown type";
+    }
 }
 
 function popup(title, message, close = true, compact = false) {
