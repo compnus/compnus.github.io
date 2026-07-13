@@ -12,6 +12,16 @@ async function main() {
     dt.uid = (await sb.auth.getSession()).data.session?.user.id;
     dt.referral = localStorage.getItem("referral") || "";
 
+    const { data: nameddata, error: namederror } = await sb
+        .from("users")
+        .select("name, username")
+        .eq("id", dt.user_id)
+        .single();
+
+    if (namederror || !nameddata || nameddata.username[0]==".") {
+        window.location.href = "setup.html";
+    }
+
     const { data: userindt, error: problem } = await sb.from("udata").select("user_id").eq("user_id", dt.user_id).single();
     if (!userindt || problem || userindt.user_id!=dt.user_id) await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/inituser', {
         method: 'POST',
@@ -32,15 +42,6 @@ async function main() {
             console.error('Error invoking function:', error);
         });
 
-    const { data: nameddata, error: namederror } = await sb
-        .from("users")
-        .select("name, username")
-        .eq("id", dt.user_id)
-        .single();
-
-    if (namederror || !nameddata || nameddata.username[0]==".") {
-        window.location.href = "setup.html";
-    }
 
     document.getElementById("welcomer").innerHTML = `Welcome, ${nameddata.name}!`;
     dtusername = nameddata.username;

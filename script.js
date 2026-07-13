@@ -17,7 +17,8 @@ async function getUser() {
     if (error || !data.user) {
         return { user:false, data:error };
     }
-
+    const { data: d, error: e } = await sb.from("users").select("username").eq("id", data.user.id).single();
+    if (!d || e || d.username[0] === ".") window.location.assign("/u/setup.html");
     return { user: true, data: data.user };
 }
 
