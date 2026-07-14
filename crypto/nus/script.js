@@ -25,7 +25,7 @@ async function main() {
     var _npb = await getVariable("nusperblock");
     var _hpb = await getVariable("hashperblock");
     document.getElementById("blockrewarddspl").innerHTML = _npb;
-    document.getElementById("blockhashrdspl").innerHTML = _hpb;
+    document.getElementById("blockhashrdspl").innerHTML = _hpb + " ("+formatNumber(_hpb).join(" ")+")";
     document.getElementById("calcresultdspl").innerHTML = ((serverdata.hashrate * 86400 * _npb)/_hpb).toFixed(4);
 }
 
