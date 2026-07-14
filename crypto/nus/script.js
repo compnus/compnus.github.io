@@ -19,7 +19,8 @@ async function main() {
     if (!serverdata || userExistsErrorn) console.log("Server error.");
 
     var finalhashrate = formatNumber(serverdata.hashrate);
-    document.getElementById("hashratedspl").innerHTML = finalhashrate[0] + " " + finalhashrate[1] + "H/s"
+    document.getElementById("hashratedspl").innerHTML = finalhashrate[0] + " " + finalhashrate[1] + "H/s";
+    document.getElementById("hashrateplain").innerHTML = serverdata.hashrate + "H/s";
 }
 
 function collapseSide(which) {
