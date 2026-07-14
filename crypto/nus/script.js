@@ -100,7 +100,6 @@ async function hashrateCalc() {
         Reward per Week: <span id="hcrp_week">0.0000</span> <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
         Reward per Month: <span id="hcrp_mon">0.0000</span> <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
         Reward per Year: <span id="hcrp_year">0.0000</span> <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
-        </p>
         `
     );
 }
