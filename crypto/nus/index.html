@@ -19,7 +19,16 @@
     <main>
         <div class="sidebar" id="leftsd">
             <div class="content">
+                <button class="fullwidth disabled" title="You are here.">Mining</button><br />
+                <button class="fullwidth" onclick="window.location.assign('free.html')" title="Get free rewards for simple tasks!">Free Assets</button><br />
+                <button class="fullwidth" onclick="window.location.assign('dividends.html')" title="Request and check dividends here!">Dividends</button><br />
+                <button class="fullwidth" onclick="window.location.assign('events.html')" title="Participate in various events to gain more rewards!">Events</button><br />
+                <button class="fullwidth" onclick="window.location.assign('info.html')" title="Check out information about $NUS and see the community statistics!">Stats and Information</button>
 
+                <div class="myhr"></div>
+
+                <button class="fullwidth" onclick="popup('Keyboard Shortcuts', '<code><b>Ctrl+Q</b></code> - Log Out<br><code><b>Ctrl+Left</b> <i>or</i> <b>Ctrl+A</b></code> - Show/Hide Left Sidebar<br><code><b>Ctrl+Right</b> <i>or</i> <b>Ctrl+D</b></code> - Show/Hide Right Sidebar')" title="That seems handy!">Keyboard Shortcuts</button><br />
+                <button class="fullwidth" onclick="window.location.assign('/crypto/')" title="Return to CryptoNUS">Back to CryptoNUS</button>
             </div>
             <div class="collapse" onclick="collapseSide('left')">
                 <img id="collapserleft" src="../../site/icon/collapse.png" class="collapsed" />
@@ -68,7 +77,7 @@
                 <a class="link" onclick="loadApproximations();">Load more approximations...</a></p><br />
                 <p class="sidemini"><a class="link" onclick="hashrateCalc();">Hashrate Calculator</a></p>
                 <div class="myhr"></div>
-                <p>Current Block Reward will decrease during halving. Average Hashes per Block might fluctuate, but it should remain close to 2<sup>40</sup> (~ 1.1TH).</p>
+                <p>Current Block Reward will decrease during halving. Average Hashes per Block might fluctuate, but it should remain close to 2<sup style="font-size: 0.6em">40</sup>H (~1.1TH).</p>
                 <p class="sidemini"><a class="link" href="info.html">More Information</a></p>
             </div>
         </div>
