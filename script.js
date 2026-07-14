@@ -99,5 +99,14 @@ async function getVariable(vars) {
     else return data.value;
 }
 
+addEventListener("keydown", async (e) => {
+    if (e.key === "q" && (e.ctrlKey || e.metaKey)) {
+        const { user, data } = await getUser();
+        if (user) {
+            popup('Log Out', `Please confirm that you want to log out.</p><br><div class='flex cc'><br><button onclick='logOut()' class='fullwidth'>Log Out</button></div><p style='margin:0'>`)
+        }
+    }
+});
+
 console.log("script loaded");
 

@@ -43,4 +43,15 @@ function collapseSide(which) {
     }
 }
 
+addEventListener("keydown", (e) => {
+    if ((e.key === "a" || e.key === "ArrowLeft") && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        collapseSide("left");
+    }
+    if ((e.key === "d" || e.key === "ArrowRight") && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        collapseSide("right");
+    }
+});
+
 console.log("nus loaded");
