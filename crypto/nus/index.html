@@ -27,7 +27,8 @@
 
                 <div class="myhr"></div>
 
-                <button class="fullwidth" onclick="popup('Keyboard Shortcuts', '<code><b>Ctrl+Q</b></code> - Log Out<br><code><b>Ctrl+Left</b> <i>or</i> <b>Ctrl+A</b></code> - Show/Hide Left Sidebar<br><code><b>Ctrl+Right</b> <i>or</i> <b>Ctrl+D</b></code> - Show/Hide Right Sidebar<br><code><b>Ctrl+Down</b> <i>or</i> <b>Ctrl+S</b></code> - Pause/Resume Animations')" title="That seems handy!">Keyboard Shortcuts</button><br />
+                <button class="fullwidth nomobile" onclick="popup('Keyboard Shortcuts', '<code><b>Ctrl+Q</b></code> - Log Out<br><code><b>Ctrl+Left</b> <i>or</i> <b>Ctrl+A</b></code> - Show/Hide Left Sidebar<br><code><b>Ctrl+Right</b> <i>or</i> <b>Ctrl+D</b></code> - Show/Hide Right Sidebar<br><code><b>Ctrl+Down</b> <i>or</i> <b>Ctrl+S</b></code> - Pause/Resume Animations')" title="That seems handy!">Keyboard Shortcuts</button>
+                <button class="fullwidth onlymobile" onclick="toggleAnimations()">Toggle Animations</button><br />
                 <button class="fullwidth" onclick="window.location.assign('/crypto/')" title="Return to CryptoNUS">Back to CryptoNUS</button>
             </div>
             <div class="collapse" onclick="collapseSide('left')">
@@ -37,10 +38,10 @@
 
         <div id="main">
             <div id="miningicon">
+                <img src="https://img.icons8.com/?size=300&id=3hnKkALv4z7Y&format=png&color=FFFFFF" id="miningiconb" />
                 <img class="miningicon" src="../../site/image/crypto/mining_bg.png" id="miningicona1" />
                 <img class="miningicon" src="../../site/image/crypto/mining_bg.png" id="miningicona2" />
                 <img class="miningicon" src="../../site/image/crypto/mining_bg.png" id="miningicona3" />
-                <img src="https://img.icons8.com/?size=300&id=3hnKkALv4z7Y&format=png&color=FFFFFF" id="miningiconb" />
             </div>
             <br /><br />
             <p class="sidemini">Accumulated Rewards:</p>

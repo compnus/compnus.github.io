@@ -263,5 +263,16 @@ main {
     filter: drop-shadow(black 0 0 5px);
 }
 
+.onlymobile {
+    display: none;
+}
+
 @media(max-width:800px) {
+    .nomobile {
+        display: none;
+    }
+
+    .onlymobile {
+        display: block;
+    }
 }

@@ -116,6 +116,28 @@ function handleHashCalc(hash, npb, hpb) {
     document.getElementById("hcrp_year").innerHTML = ((hash * 86400 * 365 * npb) / hpb).toFixed(4);
 }
 
+function toggleAnimations() {
+    let pulse = document.getElementById("miningicon");
+    let rot1 = document.getElementById("miningicona1");
+    let rot2 = document.getElementById("miningicona2");
+    let rot3 = document.getElementById("miningicona3");
+    let rotb = document.getElementById("miningiconb");
+    if (animations) {
+        pulse.style.animationPlayState = "paused";
+        rot1.style.animationPlayState = "paused";
+        rot2.style.animationPlayState = "paused";
+        rot3.style.animationPlayState = "paused";
+        rotb.style.animationPlayState = "paused";
+    } else {
+        pulse.style.animationPlayState = "running";
+        rot1.style.animationPlayState = "running";
+        rot2.style.animationPlayState = "running";
+        rot3.style.animationPlayState = "running";
+        rotb.style.animationPlayState = "running";
+    }
+    animations = !animations;
+}
+
 addEventListener("keydown", (e) => {
     if ((e.key === "a" || e.key === "ArrowLeft") && (e.ctrlKey || e.metaKey)) {
         e.preventDefault();
@@ -127,25 +149,7 @@ addEventListener("keydown", (e) => {
     }
     if ((e.key === "s" || e.key === "ArrowDown") && (e.ctrlKey || e.metaKey)) {
         e.preventDefault();
-        let pulse = document.getElementById("miningicon");
-        let rot1 = document.getElementById("miningicona1");
-        let rot2 = document.getElementById("miningicona2");
-        let rot3 = document.getElementById("miningicona3");
-        let rotb = document.getElementById("miningiconb");
-        if (animations) {
-            pulse.style.animationPlayState = "paused";
-            rot1.style.animationPlayState = "paused";
-            rot2.style.animationPlayState = "paused";
-            rot3.style.animationPlayState = "paused";
-            rotb.style.animationPlayState = "paused";
-        } else {
-            pulse.style.animationPlayState = "running";
-            rot1.style.animationPlayState = "running";
-            rot2.style.animationPlayState = "running";
-            rot3.style.animationPlayState = "running";
-            rotb.style.animationPlayState = "running";
-        }
-        animations = !animations;
+        toggleAnimations();
     }
 });
 
