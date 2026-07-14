@@ -1,5 +1,6 @@
 var SIDES = 0;
 var uid = "";
+var animations = true;
 
 async function main() {
     const { user, data } = await getUser();
@@ -123,6 +124,28 @@ addEventListener("keydown", (e) => {
     if ((e.key === "d" || e.key === "ArrowRight") && (e.ctrlKey || e.metaKey)) {
         e.preventDefault();
         collapseSide("right");
+    }
+    if ((e.key === "s" || e.key === "ArrowDown") && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        let pulse = document.getElementById("miningicon");
+        let rot1 = document.getElementById("miningicona1");
+        let rot2 = document.getElementById("miningicona2");
+        let rot3 = document.getElementById("miningicona3");
+        let rotb = document.getElementById("miningiconb");
+        if (animations) {
+            pulse.style.animationPlayState = "paused";
+            rot1.style.animationPlayState = "paused";
+            rot2.style.animationPlayState = "paused";
+            rot3.style.animationPlayState = "paused";
+            rotb.style.animationPlayState = "paused";
+        } else {
+            pulse.style.animationPlayState = "running";
+            rot1.style.animationPlayState = "running";
+            rot2.style.animationPlayState = "running";
+            rot3.style.animationPlayState = "running";
+            rotb.style.animationPlayState = "running";
+        }
+        animations = !animations;
     }
 });
 

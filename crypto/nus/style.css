@@ -95,6 +95,173 @@ main {
     line-height: 1.5;
 }
 
-@media(max-width:800px) {
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+#miningicon {
+    position: relative;
+    width: 35vh;
+    height: 35vh;
+    filter: drop-shadow(#ffff0050 0 0 5px);
+    animation: pulseShadow 20s ease-in-out infinite;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@keyframes pulseShadow {
+    0% {
+        filter: drop-shadow(#ffff0050 0 0 5px);
+        transform: scale(1);
+    }
+    25% {
+        filter: drop-shadow(#ffea0075 0 0 7px);
+        transform: scale(0.93);
+    }
+    50% {
+        filter: drop-shadow(#ffff00aa 0 0 10px);
+        transform: scale(0.97);
+    }
+    75% {
+        filter: drop-shadow(#ffae0075 0 0 8px);
+        transform: scale(0.95);
+    }
+    100% {
+        filter: drop-shadow(#ffff0050 0 0 5px);
+        transform: scale(1);
+    }
+}
+
+.miningicon {
+    width: 35vh;
+    height: 35vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    filter: opacity(0.8);
+}
+
+#miningicona1 {
+    filter: opacity(0.6);
+    animation: pulseIcon1 45s linear infinite;
+}
+
+@keyframes pulseIcon1 {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.07) rotate(90deg);
+    }
+    50% {
+        transform: scale(1.11) rotate(170deg);
+    }
+    75% {
+        transform: scale(1.04) rotate(280deg);
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+#miningicona2 {
+    transform: rotate(175deg);
+    animation: pulseIcon2 53s linear infinite;
+}
+
+@keyframes pulseIcon2 {
+    0% {
+        transform: scale(1, 1) rotate(175deg);
+    }
+
+    25% {
+        transform: scale(0.98, 1.03) rotate(265deg);
+    }
+
+    50% {
+        transform: scale(0.94, 1.02) rotate(350deg);
+    }
+
+    75% {
+        transform: scale(0.97, 1.07) rotate(460deg);
+    }
+
+    100% {
+        transform: scale(1, 1) rotate(535deg);
+    }
+}
+
+#miningicona3 {
+    transform: scale(0.95) rotate(-65deg);
+    animation: pulseIcon3 61s linear infinite;
+}
+
+@keyframes pulseIcon3 {
+    0% {
+        transform: scale(0.95) rotate(-65deg);
+    }
+
+    25% {
+        transform: scale(1.12) rotate(-165deg);
+    }
+
+    50% {
+        transform: scale(1.05) rotate(-250deg);
+    }
+
+    75% {
+        transform: scale(1.06) rotate(-330deg);
+    }
+
+    100% {
+        transform: scale(0.95) rotate(-425deg);
+    }
+}
+
+#miningiconb {
+    width: 15vh;
+    height: 15vh;
+    position: absolute;
+    left: 10vh;
+    top: 10vh;
+    animation: pulseIconB 7s linear infinite;
+    filter: drop-shadow(black 0 0 10px) drop-shadow(black 0 0 5px);
+}
+
+@keyframes pulseIconB {
+    0% {
+        transform: rotate(0deg);
+    }
+    54% {
+        transform: rotate(-2deg);
+    }
+    60% {
+        transform: rotate(-15deg) scale(1);
+    }
+    62% {
+        transform: rotate(50deg) scale(1.1);
+    }
+    70% {
+        transform: rotate(3deg) scale(1);
+    }
+    85% {
+        transform: rotate(-1deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+#accumulateddisplay {
+    font-weight: 100;
+    font-size: 5vh;
+    margin: 0;
+    filter: drop-shadow(black 0 0 5px);
+}
+
+@media(max-width:800px) {
 }

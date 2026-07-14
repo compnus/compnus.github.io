@@ -27,7 +27,7 @@
 
                 <div class="myhr"></div>
 
-                <button class="fullwidth" onclick="popup('Keyboard Shortcuts', '<code><b>Ctrl+Q</b></code> - Log Out<br><code><b>Ctrl+Left</b> <i>or</i> <b>Ctrl+A</b></code> - Show/Hide Left Sidebar<br><code><b>Ctrl+Right</b> <i>or</i> <b>Ctrl+D</b></code> - Show/Hide Right Sidebar')" title="That seems handy!">Keyboard Shortcuts</button><br />
+                <button class="fullwidth" onclick="popup('Keyboard Shortcuts', '<code><b>Ctrl+Q</b></code> - Log Out<br><code><b>Ctrl+Left</b> <i>or</i> <b>Ctrl+A</b></code> - Show/Hide Left Sidebar<br><code><b>Ctrl+Right</b> <i>or</i> <b>Ctrl+D</b></code> - Show/Hide Right Sidebar<br><code><b>Ctrl+Down</b> <i>or</i> <b>Ctrl+S</b></code> - Pause/Resume Animations')" title="That seems handy!">Keyboard Shortcuts</button><br />
                 <button class="fullwidth" onclick="window.location.assign('/crypto/')" title="Return to CryptoNUS">Back to CryptoNUS</button>
             </div>
             <div class="collapse" onclick="collapseSide('left')">
@@ -36,13 +36,15 @@
         </div>
 
         <div id="main">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque accumsan volutpat tortor at elementum.
-            Morbi nibh leo, mollis ut nunc ut, iaculis dictum ante. Vivamus et massa tincidunt, maximus justo id, gravida tortor.
-            In vel sapien odio. Donec ultrices pellentesque elementum. Sed sit amet odio vel quam aliquam aliquam ut in tortor.
-            Aenean ac aliquet velit, quis ullamcorper metus. Nulla at tellus semper, congue elit ac, placerat diam.
-            Pellentesque varius blandit lacus in eleifend. In lacus lectus, accumsan ut ullamcorper id, eleifend at justo.
-            Mauris vitae velit neque. Aenean quam ipsum, tincidunt in lacus ut, gravida semper urna.
-            Mauris non lorem imperdiet, ornare tellus vitae, bibendum mi. Etiam porttitor imperdiet ipsum, sit amet lobortis arcu semper et.
+            <div id="miningicon">
+                <img class="miningicon" src="../../site/image/crypto/mining_bg.png" id="miningicona1" />
+                <img class="miningicon" src="../../site/image/crypto/mining_bg.png" id="miningicona2" />
+                <img class="miningicon" src="../../site/image/crypto/mining_bg.png" id="miningicona3" />
+                <img src="https://img.icons8.com/?size=300&id=3hnKkALv4z7Y&format=png&color=FFFFFF" id="miningiconb" />
+            </div>
+            <br /><br />
+            <p class="sidemini">Accumulated Rewards:</p>
+            <h1 id="accumulateddisplay">0.00000000 <span style="font-family:'currencycompnus',Ubuntu !important;">$</span></h1>
         </div>
 
         <div class="sidebar" id="rightsd">
