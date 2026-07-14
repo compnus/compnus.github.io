@@ -70,13 +70,13 @@ async function loadApproximations() {
     var _npb = await getVariable("nusperblock");
     var _hpb = await getVariable("hashperblock");
     popup("Approximate Rewards", `
-        Reward per Day: ${((serverdata.hashrate * 86400 * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
-        Reward per Hour: ${((serverdata.hashrate * 3600 * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
-        Reward per Minute: ${((serverdata.hashrate * 60 * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
+        Reward per Day: ${((serverdata.hashrate * 86400 * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Hour: ${((serverdata.hashrate * 3600 * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Minute: ${((serverdata.hashrate * 60 * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
         Reward per Second: ${((serverdata.hashrate * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
         <div class="myhr"></div>
-        Reward per Week: ${((serverdata.hashrate * 86400 * 7 * _npb) / _hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
-        Reward per Month: ${((serverdata.hashrate * 86400 * 30 * _npb) / _hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
+        Reward per Week: ${((serverdata.hashrate * 86400 * 7 * _npb) / _hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Month: ${((serverdata.hashrate * 86400 * 30 * _npb) / _hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
         Reward per Year: ${((serverdata.hashrate * 86400 * 365 * _npb) / _hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
     `);
 }
