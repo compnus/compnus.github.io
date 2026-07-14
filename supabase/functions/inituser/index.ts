@@ -142,11 +142,8 @@ Deno.serve(async (req) => {
                 });
             }
             const { error: inviter } = await sb.from("udata").update({ "balance_nus": (referrer.balance_nus + 0.001), "invitees": referrer.invitees + "(" + userExists.username + ")" }).eq("user_id", realUser.id);
-            let upmessage: string = `%$t%You have successfully referred ${userExists.username}!%$,%%$f%CompNUS%$,%%$m%<p>You have received 0.001 $NUS. As long as the user is active, your dividend power is increased by 10.</p>%$$%`;
-            const { error: cannotSend } = await sb
-                .from("users")
-                .update({ messages: upmessage + realUser.messages })
-                .eq("username", referral);
+            const { error: cannotSend } = await sb.from("message").insert({ from: "CompNUS", owner: realUser.id, subject: `You have successfully referred ${userExists.username}!`, content: "<p>You have received 0.001 $NUS. As long as the user is active, your dividend power is increased by 10.</p>" });
+
             if (invitee || inviter || cannotSend) {
                 return new Response(JSON.stringify({ response: "User data processed successfully, referral error." }), {
                     status: 200,
@@ -155,6 +152,10 @@ Deno.serve(async (req) => {
                     }
                 });
             }
+
+            await sb.from("transaction")
+                .insert([{ from: "admin:CompNUS", to: userExists.username, resource: { "nus": 0.01 }, message: "Referral Reward - New User" }, { from: "admin:CompNUS", to: referral, resource: { "nus": 0.001 }, message: "Referral Reward - Invited a User" }]);
+            
         }
 
         return new Response(JSON.stringify({ response: "User data processed successfully." }), {
