@@ -21,6 +21,12 @@ async function main() {
     var finalhashrate = formatNumber(serverdata.hashrate);
     document.getElementById("hashratedspl").innerHTML = finalhashrate[0] + " " + finalhashrate[1] + "H/s";
     document.getElementById("hashrateplain").innerHTML = serverdata.hashrate + "H/s";
+
+    var _npb = await getVariable("nusperblock");
+    var _hpb = await getVariable("hashperblock");
+    document.getElementById("blockrewarddspl").innerHTML = _npb;
+    document.getElementById("blockhashrdspl").innerHTML = _hpb;
+    document.getElementById("calcresultdspl").innerHTML = (serverdata.hashrate * 86400 * _npb)/_hpb;
 }
 
 function collapseSide(which) {
