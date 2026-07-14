@@ -99,6 +99,54 @@ async function getVariable(vars) {
     else return data.value;
 }
 
+function formatNumber(num) {
+    var level = 0;
+    while (num >= 1000) {
+        num = +((num / 1000).toFixed(3))
+        level += 1;
+    }
+    num = +(num.toFixed(2));
+    var res = "";
+    switch (level) {
+        case 0:
+            res = "";
+            break;
+        case 1:
+            res = "k";
+            break;
+        case 2:
+            res = "M";
+            break;
+        case 3:
+            res = "G";
+            break;
+        case 4:
+            res = "T";
+            break;
+        case 5:
+            res = "P";
+            break;
+        case 6:
+            res = "E";
+            break;
+        case 7:
+            res = "Z";
+            break;
+        case 8:
+            res = "Y";
+            break;
+        case 9:
+            res = "R";
+            break;
+        case 10:
+            res = "Q";
+            break;
+        default:
+            res = "*10^" + level * 3;
+    }
+    return [num, res];
+}
+
 addEventListener("keydown", async (e) => {
     if (e.key === "q" && (e.ctrlKey || e.metaKey)) {
         const { user, data } = await getUser();

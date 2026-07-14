@@ -6,10 +6,20 @@ async function main() {
     //if (!user) window.location.href = "/u/login.html";
     uid = data.id;
 
-    var balance = await getBalance(uid);
+    const balance = await getBalance(uid);
     document.getElementById("walletnus").innerHTML = balance[0];
     document.getElementById("walletnoca").innerHTML = balance[1];
     document.getElementById("walletsats").innerHTML = balance[2];
+
+    const { data: serverdata, error: userExistsErrorn } = await sb
+        .from("udata")
+        .select("hashrate")
+        .eq("user_id", uid)
+        .single();
+    if (!serverdata || userExistsErrorn) console.log("Server error.");
+
+    var finalhashrate = formatNumber(serverdata.hashrate);
+    document.getElementById("hashratedspl").innerHTML = finalhashrate[0] + " " + finalhashrate[1] + "H/s"
 }
 
 function collapseSide(which) {

@@ -88,6 +88,12 @@ main {
     border-radius: 100%;
 }
 
+.sidemini {
+    margin: -1vh 0 0 0;
+    font-size: 1.5vh;
+    font-weight: bold;
+}
+
 @media(max-width:800px) {
 
 }
