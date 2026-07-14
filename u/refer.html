@@ -14,7 +14,7 @@
 <body>
     <script>initHeader("Refer and Earn!");</script>
 
-    <div class="mainscroll">
+    <div class="mainscroll" style="padding-left:0.5em; padding-right:0.5em">
         <h1 class="tc" style="font-family:Gabarito">Refer your friends and increase your dividend power!</h1>
         <h2 class="tc">Not only that, but both you and your friend will receive $NUS for free!</h2>
         <p class="tc">Keep in mind, besides friends, you can also invite your colleagues, your boss, neighbors, enemies, family members or anything in between!</p>
@@ -52,7 +52,7 @@
 
             var { data: username } = await sb.from("users").select("username").eq("id", data.id).single();
             document.getElementById("dlinkusername").innerHTML = username.username;
-            document.getElementById("dlinkurl").innerHTML = `https://compnus.com/u/signup.html?r=${username.username}`;
+            document.getElementById("dlinkurl").innerHTML = `https://compnus.com/?r=${username.username}`;
             const { data: data1, error: error1 } = await sb.from("udata").select("invitees").eq("user_id", data.id).single();
             var invitees = data1.invitees.match(/\(([^)]+)\)/g)?.map(s => s.slice(1, -1)) || [];
             var invites = invitees.length;

@@ -85,7 +85,7 @@
                 if (error) {
                     statusElement.textContent = `Error: ${error.message}`;
                 } else {
-                    localStorage.setItem("referral", GetURLParameter("r") || "");
+                    if (!localStorage.getItem("referral")) localStorage.setItem("referral", "");
                     statusElement.textContent = "Sign-up successful! Check your email to verify your account.";
                 }
             });

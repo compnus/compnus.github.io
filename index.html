@@ -31,6 +31,10 @@
     </main>
 
     <script>
+        var referral_id = GetURLParameter("r")
+        if (!localStorage.getItem("referral") && referral_id) {
+            localStorage.setItem("referral",  referral_id);
+        }
         document.addEventListener("DOMContentLoaded", async () => {
             var user = await getUser();
             var usern;
