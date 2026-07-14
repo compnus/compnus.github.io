@@ -148,7 +148,7 @@ Deno.serve(async (req) => {
                 .update({ messages: upmessage + realUser.messages })
                 .eq("username", referral);
             if (invitee || inviter || cannotSend) {
-                return new Response(JSON.stringify({ response: "User data processed successfully, referral error.", wrongref: true }), {
+                return new Response(JSON.stringify({ response: "User data processed successfully, referral error." }), {
                     status: 200,
                     headers: {
                         ...headers

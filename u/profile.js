@@ -33,10 +33,8 @@ async function main() {
     })
         .then(response => response.json())
         .then(data => {
-            if (data.wongref) {
-                popup("Invalid Referral Code", "The referral code you used is incorrect and you have not received your 0.01 $NUS bonus.<br>If you want to receive this bonus, select Edit Account in Account Actions and click 'Add Referral Code...'.")
-                localStorage.removeItem("referral");
-            }
+            if (data.wongref) popup("Invalid Referral Code", "The referral code you used is incorrect and you have not received your 0.01 $NUS bonus.<br>If you want to receive this bonus, select Edit Account in Account Actions and click 'Add Referral Code...'.");
+            localStorage.removeItem("referral");
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
