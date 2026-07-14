@@ -18,8 +18,7 @@ async function main() {
         .single();
     if (!serverdata || userExistsErrorn) console.log("Server error.");
 
-    var finalhashrate = formatNumber(serverdata.hashrate);
-    document.getElementById("hashratedspl").innerHTML = finalhashrate[0] + " " + finalhashrate[1] + "H/s";
+    document.getElementById("hashratedspl").innerHTML = formatNumber(serverdata.hashrate).join(" ") + "H/s";
     document.getElementById("hashrateplain").innerHTML = serverdata.hashrate + "H/s";
 
     var _npb = await getVariable("nusperblock");
@@ -79,6 +78,42 @@ async function loadApproximations() {
         Reward per Month: ${((serverdata.hashrate * 86400 * 30 * _npb) / _hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
         Reward per Year: ${((serverdata.hashrate * 86400 * 365 * _npb) / _hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
     `);
+}
+
+async function hashrateCalc() {
+    var _npb = await getVariable("nusperblock");
+    var _hpb = await getVariable("hashperblock");
+    popup("Hashrate Calculator",
+        `</p>
+        <div class="input">
+            <label for="hinput">Hashrate:</label>
+            <input id="hinput" oninput="this.value=Math.floor(this.value); if (this.value < 0) this.value = 0; handleHashCalc(this.value, ${_npb}, ${_hpb});" placeholder="H/s" type="number">
+        </div>
+        <p class="sidemini"><span id="calculatedhash">0 </span>H/s</p>
+        <br>
+        <p style="margin-bottom: 0">
+        Reward per Day: <span id="hcrp_day">0.00000000</span> <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Hour: <span id="hcrp_hour">0.00000000</span> <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Minute: <span id="hcrp_min">0.00000000</span> <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Second: <span id="hcrp_sec">0.00000000</span> <span style="font-family:'currencycompnus',Ubuntu !important">$</span></p>
+        <div class="myhr"></div><p style="margin-bottom:0">
+        Reward per Week: <span id="hcrp_week">0.0000</span> <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Month: <span id="hcrp_mon">0.0000</span> <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Year: <span id="hcrp_year">0.0000</span> <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
+        </p>
+        `
+    );
+}
+
+function handleHashCalc(hash, npb, hpb) {
+    document.getElementById("calculatedhash").innerHTML = formatNumber(+(hash)).join(" ");
+    document.getElementById("hcrp_day").innerHTML = ((hash * 86400 * npb) / hpb).toFixed(8);
+    document.getElementById("hcrp_hour").innerHTML = ((hash * 3600 * npb) / hpb).toFixed(8);
+    document.getElementById("hcrp_min").innerHTML = ((hash * 60 * npb) / hpb).toFixed(8);
+    document.getElementById("hcrp_sec").innerHTML = ((hash * npb) / hpb).toFixed(8);
+    document.getElementById("hcrp_week").innerHTML = ((hash * 86400 * 7 * npb) / hpb).toFixed(4);
+    document.getElementById("hcrp_mon").innerHTML = ((hash * 86400 * 30 * npb) / hpb).toFixed(4);
+    document.getElementById("hcrp_year").innerHTML = ((hash * 86400 * 365 * npb) / hpb).toFixed(4);
 }
 
 addEventListener("keydown", (e) => {
