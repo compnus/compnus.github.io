@@ -147,7 +147,13 @@ function toggleAnimations() {
 
 function calculateProfit() {
     var now = new Date().getTime() / 1000;
+    var button = document.getElementById("mining_action");
     console.log(serverdata.last_claimed);
+    if (!serverdata.last_claimed) {
+        button.classList.remove("disabled");
+        button.innerHTML = "START MINING";
+        return;
+    }
 }
 
 addEventListener("keydown", (e) => {

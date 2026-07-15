@@ -317,6 +317,12 @@ main {
     width: 8ch;
 }
 
+#mining_action {
+    margin: 1vh 0;
+    font-weight: 100;
+    font-size: 2.5vh;
+}
+
 @media(max-width:800px) {
     .nomobile {
         display: none;
