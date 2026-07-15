@@ -1,0 +1,38 @@
+.numberAnimation * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.numberAnimation {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1em;
+    display: inline-flex;
+}
+
+.numberSlideWrapper {
+    width: 0px;
+    height: 1em;
+    overflow: hidden;
+    display: inline-flex;
+    transition: width .2s ease-in-out;
+}
+
+.numberSlide {
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease-in-out;
+}
+
+.minus {
+    overflow: hidden;
+    max-width: 0px;
+    opacity: 0%;
+    transition: max-width .5s ease-in-out, opacity 1s ease-in-out;
+}
+
+.minus.active {
+    opacity: 100%;
+    max-width: 1em;
+}

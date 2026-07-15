@@ -26,7 +26,8 @@ async function main() {
     var _hpb = await getVariable("hashperblock");
     document.getElementById("blockrewarddspl").innerHTML = _npb;
     document.getElementById("blockhashrdspl").innerHTML = _hpb + "H ("+formatNumber(_hpb).join(" ")+"H)";
-    document.getElementById("calcresultdspl").innerHTML = ((serverdata.hashrate * 86400 * _npb)/_hpb).toFixed(4);
+    document.getElementById("calcresultdspl").innerHTML = ((serverdata.hashrate * 86400 * _npb) / _hpb).toFixed(4);
+    conterw.setNumber(0), conterp.setNumber(0);
 }
 
 function collapseSide(which) {
@@ -122,18 +123,21 @@ function toggleAnimations() {
     let rot2 = document.getElementById("miningicona2");
     let rot3 = document.getElementById("miningicona3");
     let rotb = document.getElementById("miningiconb");
+    let rotc = document.getElementById("miningiconc");
     if (animations) {
         pulse.style.animationPlayState = "paused";
         rot1.style.animationPlayState = "paused";
         rot2.style.animationPlayState = "paused";
         rot3.style.animationPlayState = "paused";
         rotb.style.animationPlayState = "paused";
+        rotc.style.animationPlayState = "paused";
     } else {
         pulse.style.animationPlayState = "running";
         rot1.style.animationPlayState = "running";
         rot2.style.animationPlayState = "running";
         rot3.style.animationPlayState = "running";
         rotb.style.animationPlayState = "running";
+        rotc.style.animationPlayState = "running";
     }
     animations = !animations;
 }
