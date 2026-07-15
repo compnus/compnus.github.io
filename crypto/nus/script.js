@@ -1,6 +1,7 @@
 var SIDES = 0;
 var uid = "";
 var animations = true;
+var serverdata = null;
 
 async function main() {
     const { user, data } = await getUser();
@@ -12,12 +13,13 @@ async function main() {
     document.getElementById("walletnoca").innerHTML = balance[1];
     document.getElementById("walletsats").innerHTML = balance[2];
 
-    const { data: serverdata, error: userExistsErrorn } = await sb
+    const { data: serverdatac, error: userExistsErrorn } = await sb
         .from("udata")
-        .select("hashrate")
+        .select("hashrate, last_claimed")
         .eq("user_id", uid)
         .single();
-    if (!serverdata || userExistsErrorn) console.log("Server error.");
+    if (!serverdatac || userExistsErrorn) console.log("Server error.");
+    serverdata = serverdatac;
 
     document.getElementById("hashratedspl").innerHTML = formatNumber(serverdata.hashrate).join(" ") + "H/s";
     document.getElementById("hashrateplain").innerHTML = serverdata.hashrate + "H/s";
@@ -27,7 +29,8 @@ async function main() {
     document.getElementById("blockrewarddspl").innerHTML = _npb;
     document.getElementById("blockhashrdspl").innerHTML = _hpb + "H ("+formatNumber(_hpb).join(" ")+"H)";
     document.getElementById("calcresultdspl").innerHTML = ((serverdata.hashrate * 86400 * _npb) / _hpb).toFixed(4);
-    conterw.setNumber(0), conterp.setNumber(0);
+
+    setInterval(calculateProfit, 1000);
 }
 
 function collapseSide(which) {
@@ -140,6 +143,11 @@ function toggleAnimations() {
         rotc.style.animationPlayState = "running";
     }
     animations = !animations;
+}
+
+function calculateProfit() {
+    var now = new Date().getTime() / 1000;
+    console.log(serverdata.last_claimed);
 }
 
 addEventListener("keydown", (e) => {
