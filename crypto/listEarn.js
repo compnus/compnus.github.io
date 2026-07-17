@@ -1359,42 +1359,6 @@ const LISTE = [
         banner: "bin"
     },
     {
-        name: "MineSwap",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJeqyLgSEmRxW8iLD6l9jVAdxGj19SqvFnfB1b1NX7iwkSlT6DO9N474a_Y1Zuw7uzg&f=1&nofb=1&ipt=92bd992de62f8e1528f4a08e19cad60d0af02273b46fa8e4a3899e85ca6f9a5b",
-        description: "Why focus on mining a single coin when you can just... not? Why not focus on mining ALL OF THEM? MineSwap allows you to mine multiple cryptocurrencies of your choice at once! Although there is a limitation of how many at once, you can expand this by opening your daily loot box!",
-        added: "2-1-2026",
-        id: "mineswaptg",
-        attr: {
-            verified: -1,
-            dividends: false,
-            platform: "t",
-            type: "mine",
-            coin: "other:MineSwap other:NOTAI other:MRSOON other:Dogecoin other:NOT other:Pepe other:DOGS other:SHIB other:BABYDOGE other:HMSTR other:CATI other:Pump.fun other:MISSION other:Bonk other:FLOKI other:XEmpire other:MOG other:DuckChain other:REDX",
-            effort: 0,
-            rating: 3
-        },
-        info: {
-            description: "Mine all of them at once! MineSwap allows you to choose your favorite cryptocurrencies and mine them all at the same time! Open loot boxes to increase your hashrate and wallet slots, level up for even more hashrate and complete tasks for even more rewards! Not enough? Boost your rewards by doubling them via watching an ad!",
-            effort: "Start mining every day and open the loot box."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/mine_swap_bot?startapp=44E3ZQ36"
-        },
-        benefits: ["If the app gets verified, we will distribute dividends."],
-        features: [["Mining", "Choose from a variety of cryptocurrencies to mine at once!"],
-            ["Loot Boxes", "Open your free loot box every day to get extra XP, Hashrate, Wallet Slots or even VIP!"],
-        ["Tasks", "Complete tasks for extra XP!"]
-        ],
-        tips: [
-            ["Do not buy VIP!", "Not only is this app extremely suspicious, given the negative reviews of the <a href='viewNew.html?id=mineswap' target='_blank'>MineSwap Mobile App</a>. Other than that, you can get VIP for free from epic and legendary loot boxes (so around 5% chance per day)."],
-            ["Do not buy wallet slots and hashrate!", "This is the exact same case as with the previous tip - you can get both for free from loot boxes, and spending money on an app with a shady background is generally never a good idea."]
-        ],
-        pros: ["Clean Interface", "New coins added frequently", "Active developer team", "Generous loot box rewards"],
-        cons: ["Withdrawing requires inviting people", "Advertisements in form of notifications"],
-        banner: "blum"
-    },
-    {
         name: "Ember",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2Fsync%2Fv2%2FC5627AQGPHFOCqQabrg%2Farticleshare-shrink_800%2Farticleshare-shrink_800%2F0%2F1732020021145%3Fe%3D2147483647%26v%3Dbeta%26t%3D8dGxtwsgi7yjj0RZlUiMO20lbg7t0Xf6PO66NPZfAdM&f=1&nofb=1&ipt=796f699f6d25986cc639a101cf9e8a7011e67befddcb4856f2e82ce930fe4f84",
         description: "Mine Bitcoin, wager it and withdraw! With new games added occasionally and new ways to earn being slowly introduced, you can enjoy all flavors of earnings! This includes: microtasks, gambling and predictions as of now! Another gambling app? Brooooooo why.",

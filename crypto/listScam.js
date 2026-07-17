@@ -2,6 +2,22 @@ var FILTERID = "scam0";
 
 var LISTS = [
     {
+        name: "Perp100",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FX1qkqxxxSD7krtTzrzGX9n1uy66bjVuuPSycNW20hpqN_bqd5QqfuREgyav65eywVEb1SAG8QBEcWjC0hNk9%3Dw280-h280&f=1&nofb=1&ipt=e68da0f674aa8cb2117f32837457210869e39bc5f72e400829c8186aa6f1c383",
+        short: "You wake up and boom! The app is not what it quite used to be.",
+        long: `This app used to be called Remint Network and was used to mine a real crypto token. One day, just when I personally was about to withdraw, it conveniently changed to AnyCard. All Remint tokens were lost that day. You would think that is the end but no - it went further - once I collected enough AnyCard Coins, I redeemed them for an airdrop reward (which hasn't arrived to this day) and boom! The app rebranded again into Perp100 and all AnyCard Coins were lost. Now it doesn't even state its purpose anymore, it just kind of exists and tries to get you to watch ads or purchase pointless VIP.`,
+        id: "remint_perp",
+        category: 1
+    },
+    {
+        name: "WalletSweep",
+        icon: "https://walletsweep.com/assets/walletsweep-logo-CZkN018i.png",
+        short: "You wake up and boom! The app is not what it quite used to be.",
+        long: `This app used to be called MineSwap (not to be cofused with <a class="link" href="viewNew.html?id=mineswap">Mineswap</a>) and promised mining free crypto. Once it was time for the withdrawal phase, the app suddenly changed to this with no explanation and all assets being lost. If that's not a scam then I don't know what is.`,
+        id: "remint_walletsweep",
+        category: 1
+    },
+    {
         name: "TON Miner",
         icon: "https://minitelegram.com/_next/image?url=https%3A%2F%2Fminitelegram-media.s3.eu-central-003.backblazeb2.com%2F3e38a1b6cf44c9f27552aa8422a6760a2e6a8afd-320x320.jpg&w=256&q=70",
         short: "When something seems too good to be true, it's probably a scam.",
