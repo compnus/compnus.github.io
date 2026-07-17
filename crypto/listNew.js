@@ -283,38 +283,6 @@ const LISTN = [
         cons: ["Many 'scammy' features (being able to purchase wheel spins even if you only have a slight chance of getting to the leaderboard and even slimmer chance of actually being between those who win TON; being able to purchase coin hash miner even if coins cannot be used to get $RICH, ...)", "Not exclusive, rewarding and addictive as they claim but rather tame, almost no rewards and boring"],
         banner: "blum"
     }, {
-        name: "Perp100 (formely AnyCard/Remint Network))",
-        icon: "https://play-lh.googleusercontent.com/QpiETMyJBreX1Bp0cdwmgXxQA_nAROHpShnvXpUFB_IlQItZeJYcFhNqoj_cofliDZg=w240-h480-rw",
-        description: "Collect points and exchange them for nothing! This app used to be a miner for an already existing Remint Token, but out of nowhere changed to this. And the Remint Tokens are now lost forever.",
-        added: "8-3-2024",
-        id: "remint",
-        attr: {
-            platform: "a",
-            type: "mine",
-            coin: "who knows",
-            effort: 0,
-            rating: 2
-        },
-        info: {
-            description: "Mine points, complete tasks and use it to purchase nothing. Check out the <a class='link' href='scam.html'>Scam List</a> by the way.<br>Before points, this app was used to mine the RMT token (Remint) which changed without any prior warning and tokens were lost.",
-            effort: "Restrt mining every 24 hours."
-        },
-        go: {
-            type: 1,
-            link: "https://www.anycardapp.com",
-            code: "COMPNUSX"
-        },
-        benefits: ["500 points"],
-        features: [["Mining", "Collect 10 points/h for 24 hours every day! Mining also rewards you with 50 EXP - you need 1000 EXP to increase your level, which gives you extra points."],
-            ["Bonus point Rewards", "Complete daily tasks to get up to 40 points for free! Complete social tasks to get even more points!"]
-        ],
-        tips: [["Refrain from buying VIP!", "5$ a month for a service that gives you VIP support (useless), x2 EXP rate (very useless), x2 Referral bonus (extra 500 points is cool but it's definitely not worth 5$) and the only actually useful feature - x2 Earning rate is certainly not worth it."],
-            ["Collect 20 points daily for sharing on social media! <img src='https://pngimg.com/uploads/trollface/trollface_PNG43.png' style='width: 1em; height: 1em; vertical-align: baseline'>", "Yeah so, you don't actually have to do it to receive the extra points, just click claim and dismiss the button that prompts you to share it, you will receive the reward nevertheless."]
-        ],
-        pros: ["Active developer team", "Decent and simple mining app"],
-        cons: ["Features with no clear use (VIP support, leveling system)", "No guarantee that the app will not change to something different and you will lose your tokens when you wake up next morning"],
-        banner: "bin"
-    }, {
         name: "INSIDERAA",
         icon: "https://cdn.galxe.com/galaxy/192/485555a3-bd1a-47c3-8a5a-3409219fa4e3.png",
         description: "Learn trading patterns like a pro! Understand what patterns mean and how to act while trading! Master these skills and get $RAA token!",
