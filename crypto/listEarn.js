@@ -652,7 +652,7 @@ const LISTE = [
     {
         name: "Gift Go",
         icon: "https://static.nicegram.app/features/telegram_channel_icons/be8c0f96-dac6-4a00-836b-f9915cc0db08.jpeg",
-        description: "Collect Crystals, roll the spinner and win! Gift Go allows you to win Telegram Stars, Gifts, or even Telegram Premium! We have to mention the gambling aspect - yes, you can spin for free... every 25 days. And if you wanna do it more often, you will need to deposit. For that (once the app gets verified), we will provide you with cashback!",
+        description: "Collect Crystals, roll the spinner and win! Gift Go allows you to win Telegram Stars, Gifts, or even Telegram Premium! We have to mention the gambling aspect - yes, you can spin for free every day for terrible rewards, and if you wanna open better cases, you will need to deposit. For that (once the app gets verified), we will provide you with cashback!",
         added: "5-20-2025",
         id: "giftgo",
         attr: {
@@ -665,8 +665,8 @@ const LISTE = [
             rating: 4
         },
         info: {
-            description: "Gift Go allows you to get free gifts on the go! Okay that sounds terrible. Anyway! Use Gift Go to collect Crystals, use those to roll the spinner and see the prize you get! The prizes include Telegram Premium, Telegram Stars and Telegram Gifts! Sell common gifts for Crystals and collect NFT Gifts to sell them on the marketplace for Stars and TON! Besides free gems you can purchase them, which supports the gambling aspect (which we are against). For this, every time Gift Go pays us, we will distribute the money between the people who deposited real money into this app in the form of cashback dividends!",
-            effort: "Collect a Crystal every day. Spin once you have enough Crystals."
+            description: "Gift Go allows you to get free gifts on the go! Okay that sounds terrible. Anyway! Use Gift Go to collect Crystals, use those to roll the spinner and see the prize you get! The prizes include Telegram Premium, Telegram Stars and Telegram Gifts! Sell common gifts for Crystals and collect NFT Gifts to sell them on the marketplace for Stars and TON! Besides crystals and tickets from the free case you can purchase them, which supports the gambling aspect (which we are against). For this, every time Gift Go pays us, we will distribute the money between the people who deposited real money into this app in the form of cashback dividends!",
+            effort: "Spin the free case every day."
         },
         go: {
             type: 0,
@@ -675,12 +675,11 @@ const LISTE = [
         benefits: ["5 Crystals","When the app gets verified, we will distribute cashback in the form of dividends. (You will only be able to request this cashback after you have deposited at least 10 Stars and the cashback will be proportional to the amount you have deposited in total)"],
         features: [
             ["Spin to Win", "Roll the spinner and get Stars, Premium or Gifts!"],
-            ["Tasks", "Collect your daily free Crystal or complete tasks to get even more!"],
+            ["Tasks", "Complete tasks to get bonus crystals!"],
             ["Giveaways", "Collect tickets and participate in giveaways to win extra gifts!"]
         ],
         tips: [
-            ["Patience is key.", "This app might test your patience really well. Saving up 25 Crystals only to roll a gift worth 15 Stars (which you won't withdraw because doing that makes you unable to sell it, so you will sell it in-app for 15 Crystals) might be really tiring. There are certainly better apps out there that guarantee income. As it goes for this one, maybe that roll for 25 Crystals will be your lucky day?"],
-            ["Save up!", "If you want to earn gifts you can sell, you must play the expensive rolls. Just wait a couple months, complete quests and collect free Crystals daily to save up for a big win!"]
+            ["Save up!", "If you want to earn gifts you can sell, you must play the expensive rolls. Just wait a couple months, complete quests and collect your daily free case to save up for a big win!"]
         ],
         pros: ["Very simple to use", "Unlike most apps with gambling aspect, it allows you to collect freebies without depositing (this might be wrong about withdrawing, we will update you)", "Free Giveaways"],
         cons: ["Withdrawn common gifts cannot be sold for stars", "Unstable App (might have troubles opening on certain devices)"],
@@ -1609,7 +1608,7 @@ function load() {
         else if (i.attr.coin === "ton") coin.innerHTML = "<img src='https://ton.org/_astro/gram-diamond.j6fi5JxQ.svg'><p>Gram (TON)</p>";
         else if (i.attr.coin === "usdt") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresource.cwallet.com%2Ftoken%2Flarge_icon%2Fusdt.png&f=1&nofb=1&ipt=f469902176a107dc91dcaf25aaf1c1464937d8ee8c51213dca9c4f4cb5635d80'><p>USDT/USDC</p>";
         else if (i.attr.coin === "stars") coin.innerHTML = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'><p>Telegram Stars</p>";
-        else if (i.attr.coin.startsWith("other:")) coin.innerHTML = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"><p>${i.attr.coin.substring(6)}</p>`;
+        else if (i.attr.coin.startsWith("other:") && !i.attr.coin.contains(" ")) coin.innerHTML = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"><p>${i.attr.coin.substring(6)}</p>`;
         else coin.innerHTML = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F013%2F391%2F079%2Fnon_2x%2Fcryptocurrency-exchange-3d-illustration-free-png.png&f=1&nofb=1&ipt=923304f21fdaf94f5c47b4ec445165ba37fa57f98d6e8b258995325165034d74"><p>Multi-Coin</p>`;
         atr.appendChild(coin);
         let effort = document.createElement("div");
@@ -1735,7 +1734,7 @@ function loadView(item) {
         case "usdt": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresource.cwallet.com%2Ftoken%2Flarge_icon%2Fusdt.png&f=1&nofb=1&ipt=f469902176a107dc91dcaf25aaf1c1464937d8ee8c51213dca9c4f4cb5635d80'> USDT/USDC"; break;
         case "stars": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'> Telegram Stars"; break;
         default:
-            if (item.attr.coin.startsWith("other:")) curr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${item.attr.coin.substring(6)}`;
+            if (item.attr.coin.startsWith("other:") && !i.attr.coin.contains(" ")) curr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${item.attr.coin.substring(6)}`;
             else {
                 curr = "Click to view";
                 let xpt = [];
