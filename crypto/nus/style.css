@@ -330,14 +330,59 @@ main {
 #mining_problosities {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 7vh 7vh 7vh;
-    grid-gap: 1vh;
+    grid-template-rows: 6vh 6vh 6vh;
+    grid-gap: 2vh;
     align-items: center;
+    margin-top: 2vh;
+    width: 100%;
 }
 
 .miningstat_view {
-
+    display: grid;
+    grid-template-columns: 6vh 1fr;
+    grid-template-rows: 2vh 4vh;
+    grid-gap: 1vh;
+    cursor: help;
+    position: relative;
 }
+
+.miningstat_view > img {
+    width: 6vh; height: 6vh;
+    grid-row: span 2;
+}
+
+.miningstat_view > h1 {
+    font-size: 1.7vh;
+    line-height: 1;
+    margin: 0;
+}
+
+    .miningstat_view > p {
+        font-size: 3vh;
+        line-height: 3.3vh;
+        margin: 0;
+        font-weight: 200;
+    }
+
+    .miningstat_view > h2 {
+        position: absolute;
+        font-size: 2vh;
+        color: #777;
+        margin: 0;
+        right: 0.5vh;
+        top: 0.5vh;
+        transition: 0.2s ease-out;
+    }
+
+    .miningstat_view:hover  > h2 {
+        color: #fff;
+    }
+
+    .miningstat_button {
+        font-size: 2.5vh;
+        font-family: 'Funnel Display';
+        font-weight: 400;
+    }
 
 @media(max-width:800px) {
     .nomobile {

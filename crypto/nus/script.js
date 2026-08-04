@@ -29,6 +29,70 @@ async function main() {
     document.getElementById("blockrewarddspl").innerHTML = _npb;
     document.getElementById("blockhashrdspl").innerHTML = _hpb + "H (" + formatNumber(_hpb).join(" ") + "H)";
     document.getElementById("calcresultdspl").innerHTML = document.getElementById("mstat_daily").innerHTML = ((serverdata.hashrate * 86400 * _npb) / _hpb).toFixed(4);
+    switch (serverdata.mining_upg % 10) {
+        case 0:
+            document.getElementById("mstat_cool").innerHTML = "24 hours";
+            break;
+        case 1:
+            document.getElementById("mstat_cool").innerHTML = "22 hours";
+            break;
+        case 2:
+            document.getElementById("mstat_cool").innerHTML = "20 hours";
+            break;
+        case 3:
+            document.getElementById("mstat_cool").innerHTML = "18 hours";
+            break;
+        case 4:
+            document.getElementById("mstat_cool").innerHTML = "16 hours";
+            break;
+        case 5:
+            document.getElementById("mstat_cool").innerHTML = "14 hours";
+            break;
+        case 6:
+            document.getElementById("mstat_cool").innerHTML = "12 hours";
+            break;
+        case 7:
+            document.getElementById("mstat_cool").innerHTML = "10 hours";
+            break;
+        case 8:
+            document.getElementById("mstat_cool").innerHTML = "8 hours";
+            break;
+        case 9:
+            document.getElementById("mstat_cool").innerHTML = "6 hours";
+            break;
+    }
+    switch (Math.floor((serverdata.mining_upg % 100) / 10)) {
+        case 0:
+            document.getElementById("mstat_cool").innerHTML = "48 hours (2 days)";
+            break;
+        case 1:
+            document.getElementById("mstat_cool").innerHTML = "60 hours (2.5 days)";
+            break;
+        case 2:
+            document.getElementById("mstat_cool").innerHTML = "72 hours (3 days)";
+            break;
+        case 3:
+            document.getElementById("mstat_cool").innerHTML = "84 hours (3.5 days)";
+            break;
+        case 4:
+            document.getElementById("mstat_cool").innerHTML = "96 hours (4 days)";
+            break;
+        case 5:
+            document.getElementById("mstat_cool").innerHTML = "108 hours (4.5 days)";
+            break;
+        case 6:
+            document.getElementById("mstat_cool").innerHTML = "120 hours (5 days)";
+            break;
+        case 7:
+            document.getElementById("mstat_cool").innerHTML = "132 hours (5.5 days)";
+            break;
+        case 8:
+            document.getElementById("mstat_cool").innerHTML = "144 hours (6 days)";
+            break;
+        case 9:
+            document.getElementById("mstat_cool").innerHTML = "168 hours (7 days)";
+            break;
+    }
 
     setInterval(calculateProfit, 1000);
 }
