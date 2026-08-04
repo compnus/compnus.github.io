@@ -63,34 +63,34 @@ async function main() {
     }
     switch (Math.floor((serverdata.mining_upg % 100) / 10)) {
         case 0:
-            document.getElementById("mstat_cool").innerHTML = "48 hours (2 days)";
+            document.getElementById("mstat_max").innerHTML = "48 hours (2 days)";
             break;
         case 1:
-            document.getElementById("mstat_cool").innerHTML = "60 hours (2.5 days)";
+            document.getElementById("mstat_max").innerHTML = "60 hours (2.5 days)";
             break;
         case 2:
-            document.getElementById("mstat_cool").innerHTML = "72 hours (3 days)";
+            document.getElementById("mstat_max").innerHTML = "72 hours (3 days)";
             break;
         case 3:
-            document.getElementById("mstat_cool").innerHTML = "84 hours (3.5 days)";
+            document.getElementById("mstat_max").innerHTML = "84 hours (3.5 days)";
             break;
         case 4:
-            document.getElementById("mstat_cool").innerHTML = "96 hours (4 days)";
+            document.getElementById("mstat_max").innerHTML = "96 hours (4 days)";
             break;
         case 5:
-            document.getElementById("mstat_cool").innerHTML = "108 hours (4.5 days)";
+            document.getElementById("mstat_max").innerHTML = "108 hours (4.5 days)";
             break;
         case 6:
-            document.getElementById("mstat_cool").innerHTML = "120 hours (5 days)";
+            document.getElementById("mstat_max").innerHTML = "120 hours (5 days)";
             break;
         case 7:
-            document.getElementById("mstat_cool").innerHTML = "132 hours (5.5 days)";
+            document.getElementById("mstat_max").innerHTML = "132 hours (5.5 days)";
             break;
         case 8:
-            document.getElementById("mstat_cool").innerHTML = "144 hours (6 days)";
+            document.getElementById("mstat_max").innerHTML = "144 hours (6 days)";
             break;
         case 9:
-            document.getElementById("mstat_cool").innerHTML = "168 hours (7 days)";
+            document.getElementById("mstat_max").innerHTML = "168 hours (7 days)";
             break;
     }
 
