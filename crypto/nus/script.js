@@ -22,7 +22,7 @@ async function main() {
     if (!serverdatac || userExistsErrorn) console.log("Server error.");
     serverdata = serverdatac;
 
-    document.getElementById("hashratedspl").innerHTML = document.getElementById("mstat_hashrate").innerHTML = formatNumber(serverdata.hashrate).join(" ") + "H/s";
+    document.getElementById("mstat_hashrate").innerHTML = formatNumber(serverdata.hashrate).join(" ") + "H/s";
     document.getElementById("hashrateplain").innerHTML = serverdata.hashrate + "H/s";
 
     var _npb = await getVariable("nusperblock");

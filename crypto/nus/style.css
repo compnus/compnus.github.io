@@ -551,7 +551,7 @@ main {
         z-index: 50;
         box-shadow: black 0 -5px 10px -5px;
         box-sizing: border-box;
-        margin-top: 6vw;
+        margin-top: 4vw;
         background-color: var(--bg);
     }
 
