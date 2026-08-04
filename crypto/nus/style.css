@@ -552,7 +552,8 @@ main {
         box-shadow: black 0 -5px 10px -5px;
         box-sizing: border-box;
         margin-top: 4vw;
-        background-color: var(--bg);
+        background: var(--maingradfallback);
+        background: linear-gradient(180deg,var(--bg) 0%, var(--bg) 49%, var(--maingradfallback) 51%, var(--maingradfallback) 100%);
     }
 
         #mobilenav > .mobilenavbtn {
@@ -564,7 +565,7 @@ main {
             align-items: center;
             text-align: center;
             transition: 0.2s ease;
-            background-color: var(--lightbg);
+            background-color: var(--maingradfallback);
         }
 
             #mobilenav > .mobilenavbtn > img {
@@ -586,11 +587,11 @@ main {
                 transform: scale(0.9);
             }
 
-            #mobilenav > .mobilenavbtn.disabled > img {
-                filter: drop-shadow(0 0 5px yellow);
+            #mobilenav > .mobilenavbtn.here > img {
+                filter: drop-shadow(0 0 5px yellow) opacity(0.5);
             }
 
-            #mobilenav > .mobilenavbtn.disabled {
+            #mobilenav > .mobilenavbtn.here {
                 border-color: var(--bg);
                 background-color: var(--bg);
                 box-shadow: var(--bg) 0 -5px 10px -5px,var(--bg) 0 -5px 10px -5px;
