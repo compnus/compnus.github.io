@@ -251,7 +251,30 @@ function calculateProfit() {
 }
 
 async function miningStart() {
-
+    bt.classList.add("disabled");
+    var bt = document.getElementById("mining_action");
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/mining', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+        },
+        body: ""
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.code === 10) {
+                bt.classList.remove("disabled");
+                popup("Error!", data.response);
+            } else if (data.code === 0) {
+                popup("Mining started!", "You can claim once the collect button appears (check the timer).");
+                serverdata.last_claimed = response;
+            }
+        })
+        .catch((error) => {
+            console.error('Error invoking function:', error);
+            bt.classList.remove("disabled");
+        });
 }
 
 async function openUpgrades() {
