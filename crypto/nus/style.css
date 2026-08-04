@@ -323,6 +323,22 @@ main {
     font-size: 2.5vh;
 }
 
+#separation_divm {
+    height: 8vh;
+}
+
+#mining_problosities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 7vh 7vh 7vh;
+    grid-gap: 1vh;
+    align-items: center;
+}
+
+.miningstat_view {
+
+}
+
 @media(max-width:800px) {
     .nomobile {
         display: none;

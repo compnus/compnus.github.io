@@ -488,18 +488,18 @@ const LISTN = [
     }, {
         name: "cPen",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cpen.io%2Fassets%2Fimages%2Flogo.png&f=1&nofb=1&ipt=5db09f158ef5731508d3df009fa36f35f0c1450dc092f9648750f7a129835e85",
-        description: "Mine $INK in the cPen network! Complete quests, accumulate $INK and collect airdrop on BSC! It really is that simple! Assuming the app is not a scam, of course.",
+        description: "Mine $HATN in the cPen network! Check in often, accumulate $HATN and collect airdrop on BSC! It really is that simple! Assuming the app is not a scam, of course.",
         added: "10-12-2024",
         id: "cpen",
         attr: {
             platform: "wai",
             type: "mine",
-            coin: "INK",
+            coin: "HATN",
             effort: 0,
             rating: 2
         },
         info: {
-            description: "cPen allows you to get $INK through mining and for completing quests. After completing KYC, you will get access to the wallet section, which, after the airdrop is announced, will be used to set a BSC address for your accumulated tokens to arrive. This app is very simple, but there are features that do not work (like Local Services) or are straight-up annoying (like pages not layering on top of each other, but rather replacing activities, meaning you can accidentally close the app when trying to return to the home screen. This happened to me twice. Today.) - other than that, the app's home screen already looks kitchy and all of this certainly lowers the trust levels.",
+            description: "cPen allows you to get $HATN through mining and for completing quests. After completing KYC, you will get access to the wallet section, which, after the airdrop is announced, will be used to set a BSC address for your accumulated tokens to arrive. This app is very simple, but there are features that do not work (like Local Services) or are straight-up annoying (like pages not layering on top of each other, but rather replacing activities, meaning you can accidentally close the app when trying to return to the home screen. This happened to me twice. Today.) - other than that, the app's home screen already looks kitchy and all of this certainly lowers the trust levels.",
             effort: "Restart mining every 24 hours, or earlier by watching an ad."
         },
         go: {
@@ -508,11 +508,10 @@ const LISTN = [
             code: "kingpvz"
         },
         benefits: ["Unknown"],
-        features: [["Mining", "Collect $INK by mining every day! Collect even more and restart mining whenever you want by watching an ad!"],
-        ["Quests", "Get more $INK by completing quests - learn about crypto and get rewarded! New quests arrive every week!"],
+        features: [["Mining", "Collect $HATN by mining every day! Collect even more and restart mining whenever you want by watching an ad!"],
+        ["Quests", "Get more $HATN by completing quests - learn about crypto and get rewarded! New quests arrive every week!"],
         ["Other Features", "Watch ads to collect Loot Boxes, promote your Local Services (doesn't work) and explore other services near you (doesn't work). There's also a leaderboard and everything."]],
-        tips: [["Don't waste your time!", "This is the first time I've seen a 120 second long unskippable ad. The lootbox worth 4.5 $INK is not worth this pain. Speaking of ads, you can activate ads without watching ads - the app will start mining immediately when the ad <b>loads</b>, meaning that if you close the app at that moment, you will start mining without having to suffer the ad!"],
-        ],
+        tips: [["Don't waste your time!", "This is the first time I've seen a 120 second long unskippable ad. The lootbox worth 4.5 $HATN is not worth this pain. Speaking of ads, you can activate ads without watching ads - the app will start mining immediately when the ad <b>loads</b>, meaning that if you close the app at that moment, you will start mining without having to suffer the ad!"],
         pros: ["Simple to use", "Active developer team"],
         cons: ["Annoying to use (many times you might accidentally close the app in hopes to reach the home screen)", "Extremely long ads", "Certain features do not work", "App has multiple buttons that do the same thing slightly differently, making it a nightmare trying to navigate to and from a specific screen", "Kitchy look"],
         banner: "bin"

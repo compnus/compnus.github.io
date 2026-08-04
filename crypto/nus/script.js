@@ -15,20 +15,20 @@ async function main() {
 
     const { data: serverdatac, error: userExistsErrorn } = await sb
         .from("udata")
-        .select("hashrate, last_claimed")
+        .select("hashrate, last_claimed, mining_upg")
         .eq("user_id", uid)
         .single();
     if (!serverdatac || userExistsErrorn) console.log("Server error.");
     serverdata = serverdatac;
 
-    document.getElementById("hashratedspl").innerHTML = formatNumber(serverdata.hashrate).join(" ") + "H/s";
+    document.getElementById("hashratedspl").innerHTML = document.getElementById("mstat_hashrate").innerHTML = formatNumber(serverdata.hashrate).join(" ") + "H/s";
     document.getElementById("hashrateplain").innerHTML = serverdata.hashrate + "H/s";
 
     var _npb = await getVariable("nusperblock");
     var _hpb = await getVariable("hashperblock");
     document.getElementById("blockrewarddspl").innerHTML = _npb;
-    document.getElementById("blockhashrdspl").innerHTML = _hpb + "H ("+formatNumber(_hpb).join(" ")+"H)";
-    document.getElementById("calcresultdspl").innerHTML = ((serverdata.hashrate * 86400 * _npb) / _hpb).toFixed(4);
+    document.getElementById("blockhashrdspl").innerHTML = _hpb + "H (" + formatNumber(_hpb).join(" ") + "H)";
+    document.getElementById("calcresultdspl").innerHTML = document.getElementById("mstat_daily").innerHTML = ((serverdata.hashrate * 86400 * _npb) / _hpb).toFixed(4);
 
     setInterval(calculateProfit, 1000);
 }
@@ -157,6 +157,10 @@ function calculateProfit() {
 }
 
 async function miningStart() {
+
+}
+
+async function openUpgrades() {
 
 }
 

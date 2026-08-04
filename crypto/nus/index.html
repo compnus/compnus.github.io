@@ -29,8 +29,8 @@
 
                 <div class="myhr"></div>
 
-                <button class="fullwidth nomobile" onclick="popup('Keyboard Shortcuts', '<code><b>Ctrl+Q</b></code> - Log Out<br><code><b>Ctrl+Left</b> <i>or</i> <b>Ctrl+A</b></code> - Show/Hide Left Sidebar<br><code><b>Ctrl+Right</b> <i>or</i> <b>Ctrl+D</b></code> - Show/Hide Right Sidebar<br><code><b>Ctrl+Down</b> <i>or</i> <b>Ctrl+S</b></code> - Pause/Resume Animations')" title="That seems handy!">Keyboard Shortcuts</button>
-                <button class="fullwidth onlymobile" onclick="toggleAnimations()">Toggle Animations</button><br />
+                <button class="fullwidth nomobile" onclick="popup('Keyboard Shortcuts', '<code><b>Ctrl+Q</b></code> - Log Out<br><code><b>Ctrl+Left</b> <i>or</i> <b>Ctrl+A</b></code> - Show/Hide Left Sidebar<br><code><b>Ctrl+Right</b> <i>or</i> <b>Ctrl+D</b></code> - Show/Hide Right Sidebar<br><code><b>Ctrl+Down</b> <i>or</i> <b>Ctrl+S</b></code> - Pause/Resume Animations')" title="That seems handy!">Keyboard Shortcuts</button><br />
+                <button class="fullwidth" onclick="window.location.assign('/crypto/academy.html')" title="Learn how to avoid scams at the CompNUS academy!">CompNUS Academy</button><br />
                 <button class="fullwidth" onclick="window.location.assign('/crypto/')" title="Return to CryptoNUS">Back to CryptoNUS</button>
             </div>
             <div class="collapse" onclick="collapseSide('left')">
@@ -46,10 +46,38 @@
                 <img class="miningicon" src="../../site/image/crypto/mining_bg.png" id="miningicona3" />
                 <img class="miningicon" src="../../site/image/crypto/mining_fg.png" id="miningiconc" />
             </div>
-            <br /><br /><br />
+            <div id="separation_divm"></div>
             <p class="sidemini">Accumulated Rewards:</p>
             <h1 id="accumulateddisplay"><span id="accumulateddisplayw"></span>.<span id="accumulateddisplayp"></span><span style="font-family:'currencycompnus',Ubuntu !important;"> $</span></h1>
             <button id="mining_action" onclick="miningStart()" class="disabled">COLLECT</button>
+            <div id="mining_problosities">
+                <div class="miningstat_view" onclick="popup('Mining Speed', 'This is the rate at which you generate hashes to attempt to mine blocks.')">
+                    <img src="https://img.icons8.com/?size=100&id=3hnKkALv4z7Y&format=png&color=FFFFFF" />
+                    <h1>Mining Speed</h1>
+                    <p id="mstat_hashrate">Loading...</p>
+                    <h2>?</h2>
+                </div>
+                <div class="miningstat_view" onclick="popup('Daily Reward', 'This is the estimated amount of $NUS you will earn in the span of 24 hours given current conditions<br>(your current hashrate, current block reward and hashes used to mine the current block).')">
+                    <img src="../../site/image/logo/currency.svg" />
+                    <h1>Daily Reward</h1>
+                    <p id="mstat_daily">Loading...</p>
+                    <h2>?</h2>
+                </div>
+                <div class="miningstat_view" onclick="popup('Claim Cooldown', 'This is the time you must wait before you can claim your mined $NUS again.')">
+                    <img src="https://img.icons8.com/?size=100&id=116505&format=png&color=FFFFFF" />
+                    <h1>Claim Cooldown</h1>
+                    <p id="mstat_cool">Loading...</p>
+                    <h2>?</h2>
+                </div>
+                <div class="miningstat_view" onclick="popup('Max Mining Uptime', 'This is the maximum amount of time you can mine continuously without having to claim your mined $NUS.')">
+                    <img src="https://img.icons8.com/?size=100&id=piCS68q7uPGh&format=png&color=FFFFFF" />
+                    <h1>Max Mining Uptime</h1>
+                    <p id="mstat_max">Loading...</p>
+                    <h2>?</h2>
+                </div>
+                <button class="ministat_button" onclick="openUpgrades()">UPGRADE</button>
+                <button class="ministat_button" onclick="window.open('../../u/inventory.html', '_blank')">INVENTORY</button>
+            </div>
         </div>
 
         <div class="sidebar" id="rightsd">
@@ -80,12 +108,15 @@
                 <br />
                 <p class="sidemini">Average Hashes per Block: <span id="blockhashrdspl">Loading...</span></p>
                 <br /><br />
-                <p class="sidemini">Approximate Daily Reward: <span id="calcresultdspl">Loading...</span> <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal">$</span><br />
-                <a class="link" onclick="loadApproximations();">Load more approximations...</a></p><br />
+                <p class="sidemini">
+                    Approximate Daily Reward: <span id="calcresultdspl">Loading...</span> <span style="font-family: 'currencycompnus',Ubuntu !important; font-weight: normal">$</span><br />
+                    <a class="link" onclick="loadApproximations();">Load more approximations...</a>
+                </p><br />
                 <p class="sidemini"><a class="link" onclick="hashrateCalc();">Hashrate Calculator</a></p>
                 <div class="myhr"></div>
                 <p>Block reward will decrease during halving. Average amount of hashes needed for a single mined block might fluctuate, but it should remain close to 2<sup style="font-size: 0.6em">40</sup>H (~1.1TH).</p>
                 <p class="sidemini"><a class="link" href="info.html">More Information</a></p>
+                <button class="fullwidth onlymobile" onclick="toggleAnimations()">Toggle Animations</button>
             </div>
         </div>
     </main>
