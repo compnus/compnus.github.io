@@ -408,7 +408,7 @@ main {
         display: flex;
         position: absolute;
         right: 0;
-        top: 15vh;
+        top: 18vh;
         width: 0;
         z-index: 91;
         overflow-x: hidden;
@@ -419,7 +419,7 @@ main {
         height: 8vw;
         position: absolute;
         right: 0;
-        top: calc(15vh + 3vw);
+        top: calc(18vh + 3vw);
         border-radius: 3vw 0 0 3vw;
         background-color: var(--lightbg);
         box-shadow: white 0 0 5px;
@@ -444,7 +444,7 @@ main {
 
         .sidebar > .content {
             padding: 3vw;
-            height: 81vh;
+            height: 76vh;
             width: 79vw;
         }
 
@@ -551,7 +551,7 @@ main {
         z-index: 50;
         box-shadow: black 0 -5px 10px -5px;
         box-sizing: border-box;
-        margin-top: 4vw;
+        margin-top: 2vw;
         background: var(--maingradfallback);
         background: linear-gradient(180deg,var(--bg) 0%, var(--bg) 49%, var(--maingradfallback) 51%, var(--maingradfallback) 100%);
     }
