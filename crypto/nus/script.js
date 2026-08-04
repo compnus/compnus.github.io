@@ -3,6 +3,7 @@ var uid = "";
 var animations = true;
 var serverdata = null;
 var mobileopen = false;
+var interval = null;
 
 async function main() {
     const { user, data } = await getUser();
@@ -63,7 +64,7 @@ async function main() {
             break;
     }
 
-    setInterval(calculateProfit, 1000);
+    interval = setInterval(calculateProfit, 1000);
 }
 
 function collapseSide(which) {
@@ -251,6 +252,7 @@ function calculateProfit() {
 }
 
 async function miningStart() {
+    clearInterval(interval);
     var bt = document.getElementById("mining_action");
     bt.classList.add("disabled");
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/mining', {
@@ -268,13 +270,14 @@ async function miningStart() {
                 popup("Error!", data.response);
             } else if (data.code === 0) {
                 popup("Mining started!", "You can claim once the collect button appears (check the timer).");
-                serverdata.last_claimed = response;
+                serverdata.last_claimed = data.response;
             }
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
             bt.classList.remove("disabled");
         });
+    interval = setInterval(calculateProfit, 1000);
 }
 
 async function openUpgrades() {

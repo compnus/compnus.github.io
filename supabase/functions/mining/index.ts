@@ -65,7 +65,7 @@ Deno.serve(async (req) => {
                     }
                 });
             } else {
-                return new Response(JSON.stringify({ response: mdata.last_claimed, code: 0, }), {
+                return new Response(JSON.stringify({ response: mdata.last_claimed, code: 0 }), {
                     status: 200,
                     headers: {
                         ...headers
