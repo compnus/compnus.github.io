@@ -384,6 +384,10 @@ main {
         font-weight: 400;
     }
 
+#mobilenav {
+    display: none;
+}
+
 @media(max-width:800px) {
     .nomobile {
         display: none;
@@ -392,4 +396,203 @@ main {
     .onlymobile {
         display: block;
     }
+
+    main {
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        box-shadow: black 0 0 15px;
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 15vh;
+        width: 0;
+        z-index: 91;
+        overflow-x: hidden;
+    }
+
+    #collapsemobile {
+        width: 8vw;
+        height: 8vw;
+        position: absolute;
+        right: 0;
+        top: calc(15vh + 3vw);
+        border-radius: 3vw 0 0 3vw;
+        background-color: var(--lightbg);
+        box-shadow: white 0 0 5px;
+        padding: 3vw 1vw;
+        z-index: 90;
+        transition: 0.2s ease-out;
+    }
+
+        #collapsemobile > img {
+            width: 8vw;
+            height: 8vw;
+        }
+
+    .sidebar#leftsd {
+        display: none;
+    }
+
+    .sidebar#rightsd {
+        border-radius: 3vw 0 0 3vw;
+        transition: 0.2s ease-out;
+    }
+
+        .sidebar > .content {
+            padding: 3vw;
+            height: 81vh;
+            width: 79vw;
+        }
+
+        .sidebar > .collapse {
+            display: none;
+        }
+
+    .sideentry {
+        margin-bottom: 3vw;
+    }
+
+        .sideentry > img {
+            width: 8vw;
+            height: 8vw;
+            padding-right: 3vw;
+        }
+
+        .sideentry > h2 {
+            font-size: 5vw;
+        }
+
+    .myhr {
+        margin: 3vh 2vw;
+    }
+
+    .sidemini {
+        margin: -1.5vw 0 0 0;
+        font-size: 3.5vw;
+    }
+
+    #miningicon {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .miningicon {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    #miningiconb {
+        width: 30vw;
+        height: 30vw;
+        left: 15vw;
+        top: 15vw;
+    }
+
+    #accumulateddisplay {
+        font-size: 9vw;
+    }
+
+    #mining_action {
+        margin: 2vw 0 3vw 0;
+        font-size: 4.5vw;
+    }
+
+    #separation_divm {
+        height: 10vw;
+    }
+
+    #mining_problosities {
+        grid-template-rows: 10vw 10vw 10vw;
+        grid-gap: 4vw;
+        margin: 4vw 2vw 0 2vw;
+        width: 96vw;
+    }
+
+    .miningstat_view {
+        grid-template-columns: 10vw 1fr;
+        grid-template-rows: 3vw 5vw;
+        grid-gap: 2vw;
+    }
+
+        .miningstat_view > img {
+            width: 10vw;
+            height: 10vw;
+        }
+
+        .miningstat_view > h1 {
+            font-size: 3vw;
+        }
+
+        .miningstat_view > p {
+            font-size: 5vw;
+            line-height: 5vw;
+        }
+
+        .miningstat_view > h2 {
+            font-size: 3.5vw;
+            right: 1vw;
+            top: 0;
+        }
+
+    .miningstat_button {
+        font-size: 5vw;
+    }
+
+    #mobilenav {
+        display: flex;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 50;
+        box-shadow: black 0 -5px 10px -5px;
+        box-sizing: border-box;
+        margin-top: 6vw;
+        background-color: var(--bg);
+    }
+
+        #mobilenav > .mobilenavbtn {
+            border-top: var(--border) solid 2px;
+            padding: 2vw 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: 0.2s ease;
+            background-color: var(--lightbg);
+        }
+
+            #mobilenav > .mobilenavbtn > img {
+                width: 8vw;
+                height: 8vw;
+                object-fit: contain;
+                padding: 1vw;
+            }
+
+            #mobilenav > .mobilenavbtn > p {
+                margin: 1vw 0 0 0;
+                font-size: 2.8vw;
+                line-height: 1.2;
+                font-weight: 200;
+                color: white;
+            }
+
+            #mobilenav > .mobilenavbtn:active > img {
+                transform: scale(0.9);
+            }
+
+            #mobilenav > .mobilenavbtn.disabled > img {
+                filter: drop-shadow(0 0 5px yellow);
+            }
+
+            #mobilenav > .mobilenavbtn.disabled {
+                border-color: var(--bg);
+                background-color: var(--bg);
+                box-shadow: var(--bg) 0 -5px 10px -5px,var(--bg) 0 -5px 10px -5px;
+            }
 }

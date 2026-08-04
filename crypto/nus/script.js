@@ -2,6 +2,7 @@ var SIDES = 0;
 var uid = "";
 var animations = true;
 var serverdata = null;
+var mobileopen = false;
 
 async function main() {
     const { user, data } = await getUser();
@@ -61,38 +62,6 @@ async function main() {
             document.getElementById("mstat_cool").innerHTML = "6 hours";
             break;
     }
-    switch (Math.floor((serverdata.mining_upg % 100) / 10)) {
-        case 0:
-            document.getElementById("mstat_max").innerHTML = "48 hours (2 days)";
-            break;
-        case 1:
-            document.getElementById("mstat_max").innerHTML = "60 hours (2.5 days)";
-            break;
-        case 2:
-            document.getElementById("mstat_max").innerHTML = "72 hours (3 days)";
-            break;
-        case 3:
-            document.getElementById("mstat_max").innerHTML = "84 hours (3.5 days)";
-            break;
-        case 4:
-            document.getElementById("mstat_max").innerHTML = "96 hours (4 days)";
-            break;
-        case 5:
-            document.getElementById("mstat_max").innerHTML = "108 hours (4.5 days)";
-            break;
-        case 6:
-            document.getElementById("mstat_max").innerHTML = "120 hours (5 days)";
-            break;
-        case 7:
-            document.getElementById("mstat_max").innerHTML = "132 hours (5.5 days)";
-            break;
-        case 8:
-            document.getElementById("mstat_max").innerHTML = "144 hours (6 days)";
-            break;
-        case 9:
-            document.getElementById("mstat_max").innerHTML = "168 hours (7 days)";
-            break;
-    }
 
     setInterval(calculateProfit, 1000);
 }
@@ -127,6 +96,31 @@ function collapseSide(which) {
             leftbar.style.right = "calc(25vw - 4vh)";
     }
 }
+
+function collapseSideMobile() {
+    var syncHistory = true;
+    if (arguments.length > 0) syncHistory = arguments[0];
+
+    if (mobileopen) {
+        document.getElementById("rightsd").style.width = "0";
+        document.getElementById("collapsemobile").style.right = "0";
+        mobileopen = false;
+        if (syncHistory && history.state && history.state.mobileSidebar) {
+            history.back();
+        }
+    } else {
+        document.getElementById("rightsd").style.width = "85vw";
+        document.getElementById("collapsemobile").style.right = "85vw";
+        if (syncHistory) history.pushState({ mobileSidebar: true }, '');
+        mobileopen = true;
+    }
+}
+
+window.addEventListener('popstate', function (e) {
+    if (window.innerWidth <= 800 && mobileopen) {
+        collapseSideMobile(false);
+    }
+});
 
 async function loadApproximations() {
     const { data: serverdata, error: userExistsErrorn } = await sb
@@ -218,6 +212,42 @@ function calculateProfit() {
     }
     var now = new Date().getTime() / 1000;
     console.log(serverdata.last_claimed);
+
+    var maxtime;
+    switch (Math.floor((serverdata.mining_upg % 100) / 10)) {
+        case 0:
+            maxtime = 48*60;
+            break;
+        case 1:
+            maxtime = 60*60;
+            break;
+        case 2:
+            maxtime = 72*60;
+            break;
+        case 3:
+            maxtime = 84*60;
+            break;
+        case 4:
+            maxtime = 96*60;
+            break;
+        case 5:
+            maxtime = 108*60;
+            break;
+        case 6:
+            maxtime = 120*60;
+            break;
+        case 7:
+            maxtime = 132*60;
+            break;
+        case 8:
+            maxtime = 144*60;
+            break;
+        case 9:
+            maxtime = 168*60;
+            break;
+    }
+
+    document.getElementById("mstat_max").innerHTML = "idk man";
 }
 
 async function miningStart() {

@@ -19,13 +19,16 @@
     </script>
 
     <main>
+        <div id="collapsemobile" class="onlymobile" onclick="collapseSideMobile()">
+            <img src="https://img.icons8.com/?size=100&id=83195&format=png&color=FFFFFF" />
+        </div>
         <div class="sidebar" id="leftsd">
             <div class="content">
                 <button class="fullwidth disabled" title="You are here.">Mining</button><br />
                 <button class="fullwidth" onclick="window.location.assign('free.html')" title="Get free rewards for simple tasks!">Free Assets</button><br />
                 <button class="fullwidth" onclick="window.location.assign('dividends.html')" title="Request and check dividends here!">Dividends</button><br />
                 <button class="fullwidth" onclick="window.location.assign('events.html')" title="Participate in various events to gain more rewards!">Events</button><br />
-                <button class="fullwidth" onclick="window.location.assign('info.html')" title="Check out information about $NUS and see the community statistics!">Stats and Information</button>
+                <button class="fullwidth" onclick="window.location.assign('info.html')" title="Check out information about $NUS and see the community statistics!">Stats and Info</button>
 
                 <div class="myhr"></div>
 
@@ -60,7 +63,7 @@
                 <div class="miningstat_view" onclick="popup('Daily Reward', 'This is the estimated amount of $NUS you will earn in the span of 24 hours given current conditions<br>(your current hashrate, current block reward and hashes used to mine the current block).')">
                     <img src="../../site/image/logo/currency.svg" />
                     <h1>Daily Reward</h1>
-                    <p><span id="mstat_daily">0.0000</span> $NUS</p>
+                    <p><span id="mstat_daily">0.0000</span><span class="nomobile"> $NUS</span></p>
                     <h2>?</h2>
                 </div>
                 <div class="miningstat_view" onclick="popup('Claim Cooldown', 'This is the time you must wait before you can claim your mined $NUS again.')">
@@ -69,14 +72,14 @@
                     <p id="mstat_cool">Loading...</p>
                     <h2>?</h2>
                 </div>
-                <div class="miningstat_view" onclick="popup('Max Mining Uptime', 'This is the maximum amount of time you can mine continuously without having to claim your mined $NUS.')">
+                <div class="miningstat_view" onclick="popup('Uptime', 'This is the amount of time remaining before mining is stopped.<br>When you claim your $NUS, this timer resets.')">
                     <img src="https://img.icons8.com/?size=100&id=piCS68q7uPGh&format=png&color=FFFFFF" />
-                    <h1>Max Mining Uptime</h1>
-                    <p id="mstat_max">Loading...</p>
+                    <h1>Remaining Uptime</h1>
+                    <p id="mstat_max">N/A</p>
                     <h2>?</h2>
                 </div>
                 <button class="miningstat_button" onclick="openUpgrades()">UPGRADE</button>
-                <button class="miningstat_button" onclick="window.open('../../u/inventory.html', '_blank')">INVENTORY</button>
+                <button class="miningstat_button" onclick="window.location.assign('../../u/inventory.html')">INVENTORY</button>
             </div>
         </div>
 
@@ -98,12 +101,8 @@
                     <h2 id="walletsats">Loading...</h2>
                 </div>
                 <div class="myhr"></div>
-                <div class="sideentry" title="Hashrate">
-                    <img src="https://img.icons8.com/?size=100&id=3hnKkALv4z7Y&format=png&color=FFFFFF" />
-                    <h2 id="hashratedspl">Loading...</h2>
-                </div>
                 <p class="sidemini">Current Hashrate: <span id="hashrateplain" style="font-weight: 100">0H/s</span></p>
-                <br /><br />
+                <br />
                 <p class="sidemini">Current Block Reward: <span id="blockrewarddspl">Loading...</span> <span style="font-family:'currencycompnus',Ubuntu !important; font-weight: normal">$</span></p>
                 <br />
                 <p class="sidemini">Average Hashes per Block: <span id="blockhashrdspl">Loading...</span></p>
@@ -116,10 +115,32 @@
                 <div class="myhr"></div>
                 <p>Block reward will decrease during halving. Average amount of hashes needed for a single mined block might fluctuate, but it should remain close to 2<sup style="font-size: 0.6em">40</sup>H (~1.1TH).</p>
                 <p class="sidemini"><a class="link" href="info.html">More Information</a></p>
-                <button class="fullwidth onlymobile" onclick="toggleAnimations()">Toggle Animations</button>
+                <br /><button class="fullwidth onlymobile" onclick="toggleAnimations()">Toggle Animations</button>
             </div>
         </div>
     </main>
+    <nav id="mobilenav">
+        <a class="mobilenavbtn disabled">
+            <img src="https://img.icons8.com/?size=100&id=3hnKkALv4z7Y&format=png&color=FFFFFF" />
+            <p>Mining</p>
+        </a>
+        <a class="mobilenavbtn" href="free.html">
+            <img src="https://img.icons8.com/?size=100&id=85174&format=png&color=FFFFFF" />
+            <p>Free Assets</p>
+        </a>
+        <a class="mobilenavbtn" href="dividends.html">
+            <img src="https://img.icons8.com/?size=100&id=85952&format=png&color=FFFFFF" />
+            <p>Dividends</p>
+        </a>
+        <a class="mobilenavbtn" href="events.html">
+            <img src="https://img.icons8.com/?size=100&id=88943&format=png&color=FFFFFF" />
+            <p>Events</p>
+        </a>
+        <a class="mobilenavbtn" href="info.html">
+            <img src="https://img.icons8.com/?size=100&id=83180&format=png&color=FFFFFF" />
+            <p>Stats & Info</p>
+        </a>
+    </nav>
 
     <script>
         const countercontainerw = document.querySelector("#accumulateddisplayw");
