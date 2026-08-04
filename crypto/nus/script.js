@@ -251,8 +251,8 @@ function calculateProfit() {
 }
 
 async function miningStart() {
-    bt.classList.add("disabled");
     var bt = document.getElementById("mining_action");
+    bt.classList.add("disabled");
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/mining', {
         method: 'POST',
         headers: {
