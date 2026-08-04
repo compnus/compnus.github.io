@@ -55,7 +55,7 @@ Deno.serve(async (req) => {
 
     try {
         if (!mdata.last_claimed) {
-            mdata.last_claimed = Date.now();
+            mdata.last_claimed = new Date().toISOString();
             const { error: updateError } = await sb.from('udata').update({ last_claimed: mdata.last_claimed }).eq('user_id', uid);
             if (updateError) {
                 return new Response(JSON.stringify({ response: 'We had issues trying to start mining. Please try again later.', code: 10 }), {
