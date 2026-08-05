@@ -269,7 +269,7 @@ function calculateProfit() {
     button.innerHTML = diff < mintime ? formatTime(mintime - diff, true) : "COLLECT";
     if (diff >= mintime) button.classList.remove("disabled");
 
-    var profit = ((serverdata.hashrate * diff * cache.npb) / cache.hpb).toFixed(8);
+    var profit = ((serverdata.hashrate * Math.min(diff, maxtime) * cache.npb) / cache.hpb).toFixed(8);
     counterw.setNumber(Math.floor(profit));
     counterp.setNumber(Math.floor((profit - Math.floor(profit)) * 100000000));
 }
