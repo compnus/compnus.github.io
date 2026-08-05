@@ -288,7 +288,7 @@ async function miningStart() {
         body: ""
     })
         .then(response => response.json())
-        .then(data => {
+        .then(async data => {
             if (data.code === 10) {
                 bt.classList.remove("disabled");
                 bt.innerHTML = "Please try again.";
