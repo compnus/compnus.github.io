@@ -4,6 +4,7 @@ var animations = true;
 var serverdata = null;
 var mobileopen = false;
 var interval = null;
+var cache = {};
 
 async function main() {
     const { user, data } = await getUser();
@@ -28,6 +29,8 @@ async function main() {
 
     var _npb = await getVariable("nusperblock");
     var _hpb = await getVariable("hashperblock");
+    chache.npb = _npb;
+    chache.hpb = _hpb;
     document.getElementById("blockrewarddspl").innerHTML = _npb;
     document.getElementById("blockhashrdspl").innerHTML = _hpb + "H (" + formatNumber(_hpb).join(" ") + "H)";
     document.getElementById("calcresultdspl").innerHTML = document.getElementById("mstat_daily").innerHTML = ((serverdata.hashrate * 86400 * _npb) / _hpb).toFixed(4);
@@ -262,9 +265,12 @@ function calculateProfit() {
         case 9: maxtime = 168*60*60; break;
     }
 
-    console.log("Time Passed: " + diff + " seconds");
     document.getElementById("mstat_max").innerHTML = formatTime(maxtime - diff,false).join(" ");
     button.innerHTML = diff < mintime ? formatTime(mintime - diff, true) : "COLLECT";
+
+    var profit = ((serverdata.hashrate * diff * cache.npb) / cache.hpb).toFixed(8);
+    counterw.setNumber(Math.floor(profit));
+    counterp.setNumber(Math.floor((profit - Math.floor(profit)) * 100000000));
 }
 
 async function miningStart() {
