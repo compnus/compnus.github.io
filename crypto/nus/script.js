@@ -296,6 +296,16 @@ async function miningStart() {
             } else if (data.code === 0) {
                 popup("Mining started!", "You can claim once the collect button appears (check the timer).");
                 serverdata.last_claimed = data.response;
+            } else if (data.code === 1) {
+                popup("Slow down there!", data.response);
+            } else if ((data.code === 2) || (data.code === 5)) {
+                response = JSON.parse(data.response);
+                popup("Mining rewards claimed!", `You have received ${response.reward} $NUS!<br>You may claim again once the timer expires.` + (data.code === 2 ? "<br><br>Due to an internal error, your claim will not show up in your transaction history." : ""));
+                const balance = await getBalance(uid);
+                document.getElementById("walletnus").innerHTML = balance[0];
+                document.getElementById("walletnoca").innerHTML = balance[1];
+                document.getElementById("walletsats").innerHTML = balance[2];
+                serverdata.last_claimed = response.last_claimed;
             }
         })
         .catch((error) => {

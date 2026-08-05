@@ -155,7 +155,9 @@ function formatTime(seconds, conjoined) {
         var seconds = seconds % 60;
         return `${hours}:${minutes<10?"0"+minutes:minutes}:${seconds<10?"0"+seconds:seconds}`;
     } else {
-        if (seconds < 60) {
+        if (seconds < 1) {
+            return ["N/A", ""];
+        } else if (seconds < 60) {
             return ["<1", "minute"];
         } else if (seconds < 3600) {
             return [Math.floor(seconds / 60), "minute"+(Math.floor(seconds / 60) !== 1 ? "s" : "")];
