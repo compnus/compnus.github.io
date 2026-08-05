@@ -42,8 +42,8 @@ Deno.serve(async (req) => {
 
     let uid: string = user.user.id;
 
-    const { data: mdata, error: merror } = await sb.from('udata').select('hashrate, last_claimed, mining_upg').eq('user_id', uid);
-    const { data: udata, error: uerror } = await sb.from('users').select('username').eq('id', uid);
+    const { data: mdata, error: merror } = await sb.from('udata').select('hashrate, last_claimed, mining_upg').eq('user_id', uid).single();
+    const { data: udata, error: uerror } = await sb.from('users').select('username').eq('id', uid).single();
     if (merror || uerror || !mdata || !udata) {
         return new Response(JSON.stringify({ response: 'Error fetching user data' }), {
             status: 500,
@@ -113,7 +113,7 @@ Deno.serve(async (req) => {
             } else {
                 const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
                 const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
-                const { data: cdata, error: cerror } = await sb.from('udata').select('balance_nus').eq('user_id', uid);
+                const { data: cdata, error: cerror } = await sb.from('udata').select('balance_nus').eq('user_id', uid).single();
                 if (dte || dre || cerror || !dt || !dr || !cdata) {
                     return new Response(JSON.stringify({ response: 'We had issues trying to collect mining rewards. Please try again later.', code: 10 }), {
                         status: 500,
@@ -126,7 +126,7 @@ Deno.serve(async (req) => {
                 var post = { balance_nus: cdata.balance_nus + profit, last_claimed: new Date().toISOString() };
                 const { error: updateError } = await sb.from('udata').update(post).eq('user_id', uid);
                 if (updateError) {
-                    return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.' + "<br>" + JSON.stringify(cdata) + "<br>" + ((mdata.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8), code: 10 }), {
+                    return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.', code: 10 }), {
                         status: 500,
                         headers: {
                             ...headers
