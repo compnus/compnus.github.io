@@ -211,7 +211,7 @@ function calculateProfit() {
         button.innerHTML = "START MINING";
         return;
     }
-    var now = new Date().getTime() / 1000;
+    var now = new Date().toISOString();
     console.log(now);
     console.log(serverdata.last_claimed);
 
@@ -255,6 +255,7 @@ function calculateProfit() {
 async function miningStart() {
     clearInterval(interval);
     var bt = document.getElementById("mining_action");
+    bt.innerHTML = "Please wait...";
     bt.classList.add("disabled");
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/mining', {
         method: 'POST',
@@ -268,6 +269,7 @@ async function miningStart() {
         .then(data => {
             if (data.code === 10) {
                 bt.classList.remove("disabled");
+                bt.innerHTML = "Please try again.";
                 popup("Error!", data.response);
             } else if (data.code === 0) {
                 popup("Mining started!", "You can claim once the collect button appears (check the timer).");
@@ -276,6 +278,7 @@ async function miningStart() {
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
+            bt.innerHTML = "Please try again.";
             bt.classList.remove("disabled");
         });
     interval = setInterval(calculateProfit, 1000);
