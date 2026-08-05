@@ -212,6 +212,7 @@ function calculateProfit() {
         return;
     }
     var now = new Date().getTime() / 1000;
+    console.log(now);
     console.log(serverdata.last_claimed);
 
     var maxtime;
