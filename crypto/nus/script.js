@@ -211,44 +211,61 @@ function calculateProfit() {
         button.innerHTML = "START MINING";
         return;
     }
-    var now = new Date().toISOString();
-    console.log(now);
-    console.log(serverdata.last_claimed);
+    var now = new Date().getTime();
+    var lastclaim = new Date(serverdata.last_claimed).getTime();
+    var diff = now - lastclaim / 1000;
 
+    var mintime;
     var maxtime;
-    switch (Math.floor((serverdata.mining_upg % 100) / 10)) {
+    switch (serverdata.mining_upg % 10) {
         case 0:
-            maxtime = 48*60;
+            mintime = 24*60*60;
             break;
         case 1:
-            maxtime = 60*60;
+            mintime = 22*60*60;
             break;
         case 2:
-            maxtime = 72*60;
+            mintime = 20*60*60;
             break;
         case 3:
-            maxtime = 84*60;
+            mintime = 18*60*60;
             break;
         case 4:
-            maxtime = 96*60;
+            mintime = 16*60*60;
             break;
         case 5:
-            maxtime = 108*60;
+            mintime = 14*60*60;
             break;
         case 6:
-            maxtime = 120*60;
+            mintime = 12*60*60;
             break;
         case 7:
-            maxtime = 132*60;
+            mintime = 10*60*60;
             break;
         case 8:
-            maxtime = 144*60;
+            mintime = 8*60*60;
             break;
         case 9:
-            maxtime = 168*60;
+            mintime = 6*60*60;
             break;
     }
+    switch (Math.floor((serverdata.mining_upg % 100) / 10)) {
+        case 0: maxtime = 48*60*60; break;
+        case 1: maxtime = 60 *60*60; break;
+        case 2: maxtime = 72 * 60*60; break;
+        case 3: maxtime = 84 * 60 *60; break;
+        case 4: maxtime = 96 * 60 * 60; break;
+        case 5: maxtime = 108 * 60 * 60; break;
+        case 6: maxtime = 120 * 60 *60; break;
+        case 7: maxtime = 132 * 60*60; break;
+        case 8: maxtime = 144 *60*60; break;
+        case 9: maxtime = 168*60*60; break;
+    }
 
+    console.log("Time Passed: " + diff + " seconds");
+    console.log("Min Time: " + mintime + " seconds");
+    console.log("Max Time: " + maxtime + " seconds");
+    console.log("Time Remaining: " + (maxtime - diff) + " seconds");
     document.getElementById("mstat_max").innerHTML = "idk man";
 }
 
