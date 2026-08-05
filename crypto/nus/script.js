@@ -320,7 +320,81 @@ async function miningStart() {
     interval = setInterval(calculateProfit, 1000);
 }
 
-async function openUpgrades() {
+const levelstat = {
+    cooling: [
+        {"name":"No Cooling", "description": "No cooling is provided. Relies on natural heat dissipation. Extremely inefficient.", "cost": 0, "cooldown": 24, "img": "cooling0.png"},
+        {"name":"Single Fan", "description": "Good luck cooling a mining setup with a single fan! Better than nothing, though.", "cost": 100, "cooldown": 22, "img": "cooling1.png"},
+        {"name":"Embedded Fan", "description": "Better than a lone fan, but still lone. And very much a fan.", "cost": 225, "cooldown": 20, "img": "cooling2.png"},
+        {"name":"Dual Fan", "description": "Oh look! It now has a friend! And friendship is power!", "cost": 375, "cooldown": 18, "img": "cooling3.png"},
+        {"name":"Small Fan Array", "description": "In unity there is power! What two couldn't do, four will do with ease!", "cost": 600, "cooldown": 14, "img": "cooling5.png"},
+        {"name":"Huge Fan Array", "description": "There it is. The absolute masterpiece when it comes to air cooling. I wonder what comes next?", "cost": 950, "cooldown": 12, "img": "cooling6.png"},
+        {"name":"Water Line", "description": "When air is insufficient, water cooling takes over! But is there more?", "cost": 1500, "cooldown": 10, "img": "cooling7.png"},
+        {"name":"Dual Water Line", "description": "Double the power with ease! Fresh water will take care of the rest!", "cost": 3250, "cooldown": 8, "img": "cooling8.png"},
+        {"name":"Liquid Nitrogen", "description": "Finally, the absolute <i>chill</i>.", "cost": 7000, "cooldown": 6, "img": "cooling9.png"}
+    ],
+    memory: [
+        {"name": "Uni Chip", "description": "It's a miracle it can even hold two days of data to be honest.", "cost": 0, "uptime": 48, "img": "memory0.png"},
+        {"name": "Rewired Uni Chip", "description": "Slightly better, but still running on hopes and dreams.", "cost": 250, "uptime": 60, "img": "memory1.png"},
+        {"name": "Tri Chip", "description": "With more wires to store data, and also efficient to use less electricity!", "cost": 480, "uptime": 72, "img": "memory2.png"},
+        {"name": "Hexa Chip", "description": "More connectors means higher efficiency!", "cost": 760, "uptime": 84, "img": "memory3.png"},
+        {"name": "Chipless DD Core", "description": "Now we are talking! Even more connectors and a core for performance!", "cost": 1350, "uptime": 96, "img": "memory4.png"},
+        {"name": "NUS DD Core", "description": "With this premium chip, the efficiency is skyrocketing! But you can push it further!", "cost": 2100, "uptime": 108, "img": "memory5.png"},
+        {"name": "VQD Core", "description": "Outside-going chips waste power. With this integrated chip core, you reach the pinnacle of efficiency!", "cost": 4350, "uptime": 120, "img": "memory6.png"},
+        {"name": "Rewired VQD Core", "description": "Rewired with better performance algorithms!", "cost": 7500, "uptime": 132, "img": "memory7.png"},
+        {"name": "Multi-Core", "description": "Why bother with a single core when you can have all of them?", "cost": 12000, "uptime": 144, "img": "memory8.png"},
+        {"name": "Glided Multi-Core", "description": "Now that all cores are connected, you have reached the <b>absolute</b>!", "cost": 20000, "uptime": 168, "img": "memory9.png"}
+    ]
+}
+
+function openUpgrades() {
+    popup("Mining Upgrades", `
+    <div id="upgrades_main">
+
+    <div class="upgrade_item">
+        <div><h1>Cooling</h1><h2 onclick="popup('Cooling', 'The faster your mining machine can cool down, the more often you can claim your mining rewards! Upgrade cooling to decrease claim cooldown.',true,true)">?</h2></div>
+        <img id="coolingi" src="/site/image/assets/mining/cooling0.png">
+        <h1 id="coolingn">No Cooling</h1>
+        <h2>Claim Cooldown: <span id="coolingv">24</span> hours</h2>
+        <p id="coolingd">Loading...</p>
+        <button id="coolingb" class="disabled" onclick="upgrade('cooling')">Upgrade</button>
+    </div>
+    <div class="upgrade_item">
+        <div><h1>Memory</h1><h2 onclick="popup('Memory', 'Better memory allows your mining machine to hold more tokens! Upgrade memory to increase mining uptime.',true,true)">?</h2></div>
+        <img id="memoryi" src="/site/image/assets/mining/memory0.png">
+        <h1 id="memoryn">Uni Chip</h1>
+        <h2>Mining Uptime: <span id="memoryv">48</span> hours</h2>
+        <p id="memoryd">Loading...</p>
+        <button id="memoryb" class="disabled" onclick="upgrade('memory')">Upgrade</button>
+    </div>
+
+    </div>
+    <p style="margin:0">
+    `, true, true);
+    const rig_cooling = levelstat.cooling[serverdata.mining_upg % 10];
+    const rig_memory = levelstat.memory[Math.floor((serverdata.mining_upg % 100) / 10)];
+    const el = {
+        cooling: {
+            img: document.getElementById("coolingi"),
+            name: document.getElementById("coolingn"),
+            value: document.getElementById("coolingv"),
+            desc: document.getElementById("coolingd"),
+            button: document.getElementById("coolingb")
+        },
+        memory: {
+            img: document.getElementById("memoryi"),
+            name: document.getElementById("memoryn"),
+            value: document.getElementById("memoryv"),
+            desc: document.getElementById("memoryd"),
+            button: document.getElementById("memoryb")
+        }
+    }
+    if (serverdata.mining_upg % 10 === 9) el.cooling.button.innerHTML = "MAX"
+    else el.cooling.button.classList.remove("disabled");
+    if ((serverdata.mining_upg % 100)/10 === 9) el.memory.button.innerHTML = "MAX"
+    else el.memory.button.classList.remove("disabled");
+}
+
+async function upgrade(what) {
 
 }
 
