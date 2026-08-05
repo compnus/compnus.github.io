@@ -35,6 +35,13 @@ main {
         overflow-y: auto;
     }
 
+    .sidebar#leftsd > .content {
+        padding-right: 1vh;
+    }
+    .sidebar#rightsd > .content {
+        padding-left: 1vh;
+    }
+
     .sidebar > .collapse {
         display: flex;
         align-items: center;
