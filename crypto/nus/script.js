@@ -292,7 +292,7 @@ async function miningStart() {
         body: ""
     })
         .then(response => response.json())
-        .then(async data => {
+        .then(async data => {  //0,5 = success; 10 = error; 1,2 = warning
             if (data.code === 10) {
                 bt.classList.remove("disabled");
                 bt.innerHTML = "Please try again.";
@@ -304,7 +304,7 @@ async function miningStart() {
                 popup("Slow down there!", data.response);
             } else if ((data.code === 2) || (data.code === 5)) {
                 response = JSON.parse(data.response);
-                serverdata.last_claimed = response.last_claimed;
+                serverdata.last_claimed = response.newtime;
                 console.log(response, serverdata);
                 popup("Mining rewards claimed!", `You have received ${response.reward} $NUS!<br>You may claim again once the timer expires.` + (data.code === 2 ? "<br><br>Due to an internal error, your claim will not show up in your transaction history." : ""));
                 const balance = await getBalance(uid);
