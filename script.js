@@ -153,7 +153,7 @@ function formatTime(seconds, conjoined) {
         var hours = Math.floor(seconds / 3600);
         var minutes = Math.floor((seconds % 3600) / 60);
         var seconds = seconds % 60;
-        return `${hours}:${minutes}:${seconds}`;
+        return `${hours}:${minutes<10?"0"+minutes:minutes}:${seconds<10?"0"+seconds:seconds}`;
     } else {
         if (seconds < 60) {
             return ["<1", "minute"];
