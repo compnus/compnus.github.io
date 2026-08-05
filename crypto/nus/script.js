@@ -213,7 +213,7 @@ function calculateProfit() {
         document.querySelector("#accumulateddisplayp > .numberAnimation > .numberSlideWrapper").style.width = "8ch";
     }, 100);
     var button = document.getElementById("mining_action");
-    if (!serverdata.last_claimed) {
+    if (serverdata.last_claimed === null) {
         button.classList.remove("disabled");
         button.innerHTML = "START MINING";
         return;
