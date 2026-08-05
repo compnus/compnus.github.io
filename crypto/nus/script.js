@@ -304,13 +304,13 @@ async function miningStart() {
                 popup("Slow down there!", data.response);
             } else if ((data.code === 2) || (data.code === 5)) {
                 response = JSON.parse(data.response);
-                console.log(response);
+                serverdata.last_claimed = response.last_claimed;
+                console.log(response, serverdata);
                 popup("Mining rewards claimed!", `You have received ${response.reward} $NUS!<br>You may claim again once the timer expires.` + (data.code === 2 ? "<br><br>Due to an internal error, your claim will not show up in your transaction history." : ""));
                 const balance = await getBalance(uid);
                 document.getElementById("walletnus").innerHTML = balance[0];
                 document.getElementById("walletnoca").innerHTML = balance[1];
                 document.getElementById("walletsats").innerHTML = balance[2];
-                serverdata.last_claimed = response.last_claimed;
             }
         })
         .catch((error) => {
