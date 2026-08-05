@@ -267,6 +267,7 @@ function calculateProfit() {
 
     document.getElementById("mstat_max").innerHTML = formatTime(maxtime - diff,false).join(" ");
     button.innerHTML = diff < mintime ? formatTime(mintime - diff, true) : "COLLECT";
+    if (diff >= mintime) button.classList.remove("disabled");
 
     var profit = ((serverdata.hashrate * diff * cache.npb) / cache.hpb).toFixed(8);
     counterw.setNumber(Math.floor(profit));
