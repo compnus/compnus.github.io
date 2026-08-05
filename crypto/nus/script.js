@@ -263,10 +263,8 @@ function calculateProfit() {
     }
 
     console.log("Time Passed: " + diff + " seconds");
-    console.log("Min Time: " + mintime + " seconds");
-    console.log("Max Time: " + maxtime + " seconds");
-    console.log("Time Remaining: " + (maxtime - diff) + " seconds");
-    document.getElementById("mstat_max").innerHTML = "idk man";
+    document.getElementById("mstat_max").innerHTML = formatTime(maxtime - diff,false).join(" ");
+    button.innerHTML = diff < mintime ? formatTime(mintime - diff, true) : "COLLECT";
 }
 
 async function miningStart() {

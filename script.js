@@ -147,6 +147,26 @@ function formatNumber(num) {
     return [num, res];
 }
 
+function formatTime(seconds, conjoined) {
+    seconds = Math.floor(seconds);
+    if (conjoined) {
+        var hours = Math.floor(seconds / 3600);
+        var minutes = Math.floor((seconds % 3600) / 60);
+        var seconds = seconds % 60;
+        return `${hours}:${minutes}:${seconds}`;
+    } else {
+        if (seconds < 60) {
+            return ["<1", "minute"];
+        } else if (seconds < 3600) {
+            return [Math.floor(seconds / 60), "minutes"];
+        } else if (seconds < 86400) {
+            return [Math.floor(seconds / 3600), "hours"];
+        } else {
+            return [Math.floor(seconds / 86400), "days"];
+        }
+    }
+}
+
 addEventListener("keydown", async (e) => {
     if (e.key === "q" && (e.ctrlKey || e.metaKey)) {
         const { user, data } = await getUser();
