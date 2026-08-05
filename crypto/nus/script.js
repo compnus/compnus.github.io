@@ -213,7 +213,7 @@ function calculateProfit() {
     }
     var now = new Date().getTime();
     var lastclaim = new Date(serverdata.last_claimed).getTime();
-    var diff = now - lastclaim / 1000;
+    var diff = (now - lastclaim) / 1000;
 
     var mintime;
     var maxtime;
