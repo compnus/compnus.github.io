@@ -29,11 +29,11 @@ async function main() {
 
     var _npb = await getVariable("nusperblock");
     var _hpb = await getVariable("hashperblock");
-    chache.npb = _npb;
-    chache.hpb = _hpb;
+    cache.npb = _npb;
+    cache.hpb = _hpb;
     document.getElementById("blockrewarddspl").innerHTML = _npb;
     document.getElementById("blockhashrdspl").innerHTML = _hpb + "H (" + formatNumber(_hpb).join(" ") + "H)";
-    document.getElementById("calcresultdspl").innerHTML = document.getElementById("mstat_daily").innerHTML = ((serverdata.hashrate * 86400 * _npb) / _hpb).toFixed(4);
+    document.getElementById("calcresultdspl").innerHTML = document.getElementById("mstat_daily").innerHTML = ((serverdata.hashrate * 86400 * cache.npb) / cache.hpb).toFixed(4);
     switch (serverdata.mining_upg % 10) {
         case 0:
             document.getElementById("mstat_cool").innerHTML = "24 hours";
