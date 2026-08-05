@@ -126,7 +126,7 @@ Deno.serve(async (req) => {
                 var post = { balance_nus: cdata.balance_nus + profit, last_claimed: new Date().toISOString() };
                 const { error: updateError } = await sb.from('udata').update(post).eq('user_id', uid);
                 if (updateError) {
-                    return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.', code: 10 }), {
+                    return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.'+"<br>"+JSON.stringify(post), code: 10 }), {
                         status: 500,
                         headers: {
                             ...headers
