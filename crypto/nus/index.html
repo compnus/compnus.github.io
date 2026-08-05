@@ -54,25 +54,25 @@
             <h1 id="accumulateddisplay"><span id="accumulateddisplayw"></span>.<span id="accumulateddisplayp"></span><span style="font-family:'currencycompnus',Ubuntu !important;"> $</span></h1>
             <button id="mining_action" onclick="miningStart()" class="disabled">COLLECT</button>
             <div id="mining_problosities">
-                <div class="miningstat_view" onclick="popup('Mining Speed', 'This is the rate at which you generate hashes to attempt to mine blocks.')">
+                <div class="miningstat_view" onclick="popup('Mining Speed', 'This is the rate at which you generate hashes to attempt to mine blocks.',true,true)">
                     <img src="https://img.icons8.com/?size=100&id=3hnKkALv4z7Y&format=png&color=FFFFFF" />
                     <h1>Mining Speed</h1>
                     <p id="mstat_hashrate">Loading...</p>
                     <h2>?</h2>
                 </div>
-                <div class="miningstat_view" onclick="popup('Daily Reward', 'This is the estimated amount of $NUS you will earn in the span of 24 hours given current conditions<br>(your current hashrate, current block reward and hashes used to mine the current block).')">
+                <div class="miningstat_view" onclick="popup('Daily Reward', 'This is the estimated amount of $NUS you will earn in the span of 24 hours given current conditions (your current hashrate, current block reward and hashes used to mine the current block).',true,true)">
                     <img src="../../site/image/logo/currency.svg" />
                     <h1>Daily Reward</h1>
                     <p><span id="mstat_daily">0.0000</span><span class="nomobile"> $NUS</span></p>
                     <h2>?</h2>
                 </div>
-                <div class="miningstat_view" onclick="popup('Claim Cooldown', 'This is the time you must wait before you can claim your mined $NUS again.')">
+                <div class="miningstat_view" onclick="popup('Claim Cooldown', 'This is the time you must wait before you can claim your mined $NUS again.',true,true)">
                     <img src="https://img.icons8.com/?size=100&id=116505&format=png&color=FFFFFF" />
                     <h1>Claim Cooldown</h1>
                     <p id="mstat_cool">Loading...</p>
                     <h2>?</h2>
                 </div>
-                <div class="miningstat_view" onclick="popup('Uptime', 'This is the amount of time remaining before mining is stopped.<br>When you claim your $NUS, this timer resets.')">
+                <div class="miningstat_view" onclick="popup('Uptime', 'This is the amount of time remaining before mining is stopped. When you claim your $NUS, this timer resets.',true,true)">
                     <img src="https://img.icons8.com/?size=100&id=piCS68q7uPGh&format=png&color=FFFFFF" />
                     <h1>Remaining Uptime</h1>
                     <p id="mstat_max">N/A</p>
@@ -149,6 +149,10 @@
         const counterp = new CounterAnime(0, countercontainerp, 8);
         document.addEventListener("DOMContentLoaded", async () => {
             counterw.setNumber(0), counterp.setNumber(0);
+            document.querySelector("#accumulateddisplayp > .numberAnimation > .numberSlideWrapper").style.width = "9ch";
+            setTimeout(() => {
+                document.querySelector("#accumulateddisplayp > .numberAnimation > .numberSlideWrapper").style.width = "8ch";
+            }, 1);
             main();
         });
         initFooter();
