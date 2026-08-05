@@ -54,7 +54,7 @@ Deno.serve(async (req) => {
     }
 
     try {
-        if (!mdata.last_claimed) {
+        if (mdata.last_claimed === null) {
             mdata.last_claimed = new Date().toISOString();
             const { error: updateError } = await sb.from('udata').update({ last_claimed: mdata.last_claimed }).eq('user_id', uid);
             if (updateError) {
