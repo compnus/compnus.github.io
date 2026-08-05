@@ -149,10 +149,6 @@
         const counterp = new CounterAnime(0, countercontainerp, 8);
         document.addEventListener("DOMContentLoaded", async () => {
             counterw.setNumber(0), counterp.setNumber(0);
-            document.querySelector("#accumulateddisplayp > .numberAnimation > .numberSlideWrapper").style.width = "9ch";
-            setTimeout(() => {
-                document.querySelector("#accumulateddisplayp > .numberAnimation > .numberSlideWrapper").style.width = "8ch";
-            }, 100);
             main();
         });
         initFooter();
