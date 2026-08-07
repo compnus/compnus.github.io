@@ -423,15 +423,12 @@ function openUpgrades() {
         <img id="hashpi" src="/site/image/assets/mining/hashp.png">
         <h1 id="hashpn">Premium Hashrate</h1>
         <p id="hashpd">Invest your earned Satoshis into hashrate and boost your mining power! There is no purchase limit for now.</p>
-        <button id="hashpb" class="disabled" onclick="upgrade('hashp')">Purchase</button>
+        <button id="hashpb" onclick="upgrade('hashp')">Purchase</button>
     </div>
 
     </div>
     <p style="margin:0">
     `, true, true);
-    const rig_cooling = levelstat.cooling[serverdata.mining_upg % 10];
-    const rig_memory = levelstat.memory[Math.floor((serverdata.mining_upg % 100) / 10)];
-    const rig_hashrate = levelstat.hashrate[Math.floor((serverdata.mining_upg % 1000) / 100)];
     const el = {
         cooling: {
             img: document.getElementById("coolingi"),
@@ -446,12 +443,73 @@ function openUpgrades() {
             value: document.getElementById("memoryv"),
             desc: document.getElementById("memoryd"),
             button: document.getElementById("memoryb")
+        },
+        hashrate: {
+            img: document.getElementById("hashratei"),
+            name: document.getElementById("hashraten"),
+            desc: document.getElementById("hashrated"),
+            button: document.getElementById("hashrateb")
+        },
+        npu1: {
+            img: document.getElementById("npu1i"),
+            name: document.getElementById("npu1n"),
+            value: document.getElementById("npu1v"),
+            desc: document.getElementById("npu1d"),
+            button: document.getElementById("npu1b")
+        },
+        npu2: {
+            img: document.getElementById("npu2i"),
+            name: document.getElementById("npu2n"),
+            value: document.getElementById("npu2v"),
+            desc: document.getElementById("npu2d"),
+            button: document.getElementById("npu2b")
+        },
+        hashp: {
+            img: document.getElementById("hashpi"),
+            name: document.getElementById("hashpn"),
+            desc: document.getElementById("hashpd"),
+            button: document.getElementById("hashpb")
         }
     }
-    if (serverdata.mining_upg % 10 === 9) el.cooling.button.innerHTML = "MAX"
+    const lv = {
+        cooling: serverdata.mining_upg % 10,
+        memory: Math.floor((serverdata.mining_upg % 100) / 10),
+        hashrate: Math.floor((serverdata.mining_upg % 1000) / 100),
+        npu1: Math.floor((serverdata.mining_upg % 10000) / 1000),
+        npu2: Math.floor((serverdata.mining_upg % 100000) / 10000)
+    }
+    const rig = {
+        cooling: levelstat.cooling[lv.cooling],
+        memory: levelstat.memory[lv.memory],
+        hashrate: levelstat.hashrate[lv.hashrate],
+        npu1: levelstat.npu1[lv.npu1],
+        npu2: levelstat.npu2[lv.npu2]
+    }
+    if (lv.cooling === 9) el.cooling.button.innerHTML = "MAX"
     else el.cooling.button.classList.remove("disabled");
-    if ((serverdata.mining_upg % 100)/10 === 9) el.memory.button.innerHTML = "MAX"
+    if (lv.memory === 9) el.memory.button.innerHTML = "MAX"
     else el.memory.button.classList.remove("disabled");
+    if (lv.hashrate === 9) el.hashrate.button.innerHTML = "MAX"
+    else el.hashrate.button.classList.remove("disabled");
+    /*if (lv.npu1 === 9) el.npu1.button.innerHTML = "MAX"
+    else el.npu1.button.classList.remove("disabled");*/
+    /*if (lv.npu2 === 2) el.npu2.button.innerHTML = "MAX"
+    else el.npu2.button.classList.remove("disabled");*/
+    el.cooling.img = "/site/image/assets/mining/"+rig.cooling.img;
+    el.cooling.name.innerHTML = rig.cooling.name;
+    el.cooling.value.innerHTML = rig.cooling.val;
+    el.memory.img = "/site/image/assets/mining/"+rig.memory.img;
+    el.memory.name.innerHTML = rig.memory.name;
+    el.memory.value.innerHTML = rig.memory.val;
+    el.hashrate.img = "/site/image/assets/mining/"+rig.hashrate.img;
+    el.hashrate.name.innerHTML = rig.hashrate.name;
+    el.hashrate.value.innerHTML = rig.hashrate.val;
+    el.npu1.img = "/site/image/assets/mining/"+rig.npu1.img;
+    el.npu1.name.innerHTML = rig.npu1.name;
+    el.npu1.value.innerHTML = rig.npu1.val;
+    el.npu2.img = "/site/image/assets/mining/"+rig.npu2.img;
+    el.npu2.name.innerHTML = rig.npu2.name;
+    el.npu2.value.innerHTML = rig.npu2.val;
 }
 
 async function upgrade(what) {
