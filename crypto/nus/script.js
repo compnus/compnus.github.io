@@ -503,7 +503,6 @@ function openUpgrades() {
     el.memory.value.innerHTML = rig.memory.val;
     el.hashrate.img = "/site/image/assets/mining/"+rig.hashrate.img;
     el.hashrate.name.innerHTML = rig.hashrate.name;
-    el.hashrate.value.innerHTML = rig.hashrate.val;
     el.npu1.img = "/site/image/assets/mining/"+rig.npu1.img;
     el.npu1.name.innerHTML = rig.npu1.name;
     el.npu1.value.innerHTML = rig.npu1.val;
