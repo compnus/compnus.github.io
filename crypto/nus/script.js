@@ -397,7 +397,7 @@ function openUpgrades() {
     </div>
     <div class="upgrade_item">
         <div><h1>Hashrate</h1><h2 onclick="popup('Hashrate', 'You can purchase more hashrate for Nocas here. In order to increase your hashrate further, explore further. Further beyond. Maybe you will find something?',true,true)">?</h2></div>
-        <img id="hashratei" src="/site/image/assets/mining/pick0.png">
+        <img id="hashratei" src="/site/image/assets/mining/hash0.png">
         <h1 id="hashraten">Base Hashrate</h1>
         <p>You can only receive hashrate this way 10 times in total. The initial 100H/s rewarded for creating your account counts to this limit.</p>
         <button id="hashrateb" class="disabled" onclick="upgrade('hashrate')">Upgrade</button>
