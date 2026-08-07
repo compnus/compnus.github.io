@@ -403,7 +403,7 @@ function openUpgrades() {
         <button id="hashrateb" class="disabled" onclick="upgrade('hashrate')">Upgrade</button>
     </div>
     <div class="upgrade_item">
-        <div><h1>NPU Supply</h1><h2 onclick="popup('NPU Supply', 'Number Processing Unit supply increases the odds of generating numbers that are more likely to mine the block! Upgrade NPU supply to increase your chance of winning a block!',true,true)">?</h2></div>
+        <div><h1>NPU Supply</h1><h2 onclick="popup('NPU Supply', 'Number Processing Unit supply increases the odds of generating numbers that are more likely to mine the block! Upgrade NPU supply to increase your chance of winning a block.',true,true)">?</h2></div>
         <img id="npu1i" src="/site/image/assets/mining/npu10.png">
         <h1 id="npu1n">No Supply</h1>
         <h2>Block Win Chance: <span id="npu1v">0</span>%</h2>
@@ -498,17 +498,21 @@ function openUpgrades() {
     el.cooling.img = "/site/image/assets/mining/"+rig.cooling.img;
     el.cooling.name.innerHTML = rig.cooling.name;
     el.cooling.value.innerHTML = rig.cooling.val;
+    el.cooling.desc.innerHTML = rig.cooling.desc;
     el.memory.img = "/site/image/assets/mining/"+rig.memory.img;
     el.memory.name.innerHTML = rig.memory.name;
     el.memory.value.innerHTML = rig.memory.val;
+    el.memory.desc.innerHTML = rig.memory.desc;
     el.hashrate.img = "/site/image/assets/mining/"+rig.hashrate.img;
     el.hashrate.name.innerHTML = rig.hashrate.name;
     el.npu1.img = "/site/image/assets/mining/"+rig.npu1.img;
     el.npu1.name.innerHTML = rig.npu1.name;
     el.npu1.value.innerHTML = rig.npu1.val;
+    el.npu1.desc.innerHTML = rig.npu1.desc;
     el.npu2.img = "/site/image/assets/mining/"+rig.npu2.img;
     el.npu2.name.innerHTML = rig.npu2.name;
     el.npu2.value.innerHTML = rig.npu2.val;
+    el.npu2.desc.innerHTML = rig.npu2.desc;
 }
 
 async function upgrade(what) {
