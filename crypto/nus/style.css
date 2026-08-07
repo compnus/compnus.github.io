@@ -395,6 +395,95 @@ main {
     display: none;
 }
 
+#upgrades_main {
+    text-align: center;
+    margin: -1vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.upgrade_item {
+    display: inline-flex;
+    width: 24vh;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh;
+    border-radius: 2vh;
+    background-color: rgba(255 255 255 / 5%);
+    margin: 1vh;
+    box-shadow: rgba(255 255 255 / 10%) 0 0 5px inset, rgba(0 0 0 / 25%) 3px 3px 3px;
+    transition: 0.2s ease-out;
+}
+
+    .upgrade_item:hover {
+        background-color: rgba(255 255 255 / 7%);
+        box-shadow: rgba(255 255 255 / 15%) 0 0 5px inset, rgba(0 0 0 / 25%) 0 0 5px;
+        transform: scale(1.05);
+    }
+
+.upgrade_item > div {
+    display: flex;
+    width: 100%;
+}
+
+    .upgrade_item > div > h1 {
+        font-size: 2vh;
+        font-weight: 900;
+        margin: 0;
+        flex: 1;
+        text-align: left;
+        font-family: 'Funnel Display';
+    }
+    .upgrade_item > div > h2 {
+        font-size: 1.5vh;
+        font-weight: 900;
+        margin: 0;
+        cursor: pointer;
+        color: #777;
+        transition: 0.2s ease-out;
+        padding: 0 0.5vh 0 2vh;
+    }
+
+        .upgrade_item > div > h2:hover {
+            color: #fff;
+            filter: drop-shadow(white 0 0 5px);
+        }
+
+    .upgrade_item > img {
+        width: 15vh;
+        height: 15vh;
+        margin: 2vh 0;
+        transition: 0.2s ease-out;
+    }
+
+    .upgrade_item:hover > img {
+        transform: scale(1.05);
+    }
+
+.upgrade_item > h1 {
+    margin: 0;
+    font-size: 2.5vh;
+    margin: 0 0 1vh 0;
+    font-family: Gabarito;
+}
+
+.upgrade_item > h2 {
+    margin: 0 0 1vh 0;
+    font-size: 1.5vh;
+}
+
+.upgrade_item > p {
+    margin: 0;
+    font-size: 1.5vh;
+    flex: 1;
+}
+
+.upgrade_item > button {
+    font-size: 2.5vh;
+    margin-top: 1vh;
+}
+
 @media(max-width:800px) {
     .nomobile {
         display: none;
