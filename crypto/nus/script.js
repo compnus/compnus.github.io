@@ -22,6 +22,7 @@ async function main() {
         .eq("user_id", uid)
         .single();
     if (!serverdatac || userExistsErrorn) console.log("Server error.");
+    else document.getElementById("upgradebt").classList.remove("disabled");
     serverdata = serverdatac;
 
     document.getElementById("mstat_hashrate").innerHTML = formatNumber(serverdata.hashrate).join(" ") + "H/s";
@@ -322,27 +323,27 @@ async function miningStart() {
 
 const levelstat = {
     cooling: [
-        {"name":"No Cooling", "description": "No cooling is provided. Relies on natural heat dissipation. Extremely inefficient.", "cost": [], "val": 24, "img": "cooling0.png"},
-        {"name":"Single Fan", "description": "Good luck cooling a mining setup with a single fan! Better than nothing, though.", "cost": [100,1], "val": 22, "img": "cooling1.png"},
-        {"name":"Embedded Fan", "description": "Better than a lone fan, but still lone. And very much a fan.", "cost": [225,1], "val": 20, "img": "cooling2.png"},
-        {"name":"Dual Fan", "description": "Oh look! It now has a friend! And friendship is power!", "cost": [375,1], "val": 18, "img": "cooling3.png"},
-        {"name":"Small Fan Array", "description": "In unity there is power! What two couldn't do, four will do with ease!", "cost": [600,1], "val": 14, "img": "cooling5.png"},
-        {"name":"Huge Fan Array", "description": "There it is. The absolute masterpiece when it comes to air cooling. I wonder what comes next?", "cost": [950,1], "val": 12, "img": "cooling6.png"},
-        {"name":"Water Line", "description": "When air is insufficient, water cooling takes over! But is there more?", "cost": [1500,1], "val": 10, "img": "cooling7.png"},
-        {"name":"Dual Water Line", "description": "Double the power with ease! Fresh water will take care of the rest!", "cost": [3250,1], "val": 8, "img": "cooling8.png"},
-        {"name":"Liquid Nitrogen", "description": "Finally, the absolute <i>chill</i>.", "cost": [7000,1], "val": 6, "img": "cooling9.png"}
+        {"name":"No Cooling", "desc": "No cooling is provided. Relies on natural heat dissipation. Extremely inefficient.", "cost": [], "val": 24, "img": "cooling0.png"},
+        {"name":"Single Fan", "desc": "Good luck cooling a mining setup with a single fan! Better than nothing, though.", "cost": [100,1], "val": 22, "img": "cooling1.png"},
+        {"name":"Embedded Fan", "desc": "Better than a lone fan, but still lone. And very much a fan.", "cost": [225,1], "val": 20, "img": "cooling2.png"},
+        {"name":"Dual Fan", "desc": "Oh look! It now has a friend! And friendship is power!", "cost": [375,1], "val": 18, "img": "cooling3.png"},
+        {"name":"Small Fan Array", "desc": "In unity there is power! What two couldn't do, four will do with ease!", "cost": [600,1], "val": 14, "img": "cooling5.png"},
+        {"name":"Huge Fan Array", "desc": "There it is. The absolute masterpiece when it comes to air cooling. I wonder what comes next?", "cost": [950,1], "val": 12, "img": "cooling6.png"},
+        {"name":"Water Line", "desc": "When air is insufficient, water cooling takes over! But is there more?", "cost": [1500,1], "val": 10, "img": "cooling7.png"},
+        {"name":"Dual Water Line", "desc": "Double the power with ease! Fresh water will take care of the rest!", "cost": [3250,1], "val": 8, "img": "cooling8.png"},
+        {"name":"Liquid Nitrogen", "desc": "Finally, the absolute <i>chill</i>.", "cost": [7000,1], "val": 6, "img": "cooling9.png"}
     ],
     memory: [
-        {"name": "Uni Chip", "description": "It's a miracle it can even hold two days of data to be honest.", "cost": [], "val": 48, "img": "memory0.png"},
-        {"name": "Rewired Uni Chip", "description": "Slightly better, but still running on hopes and dreams.", "cost": [250,1], "val": 60, "img": "memory1.png"},
-        {"name": "Tri Chip", "description": "With more wires to store data, and also efficient to use less electricity!", "cost": [480,1], "val": 72, "img": "memory2.png"},
-        {"name": "Hexa Chip", "description": "More connectors means higher efficiency!", "cost": [760,1], "val": 84, "img": "memory3.png"},
-        {"name": "Chipless DD Core", "description": "Now we are talking! Even more connectors and a core for performance!", "cost": [1350,1], "val": 96, "img": "memory4.png"},
-        {"name": "NUS DD Core", "description": "With this premium chip, the efficiency is skyrocketing! But you can push it further!", "cost": [2100,1], "val": 108, "img": "memory5.png"},
-        {"name": "VQD Core", "description": "Outside-going chips waste power. With this integrated chip core, you reach the pinnacle of efficiency!", "cost": [4350,1], "val": 120, "img": "memory6.png"},
-        {"name": "Rewired VQD Core", "description": "Rewired with better performance algorithms!", "cost": [7500,1], "val": 132, "img": "memory7.png"},
-        {"name": "Multi-Core", "description": "Why bother with a single core when you can have all of them?", "cost": [12000,1], "val": 144, "img": "memory8.png"},
-        {"name": "Glided Multi-Core", "description": "Now that all cores are connected, you have reached the <b>absolute</b>!", "cost": [20000,1], "val": 168, "img": "memory9.png"}
+        {"name": "Uni Chip", "desc": "It's a miracle it can even hold two days of data to be honest.", "cost": [], "val": 48, "img": "memory0.png"},
+        {"name": "Rewired Uni Chip", "desc": "Slightly better, but still running on hopes and dreams.", "cost": [250,1], "val": 60, "img": "memory1.png"},
+        {"name": "Tri Chip", "desc": "With more wires to store data, and also efficient to use less electricity!", "cost": [480,1], "val": 72, "img": "memory2.png"},
+        {"name": "Hexa Chip", "desc": "More connectors means higher efficiency!", "cost": [760,1], "val": 84, "img": "memory3.png"},
+        {"name": "Chipless DD Core", "desc": "Now we are talking! Even more connectors and a core for performance!", "cost": [1350,1], "val": 96, "img": "memory4.png"},
+        {"name": "NUS DD Core", "desc": "With this premium chip, the efficiency is skyrocketing! But you can push it further!", "cost": [2100,1], "val": 108, "img": "memory5.png"},
+        {"name": "VQD Core", "desc": "Outside-going chips waste power. With this integrated chip core, you reach the pinnacle of efficiency!", "cost": [4350,1], "val": 120, "img": "memory6.png"},
+        {"name": "Rewired VQD Core", "desc": "Rewired with better performance algorithms!", "cost": [7500,1], "val": 132, "img": "memory7.png"},
+        {"name": "Multi-Core", "desc": "Why bother with a single core when you can have all of them?", "cost": [12000,1], "val": 144, "img": "memory8.png"},
+        {"name": "Glided Multi-Core", "desc": "Now that all cores are connected, you have reached the <b>absolute</b>!", "cost": [20000,1], "val": 168, "img": "memory9.png"}
     ],
     hashrate: [
         { "name": "Base Hashrate", "cost": [], "val": 100, "img": "hash0.png" },
@@ -357,21 +358,21 @@ const levelstat = {
         { "name": "HashrateX", "cost": [2000, 1], "val": 375, "img": "hash3.png" }
     ],
     npu1: [
-        {"name": "No Supply", "description": "No supply means no power and no power means no optimal numbers. So no block winning for you!", "cost": [], "val": 0, "img": "npu10.png"},
-        {"name": "XS Supply", "description": "Miniature supply that does the job! Not well, but does it. It uhhh does the job.", "cost": [250,1], "val": 1, "img": "npu11.png"},
-        {"name": "S Supply", "description": "Slightly bigger supply that allows for twice the power! Still very weak, though.", "cost": [350,1], "val": 2, "img": "npu12.png"},
-        {"name": "M Supply", "description": "We are reaching the basis of power, finally! More than thrice the power than the little one!", "cost": [480,1], "val": 3.1, "img": "npu13.png"},
-        {"name": "L Supply", "description": "Now this one is doing the job! And you could also say it's doing it well!", "cost": [800,1], "val": 4.2, "img": "npu14.png"},
-        {"name": "XL Supply", "description": "Did you say well? Well, this one does it really well! Well! Uhhhh i forgot where my well is.", "cost": [1200,1], "val": 5.32, "img": "npu15.png"},
-        {"name": "XXL Supply", "description": "When 'really well' is insufficient, very well is the way to go! Extra very well, actually!", "cost": [1750,1], "val": 6.45, "img": "npu16.png"},
-        {"name": "Dual Supply", "description": "With a backup, you can guarantee it will not stop running! Lucky numbers, here we go!", "cost": [2450,1], "val": 7.6, "img": "npu17.png"},
-        {"name": "Mega Supply", "description": "Integrated backup means less travel time and therefore more efficient number generation!", "cost": [3300,1], "val": 8.75, "img": "npu18.png"},
-        {"name": "Reactor", "description": "Why ask for power when you can make your own? <u>No one beats this one!</u>", "cost": [5000,1], "val": 10, "img": "npu19.png"}
+        {"name": "No Supply", "desc": "No supply means no power and no power means no optimal numbers. So no block winning for you!", "cost": [], "val": 0, "img": "npu10.png"},
+        {"name": "XS Supply", "desc": "Miniature supply that does the job! Not well, but does it. It uhhh does the job.", "cost": [250,1], "val": 1, "img": "npu11.png"},
+        {"name": "S Supply", "desc": "Slightly bigger supply that allows for twice the power! Still very weak, though.", "cost": [350,1], "val": 2, "img": "npu12.png"},
+        {"name": "M Supply", "desc": "We are reaching the basis of power, finally! More than thrice the power than the little one!", "cost": [480,1], "val": 3.1, "img": "npu13.png"},
+        {"name": "L Supply", "desc": "Now this one is doing the job! And you could also say it's doing it well!", "cost": [800,1], "val": 4.2, "img": "npu14.png"},
+        {"name": "XL Supply", "desc": "Did you say well? Well, this one does it really well! Well! Uhhhh i forgot where my well is.", "cost": [1200,1], "val": 5.32, "img": "npu15.png"},
+        {"name": "XXL Supply", "desc": "When 'really well' is insufficient, very well is the way to go! Extra very well, actually!", "cost": [1750,1], "val": 6.45, "img": "npu16.png"},
+        {"name": "Dual Supply", "desc": "With a backup, you can guarantee it will not stop running! Lucky numbers, here we go!", "cost": [2450,1], "val": 7.6, "img": "npu17.png"},
+        {"name": "Mega Supply", "desc": "Integrated backup means less travel time and therefore more efficient number generation!", "cost": [3300,1], "val": 8.75, "img": "npu18.png"},
+        {"name": "Reactor", "desc": "Why ask for power when you can make your own? <u>No one beats this one!</u>", "cost": [5000,1], "val": 10, "img": "npu19.png"}
     ],
     npu2: [
-        {"name": "Base Power", "description": "Look, it's 10% extra. That's better than nothing, isn't it?", "cost": [], "val": 10, "img": "npu20.png"},
-        {"name": "Extra Power", "description": "Comes at a price, but will pay for itself in the long run!", "cost": [0.4, 0], "val": 17, "img": "npu21.png"},
-        {"name": "Hyper Power", "description": "Why waste your luck when the reward is little? With <u><b><i>this one</i></b></u>, you can rest assure none of your luck will be wasted!", "cost": [1, 0], "val": 25, "img": "npu22.png"}
+        {"name": "Base Power", "desc": "Look, it's 10% extra. That's better than nothing, isn't it?", "cost": [], "val": 10, "img": "npu20.png"},
+        {"name": "Extra Power", "desc": "Comes at a price, but will pay for itself in the long run!", "cost": [0.4, 0], "val": 17, "img": "npu21.png"},
+        {"name": "Hyper Power", "desc": "Why waste your luck when the reward is little? With <u><b><i>this one</i></b></u>, you can rest assure none of your luck will be wasted!", "cost": [1, 0], "val": 25, "img": "npu22.png"}
     ]
 }
 
