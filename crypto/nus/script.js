@@ -397,13 +397,6 @@ function openUpgrades() {
         <button id="memoryb" class="disabled" onclick="upgrade('memory')">Upgrade</button>
     </div>
     <div class="upgrade_item">
-        <div><h1>Hashrate</h1><h2 onclick="popup('Hashrate', 'You can purchase more hashrate for Nocas here. In order to increase your hashrate further, explore further. Further beyond. Maybe you will find something?',true,true)">?</h2></div>
-        <img id="hashratei" src="/site/image/assets/mining/hash0.png">
-        <h1 id="hashraten">Base Hashrate</h1>
-        <p>You can only receive hashrate this way 10 times in total. The initial 100H/s rewarded for creating your account counts to this limit.</p>
-        <button id="hashrateb" class="disabled" onclick="upgrade('hashrate')">Upgrade</button>
-    </div>
-    <div class="upgrade_item">
         <div><h1>NPU Supply</h1><h2 onclick="popup('NPU Supply', 'Number Processing Unit supply increases the odds of generating numbers that are more likely to mine the block! Upgrade NPU supply to increase your chance of winning a block.',true,true)">?</h2></div>
         <img id="npu1i" src="/site/image/assets/mining/npu10.png">
         <h1 id="npu1n">No Supply</h1>
@@ -418,6 +411,13 @@ function openUpgrades() {
         <h2>Block Win Bonus: <span id="npu2v">10</span>%</h2>
         <p id="npu2d">Loading...</p>
         <button id="npu2b" class="disabled" onclick="upgrade('npu2')">Coming Soon</button>
+    </div>
+    <div class="upgrade_item">
+        <div><h1>Hashrate</h1><h2 onclick="popup('Hashrate', 'You can purchase more hashrate for Nocas here. In order to increase your hashrate further, explore further. Further beyond. Maybe you will find something?',true,true)">?</h2></div>
+        <img id="hashratei" src="/site/image/assets/mining/hash0.png">
+        <h1 id="hashraten">Base Hashrate</h1>
+        <p>You can only receive hashrate this way 10 times in total (including the initial 100H/s awarded for creating your account).</p>
+        <button id="hashrateb" class="disabled" onclick="upgrade('hashrate')">Purchase</button>
     </div>
     <div class="upgrade_item">
         <div><h1>Hashrate</h1><h2 onclick="popup('Hashrate', 'You can purchase more hashrate for Satoshis here.',true,true)">?</h2></div>
