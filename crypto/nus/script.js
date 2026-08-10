@@ -692,7 +692,7 @@ async function confirmUpgrade(what, closemain, closeside) {
             lv = -1;
     }
     if (balance[levelstat[what][lv + 1].cost[1]] < levelstat[what][lv + 1].cost[0]) { status.innerHTML = "Insufficient balance."; controls.classList.remove("disabled"); return }
-    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/mining', {
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/upgradeMining', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
