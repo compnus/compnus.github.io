@@ -617,7 +617,7 @@ function upgrade(what, closeid) {
         el.left.desc.innerHTML = levelstat[what][lv].desc;
         el.right.img.src = "/site/image/assets/mining/" +levelstat[what][lv+1].img;
         el.right.name.innerHTML = levelstat[what][lv+1].name;
-        el.right.value.innerHTML = valn + ": " + levelstat[what][lv + 1].val + valu;
+        el.right.value.innerHTML = levelstat[what][lv + 1].val + valu;
         el.right.desc.innerHTML = levelstat[what][lv + 1].desc;
         const edf = levelstat[what][lv + 1].val - levelstat[what][lv].val;
         el.diff.innerHTML = (edf) > 0 ? "+" + edf : edf;
