@@ -503,21 +503,21 @@ function openUpgrades() {
     else el.npu1.button.classList.remove("disabled");*/
     /*if (lv.npu2 === 2) el.npu2.button.innerHTML = "MAX"
     else el.npu2.button.classList.remove("disabled");*/
-    el.cooling.img = "/site/image/assets/mining/"+rig.cooling.img;
+    el.cooling.img.src = "/site/image/assets/mining/"+rig.cooling.img;
     el.cooling.name.innerHTML = rig.cooling.name;
     el.cooling.value.innerHTML = rig.cooling.val;
     el.cooling.desc.innerHTML = rig.cooling.desc;
-    el.memory.img = "/site/image/assets/mining/"+rig.memory.img;
+    el.memory.img.src = "/site/image/assets/mining/"+rig.memory.img;
     el.memory.name.innerHTML = rig.memory.name;
     el.memory.value.innerHTML = rig.memory.val;
     el.memory.desc.innerHTML = rig.memory.desc;
-    el.hashrate.img = "/site/image/assets/mining/"+rig.hashrate.img;
+    el.hashrate.img.src = "/site/image/assets/mining/"+rig.hashrate.img;
     el.hashrate.name.innerHTML = rig.hashrate.name;
-    el.npu1.img = "/site/image/assets/mining/"+rig.npu1.img;
+    el.npu1.img.src = "/site/image/assets/mining/"+rig.npu1.img;
     el.npu1.name.innerHTML = rig.npu1.name;
     el.npu1.value.innerHTML = rig.npu1.val;
     el.npu1.desc.innerHTML = rig.npu1.desc;
-    el.npu2.img = "/site/image/assets/mining/"+rig.npu2.img;
+    el.npu2.img.src = "/site/image/assets/mining/"+rig.npu2.img;
     el.npu2.name.innerHTML = rig.npu2.name;
     el.npu2.value.innerHTML = rig.npu2.val;
     el.npu2.desc.innerHTML = rig.npu2.desc;
