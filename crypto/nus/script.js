@@ -707,6 +707,8 @@ async function confirmUpgrade(what, closemain, closeside) {
                 cntrl.classList.remove("disabled");
             } else if (data.code === 0) {
                 popup("Upgraded successfully!", "Upgraded stats should show up shortly. If they take too long, please refresh the page.");
+                document.getElementById('popup' + closemain).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + closemain)), 201);
+                document.getElementById('popup' + closeside).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + closeside)), 201);
                 await initialize_serverdata();
             }
         })

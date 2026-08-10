@@ -55,7 +55,6 @@ Deno.serve(async (req) => {
             }
         });
     }
-
     if (!item) {
         return new Response(JSON.stringify({ response: "Please provide what to upgrade.", code: 10 }), {
             status: 400,
@@ -92,7 +91,7 @@ Deno.serve(async (req) => {
             }
             break;
         case "memory":
-            switch (Math.floor((serverdata.mining_upg % 100) / 10)) {
+            switch (Math.floor((nData.mining_upg % 100) / 10)) {
                 case 0: detail.cost = [250, "noca"]; break;
                 case 1: detail.cost = [480, "noca"]; break;
                 case 2: detail.cost = [760, "noca"]; break;
@@ -106,7 +105,7 @@ Deno.serve(async (req) => {
             }
             break;
         case "hashrate":
-            switch (Math.floor((serverdata.mining_upg % 1000) / 100)) {
+            switch (Math.floor((nData.mining_upg % 1000) / 100)) {
                 case 0: detail = { "cost": [50, "noca"], "val": 80 }; break;
                 case 1: detail = { "cost": [110, "noca"], "val": 90 }; break;
                 case 2: detail = { "cost": [165, "noca"], "val": 100 }; break;
@@ -120,7 +119,7 @@ Deno.serve(async (req) => {
             }
             break;
         case "npu1":
-            /*switch (Math.floor((serverdata.mining_upg % 10000) / 1000)) {
+            /*switch (Math.floor((nData.mining_upg % 10000) / 1000)) {
                 case 0: detail.cost = [250, "noca"]; break;
                 case 1: detail.cost = [350, "noca"]; break;
                 case 2: detail.cost = [480, "noca"]; break;
@@ -134,7 +133,7 @@ Deno.serve(async (req) => {
             }*/ shammy = true;
             break;
         case "npu2":
-            /*switch (Math.floor((serverdata.mining_upg % 100000) / 10000)) {
+            /*switch (Math.floor((nData.mining_upg % 100000) / 10000)) {
                 case 0: detail.cost = [0.4, "nus"]; break;
                 case 1: detail.cost = [1, "nus"]; break;
                 default: shammy = true;
