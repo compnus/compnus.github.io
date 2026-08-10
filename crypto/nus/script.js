@@ -554,7 +554,7 @@ function upgrade(what, closeid) {
 
     <p id="upgrade_status" class="maxpwidth" style="font-weight: bold"></p>
 
-    <div class="flex cc">
+    <div class="flex cc" id="controls">
     <button class="fullwidth" onclick="document.getElementById('popup${sendfundsrqpopupid}').style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup${sendfundsrqpopupid}')), 201);" style="border-color: red">Cancel</button>
     <p style="margin:0">&emsp;</p>
     <button class="fullwidth" onclick="confirmUpgrade(${what}, ${closeid}, ${sendfundsrqpopupid})">Confirm</button>
@@ -654,6 +654,39 @@ function upgrade(what, closeid) {
 
 async function confirmUpgrade(what, closemain, closeside) {
     const status = document.getElementById("upgrade_status");
+    const cntrl = document.getElementById("controls");
+    controls.classList.add("disabled");
+    status.innerHTML = "Please wait...";
+    const balance = await getBalance(uid);
+    document.getElementById("walletnus").innerHTML = balance[0];
+    document.getElementById("walletnoca").innerHTML = balance[1];
+    document.getElementById("walletsats").innerHTML = balance[2];
+    var lv;
+    switch (what) {
+        case "cooling":
+            lv = serverdata.mining_upg % 10;
+            if (lv >= 9) { document.getElementById('popup' + closeside).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + closeside)), 201); }
+            break;
+        case "memory":
+            lv = Math.floor((serverdata.mining_upg % 100) / 10);
+            if (lv >= 9) { document.getElementById('popup' + closeside).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + closeside)), 201); }
+            break;
+        case "hashrate":
+            lv = Math.floor((serverdata.mining_upg % 1000) / 100);
+            if (lv >= 9) { document.getElementById('popup' + closeside).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + closeside)), 201); }
+            break;
+        case "npu1":
+            lv = Math.floor((serverdata.mining_upg % 10000) / 1000);
+            if (lv >= 9) { document.getElementById('popup' + closeside).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + closeside)), 201); }
+            break;
+        case "npu2":
+            lv = Math.floor((serverdata.mining_upg % 100000) / 10000);
+            if (lv >= 2) { document.getElementById('popup' + closeside).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + closeside)), 201); }
+            break;
+        default:
+            lv = -1;
+    }
+    if (balance[levelstat[what][lv + 1].cost[1]] < levelstat[what][lv + 1].cost[0]) { status.innerHTML = "Insufficient balance."; controls.classList.remove("disabled"); return }
 }
 
 addEventListener("keydown", (e) => {
