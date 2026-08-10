@@ -608,26 +608,24 @@ function upgrade(what, closeid) {
             value: document.getElementById("upg_rightv"),
             desc: document.getElementById("upg_rightd"),
         };
-        el.left.img = levelstat[what][lv].img;
-        el.left.name = levelstat[what][lv].name;
-        el.left.value = valn+": "+levelstat[what][lv].val+valu;
-        el.left.desc = levelstat[what][lv].desc;
-        el.right.img = levelstat[what][lv+1].img;
-        el.right.name = levelstat[what][lv+1].name;
-        el.right.value = valn + ": " + levelstat[what][lv + 1].val + valu;
-        el.right.desc = levelstat[what][lv+1].desc;
+        el.left.img.src = levelstat[what][lv].img;
+        el.left.name.innerHTML = levelstat[what][lv].name;
+        el.left.value.innerHTML = valn+": "+levelstat[what][lv].val+valu;
+        el.left.desc.innerHTML = levelstat[what][lv].desc;
+        el.right.img.src = levelstat[what][lv+1].img;
+        el.right.name.innerHTML = levelstat[what][lv+1].name;
+        el.right.value.innerHTML = valn + ": " + levelstat[what][lv + 1].val + valu;
+        el.right.desc.innerHTML = levelstat[what][lv+1].desc;
     } else {
         el.img = document.getElementById("upg_i");
         el.name = document.getElementById("upg_n");
         el.value = document.getElementById("upg_v");
         if (what === "hashrate") {
-            el.img = levelstat[what][lv+1].img;
-            el.name = levelstat[what][lv+1].name;
-            el.value = "+"+levelstat[what][lv+1].val+"H/s";
+            el.img.src = levelstat[what][lv+1].img;
+            el.name.innerHTML = levelstat[what][lv+1].name;
+            el.value.innerHTML = "+"+levelstat[what][lv+1].val+"H/s";
         }
     }
-    console.log(el);
-    console.log(1);
 }
 
 async function confirmUpgrade(what, closemain, closeside) {
