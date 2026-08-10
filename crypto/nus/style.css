@@ -484,6 +484,68 @@ main {
     margin-top: 1vh;
 }
 
+#upgrades_side {
+    display: grid;
+    grid-template-columns: 25vh 5vh 25vh;
+    grid-gap: 2vh;
+}
+
+#upgrade_side_only {
+    grid-column: span 3;
+}
+
+.upgrade_tile {
+    display: inline-flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upgrade_tile > img {
+    width: 15vh;
+    height: 15vh;
+}
+
+.upgrade_tile > img#aaaarrow {
+    width: 5vh;
+    height: 5vh;
+    padding-top: 5vh;
+}
+
+.maxpwidth {
+    width: 59vh;
+    text-align: center;
+}
+
+#upgrade_disc {
+    font-weight: 200;
+    font-size: 1.5vh;
+    margin: 0;
+}
+
+.upgrade_tile > h1 {
+    margin: 1vh 0 0 0;
+    font-size: 3vh;
+    font-family: Gabarito;
+}
+
+.upgrade_tile > h2 {
+    margin: 1vh 0 0 0;
+    font-size: 2vh;
+}
+
+.upgrade_tile > p {
+    margin: 1vh 0 0 0;
+    font-size: 1.5vh;
+}
+
+#upgrade_cost {
+    margin: 2vh 0;
+    font-size: 3vh;
+    text-align: center;
+    font-family: 'currencycompnus','Funnel Display' !important;
+}
+
 @media(max-width:800px) {
     .nomobile {
         display: none;
@@ -537,15 +599,15 @@ main {
         transition: 0.2s ease-out;
     }
 
-        .sidebar > .content {
-            padding: 3vw;
-            height: 76vh;
-            width: 79vw;
-        }
+    .sidebar > .content {
+        padding: 3vw;
+        height: 76vh;
+        width: 79vw;
+    }
 
-        .sidebar > .collapse {
-            display: none;
-        }
+    .sidebar > .collapse {
+        display: none;
+    }
 
     .sideentry {
         margin-bottom: 3vw;
@@ -691,4 +753,49 @@ main {
                 background-color: var(--bg);
                 box-shadow: var(--bg) 0 -5px 10px -5px,var(--bg) 0 -5px 10px -5px;
             }
+
+    #upgrades_main {
+        margin: -2vw;
+    }
+
+    .upgrade_item {
+        width: 34vw;
+        padding: 2vw;
+        border-radius: 2vw;
+        margin: 1vw;
+    }
+
+        .upgrade_item > div > h1 {
+            font-size: 3vw;
+        }
+
+        .upgrade_item > div > h2 {
+            font-size: 3vw;
+            padding: 0 1vw 0 5vw;
+        }
+
+        .upgrade_item > img {
+            width: 20vw;
+            height: 20vw;
+            margin: 2vw 0;
+        }
+
+        .upgrade_item > h1 {
+            font-size: 4vw;
+            margin: 0 0 2vw 0;
+        }
+
+        .upgrade_item > h2 {
+            margin: 0 0 2vw 0;
+            font-size: 2.5vw;
+        }
+
+        .upgrade_item > p {
+            font-size: 3vw;
+        }
+
+        .upgrade_item > button {
+            font-size: 3.5vw;
+            margin-top: 2vw;
+        }
 }

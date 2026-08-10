@@ -373,10 +373,12 @@ const levelstat = {
         {"name": "Base Power", "desc": "Look, it's 10% extra. That's better than nothing, isn't it?", "cost": [], "val": 10, "img": "npu20.png"},
         {"name": "Extra Power", "desc": "Comes at a price, but will pay for itself in the long run!", "cost": [0.4, 0], "val": 17, "img": "npu21.png"},
         {"name": "Hyper Power", "desc": "Why waste your luck when the reward is little? With <u><b><i>this one</i></b></u>, you can rest assure none of your luck will be wasted!", "cost": [1, 0], "val": 25, "img": "npu22.png"}
-    ]
+    ],
+    hashp: [{"cost": [5, 2], "val":100}]
 }
 
 function openUpgrades() {
+    const thispop = popupid;
     popup("Mining Upgrades", `
     <div id="upgrades_main">
 
@@ -386,7 +388,7 @@ function openUpgrades() {
         <h1 id="coolingn">No Cooling</h1>
         <h2>Claim Cooldown: <span id="coolingv">24</span> hours</h2>
         <p id="coolingd">Loading...</p>
-        <button id="coolingb" class="disabled" onclick="upgrade('cooling')">Upgrade</button>
+        <button id="coolingb" class="disabled" onclick="upgrade('cooling', ${thispop})">Upgrade</button>
     </div>
     <div class="upgrade_item">
         <div><h1>Memory</h1><h2 onclick="popup('Memory', 'Better memory allows your mining machine to hold more tokens! Upgrade memory to increase mining uptime.',true,true)">?</h2></div>
@@ -394,7 +396,7 @@ function openUpgrades() {
         <h1 id="memoryn">Uni Chip</h1>
         <h2>Mining Uptime: <span id="memoryv">48</span> hours</h2>
         <p id="memoryd">Loading...</p>
-        <button id="memoryb" class="disabled" onclick="upgrade('memory')">Upgrade</button>
+        <button id="memoryb" class="disabled" onclick="upgrade('memory', ${thispop})">Upgrade</button>
     </div>
     <div class="upgrade_item">
         <div><h1>NPU Supply</h1><h2 onclick="popup('NPU Supply', 'Number Processing Unit supply increases the odds of generating numbers that are more likely to mine the block! Upgrade NPU supply to increase your chance of winning a block.',true,true)">?</h2></div>
@@ -402,7 +404,7 @@ function openUpgrades() {
         <h1 id="npu1n">No Supply</h1>
         <h2>Block Win Chance: <span id="npu1v">0</span>%</h2>
         <p id="npu1d">Loading...</p>
-        <button id="npu1b" class="disabled" onclick="upgrade('npu1')">Coming Soon</button>
+        <button id="npu1b" class="disabled" onclick="upgrade('npu1', ${thispop})">Coming Soon</button>
     </div>
     <div class="upgrade_item">
         <div><h1>NPU Power</h1><h2 onclick="popup('NPU Power', 'Number Processing Unit power increases the accuracy of the generated numbers, making winning blocks more rewarding! Upgrade NPU power to increase the amount of tokens you win from a block.',true,true)">?</h2></div>
@@ -410,21 +412,21 @@ function openUpgrades() {
         <h1 id="npu2n">Base Power</h1>
         <h2>Block Win Bonus: <span id="npu2v">10</span>%</h2>
         <p id="npu2d">Loading...</p>
-        <button id="npu2b" class="disabled" onclick="upgrade('npu2')">Coming Soon</button>
+        <button id="npu2b" class="disabled" onclick="upgrade('npu2', ${thispop})">Coming Soon</button>
     </div>
     <div class="upgrade_item">
         <div><h1>Hashrate</h1><h2 onclick="popup('Hashrate', 'You can purchase more hashrate for Nocas here. In order to increase your hashrate further, explore further. Further beyond. Maybe you will find something?',true,true)">?</h2></div>
         <img id="hashratei" src="/site/image/assets/mining/hash0.png">
         <h1 id="hashraten">Base Hashrate</h1>
         <p>You can only receive hashrate this way 10 times in total (including the initial 100H/s awarded for creating your account).</p>
-        <button id="hashrateb" class="disabled" onclick="upgrade('hashrate')">Purchase</button>
+        <button id="hashrateb" class="disabled" onclick="upgrade('hashrate', ${thispop})">Purchase</button>
     </div>
     <div class="upgrade_item">
         <div><h1>Hashrate</h1><h2 onclick="popup('Hashrate', 'You can purchase more hashrate for Satoshis here.',true,true)">?</h2></div>
         <img id="hashpi" src="/site/image/assets/mining/hashp.png" style="filter:drop-shadow(0 0 5px rgba(255,255,255,0.5))">
         <h1 id="hashpn">Premium Hashrate</h1>
         <p id="hashpd">Invest your earned Satoshis into hashrate and boost your mining power! There is no purchase limit for now.</p>
-        <button id="hashpb" onclick="upgrade('hashp')">Purchase</button>
+        <button id="hashpb" onclick="upgrade('hashp', ${thispop})">Purchase</button>
     </div>
 
     </div>
@@ -516,8 +518,118 @@ function openUpgrades() {
     el.npu2.desc.innerHTML = rig.npu2.desc;
 }
 
-async function upgrade(what) {
+function upgrade(what, closeid) {
+    const sendfundsrqpopupid = popupid;
+    popup("Confirm Upgrade", ((what !== "hashrate") && (what !== "hashp") ?`
+    <div id="upgrades_side">
+    <div class="upgrade_tile">
+        <img id="upg_lefti" src="/site/logo/main.svg">
+        <h1 id="upg_leftn">Loading...</h1>
+        <h2 id="upg_leftv">Loading...</h2>
+        <p id="upg_leftd">Loading...</p>
+    </div>
+    <div class="upgrade_tile" style="background: none !important">
+        <img src="https://img.icons8.com/?size=300&id=86088&format=png&color=FFFFFF" id="aaaarrow">
+    </div>
+    <div class="upgrade_tile">
+        <img id="upg_righti" src="/site/logo/main.svg">
+        <h1 id="upg_rightn">Loading...</h1>
+        <h2 id="upg_rightv">Loading...</h2>
+        <p id="upg_rightd">Loading...</p>
+    </div>
+    </div>
+    `:`
+    <div id="upgrades_side">
+    <div class="upgrade_tile" id="upgrade_side_only">
+        <img id="upg_i" src="/site/logo/main.svg">
+        <h1 id="upg_n">Loading...</h1>
+        <h2 id="upg_v">Loading...</h2>
+    </div>
+    </div>
+    `) + `
+    <h1 id="upgrade_cost">Cost: <span id="upgrade_csp">Loading...</span></h1>
+    <p id="upgrade_disc" class="maxpwidth">Keep in mind that proceeding with the upgrade will automatically collect your current mining rewards.</p>
 
+    <p id="upgrade_status" class="maxpwidth" style="font-weight: bold"></p>
+
+    <div class="flex cc">
+    <button class="fullwidth" onclick="document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201);" style="border-color: red">Cancel</button>
+    <p style="margin:0">&emsp;</p>
+    <button class="fullwidth" onclick="confirmUpgrade(${what}, ${closeid}, ${sendfundsrqpopupid})">Confirm</button>
+    </div>
+
+    <p style="margin:0">
+    `);
+
+    const el = {
+        cost: document.getElementById("upgrade_csp")
+    };
+    var lv;
+    var valn;
+    var valu;
+    switch (what) {
+        case "cooling":
+            lv = serverdata.mining_upg % 10;
+            if (lv >= 9) { document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201); }
+            valn = "Claim Cooldown"; valu = " hours";
+            break;
+        case "memory":
+            lv = Math.floor((serverdata.mining_upg % 100) / 10);
+            if (lv >= 9) { document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201); }
+            valn = "Mining Uptime"; valu = " hours";
+            break;
+        case "hashrate":
+            lv = Math.floor((serverdata.mining_upg % 1000) / 100);
+            if (lv >= 9) { document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201); }
+            break;
+        case "npu1":
+            lv = Math.floor((serverdata.mining_upg % 10000) / 1000);
+            if (lv >= 9) { document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201); }
+            valn = "Block Win Chance"; valu = "%";
+            break;
+        case "npu2":
+            lv = Math.floor((serverdata.mining_upg % 100000) / 10000);
+            if (lv >= 2) { document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201); }
+            valn = "Block Win Bonus"; valu = "%";
+            break;
+        default:
+            lv = null;
+    }
+    if ((what !== "hashrate") && (what !== "hashp")) {
+        el.left = {
+            img: document.getElementById("upg_lefti"),
+            name: document.getElementById("upg_leftn"),
+            value: document.getElementById("upg_leftv"),
+            desc: document.getElementById("upg_leftd"),
+        };
+        el.right = {
+            img: document.getElementById("upg_righti"),
+            name: document.getElementById("upg_rightn"),
+            value: document.getElementById("upg_rightv"),
+            desc: document.getElementById("upg_rightd"),
+        };
+        el.left.img = levelstat[what][lv].img;
+        el.left.name = levelstat[what][lv].name;
+        el.left.value = valn+": "+levelstat[what][lv].val+valu;
+        el.left.desc = levelstat[what][lv].desc;
+        el.right.img = levelstat[what][lv+1].img;
+        el.right.name = levelstat[what][lv+1].name;
+        el.right.value = valn + ": " + levelstat[what][lv + 1].val + valu;
+        el.right.desc = levelstat[what][lv+1].desc;
+    } else {
+        el.img = document.getElementById("upg_i");
+        el.name = document.getElementById("upg_n");
+        el.value = document.getElementById("upg_v");
+        if (what === "hashrate") {
+            el.img = levelstat[what][lv+1].img;
+            el.name = levelstat[what][lv+1].name;
+            el.value = "+"+levelstat[what][lv+1].val+"H/s";
+        }
+    }
+}
+
+async function confirmUpgrade(what, closemain, closeside) {
+    const status = document.getElementById("upgrade_status");
 }
 
 addEventListener("keydown", (e) => {
