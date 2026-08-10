@@ -228,7 +228,7 @@ Deno.serve(async (req) => {
         });
 
         var resources = {};
-        resources[detail.cost[1]];
+        resources[detail.cost[1]] = detail.cost[0];
         await sb.from("transaction").insert({ from: uname.username, to: "CompNUS", resource: resources, message: "Mining Upgrade (id:"+item+")" });
 
         return new Response(JSON.stringify({ response: "", code: 0 }), {
