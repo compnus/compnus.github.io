@@ -421,7 +421,7 @@ function openUpgrades() {
     </div>
     <div class="upgrade_item">
         <div><h1>Hashrate</h1><h2 onclick="popup('Hashrate', 'You can purchase more hashrate for Satoshis here.',true,true)">?</h2></div>
-        <img id="hashpi" src="/site/image/assets/mining/hashp.png">
+        <img id="hashpi" src="/site/image/assets/mining/hashp.png" style="filter:drop-shadow(0 0 5px rgba(255,255,255,0.5))">
         <h1 id="hashpn">Premium Hashrate</h1>
         <p id="hashpd">Invest your earned Satoshis into hashrate and boost your mining power! There is no purchase limit for now.</p>
         <button id="hashpb" onclick="upgrade('hashp')">Purchase</button>

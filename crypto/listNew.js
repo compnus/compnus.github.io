@@ -511,39 +511,10 @@ const LISTN = [
         features: [["Mining", "Collect $HATN by mining every day! Collect even more and restart mining whenever you want by watching an ad!"],
         ["Quests", "Get more $HATN by completing quests - learn about crypto and get rewarded! New quests arrive every week!"],
         ["Other Features", "Watch ads to collect Loot Boxes, promote your Local Services (doesn't work) and explore other services near you (doesn't work). There's also a leaderboard and everything."]],
-        tips: [["Don't waste your time!", "This is the first time I've seen a 120 second long unskippable ad. The lootbox worth 4.5 $HATN is not worth this pain. Speaking of ads, you can activate ads without watching ads - the app will start mining immediately when the ad <b>loads</b>, meaning that if you close the app at that moment, you will start mining without having to suffer the ad!"],
+        tips: [["Don't waste your time!", "This is the first time I've seen a 120 second long unskippable ad. The lootbox worth 4.5 $HATN is not worth this pain. Speaking of ads, you can activate ads without watching ads - the app will start mining immediately when the ad <b>loads</b>, meaning that if you close the app at that moment, you will start mining without having to suffer the ad!"]],
         pros: ["Simple to use", "Active developer team"],
         cons: ["Annoying to use (many times you might accidentally close the app in hopes to reach the home screen)", "Extremely long ads", "Certain features do not work", "App has multiple buttons that do the same thing slightly differently, making it a nightmare trying to navigate to and from a specific screen", "Kitchy look"],
         banner: "bin"
-    }, {
-        name: "Satoshi Game",
-        unlisted: true,
-        icon: "https://www.findmini.app/_astro/img_1323_i7hyyxw9zt_ZdMWdm.webp",
-        description: "Watch ads, mine SATS and! I wanted to say more but there is nothing else to this app.",
-        added: "7-22-2024",
-        id: "satoshigame",
-        attr: {
-            platform: "t",
-            type: "ad",
-            coin: "SATS",
-            effort: 3,
-            rating: 2
-        },
-        info: {
-            description: `Satoshi Game allows you to watch ads and receive SATS in return. There are other aspects like tasks, but the only daily tasks there is is the Satoshi Combo, which is broken and does not work. You can also purchase miners for Stars to get more SATS but we strongly advise against doing so.`,
-            effort: "Watch ads to earn SATS."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/satoshi_game_bot/game?startapp=5782755258"
-        },
-        benefits: ["None"],
-        features: [["Watch Ads and Earn SATS", "Watch ads to earn SATS! Yes. That's everything this app has to offer. Or at least for free."]
-        ],
-        tips: [["There are no tips.", "The app doesn't get simpler than that!"]],
-        pros: ["App looks modern"],
-        cons: ["Presumably dead developer team", "Bugs", "Non-transparent"],
-        banner: "blum"
     }, {
         name: "Mineswap",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJeqyLgSEmRxW8iLD6l9jVAdxGj19SqvFnfB1b1NX7iwkSlT6DO9N474a_Y1Zuw7uzg&f=1&nofb=1&ipt=92bd992de62f8e1528f4a08e19cad60d0af02273b46fa8e4a3899e85ca6f9a5b",
