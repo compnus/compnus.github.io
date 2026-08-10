@@ -595,7 +595,7 @@ function upgrade(what, closeid) {
             valn = "Block Win Bonus"; valu = "%";
             break;
         default:
-            lv = 0;
+            lv = -1;
     }
     if ((what !== "hashrate") && (what !== "hashp")) {
         el.left = {
@@ -632,11 +632,11 @@ function upgrade(what, closeid) {
         } else {
             el.img.src = "/site/image/assets/mining/hashp.png";
             el.name.innerHTML = "Premium Hashrate";
-            el.value.innerHTML = "+" + levelstat[what][lv].val + " H/s";
+            el.value.innerHTML = "+" + levelstat[what][0].val + " H/s";
         }
     }
     var costu;
-    switch (levelstat[what][lv].cost[1]) {
+    switch (levelstat[what][lv+1].cost[1]) {
         case 0:
             costu = "$";
             break;
@@ -649,7 +649,7 @@ function upgrade(what, closeid) {
         default:
             costu = "?";
     }
-    el.cost.innerHTML = levelstat[what][lv].cost[0] + " " + costu;
+    el.cost.innerHTML = levelstat[what][lv+1].cost[0] + " " + costu;
 }
 
 async function confirmUpgrade(what, closemain, closeside) {
