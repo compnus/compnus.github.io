@@ -553,7 +553,7 @@ function upgrade(what, closeid) {
     <p id="upgrade_status" class="maxpwidth" style="font-weight: bold"></p>
 
     <div class="flex cc">
-    <button class="fullwidth" onclick="document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201);" style="border-color: red">Cancel</button>
+    <button class="fullwidth" onclick="document.getElementById('popup${sendfundsrqpopupid}').style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201);" style="border-color: red">Cancel</button>
     <p style="margin:0">&emsp;</p>
     <button class="fullwidth" onclick="confirmUpgrade(${what}, ${closeid}, ${sendfundsrqpopupid})">Confirm</button>
     </div>
@@ -626,6 +626,8 @@ function upgrade(what, closeid) {
             el.value = "+"+levelstat[what][lv+1].val+"H/s";
         }
     }
+    console.log(el);
+    console.log(1);
 }
 
 async function confirmUpgrade(what, closemain, closeside) {
