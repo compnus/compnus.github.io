@@ -523,7 +523,7 @@ function upgrade(what, closeid) {
     popup("Confirm Upgrade", ((what !== "hashrate") && (what !== "hashp") ?`
     <div id="upgrades_side">
     <div class="upgrade_tile">
-        <img id="upg_lefti" src="/site/logo/main.svg">
+        <img id="upg_lefti" src="/site/image/logo/main.svg">
         <h1 id="upg_leftn">Loading...</h1>
         <h2 id="upg_leftv">Loading...</h2>
         <p id="upg_leftd">Loading...</p>
@@ -532,7 +532,7 @@ function upgrade(what, closeid) {
         <img src="https://img.icons8.com/?size=300&id=86088&format=png&color=FFFFFF" id="aaaarrow">
     </div>
     <div class="upgrade_tile">
-        <img id="upg_righti" src="/site/logo/main.svg">
+        <img id="upg_righti" src="/site/image/logo/main.svg">
         <h1 id="upg_rightn">Loading...</h1>
         <h2 id="upg_rightv">Loading...</h2>
         <p id="upg_rightd">Loading...</p>
@@ -541,7 +541,7 @@ function upgrade(what, closeid) {
     `:`
     <div id="upgrades_side">
     <div class="upgrade_tile" id="upgrade_side_only">
-        <img id="upg_i" src="/site/logo/main.svg">
+        <img id="upg_i" src="/site/image/logo/main.svg">
         <h1 id="upg_n">Loading...</h1>
         <h2 id="upg_v">Loading...</h2>
     </div>
