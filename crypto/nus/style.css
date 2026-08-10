@@ -804,4 +804,48 @@ main {
             font-size: 3.5vw;
             margin-top: 2vw;
         }
+
+    #upgrades_side {
+        grid-template-columns: 32vw 8vw 32vw;
+        grid-gap: 4vw;
+    }
+
+        .upgrade_tile > img {
+            width: 25vw;
+            height: 25vw;
+        }
+
+            .upgrade_tile > img#aaaarrow {
+                width: 8vw;
+                height: 8vw;
+                padding: 8.5vw 0;
+            }
+
+    .maxpwidth {
+        width: 100%;
+    }
+
+    #upgrade_disc {
+        font-size: 2.8vw;
+    }
+
+    .upgrade_tile > h1 {
+        margin: 2vw 0 0 0;
+        font-size: 5vw;
+    }
+
+    .upgrade_tile > h2 {
+        margin: 2vw 0 0 0;
+        font-size: 4vw;
+    }
+
+    .upgrade_tile > p {
+        margin: 2vw 0 0 0;
+        font-size: 3vw;
+    }
+
+    #upgrade_cost {
+        margin: 4vw 0;
+        font-size: 5vw;
+    }
 }
