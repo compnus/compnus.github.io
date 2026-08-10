@@ -488,6 +488,7 @@ main {
     display: grid;
     grid-template-columns: 25vh 5vh 25vh;
     grid-gap: 2vh;
+    align-items: center;
 }
 
 #upgrade_side_only {
@@ -498,7 +499,6 @@ main {
     display: inline-flex;
     width: 100%;
     flex-direction: column;
-    align-items: center;
 }
 
 .upgrade_tile > img {
@@ -521,6 +521,7 @@ main {
     font-weight: 200;
     font-size: 1.5vh;
     margin: 0;
+    align-items: center;
 }
 
 .upgrade_tile > h1 {
@@ -542,8 +543,8 @@ main {
 #upgrade_cost {
     margin: 2vh 0;
     font-size: 3vh;
-    text-align: center;
     font-family: 'currencycompnus','Funnel Display' !important;
+    align-items: center;
 }
 
 @media(max-width:800px) {

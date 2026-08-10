@@ -608,11 +608,11 @@ function upgrade(what, closeid) {
             value: document.getElementById("upg_rightv"),
             desc: document.getElementById("upg_rightd"),
         };
-        el.left.img.src = levelstat[what][lv].img;
+        el.left.img.src = "/site/image/assets/mining/" +levelstat[what][lv].img;
         el.left.name.innerHTML = levelstat[what][lv].name;
         el.left.value.innerHTML = valn+": "+levelstat[what][lv].val+valu;
         el.left.desc.innerHTML = levelstat[what][lv].desc;
-        el.right.img.src = levelstat[what][lv+1].img;
+        el.right.img.src = "/site/image/assets/mining/" +levelstat[what][lv+1].img;
         el.right.name.innerHTML = levelstat[what][lv+1].name;
         el.right.value.innerHTML = valn + ": " + levelstat[what][lv + 1].val + valu;
         el.right.desc.innerHTML = levelstat[what][lv+1].desc;
@@ -621,11 +621,16 @@ function upgrade(what, closeid) {
         el.name = document.getElementById("upg_n");
         el.value = document.getElementById("upg_v");
         if (what === "hashrate") {
-            el.img.src = levelstat[what][lv+1].img;
-            el.name.innerHTML = levelstat[what][lv+1].name;
-            el.value.innerHTML = "+"+levelstat[what][lv+1].val+"H/s";
+            el.img.src = "/site/image/assets/mining/" + levelstat[what][lv + 1].img;
+            el.name.innerHTML = levelstat[what][lv + 1].name;
+            el.value.innerHTML = "+" + levelstat[what][lv + 1].val + " H/s";
+        } else {
+            el.img.src = "/site/image/assets/mining/hashp.png";
+            el.name.innerHTML = "Premium Hashrate";
+            el.value.innerHTML = "+" + levelstat[what][0].val + " H/s";
         }
     }
+
 }
 
 async function confirmUpgrade(what, closemain, closeside) {
