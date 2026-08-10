@@ -73,6 +73,7 @@ Deno.serve(async (req) => {
                 });
             }
         } else {
+            // remember that when upgrading (upgradeMining) you also claim (must add npu logic)
             var now = new Date().getTime();
             var lastclaim = new Date(mdata.last_claimed).getTime();
             var diff: number = (now - lastclaim) / 1000;

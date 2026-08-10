@@ -11,6 +11,12 @@ async function main() {
     //if (!user) window.location.href = "/u/login.html";
     uid = data.id;
 
+    await initialize_serverdata();
+
+    interval = setInterval(calculateProfit, 1000);
+}
+
+async function initialize_serverdata() {
     const balance = await getBalance(uid);
     document.getElementById("walletnus").innerHTML = balance[0];
     document.getElementById("walletnoca").innerHTML = balance[1];
@@ -67,8 +73,6 @@ async function main() {
             document.getElementById("mstat_cool").innerHTML = "6 hours";
             break;
     }
-
-    interval = setInterval(calculateProfit, 1000);
 }
 
 function collapseSide(which) {
@@ -327,10 +331,11 @@ const levelstat = {
         {"name":"Single Fan", "desc": "Good luck cooling a mining setup with a single fan! Better than nothing, though.", "cost": [100,1], "val": 22, "img": "cooling1.png"},
         {"name":"Embedded Fan", "desc": "Better than a lone fan, but still lone. And very much a fan.", "cost": [225,1], "val": 20, "img": "cooling2.png"},
         {"name":"Dual Fan", "desc": "Oh look! It now has a friend! And friendship is power!", "cost": [375,1], "val": 18, "img": "cooling3.png"},
-        {"name":"Small Fan Array", "desc": "In unity there is power! What two couldn't do, four will do with ease!", "cost": [600,1], "val": 14, "img": "cooling5.png"},
-        {"name":"Huge Fan Array", "desc": "There it is. The absolute masterpiece when it comes to air cooling. I wonder what comes next?", "cost": [950,1], "val": 12, "img": "cooling6.png"},
-        {"name":"Water Line", "desc": "When air is insufficient, water cooling takes over! But is there more?", "cost": [1500,1], "val": 10, "img": "cooling7.png"},
-        {"name":"Dual Water Line", "desc": "Double the power with ease! Fresh water will take care of the rest!", "cost": [3250,1], "val": 8, "img": "cooling8.png"},
+        {"name":"Glided Dual Fan", "desc": "With cold metal glided blades, the cooling effect is enhanced!", "cost": [600,1], "val": 16, "img": "cooling4.png"},
+        {"name":"Small Fan Array", "desc": "In unity there is power! What two couldn't do, four will do with ease!", "cost": [850,1], "val": 14, "img": "cooling5.png"},
+        {"name":"Huge Fan Array", "desc": "There it is. The absolute masterpiece when it comes to air cooling. I wonder what comes next?", "cost": [1100,1], "val": 12, "img": "cooling6.png"},
+        {"name":"Water Line", "desc": "When air is insufficient, water cooling takes over! But is there more?", "cost": [1800,1], "val": 10, "img": "cooling7.png"},
+        {"name":"Dual Water Line", "desc": "Double the power with ease! Fresh water will take care of the rest!", "cost": [3750,1], "val": 8, "img": "cooling8.png"},
         {"name":"Liquid Nitrogen", "desc": "Finally, the absolute <i>chill</i>.", "cost": [7000,1], "val": 6, "img": "cooling9.png"}
     ],
     memory: [
@@ -687,6 +692,27 @@ async function confirmUpgrade(what, closemain, closeside) {
             lv = -1;
     }
     if (balance[levelstat[what][lv + 1].cost[1]] < levelstat[what][lv + 1].cost[0]) { status.innerHTML = "Insufficient balance."; controls.classList.remove("disabled"); return }
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/mining', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+        },
+        body: JSON.stringify({item: what})
+    })
+        .then(response => response.json())
+        .then(async data => {  //0 = success; 10 = error
+            if (data.code === 10) {
+                status.innerHTML = data.response;
+                cntrl.classList.remove("disabled");
+            } else if (data.code === 0) {
+                popup("Upgraded successfully!", "Upgraded stats should show up shortly. If they take too long, please refresh the page.");
+                await initialize_serverdata();
+            }
+        })
+        .catch((error) => {
+            console.error('Error invoking function:', error);
+        });
 }
 
 addEventListener("keydown", (e) => {
