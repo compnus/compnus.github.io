@@ -557,7 +557,7 @@ function upgrade(what, closeid) {
     <div class="flex cc" id="controls">
     <button class="fullwidth" onclick="document.getElementById('popup${sendfundsrqpopupid}').style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup${sendfundsrqpopupid}')), 201);" style="border-color: red">Cancel</button>
     <p style="margin:0">&emsp;</p>
-    <button class="fullwidth" onclick="confirmUpgrade(${what}, ${closeid}, ${sendfundsrqpopupid})">Confirm</button>
+    <button class="fullwidth" onclick="confirmUpgrade('${what}', '${closeid}', '${sendfundsrqpopupid}')">Confirm</button>
     </div>
 
     <p style="margin:0">
