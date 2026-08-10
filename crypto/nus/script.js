@@ -545,7 +545,7 @@ function upgrade(what, closeid) {
     <div class="upgrade_tile" id="upgrade_side_only">
         <img id="upg_i" src="/site/image/logo/main.svg">
         <h1 id="upg_n">Loading...</h1>
-        <h2 id="upg_v">Loading...</h2>
+        <h2 id="upg_v" style="color:#00cc00">Loading...</h2>
     </div>
     </div>
     `) + `
