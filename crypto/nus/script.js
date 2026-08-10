@@ -530,6 +530,8 @@ function upgrade(what, closeid) {
     </div>
     <div class="upgrade_tile" style="background: none !important">
         <img src="https://img.icons8.com/?size=300&id=86088&format=png&color=FFFFFF" id="aaaarrow">
+        <h1>&nbsp;</h1>
+        <h2 id="upg_diff" style="color:#00cc00">?</h2>
     </div>
     <div class="upgrade_tile">
         <img id="upg_righti" src="/site/image/logo/main.svg">
@@ -593,7 +595,7 @@ function upgrade(what, closeid) {
             valn = "Block Win Bonus"; valu = "%";
             break;
         default:
-            lv = null;
+            lv = 0;
     }
     if ((what !== "hashrate") && (what !== "hashp")) {
         el.left = {
@@ -608,6 +610,7 @@ function upgrade(what, closeid) {
             value: document.getElementById("upg_rightv"),
             desc: document.getElementById("upg_rightd"),
         };
+        el.diff = document.getElementById("upg_diff");
         el.left.img.src = "/site/image/assets/mining/" +levelstat[what][lv].img;
         el.left.name.innerHTML = levelstat[what][lv].name;
         el.left.value.innerHTML = valn+": "+levelstat[what][lv].val+valu;
@@ -615,7 +618,9 @@ function upgrade(what, closeid) {
         el.right.img.src = "/site/image/assets/mining/" +levelstat[what][lv+1].img;
         el.right.name.innerHTML = levelstat[what][lv+1].name;
         el.right.value.innerHTML = valn + ": " + levelstat[what][lv + 1].val + valu;
-        el.right.desc.innerHTML = levelstat[what][lv+1].desc;
+        el.right.desc.innerHTML = levelstat[what][lv + 1].desc;
+        const edf = levelstat[what][lv + 1].val - levelstat[what][lv].val;
+        el.diff.innerHTML = (edf) > 0 ? "+" + edf : edf;
     } else {
         el.img = document.getElementById("upg_i");
         el.name = document.getElementById("upg_n");
@@ -627,10 +632,24 @@ function upgrade(what, closeid) {
         } else {
             el.img.src = "/site/image/assets/mining/hashp.png";
             el.name.innerHTML = "Premium Hashrate";
-            el.value.innerHTML = "+" + levelstat[what][0].val + " H/s";
+            el.value.innerHTML = "+" + levelstat[what][lv].val + " H/s";
         }
     }
-
+    var costu;
+    switch (levelstat[what][lv].cost[1]) {
+        case 0:
+            costu = "$";
+            break;
+        case 1:
+            costu = "¤";
+            break;
+        case 2:
+            costu = "₿";
+            break;
+        default:
+            costu = "?";
+    }
+    el.cost.innerHTML = levelstat[what][lv].cost[0] + " " + costu;
 }
 
 async function confirmUpgrade(what, closemain, closeside) {

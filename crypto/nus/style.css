@@ -488,7 +488,7 @@ main {
     display: grid;
     grid-template-columns: 25vh 5vh 25vh;
     grid-gap: 2vh;
-    align-items: center;
+    text-align: center;
 }
 
 #upgrade_side_only {
@@ -499,6 +499,7 @@ main {
     display: inline-flex;
     width: 100%;
     flex-direction: column;
+    align-items: center;
 }
 
 .upgrade_tile > img {
@@ -509,7 +510,7 @@ main {
 .upgrade_tile > img#aaaarrow {
     width: 5vh;
     height: 5vh;
-    padding-top: 5vh;
+    padding: 5vh 0;
 }
 
 .maxpwidth {
@@ -521,7 +522,7 @@ main {
     font-weight: 200;
     font-size: 1.5vh;
     margin: 0;
-    align-items: center;
+    text-align: center;
 }
 
 .upgrade_tile > h1 {
@@ -544,7 +545,7 @@ main {
     margin: 2vh 0;
     font-size: 3vh;
     font-family: 'currencycompnus','Funnel Display' !important;
-    align-items: center;
+    text-align: center;
 }
 
 @media(max-width:800px) {
