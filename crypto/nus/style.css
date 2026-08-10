@@ -548,6 +548,10 @@ main {
     text-align: center;
 }
 
+#upgrade_cost > span {
+    font-weight: normal;
+}
+
 @media(max-width:800px) {
     .nomobile {
         display: none;
