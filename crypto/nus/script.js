@@ -5,11 +5,14 @@ var serverdata = null;
 var mobileopen = false;
 var interval = null;
 var cache = {};
+var compacting = 0;
 
 async function main() {
     const { user, data } = await getUser();
     //if (!user) window.location.href = "/u/login.html";
     uid = data.id;
+
+    compacting = localStorage.getItem("m_compacting") === "1" ? 1 : 0;
 
     await initialize_serverdata();
 
@@ -382,11 +385,17 @@ const levelstat = {
     hashp: [{"cost": [5, 2], "val":100}]
 }
 
+function compactingfn() {
+    document.getElementById("upgrades_main").classList.toggle("compacted");
+    compacting = 1 - compacting;
+    localStorage.setItem("m_compacting", `${compacting}`);
+}
+
 function openUpgrades() {
     const thispop = popupid;
     popup("Mining Upgrades", `
-    <div id="upgrades_main">
-
+    <div id="upgrades_main" class="${(compacting===1?'compacted':'')}">
+    <img id="compacting" src="https://img.icons8.com/?size=100&id=90337&format=png&color=FFFFFF" onclick="compactingfn()" title="Change tile size">
     <div class="upgrade_item">
         <div><h1>Cooling</h1><h2 onclick="popup('Cooling', 'The faster your mining machine can cool down, the more often you can claim your mining rewards! Upgrade cooling to decrease claim cooldown.',true,true)">?</h2></div>
         <img id="coolingi" src="/site/image/assets/mining/cooling0.png">
