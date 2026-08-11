@@ -56,6 +56,18 @@ main {
         width: 2px;
     }
 
+    #compactWallet > img {
+        width: 2vh;
+        height: 2vh;
+        cursor: pointer;
+        margin: 0 -1vh 0 0;
+        transition: 0.3s ease-out;
+    }
+
+    #compactWallet > img:hover {
+        filter: drop-shadow(black 0 0 3px) drop-shadow(white 0 0 3px);
+    }
+
 #pcnav {
     margin: 7.25vh 0 3.75vh 0;
     background: var(--maingradfallback);
@@ -94,7 +106,7 @@ main {
         #pcnav > a.here {
             border-right: none;
             background-color: var(--bg);
-            box-shadow: var(--bg) 3px 0 5px -3px, var(--bg) 5px 0 5px -3px, var(--bg) 7px 0 5px -3px;
+            box-shadow: var(--bg) 0 0 inset,var(--bg) 3px 0 5px -3px, var(--bg) 5px 0 5px -3px, var(--bg) 7px 0 5px -3px;
         }
 
         #pcnav > a:hover > img {
@@ -107,7 +119,7 @@ main {
         }
 
         #pcnav > a.here:hover {
-            box-shadow: var(--bg) 3px 0 5px -3px, var(--bg) 5px 0 5px -3px, var(--bg) 7px 0 5px -3px;
+            box-shadow: var(--border) 2px 0 inset,var(--bg) 3px 0 5px -3px, var(--bg) 5px 0 5px -3px, var(--bg) 7px 0 5px -3px;
         }
 
         #pcnav > a:hover > p {
@@ -136,11 +148,23 @@ main {
             transform: scale(1);
         }
 
-    #content {
-        height: 82vh;
-        padding: 2vh;
-        overflow: auto;
-    }
+#content {
+    height: 78vh;
+    padding: 6vh 2vh 2vh 2vh;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10vh,1fr));
+    grid-auto-rows: 10vh;
+    grid-gap: 1vh;
+}
+
+#dailycheckin {
+    grid-row: span 5;
+    grid-column: span 5;
+    background-color: var(--lightbg);
+    padding: 2vh;
+    border-radius: 2vh;
+}
 
 @media(max-width:800px) {
     .nomobile {
@@ -238,5 +262,11 @@ main {
         #compactWallet > p {
             margin: -0.5vw 3vw;
             height: 4.5vw;
+        }
+
+        #compactWallet > img {
+            width: 3.5vw;
+            height: 3.5vw;
+            margin: 0;
         }
 }
