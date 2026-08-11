@@ -1,0 +1,898 @@
+main {
+    padding-left: 0;
+    padding-right: 0;
+    display: grid;
+    grid-template-columns: 25vw 48vw 25vw;
+    grid-gap: 1vw;
+    transition: 0.2s ease-out;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    background-color: var(--lightbg);
+    box-shadow: black 0 0 5px;
+    display: grid;
+    position: relative;
+    width: 25vw;
+}
+
+    .sidebar#leftsd {
+        border-radius: 0 2vh 2vh 0;
+        grid-template-columns: calc(25vw - 4vh) 4vh;
+        right: 0;
+        transition: 0.2s ease-out;
+    }
+
+    .sidebar#rightsd {
+        border-radius: 2vh 0 0 2vh;
+        grid-template-columns: 4vh calc(25vw - 4vh);
+    }
+
+    .sidebar > .content {
+        padding: 2vh;
+        transition: 0.2s ease-out;
+        height: 78vh;
+        overflow-y: auto;
+    }
+
+    .sidebar#leftsd > .content {
+        padding-right: 1vh;
+    }
+    .sidebar#rightsd > .content {
+        padding-left: 1vh;
+    }
+
+    .sidebar > .collapse {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+.sidebar > .collapse > img {
+    width: 3vh;
+    height: 6vh;
+    margin: 0.5vh;
+    transition: 0.2s ease-in;
+}
+
+    .sidebar > .collapse:hover > img {
+        filter: drop-shadow(white 0 0 3px);
+    }
+
+.sidebar > .collapse > img.collapsed {
+    transform: scaleX(-1);
+}
+
+.sideentry {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+.sideentry > img {
+    width: 4vh;
+    height: 4vh;
+    padding-right: 1vh;
+}
+
+.sideentry > h2 {
+    text-align: right;
+    font-size: 3vh;
+    line-height: 1;
+    margin: 0;
+    flex: 1;
+}
+
+.myhr {
+    margin: 3vh 1vh;
+    height: 2px;
+    background: #ffffff;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 100%;
+}
+
+.sidemini {
+    margin: -1vh 0 0 0;
+    font-size: 1.5vh;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#miningicon {
+    position: relative;
+    width: 35vh;
+    height: 35vh;
+    filter: drop-shadow(#ffff0050 0 0 5px);
+    animation: pulseShadow 20s ease-in-out infinite;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@keyframes pulseShadow {
+    0% {
+        filter: drop-shadow(#ffff0050 0 0 5px);
+        transform: scale(1);
+    }
+    25% {
+        filter: drop-shadow(#ffea0075 0 0 7px);
+        transform: scale(0.93);
+    }
+    50% {
+        filter: drop-shadow(#ffff00aa 0 0 10px);
+        transform: scale(0.97);
+    }
+    75% {
+        filter: drop-shadow(#ffae0075 0 0 8px);
+        transform: scale(0.95);
+    }
+    100% {
+        filter: drop-shadow(#ffff0050 0 0 5px);
+        transform: scale(1);
+    }
+}
+
+.miningicon {
+    width: 35vh;
+    height: 35vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    filter: opacity(0.8);
+}
+
+#miningicona1 {
+    filter: opacity(0.6);
+    animation: pulseIcon1 45s linear infinite;
+}
+
+@keyframes pulseIcon1 {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.07) rotate(90deg);
+    }
+    50% {
+        transform: scale(1.11) rotate(170deg);
+    }
+    75% {
+        transform: scale(1.04) rotate(280deg);
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+#miningicona2 {
+    transform: rotate(-65deg) scale(0.95);
+    animation: pulseIcon3 53s linear infinite;
+}
+
+@keyframes pulseIcon2 {
+    0% {
+        transform: scale(1, 1) rotate(175deg);
+    }
+
+    25% {
+        transform: scale(0.98, 1.03) rotate(265deg);
+    }
+
+    50% {
+        transform: scale(0.94, 1.02) rotate(350deg);
+    }
+
+    75% {
+        transform: scale(0.97, 1.07) rotate(460deg);
+    }
+
+    100% {
+        transform: scale(1, 1) rotate(535deg);
+    }
+}
+
+#miningicona3 {
+    transform: scale(0.95) rotate(175deg);
+    animation: pulseIcon2 61s linear infinite;
+}
+
+@keyframes pulseIcon3 {
+    0% {
+        transform: scale(0.95) rotate(-65deg);
+    }
+
+    25% {
+        transform: scale(1.12) rotate(-165deg);
+    }
+
+    50% {
+        transform: scale(1.05) rotate(-250deg);
+    }
+
+    75% {
+        transform: scale(1.06) rotate(-330deg);
+    }
+
+    100% {
+        transform: scale(0.95) rotate(-425deg);
+    }
+}
+
+#miningiconb {
+    width: 15vh;
+    height: 15vh;
+    position: absolute;
+    left: 10vh;
+    top: 10vh;
+    animation: pulseIconB 8s linear infinite;
+    filter: drop-shadow(black 0 0 10px) drop-shadow(black 0 0 5px);
+}
+
+@keyframes pulseIconB {
+    0% {
+        transform: rotate(0deg);
+    }
+    54% {
+        transform: rotate(2deg);
+    }
+    60% {
+        transform: rotate(-25deg) scale(1);
+    }
+    61% {
+        transform: rotate(50deg) scale(1.1);
+    }
+    65% {
+        transform: rotate(25deg) scale(1.01);
+    }
+    66% {
+        transform: rotate(16deg) scale(1);
+    }
+    67% {
+        transform: rotate(12deg);
+    }
+    68% {
+        transform: rotate(8deg);
+    }
+    69% {
+        transform: rotate(5deg);
+    }
+    70% {
+        transform: rotate(3deg);
+    }
+    85% {
+        transform: rotate(-2deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+#miningiconc {
+    transform: scale(1.1);
+    animation: pulseIconC 100s linear infinite;
+    filter: drop-shadow(white 0 0 10px) drop-shadow(white 0 0 5px) drop-shadow(black 0 0 10px) drop-shadow(black 0 0 3px);
+}
+
+@keyframes pulseIconC {
+    0% {
+        transform: scale(1.1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.24) rotate(-90deg);
+    }
+
+    50% {
+        transform: scale(1.3) rotate(-180deg);
+    }
+
+    75% {
+        transform: scale(1.18) rotate(-270deg);
+    }
+
+    100% {
+        transform: scale(1.1) rotate(-360deg);
+    }
+}
+
+#accumulateddisplay {
+    font-weight: 100;
+    font-size: 5vh;
+    margin: 0;
+    filter: drop-shadow(black 0 0 5px);
+}
+
+#accumulateddisplayw > .numberAnimation > .numberSlideWrapper {
+    width: 1ch;
+}
+
+#accumulateddisplayp > .numberAnimation > .numberSlideWrapper {
+    width: 8ch;
+}
+
+#mining_action {
+    margin: 1vh 0;
+    font-weight: 100;
+    font-size: 2.5vh;
+}
+
+#separation_divm {
+    height: 8vh;
+}
+
+#mining_problosities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 6vh 6vh 6vh;
+    grid-gap: 2vh;
+    align-items: center;
+    margin-top: 2vh;
+    width: 100%;
+}
+
+.miningstat_view {
+    display: grid;
+    grid-template-columns: 6vh 1fr;
+    grid-template-rows: 2vh 4vh;
+    grid-gap: 1vh;
+    cursor: help;
+    position: relative;
+}
+
+.miningstat_view > img {
+    width: 6vh; height: 6vh;
+    grid-row: span 2;
+}
+
+.miningstat_view > h1 {
+    font-size: 1.7vh;
+    line-height: 1;
+    margin: 0;
+}
+
+    .miningstat_view > p {
+        font-size: 3vh;
+        line-height: 3.3vh;
+        margin: 0;
+        font-weight: 200;
+    }
+
+    .miningstat_view > h2 {
+        position: absolute;
+        font-size: 2vh;
+        color: #777;
+        margin: 0;
+        right: 0.5vh;
+        top: 0.5vh;
+        transition: 0.2s ease-out;
+    }
+
+    .miningstat_view:hover  > h2 {
+        color: #fff;
+    }
+
+    .miningstat_button {
+        font-size: 2.5vh;
+        font-family: 'Funnel Display';
+        font-weight: 400;
+    }
+
+#upgrades_main {
+    text-align: center;
+    margin: -1vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.upgrade_item {
+    display: inline-flex;
+    width: 24vh;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh;
+    border-radius: 2vh;
+    background-color: rgba(255 255 255 / 5%);
+    margin: 1vh;
+    box-shadow: rgba(255 255 255 / 10%) 0 0 5px inset, rgba(0 0 0 / 25%) 3px 3px 3px;
+    transition: 0.2s ease-out;
+}
+
+    .upgrade_item:hover {
+        background-color: rgba(255 255 255 / 7%);
+        box-shadow: rgba(255 255 255 / 15%) 0 0 5px inset, rgba(0 0 0 / 25%) 0 0 5px;
+        transform: scale(1.05);
+    }
+
+.upgrade_item > div {
+    display: flex;
+    width: 100%;
+}
+
+    .upgrade_item > div > h1 {
+        font-size: 2vh;
+        font-weight: 900;
+        margin: 0;
+        flex: 1;
+        text-align: left;
+        font-family: 'Funnel Display';
+    }
+    .upgrade_item > div > h2 {
+        font-size: 1.5vh;
+        font-weight: 900;
+        margin: 0;
+        cursor: pointer;
+        color: #777;
+        transition: 0.2s ease-out;
+        padding: 0 0.5vh 0 2vh;
+    }
+
+        .upgrade_item > div > h2:hover {
+            color: #fff;
+            filter: drop-shadow(white 0 0 5px);
+        }
+
+    .upgrade_item > img {
+        width: 15vh;
+        height: 15vh;
+        margin: 2vh 0;
+        transition: 0.2s ease-out;
+    }
+
+    .upgrade_item:hover > img {
+        transform: scale(1.05);
+    }
+
+.upgrade_item > h1 {
+    margin: 0;
+    font-size: 2.5vh;
+    margin: 0 0 1vh 0;
+    font-family: Gabarito;
+}
+
+.upgrade_item > h2 {
+    margin: 0 0 1vh 0;
+    font-size: 1.5vh;
+}
+
+.upgrade_item > p {
+    margin: 0;
+    font-size: 1.5vh;
+    flex: 1;
+}
+
+.upgrade_item > button {
+    font-size: 2.5vh;
+    margin-top: 1vh;
+}
+
+#upgrades_side {
+    display: grid;
+    grid-template-columns: 25vh 5vh 25vh;
+    grid-gap: 2vh;
+    text-align: center;
+}
+
+#upgrade_side_only {
+    grid-column: span 3;
+}
+
+.upgrade_tile {
+    display: inline-flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upgrade_tile > img {
+    width: 15vh;
+    height: 15vh;
+}
+
+.upgrade_tile > img#aaaarrow {
+    width: 5vh;
+    height: 5vh;
+    padding: 5vh 0;
+}
+
+.maxpwidth {
+    width: 59vh;
+    text-align: center;
+}
+
+#upgrade_disc {
+    font-weight: 200;
+    font-size: 1.5vh;
+    margin: 0;
+    text-align: center;
+}
+
+.upgrade_tile > h1 {
+    margin: 1vh 0 0 0;
+    font-size: 3vh;
+    font-family: Gabarito;
+}
+
+.upgrade_tile > h2 {
+    margin: 1vh 0 0 0;
+    font-size: 2vh;
+}
+
+.upgrade_tile > p {
+    margin: 1vh 0 0 0;
+    font-size: 1.5vh;
+}
+
+#upgrade_cost {
+    margin: 2vh 0;
+    font-size: 3vh;
+    font-family: 'currencycompnus','Funnel Display' !important;
+    text-align: center;
+}
+
+#upgrade_cost > span {
+    font-weight: normal;
+}
+
+#compacting {
+    position: fixed;
+    left: calc(25vw - 2vh - 2px);
+    top: 30vh;
+    width: 3vh;
+    height: 3vh;
+    padding: 0.5vh;
+    background-color: var(--border);
+    border-radius: 0 1vh 1vh 0;
+    z-index: 1001;
+    filter: opacity(0.4);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+    #compacting:hover {
+        filter: opacity(1);
+    }
+
+.compacted > .upgrade_item {
+    width: 15vh;
+    padding: 0.7vh;
+    border-radius: 1vh;
+    margin: 0.7vh;
+}
+
+        .compacted > .upgrade_item > div > h1 {
+            font-size: 1.2vh;
+        }
+
+    .compacted > .upgrade_item > div > h2 {
+        font-size: 1vh;
+    }
+
+    .compacted > .upgrade_item > img {
+        width: 10vh;
+        height: 10vh;
+        margin: 1.5vh 0;
+    }
+
+    .compacted > .upgrade_item > h1 {
+        margin: 0;
+        font-size: 1.7vh;
+        margin: 0 0 0.7vh 0;
+    }
+
+    .compacted > .upgrade_item > h2 {
+        margin: 0 0 0.7vh 0;
+        font-size: 1.2vh;
+    }
+
+    .compacted > .upgrade_item > p {
+        font-size: 1vh;
+    }
+
+    .compacted > .upgrade_item > button {
+        font-size: 1.7vh;
+        margin-top: 0.7vh;
+        padding: 0.5vh 0.7vh;
+        border-radius: 5vh;
+    }
+
+@media(max-width:800px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        box-shadow: black 0 0 15px;
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 18vh;
+        width: 0;
+        z-index: 91;
+        overflow-x: hidden;
+    }
+
+    #collapsemobile {
+        width: 8vw;
+        height: 8vw;
+        position: absolute;
+        right: 0;
+        top: calc(18vh + 3vw);
+        border-radius: 3vw 0 0 3vw;
+        background-color: var(--lightbg);
+        box-shadow: white 0 0 5px;
+        padding: 3vw 1vw;
+        z-index: 90;
+        transition: 0.2s ease-out;
+    }
+
+        #collapsemobile > img {
+            width: 8vw;
+            height: 8vw;
+        }
+
+    .sidebar#leftsd {
+        display: none;
+    }
+
+    .sidebar#rightsd {
+        border-radius: 3vw 0 0 3vw;
+        transition: 0.2s ease-out;
+    }
+
+    .sidebar > .content {
+        padding: 3vw;
+        height: 76vh;
+        width: 79vw;
+    }
+
+    .sidebar > .collapse {
+        display: none;
+    }
+
+    .sideentry {
+        margin-bottom: 3vw;
+    }
+
+        .sideentry > img {
+            width: 8vw;
+            height: 8vw;
+            padding-right: 3vw;
+        }
+
+        .sideentry > h2 {
+            font-size: 5vw;
+        }
+
+    .myhr {
+        margin: 3vh 2vw;
+    }
+
+    .sidemini {
+        margin: -1.5vw 0 0 0;
+        font-size: 3.5vw;
+    }
+
+    #miningicon {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .miningicon {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    #miningiconb {
+        width: 30vw;
+        height: 30vw;
+        left: 15vw;
+        top: 15vw;
+    }
+
+    #accumulateddisplay {
+        font-size: 9vw;
+    }
+
+    #mining_action {
+        margin: 2vw 0 3vw 0;
+        font-size: 4.5vw;
+    }
+
+    #separation_divm {
+        height: 10vw;
+    }
+
+    #mining_problosities {
+        grid-template-rows: 10vw 10vw 10vw;
+        grid-gap: 4vw;
+        margin: 4vw 2vw 0 2vw;
+        width: 96vw;
+    }
+
+    .miningstat_view {
+        grid-template-columns: 10vw 1fr;
+        grid-template-rows: 3vw 5vw;
+        grid-gap: 2vw;
+    }
+
+        .miningstat_view > img {
+            width: 10vw;
+            height: 10vw;
+        }
+
+        .miningstat_view > h1 {
+            font-size: 3vw;
+        }
+
+        .miningstat_view > p {
+            font-size: 5vw;
+            line-height: 5vw;
+        }
+
+        .miningstat_view > h2 {
+            font-size: 3.5vw;
+            right: 1vw;
+            top: 0;
+        }
+
+    .miningstat_button {
+        font-size: 5vw;
+    }
+
+    #upgrades_main {
+        margin: -2vw;
+    }
+
+    .upgrade_item {
+        width: 34vw;
+        padding: 2vw;
+        border-radius: 2vw;
+        margin: 1vw;
+    }
+
+        .upgrade_item > div > h1 {
+            font-size: 3vw;
+        }
+
+        .upgrade_item > div > h2 {
+            font-size: 3vw;
+            padding: 0 1vw 0 5vw;
+        }
+
+        .upgrade_item > img {
+            width: 20vw;
+            height: 20vw;
+            margin: 2vw 0;
+        }
+
+        .upgrade_item > h1 {
+            font-size: 4vw;
+            margin: 0 0 2vw 0;
+        }
+
+        .upgrade_item > h2 {
+            margin: 0 0 2vw 0;
+            font-size: 2.5vw;
+        }
+
+        .upgrade_item > p {
+            font-size: 3vw;
+        }
+
+        .upgrade_item > button {
+            font-size: 3.5vw;
+            margin-top: 2vw;
+        }
+
+    #upgrades_side {
+        grid-template-columns: 32vw 8vw 32vw;
+        grid-gap: 4vw;
+    }
+
+        .upgrade_tile > img {
+            width: 25vw;
+            height: 25vw;
+        }
+
+            .upgrade_tile > img#aaaarrow {
+                width: 8vw;
+                height: 8vw;
+                padding: 8.5vw 0;
+            }
+
+    .maxpwidth {
+        width: 100%;
+    }
+
+    #upgrade_disc {
+        font-size: 2.8vw;
+    }
+
+    .upgrade_tile > h1 {
+        margin: 2vw 0 0 0;
+        font-size: 5vw;
+    }
+
+    .upgrade_tile > h2 {
+        margin: 2vw 0 0 0;
+        font-size: 4vw;
+    }
+
+    .upgrade_tile > p {
+        margin: 2vw 0 0 0;
+        font-size: 3vw;
+    }
+
+    #upgrade_cost {
+        margin: 4vw 0;
+        font-size: 5vw;
+    }
+
+    #compacting {
+        left: calc(10vw - 4vw - 2px);
+        top: 35vh;
+        width: 6vw;
+        height: 6vw;
+        padding: 1vw;
+        border-radius: 0 2vw 2vw 0;
+        filter: opacity(0.6);
+    }
+
+    .compacted > .upgrade_item {
+        width: 100%;
+        padding: 3vw;
+        border-radius: 3vw;
+        margin: 1vw;
+    }
+
+    .compacted > .upgrade_item:hover {
+        transform: scale(1);
+    }
+
+        .compacted > .upgrade_item > div > h1 {
+            font-size: 4vw;
+        }
+
+        .compacted > .upgrade_item > div > h2 {
+            font-size: 4vw;
+        }
+
+        .compacted > .upgrade_item > img {
+            width: 35vw;
+            height: 35vw;
+            margin: 3vw 0;
+        }
+
+        .compacted > .upgrade_item > h1 {
+            font-size: 5vw;
+            margin: 0 0 3vw 0;
+        }
+
+        .compacted > .upgrade_item > h2 {
+            margin: 0 0 3vw 0;
+            font-size: 4vw;
+        }
+
+        .compacted > .upgrade_item > p {
+            font-size: 3vw;
+        }
+
+        .compacted > .upgrade_item > button {
+            font-size: 5vw;
+            margin-top: 3vw;
+            padding: 2vw 4vw;
+            border-radius: 4vw;
+        }
+}
