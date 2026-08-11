@@ -1,6 +1,8 @@
 main {
-    padding-left: 0;
-    padding-right: 0;
+    position: static;
+    padding: 2vh 0;
+    min-height: 82vh;
+    height: unset;
     display: grid;
     grid-template-columns: 25vw 48vw 25vw;
     grid-gap: 1vw;
