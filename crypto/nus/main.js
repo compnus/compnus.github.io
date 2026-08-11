@@ -12,9 +12,9 @@ async function main() {
 async function loadWallet() {
     balance = await getBalance();
 
-    document.getElementById("balance_nus").innerHTML = balance[0];
+    document.getElementById("balance_nus").innerHTML = balance[0].toFixed(8);
     document.getElementById("balance_noca").innerHTML = balance[1];
-    document.getElementById("balance_sat").innerHTML = balance[2];
+    document.getElementById("balance_sat").innerHTML = balance[2].toFixed(4);
 }
 
 console.log("nus loaded");
