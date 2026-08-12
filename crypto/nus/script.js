@@ -115,14 +115,18 @@ function collapseSideMobile() {
 
     if (mobileopen) {
         document.getElementById("rightsd").style.width = "0";
+        document.getElementById("rightsd").style.boxShadow = "black 0 0 15px 0";
         document.getElementById("collapsemobile").style.right = "0";
+        document.getElementById("collapsemobile").style.borderRadius = "3vw 0 0 3vw";
         mobileopen = false;
         if (syncHistory && history.state && history.state.mobileSidebar) {
             history.back();
         }
     } else {
         document.getElementById("rightsd").style.width = "85vw";
-        document.getElementById("collapsemobile").style.right = "85vw";
+        document.getElementById("rightsd").style.boxShadow = "rgba(0 0 0 / 0.7) 0 0 15px 15vw";
+        document.getElementById("collapsemobile").style.right = "87.5vw";
+        document.getElementById("collapsemobile").style.borderRadius = "3vw";
         if (syncHistory) history.pushState({ mobileSidebar: true }, '');
         mobileopen = true;
     }

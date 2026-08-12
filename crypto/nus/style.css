@@ -158,12 +158,8 @@ main {
     grid-gap: 1vh;
 }
 
-#dailycheckin {
-    grid-row: span 5;
-    grid-column: span 5;
-    background-color: var(--lightbg);
-    padding: 2vh;
-    border-radius: 2vh;
+#content > div {
+    overflow: hidden;
 }
 
 @media(max-width:800px) {

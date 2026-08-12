@@ -1,0 +1,252 @@
+#dailycheckin {
+    grid-row: span 5;
+    grid-column: span 5;
+    background-color: var(--lightbg);
+    padding: 2vh;
+    border-radius: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#dailygift {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    filter: drop-shadow(black 0 0 5px);
+}
+#dailygiftcon {
+    display: flex;
+    justify-content: center;
+}
+#dailygifttt {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    animation: topgiftpart ease-in-out 7s infinite;
+}
+@keyframes topgiftpart {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1, 1);
+    }
+    25% {
+        transform: translate(0, 0) rotate(0deg) scale(1.05, 0.95);
+    }
+    50% {
+        transform: translate(0, 0) rotate(0deg) scale(1, 1);
+    }
+    52% {
+        transform: translate(-2vh, -1vh) rotate(-5deg) scale(1.03, 0.91);
+    }
+    70% {
+        transform: translate(0, 0) rotate(1deg) scale(1.07, 0.95);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1, 1);
+    }
+}
+#dailygiftlr {
+    width:1.5vh;
+    height:1.5vh;
+    border-radius: 5vh 5vh 0 5vh;
+    outline: 6px solid white;
+    margin-right: 3px;
+}
+#dailygiftrr {
+    width: 1.5vh;
+    height: 1.5vh;
+    border-radius: 5vh 5vh 5vh 0;
+    margin-left: 3px;
+    outline: 6px solid white;
+}
+#dailygifttop {
+    width: 15vh;
+    height: 3vh;
+    background-color: white;
+    border-radius: 1vh 1vh 0.5vh 0.5vh;
+}
+#dailygiftbot {
+    width: 14vh;
+    height: 12vh;
+    background-color: white;
+    border-radius: 0.5vh 0.5vh 2vh 2vh;
+    transform: translate(0, -0.5vh);
+    animation: botgiftpart ease-in-out 7s infinite;
+}
+@keyframes botgiftpart {
+    0% {
+        transform: translate(0, -0.5vh) rotate(0deg) scale(1, 1);
+    }
+
+    25% {
+        transform: translate(0, -1vh) rotate(0deg) scale(1.05, 0.95);
+    }
+
+    50% {
+        transform: translate(0, -0.5vh) rotate(0deg) scale(1, 1);
+    }
+
+    52% {
+        transform: translate(-2vh, 0vh) rotate(5deg) scale(1.03, 0.91);
+    }
+
+    70% {
+        transform: translate(0, -1vh) rotate(-1deg) scale(1.07, 0.95);
+    }
+
+    100% {
+        transform: translate(0, -0.5vh) rotate(0deg) scale(1, 1);
+    }
+}
+#dailygift:hover > #dailygifttt, #dailygift:hover > #dailygiftbot {
+    animation-duration: 0s;
+}
+#dailygift.collected:hover > #dailygifttt, #dailygift.collected:hover > #dailygiftbot {
+    animation-duration: 3s;
+}
+#dailygift:hover {
+    animation: hypedgift 0.2s infinite;
+    cursor: pointer;
+}
+#dailygift.collected {
+    pointer-events: none;
+}
+@keyframes hypedgift {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+#dailygift.collected > #dailygifttt {
+    animation: collecttop 2s 1 linear;
+    transform: translate(0, -50vh) scale(0.5, 1.2);
+}
+#dailygift.collected > #dailygiftbot {
+    animation: collectbot 2s 1;
+    transform: translate(0, 1.5vh) scale(1.2, 0.7);
+    filter: opacity(0.5);
+}
+@keyframes collecttop {
+    0% {
+        transform: translate(0, 0) scale(1, 1);
+    }
+    10% {
+        transform: translate(0, 0) scale(1.2, 0.8);
+    }
+    15% {
+        transform: translate(0, -5vh) scale(1, 1);
+    }
+    100% {
+        transform: translate(0, -100vh) scale(0.5, 1.2);
+    }
+}
+@keyframes collectbot {
+    0% {
+        filter: opacity(1);
+        transform: translate(0, -0.5vh) scale(1, 1);
+    }
+    10% {
+        transform: translate(0, -0.5vh) scale(1.05, 1);
+    }
+    15% {
+        transform: translate(0, -1vh) scale(0.9, 1.2);
+    } /*don't judge me*/
+    16% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    17% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    18% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    19% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    20% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    21% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    22% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    23% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    24% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    25% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    26% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    27% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    28% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    29% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    30% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    31% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    32% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    33% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    34% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    35% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    36% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    37% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    38% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    39% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    40% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    41% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    42% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    43% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    44% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    45% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    46% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    47% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    48% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    49% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    50% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    51% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    52% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    53% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    54% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    55% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    56% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    57% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    58% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    59% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    60% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    61% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    62% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    63% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    64% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    65% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    66% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    67% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    68% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    69% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    70% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    71% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    72% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    73% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    74% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    75% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    76% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    77% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    78% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    79% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    80% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    81% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    82% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    83% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    84% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    85% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    86% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    87% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    88% {transform: translate(0, -1vh) scale(0.87, 1.23);}
+    89% {transform: translate(0, -1vh) scale(0.9, 1.2);}
+    90% {
+        filter: opacity(1);
+        transform: translate(0, -1vh) scale(0.9, 1.2);
+    }
+    100% {
+        filter: opacity(0.5);
+        transform: translate(0, 1.5vh) scale(1.2, 0.7);
+    }
+}
+#dailycheckin > h1 {
+    font-family: Gabarito;
+    margin: 0 0 4vh 0;
+    font-size: 3.5vh;
+    line-height: 1;
+}
+
+@media(max-width:800px) {
+
+}
