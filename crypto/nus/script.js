@@ -9,7 +9,7 @@ var compacting = 0;
 
 async function main() {
     const { user, data } = await getUser();
-    //if (!user) window.location.href = "/u/login.html";
+    if (!user) window.location.href = "/u/login.html";
     uid = data.id;
 
     compacting = localStorage.getItem("m_compacting") === "1" ? 1 : 0;

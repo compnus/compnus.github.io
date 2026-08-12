@@ -10,7 +10,7 @@ async function main() {
 }
 
 async function loadWallet() {
-    balance = await getBalance();
+    balance = await getBalance(uid);
 
     document.getElementById("balance_nus").innerHTML = balance[0].toFixed(8);
     document.getElementById("balance_noca").innerHTML = balance[1];
