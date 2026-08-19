@@ -11,7 +11,7 @@ async function freeMain() {
     if (sdata.daily_last !== null && daily_last !== null && daily_last <= 1) {
         document.getElementById("dailycheckinstreak").innerHTML = sdata.daily_streak;
     }
-    if (daily_last && daily_last == 0) {
+    if (daily_last !== null && daily_last === 0) {
         document.getElementById("dailygift").classList.add('collected');
         document.getElementById("information_kiosk_daily").innerHTML = "Come back tomorrow for another reward!";
     }
