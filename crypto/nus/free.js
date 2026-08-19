@@ -1,3 +1,5 @@
+var collStatus = false;
+
 async function freeMain() {
     const { data: sdata, error: userExistsErrorn } = await sb
         .from("udata")
@@ -7,7 +9,7 @@ async function freeMain() {
     if (!sdata || userExistsErrorn) console.log("Server error.");
     const daily_last = daysBetween(sdata.daily_last);
     if (sdata.daily_last !== null && daily_last && daily_last <= 1) {
-        document.getElementById("dailycheckinstreak").innerHTML = daily_streak;
+        document.getElementById("dailycheckinstreak").innerHTML = sdata.daily_streak;
     }
     if (daily_last && daily_last == 0) {
         document.getElementById("dailygift").classList.add('collected');
@@ -24,4 +26,9 @@ function daysBetween(serverDateString) {
     const now = new Date();
     const localMidnightUtc = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
     return Math.floor((localMidnightUtc - serverUtc) / 86400000);
+}
+
+async function collectDaily() {
+    if (collStatus) return;
+    collStatus = true;
 }
