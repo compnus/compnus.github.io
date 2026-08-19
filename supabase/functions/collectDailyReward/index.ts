@@ -103,7 +103,7 @@ Deno.serve(async (req) => {
                 hash: 0,
                 div: 0
             }
-            var rc = REWARDS_C[mdata.daily_streak % 70];
+            var rc = REWARDS_C[(mdata.daily_streak-1) % 70];
             rewards.nus += rc.nus || 0;
             rewards.noca += rc.noca || 0;
             rewards.sat += rc.sat || 0;

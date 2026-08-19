@@ -57,7 +57,7 @@ async function collectDaily() {
                 document.getElementById("dailygift").classList.remove('collected');
                 document.getElementById("dailygift").classList.add('collectedx');
                 const reward = JSON.parse(data.claimed);
-                popup("Daily rewards claimed!", `You have received:<br>
+                popup("Daily rewards claimed!", `<p style="margin:0; text-align:center">You have received:<br>
                 ${reward.nus ? reward.nus + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">$</span><br>" : ""}
                 ${reward.noca ? reward.noca + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">¤</span><br>" : ""}
                 ${reward.sat ? reward.sat + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">₿</span><br>" : ""}
