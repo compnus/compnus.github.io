@@ -45,7 +45,7 @@ async function collectDaily() {
         .then(response => response.json())
         .then(async data => {  //5 = success; 10 = error; 1,2 = warning
             clearTimeout(dToll);
-            if (pToll !== null) { document.getElementById(pToll).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById(pToll)), 201); pToll = null; }
+            if (pToll !== null) { document.getElementById(pToll).style.opacity = 0; window.setTimeout(() => { document.body.removeChild(document.getElementById(pToll)); pToll = null; }, 201); }
             if (data.code === 10) {
                 bt.classList.remove("disabled");
                 bt.innerHTML = "Please try again.";

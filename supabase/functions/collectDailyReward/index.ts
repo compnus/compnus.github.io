@@ -134,7 +134,7 @@ Deno.serve(async (req) => {
             if (rewards.noca) resources['noca'] = rewards.noca;
             if (rewards.sat) resources['sat'] = rewards.sat;
             var ierr = false;
-            if (Object.keys(resources).length) { const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Daily Reward" }); if (insertError) ierr = true; }
+            if (Object.keys(resources).length) { const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Daily reward" }); if (insertError) ierr = true; }
             return new Response(JSON.stringify({ response: mdata.daily_streak, code: ierr?2:5, claimed: JSON.stringify(rewards) }), {
                 status: 200,
                 headers: {
