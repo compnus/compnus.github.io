@@ -37,7 +37,7 @@ function random(type, ...settings) {
     }
 }
 
-function popup(title, message, close = true, compact = false) {
+function popup(title, message, close=true, compact=false, titlebar=true) {
     var x = document.createElement("div");
     x.style.opacity = 0;
     x.style.transition = '0.1s';
@@ -45,11 +45,11 @@ function popup(title, message, close = true, compact = false) {
     x.className = "popup";
     x.innerHTML = `
     <div onclick="e = window.event; e.stopPropagation()" class="${compact?"cm":""}">
-    <div class="inside">
+    <div class="inside" style="${titlebar?"":"display:none"}">
     <h1>${title}</h1>
     <h2 onclick="document.getElementById('${x.id}').style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('${x.id}')), 201)">X</h2>
     </div>
-    <p style="margin-bottom:0">
+    <p style="margin-bottom:0;${titlebar?"":"margin-top:0"}">
     ${message}
     </p>
     </div>
@@ -63,6 +63,7 @@ function popup(title, message, close = true, compact = false) {
 
     document.body.appendChild(x);
     window.setTimeout(() => x.style.opacity = 1, 1);
+    return x.id;
 }
 
 async function getBalance(uid) {
