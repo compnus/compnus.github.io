@@ -1852,7 +1852,7 @@ function loadView(item) {
 
     switch (item.go.type) {
         case 0:
-            document.getElementById("signupbutton").setAttribute("onclick", "window.open('" + item.go.link + "', '_blank')");
+            document.getElementById("signupbutton").setAttribute("onclick", (item.attr.dividends?"localStateSet("+item.id+")":"")+"window.open('" + item.go.link + "', '_blank')");
             break;
         case 1:
             document.getElementById("signupbutton").onclick = function () {
@@ -1876,6 +1876,14 @@ function loadView(item) {
     }
 
     mobileTab("0");
+}
+
+function localStateSet(id) {
+    var currentstate = localStorage.get("localStateDiv");
+    var totalstate;
+    if (!currentstate) totalstate = []; else totalstate = currentstate.split(":");
+    totalstate.push(id);
+    localStorage.set("localStateDiv", totalstate.join(":"));
 }
 
 function showPickio() {

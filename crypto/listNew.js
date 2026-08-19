@@ -2,68 +2,6 @@ var FILTERID = "new1x";
 
 const LISTN = [
     {
-        name: "Spell Wallet",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.bitgetimg.com%2FmultiLang%2Fweb%2F62e18cee66b35accc2bc058b443ebe34.png&f=1&nofb=1&ipt=3906f68d603756784f2c35345e24d61f662d7b519e652d1eb13211f48caa0827",
-        description: "An actual wallet by the way! Spell Wallet not only holds your tokens and stakes them (SOL only), but also allows you to earn MANA and participate in Missions to earn money!",
-        added: "7-21-2024",
-        id: "spellwallet",
-        attr: {
-            platform: "at",
-            type: "mine",
-            coin: "MANA",
-            effort: 0,
-            rating: 5
-        },
-        info: {
-            description: `Spell wallet allows you to <a class="link" onclick="popup('Token Staking in Spell Wallet', 'Sewat Wallet allows you to stake <b>Solana</b> from 0.001 SOL at up to 6.7% APY.')">hold and stake various tokens</a>, while also allowing you to collect MANA through mining, daily check-ins and quests and earn money (or more MANA) by participating in missions! You will be able to use MANA in the future to unlock airdrops!`,
-            effort: "Claim MANA and activate autoclaim (this will allow you to be offline for 24 hours)"
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/spell_wallet_bot/wallet?startapp=r-LYKGH1B__utm-friendsTabRef_telegram"
-        },
-        benefits: ["Dividends in the future."],
-        features: [["Dragon Egg", "Claim MANA and use it to purchase temporary upgrades - Auto Claim, which allow you to be offline for 24 hours and mine MANA, and Boost, which triples your MANA production for the next 6 hours!"],
-            ["Spin-the-Wheel for Daily Check-in", "Check-in for 7 days in a row to unlock the wheel spin! Spin to win more MANA!"],
-            ["Missions, Quests and Magic Boxes", "Complete quests to get extra MANA! Participate in missions to earn money and Magic Boxes! Magic Boxes contain MANA, wheel spins and achievement badges!"],
-        ["Wallet Features", "Store your tokens in a secure wallet, swap them and stake held Solana to earn interest!"]
-        ],
-        tips: [["Always activate upgrades!", "Upgrades cost MANA, but are very much worth in the end! In order to minimize effort, check-in every day, click the Dragon Egg 6 times to activate mining, click upgrades, buy both Auto Claim and Boost and you can leave for the day! Once you come back, many MANA tokens will be waiting for you!"]],
-        pros: ["Secure wallet", "Frequent missions with generous rewards", "High staking APY"],
-        cons: ["Misleading banner that claims swapping is without fees (there is a fee of about 0.001 TON per swap)"],
-        banner: "bin"
-    }, {
-        name: "Imota",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FI_JDBJfD01PYKRAJZcYRUdgHaC58awW9Q0VYNOh5ZofD2nwO1j8H1m32LKHy-57rEA&f=1&nofb=1&ipt=4e99681faa43599d59f55a1ff4808af3b60fd1585064f1d871c8dd6b7ea34700",
-        description: "Join the Otarian community in Imota! Explore the world of Imota through games, mining and other ways to earn! Also, play the Ota Scratch game, the music is a banger. You can also bet matches, spin the wheel or open chests to earn even more!",
-        added: "10-11-2024",
-        id: "imota",
-        attr: {
-            platform: "ai",
-            type: "p2e",
-            coin: "OTARA",
-            effort: 2,
-            rating: 4
-        },
-        info: {
-            description: "Become an Otarian and mine OTARA with the Imota community! Earn OTARA tokens in various ways - play games (especially Ota Scratch, the music is amazing, it's worth playing it more for the music than the reward itself), collect mined OTARA, hire miners to mine even more OTARA, bet matches, spin the wheel, open chests, simply - have fun and earn something nice for it - a beautiful crypto money, you will be able to use once the mainnet launches (soon, hopefully)!",
-            effort: "Collect OTARA periodically throughout the day, hire miners once the previous once have finished their mining cycle (this can take from a couple minutes to a couple hours), play games and bet matches to maximize your earnings."
-        },
-        go: {
-            type: 1,
-            link: "https://imota.io/download/qtxyMuPW?referrer=referral_code%3DqtxyMuPW%26utm_source%3Dtwitter%26utm_medium%3Dreferral_code",
-            code: "qtxyMuPW"
-        },
-        benefits: ["10% Mining Boost (probably, despite the explanation being very detailed, we did not really glean this fact from it properly)", "Empowering (whatever that means)"],
-        features: [["Home - Periodical Mining, Quests, Betting, Chests and Otara Wheel", "Collect OTARA periodically throughout the day and collect even more by watching ads! Complete quests and collect chests for more OTARA! Quests include betting on football matches to win OTARA and spinning the wheel to receive various rewards! Don't forget to verify your OTARA!"],
-            ["Mining", "Hire miners and get more OTARA! Different miners have different bonus rates and mining duration - make sure to select the best ones!"],
-            ["Games", "Scratch a card and win OTARA while listening to a banger in Ota Scratch! Let's go gambling in Ota Slot - don't worry, since you don't pay anything to spin, losing doesn't hurt that much! Chicken Road is a common modern scam ad, but imagine you could play a game similar to it, without risking anything! That is Ota Safari!"]        ],
-        tips: [["Hire miners with short duration and high bonus ratio!", "All miners have the same OTARA rate - 0.5 OTARA per duration you hire them for. The lowest duration you can get is 5 minutes - repick miners to decrease their work time! Also, check the bonus ratio - this one can be very broad (10-99) but also very narrow (30-50) - pick the one you feel comfortable with. If you feel like risking, broad bonus ratio allows you to almost double your OTARA reward, but on the other hand you can roll a 10% boost instead, which isn't very... amazing. If you want more OTARA with low risk, aim for narrow bonus ratios."],
-        ],
-        pros: ["Banger music (<a href='https://youtu.be/39tIq__veUM' class='link' target='_blank'>Sakura Girl - Clown</a>)", "Many ways to earn"],
-        cons: ["Certain parts of the app do not work or are buggy/laggy", "The project feels abandoned"],
-        banner: "bin"
-    }, {
         name: "Dropee",
         icon: "https://miningcombo.com/wp-content/uploads/2026/01/Dropee-logo2.webp",
         description: "Spin the wheel, get tickets, open chests and win! Upgrade your cards or click the duck to receive Dropee coins! Get as many $DROPEE tokens from the wheel as you can and prepare for the airdrop!",
@@ -249,6 +187,37 @@ const LISTN = [
         ],
         pros: ["Very easy to use", "Notification services ensures you will not forget to harvest your tokens"],
         cons: ["Too few features for an app that is supposed to be the &quot;main&quot; app of the ecosystem"],
+        banner: "bin"
+    }, {
+        name: "Imota",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FI_JDBJfD01PYKRAJZcYRUdgHaC58awW9Q0VYNOh5ZofD2nwO1j8H1m32LKHy-57rEA&f=1&nofb=1&ipt=4e99681faa43599d59f55a1ff4808af3b60fd1585064f1d871c8dd6b7ea34700",
+        description: "Join the Otarian community in Imota! Explore the world of Imota through games, mining and other ways to earn! Also, play the Ota Scratch game, the music is a banger. You can also bet matches, spin the wheel or open chests to earn even more!",
+        added: "10-11-2024",
+        id: "imota",
+        attr: {
+            platform: "ai",
+            type: "p2e",
+            coin: "OTARA",
+            effort: 2,
+            rating: 3
+        },
+        info: {
+            description: "Become an Otarian and mine OTARA with the Imota community! Earn OTARA tokens in various ways - play games (especially Ota Scratch, the music is amazing, it's worth playing it more for the music than the reward itself), collect mined OTARA, hire miners to mine even more OTARA, bet matches, spin the wheel, open chests, simply - have fun and earn something nice for it - a beautiful crypto money, you will be able to use once the mainnet launches (soon, hopefully)!",
+            effort: "Collect OTARA periodically throughout the day, hire miners once the previous once have finished their mining cycle (this can take from a couple minutes to a couple hours), play games and bet matches to maximize your earnings."
+        },
+        go: {
+            type: 1,
+            link: "https://imota.io/download/qtxyMuPW?referrer=referral_code%3DqtxyMuPW%26utm_source%3Dtwitter%26utm_medium%3Dreferral_code",
+            code: "qtxyMuPW"
+        },
+        benefits: ["10% Mining Boost (probably, despite the explanation being very detailed, we did not really glean this fact from it properly)", "Empowering (whatever that means)"],
+        features: [["Home - Periodical Mining, Quests, Betting, Chests and Otara Wheel", "Collect OTARA periodically throughout the day and collect even more by watching ads! Complete quests and collect chests for more OTARA! Quests include betting on football matches to win OTARA and spinning the wheel to receive various rewards! Don't forget to verify your OTARA!"],
+        ["Mining", "Hire miners and get more OTARA! Different miners have different bonus rates and mining duration - make sure to select the best ones!"],
+        ["Games", "Scratch a card and win OTARA while listening to a banger in Ota Scratch! Let's go gambling in Ota Slot - don't worry, since you don't pay anything to spin, losing doesn't hurt that much! Chicken Road is a common modern scam ad, but imagine you could play a game similar to it, without risking anything! That is Ota Safari!"]],
+        tips: [["Hire miners with short duration and high bonus ratio!", "All miners have the same OTARA rate - 0.5 OTARA per duration you hire them for. The lowest duration you can get is 5 minutes - repick miners to decrease their work time! Also, check the bonus ratio - this one can be very broad (10-99) but also very narrow (30-50) - pick the one you feel comfortable with. If you feel like risking, broad bonus ratio allows you to almost double your OTARA reward, but on the other hand you can roll a 10% boost instead, which isn't very... amazing. If you want more OTARA with low risk, aim for narrow bonus ratios."],
+        ],
+        pros: ["Banger music (<a href='https://youtu.be/39tIq__veUM' class='link' target='_blank'>Sakura Girl - Clown</a>)", "Many ways to earn"],
+        cons: ["Certain parts of the app do not work or are buggy/laggy", "The project feels abandoned"],
         banner: "bin"
     }, {
         name: "Rich Dog",
