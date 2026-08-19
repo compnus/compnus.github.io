@@ -277,7 +277,6 @@ table, th, td {
 
 table {
     width: 50vw;
-    overflow-x: hidden;
     display: block;
 }
 
@@ -295,6 +294,7 @@ th {
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;
     background-color: var(--maingradfallback);
+    border-radius: 0.75vh;
 }
 
 td {
@@ -303,6 +303,7 @@ td {
     padding-bottom: 0.3vh;
     transition: 0.2s ease;
     font-family: 'currencycompnus', Ubuntu !important;
+    border-radius: 0.75vh;
 }
 
 tr {
@@ -333,7 +334,9 @@ td:hover {
 }
 
 @media(max-width:800px) {
-
+    table {
+        width: 80vw;
+    }
     th {
         font-size: 6vw;
         padding-top: 2vw;

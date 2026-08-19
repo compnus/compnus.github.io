@@ -9,6 +9,9 @@ async function freeMain() {
     if (sdata.daily_last !== null && daily_last && daily_last <= 1) {
         document.getElementById("dailycheckinstreak").innerHTML = daily_last;
     }
+    if (daily_last && daily_last == 0) {
+        document.getElementById("dailygift").classList.add('collected');
+    }
 }
 
 function daysBetween(serverDateString) {

@@ -130,7 +130,7 @@
     </nav>
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
-            main();
+            await main();
             freeMain();
         });
         initFooter();
@@ -139,7 +139,7 @@
         <h3 class="froster_head" title="Click to hide/reveal." onclick="const x = document.getElementById('froster1'); if (x.style.display=='none') x.style.display='block';else x.style.display='none'"><u>Streak Rewards</u></h3>
         <h4 class="froster_lead">These rewards repeat every 700 days.</h4>
         <table id="froster1">
-        <tr style="position:sticky;top:0"><th id="th1">Day</th><th id="th2">Rewards</th></tr>
+        <tr><th id="th1">Day</th><th id="th2">Rewards</th></tr>
         <tr><td>1</td><td>5 H/s</td></tr>
         <tr><td>2</td><td>5 ¤</td></tr>
         </table>
@@ -147,10 +147,11 @@
         <h3 class="froster_head" title="Click to hide/reveal." onclick="const x = document.getElementById('froster2'); if (x.style.display=='none') x.style.display='block';else x.style.display='none'"><u>Special Rewards</u></h3>
         <h4 class="froster_lead">These rewards are rewarded for claiming daily reward on specific days.</h4>
         <table id="froster2">
-        <tr style="position:sticky;top:0"><th id="th3">Day</th><th id="th4">Rewards</th></tr>
+        <tr><th id="th3">Day</th><th id="th4">Rewards</th></tr>
         <tr><td>1/1</td><td>0.01 $</td></tr>
         <tr><td>2/29</td><td>29 ¤</td></tr>
         </table>
+        <p style="margin:0">
         `;
     </script>
 </body>
