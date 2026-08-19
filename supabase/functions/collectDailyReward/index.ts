@@ -65,8 +65,8 @@ Deno.serve(async (req) => {
     }
 
     try {
+        mdata.daily_last = timenow.toISOString().split('T')[0];
         if (difference <= -1 || difference > 2) {
-            mdata.daily_last = timenow.toISOString().split('T')[0];
             mdata.daily_streak = 0;
             difference = 1;
         }
@@ -118,7 +118,7 @@ Deno.serve(async (req) => {
                 rewards.div += rs.div || 0;
             }
             const { error: updateError } = await sb.from('udata').update({
-                daily_last: mdata.last_claimed, daily_streak: mdata.daily_streak, balance_nus: cdata.balance_nus + rewards.nus, balance_noca: cdata.balance_noca + rewards.noca,
+                daily_last: mdata.daily_last, daily_streak: mdata.daily_streak, balance_nus: cdata.balance_nus + rewards.nus, balance_noca: cdata.balance_noca + rewards.noca,
                 balance_sats: cdata.balance_sats + rewards.sat, hashrate: cdata.hashrate + rewards.hash, dividends: cdata.dividends + rewards.div
             }).eq('user_id', uid);
             if (updateError) {
