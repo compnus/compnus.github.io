@@ -120,7 +120,7 @@
     animation: hypedgift 0.2s infinite;
     cursor: pointer;
 }
-#dailygift.collected {
+#dailygift.collected, #dailygift.collectedx {
     pointer-events: none;
 }
 @keyframes hypedgift {
@@ -331,6 +331,50 @@ td:hover {
 
 #table_org {
     width: 50vw;
+}
+
+
+#dailygift.collectedx > #dailygifttt {
+    animation: collectxtop 2s 1 ease-out;
+    transform: translate(-13.5vh, 10vh) rotate(1380deg) scale(1,1);
+}
+
+#dailygift.collectedx > #dailygiftbot {
+    animation: collectxbot 2s 1  ease-out;
+    transform: translate(5vh, 0) scale(1,1);
+}
+
+@keyframes collectxtop {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1,1);
+    }
+    5% {
+        transform: translate(0, 0.5vh) rotate(0deg) scale(1.1,0.9);
+    }
+    20% {
+        transform: translate(0, -3vh) rotate(660deg) scale(1,1);
+    }
+    35% {
+        transform: translate(-13.5vh, 10vh) rotate(1370deg) scale(1,1);
+    }
+    50% {
+        transform: translate(-13.5vh, 10vh) rotate(1385deg) scale(1,1);
+    }
+}
+
+@keyframes collectxbot {
+    0% {
+        transform: translate(0, 0) scale(1,1);
+    }
+    5% {
+        transform: translate(0, 0) rotate(0deg) scale(1.1,0.9);
+    }
+    20% {
+        transform: translate(0, 0) rotate(0deg) scale(0.9,1.1);
+    }
+    35% {
+        transform: translate(5vh, 0) scale(1,1);
+    }
 }
 
 @media(max-width:800px) {

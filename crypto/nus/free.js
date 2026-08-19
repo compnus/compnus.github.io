@@ -12,7 +12,7 @@ async function freeMain() {
         document.getElementById("dailycheckinstreak").innerHTML = sdata.daily_streak;
     }
     if (daily_last !== null && daily_last === 0) {
-        document.getElementById("dailygift").classList.add('collected');
+        document.getElementById("dailygift").classList.add('collectedx');
         document.getElementById("information_kiosk_daily").innerHTML = "Come back tomorrow for another reward!";
     }
 }
@@ -53,6 +53,8 @@ async function collectDaily() {
                 popup("Slow down there!", data.response);
             } else if ((data.code === 2) || (data.code === 5)) {
                 document.getElementById("dailycheckinstreak").innerHTML = data.response;
+                document.getElementById("dailygift").classList.remove('collected');
+                document.getElementById("dailygift").classList.add('collectedx');
                 const reward = JSON.parse(data.claimed);
                 popup("Daily rewards claimed!", `You have received:<br>
                 ${reward.nus ? reward.nus + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">$</span><br>" : ""}
