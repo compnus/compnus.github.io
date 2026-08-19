@@ -118,7 +118,7 @@ Deno.serve(async (req) => {
                 rewards.div += rs.div || 0;
             }
             if (rewards.hash > 0) { //collect mining
-                const { data: nData, error: nerrr } = await sb.from('udata').select('last_claimed, mining_upg, balance_nus').eq('user_id', uid).single();
+                const { data: nData, error: nerrr } = await sb.from('udata').select('last_claimed, mining_upg').eq('user_id', uid).single();
                 if (!nData || nerrr) {
                     return new Response(JSON.stringify({ response: 'Error fetching user data', code: 10 }), {
                         status: 500,
@@ -153,8 +153,8 @@ Deno.serve(async (req) => {
                         }
                     });
                 }
-                var profit: number = parseFloat(((nData.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8));
-                var post = { balance_nus: nData.balance_nus + profit, last_claimed: new Date().toISOString() };
+                var profit: number = parseFloat(((cdata.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8));
+                var post = { balance_nus: cdata.balance_nus + profit, last_claimed: new Date().toISOString() };
                 const { error: updateError } = await sb.from('udata').update(post).eq('user_id', uid);
                 if (updateError) {
                     return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.', code: 10 }), {
@@ -164,7 +164,7 @@ Deno.serve(async (req) => {
                         }
                     });
                 }
-                nData.balance_nus = nData.balance_nus + profit;
+                cdata.balance_nus = cdata.balance_nus + profit;
                 await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining reward" });
             }
             const { error: updateError } = await sb.from('udata').update({
