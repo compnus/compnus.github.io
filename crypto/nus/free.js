@@ -7,10 +7,11 @@ async function freeMain() {
     if (!sdata || userExistsErrorn) console.log("Server error.");
     const daily_last = daysBetween(sdata.daily_last);
     if (sdata.daily_last !== null && daily_last && daily_last <= 1) {
-        document.getElementById("dailycheckinstreak").innerHTML = daily_last;
+        document.getElementById("dailycheckinstreak").innerHTML = daily_streak;
     }
     if (daily_last && daily_last == 0) {
         document.getElementById("dailygift").classList.add('collected');
+        document.getElementById("information_kiosk_daily").innerHTML = "Come back tomorrow for another reward!";
     }
 }
 
