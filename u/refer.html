@@ -22,12 +22,12 @@
         <div id="referlanding">
             <div>
                 <h1>You Receive</h1>
-                <div><p>0.001 $NUS</p>
+                <div><p>0.05 $NUS</p>
                 <p>+10 Dividend Power (while your invitee is active)</p></div>
             </div>
             <div>
                 <h1>Invitee Receives</h1>
-                <div><p>0.01 $NUS</p></div>
+                <div><p>0.2 $NUS</p></div>
             </div>
             <div class="dlink">
                 <h2>Your referral code is your username (&nbsp;<span id="dlinkusername" style="font-weight: normal; user-select: all; -webkit-user-select: all; -moz-user-select: all"></span>&nbsp;)</h2>
@@ -58,7 +58,7 @@
             var invites = invitees.length;
             document.getElementById("invitees").innerHTML = invites + (invites == 1 ? " user" : " users");
             if (invites === 1 && invitees[0] === "") invites = 0;
-            document.getElementById("inviteres").innerHTML = parseFloat((invites * 0.001).toFixed(3)).toString();
+            document.getElementById("inviteres").innerHTML = parseFloat((invites * 0.05).toFixed(2)).toString();
         });
 
         initFooter();</script>

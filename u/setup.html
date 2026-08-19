@@ -56,7 +56,7 @@
             if (localStorage.getItem("referral")) {
                 document.getElementById("rfr").value = localStorage.getItem("referral");
                 document.getElementById("rfr").classList.add("disabled");
-                document.getElementById("rfrlimited").innerHTML = "Using this referral code will reward you with 0.01 $NUS!";
+                document.getElementById("rfrlimited").innerHTML = "Using this referral code will reward you with 0.2 $NUS!";
             }
 
             const { user, data: udata } = await getUser(true);

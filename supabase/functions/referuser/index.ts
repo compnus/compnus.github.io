@@ -119,7 +119,7 @@ Deno.serve(async (req) => {
                 }
             });
 
-            const { error: invitee } = await sb.from("udata").update({ "referred": referral, "balance_nus": udataExists.balance_nus + 0.01 }).eq("user_id", uid);
+            const { error: invitee } = await sb.from("udata").update({ "referred": referral, "balance_nus": udataExists.balance_nus + 0.2 }).eq("user_id", uid);
             const { data: referrer, error: referrerError } = await sb.from("udata").select("balance_nus, invitees").eq("user_id", realUser.id).single();
             if (referrerError || !referrer) {
                 return new Response(JSON.stringify({ response: "Referral error.", wrongref: true }), {
@@ -129,8 +129,8 @@ Deno.serve(async (req) => {
                     }
                 });
             }
-            const { error: inviter } = await sb.from("udata").update({ "balance_nus": (referrer.balance_nus + 0.001), "invitees": referrer.invitees + "(" + userExists.username + ")" }).eq("user_id", realUser.id);
-            let upmessage = { from: "CompNUS", owner: realUser.id, subject: `You have successfully referred ${userExists.username}!`, content: `<p>You have received 0.001 $NUS. As long as the user is active, your dividend power is increased by 10.</p>` };
+            const { error: inviter } = await sb.from("udata").update({ "balance_nus": (referrer.balance_nus + 0.05), "invitees": referrer.invitees + "(" + userExists.username + ")" }).eq("user_id", realUser.id);
+            let upmessage = { from: "CompNUS", owner: realUser.id, subject: `You have successfully referred ${userExists.username}!`, content: `<p>You have received 0.05 $NUS. As long as the user is active, your dividend power is increased by 10.</p>` };
             const { error: cannotSend } = await sb
                 .from("message")
                 .insert(upmessage);
@@ -145,7 +145,7 @@ Deno.serve(async (req) => {
             
         }
 
-        await sb.from("transaction").insert({ from: "admin:CompNUS", to: referral, resource: { nus: 0.001 }, message: "Referral Reward" });
+        await sb.from("transaction").insert({ from: "admin:CompNUS", to: referral, resource: { nus: 0.05 }, message: "Referral Reward" });
 
         return new Response(JSON.stringify({ response: "Referral set successfully.", sc:true }), {
             status: 200,
