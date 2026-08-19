@@ -84,7 +84,7 @@ Deno.serve(async (req) => {
                 { hash: 3 }, { noca: 10 }, { sat: 0.0001, nus: 0.00005 }, { noca: 3, hash: 1 }, { noca: 10 }, { nus: 0.0002 }, { hash: 3, nus: 0.0005, noca: 5 }, //8-14
             ];
             const REWARDS_S = {
-                "01-01": { nus: 0.1, hash: 10 },
+                "01-01": { nus: 0.1, hash: 100 },
                 "02-29": { noca: 29, hash: 29 },
                 "04-01": { nus: 0.00000001 },
                 "12-24": { nus: 1, noca: 24 },
