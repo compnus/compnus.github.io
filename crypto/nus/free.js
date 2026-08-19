@@ -8,13 +8,14 @@ async function freeMain() {
         .single();
     if (!sdata || userExistsErrorn) console.log("Server error.");
     const daily_last = daysBetween(sdata.daily_last);
+    document.getElementById("dailygift").classList.remove('disabled');
     if (sdata.daily_last !== null && daily_last !== null && daily_last <= 1) {
         document.getElementById("dailycheckinstreak").innerHTML = sdata.daily_streak;
     }
     if (daily_last !== null && daily_last === 0) {
         document.getElementById("dailygift").classList.add('collectedx');
         document.getElementById("information_kiosk_daily").innerHTML = "Come back tomorrow for another reward!";
-    }
+    } 
 }
 
 function daysBetween(serverDateString) {
