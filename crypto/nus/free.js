@@ -47,10 +47,12 @@ async function collectDaily() {
             clearTimeout(dToll);
             if (pToll !== null) { document.getElementById(pToll).style.opacity = 0; window.setTimeout(() => { document.body.removeChild(document.getElementById(pToll)); pToll = null; }, 201); }
             if (data.code === 10) {
-                bt.classList.remove("disabled");
-                bt.innerHTML = "Please try again.";
+                document.getElementById("dailygift").classList.remove("collected");
+                collStatus = false;
                 popup("Error!", data.response);
             } else if (data.code === 1) {
+                document.getElementById("dailygift").classList.remove("collected");
+                collStatus = false;
                 popup("Slow down there!", data.response);
             } else if ((data.code === 2) || (data.code === 5)) {
                 document.getElementById("dailycheckinstreak").innerHTML = data.response;
