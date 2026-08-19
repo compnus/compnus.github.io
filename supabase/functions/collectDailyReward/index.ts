@@ -117,6 +117,56 @@ Deno.serve(async (req) => {
                 rewards.hash += rs.hash || 0;
                 rewards.div += rs.div || 0;
             }
+            if (rewards.hash > 0) { //collect mining
+                const { data: nData, error: nerrr } = await sb.from('udata').select('last_claimed, mining_upg, balance_nus').eq('user_id', uid).single();
+                if (nData || !nerrr) {
+                    return new Response(JSON.stringify({ response: 'Error fetching user data', code: 10 }), {
+                        status: 500,
+                        headers: {
+                            ...headers
+                        }
+                    });
+                }
+                var now = new Date().getTime();
+                var lastclaim = new Date(nData.last_claimed).getTime();
+                var diff: number = (now - lastclaim) / 1000;
+                var maxtime: number;
+                switch (Math.floor((nData.mining_upg % 100) / 10)) {
+                    case 0: maxtime = 48 * 60 * 60; break;
+                    case 1: maxtime = 60 * 60 * 60; break;
+                    case 2: maxtime = 72 * 60 * 60; break;
+                    case 3: maxtime = 84 * 60 * 60; break;
+                    case 4: maxtime = 96 * 60 * 60; break;
+                    case 5: maxtime = 108 * 60 * 60; break;
+                    case 6: maxtime = 120 * 60 * 60; break;
+                    case 7: maxtime = 132 * 60 * 60; break;
+                    case 8: maxtime = 144 * 60 * 60; break;
+                    case 9: maxtime = 168 * 60 * 60; break;
+                }
+                const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
+                const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
+                if (dte || dre || !dt || !dr) {
+                    return new Response(JSON.stringify({ response: 'We had issues trying to collect mining rewards. Please try again later.', code: 10 }), {
+                        status: 500,
+                        headers: {
+                            ...headers
+                        }
+                    });
+                }
+                var profit: number = parseFloat(((nData.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8));
+                var post = { balance_nus: nData.balance_nus + profit, last_claimed: new Date().toISOString() };
+                const { error: updateError } = await sb.from('udata').update(post).eq('user_id', uid);
+                if (updateError) {
+                    return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.', code: 10 }), {
+                        status: 500,
+                        headers: {
+                            ...headers
+                        }
+                    });
+                }
+                nData.balance_nus = nData.balance_nus + profit;
+                await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining reward" });
+            }
             const { error: updateError } = await sb.from('udata').update({
                 daily_last: mdata.daily_last, daily_streak: mdata.daily_streak, balance_nus: cdata.balance_nus + rewards.nus, balance_noca: cdata.balance_noca + rewards.noca,
                 balance_sats: cdata.balance_sats + rewards.sat, hashrate: cdata.hashrate + rewards.hash, dividends: cdata.dividends + rewards.div

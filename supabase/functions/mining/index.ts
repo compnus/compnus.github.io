@@ -73,7 +73,7 @@ Deno.serve(async (req) => {
                 });
             }
         } else {
-            // remember that when upgrading (upgradeMining) you also claim (must add npu logic)
+            // remember that you must add npu logic to upgradeMining and collectDailyReward
             var now = new Date().getTime();
             var lastclaim = new Date(mdata.last_claimed).getTime();
             var diff: number = (now - lastclaim) / 1000;
