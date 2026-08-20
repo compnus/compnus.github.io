@@ -59,12 +59,12 @@ async function collectDaily() {
                 document.getElementById("dailygift").classList.add('collectedx');
                 const reward = JSON.parse(data.claimed);
                 popup("Daily rewards claimed!", `<p style="margin:0; text-align:center">You have received:<br>
-                ${reward.nus ? reward.nus + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">$</span><br>" : ""}
+                ${reward.nus ? reward.nus.toLocaleString('en-US',{useGrouping:false,maximumSignificantDigits: 21}) + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">$</span><br>" : ""}
                 ${reward.noca ? reward.noca + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">¤</span><br>" : ""}
-                ${reward.sat ? reward.sat + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">₿</span><br>" : ""}
+                ${reward.sat ? reward.sat.toLocaleString('en-US', { useGrouping: false, maximumSignificantDigits: 21 }) + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">₿</span><br>" : ""}
                 ${reward.hash ? "+"+ reward.hash + " H/s<br>" : ""}
                 ${reward.div ? "+"+reward.div + " Dividend Power<br>" : ""}
-                <br>Dont't forget to claim again tomorrow!` + (data.code === 2 ? "<br><br>Due to an internal error, your reward will not show up in your transaction history." : ""));
+                <br>Don't forget to claim again tomorrow!` + (data.code === 2 ? "<br><br>Due to an internal error, your reward will not show up in your transaction history." : ""));
                 loadWallet();
             }
         })
