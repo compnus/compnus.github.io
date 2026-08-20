@@ -278,7 +278,7 @@ table, th, td {
 }
 
 table {
-    width: 50vw;
+    width: calc(50vw - 9px);
     display: block;
 }
 
@@ -287,7 +287,7 @@ table {
 }
 
 #th2,#th4 {
-    width: 45vw
+    width: calc(45vw - 9px);
 }
 
 th {
@@ -332,7 +332,7 @@ td:hover {
 }
 
 #table_org {
-    width: 50vw;
+    width: calc(50vw - 9px);
 }
 
 
