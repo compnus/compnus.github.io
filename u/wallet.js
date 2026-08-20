@@ -364,7 +364,7 @@ const RESOURCE = {
 function resolveResource(id) {
     var x = RESOURCE[id];
     if (x) return {name: x[0], icon: x[1], config: x[2]};
-    else return { name: "Unknown Resource "+id, icon: "https://img.icons8.com/?size=100&id=85965&format=png&color=FFFFFF", config: 1};
+    else return { name: "Unknown Resource "+id, icon: "https://img.icons8.com/?size=100&id=85965&format=png&color=FFFFFF", config: 0};
 }
 
 function fillResources(div, data) {
@@ -375,7 +375,7 @@ function fillResources(div, data) {
         const { name, icon, config } = resolveResource(res);
         x.innerHTML = `
             <img src="${icon}">
-            <p>${data[res]}</p>
+            <p>${typeof data[res] === 'number' ? data[res].toLocaleString('en-US', { useGrouping: false, maximumSignificantDigits: 21 }) : data[res] }</p>
         `;
         x.title = `${data[res]} ${name}${config===1?(data[res]!==1?"s":""):""}`;
         div.appendChild(x);
