@@ -364,7 +364,6 @@
             button.classList.remove("disabled");
             return;
         }
-        console.log("test");
         var last = localStorage.getItem("promoused") || `{"used": 0, "exp": "${new Date(0).toISOString()}"}`;
         last = JSON.parse(last);
         last.exp = new Date(last.exp).getTime();
@@ -378,7 +377,7 @@
                 return;
             } else localStorage.removeItem("promoused");
         }
-
+        startLoading();
         const { data: promodata, error: promoerr } = await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/redeemCode', {
             method: 'POST',
             headers: {
@@ -389,6 +388,7 @@
         })
             .then(response => response.json())
             .then(data => {
+                stopLoading();
                 status.innerHTML = data.response;
                 if (data.sc) {
                     loadWallet();
