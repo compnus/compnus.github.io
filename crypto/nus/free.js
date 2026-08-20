@@ -25,7 +25,7 @@ function daysBetween(serverDateString) {
     const [y, m, d] = parts;
     const serverUtc = Date.UTC(y, m - 1, d);
     const now = new Date();
-    const localMidnightUtc = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    const localMidnightUtc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
     return Math.floor((localMidnightUtc - serverUtc) / 86400000);
 }
 

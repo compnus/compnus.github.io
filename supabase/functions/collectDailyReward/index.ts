@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
         if (parts.length === 3) {
             const [y, m, d] = parts;
             const serverUtc = Date.UTC(y, m - 1, d);
-            const localMidnightUtc = Date.UTC(timenow.getFullYear(), timenow.getMonth(), timenow.getDate());
+            const localMidnightUtc = Date.UTC(timenow.getUTCFullYear(), timenow.getUTCMonth(), timenow.getUTCDate());
             difference = Math.floor((localMidnightUtc - serverUtc) / 86400000);
         }
     }
