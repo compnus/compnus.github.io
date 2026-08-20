@@ -269,7 +269,8 @@
 #dailycheckin > p {
     margin: 2.5vh 0 0 0;
     font-size: 2vh;
-    line-height: 1;
+    line-height: 2.5vh;
+    text-align: center;
 }
 
 table, th, td {

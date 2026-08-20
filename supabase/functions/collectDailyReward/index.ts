@@ -81,7 +81,10 @@ Deno.serve(async (req) => {
         if (difference === 1 || difference === 2) {
             const REWARDS_C = [
                 { hash: 5 }, { noca: 5 }, { nus: 0.0001 }, { hash: 3 }, { noca: 5 }, { nus: 0.0001 }, { hash: 5, nus: 0.0003 }, //1-7
-                { hash: 3 }, { noca: 10 }, { sat: 0.0001, nus: 0.00005 }, { noca: 3, hash: 1 }, { noca: 10 }, { nus: 0.0002 }, { hash: 3, nus: 0.0005, noca: 5 }, //8-14
+                { hash: 3 }, { noca: 10 }, { sat: 0.0001, nus: 0.00015 }, { noca: 3, hash: 1 }, { noca: 10 }, { nus: 0.0002 }, { hash: 3, nus: 0.0005, noca: 5 }, //8-14
+                { hash: 10 }, { noca: 5 }, { nus: 0.0001 }, { noca: 5, hash: 3 }, { noca: 10 }, { sat: 0.001 }, { nus: 0.001, noca: 20 }, //15-21
+                { hash: 3 }, { nus: 0.0001 }, { noca: 5 }, { nus: 0.00005, noca: 10, hash: 2 }, { hash: 5 }, { noca: 3 }, { hash: 25 }, //22-28
+                { noca: 3, hash: 1 }, { noca: 5, sat: 0.01 }, { div: 1 }, { hash: 5 }, { nus: 0.0003 }, { noca: 10 }, { nus: 0.0025 }, //29-35
             ];
             const REWARDS_S = {
                 "01-01": { nus: 0.1, hash: 100 },

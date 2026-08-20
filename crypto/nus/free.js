@@ -32,8 +32,7 @@ function daysBetween(serverDateString) {
 async function collectDaily() {
     if (collStatus) return;
     collStatus = true;
-    var pToll = null;
-    var dToll = setTimeout(() => { pToll = popup('', '<div class="flex cc" style="flex-direction:column"><img src="../../site/image/assets/loading.gif" style="filter:invert(1);mix-blend-mode:color-dodge;"><br><p style="margin:0">Please wait...</p></div><p style="margin:0">', false, true, false) }, 1500);
+    var dToll = setTimeout(startLoading, 1500);
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/collectDailyReward', {
         method: 'POST',
         headers: {
@@ -45,7 +44,7 @@ async function collectDaily() {
         .then(response => response.json())
         .then(async data => {  //5 = success; 10 = error; 1,2 = warning
             clearTimeout(dToll);
-            if (pToll !== null) { document.getElementById(pToll).style.opacity = 0; window.setTimeout(() => { document.body.removeChild(document.getElementById(pToll)); pToll = null; }, 201); }
+            stopLoading();
             if (data.code === 10) {
                 document.getElementById("dailygift").classList.remove("collected");
                 collStatus = false;
@@ -71,7 +70,7 @@ async function collectDaily() {
         })
         .catch((error) => {
             clearTimeout(dToll);
-            if (pToll !== null) { document.getElementById(pToll).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById(pToll)), 201); }
+            stopLoading();
             console.error('Error invoking function:', error);
             document.getElementById("dailygift").classList.remove("collected");
             popup("An error occurred", "We had issues trying to collect your daily reward. Please try again later.", true, true);

@@ -4,7 +4,7 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 var popupid = 0;
-
+var loadingid = "";
 
 async function logOut() {
     await sb.auth.signOut();
@@ -37,7 +37,7 @@ function random(type, ...settings) {
     }
 }
 
-function popup(title, message, close=true, compact=false, titlebar=true) {
+function popup(title, message, close=true, compact=false) {
     var x = document.createElement("div");
     x.style.opacity = 0;
     x.style.transition = '0.1s';
@@ -45,11 +45,11 @@ function popup(title, message, close=true, compact=false, titlebar=true) {
     x.className = "popup";
     x.innerHTML = `
     <div onclick="e = window.event; e.stopPropagation()" class="${compact?"cm":""}">
-    <div class="inside" style="${titlebar?"":"display:none"}">
+    <div class="inside" style="${title?"":"display:none"}">
     <h1>${title}</h1>
     <h2 onclick="document.getElementById('${x.id}').style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('${x.id}')), 201)">X</h2>
     </div>
-    <p style="margin-bottom:0;${titlebar?"":"margin-top:0"}">
+    <p style="margin-bottom:0;${title?"":"margin-top:0"}">
     ${message}
     </p>
     </div>
@@ -64,6 +64,20 @@ function popup(title, message, close=true, compact=false, titlebar=true) {
     document.body.appendChild(x);
     window.setTimeout(() => x.style.opacity = 1, 1);
     return x.id;
+}
+
+function startLoading() {
+    if (loadingid) return;
+    loadingid = popup('', '<div class="flex cc" style="flex-direction:column"><img src="../../site/image/assets/loading.gif" style="filter:invert(1);mix-blend-mode:color-dodge;"><br><p style="margin:0">Please wait...</p></div><p style="margin:0">', false, true);
+    return loadingid;
+}
+
+function stopLoading() {
+    if (!loadingid) return;
+    document.getElementById(loadingid).style.opacity = 0; window.setTimeout(() => {
+        document.body.removeChild(document.getElementById(loadingid));
+        loadingid = '';
+    }, 201);
 }
 
 async function getBalance(uid) {
