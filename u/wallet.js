@@ -375,9 +375,9 @@ function fillResources(div, data) {
         const { name, icon, config } = resolveResource(res);
         x.innerHTML = `
             <img src="${icon}">
-            <p>${typeof data[res] === 'number' ? data[res].toLocaleString('en-US', { useGrouping: false, maximumSignificantDigits: 21 }) : data[res] }</p>
+            <p>${typeof data[res] === 'number' ? data[res].toLocaleString('en-US', { useGrouping: false, maximumSignificantDigits: 21 }) : data[res]}</p>
         `;
-        x.title = `${data[res]} ${name}${config===1?(data[res]!==1?"s":""):""}`;
+        x.title = `${typeof data[res] === 'number' ? data[res].toLocaleString('en-US', { useGrouping: false, maximumSignificantDigits: 21 }) : data[res]} ${name}${config===1?(data[res]!==1?"s":""):""}`;
         div.appendChild(x);
     }
     if (div.innerHTML === "") div.innerHTML = "<p style='text-align:right; margin:0'><i style='color: #ccc;'>No assets were transferred.</i></p>";
