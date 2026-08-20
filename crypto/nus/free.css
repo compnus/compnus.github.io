@@ -405,4 +405,88 @@ td:hover {
         padding-top: 1vw;
         padding-bottom: 1vw;
     }
+
+    #dailycheckin {
+        grid-row: span 4;
+        grid-column: span 4;
+        padding: 4vw;
+        border-radius: 4vw;
+    }
+
+    #dailygiftlr {
+        width: 5vw;
+        height: 5vw;
+        outline: 8px solid white;
+        margin-right: 4px;
+    }
+
+    #dailygiftrr {
+        width: 5vw;
+        height: 5vw;
+        margin-left: 4px;
+        outline: 8px solid white;
+    }
+
+    #dailygifttop {
+        width: 40vw;
+        height: 7vw;
+        border-radius: 2vw 2vw 1vw 1vw;
+    }
+
+    #dailygiftbot {
+        margin-top: 2vw;
+        width: 38vw;
+        height: 26vw;
+    }
+
+    #dailygiftbotl {
+        width: 18vw;
+        margin-right: 1vw;
+        height: 26vw;
+        border-radius: 1vw 1vw 1vw 3vw;
+    }
+
+    #dailygiftbotr {
+        width: 18vw;
+        margin-left: 1vw;
+        height: 26vw;
+        border-radius: 1vw 1vw 3vw 1vw;
+    }
+
+    #dailygift:hover {
+        animation: none;
+    }
+
+    #dailygift.collected > #dailygifttt {
+        transform: translate(0, -200vw) scale(0.5, 1.2);
+    }
+
+    #dailycheckin > h1 {
+        margin: 0 0 7vw 0;
+        font-size: 6vw;
+    }
+
+    #dailycheckin > h2 {
+        margin: 6vw 0 0 0;
+        font-size: 6vw;
+    }
+
+    #dailycheckin > p {
+        margin: 5vw 0 0 0;
+        font-size: 4vw;
+        line-height: 5vw;
+    }
+
+    .froster_head {
+        font-size: 6vw;
+    }
+
+    .froster_lead {
+        margin: 2vw 0;
+        font-size: 4vw;
+    }
+
+    #table_org {
+        width: calc(80vw - 9px);
+    }
 }

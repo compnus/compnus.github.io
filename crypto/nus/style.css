@@ -266,4 +266,12 @@ main {
             height: 3.5vw;
             margin: 0;
         }
+
+    #content {
+        height: max-content;
+        padding: 4vw 0 0 0;
+        grid-template-columns: repeat(4, 21.5vw);
+        grid-auto-rows: 21.5vw;
+        grid-gap: 2vw;
+    }
 }

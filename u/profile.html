@@ -355,7 +355,7 @@
     async function promoRedeem() {
         var status = document.getElementById("promocodestatus");
         status.style.display = "block";
-        status.innerHTML = "Please wait...";
+        status.innerHTML = "";
         var button = document.getElementById("promocodebutton");
         button.classList.add("disabled");
         var code = document.getElementById("promocodeinput").value;
