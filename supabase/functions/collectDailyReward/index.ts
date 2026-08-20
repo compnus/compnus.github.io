@@ -80,7 +80,7 @@ Deno.serve(async (req) => {
         }
         if (difference === 1 || difference === 2) {
             const REWARDS_C = [
-                { hash: 5 }, { noca: 5 }, { nus: 0.0001 }, { hash: 3 }, { noca: 5 }, { nus: 0.0001 }, { hash: 5, nus: 0.0003 }, //1-7
+                { hash: 1 }, { noca: 5 }, { nus: 0.0001 }, { hash: 3 }, { noca: 5 }, { nus: 0.0001 }, { hash: 5, nus: 0.0003 }, //1-7
                 { hash: 3 }, { noca: 10 }, { sat: 0.0001, nus: 0.00015 }, { noca: 3, hash: 1 }, { noca: 10 }, { nus: 0.0002 }, { hash: 3, nus: 0.0005, noca: 5 }, //8-14
                 { hash: 10 }, { noca: 5 }, { nus: 0.0001 }, { noca: 5, hash: 3 }, { noca: 10 }, { sat: 0.001 }, { nus: 0.001, noca: 20 }, //15-21
                 { hash: 3 }, { nus: 0.0001 }, { noca: 5 }, { nus: 0.00005, noca: 10, hash: 2 }, { hash: 5 }, { noca: 3 }, { hash: 25 }, //22-28
@@ -92,7 +92,7 @@ Deno.serve(async (req) => {
                 { noca: 10 }, { nus: 0.2 }, { hash: 10 }, { noca: 5 }, { nus: 0.01, hash: 10 }, { noca: 69 }, { div: 2 }, //64-70
             ];
             const REWARDS_S = {
-                "01-01": { nus: 0.1, hash: 100 },
+                "01-01": { nus: 1, hash: 100 },
                 "02-29": { noca: 29, hash: 29 },
                 "03-14": { nus: 0.31415927 },
                 "04-01": { nus: 0.00000001 },
@@ -102,6 +102,7 @@ Deno.serve(async (req) => {
                 "06-28": { nus: 0.31415927, noca: 2 },
                 "07-04": { noca: 10 },
                 "08-15": { noca: 10 },
+                "08-20": { nus: 0.00000014, noca: 1, div: 8 }, //test
                 "09-21": { hash: 10 },
                 "10-31": { noca: 10 },
                 "12-06": { hash: 25, noca: 6 },
