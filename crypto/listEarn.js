@@ -25,6 +25,7 @@ const LISTE = [
         unlisted: true,
         icon: "https://play-lh.googleusercontent.com/4WJT23_3x0VGuNia2wVJ0M6LO7ZkaiGwWl8avIaPkWpkY3XF6QN1otAA_iumCGWdKg=w240-h480-rw",
         id: "robox",
+        divid: "rox1",
         attr: {
             verified: 1,
             dividends: true,
@@ -54,6 +55,7 @@ const LISTE = [
         unlisted: true,
         icon: "https://play-lh.googleusercontent.com/UWmwSDqYDxuoZKn4M8Kw9H6ZYeo8UTG65TbScnv6w8Smfc4qNiibCF8BgHiRCE_bXE0=w240-h480-rw",
         id: "roboxfit",
+        divid: "rox2",
         attr: {
             verified: 1,
             dividends: true,
@@ -83,6 +85,7 @@ const LISTE = [
         unlisted: true,
         icon: "https://play-lh.googleusercontent.com/kMQbfywV3TZig3c0HWQrg4Qm8kpBLVYZH5448AP0Cjum9irvVYHAly0Pn7--PixBIw=w240-h480-rw",
         id: "roboxvpn",
+        divid: "rox3",
         attr: {
             verified: 1,
             dividends: true,
@@ -112,6 +115,7 @@ const LISTE = [
         unlisted: true,
         icon: "https://play-lh.googleusercontent.com/jmigq-tw4gSfZo7P41xi8S6OqkIyb4YDNHJKoeVyYHwU2N6aTOpQNb1WTtsfBVBxjGc=w240-h480-rw",
         id: "roboxrelax",
+        divid: "rox4",
         attr: {
             verified: 1,
             dividends: true,
@@ -141,6 +145,7 @@ const LISTE = [
         unlisted: true,
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2Fv9x5O1Cul_XwbtKQtL3cQzyYwFRS54ww-yhQc94rLBgiOz0pqsCkK_iMqiW77_F2wAM&f=1&nofb=1&ipt=3b6ef67ef35288b5d12d828afefb670cda1b94c6864580fa8f5dfb7f181c0ce9",
         id: "nc",
+        divid: "rox5",
         attr: {
             verified: 1,
             dividends: false,
@@ -173,6 +178,7 @@ const LISTE = [
         description: "Get paid for sharing your unused internet! Honeygain is the most popular app for sharing internet in exchange from money or crypto! Also available on Windows, macOS and Linux!",
         added: "7-20-2024",
         id: "honeygain",
+        divid: "hnyg",
         attr: {
             verified: 1,
             dividends: false,
@@ -216,6 +222,7 @@ const LISTE = [
         description: "A classic service that allows you to either claim free mining contracts or purchase cloud miners. Offers daily free contracts, loyalty program with extra mining contracts and contracts for ads or microtasks.",
         added: "8-5-2024",
         id: "btccloud",
+        divid: "btcm",
         attr: {
             verified: 1,
             dividends: true,
@@ -250,6 +257,7 @@ const LISTE = [
         description: "Get paid for sharing your unused internet! Gain the UpRock token, stake it or withdraw to any Solana wallet! Also available on Windows, macOS and Linux!",
         added: "9-1-2024",
         id: "uprock",
+        divid: "uprk",
         attr: {
             verified: 1,
             dividends: true,
@@ -286,6 +294,7 @@ const LISTE = [
         description: "Get paid for watching videos, playing games or browsing websites! Truly stretches the definition of 'micro task'! Additionally, participate in missions, stake your tokens and earn daily bonuses just for using the app!",
         added: "7-21-2024",
         id: "jumptask",
+        divid: "jmpt",
         attr: {
             verified: 1,
             dividends: true,
@@ -446,6 +455,7 @@ const LISTE = [
         description: "An NFT-driven service that allows you to either claim free mining contracts or purchase NFT miners. Offers daily free contracts and contracts for ads.",
         added: "8-7-2024",
         id: "btcnft",
+        divid: "btmn",
         attr: {
             verified: 1,
             dividends: true,
@@ -478,6 +488,7 @@ const LISTE = [
         description: "Simple Bitcoin miner, allowing you to mine bitcoin passively or for watching ads. Offers daily contracts for passive mining and extra mining contracts for ads!",
         added: "2-2-2024",
         id: "btctap",
+        divid: "bttm",
         attr: {
             verified: 1,
             dividends: true,
@@ -541,6 +552,7 @@ const LISTE = [
         description: "Mine USDT, $LABR and WeMine's own token $WM for free! Solve daily cases to get extra wUSDT and WM that can be used to upgrade your miners and enjoy extra income!",
         added: "7-23-2024",
         id: "wemine",
+        divid: "wemn",
         attr: {
             verified: 1,
             dividends: true,
@@ -655,6 +667,7 @@ const LISTE = [
         description: "Collect Crystals, roll the spinner and win! Gift Go allows you to win Telegram Stars, Gifts, or even Telegram Premium! We have to mention the gambling aspect - yes, you can spin for free every day for terrible rewards, and if you wanna open better cases, you will need to deposit. For that (once the app gets verified), we will provide you with cashback!",
         added: "5-20-2025",
         id: "giftgo",
+        divid: "gfgo",
         attr: {
             verified: 0,
             dividends: false,
@@ -691,6 +704,7 @@ const LISTE = [
         description: "Collect stars, open cases and win awesome gifts! Border of regular cases? Check out more game modes! As for the gambling aspect - yes, you can spin for free once per day. And if you want to do it more often, you will need to risk your earned stars. Just, try not to deposit.",
         added: "1-20-2026",
         id: "easygiftru",
+        divid: "egru",
         attr: {
             verified: 0,
             dividends: false,
@@ -729,6 +743,7 @@ const LISTE = [
         description: "Earn for surveys, microtasks, playing games and more! Explore offers and get paid for things you would probably do anyway!",
         added: "2-3-2026",
         id: "klink",
+        divid: "klnk",
         attr: {
             verified: 0,
             dividends: false,
@@ -763,6 +778,7 @@ const LISTE = [
         description: "Get paid to walk, literally! Walk, earn coins and redeem them for rewards! Or simply use them to withdraw money directly to your bank account!",
         added: "8-25-2025",
         id: "macadam",
+        divid: "macm",
         attr: {
             verified: 0,
             dividends: false,
@@ -1018,6 +1034,7 @@ const LISTE = [
         description: "Collect Gram, open cases and win 'swag' gifts! As for the gambling aspect - yes, you can spin for free once per day. And if you want to do it more often, you will need to risk your earned Gram. Just, try not to deposit.",
         added: "1-21-2026",
         id: "swaggiftru",
+        divid: "swgt",
         attr: {
             verified: 0,
             dividends: false,
@@ -1054,6 +1071,7 @@ const LISTE = [
         description: "Geomine the world! COIN allows you to claim world tiles and get COINs for it which can be redeemed for crypto or goods!",
         added: "11-1-2024",
         id: "xyocoin",
+        divid: "xyoc",
         attr: {
             verified: 0,
             dividends: false,
@@ -1093,6 +1111,7 @@ const LISTE = [
         description: "Get paid for sharing your unused internet! Complete tasks and surveys for even more coins! Also available on Windows!",
         added: "2-1-2026",
         id: "byteb",
+        divid: "btbe",
         attr: {
             verified: 0,
             dividends: false,
@@ -1127,6 +1146,7 @@ const LISTE = [
         description: "Get free USDT every day! Complete surveys to get tokens and exchange them for even more USDT! Play games to increase the amount of rolls you get every day!",
         added: "10-1-2024",
         id: "faucetfreeusdt",
+        divid: "f7us",
         attr: {
             verified: 0,
             dividends: false,
@@ -1162,6 +1182,7 @@ const LISTE = [
         description: "Get free XRP every day! Complete surveys to get tokens and exchange them for even more XRP! Play games to increase the amount of rolls you get every day!",
         added: "10-1-2024",
         id: "faucetfreexrp",
+        divid: "f7xr",
         attr: {
             verified: 0,
             dividends: false,
@@ -1197,6 +1218,7 @@ const LISTE = [
         description: "A classic mining service, except it's completely free! No way to deposit means no way to lose money! Watch ads to claim contracts and make them mine Bitcoin for you!",
         added: "9-9-2024",
         id: "bittycoon",
+        divid: "btyn",
         attr: {
             verified: 0,
             dividends: false,
@@ -1230,6 +1252,7 @@ const LISTE = [
         description: "Watch an ad every 45 minutes and claim USDT. I wish other apps were as easy to describe.",
         added: "9-5-2024",
         id: "pluto",
+        divid: "p23t",
         attr: {
             verified: 0,
             dividends: false,
@@ -1263,6 +1286,7 @@ const LISTE = [
         description: "Watch an ad every 45 minutes and claim USDC. I wish other apps were as easy to describe.",
         added: "9-6-2024",
         id: "brink",
+        divid: "p23c",
         attr: {
             verified: 0,
             dividends: false,
@@ -1363,6 +1387,7 @@ const LISTE = [
         description: "Mine Bitcoin, wager it and withdraw! With new games added occasionally and new ways to earn being slowly introduced, you can enjoy all flavors of earnings! This includes: microtasks, gambling and predictions as of now! Another gambling app? Brooooooo why.",
         added: "9-2-2024",
         id: "ember",
+        divid: "embr",
         attr: {
             verified: -1,
             dividends: false,
@@ -1400,6 +1425,7 @@ const LISTE = [
         description: "Spin a wheel and earn! Complete tasks, earn points and spend the poins to spin a wheel! You can earn both USDT and Pepe from the spin! One thing that should be mentioned is the ridiculous withdrawal threshold combined with how little the rewards are, which makes for a neverending spinning with being nowhere close to the withdrawal.",
         added: "8-26-2024",
         id: "peaai",
+        divid: "peai",
         attr: {
             verified: -1,
             dividends: false,
@@ -1852,14 +1878,14 @@ function loadView(item) {
 
     switch (item.go.type) {
         case 0:
-            document.getElementById("signupbutton").setAttribute("onclick", (item.attr.dividends?"localStateSet("+item.id+")":"")+"window.open('" + item.go.link + "', '_blank')");
+            document.getElementById("signupbutton").setAttribute("onclick", (item.divid?"localStateSet("+item.divid+")":"")+"window.open('" + item.go.link + "', '_blank')");
             break;
         case 1:
             document.getElementById("signupbutton").onclick = function () {
                 popup(
                     "Please read!",
                     `Make sure to use the code <b id="copyCode${item.go.code}" title="Click to copy.">${item.go.code}</b> during sign-up to get access to the benefits (especially dividends)!</p><br>
-        <button class="fullwidth" onclick="window.open('${item.go.link}', '_blank')">LET'S GO!</button><p style="margin:0">`
+        <button class="fullwidth" onclick="${item.divid ? "localStateSet(" + item.divid + ");" : ""} window.open('${item.go.link}', '_blank')">LET'S GO!</button><p style="margin:0">`
                 );
                 setTimeout(function () {
                     var copyElem = document.getElementById("copyCode"+item.go.code);
