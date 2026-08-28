@@ -80,16 +80,16 @@ Deno.serve(async (req) => {
         }
         if (difference === 1 || difference === 2) {
             const REWARDS_C = [
-                { hash: 1 }, { noca: 5 }, { nus: 0.0001 }, { hash: 3 }, { noca: 5 }, { nus: 0.0001 }, { hash: 5, nus: 0.0003 }, //1-7
-                { hash: 3 }, { noca: 10 }, { sat: 0.0001, nus: 0.00015 }, { noca: 3, hash: 1 }, { noca: 10 }, { nus: 0.0002 }, { hash: 3, nus: 0.0005, noca: 5 }, //8-14
-                { hash: 10 }, { noca: 5 }, { nus: 0.0001 }, { noca: 5, hash: 3 }, { noca: 10 }, { sat: 0.001 }, { nus: 0.001, noca: 20 }, //15-21
-                { hash: 3 }, { nus: 0.0001 }, { noca: 5 }, { nus: 0.00005, noca: 10, hash: 2 }, { hash: 5 }, { noca: 3 }, { hash: 25 }, //22-28
-                { noca: 3, hash: 1 }, { noca: 5, sat: 0.01 }, { div: 1 }, { hash: 5 }, { nus: 0.0003 }, { noca: 10 }, { nus: 0.0025 }, //29-35
-                { noca: 10 }, { hash: 5 }, { nus: 0.0003 }, { noca: 20 }, { sat: 0.1 }, { nus: 0.0001 }, { noca: 50, hash: 25 }, //36-42
-                { noca: 5 }, { nus: 0.0003 }, { hash: 10 }, { noca: 3 }, { nus: 0.0005 }, { noca: 20 }, { nus: 0.01 }, //43-49
-                { sat: 1 }, { hash: 3 }, { nus: 0.0003, noca: 10 }, { noca: 5, hash: 1 }, { nus: 0.00075 }, { noca: 10 }, { nus: 0.05 }, //50-56
-                { hash: 5 }, { noca: 10 }, { nus: 0.001 }, { sat: 10 }, { noca: 15, hash: 3 }, { nus: 0.001 }, { hash: 50 }, //57-63
-                { noca: 10 }, { nus: 0.2 }, { hash: 10 }, { noca: 5 }, { nus: 0.01, hash: 10 }, { noca: 69 }, { div: 2 }, //64-70
+                { hash: 1 }, { noca: 5 }, { nus: 0.001 }, { hash: 3 }, { noca: 5 }, { nus: 0.001 }, { hash: 5, nus: 0.003 }, //1-7
+                { hash: 3 }, { noca: 10 }, { sat: 0.0001, nus: 0.0015 }, { noca: 3, hash: 1 }, { noca: 10 }, { nus: 0.002 }, { hash: 3, nus: 0.005, noca: 5 }, //8-14
+                { hash: 10 }, { noca: 5 }, { nus: 0.001 }, { noca: 5, hash: 3 }, { noca: 10 }, { sat: 0.001 }, { nus: 0.01, noca: 20 }, //15-21
+                { hash: 3 }, { nus: 0.001 }, { noca: 5 }, { nus: 0.0005, noca: 10, hash: 2 }, { hash: 5 }, { noca: 3 }, { hash: 25 }, //22-28
+                { noca: 3, hash: 1 }, { noca: 5, sat: 0.01 }, { div: 1 }, { hash: 5 }, { nus: 0.003 }, { noca: 10 }, { nus: 0.025 }, //29-35
+                { noca: 10 }, { hash: 5 }, { nus: 0.003 }, { noca: 20 }, { sat: 0.1 }, { nus: 0.001 }, { noca: 50, hash: 25 }, //36-42
+                { noca: 5 }, { nus: 0.003 }, { hash: 10 }, { noca: 3 }, { nus: 0.005 }, { noca: 20 }, { nus: 0.1 }, //43-49
+                { sat: 1 }, { hash: 3 }, { nus: 0.003, noca: 10 }, { noca: 5, hash: 1 }, { nus: 0.0075 }, { noca: 10 }, { nus: 0.5 }, //50-56
+                { hash: 5 }, { noca: 10 }, { nus: 0.01 }, { sat: 10 }, { noca: 15, hash: 3 }, { nus: 0.01 }, { hash: 50 }, //57-63
+                { noca: 10 }, { nus: 0.2 }, { hash: 10 }, { noca: 5 }, { nus: 0.1, hash: 10 }, { noca: 69 }, { div: 2 }, //64-70
             ];
             const REWARDS_S = {
                 "01-01": { nus: 1, hash: 100 },
