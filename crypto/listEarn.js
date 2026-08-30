@@ -1106,6 +1106,73 @@ const LISTE = [
         banner: "bin"
     },
     {
+        name: "Honey Farm",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6e%2Faa%2F8d%2F6eaa8d81fa7fe1ea534e74dfda80b9cf.jpg&f=1&nofb=1&ipt=62ba64abef777641a01aac9acfba9a2ab63aba9cde6460ba5bcdea761c2c7ccc",
+        description: "Build your hive, harvest honey and sell it for the sweetest treat - crypto! While this app makes itself look like a game, it realistically works as a faucet, since after you complete the tutorial, there isn't much to do without topping up. Yea red flag alert - don't deposit.",
+        added: "27-8-2026",
+        id: "honeyfarm",
+        divid: "jakh",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "t",
+            type: "p2e",
+            coin: "ton usdt other:BNB other:TRON",
+            effort: 0,
+            rating: 3
+        },
+        info: {
+            description: "Build your hive, harvest honey and sell it for the sweetest treat - crypto! This app tries hard to portray itself as a fun game to play - but realistically speaking the gaming aspect is literally just mergin bees. An activity you will do maybe once every few days, since the rest of the app is basically a faucet, where reinvesting makes your profits grow. Basically a gamified faucet experience. The only way to somewhat get more 'gameplay' (more merging) out of this is by depositing money. Now, we naturally advise against that, as this project is extremely young to be trusted. Most investements - according to the in-game calculator - take several months to pay out, so it would be idea to wait a year or two before trusting this project, even if it becomes verified.",
+            effort: "Merge bees and sell honey. Takes two to three clicks per day."
+        },
+        go: {
+            type: 0,
+            link: "https://t.me/Honey_FarmBot?start=780805"
+        },
+        benefits: ["If the app gets verified, we will distribute dividends."],
+        features: [["Merge Bees and Sell Honey!", "Buy bees, merge them to level up and sell their honey for rewards!"], ["Tasks", "Complete tasks to earn cash and buy more bees!"]],
+        tips: [
+            ["Avoid depositing!", "This app is extremely eager to get your money - all promos and events circle around deposit bonuses. This is suspicious to say the least, so it would be best to avoid it."]
+        ],
+        pros: ["Very simple", "Plenty free coins", "Laughably low withdrawal threshold (0.0001$)"],
+        cons: ["Persistent top-up promotions"],
+        banner: "bin"
+    },
+    {
+        name: "Jack's Farm",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdbc.fmsnsr.xyz%2Fapi%2Ffiles%2F1nlpavfhdos0lje%2Fvhu94d261vr36z7%2Favatar_vfo8va61n8.jpg&f=1&nofb=1&ipt=cf1602a575d6a7f93b8f725bcaf2ff78a72c3a9eb2ddd3e086a77896230ec43f",
+        description: "Build your farm, harvest crops and sell them for the best farmer's delight - crypto! While this app makes itself look like a game, it realistically works as a faucet, since after you complete the tutorial, there isn't much to do without topping up. Yea red flag alert - don't deposit.",
+        added: "26-8-2026",
+        id: "jacksfarm",
+        divid: "jakf",
+        attr: {
+            verified: 0,
+            dividends: false,
+            platform: "t",
+            type: "p2e",
+            coin: "ton usdt other:BNB other:TRON",
+            effort: 0,
+            rating: 3
+        },
+        info: {
+            description: "Build your farm, harvest crops and sell them for the best farmer's delight - crypto! This app tries hard to portray itself as a fun game to play - but realistically speaking the gaming aspect takes about 10 minutes total. From that point on it becomes a faucet, where reinvesting makes your profits grow. Basically a gamified faucet experience. The only way to somewhat get more 'gameplay' out of this is by depositing money. Now, we naturally advise against that, as this project is extremely young to be trusted. Most investements - according to the in-game calculator - take several months to pay out, so it would be idea to wait a year or two before trusting this project, even if it becomes verified.",
+            effort: "Transfer crops to the store, sell them from the store. Occassionally buy more production means."
+        },
+        go: {
+            type: 0,
+            link: "https://telegram.me/JacksFarm_bot?start=825231"
+        },
+        benefits: ["Mysterious 'welcome bonus'","If the app gets verified, we will distribute dividends."],
+        features: [["Build Your Farm and Sell the Crops!", "Buy field and animals, harvest it all and sell it for rewards!"],["Tasks and Achievements", "Complete tasks to earn coins and buy more fields and animals!"],["Gamble!", "Gamble away all your money and lose it all! wait wasn't this a farm game"]],
+        tips: [
+            ["Avoid depositing!", "This app is extremely eager to get your money - all promos and events circle around deposit bonuses. This is suspicious to say the least, so it would be best to avoid it."],
+            ["Keep the rhythm!", "Reinvest your bucks to spend coins on fields and animals - only hoard bucks when you are about to withdraw! An ideal rhythm is to transfer your crops from your Warehouse to the Store, then sell the previous crops from the Store and leave the game."]
+        ],
+        pros: ["Very simple", "Plenty free coins", "Laughably low withdrawal threshold (0.0001$)"],
+        cons: ["Gambling aspect (seriously why)", "Persistent top-up promotions"],
+        banner: "bin"
+    },
+    {
         name: "ByteBenefit",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F8XVsm7Z-dsD5cq6iCRH8-YOK5Be5g0NZn2dVfUYzCuPxQbTc8Js0jd0bLvS5OovCLKc&f=1&nofb=1&ipt=9c5069547879f8aec9ceab8c496d32571f570f2ff171a6847f365a60b57dbd2e",
         description: "Get paid for sharing your unused internet! Complete tasks and surveys for even more coins! Also available on Windows!",
