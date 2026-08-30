@@ -208,8 +208,8 @@ const LISTE = [
         banner: `<div class="promobannerad">
             <img src="https://play-lh.googleusercontent.com/x_5u0RcjMK9WdyJ5QR9ZNnVF4dQDeDGs2C9GVzDzhsmgaQYX43cIYBO4O8nLVXgU8Vk=w240-h480-rw">
             <div>
-            <h1>Enable JumpTask mode and earn 10% more!</h1>
-            <p>Withdraw your Honeygain credits as $JMPT without minimal threshold and gain 10% more? That sounds too good to be true! Yet, it is true.</p>
+            <h1>Impatient? Enable JumpTask mode!</h1>
+            <p>Withdraw your Honeygain credits as JumpTask credits 40 times more often! Don't forget to also claim your daily bonus in JumpTask!</p>
             </div>
     <button>LET'S GO!</button>
             </div>`,
@@ -1582,9 +1582,15 @@ function load() {
         let atr = document.createElement("div");
         atr.classList.add("attr");
         let verified = document.createElement("div");
-        if (i.attr.verified === 1) { verified.innerHTML = "<img src='https://img.icons8.com/?size=100&id=102561&format=png&color=000000'> <p style='color:#4caf50'>Verified</p>"; verified.title = 'This app is verified to be legit.'; }
-        else if (i.attr.verified === 0) { verified.innerHTML = "<img src='https://img.icons8.com/?size=100&id=84097&format=png&color=CCCCCC'> <p>Unknown</p>"; verified.title = 'We have not yet verified whether this app is legit.'; }
-        else { verified.innerHTML = "<img src='https://img.icons8.com/?size=100&id=12226&format=png&color=000000'> <p style='color:orange'>Possible Scam</p>"; verified.title = 'This app is suspicious and might be a scam.' }
+        let rating = "";
+        if (i.attr.rating === 1) rating = "<span style='color:yellow !important'>&starf;&star;&star;&star;&star;</span>";
+        else if (i.attr.rating === 2) rating = "<span style='color:yellow !important'>&starf;&starf;&star;&star;&star;</span>";
+        else if (i.attr.rating === 3) rating = "<span style='color:yellow !important'>&starf;&starf;&starf;&star;&star;</span>";
+        else if (i.attr.rating === 4) rating = "<span style='color:yellow !important'>&starf;&starf;&starf;&starf;&star;</span>";
+        else if (i.attr.rating === 5) rating = "<span style='color:yellow !important'>&starf;&starf;&starf;&starf;&starf;</span>";
+        if (i.attr.verified === 1) { verified.innerHTML = "<img src='https://img.icons8.com/?size=100&id=102561&format=png&color=000000'> <p style='color:#4caf50'>Verified <span style='color:white !important'>|</span> "+rating+"</p>"; verified.title = 'This app is verified to be legit.'; }
+        else if (i.attr.verified === 0) { verified.innerHTML = "<img src='https://img.icons8.com/?size=100&id=84097&format=png&color=CCCCCC'> <p>Unknown <span style='color:white !important'>|</span> "+rating+"</p>"; verified.title = 'We have not yet verified whether this app is legit.'; }
+        else { verified.innerHTML = "<img src='https://img.icons8.com/?size=100&id=12226&format=png&color=000000'> <p style='color:orange'>Possible Scam <span style='color:white !important'>|</span> "+rating+"</p>"; verified.title = 'This app is suspicious and might be a scam.' }
         atr.appendChild(verified);
         if (i.attr.dividends) {
             let dividends = document.createElement("div");
@@ -1643,13 +1649,6 @@ function load() {
         else if (i.attr.effort === 2) { effort.innerHTML = "<p>Medium Effort</p>"; effort.style.background = "linear-gradient(45deg,rgba(170, 85, 34, 1) 0%, rgba(207, 82, 4, 1) 100%)" }
         else if (i.attr.effort === 3) { effort.innerHTML = "<p>High Effort</p>"; effort.style.background = "linear-gradient(45deg,rgba(170, 34, 34, 1) 0%, rgba(230, 5, 5, 1) 100%)" }
         atr.appendChild(effort);
-        let rating = document.createElement("div");
-        if (i.attr.rating === 1) rating.innerHTML = "<p>App Rating: <span style='color:yellow'>&starf;&star;&star;&star;&star;</span></p>";
-        else if (i.attr.rating === 2) rating.innerHTML = "<p>App Rating: <span style='color:yellow'>&starf;&starf;&star;&star;&star;</span></p>";
-        else if (i.attr.rating === 3) rating.innerHTML = "<p>App Rating: <span style='color:yellow'>&starf;&starf;&starf;&star;&star;</span></p>";
-        else if (i.attr.rating === 4) rating.innerHTML = "<p>App Rating: <span style='color:yellow'>&starf;&starf;&starf;&starf;&star;</span></p>";
-        else if (i.attr.rating === 5) rating.innerHTML = "<p>App Rating: <span style='color:yellow'>&starf;&starf;&starf;&starf;&starf;</span></p>";
-        atr.appendChild(rating);
         cnt.appendChild(atr);
 
         if (i.featured) cnt.classList.add("fmainfeatured");
@@ -1760,7 +1759,7 @@ function loadView(item) {
         case "usdt": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresource.cwallet.com%2Ftoken%2Flarge_icon%2Fusdt.png&f=1&nofb=1&ipt=f469902176a107dc91dcaf25aaf1c1464937d8ee8c51213dca9c4f4cb5635d80'> USDT/USDC"; break;
         case "stars": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'> Telegram Stars"; break;
         default:
-            if (item.attr.coin.startsWith("other:") && !i.attr.coin.contains(" ")) curr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${item.attr.coin.substring(6)}`;
+            if (item.attr.coin.startsWith("other:") && !item.attr.coin.contains(" ")) curr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${item.attr.coin.substring(6)}`;
             else {
                 curr = "Click to view";
                 let xpt = [];
@@ -1908,7 +1907,7 @@ function localStateSet(id) {
     var currentstate = localStorage.get("localStateDiv");
     var totalstate;
     if (!currentstate) totalstate = []; else totalstate = currentstate.split(":");
-    totalstate.push(id);
+    if (!totalstate.includes(id)) totalstate.push(id);
     localStorage.set("localStateDiv", totalstate.join(":"));
 }
 
