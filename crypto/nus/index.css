@@ -385,10 +385,11 @@ main {
     }
 
     .miningstat_button {
-        font-size: 2.5vh;
+        font-size: 2.2vh;
         font-family: 'Funnel Display';
         font-weight: 400;
         grid-column: span 2;
+        padding: 1vh;
     }
 
 #upgrades_main {
@@ -721,7 +722,7 @@ main {
 
     #mining_problosities {
         grid-template-rows: 10vw 10vw 10vw;
-        grid-gap: 4vw;
+        grid-gap: 3vw;
         margin: 4vw 2vw 0 2vw;
         width: 96vw;
     }
@@ -753,7 +754,8 @@ main {
         }
 
     .miningstat_button {
-        font-size: 5vw;
+        font-size: 4vw;
+        padding: 2vw;
     }
 
     #upgrades_main {
