@@ -338,12 +338,12 @@ const levelstat = {
         {"name":"Single Fan", "desc": "Good luck cooling a mining setup with a single fan! Better than nothing, though.", "cost": [100,1], "val": 22, "img": "cooling1.png"},
         {"name":"Embedded Fan", "desc": "Better than a lone fan, but still lone. And very much a fan.", "cost": [225,1], "val": 20, "img": "cooling2.png"},
         {"name":"Dual Fan", "desc": "Oh look! It now has a friend! And friendship is power!", "cost": [375,1], "val": 18, "img": "cooling3.png"},
-        {"name":"Glided Dual Fan", "desc": "With cold metal glided blades, the cooling effect is enhanced!", "cost": [600,1], "val": 16, "img": "cooling4.png"},
-        {"name":"Small Fan Array", "desc": "In unity there is power! What two couldn't do, four will do with ease!", "cost": [850,1], "val": 14, "img": "cooling5.png"},
-        {"name":"Huge Fan Array", "desc": "There it is. The absolute masterpiece when it comes to air cooling. I wonder what comes next?", "cost": [1100,1], "val": 12, "img": "cooling6.png"},
-        {"name":"Water Line", "desc": "When air is insufficient, water cooling takes over! But is there more?", "cost": [1800,1], "val": 10, "img": "cooling7.png"},
-        {"name":"Dual Water Line", "desc": "Double the power with ease! Fresh water will take care of the rest!", "cost": [3750,1], "val": 8, "img": "cooling8.png"},
-        {"name":"Liquid Nitrogen", "desc": "Finally, the absolute <i>chill</i>.", "cost": [7000,1], "val": 6, "img": "cooling9.png"}
+        {"name":"Glided Dual Fan", "desc": "With cold metal glided blades, the cooling effect is enhanced!", "cost": [550,1], "val": 16, "img": "cooling4.png"},
+        {"name":"Small Fan Array", "desc": "In unity there is power! What two couldn't do, four will do with ease!", "cost": [750,1], "val": 14, "img": "cooling5.png"},
+        {"name":"Huge Fan Array", "desc": "There it is. The absolute masterpiece when it comes to air cooling. I wonder what comes next?", "cost": [1000,1], "val": 12, "img": "cooling6.png"},
+        {"name":"Water Line", "desc": "When air is insufficient, water cooling takes over! But is there more?", "cost": [1400,1], "val": 10, "img": "cooling7.png"},
+        {"name":"Dual Water Line", "desc": "Double the power with ease! Fresh water will take care of the rest!", "cost": [2000,1], "val": 8, "img": "cooling8.png"},
+        {"name":"Liquid Nitrogen", "desc": "Finally, the absolute <i>chill</i>.", "cost": [3000,1], "val": 6, "img": "cooling9.png"}
     ],
     memory: [
         {"name": "Uni Chip", "desc": "It's a miracle it can even hold two days of data to be honest.", "cost": [], "val": 48, "img": "memory0.png"},
@@ -382,9 +382,16 @@ const levelstat = {
         {"name": "Reactor", "desc": "Why ask for power when you can make your own? <u>No one beats this one!</u>", "cost": [5000,1], "val": 10, "img": "npu19.png"}
     ],
     npu2: [
-        {"name": "Base Power", "desc": "Look, it's 10% extra. That's better than nothing, isn't it?", "cost": [], "val": 10, "img": "npu20.png"},
-        {"name": "Extra Power", "desc": "Comes at a price, but will pay for itself in the long run!", "cost": [0.4, 0], "val": 17, "img": "npu21.png"},
-        {"name": "Hyper Power", "desc": "Why waste your luck when the reward is little? With <u><b><i>this one</i></b></u>, you can rest assure none of your luck will be wasted!", "cost": [1, 0], "val": 25, "img": "npu22.png"}
+        {"name": "Base Power", "desc": "Look, it's 5% extra. That's better than nothing, isn't it?", "cost": [], "val": 5, "img": "npu20.png"},
+        {"name": "Base Power +", "desc": "Baby steps. Every extra buck helps!", "cost": [0.1, 0], "val": 5.2, "img": "npu20.png"},
+        {"name": "Base Power ++", "desc": "Yessss it's all slowly coming together!", "cost": [0.15, 0], "val": 5.5, "img": "npu20.png"},
+        {"name": "Base Power +++", "desc": "See? A whole percentual point up! I wonder what's next?", "cost": [0.2, 0], "val": 6, "img": "npu20.png"},
+        {"name": "Extra Power I", "desc": "I'm sure this one will pay for itself in the long run!", "cost": [0.3, 0], "val": 7.5, "img": "npu21.png"},
+        {"name": "Extra Power II", "desc": "The longer the run, the greater the outcome!", "cost": [0.375, 0], "val": 8, "img": "npu21.png"},
+        {"name": "Extra Power III", "desc": "Actually, if the run is infinite, the reward is also infinite! Think about it!", "cost": [0.45, 0], "val": 8.6, "img": "npu21.png"},
+        {"name": "Extra Power IV", "desc": "However everything is finite and everything ends one day. I wonder when?", "cost": [0.55, 0], "val": 9.3, "img": "npu21.png"},
+        {"name": "Extra Power V", "desc": "Oh yea sorry about that. Look! 10% more? That's a delight!", "cost": [0.7, 0], "val": 10, "img": "npu21.png"},
+        {"name": "Hyper Power", "desc": "Why waste your luck when the reward is little? With <u><b><i>this one</i></b></u>, you can rest assure none of your luck will be wasted!", "cost": [1, 0], "val": 15, "img": "npu22.png"}
     ],
     hashp: [{"cost": [5, 2], "val":100}]
 }

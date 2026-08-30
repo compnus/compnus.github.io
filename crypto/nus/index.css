@@ -334,7 +334,7 @@ main {
 
 #mining_problosities {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 6vh 6vh 6vh;
     grid-gap: 2vh;
     align-items: center;
@@ -344,6 +344,7 @@ main {
 
 .miningstat_view {
     display: grid;
+    grid-column: span 3;
     grid-template-columns: 6vh 1fr;
     grid-template-rows: 2vh 4vh;
     grid-gap: 1vh;
@@ -387,6 +388,7 @@ main {
         font-size: 2.5vh;
         font-family: 'Funnel Display';
         font-weight: 400;
+        grid-column: span 2;
     }
 
 #upgrades_main {
