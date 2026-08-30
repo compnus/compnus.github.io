@@ -138,35 +138,26 @@ window.addEventListener('popstate', function (e) {
     }
 });
 
-async function loadApproximations() {
-    const { data: serverdata, error: userExistsErrorn } = await sb
-        .from("udata")
-        .select("hashrate")
-        .eq("user_id", uid)
-        .single();
-    if (!serverdata || userExistsErrorn) popup("An error occurred!", "We were unable to load your data.<br>Make sure you are logged in and that your internet connection is sufficient.");
-    var _npb = await getVariable("nusperblock");
-    var _hpb = await getVariable("hashperblock");
+function loadApproximations() {
+    if (!serverdata) popup("An error occurred!", "We were unable to load your data.<br>Make sure you are logged in and that your internet connection is sufficient.");
     popup("Approximate Rewards", `
-        Reward per Day: ${((serverdata.hashrate * 86400 * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
-        Reward per Hour: ${((serverdata.hashrate * 3600 * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
-        Reward per Minute: ${((serverdata.hashrate * 60 * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
-        Reward per Second: ${((serverdata.hashrate * _npb) / _hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span></p>
+        Reward per Day: ${((serverdata.hashrate * 86400 * cache.npb) / cache.hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Hour: ${((serverdata.hashrate * 3600 * cache.npb) / cache.hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Minute: ${((serverdata.hashrate * 60 * cache.npb) / cache.hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Second: ${((serverdata.hashrate * cache.npb) / cache.hpb).toFixed(8)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span></p>
         <div class="myhr"></div><p style="margin-bottom:0">
-        Reward per Week: ${((serverdata.hashrate * 86400 * 7 * _npb) / _hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
-        Reward per Month: ${((serverdata.hashrate * 86400 * 30 * _npb) / _hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
-        Reward per Year: ${((serverdata.hashrate * 86400 * 365 * _npb) / _hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
+        Reward per Week: ${((serverdata.hashrate * 86400 * 7 * cache.npb) / cache.hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Month: ${((serverdata.hashrate * 86400 * 30 * cache.npb) / cache.hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span><br>
+        Reward per Year: ${((serverdata.hashrate * 86400 * 365 * cache.npb) / cache.hpb).toFixed(4)} <span style="font-family:'currencycompnus',Ubuntu !important">$</span>
     `);
 }
 
-async function hashrateCalc() {
-    var _npb = await getVariable("nusperblock");
-    var _hpb = await getVariable("hashperblock");
+function hashrateCalc() {
     popup("Hashrate Calculator",
         `</p>
         <div class="input">
             <label for="hinput">Hashrate:</label>
-            <input id="hinput" oninput="this.value=Math.floor(this.value); if (this.value < 0) this.value = 0; handleHashCalc(this.value, ${_npb}, ${_hpb});" placeholder="H/s" type="number">
+            <input id="hinput" oninput="this.value=Math.floor(this.value); if (this.value < 0) this.value = 0; handleHashCalc(this.value, ${cache.npb}, ${cache.hpb});" placeholder="H/s" type="number">
         </div>
         <p class="sidemini"><span id="calculatedhash">0 </span>H/s</p>
         <br>
