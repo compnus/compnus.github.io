@@ -1,8 +1,8 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
-import LEVELS from "../_shared/levels.json";
-import UPGRADES from "../_shared/upgrades.json";
+import LEVELS from "../_shared/levels.json" with { type: "json" };
+import UPGRADES from "../_shared/upgrades.json" with { type: "json" };
 
 
 Deno.serve(async (req) => {
