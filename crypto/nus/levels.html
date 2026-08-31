@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../../script.js" defer></script>
+    <script src="levels.js" defer></script>
+    <title>Levels - CryptoNUS</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="levels.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script>
+    <script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script>
+</head>
+<body>
+    <script>
+        initHeader("$NUS - Levels");
+    </script>
+
+    <main>
+        <div id="compactWallet">
+            <div title="Nocas"><p class="cccicon">¤</p><p id="balance_noca">0</p></div>
+            <p></p>
+            <div title="Experience Points"><p class="cccicon">XP</p><p><span id="exp_current">0</span><span style="font-weight:200">/</span><span id="exp_needed" style="opacity:0.7">100</span></p></div>
+        </div>
+        <div id="navlike">
+            <p onclick="window.history.back()">< Back</p>
+            <p class="here" onclick="levelPage(0)">Level Up</p>
+            <p onclick="levelPage(1)">Perks</p>
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            await main();
+        });
+        initFooter();
+    </script>
+</body>
+</html>

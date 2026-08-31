@@ -234,7 +234,7 @@ main {
     main {
         position: static;
         padding: 4vw;
-        min-height: calc(100vh - 52vw);
+        min-height: calc(100vh - 53vw);
         height: initial;
         display: block;
     }

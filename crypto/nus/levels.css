@@ -1,0 +1,14 @@
+main {
+    display: block;
+    padding: 6vh 2vh 2vh 2vh;
+    min-height: 78vh;
+    height: 78vh;
+}
+
+@media(max-width:800px) {
+    main {
+        padding: 4vw;
+        min-height: calc(100vh - 53vw);
+        height: initial;
+    }
+}
