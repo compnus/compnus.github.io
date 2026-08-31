@@ -1,3 +1,2 @@
 include:
-  - supabase/functions/_shared
   - _shared
