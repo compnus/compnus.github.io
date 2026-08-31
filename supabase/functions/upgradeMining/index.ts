@@ -1,7 +1,6 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
-import { PERKS } from "../_shared/levels.ts";
 
 Deno.serve(async (req) => {
     const sb = createClient(
