@@ -201,53 +201,8 @@ function calculateProfit() {
     var lastclaim = new Date(serverdata.last_claimed).getTime();
     var diff = (now - lastclaim) / 1000;
 
-    var mintime;
-    var maxtime;
-    switch (serverdata.mining_upg % 10) {
-        case 0:
-            mintime = 24*60*60;
-            break;
-        case 1:
-            mintime = 22*60*60;
-            break;
-        case 2:
-            mintime = 20*60*60;
-            break;
-        case 3:
-            mintime = 18*60*60;
-            break;
-        case 4:
-            mintime = 16*60*60;
-            break;
-        case 5:
-            mintime = 14*60*60;
-            break;
-        case 6:
-            mintime = 12*60*60;
-            break;
-        case 7:
-            mintime = 10*60*60;
-            break;
-        case 8:
-            mintime = 8*60*60;
-            break;
-        case 9:
-            mintime = 6*60*60;
-            break;
-    }
-    switch (Math.floor((serverdata.mining_upg % 100) / 10)) {
-        case 0: maxtime = 48*60*60; break;
-        case 1: maxtime = 60 *60*60; break;
-        case 2: maxtime = 72 * 60*60; break;
-        case 3: maxtime = 84 * 60 *60; break;
-        case 4: maxtime = 96 * 60 * 60; break;
-        case 5: maxtime = 108 * 60 * 60; break;
-        case 6: maxtime = 120 * 60 *60; break;
-        case 7: maxtime = 132 * 60*60; break;
-        case 8: maxtime = 144 *60*60; break;
-        case 9: maxtime = 168*60*60; break;
-    }
-    maxtime += LEVELS.perks[serverdata.level][2]*60*60;
+    var mintime = UPGRADES.cooling[serverdata.mining_upg % 10][3] * 60 * 60;
+    var maxtime = UPGRADES.cooling[Math.floor((serverdata.mining_upg % 100) / 10)][3] * 60 * 60 + LEVELS.perks[serverdata.level][2] * 60 * 60;
 
     document.getElementById("mstat_max").innerHTML = formatTime(maxtime - diff,false).join(" ");
     button.innerHTML = diff < mintime ? formatTime(mintime - diff, true) : "COLLECT";
@@ -475,11 +430,11 @@ function openUpgrades() {
         npu2: Math.floor((serverdata.mining_upg % 100000) / 10000)
     }
     const rig = {
-        cooling: levelstat.cooling[lv.cooling],
-        memory: levelstat.memory[lv.memory],
-        hashrate: levelstat.hashrate[lv.hashrate],
-        npu1: levelstat.npu1[lv.npu1],
-        npu2: levelstat.npu2[lv.npu2]
+        cooling: UPGRADES.cooling[lv.cooling],
+        memory: UPGRADES.memory[lv.memory],
+        hashrate: UPGRADES.hashrate[lv.hashrate],
+        npu1: UPGRADES.npu1[lv.npu1],
+        npu2: UPGRADES.npu2[lv.npu2]
     }
     if (lv.cooling === 9) el.cooling.button.innerHTML = "MAX"
     else el.cooling.button.classList.remove("disabled");
@@ -491,24 +446,24 @@ function openUpgrades() {
     else el.npu1.button.classList.remove("disabled");*/
     /*if (lv.npu2 === 2) el.npu2.button.innerHTML = "MAX"
     else el.npu2.button.classList.remove("disabled");*/
-    el.cooling.img.src = "/site/image/assets/mining/"+rig.cooling.img+".png";
-    el.cooling.name.innerHTML = rig.cooling.name;
-    el.cooling.value.innerHTML = rig.cooling.val;
-    el.cooling.desc.innerHTML = rig.cooling.desc;
-    el.memory.img.src = "/site/image/assets/mining/"+rig.memory.img+".png";
-    el.memory.name.innerHTML = rig.memory.name;
-    el.memory.value.innerHTML = rig.memory.val;
-    el.memory.desc.innerHTML = rig.memory.desc;
-    el.hashrate.img.src = "/site/image/assets/mining/"+rig.hashrate.img+".png";
-    el.hashrate.name.innerHTML = rig.hashrate.name;
-    el.npu1.img.src = "/site/image/assets/mining/"+rig.npu1.img+".png";
-    el.npu1.name.innerHTML = rig.npu1.name;
-    el.npu1.value.innerHTML = rig.npu1.val;
-    el.npu1.desc.innerHTML = rig.npu1.desc;
-    el.npu2.img.src = "/site/image/assets/mining/"+rig.npu2.img+".png";
-    el.npu2.name.innerHTML = rig.npu2.name;
-    el.npu2.value.innerHTML = rig.npu2.val;
-    el.npu2.desc.innerHTML = rig.npu2.desc;
+    el.cooling.img.src = "/site/image/assets/mining/"+rig.cooling[4]+".png";
+    el.cooling.name.innerHTML = rig.cooling[0];
+    el.cooling.value.innerHTML = rig.cooling[3];
+    el.cooling.desc.innerHTML = rig.cooling[1];
+    el.memory.img.src = "/site/image/assets/mining/" + rig.memory[4] +".png";
+    el.memory.name.innerHTML = rig.memory[0];
+    el.memory.value.innerHTML = rig.memory[3];
+    el.memory.desc.innerHTML = rig.memory[1];
+    el.hashrate.img.src = "/site/image/assets/mining/" + rig.hashrate[4] +".png";
+    el.hashrate.name.innerHTML = rig.hashrate[0];
+    el.npu1.img.src = "/site/image/assets/mining/" + rig.npu1[4] +".png";
+    el.npu1.name.innerHTML = rig.npu1[0];
+    el.npu1.value.innerHTML = rig.npu1[3];
+    el.npu1.desc.innerHTML = rig.npu1[1];
+    el.npu2.img.src = "/site/image/assets/mining/" + rig.npu2[4] +".png";
+    el.npu2.name.innerHTML = rig.npu2[0];
+    el.npu2.value.innerHTML = rig.npu2[3];
+    el.npu2.desc.innerHTML = rig.npu2[1];
 }
 
 function upgrade(what, closeid) {
@@ -604,32 +559,32 @@ function upgrade(what, closeid) {
             desc: document.getElementById("upg_rightd"),
         };
         el.diff = document.getElementById("upg_diff");
-        el.left.img.src = "/site/image/assets/mining/" +levelstat[what][lv].img;
-        el.left.name.innerHTML = levelstat[what][lv].name;
-        el.left.value.innerHTML = valn+": "+levelstat[what][lv].val+valu;
-        el.left.desc.innerHTML = levelstat[what][lv].desc;
-        el.right.img.src = "/site/image/assets/mining/" +levelstat[what][lv+1].img;
-        el.right.name.innerHTML = levelstat[what][lv+1].name;
-        el.right.value.innerHTML = levelstat[what][lv + 1].val + valu;
-        el.right.desc.innerHTML = levelstat[what][lv + 1].desc;
-        const edf = levelstat[what][lv + 1].val - levelstat[what][lv].val;
+        el.left.img.src = "/site/image/assets/mining/" +UPGRADES[what][lv][4] + ".png";
+        el.left.name.innerHTML = UPGRADES[what][lv][0];
+        el.left.value.innerHTML = valn+": "+UPGRADES[what][lv][3]+valu;
+        el.left.desc.innerHTML = UPGRADES[what][lv][1];
+        el.right.img.src = "/site/image/assets/mining/" + UPGRADES[what][lv + 1][4] + ".png";
+        el.right.name.innerHTML = UPGRADES[what][lv+1][0];
+        el.right.value.innerHTML = UPGRADES[what][lv + 1][3] + valu;
+        el.right.desc.innerHTML = UPGRADES[what][lv + 1][1];
+        const edf = UPGRADES[what][lv + 1][3] - UPGRADES[what][lv][3];
         el.diff.innerHTML = (edf) > 0 ? "+" + edf : edf;
     } else {
         el.img = document.getElementById("upg_i");
         el.name = document.getElementById("upg_n");
         el.value = document.getElementById("upg_v");
         if (what === "hashrate") {
-            el.img.src = "/site/image/assets/mining/" + levelstat[what][lv + 1].img;
-            el.name.innerHTML = levelstat[what][lv + 1].name;
-            el.value.innerHTML = "+" + levelstat[what][lv + 1].val + " H/s";
+            el.img.src = "/site/image/assets/mining/" + UPGRADES[what][lv + 1][4] + ".png";
+            el.name.innerHTML = UPGRADES[what][lv + 1][0];
+            el.value.innerHTML = "+" + UPGRADES[what][lv + 1][3] + " H/s";
         } else {
             el.img.src = "/site/image/assets/mining/hashp.png";
             el.name.innerHTML = "Premium Hashrate";
-            el.value.innerHTML = "+" + levelstat[what][0].val + " H/s";
+            el.value.innerHTML = "+" + UPGRADES[what][0][3] + " H/s";
         }
     }
     var costu;
-    switch (levelstat[what][lv+1].cost[1]) {
+    switch (UPGRADES[what][lv+1][2][1]) {
         case 0:
             costu = "$";
             break;
@@ -642,7 +597,7 @@ function upgrade(what, closeid) {
         default:
             costu = "?";
     }
-    el.cost.innerHTML = levelstat[what][lv+1].cost[0] + " " + costu;
+    el.cost.innerHTML = UPGRADES[what][lv+1][2][0] + " " + costu;
 }
 
 async function confirmUpgrade(what, closemain, closeside) {
@@ -679,7 +634,7 @@ async function confirmUpgrade(what, closemain, closeside) {
         default:
             lv = -1;
     }
-    if (balance[levelstat[what][lv + 1].cost[1]] < levelstat[what][lv + 1].cost[0]) { status.innerHTML = "Insufficient balance."; controls.classList.remove("disabled"); return }
+    if (balance[UPGRADES[what][lv + 1][2][1]] < UPGRADES[what][lv + 1][2][0]) { status.innerHTML = "Insufficient balance."; controls.classList.remove("disabled"); return }
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/upgradeMining', {
         method: 'POST',
         headers: {

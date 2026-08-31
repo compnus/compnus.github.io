@@ -1,7 +1,7 @@
 {
   "currency.nfo":  [[0,"nus"],[1,"noca"],[2,"sat"]],
   "nonhash.nfo": [[0,"name"],[1,"desc"],[2,"cost","[amount,currency]"],[3,"value"],[4,"image"]],
-  "hash.nfo": [[0,"name"],[1,"cost","[amount,currency]"],[2,"value"],[3,"image"]],
+  "hash.nfo": [[0,"name"],[1,null],[2,"cost","[amount,currency]"],[3,"value"],[4,"image"]],
   "cooling": [
     ["No Cooling", "No cooling is provided. Relies on natural heat dissipation. Extremely inefficient.", [], 24, "cooling0"],
     ["Single Fan", "Good luck cooling a mining setup with a single fan! Better than nothing, though.", [100,1], 22, "cooling1"],
@@ -27,16 +27,16 @@
     ["Glided Multi-Core", "Now that all cores are connected, you have reached the <b>absolute</b>!", [20000, 1], 120, "memory9"]
   ],
   "hashrate": [
-    ["Base Hashrate", [], 100, "hash0"],
-    ["Extra Hashrate I", [50, 1], 80, "hash0"],
-    ["Extra Hashrate II", [110, 1], 90, "hash0"],
-    ["Extra Hashrate III", [165, 1], 100, "hash1"],
-    ["Extra Hashrate IV", [225, 1], 110, "hash1"],
-    ["Extra Hashrate V", [300, 1], 120, "hash1"],
-    ["Hashrate+ I", [500, 1], 150, "hash2"],
-    ["Hashrate+ II", [735, 1], 175, "hash2"],
-    ["Hashrate+ III", [1100, 1], 200, "hash2"],
-    ["HashrateX", [2000, 1], 375, "hash3"]
+    ["Base Hashrate",null, [], 100, "hash0"],
+    ["Extra Hashrate I",null, [50, 1], 80, "hash0"],
+    ["Extra Hashrate II",null, [110, 1], 90, "hash0"],
+    ["Extra Hashrate III",null, [165, 1], 100, "hash1"],
+    ["Extra Hashrate IV",null, [225, 1], 110, "hash1"],
+    ["Extra Hashrate V",null, [300, 1], 120, "hash1"],
+    ["Hashrate+ I",null, [500, 1], 150, "hash2"],
+    ["Hashrate+ II",null, [735, 1], 175, "hash2"],
+    ["Hashrate+ III",null, [1100, 1], 200, "hash2"],
+    ["HashrateX",null, [2000, 1], 375, "hash3"]
   ],
   "npu1": [
     ["No Supply", "No supply means no power and no power means no optimal numbers. So no block winning for you!", [], 0, "npu10"],
@@ -63,6 +63,6 @@
     ["Hyper Power", "Why waste your luck when the reward is little? With <u><b><i>this one</i></b></u>, you can rest assure none of your luck will be wasted!", [1, 0], 15, "npu22"]
   ],
   "hashp": [
-    [null, [5, 2], 100, null]
+    [null,null, [5, 2], 100, null]
   ]
 }
