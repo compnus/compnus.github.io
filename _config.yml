@@ -1,2 +1,3 @@
 include:
-  - supabase/functions/_shared/levels.json
+  - supabase/functions/_shared
+  - _shared 
