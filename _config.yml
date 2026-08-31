@@ -1,0 +1,2 @@
+include:
+  - supabase/functions/_shared  
