@@ -1,6 +1,7 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
+import { PERKS } from "../_shared/levels.ts";
 
 Deno.serve(async (req) => {
     const sb = createClient(
@@ -64,7 +65,7 @@ Deno.serve(async (req) => {
         });
     }
     const { data: uname, error: unoerr } = await sb.from("users").select("username").eq("id", uid).single();
-    const { data: nData, error: nError } = await sb.from("udata").select("balance_nus, balance_noca, balance_sats, mining_upg, hashrate, last_claimed").eq("user_id", uid).single();
+    const { data: nData, error: nError } = await sb.from("udata").select("balance_nus, balance_noca, balance_sats, mining_upg, hashrate, last_claimed, level").eq("user_id", uid).single();
     if (!nData || !uname || nError || unoerr) {
         return new Response(JSON.stringify({ response: "Unknown error.", code: 10 }), {
             status: 501,
@@ -74,6 +75,7 @@ Deno.serve(async (req) => {
 
     var detail = {cost: [], val: 0};
     var shammy: boolean = false;
+    var LEVELS = await fetch("../../supabase/functions/_shared/levels.json").then(response => response.json());
 
     switch (item) {
         case "cooling":
@@ -81,12 +83,12 @@ Deno.serve(async (req) => {
                 case 0: detail.cost = [100, "noca"]; break;
                 case 1: detail.cost = [225, "noca"]; break;
                 case 2: detail.cost = [375, "noca"]; break;
-                case 3: detail.cost = [600, "noca"]; break;
-                case 4: detail.cost = [850, "noca"]; break;
-                case 5: detail.cost = [1100, "noca"]; break;
-                case 6: detail.cost = [1800, "noca"]; break;
-                case 7: detail.cost = [3750, "noca"]; break;
-                case 8: detail.cost = [7000, "noca"]; break;
+                case 3: detail.cost = [550, "noca"]; break;
+                case 4: detail.cost = [750, "noca"]; break;
+                case 5: detail.cost = [1000, "noca"]; break;
+                case 6: detail.cost = [1400, "noca"]; break;
+                case 7: detail.cost = [2000, "noca"]; break;
+                case 8: detail.cost = [3000, "noca"]; break;
                 default: shammy = true;
             }
             break;
@@ -134,8 +136,15 @@ Deno.serve(async (req) => {
             break;
         case "npu2":
             /*switch (Math.floor((nData.mining_upg % 100000) / 10000)) {
-                case 0: detail.cost = [0.4, "nus"]; break;
-                case 1: detail.cost = [1, "nus"]; break;
+                case 0: detail.cost = [0.1, "nus"]; break;
+                case 1: detail.cost = [0.15, "nus"]; break;
+                case 2: detail.cost = [0.2, "nus"]; break;
+                case 3: detail.cost = [0.3, "nus"]; break;
+                case 4: detail.cost = [0.375, "nus"]; break;
+                case 5: detail.cost = [0.45, "nus"]; break;
+                case 6: detail.cost = [0.55, "nus"]; break;
+                case 7: detail.cost = [0.7, "nus"]; break;
+                case 8: detail.cost = [1, "nus"]; break;
                 default: shammy = true;
             }*/ shammy = true;
             break;
@@ -179,17 +188,18 @@ Deno.serve(async (req) => {
         var diff: number = (now - lastclaim) / 1000;
         var maxtime: number;
         switch (Math.floor((nData.mining_upg % 100) / 10)) {
-            case 0: maxtime = 48 * 60 * 60; break;
-            case 1: maxtime = 60 * 60 * 60; break;
-            case 2: maxtime = 72 * 60 * 60; break;
-            case 3: maxtime = 84 * 60 * 60; break;
-            case 4: maxtime = 96 * 60 * 60; break;
-            case 5: maxtime = 108 * 60 * 60; break;
-            case 6: maxtime = 120 * 60 * 60; break;
-            case 7: maxtime = 132 * 60 * 60; break;
-            case 8: maxtime = 144 * 60 * 60; break;
-            case 9: maxtime = 168 * 60 * 60; break;
+            case 0: maxtime = 36 * 60 * 60; break;
+            case 1: maxtime = 42 * 60 * 60; break;
+            case 2: maxtime = 48 * 60 * 60; break;
+            case 3: maxtime = 56 * 60 * 60; break;
+            case 4: maxtime = 64 * 60 * 60; break;
+            case 5: maxtime = 72 * 60 * 60; break;
+            case 6: maxtime = 84 * 60 * 60; break;
+            case 7: maxtime = 96 * 60 * 60; break;
+            case 8: maxtime = 108 * 60 * 60; break;
+            case 9: maxtime = 120 * 60 * 60; break;
         }
+        maxtime += 60 * 60 * LEVELS.perks[nData.level][2];
         const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
         const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
         if (dte || dre || !dt || !dr) {

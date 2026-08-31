@@ -109,6 +109,9 @@ Deno.serve(async (req) => {
                 "12-25": { sat: 5, noca: 25 },
                 "12-26": { div: 3, noca: 26 }
             };
+            const REWARDS_B = {
+                100: {}
+            };
             mdata.daily_streak++;
             const date = mdata.daily_last.substring(5);
             const { data: cdata, error: cerror } = await sb.from('udata').select('balance_nus, balance_noca, balance_sats, hashrate, dividends').eq('user_id', uid).single();
@@ -141,6 +144,7 @@ Deno.serve(async (req) => {
                 rewards.hash += rs.hash || 0;
                 rewards.div += rs.div || 0;
             }
+            var LEVELS = await fetch("../../supabase/functions/_shared/levels.json").then(response => response.json());
             if (rewards.hash > 0) { //collect mining
                 const { data: nData, error: nerrr } = await sb.from('udata').select('last_claimed, mining_upg').eq('user_id', uid).single();
                 if (!nData || nerrr) {
@@ -156,17 +160,18 @@ Deno.serve(async (req) => {
                 var diff: number = (now - lastclaim) / 1000;
                 var maxtime: number;
                 switch (Math.floor((nData.mining_upg % 100) / 10)) {
-                    case 0: maxtime = 48 * 60 * 60; break;
-                    case 1: maxtime = 60 * 60 * 60; break;
-                    case 2: maxtime = 72 * 60 * 60; break;
-                    case 3: maxtime = 84 * 60 * 60; break;
-                    case 4: maxtime = 96 * 60 * 60; break;
-                    case 5: maxtime = 108 * 60 * 60; break;
-                    case 6: maxtime = 120 * 60 * 60; break;
-                    case 7: maxtime = 132 * 60 * 60; break;
-                    case 8: maxtime = 144 * 60 * 60; break;
-                    case 9: maxtime = 168 * 60 * 60; break;
+                    case 0: maxtime = 36 * 60 * 60; break;
+                    case 1: maxtime = 42 * 60 * 60; break;
+                    case 2: maxtime = 48 * 60 * 60; break;
+                    case 3: maxtime = 56 * 60 * 60; break;
+                    case 4: maxtime = 64 * 60 * 60; break;
+                    case 5: maxtime = 72 * 60 * 60; break;
+                    case 6: maxtime = 84 * 60 * 60; break;
+                    case 7: maxtime = 96 * 60 * 60; break;
+                    case 8: maxtime = 108 * 60 * 60; break;
+                    case 9: maxtime = 120 * 60 * 60; break;
                 }
+                maxtime += 60 * 60 * LEVELS.perks[nData.level][2];
                 const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
                 const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
                 if (dte || dre || !dt || !dr) {

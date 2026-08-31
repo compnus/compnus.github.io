@@ -6,14 +6,18 @@ var mobileopen = false;
 var interval = null;
 var cache = {};
 var compacting = 0;
+var LEVELS = null;
+
 
 async function main() {
     const { user, data } = await getUser();
-    if (!user) window.location.href = "/u/login.html";
+    //if (!user) window.location.href = "/u/login.html";
     uid = data.id;
 
     compacting = localStorage.getItem("m_compacting") === "1" ? 1 : 0;
 
+    LEVELS = await fetch("../../supabase/functions/_shared/levels.json").then(response => response.json());
+    if (!LEVELS) console.log("panic");
     await initialize_serverdata();
 
     interval = setInterval(calculateProfit, 1000);
@@ -27,7 +31,7 @@ async function initialize_serverdata() {
 
     const { data: serverdatac, error: userExistsErrorn } = await sb
         .from("udata")
-        .select("hashrate, last_claimed, mining_upg")
+        .select("hashrate, last_claimed, mining_upg, level")
         .eq("user_id", uid)
         .single();
     if (!serverdatac || userExistsErrorn) console.log("Server error.");
@@ -271,6 +275,7 @@ function calculateProfit() {
         case 8: maxtime = 144 *60*60; break;
         case 9: maxtime = 168*60*60; break;
     }
+    maxtime += LEVELS.perks[serverdata.level][2]*60*60;
 
     document.getElementById("mstat_max").innerHTML = formatTime(maxtime - diff,false).join(" ");
     button.innerHTML = diff < mintime ? formatTime(mintime - diff, true) : "COLLECT";
@@ -337,16 +342,16 @@ const levelstat = {
         {"name":"Liquid Nitrogen", "desc": "Finally, the absolute <i>chill</i>.", "cost": [3000,1], "val": 6, "img": "cooling9.png"}
     ],
     memory: [
-        {"name": "Uni Chip", "desc": "It's a miracle it can even hold two days of data to be honest.", "cost": [], "val": 48, "img": "memory0.png"},
-        {"name": "Rewired Uni Chip", "desc": "Slightly better, but still running on hopes and dreams.", "cost": [250,1], "val": 60, "img": "memory1.png"},
-        {"name": "Tri Chip", "desc": "With more wires to store data, and also efficient to use less electricity!", "cost": [480,1], "val": 72, "img": "memory2.png"},
-        {"name": "Hexa Chip", "desc": "More connectors means higher efficiency!", "cost": [760,1], "val": 84, "img": "memory3.png"},
-        {"name": "Chipless DD Core", "desc": "Now we are talking! Even more connectors and a core for performance!", "cost": [1350,1], "val": 96, "img": "memory4.png"},
-        {"name": "NUS DD Core", "desc": "With this premium chip, the efficiency is skyrocketing! But you can push it further!", "cost": [2100,1], "val": 108, "img": "memory5.png"},
-        {"name": "VQD Core", "desc": "Outside-going chips waste power. With this integrated chip core, you reach the pinnacle of efficiency!", "cost": [4350,1], "val": 120, "img": "memory6.png"},
-        {"name": "Rewired VQD Core", "desc": "Rewired with better performance algorithms!", "cost": [7500,1], "val": 132, "img": "memory7.png"},
-        {"name": "Multi-Core", "desc": "Why bother with a single core when you can have all of them?", "cost": [12000,1], "val": 144, "img": "memory8.png"},
-        {"name": "Glided Multi-Core", "desc": "Now that all cores are connected, you have reached the <b>absolute</b>!", "cost": [20000,1], "val": 168, "img": "memory9.png"}
+        {"name": "Uni Chip", "desc": "It's a miracle it can even hold more than one day of data to be honest.", "cost": [], "val": 36, "img": "memory0.png"},
+        {"name": "Rewired Uni Chip", "desc": "Slightly better, but still running on hopes and dreams.", "cost": [250,1], "val": 42, "img": "memory1.png"},
+        {"name": "Tri Chip", "desc": "With more wires to store data, and also efficient to use less electricity!", "cost": [480,1], "val": 48, "img": "memory2.png"},
+        {"name": "Hexa Chip", "desc": "More connectors means higher efficiency!", "cost": [760,1], "val": 56, "img": "memory3.png"},
+        {"name": "Chipless DD Core", "desc": "Now we are talking! Even more connectors and a core for performance!", "cost": [1350,1], "val": 64, "img": "memory4.png"},
+        {"name": "NUS DD Core", "desc": "With this premium chip, the efficiency is skyrocketing! But you can push it further!", "cost": [2100,1], "val": 72, "img": "memory5.png"},
+        {"name": "VQD Core", "desc": "Outside-going chips waste power. With this integrated chip core, you reach the pinnacle of efficiency!", "cost": [4350,1], "val": 84, "img": "memory6.png"},
+        {"name": "Rewired VQD Core", "desc": "Rewired with better performance algorithms!", "cost": [7500,1], "val": 96, "img": "memory7.png"},
+        {"name": "Multi-Core", "desc": "Why bother with a single core when you can have all of them?", "cost": [12000,1], "val": 108, "img": "memory8.png"},
+        {"name": "Glided Multi-Core", "desc": "Now that all cores are connected, you have reached the <b>absolute</b>!", "cost": [20000,1], "val": 120, "img": "memory9.png"}
     ],
     hashrate: [
         { "name": "Base Hashrate", "cost": [], "val": 100, "img": "hash0.png" },
@@ -410,7 +415,7 @@ function openUpgrades() {
         <div><h1>Memory</h1><h2 onclick="popup('Memory', 'Better memory allows your mining machine to hold more tokens! Upgrade memory to increase mining uptime.',true,true)">?</h2></div>
         <img id="memoryi" src="/site/image/assets/mining/memory0.png">
         <h1 id="memoryn">Uni Chip</h1>
-        <h2>Mining Uptime: <span id="memoryv">48</span> hours</h2>
+        <h2>Mining Uptime: <span id="memoryv">36</span> hours</h2>
         <p id="memoryd">Loading...</p>
         <button id="memoryb" class="disabled" onclick="upgrade('memory', ${thispop})">Upgrade</button>
     </div>
@@ -426,7 +431,7 @@ function openUpgrades() {
         <div><h1>NPU Power</h1><h2 onclick="popup('NPU Power', 'Number Processing Unit power increases the accuracy of the generated numbers, making winning blocks more rewarding! Upgrade NPU power to increase the amount of tokens you win from a block.',true,true)">?</h2></div>
         <img id="npu2i" src="/site/image/assets/mining/npu20.png">
         <h1 id="npu2n">Base Power</h1>
-        <h2>Block Win Bonus: <span id="npu2v">10</span>%</h2>
+        <h2>Block Win Bonus: <span id="npu2v">5</span>%</h2>
         <p id="npu2d">Loading...</p>
         <button id="npu2b" class="disabled" onclick="upgrade('npu2', ${thispop})">Coming Soon</button>
     </div>

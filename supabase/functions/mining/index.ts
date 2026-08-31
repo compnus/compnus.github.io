@@ -1,6 +1,7 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
+import { PERKS } from "../_shared/levels.ts";
 
 Deno.serve(async (req) => {
     const sb = createClient(
@@ -73,6 +74,7 @@ Deno.serve(async (req) => {
                 });
             }
         } else {
+            var LEVELS = await fetch("../../supabase/functions/_shared/levels.json").then(response => response.json());
             // remember that you must add npu logic to upgradeMining and collectDailyReward
             var now = new Date().getTime();
             var lastclaim = new Date(mdata.last_claimed).getTime();
@@ -93,17 +95,18 @@ Deno.serve(async (req) => {
             }
             switch (Math.floor((mdata.mining_upg % 100)
                                                / 10)) {
-                case 0: maxtime = 48 * 60 * 60;  break;
-                case 1: maxtime = 60 * 60 * 60;  break;
-                case 2: maxtime = 72 * 60 * 60;  break;
-                case 3: maxtime = 84 * 60 * 60;  break;
-                case 4: maxtime = 96 * 60 * 60;  break;
-                case 5: maxtime = 108 * 60 * 60; break;
-                case 6: maxtime = 120 * 60 * 60; break;
-                case 7: maxtime = 132 * 60 * 60; break;
-                case 8: maxtime = 144 * 60 * 60; break;
-                case 9: maxtime = 168 * 60 * 60; break;
+                case 0: maxtime = 36 * 60 * 60;  break;
+                case 1: maxtime = 42 * 60 * 60;  break;
+                case 2: maxtime = 48 * 60 * 60;  break;
+                case 3: maxtime = 56 * 60 * 60;  break;
+                case 4: maxtime = 64 * 60 * 60;  break;
+                case 5: maxtime = 72 * 60 * 60;  break;
+                case 6: maxtime = 84 * 60 * 60;  break;
+                case 7: maxtime = 96 * 60 * 60;  break;
+                case 8: maxtime = 108 * 60 * 60; break;
+                case 9: maxtime = 120 * 60 * 60; break;
             }
+            maxtime += 60 * 60 * LEVELS.preks[mdata.level][2];
             if (diff < mintime) {
                 return new Response(JSON.stringify({ response: "You cannot start mining yet! Please wait until the cooldown period has passed. (Check the timer!)", code: 1 }), {
                     status: 200,
