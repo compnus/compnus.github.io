@@ -1,6 +1,9 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
+import LEVELS from "../_shared/levels.json";
+import UPGRADES from "../_shared/upgrades.json";
+
 
 Deno.serve(async (req) => {
     const sb = createClient(
@@ -145,8 +148,6 @@ Deno.serve(async (req) => {
                 rewards.div += rs.div || 0;
             }
             if (rewards.hash > 0) { //collect mining
-                var LEVELS = await fetch("../../supabase/functions/_shared/levels.json").then(response => response.json());
-                var UPGRADES = await fetch("../../supabase/functions/_shared/upgrades.json").then(response => response.json());
                 const { data: nData, error: nerrr } = await sb.from('udata').select('last_claimed, mining_upg').eq('user_id', uid).single();
                 if (!nData || nerrr) {
                     return new Response(JSON.stringify({ response: 'Error fetching user data', code: 10 }), {

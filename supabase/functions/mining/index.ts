@@ -1,6 +1,8 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
+import LEVELS from "../_shared/levels.json";
+import UPGRADES from "../_shared/upgrades.json";
 
 Deno.serve(async (req) => {
     const sb = createClient(
@@ -73,8 +75,6 @@ Deno.serve(async (req) => {
                 });
             }
         } else {
-            var LEVELS = await fetch("../../supabase/functions/_shared/levels.json").then(response => response.json());
-            var UPGRADES = await fetch("../../supabase/functions/_shared/upgrades.json").then(response => response.json());
             // remember that you must add npu logic to upgradeMining and collectDailyReward
             var now = new Date().getTime();
             var lastclaim = new Date(mdata.last_claimed).getTime();
