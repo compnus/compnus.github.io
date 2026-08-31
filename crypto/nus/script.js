@@ -7,7 +7,7 @@ var interval = null;
 var cache = {};
 var compacting = 0;
 var LEVELS = null;
-
+var UPGRADES = null;
 
 async function main() {
     const { user, data } = await getUser();
@@ -35,7 +35,10 @@ async function initialize_serverdata() {
         .eq("user_id", uid)
         .single();
     if (!serverdatac || userExistsErrorn) console.log("Server error.");
-    else document.getElementById("upgradebt").classList.remove("disabled");
+    else {
+        UPGRADES = await fetch("../../supabase/functions/_shared/upgrades.json").then(response => response.json());
+        document.getElementById("upgradebt").classList.remove("disabled");
+    }
     serverdata = serverdatac;
 
     document.getElementById("mstat_hashrate").innerHTML = formatNumber(serverdata.hashrate).join(" ") + "H/s";
@@ -48,38 +51,7 @@ async function initialize_serverdata() {
     document.getElementById("blockrewarddspl").innerHTML = _npb;
     document.getElementById("blockhashrdspl").innerHTML = _hpb + "H (" + formatNumber(_hpb).join(" ") + "H)";
     document.getElementById("calcresultdspl").innerHTML = document.getElementById("mstat_daily").innerHTML = ((serverdata.hashrate * 86400 * cache.npb) / cache.hpb).toFixed(4);
-    switch (serverdata.mining_upg % 10) {
-        case 0:
-            document.getElementById("mstat_cool").innerHTML = "24 hours";
-            break;
-        case 1:
-            document.getElementById("mstat_cool").innerHTML = "22 hours";
-            break;
-        case 2:
-            document.getElementById("mstat_cool").innerHTML = "20 hours";
-            break;
-        case 3:
-            document.getElementById("mstat_cool").innerHTML = "18 hours";
-            break;
-        case 4:
-            document.getElementById("mstat_cool").innerHTML = "16 hours";
-            break;
-        case 5:
-            document.getElementById("mstat_cool").innerHTML = "14 hours";
-            break;
-        case 6:
-            document.getElementById("mstat_cool").innerHTML = "12 hours";
-            break;
-        case 7:
-            document.getElementById("mstat_cool").innerHTML = "10 hours";
-            break;
-        case 8:
-            document.getElementById("mstat_cool").innerHTML = "8 hours";
-            break;
-        case 9:
-            document.getElementById("mstat_cool").innerHTML = "6 hours";
-            break;
-    }
+    document.getElementById("mstat_cool").innerHTML = UPGRADES.cooling[serverdata.mining_upg % 10][3] + " hours";
 }
 
 function collapseSide(which) {
@@ -519,21 +491,21 @@ function openUpgrades() {
     else el.npu1.button.classList.remove("disabled");*/
     /*if (lv.npu2 === 2) el.npu2.button.innerHTML = "MAX"
     else el.npu2.button.classList.remove("disabled");*/
-    el.cooling.img.src = "/site/image/assets/mining/"+rig.cooling.img;
+    el.cooling.img.src = "/site/image/assets/mining/"+rig.cooling.img+".png";
     el.cooling.name.innerHTML = rig.cooling.name;
     el.cooling.value.innerHTML = rig.cooling.val;
     el.cooling.desc.innerHTML = rig.cooling.desc;
-    el.memory.img.src = "/site/image/assets/mining/"+rig.memory.img;
+    el.memory.img.src = "/site/image/assets/mining/"+rig.memory.img+".png";
     el.memory.name.innerHTML = rig.memory.name;
     el.memory.value.innerHTML = rig.memory.val;
     el.memory.desc.innerHTML = rig.memory.desc;
-    el.hashrate.img.src = "/site/image/assets/mining/"+rig.hashrate.img;
+    el.hashrate.img.src = "/site/image/assets/mining/"+rig.hashrate.img+".png";
     el.hashrate.name.innerHTML = rig.hashrate.name;
-    el.npu1.img.src = "/site/image/assets/mining/"+rig.npu1.img;
+    el.npu1.img.src = "/site/image/assets/mining/"+rig.npu1.img+".png";
     el.npu1.name.innerHTML = rig.npu1.name;
     el.npu1.value.innerHTML = rig.npu1.val;
     el.npu1.desc.innerHTML = rig.npu1.desc;
-    el.npu2.img.src = "/site/image/assets/mining/"+rig.npu2.img;
+    el.npu2.img.src = "/site/image/assets/mining/"+rig.npu2.img+".png";
     el.npu2.name.innerHTML = rig.npu2.name;
     el.npu2.value.innerHTML = rig.npu2.val;
     el.npu2.desc.innerHTML = rig.npu2.desc;

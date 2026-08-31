@@ -1,0 +1,68 @@
+{
+  "currency.nfo":  [[0,"nus"],[1,"noca"],[2,"sat"]],
+  "nonhash.nfo": [[0,"name"],[1,"desc"],[2,"cost","[amount,currency]"],[3,"value"],[4,"image"]],
+  "hash.nfo": [[0,"name"],[1,"cost","[amount,currency]"],[2,"value"],[3,"image"]],
+  "cooling": [
+    ["No Cooling", "No cooling is provided. Relies on natural heat dissipation. Extremely inefficient.", [], 24, "cooling0"],
+    ["Single Fan", "Good luck cooling a mining setup with a single fan! Better than nothing, though.", [100,1], 22, "cooling1"],
+    ["Embedded Fan", "Better than a lone fan, but still lone. And very much a fan.", [225, 1], 20, "cooling2"],
+    ["Dual Fan", "Oh look! It now has a friend! And friendship is power!", [375, 1], 18, "cooling3"],
+    ["Glided Dual Fan", "With cold metal glided blades, the cooling effect is enhanced!", [550, 1], 16, "cooling4"],
+    ["Small Fan Array", "In unity there is power! What two couldn't do, four will do with ease!", [750, 1], 14, "cooling5"],
+    ["Huge Fan Array", "There it is. The absolute masterpiece when it comes to air cooling. I wonder what comes next?", [1000, 1], 12, "cooling6"],
+    ["Water Line", "When air is insufficient, water cooling takes over! But is there more?", [1400, 1], 10, "cooling7"],
+    ["Dual Water Line", "Double the power with ease! Fresh water will take care of the rest!", [2000, 1], 8, "cooling8"],
+    ["Liquid Nitrogen", "Finally, the absolute <i>chill</i>.", [3000, 1], 6, "cooling9"]
+  ],
+  "memory": [
+    ["Uni Chip", "It's a miracle it can even hold more than one day of data to be honest.", [], 36, "memory0"],
+    ["Rewired Uni Chip", "Slightly better, but still running on hopes and dreams.", [250, 1], 42, "memory1"],
+    ["Tri Chip", "With more wires to store data, and also efficient to use less electricity!", [480, 1], 48, "memory2"],
+    ["Hexa Chip", "More connectors means higher efficiency!", [760, 1], 56, "memory3"],
+    ["Chipless DD Core", "Now we are talking! Even more connectors and a core for performance!", [1350, 1], 64, "memory4"],
+    ["NUS DD Core", "With this premium chip, the efficiency is skyrocketing! But you can push it further!", [2100, 1], 72, "memory5"],
+    ["VQD Core", "Outside-going chips waste power. With this integrated chip core, you reach the pinnacle of efficiency!", [4350, 1], 84, "memory6"],
+    ["Rewired VQD Core", "Rewired with better performance algorithms!", [7500, 1], 96, "memory7"],
+    ["Multi-Core", "Why bother with a single core when you can have all of them?", [12000, 1], 108, "memory8"],
+    ["Glided Multi-Core", "Now that all cores are connected, you have reached the <b>absolute</b>!", [20000, 1], 120, "memory9"]
+  ],
+  "hashrate": [
+    ["Base Hashrate", [], 100, "hash0"],
+    ["Extra Hashrate I", [50, 1], 80, "hash0"],
+    ["Extra Hashrate II", [110, 1], 90, "hash0"],
+    ["Extra Hashrate III", [165, 1], 100, "hash1"],
+    ["Extra Hashrate IV", [225, 1], 110, "hash1"],
+    ["Extra Hashrate V", [300, 1], 120, "hash1"],
+    ["Hashrate+ I", [500, 1], 150, "hash2"],
+    ["Hashrate+ II", [735, 1], 175, "hash2"],
+    ["Hashrate+ III", [1100, 1], 200, "hash2"],
+    ["HashrateX", [2000, 1], 375, "hash3"]
+  ],
+  "npu1": [
+    ["No Supply", "No supply means no power and no power means no optimal numbers. So no block winning for you!", [], 0, "npu10"],
+    ["XS Supply", "Miniature supply that does the job! Not well, but does it. It uhhh does the job.", [250, 1], 1, "npu11"],
+    ["S Supply", "Slightly bigger supply that allows for twice the power! Still very weak, though.", [350, 1], 2, "npu12"],
+    ["M Supply", "We are reaching the basis of power, finally! More than thrice the power than the little one!", [480, 1], 3.1, "npu13"],
+    ["L Supply", "Now this one is doing the job! And you could also say it's doing it well!", [800, 1], 4.2, "npu14"],
+    ["XL Supply", "Did you say well? Well, this one does it really well! Well! Uhhhh i forgot where my well is.", [1200, 1], 5.32, "npu15"],
+    ["XXL Supply", "When 'really well' is insufficient, very well is the way to go! Extra very well, actually!", [1750, 1], 6.45, "npu16"],
+    ["Dual Supply", "With a backup, you can guarantee it will not stop running! Lucky numbers, here we go!", [2450, 1], 7.6, "npu17"],
+    ["Mega Supply", "Integrated backup means less travel time and therefore more efficient number generation!", [3300, 1], 8.75, "npu18"],
+    ["Reactor", "Why ask for power when you can make your own? <u>No one beats this one!</u>", [5000, 1], 10, "npu19"]
+  ],
+  "npu2": [
+    ["Base Power", "Look, it's 5% extra. That's better than nothing, isn't it?", [], 5, "npu20"],
+    ["Base Power +", "Baby steps. Every extra buck helps!", [0.1, 0], 5.2, "npu20"],
+    ["Base Power ++", "Yessss it's all slowly coming together!", [0.15, 0], 5.5, "npu20"],
+    ["Base Power +++", "See? A whole percentual point up! I wonder what's next?", [0.2, 0], 6, "npu20"],
+    ["Extra Power I", "I'm sure this one will pay for itself in the long run!", [0.3, 0], 7.5, "npu21"],
+    ["Extra Power II", "The longer the run, the greater the outcome!", [0.375, 0], 8, "npu21"],
+    ["Extra Power III", "Actually, if the run is infinite, the reward is also infinite! Think about it!", [0.45, 0], 8.6, "npu21"],
+    ["Extra Power IV", "However everything is finite and everything ends one day. I wonder when?", [0.55, 0], 9.3, "npu21"],
+    ["Extra Power V", "Oh yea sorry about that. Look! 10% more? That's a delight!", [0.7, 0], 10, "npu21"],
+    ["Hyper Power", "Why waste your luck when the reward is little? With <u><b><i>this one</i></b></u>, you can rest assure none of your luck will be wasted!", [1, 0], 15, "npu22"]
+  ],
+  "hashp": [
+    [null, [5, 2], 100, null]
+  ]
+}
