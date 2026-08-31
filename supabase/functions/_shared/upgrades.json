@@ -1,5 +1,5 @@
 {
-  "prop.nfo": ["-(max:1)","-","-","-","-","npu2","npu1","hashrate","memory","cooling"]
+  "prop.nfo": ["-(max:1)","-","-","-","-","npu2","npu1","hashrate","memory","cooling"],
   "currency.nfo":  [[0,"nus"],[1,"noca"],[2,"sat"]],
   "nonhash.nfo": [[0,"name"],[1,"desc"],[2,"cost","[amount,currency]"],[3,"value"],[4,"image"]],
   "hash.nfo": [[0,"name"],[1,null],[2,"cost","[amount,currency]"],[3,"value"],[4,"image"]],
