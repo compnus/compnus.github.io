@@ -1,2 +1,2 @@
 include:
-  - supabase/functions/_shared  
+  - "supabase/functions/_shared/"
