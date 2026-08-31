@@ -75,86 +75,37 @@ Deno.serve(async (req) => {
     var detail = {cost: [], val: 0};
     var shammy: boolean = false;
     var LEVELS = await fetch("../../supabase/functions/_shared/levels.json").then(response => response.json());
-
+    var UPGRADES = await fetch("../../supabase/functions/_shared/upgrades.json").then(response => response.json());
+    var levelraw: number = -2;
     switch (item) {
         case "cooling":
-            switch (nData.mining_upg % 10) {
-                case 0: detail.cost = [100, "noca"]; break;
-                case 1: detail.cost = [225, "noca"]; break;
-                case 2: detail.cost = [375, "noca"]; break;
-                case 3: detail.cost = [550, "noca"]; break;
-                case 4: detail.cost = [750, "noca"]; break;
-                case 5: detail.cost = [1000, "noca"]; break;
-                case 6: detail.cost = [1400, "noca"]; break;
-                case 7: detail.cost = [2000, "noca"]; break;
-                case 8: detail.cost = [3000, "noca"]; break;
-                default: shammy = true;
-            }
+            levelraw = nData.mining_upg % 10;
             break;
         case "memory":
-            switch (Math.floor((nData.mining_upg % 100) / 10)) {
-                case 0: detail.cost = [250, "noca"]; break;
-                case 1: detail.cost = [480, "noca"]; break;
-                case 2: detail.cost = [760, "noca"]; break;
-                case 3: detail.cost = [1350, "noca"]; break;
-                case 4: detail.cost = [2100, "noca"]; break;
-                case 5: detail.cost = [4350, "noca"]; break;
-                case 6: detail.cost = [7500, "noca"]; break;
-                case 7: detail.cost = [12000, "noca"]; break;
-                case 8: detail.cost = [20000, "noca"]; break;
-                default: shammy = true;
-            }
+            levelraw = Math.floor((nData.mining_upg % 100) / 10);
             break;
         case "hashrate":
-            switch (Math.floor((nData.mining_upg % 1000) / 100)) {
-                case 0: detail = { "cost": [50, "noca"], "val": 80 }; break;
-                case 1: detail = { "cost": [110, "noca"], "val": 90 }; break;
-                case 2: detail = { "cost": [165, "noca"], "val": 100 }; break;
-                case 3: detail = { "cost": [225, "noca"], "val": 110 }; break;
-                case 4: detail = { "cost": [300, "noca"], "val": 120 }; break;
-                case 5: detail = { "cost": [500, "noca"], "val": 150 }; break;
-                case 6: detail = { "cost": [735, "noca"], "val": 175 }; break;
-                case 7: detail = { "cost": [1100, "noca"], "val": 200 }; break;
-                case 8: detail = { "cost": [2000, "noca"], "val": 375 }; break;
-                default: shammy = true;
-            }
+            levelraw = Math.floor((nData.mining_upg % 1000) / 100);
             break;
+        /*
         case "npu1":
-            /*switch (Math.floor((nData.mining_upg % 10000) / 1000)) {
-                case 0: detail.cost = [250, "noca"]; break;
-                case 1: detail.cost = [350, "noca"]; break;
-                case 2: detail.cost = [480, "noca"]; break;
-                case 3: detail.cost = [800, "noca"]; break;
-                case 4: detail.cost = [1200, "noca"]; break;
-                case 5: detail.cost = [1750, "noca"]; break;
-                case 6: detail.cost = [2450, "noca"]; break;
-                case 7: detail.cost = [3300, "noca"]; break;
-                case 8: detail.cost = [5000, "noca"]; break;
-                default: shammy = true;
-            }*/ shammy = true;
+            levelraw = Math.floor((nData.mining_upg % 10000) / 1000);
             break;
         case "npu2":
-            /*switch (Math.floor((nData.mining_upg % 100000) / 10000)) {
-                case 0: detail.cost = [0.1, "nus"]; break;
-                case 1: detail.cost = [0.15, "nus"]; break;
-                case 2: detail.cost = [0.2, "nus"]; break;
-                case 3: detail.cost = [0.3, "nus"]; break;
-                case 4: detail.cost = [0.375, "nus"]; break;
-                case 5: detail.cost = [0.45, "nus"]; break;
-                case 6: detail.cost = [0.55, "nus"]; break;
-                case 7: detail.cost = [0.7, "nus"]; break;
-                case 8: detail.cost = [1, "nus"]; break;
-                default: shammy = true;
-            }*/ shammy = true;
+            levelraw = Math.floor((nData.mining_upg % 100000) / 10000);
             break;
+        */
         case "hashp":
-            detail = { "cost": [5, "sat"], "val": 100 };
+            levelraw = -1;
             break;
-        default:
-            shammy = true;
+        default: shammy = true;
     }
 
-    if (shammy) {
+    detail.cost = UPGRADES[item][levelraw + 1][2];
+    detail.val = UPGRADES[item][levelraw + 1][3];
+    detail.cost[1] = UPGRADES["currency.nfo"][detail.cost[1]][1];
+
+    if (shammy || levelraw === -1) {
         return new Response(JSON.stringify({ response: "Item is already at max level.", code: 10 }), {
             status: 500,
             headers: {
@@ -185,20 +136,7 @@ Deno.serve(async (req) => {
         var now = new Date().getTime();
         var lastclaim = new Date(nData.last_claimed).getTime();
         var diff: number = (now - lastclaim) / 1000;
-        var maxtime: number;
-        switch (Math.floor((nData.mining_upg % 100) / 10)) {
-            case 0: maxtime = 36 * 60 * 60; break;
-            case 1: maxtime = 42 * 60 * 60; break;
-            case 2: maxtime = 48 * 60 * 60; break;
-            case 3: maxtime = 56 * 60 * 60; break;
-            case 4: maxtime = 64 * 60 * 60; break;
-            case 5: maxtime = 72 * 60 * 60; break;
-            case 6: maxtime = 84 * 60 * 60; break;
-            case 7: maxtime = 96 * 60 * 60; break;
-            case 8: maxtime = 108 * 60 * 60; break;
-            case 9: maxtime = 120 * 60 * 60; break;
-        }
-        maxtime += 60 * 60 * LEVELS.perks[nData.level][2];
+        var maxtime: number = (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[nData.level][2]) *60*60;
         const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
         const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
         if (dte || dre || !dt || !dr) {

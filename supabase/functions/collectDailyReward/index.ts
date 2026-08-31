@@ -144,8 +144,9 @@ Deno.serve(async (req) => {
                 rewards.hash += rs.hash || 0;
                 rewards.div += rs.div || 0;
             }
-            var LEVELS = await fetch("../../supabase/functions/_shared/levels.json").then(response => response.json());
             if (rewards.hash > 0) { //collect mining
+                var LEVELS = await fetch("../../supabase/functions/_shared/levels.json").then(response => response.json());
+                var UPGRADES = await fetch("../../supabase/functions/_shared/upgrades.json").then(response => response.json());
                 const { data: nData, error: nerrr } = await sb.from('udata').select('last_claimed, mining_upg').eq('user_id', uid).single();
                 if (!nData || nerrr) {
                     return new Response(JSON.stringify({ response: 'Error fetching user data', code: 10 }), {
@@ -158,20 +159,7 @@ Deno.serve(async (req) => {
                 var now = new Date().getTime();
                 var lastclaim = new Date(nData.last_claimed).getTime();
                 var diff: number = (now - lastclaim) / 1000;
-                var maxtime: number;
-                switch (Math.floor((nData.mining_upg % 100) / 10)) {
-                    case 0: maxtime = 36 * 60 * 60; break;
-                    case 1: maxtime = 42 * 60 * 60; break;
-                    case 2: maxtime = 48 * 60 * 60; break;
-                    case 3: maxtime = 56 * 60 * 60; break;
-                    case 4: maxtime = 64 * 60 * 60; break;
-                    case 5: maxtime = 72 * 60 * 60; break;
-                    case 6: maxtime = 84 * 60 * 60; break;
-                    case 7: maxtime = 96 * 60 * 60; break;
-                    case 8: maxtime = 108 * 60 * 60; break;
-                    case 9: maxtime = 120 * 60 * 60; break;
-                }
-                maxtime += 60 * 60 * LEVELS.perks[nData.level][2];
+                var maxtime: number = (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[nData.level][2]) * 60 * 60;
                 const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
                 const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
                 if (dte || dre || !dt || !dr) {

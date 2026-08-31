@@ -74,38 +74,13 @@ Deno.serve(async (req) => {
             }
         } else {
             var LEVELS = await fetch("../../supabase/functions/_shared/levels.json").then(response => response.json());
+            var UPGRADES = await fetch("../../supabase/functions/_shared/upgrades.json").then(response => response.json());
             // remember that you must add npu logic to upgradeMining and collectDailyReward
             var now = new Date().getTime();
             var lastclaim = new Date(mdata.last_claimed).getTime();
             var diff: number = (now - lastclaim) / 1000;
-            var mintime: number;
-            var maxtime: number;
-            switch    (mdata.mining_upg    %    10)   {
-                case 0: mintime = 24 * 60 * 60;  break;
-                case 1: mintime = 22 * 60 * 60;  break;
-                case 2: mintime = 20 * 60 * 60;  break;
-                case 3: mintime = 18 * 60 * 60;  break;
-                case 4: mintime = 16 * 60 * 60;  break;
-                case 5: mintime = 14 * 60 * 60;  break;
-                case 6: mintime = 12 * 60 * 60;  break;
-                case 7: mintime = 10 * 60 * 60;  break;
-                case 8: mintime = 8 * 60 * 60;   break;
-                case 9: mintime = 6 * 60 * 60;   break;
-            }
-            switch (Math.floor((mdata.mining_upg % 100)
-                                               / 10)) {
-                case 0: maxtime = 36 * 60 * 60;  break;
-                case 1: maxtime = 42 * 60 * 60;  break;
-                case 2: maxtime = 48 * 60 * 60;  break;
-                case 3: maxtime = 56 * 60 * 60;  break;
-                case 4: maxtime = 64 * 60 * 60;  break;
-                case 5: maxtime = 72 * 60 * 60;  break;
-                case 6: maxtime = 84 * 60 * 60;  break;
-                case 7: maxtime = 96 * 60 * 60;  break;
-                case 8: maxtime = 108 * 60 * 60; break;
-                case 9: maxtime = 120 * 60 * 60; break;
-            }
-            maxtime += 60 * 60 * LEVELS.preks[mdata.level][2];
+            var mintime: number = UPGRADES.cooling[mdata.mining_upg % 10][3]*60*60;
+            var maxtime: number = (UPGRADES.memory[Math.floor((mdata.mining_upg % 100) / 10)][3] + LEVELS.perks[mdata.level][2]) * 60 * 60;
             if (diff < mintime) {
                 return new Response(JSON.stringify({ response: "You cannot start mining yet! Please wait until the cooldown period has passed. (Check the timer!)", code: 1 }), {
                     status: 200,
