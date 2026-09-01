@@ -44,7 +44,7 @@ Deno.serve(async (req) => {
 
     let uid: string = user.user.id;
 
-    const { data: mdata, error: merror } = await sb.from('udata').select('hashrate, last_claimed, mining_upg').eq('user_id', uid).single();
+    const { data: mdata, error: merror } = await sb.from('udata').select('hashrate, last_claimed, mining_upg, level').eq('user_id', uid).single();
     const { data: udata, error: uerror } = await sb.from('users').select('username').eq('id', uid).single();
     if (merror || uerror || !mdata || !udata) {
         return new Response(JSON.stringify({ response: 'Error fetching user data' }), {
@@ -79,7 +79,6 @@ Deno.serve(async (req) => {
             var now = new Date().getTime();
             var lastclaim = new Date(mdata.last_claimed).getTime();
             var diff: number = (now - lastclaim) / 1000;
-            console.log(mdata.level);
             var mintime: number = UPGRADES.cooling[mdata.mining_upg % 10][3]*60*60;
             var maxtime: number = (UPGRADES.memory[Math.floor((mdata.mining_upg % 100) / 10)][3] + LEVELS.perks[mdata.level][2]) * 60 * 60;
             if (diff < mintime) {

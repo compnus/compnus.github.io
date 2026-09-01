@@ -148,7 +148,7 @@ Deno.serve(async (req) => {
                 rewards.div += rs.div || 0;
             }
             if (rewards.hash > 0) { //collect mining
-                const { data: nData, error: nerrr } = await sb.from('udata').select('last_claimed, mining_upg').eq('user_id', uid).single();
+                const { data: nData, error: nerrr } = await sb.from('udata').select('last_claimed, mining_upg, level').eq('user_id', uid).single();
                 if (!nData || nerrr) {
                     return new Response(JSON.stringify({ response: 'Error fetching user data', code: 10 }), {
                         status: 500,
