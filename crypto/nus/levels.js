@@ -20,9 +20,9 @@ async function loadData() {
     serverdata = serverdatac;
     document.getElementById('balance_noca').innerHTML = serverdata.balance_noca;
     var maxxp;
-    try { maxxp = LEVELS[serverdata.level + 1][0] }
+    try { maxxp = LEVELS.perks[serverdata.level + 1][0] }
     catch (e) { maxxp = -1 }
-    document.getElementById('exp_current').innerHTML = Math.min(serverdata.exp,maxxp===-1?"Max Level":maxxxp);
+    document.getElementById('exp_current').innerHTML = maxxp === -1 ? "Max Level" : Math.min(serverdata.exp,maxxxp);
     document.getElementById('exp_needed').innerHTML = maxxp===-1?"-":formatNumber(maxxxp).join("");
     document.getElementById('levelnumber').innerHTML = serverdata.level;
     document.getElementById('levelicon').classList.add('llevel' + serverdata.level);
@@ -30,6 +30,8 @@ async function loadData() {
         var lss = document.querySelectorAll(".sp4x");
         for (let l of lss) l.style.display = 'none';
         document.getElementById('progressbar').style.display = 'none';
+        document.getElementById('level_up').classList.add('disabled');
+        document.getElementById('level_up').innerHTML = 'MAX LEVEL';
     } else {
         var completion = serverdata.exp / maxxp;
         completion = Math.min(1, completion);
