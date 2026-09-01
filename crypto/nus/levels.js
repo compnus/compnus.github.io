@@ -26,18 +26,22 @@ async function loadData() {
     document.getElementById('exp_needed').innerHTML = maxxp===-1?"-":formatNumber(maxxp).join("");
     document.getElementById('levelnumber').innerHTML = serverdata.level;
     document.getElementById('levelicon').classList.add('llevel' + serverdata.level);
+    document.getElementById('levelicon').src = "../../site/image/assets/level/lv"+serverdata.level+".png";
     if (maxxp === -1) {
         var lss = document.querySelectorAll(".sp4x");
         for (let l of lss) l.style.display = 'none';
         document.getElementById('progressbar').style.display = 'none';
         document.getElementById('levelinfo').style.display = 'none';
-        document.getElementById('level_up').classList.add('disabled');
         document.getElementById('level_up').innerHTML = 'MAX LEVEL';
     } else {
         var completion = serverdata.exp / maxxp;
         completion = Math.min(1, completion);
         document.getElementById('exp_remain').innerHTML = maxxp - serverdata.exp;
         if (completion >= 0.015) document.getElementById('progress').style.width = (completion * 50) + "vh";
+        if (serverdata.exp >= maxxp) {
+            document.getElementById('levelinfo').innerHTML = "You can level up by pressing the button below!";
+            document.getElementById('level_up').classList.remove('disabled');
+        }
     }
 }
 
@@ -48,4 +52,8 @@ function levelPage(turn) {
     for (let p of sels) p.classList.remove('here');
     document.getElementById('levelpage' + turn).style.display = 'flex';
     document.getElementById('selector' + turn).classList.add('here');
+}
+
+async function levelUp() {
+
 }
