@@ -23,7 +23,7 @@ async function loadData() {
     try { maxxp = LEVELS.perks[serverdata.level + 1][0] }
     catch (e) { maxxp = -1 }
     document.getElementById('exp_current').innerHTML = maxxp === -1 ? "Max Level" : Math.min(serverdata.exp,maxxp);
-    document.getElementById('exp_needed').innerHTML = maxxp===-1?"-":formatNumber(maxxxp).join("");
+    document.getElementById('exp_needed').innerHTML = maxxp===-1?"-":formatNumber(maxxp).join("");
     document.getElementById('levelnumber').innerHTML = serverdata.level;
     document.getElementById('levelicon').classList.add('llevel' + serverdata.level);
     if (maxxp === -1) {
