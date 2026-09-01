@@ -21,12 +21,23 @@
         <div id="compactWallet">
             <div title="Nocas"><p class="cccicon">¤</p><p id="balance_noca">0</p></div>
             <p></p>
-            <div title="Experience Points"><p class="cccicon">XP</p><p><span id="exp_current">0</span><span style="font-weight:200">/</span><span id="exp_needed" style="opacity:0.7">100</span></p></div>
+            <div title="Experience Points"><p class="cccicon">XP</p><p><span id="exp_current">0</span><span style="font-weight:200" class="sp4x">/</span><span id="exp_needed" style="opacity:0.7" class="sp4x">100</span></p></div>
         </div>
         <div id="navlike">
-            <p onclick="window.history.back()">< Back</p>
-            <p class="here" onclick="levelPage(0)">Level Up</p>
-            <p onclick="levelPage(1)">Perks</p>
+            <p onclick="if (history.length > 1) history.back(); else window.location.href = 'https://compnus.com/crypto/nus';" style="border-bottom-left-radius: 6px 3px;">< Back</p>
+            <p class="lpselector here" onclick="levelPage(0)" id="selector0">Level Up</p>
+            <p class="lpselector" onclick="levelPage(1)" style="border-bottom-right-radius: 6px 3px;" id="selector1">Perks</p>
+        </div>
+        <div class="levelpage" id="levelpage0">
+            <img id="levelicon" src="../../site/image/assets/level/lv0.png" />
+            <h1 id="levelname">Level <span id="levelnumber">0</span></h1>
+            <div id="progressbar"><div id="progress"></div></div>
+            <p id="levelinfo">You need <span id="exp_remain">100</span> more XP to level up.</p>
+            <button id="level_up">LEVEL UP</button>
+            <p id="information">Leveling up costs 10 Nocas to cover server expenses.</p>
+        </div>
+        <div class="levelpage" id="levelpage1" style="display: none">
+            woh
         </div>
     </main>
     

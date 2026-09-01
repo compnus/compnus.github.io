@@ -5,6 +5,137 @@ main {
     height: 78vh;
 }
 
+span.sp4x {
+    font-size: 1.5vh;
+}
+
+#navlike {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 1vh;
+}
+
+#navlike > p {
+    margin: -3px 0 0 0;
+    padding: 0 2vh 1vh 2vh;
+    font-size: 3vh;
+    line-height: 1;
+    font-family: 'Funnel Display';
+    color: #aaa;
+    border-bottom: 3px solid #aaa;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+#navlike > p.here {
+    color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+    #navlike > p:hover {
+        color: white;
+        border-color: white;
+        box-shadow: white 0 7px 5px -7px;
+    }
+
+.levelpage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 73vh;
+    flex-direction: column;
+}
+
+#levelicon {
+    width: 23vh;
+    height: 23vh;
+    transition: 1s ease-out;
+}
+
+#levelname {
+    font-family: Gabarito;
+    font-size: 4vh;
+    font-weight: 400;
+    margin: 1vh 0;
+}
+
+.llevel0 { filter: drop-shadow(white 0 0 3px) }
+.llevel1 { filter: drop-shadow(white 0 0 5px) }
+.llevel2 { filter: drop-shadow(rgb(255, 255, 200) 0 0 5px) }
+.llevel3 { filter: drop-shadow(rgb(255, 255, 150) 0 0 7px) }
+.llevel4 { filter: drop-shadow(rgb(255, 255, 100) 0 0 7px) }
+.llevel5 { filter: drop-shadow(rgb(255, 255, 50) 0 0 10px) }
+.llevel6 { filter: drop-shadow(rgb(255, 255, 0) 0 0 10px) }
+.llevel7 { animation: llevel7 20s ease infinite normal }
+@keyframes llevel7 {
+    5% { filter: drop-shadow(rgb(255, 255, 0) 0 0 10px) }
+    50% { filter: drop-shadow(white 0 0 7px) }
+    95% { filter: drop-shadow(rgb(255, 255, 0) 0 0 10px) }
+}
+.llevel8 { animation: llevel8 20s ease infinite normal }
+@keyframes llevel8 {
+    5% { filter: drop-shadow(yellow 0 0 10px) }
+    50% { filter: drop-shadow(orange 0 0 15px) }
+    95% { filter: drop-shadow(yellow 0 0 10px) }
+}
+.llevel9 { animation: llevel9 20s ease infinite normal }
+@keyframes llevel9 {
+    5% { filter: drop-shadow(yellow 0 0 10px) }
+    35% { filter: drop-shadow(orange 0 0 15px) }
+    65% { filter: drop-shadow(blue 0 0 7px) }
+    95% { filter: drop-shadow(yellow 0 0 10px) }
+}
+.llevel10 { animation: llevel10 20s ease infinite normal }
+@keyframes llevel10 {
+    5% { filter: drop-shadow(yellow 0 0 13px) }
+    15% { filter: drop-shadow(golden 0 0 15px) }
+    25% { filter: drop-shadow(green 0 0 10px) }
+    35% { filter: drop-shadow(cyan 0 0 20px) }
+    45% { filter: drop-shadow(blue 0 0 15px) }
+    55% { filter: drop-shadow(violet 0 0 10px) }
+    65% { filter: drop-shadow(magenta 0 0 13px) }
+    75% { filter: drop-shadow(red 0 0 25px) }
+    85% { filter: drop-shadow(orange 0 0 13px) }
+    95% { filter: drop-shadow(yellow 0 0 10px) }
+}
+
+#progressbar {
+    height: 0.75vh;
+    padding: 0.25vh;
+    margin-top: 1.75vh;
+    border-radius: 100vh;
+    background-color: var(--lightbgaccent);
+    width: 50vh;
+}
+
+#progress {
+    height: 0.75vh;
+    border-radius: 100vh;
+    background-color: yellow;
+    width: 0.75vh;
+}
+
+#levelinfo {
+    font-weight: 200;
+    margin: 1vh 0;
+    color: #ccc;
+    font-size: 1.7vh;
+    line-height: 2vh;
+}
+
+#level_up {
+    font-family: Gabarito;
+    font-size: 3vh;
+    margin: 3vh 0 1vh 0;
+}
+
+#information {
+    color: #ccc;
+    font-size: 1.5vh;
+    margin: 0;
+}
+
 @media(max-width:800px) {
     main {
         padding: 4vw;
