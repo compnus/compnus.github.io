@@ -22,7 +22,7 @@ async function loadData() {
     var maxxp;
     try { maxxp = LEVELS.perks[serverdata.level + 1][0] }
     catch (e) { maxxp = -1 }
-    document.getElementById('exp_current').innerHTML = maxxp === -1 ? "Max Level" : Math.min(serverdata.exp,maxxxp);
+    document.getElementById('exp_current').innerHTML = maxxp === -1 ? "Max Level" : Math.min(serverdata.exp,maxxp);
     document.getElementById('exp_needed').innerHTML = maxxp===-1?"-":formatNumber(maxxxp).join("");
     document.getElementById('levelnumber').innerHTML = serverdata.level;
     document.getElementById('levelicon').classList.add('llevel' + serverdata.level);
@@ -30,11 +30,13 @@ async function loadData() {
         var lss = document.querySelectorAll(".sp4x");
         for (let l of lss) l.style.display = 'none';
         document.getElementById('progressbar').style.display = 'none';
+        document.getElementById('levelinfo').style.display = 'none';
         document.getElementById('level_up').classList.add('disabled');
         document.getElementById('level_up').innerHTML = 'MAX LEVEL';
     } else {
         var completion = serverdata.exp / maxxp;
         completion = Math.min(1, completion);
+        document.getElementById('exp_remain').innerHTML = maxxp - serverdata.exp;
         if (completion >= 0.015) document.getElementById('progress').style.width = (completion * 50) + "vh";
     }
 }
