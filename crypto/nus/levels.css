@@ -136,6 +136,42 @@ span.sp4x {
     margin: 0;
 }
 
+table {
+    height: 73vh;
+    width: calc(100vw - 4vh);
+    overflow: scroll;
+    display: block;
+    position: relative;
+}
+
+th > img {
+    width: 10vh;
+    height: 10vh;
+}
+tr {
+    transition: 0.2s;
+}
+th, td.perk {
+    font-family: 'Funnel Display';
+    font-weight: bold;
+    font-size: 3vh;
+}
+td.perk {
+    font-size: 2vh;
+    background-color: var(--lightbgaccent);
+}
+th, td {
+    border-radius: 1vh;
+    padding: 1vh;
+    text-align: center;
+}
+th.current, td.current {
+    background-color: var(--lightbg);
+}
+tr:hover {
+    background-color: var(--lightbgaccent);
+}
+
 @media(max-width:800px) {
     main {
         padding: 4vw;
