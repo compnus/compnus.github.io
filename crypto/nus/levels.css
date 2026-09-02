@@ -114,6 +114,7 @@ span.sp4x {
     border-radius: 100vh;
     background-color: yellow;
     width: 1.5%;
+    transition: 1s cubic-bezier(0, 0, 0, 1);
 }
 
 #levelinfo {
