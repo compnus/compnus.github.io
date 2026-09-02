@@ -10,6 +10,14 @@ async function main() {
     await loadData();
     if (LEVELS) loadLevels();
     else document.getElementById('levelpage1').innerHTML = "<h2>We had problems accessing information about levels. Please try refreshing the page. If the issue persists, please contact the support.</h2>"
+    if (document.getElementById('levelpage1').style.display === 'flex') {
+        const cell = document.querySelector(`.tl${serverdata.level}`);
+        cell.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+        });
+    }
 }
 
 async function loadData() {
@@ -89,7 +97,7 @@ function levelPage(turn) {
     for (let p of sels) p.classList.remove('here');
     document.getElementById('levelpage' + turn).style.display = 'flex';
     document.getElementById('selector' + turn).classList.add('here');
-    if (turn === 1 && serverdata !== null) {
+    if (turn === 1 && serverdata.level) {
         const cell = document.querySelector(`.tl${serverdata.level}`);
         cell.scrollIntoView({
             behavior: "smooth",
