@@ -70,7 +70,6 @@ async function collectDaily() {
         })
         .catch((error) => {
             clearTimeout(dToll);
-            stopLoading();
             console.error('Error invoking function:', error);
             document.getElementById("dailygift").classList.remove("collected");
             popup("An error occurred", "We had issues trying to collect your daily reward. Please try again later.", true, true);

@@ -398,6 +398,7 @@ a {
         background: var(--bg);
         color: white;
         transition: 0.3s ease;
+        outline: none !important;
     }
 
         .input > input.max, .input > select.max {
