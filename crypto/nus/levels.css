@@ -113,7 +113,7 @@ span.sp4x {
     height: 0.75vh;
     border-radius: 100vh;
     background-color: yellow;
-    width: 0.75vh;
+    width: 1.5%;
 }
 
 #levelinfo {
@@ -173,9 +173,6 @@ td.perk {
     td.perk > h1 {
         font-size: 2vh;
     }
-#ccol {
-    width: 15vw;
-}
 th, td {
     border-radius: 1vh;
     padding: 1vh;
@@ -204,8 +201,100 @@ tr:hover {
 
 @media(max-width:800px) {
     main {
-        padding: 4vw;
+        padding: 4vw 0;
         min-height: calc(100vh - 53vw);
-        height: initial;
+        height: calc(100vh - 53vw);
     }
+
+    span.sp4x {
+        font-size: 2.5vw;
+    }
+
+    #navlike {
+        margin-bottom: 2vw;
+    }
+
+        #navlike > p {
+            margin: calc(4vw - 3px) 0 0 0;
+            padding: 0 4vw 2vw 4vw;
+            font-size: 5vw;
+        }
+
+    .levelpage {
+        height: calc(100vh - 69.5vw);
+    }
+
+    #levelicon {
+        width: 40vw;
+        height: 40vw;
+    }
+
+    #levelname {
+        font-size: 7vw;
+        margin: 2vw 0;
+    }
+
+    #progressbar {
+        height: 1.2vw;
+        padding: 0.5vw;
+        margin-top: 3.5vw;
+        border-radius: 80vw;
+        width: 80vw;
+    }
+
+    #progress {
+        height: 1.2vw;
+        border-radius: 80vw;
+    }
+
+    #levelinfo {
+        margin: 2vw 0;
+        font-size: 3.2vw;
+        line-height: 3.5vw;
+    }
+
+    #level_up {
+        font-size: 6vw;
+        margin: 6vw 0 2vw 0;
+    }
+
+    #information {
+        font-size: 2.7vw;
+    }
+
+    table {
+        height: calc(100vh - 71.5vw);
+        padding: 0 4vw 2vw 4vw;
+    }
+
+    th > img {
+        width: 25vw;
+        height: 25vw;
+    }
+
+    .perk > h1 {
+        width: 20vw;
+        font-size: 5vw;
+    }
+
+        td.perk > h1 {
+            font-size: 3.5vw;
+        }
+
+    th, td {
+        border-radius: 2vw;
+        padding: 2vw;
+    }
+
+    td {
+        font-size: 3.5vw;
+    }
+
+    .levelReward {
+        font-size: 4vw;
+        margin: 1vw;
+        padding: 1vw;
+        border-radius: 3vw;
+    }
+
 }

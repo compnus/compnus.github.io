@@ -46,10 +46,9 @@ async function loadData() {
         document.getElementById('level_up').innerHTML = 'MAX LEVEL';
         document.getElementById('information').innerHTML = "Stay tuned for more levels!"
     } else {
-        var completion = serverdata.exp / maxxp;
-        completion = Math.min(1, completion);
+        var completion = Math.min(1, serverdata.exp / maxxp);
         document.getElementById('exp_remain').innerHTML = maxxp - serverdata.exp;
-        if (completion >= 0.015) document.getElementById('progress').style.width = (completion * 50) + "vh";
+        if (completion >= 0.015) document.getElementById('progress').style.width = completion + "%";
         if (serverdata.exp >= maxxp) {
             document.getElementById('levelinfo').innerHTML = "You can level up by pressing the button below!";
             document.getElementById('level_up').classList.remove('disabled');
@@ -97,7 +96,7 @@ function levelPage(turn) {
     for (let p of sels) p.classList.remove('here');
     document.getElementById('levelpage' + turn).style.display = 'flex';
     document.getElementById('selector' + turn).classList.add('here');
-    if (turn === 1 && serverdata.level) {
+    if (turn === 1 && serverdata?.level) {
         const cell = document.querySelector(`.tl${serverdata.level}`);
         cell.scrollIntoView({
             behavior: "smooth",
@@ -108,7 +107,7 @@ function levelPage(turn) {
 }
 
 async function levelUp() {
-    startLoading();
+    if (__shadowl <= 7) startLoading();
     if (serverdata.balance_noca < 10) {
         stopLoading();
         popup("Not Enough Nocas!", "You need 10 Nocas to level up!<br>Get Nocas for free <a class='link' href='free.html'>here</a> or head over to your <a class='link' href='../../u/wallet.html'>wallet</a> and get Nocas by exchanging them for $NUS or Bitcoin Satoshi.", true, true);
@@ -147,7 +146,7 @@ async function levelUp() {
                 popup("", loadingid?":D":"Henceforth I'm too bored to continue writing these.", false);
                 break;
             case 10:
-                popup("", loadingid ? "Bro ditch the loading dialog it's annoying." : "Still, was fun to add something pointless like this.", false);
+                popup("", loadingid ? "Bro ditch the loading popup it's annoying." : "Still, was fun to add something pointless like this.", false);
                 break;
             default:
                 popup("", ":D", false);
