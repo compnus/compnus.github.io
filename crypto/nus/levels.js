@@ -176,6 +176,8 @@ async function levelUp() {
                 popup("Congratulations!", "You have successfully leveled up! Rewards for reaching the level have been added to your balance. Enjoy your new perks!", true, true);
                 document.getElementById("levelinfo").innerHTML = `You need <span id="exp_remain">${serverdata.level < 9 ? LEVELS.perks[serverdata.level + 2][0] : "0"}</span> more XP to level up.`;
                 document.getElementById("progress").style.width = "1.5%";
+                var currlv = document.querySelectorAll(".current");
+                for (let i of currlv) i.classList.remove("current");
                 await loadData();
                 loadLevels();
             }
