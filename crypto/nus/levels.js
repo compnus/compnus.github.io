@@ -59,10 +59,39 @@ function loadLevels() {
     for (let i = 0; i < _total; i++) document.getElementById("tmup" + i).innerHTML = _perks[i][2] === 0 ? "<span style='opacity: 0.6'>-</span>" : _perks[i][2] + " hours";
     for (let i = 0; i < _total; i++) document.getElementById("tcon" + i).innerHTML = _perks[i][3];
     for (let i = 0; i < _total; i++) {
-        rews = _perks[i][4];
+        var rews = _perks[i][4];
+        var elms = 0;
         for (let j in rews) {
-
+            elms++;
+            var x = document.createElement("div");
+            x.classList.add("levelReward");
+            var y;
+            var z;
+            switch (j) {
+                case "nus":
+                    y = "$";
+                    z = rews[j];
+                    break;
+                case "noca":
+                    y = "¤";
+                    z = rews[j];
+                    break;
+                case "sat":
+                    y = "₿";
+                    z = rews[j];
+                    break;
+                case "div":
+                    y = "+";
+                    z = rews[j] + " Dividend Power";
+                    break;
+                default:
+                    y = "";
+                    z = "Something went wrong.";
+            }
+            x.innerHTML = `<span style="font-family: 'currencycompnus', Ubuntu !important;">${y}</span> ${z}`
+            if (elms === 0) document.getElementById("trew" + i).appendChild(x);
         }
+        if (elms === 0) document.getElementById("trew" + i).innerHTML = "<span style='opacity: 0.6'>-</span>";
     }
 }
 
