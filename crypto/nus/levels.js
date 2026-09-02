@@ -48,7 +48,7 @@ async function loadData() {
     } else {
         var completion = Math.min(1, serverdata.exp / maxxp);
         document.getElementById('exp_remain').innerHTML = maxxp - serverdata.exp;
-        if (completion >= 0.015) document.getElementById('progress').style.width = completion + "%";
+        if (completion >= 0.015) document.getElementById('progress').style.width = completion * 100 + "%";
         if (serverdata.exp >= maxxp) {
             document.getElementById('levelinfo').innerHTML = "You can level up by pressing the button below!";
             document.getElementById('level_up').classList.remove('disabled');
@@ -160,5 +160,20 @@ async function levelUp() {
         popup("Not enough XP!", "It would be ideal if you stayed on the 'common user' side of this website to prevent issues like this one. Not trying to be offensive, just afraid something will break catastrophically.", true, true);
         return;
     }
-    //level up logic
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/levelUp', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+        },
+        body: ""
+    })
+        .then(response => response.json())
+        .then(async data => {
+            stopLoading();
+        })
+        .catch((error) => {
+            stopLoading();
+            console.error('Error invoking function:', error);
+        });
 }

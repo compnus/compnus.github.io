@@ -297,10 +297,10 @@ tr:hover {
     }
 
     .levelReward {
-        font-size: 4vw;
+        font-size: 3.5vw;
         margin: 1vw;
         padding: 1vw;
-        border-radius: 3vw;
+        border-radius: 2.75vw;
     }
 
 }
