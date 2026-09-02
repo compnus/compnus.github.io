@@ -156,6 +156,9 @@ td, th {
     position: sticky;
     left: 0;
 }
+th {
+    z-index: 5;
+}
     .perk > h1 {
         margin: 0;
         width: 15vh;
@@ -169,6 +172,9 @@ td, th {
 }
 td.perk {
     background-color: var(--lightbgaccent);
+}
+th.perk {
+    z-index: 6;
 }
     td.perk > h1 {
         font-size: 2vh;
@@ -273,7 +279,7 @@ tr:hover {
     }
 
     .perk > h1 {
-        width: 20vw;
+        width: 25vw;
         font-size: 5vw;
     }
 
