@@ -43,7 +43,7 @@ Deno.serve(async (req) => {
 
     let uid: string = user.user.id;
 
-    const { data: mdata, error: merror } = await sb.from('udata').select('hashrate, last_claimed, mining_upg, level').eq('user_id', uid).single();
+    const { data: mdata, error: merror } = await sb.from('udata').select('balance_nus, balance_noca, balance_sats, dividends, level, exp').eq('user_id', uid).single();
     const { data: udata, error: uerror } = await sb.from('users').select('username').eq('id', uid).single();
     if (merror || uerror || !mdata || !udata) {
         return new Response(JSON.stringify({ response: 'Error fetching user data' }), {
@@ -55,70 +55,59 @@ Deno.serve(async (req) => {
     }
 
     try {
-        if (mdata.last_claimed === null) {
-            mdata.last_claimed = new Date().toISOString();
-            const { error: updateError } = await sb.from('udata').update({ last_claimed: mdata.last_claimed }).eq('user_id', uid);
-            if (updateError) {
-                return new Response(JSON.stringify({ response: 'We had issues trying to start mining. Please try again later.', code: 10 }), {
-                    status: 500,
-                    headers: {
-                        ...headers
-                    }
-                });
-            } else {
-                return new Response(JSON.stringify({ response: mdata.last_claimed, code: 0 }), {
-                    status: 200,
-                    headers: {
-                        ...headers
-                    }
-                });
+        if (mdata.balance_noca < 10) return new Response(JSON.stringify({ response: "You need 10 Nocas to level up!" }), {
+            status: 403,
+            headers: {
+                ...headers
             }
-        } else {
-            // remember that you must add npu logic to upgradeMining and collectDailyReward
-            var now = new Date().getTime();
-            var lastclaim = new Date(mdata.last_claimed).getTime();
-            var diff: number = (now - lastclaim) / 1000;
-            var mintime: number = UPGRADES.cooling[mdata.mining_upg % 10][3]*60*60;
-            var maxtime: number = (UPGRADES.memory[Math.floor((mdata.mining_upg % 100) / 10)][3] + LEVELS.perks[mdata.level][2]) * 60 * 60;
-            if (diff < mintime) {
-                return new Response(JSON.stringify({ response: "You cannot start mining yet! Please wait until the cooldown period has passed. (Check the timer!)", code: 1 }), {
-                    status: 200,
-                    headers: {
-                        ...headers
-                    }
-                });
-            } else {
-                const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
-                const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
-                const { data: cdata, error: cerror } = await sb.from('udata').select('balance_nus').eq('user_id', uid).single();
-                if (dte || dre || cerror || !dt || !dr || !cdata) {
-                    return new Response(JSON.stringify({ response: 'We had issues trying to collect mining rewards. Please try again later.', code: 10 }), {
-                        status: 500,
-                        headers: {
-                            ...headers
-                        }
-                    });
-                }
-                var profit: number = parseFloat(((mdata.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8));
-                var post = { balance_nus: cdata.balance_nus + profit, last_claimed: new Date().toISOString() };
-                const { error: updateError } = await sb.from('udata').update(post).eq('user_id', uid);
-                if (updateError) {
-                    return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.', code: 10 }), {
-                        status: 500,
-                        headers: {
-                            ...headers
-                        }
-                    });
-                }
-                const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining reward" });
-                return new Response(JSON.stringify({ response: JSON.stringify({"newtime": post.last_claimed, "reward": profit}), code: insertError?2:5 }), {
-                    status: 200,
-                    headers: {
-                        ...headers
-                    }
-                });
+        });
+        var newLevel: number = mdata.level === 10 ? -1 : mdata.level + 1;
+        if (newLevel < 0) return new Response(JSON.stringify({ response: "You are already at max level!" }), {
+            status: 403,
+            headers: {
+                ...headers
             }
+        });
+        if (mdata.exp < LEVELS.perks[newLevel][0]) return new Response(JSON.stringify({ response: "Not enough XP!" }), {
+            status: 403,
+            headers: {
+                ...headers
+            }
+        });
+
+        var updateds = {
+            level: newLevel,
+            exp: 0,
+            balance_nus: mdata.balance_nus,
+            balance_noca: mdata.balance_noca-10,
+            balance_sats: mdata.balance_sats,
+            dividends: mdata.dividends
         }
+        if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('nus') !== -1) updateds.balance_nus += LEVELS.perks[newLevel][4].nus;
+        if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('noca') !== -1) updateds.balance_noca += LEVELS.perks[newLevel][4].noca;
+        if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('sat') !== -1) updateds.balance_sats += LEVELS.perks[newLevel][4].sat;
+        if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('div') !== -1) updateds.dividends += LEVELS.perks[newLevel][4].div;
+        const { error: updateError } = await sb.from('udata').update(updateds).eq('user_id', uid);
+        if (updateError) {
+            return new Response(JSON.stringify({ response: 'We had issues trying to update your data.' }), {
+                status: 500,
+                headers: {
+                    ...headers
+                }
+            });
+        }
+
+        var resources = LEVELS.perks[newLevel][4];
+        delete resources.div;
+        if (Object.keys(resources).length) {
+            const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Level Up Reward" });
+        }
+        return new Response(JSON.stringify({ response: "" }), {
+            status: 200,
+            headers: {
+                ...headers
+            }
+        });
     } catch (error) {
         console.error("Error processing request", error);
         return new Response(JSON.stringify({ response: "Internal Server Error."+error.message }), {

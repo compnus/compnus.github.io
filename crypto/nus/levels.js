@@ -171,6 +171,12 @@ async function levelUp() {
         .then(response => response.json())
         .then(async data => {
             stopLoading();
+            if (data.response) popup("An error occurred", data.response);
+            else {
+                popup("Congratulations!", "You have successfully leveled up! Rewards for reaching the level have been added to your balance. Enjoy your new perks!",true,true)
+                await loadData();
+                loadLevels();
+            }
         })
         .catch((error) => {
             stopLoading();
