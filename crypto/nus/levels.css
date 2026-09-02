@@ -1,8 +1,8 @@
 main {
     display: block;
-    padding: 6vh 0 2vh 0;
-    min-height: 78vh;
-    height: 78vh;
+    padding: 6vh 0 1vh 0;
+    min-height: 79vh;
+    height: 79vh;
 }
 
 span.sp4x {
@@ -43,7 +43,7 @@ span.sp4x {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 73vh;
+    height: 76vh;
     flex-direction: column;
 }
 
@@ -137,9 +137,9 @@ span.sp4x {
 }
 
 table {
-    height: 73vh;
+    height: 75vh;
     width: 100%;
-    padding: 0 2vh;
+    padding: 0 2vh 1vh 2vh;
     overflow: scroll;
     display: block;
     position: relative;
@@ -168,9 +168,11 @@ th.perk {
     z-index: 4;
 }
 td.perk {
-    font-size: 2vh;
     background-color: var(--lightbgaccent);
 }
+    td.perk > h1 {
+        font-size: 2vh;
+    }
 #ccol {
     width: 15vw;
 }
