@@ -78,6 +78,8 @@ function loadLevels() {
         }
         if (elms === 0) document.getElementById("trew" + i).innerHTML = "<span style='opacity: 0.6'>-</span>";
     }
+    var currlv = document.querySelectorAll(".tl" + serverdata.level);
+    for (let i of currlv) i.classList.add("current");
 }
 
 function levelPage(turn) {
