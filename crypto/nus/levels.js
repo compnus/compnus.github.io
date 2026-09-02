@@ -8,6 +8,8 @@ async function main() {
     //if (!user) window.location.href = "/u/login.html";
     uid = data.id;
     await loadData();
+    if (LEVELS) loadLevels();
+    else document.getElementById('levelpage1').innerHTML = "<h2>We had problems accessing information about levels. Please try refreshing the page. If the issue persists, please contact the support.</h2>"
 }
 
 async function loadData() {
@@ -45,6 +47,13 @@ async function loadData() {
             document.getElementById('level_up').classList.remove('disabled');
         }
     }
+}
+
+function loadLevels() {
+    var _perks = LEVELS.perks;
+    var _total = _perks.length;
+    for (let i = 0; i < _total; i++) document.getElementById("texp" + i).innerHTML = _perks[i][0];
+    document.getElementById("texp0").innerHTML = "<span style='opacity: 0.6'>-</span>"
 }
 
 function levelPage(turn) {

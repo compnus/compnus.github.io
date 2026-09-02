@@ -145,8 +145,8 @@ table {
 }
 
 th > img {
-    width: 10vh;
-    height: 10vh;
+    width: 15vh;
+    height: 15vh;
 }
 tr {
     transition: 0.2s;
@@ -159,6 +159,8 @@ th, td.perk {
 td.perk {
     font-size: 2vh;
     background-color: var(--lightbgaccent);
+    width: 15vw;
+    display: inline-block;
 }
 th, td {
     border-radius: 1vh;
