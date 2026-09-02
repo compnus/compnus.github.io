@@ -65,28 +65,13 @@ function loadLevels() {
             elms++;
             var x = document.createElement("div");
             x.classList.add("levelReward");
-            var y;
-            var z;
+            var y; var z;
             switch (j) {
-                case "nus":
-                    y = "$";
-                    z = rews[j];
-                    break;
-                case "noca":
-                    y = "¤";
-                    z = rews[j];
-                    break;
-                case "sat":
-                    y = "₿";
-                    z = rews[j];
-                    break;
-                case "div":
-                    y = "+";
-                    z = rews[j] + " Dividend Power";
-                    break;
-                default:
-                    y = "";
-                    z = "Something went wrong.";
+                case "nus": y = "$"; z = rews[j]; break;
+                case "noca": y = "¤"; z = rews[j]; break;
+                case "sat": y = "₿"; z = rews[j]; break;
+                case "div": y = "+"; z = rews[j] + " Dividend Power"; break;
+                default: y = ""; z = "Something went wrong.";
             }
             x.innerHTML = `<span style="font-family: 'currencycompnus', Ubuntu !important;">${y}</span> ${z}`
             if (elms === 0) document.getElementById("trew" + i).appendChild(x);

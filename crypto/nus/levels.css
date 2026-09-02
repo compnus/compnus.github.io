@@ -177,6 +177,15 @@ th.current, td.current {
 tr:hover {
     background-color: var(--lightbgaccent);
 }
+.levelReward {
+    display: inline-block;
+    font-size: 2.5vh;
+    background-color: var(--accent);
+    box-shadow: var(--shadow) 0 0 3px;
+    margin: 0.25vh;
+    padding: 0.5vh;
+    border-radius: 20vh;
+}
 
 @media(max-width:800px) {
     main {
