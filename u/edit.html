@@ -59,7 +59,7 @@
                 var usr = await getUser();
                 if (!usr.user) { window.location.href = "login.html"; return; }
                 if (x.value === (await sb.from("users").select("username").eq("id", usr.data.id).single())?.data.username) status.innerHTML = "You cannot use your own referral code.";
-                else if (["mia", "kingpvz", "compnus", "stanley", "admin"].includes(x.value)) status.innerHTML = "This referral code is not allowed.";
+                else if (["mia", "kingpvz", "compnus", "stanley", "admin", "nus"].includes(x.value)) status.innerHTML = "This referral code is not allowed.";
                 else {
                     document.getElementById("referralsubmit").classList.add("disabled");
                     rfdt = {
@@ -99,7 +99,7 @@
             <div class="input">
             <input placeholder="Referral Code" id="referralcodeinput" oninput="validateReferral()" style="width:100% !important">
             </div>
-            <p class="limited" style="max-width: 100%">Add the referral code and receive 0.2 $NUS for free!</p>
+            <p class="limited" style="max-width: 100%">Add the referral code and receive 1 $NUS for free!</p>
             <p id="referralstatus"></p>
             <button onclick="validateReferral(true)" class="fullwidth" id="referralsubmit">Submit</button>
             <p style="margin:0">`);

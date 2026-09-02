@@ -46,7 +46,7 @@ Deno.serve(async (req) => {
     try {
         const body = await req.json();
         uid = body.uid || null;
-        referral = body.referral;
+        referral = typeof body.referral === "string" ? body.referral.trim() : "";
     } catch (error) {
         console.error("Failed to parse JSON body", error);
         return new Response(JSON.stringify({ response: "Failed to parse request body" }), {
@@ -88,7 +88,7 @@ Deno.serve(async (req) => {
             .eq("user_id", uid)
             .single();
 
-        if (udataExists) {
+        if (udataExists || udataExistsError) {
             return new Response(JSON.stringify({ response: "Entry duplication error." }), {
                 status: 500,
                 headers: {
@@ -115,6 +115,8 @@ Deno.serve(async (req) => {
                 (referral === "mia") ||
                 (referral === "staney") ||
                 (referral === "compnus") ||
+                (referral === "admin") ||
+                (referral === "nus") ||
                 (referral === "kingpvz")) 
                 return new Response(JSON.stringify({ response: "User data processed successfully, wrong referral.", wrongref: true }), {
                     status: 200,
@@ -131,8 +133,16 @@ Deno.serve(async (req) => {
                 }
             });
             
-            const { error: invitee } = await sb.from("udata").update({ "referred": referral, "balance_nus": 0.01 }).eq("user_id", uid);
-            const { data: referrer, error: referrerError } = await sb.from("udata").select("balance_nus, invitees").eq("user_id", realUser.id).single();
+            const { error: invitee } = await sb.from("udata").update({ "referred": referral, "balance_nus": 1 }).eq("user_id", uid);
+            if (invitee) {
+                return new Response(JSON.stringify({ response: "User data processed successfully, referral error." }), {
+                    status: 200,
+                    headers: {
+                        ...headers
+                    }
+                });
+            }
+            const { data: referrer, error: referrerError } = await sb.from("udata").select("balance_nus, invited").eq("user_id", realUser.id).single();
             if (referrerError || !referrer) {
                 return new Response(JSON.stringify({ response: "User data processed successfully, referral error.", wrongref: true }), {
                     status: 200,
@@ -141,8 +151,8 @@ Deno.serve(async (req) => {
                     }
                 });
             }
-            const { error: inviter } = await sb.from("udata").update({ "balance_nus": (referrer.balance_nus + 0.001), "invitees": referrer.invitees + "(" + userExists.username + ")" }).eq("user_id", realUser.id);
-            const { error: cannotSend } = await sb.from("message").insert({ from: "CompNUS", owner: realUser.id, subject: `You have successfully referred ${userExists.username}!`, content: "<p>You have received 0.001 $NUS. As long as the user is active, your dividend power is increased by 10.</p>" });
+            const { error: inviter } = await sb.from("udata").update({ "balance_nus": referrer.balance_nus + 0.05, "invited": referrer.invited + 1 }).eq("user_id", realUser.id);
+            const { error: cannotSend } = await sb.from("message").insert({ from: "CompNUS", owner: realUser.id, subject: `You have successfully referred ${userExists.username}!`, content: "<p>You have received 0.05 $NUS. As long as the user is active, your dividend power is increased by 10.</p>" });
 
             if (invitee || inviter || cannotSend) {
                 return new Response(JSON.stringify({ response: "User data processed successfully, referral error." }), {
@@ -153,8 +163,17 @@ Deno.serve(async (req) => {
                 });
             }
 
-            await sb.from("transaction")
-                .insert([{ from: "admin:CompNUS", to: userExists.username, resource: { "nus": 0.01 }, message: "Referral Reward - New User" }, { from: "admin:CompNUS", to: referral, resource: { "nus": 0.001 }, message: "Referral Reward - Invited a User" }]);
+            const { error: transactionError } = await sb.from("transaction")
+                .insert([{ from: "admin:CompNUS", to: userExists.username, resource: { "nus": 1 }, message: "Referral Reward - New User" }, { from: "admin:CompNUS", to: referral, resource: { "nus": 0.05 }, message: "Referral Reward - Invited a User ("+userExists.username+")" }]);
+
+            if (transactionError) {
+                return new Response(JSON.stringify({ response: "User data processed successfully, referral error." }), {
+                    status: 200,
+                    headers: {
+                        ...headers
+                    }
+                });
+            }
             
         }
 

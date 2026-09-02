@@ -33,7 +33,7 @@ async function main() {
     })
         .then(response => response.json())
         .then(data => {
-            if (data.wongref) popup("Invalid Referral Code", "The referral code you used is incorrect and you have not received your 0.2 $NUS bonus.<br>If you want to receive this bonus, select Edit Account in Account Actions and click 'Add Referral Code...'.");
+            if (data.wrongref) popup("Invalid Referral Code", "The referral code you used is incorrect and you have not received your 1 $NUS bonus.<br>If you want to receive this bonus, select Edit Account in Account Actions and click 'Add Referral Code...'.");
             localStorage.removeItem("referral");
         })
         .catch((error) => {
@@ -336,14 +336,12 @@ async function showAccountInfo() {
         return `${day}${getOrdinal(day)} ${month} ${year}`;
     }
     const { data, error } = await sb.from("users").select("username, email, created").eq("id", dt.uid).single();
-    const { data: data1, error: error1 } = await sb.from("udata").select("can_message, referred, invitees, telegram").eq("user_id", dt.uid).single();
+    const { data: data1, error: error1 } = await sb.from("udata").select("can_message, referred, invited, telegram").eq("user_id", dt.uid).single();
     if (error || !data || error1 || !data1) {
         popup("An Error Occured", "An error occurred while fetching your account information.<br>" + (error ? error.message : "") + (error1 ? "<br>" + error1.message : ""));
         return;
     }
-    var invitees = data1.invitees.match(/\(([^)]+)\)/g)?.map(s => s.slice(1, -1)) || [];
-    var invites = invitees.length;
-    if (invites === 1 && invitees[0] === "") invites = 0;
+    var invites = Number(data1.invited) || 0;
     popup("Account Information", `
     <b>Username:</b> ${data.username}<br>
     <b>Email:</b> ${data.email}<br>

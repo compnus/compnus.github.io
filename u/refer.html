@@ -27,7 +27,7 @@
             </div>
             <div>
                 <h1>Invitee Receives</h1>
-                <div><p>0.2 $NUS</p></div>
+                <div><p>1 $NUS</p></div>
             </div>
             <div class="dlink">
                 <h2>Your referral code is your username (&nbsp;<span id="dlinkusername" style="font-weight: normal; user-select: all; -webkit-user-select: all; -moz-user-select: all"></span>&nbsp;)</h2>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <br />
-        <p class="tc">Please keep in mind you will not receive dividend power boost if the invited user is offline for more than 30 consecutive days or deletes their account.<br />
+        <p class="tc">Please keep in mind that you will not receive Dividend Power for invited users that are offline for more than 30 consecutive days or delete their account.<br />
         Referring fake accounts will result in losing your eligibility to earn dividends.</p>
     </div>
 
@@ -53,11 +53,9 @@
             var { data: username } = await sb.from("users").select("username").eq("id", data.id).single();
             document.getElementById("dlinkusername").innerHTML = username.username;
             document.getElementById("dlinkurl").innerHTML = `https://compnus.com/?r=${username.username}`;
-            const { data: data1, error: error1 } = await sb.from("udata").select("invitees").eq("user_id", data.id).single();
-            var invitees = data1.invitees.match(/\(([^)]+)\)/g)?.map(s => s.slice(1, -1)) || [];
-            var invites = invitees.length;
+            const { data: data1, error: error1 } = await sb.from("udata").select("invited").eq("user_id", data.id).single();
+            var invites = Number(data1.invited) || 0;
             document.getElementById("invitees").innerHTML = invites + (invites == 1 ? " user" : " users");
-            if (invites === 1 && invitees[0] === "") invites = 0;
             document.getElementById("inviteres").innerHTML = parseFloat((invites * 0.05).toFixed(2)).toString();
         });
 
