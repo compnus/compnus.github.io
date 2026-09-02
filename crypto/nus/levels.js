@@ -57,9 +57,10 @@ function loadLevels() {
     for (let i = 0; i < _total; i++) {
         var whole = Math.floor(_perks[i][1] / 100);
         var bits = _perks[i][1] % 100;
-        document.getElementById("txmp" + i).innerHTML = "x " + whole + "<span style='opacity: 0.6'>." + bits + "</span>";
+        document.getElementById("txpm" + i).innerHTML = "x " + whole + "<span style='opacity: 0.6'>." + bits + "</span>";
     }
-    document.getElementById("txmp10").innerHTML = "<span style='opacity: 0.6'>x 0</span>";
+    document.getElementById("txpm10").innerHTML = "<span style='opacity: 0.6'>x 0</span>";
+    for (let i = 0; i < _total; i++) document.getElementById("tmup" + i).innerHTML = _perks[i][2] === 0 ? "<span style='opacity: 0.6'>-</span>" : _perks[i][2] + "hours";
 }
 
 function levelPage(turn) {
