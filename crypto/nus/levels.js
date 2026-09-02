@@ -179,6 +179,7 @@ async function levelUp() {
                 document.getElementById("progress").style.width = "1.5%";
                 var currlv = document.querySelectorAll(".current");
                 for (let i of currlv) i.classList.remove("current");
+                document.getElementById('level_up').classList.add('disabled');
                 await loadData();
                 loadLevels();
             }
