@@ -74,7 +74,7 @@ function loadLevels() {
                 default: y = ""; z = "Something went wrong.";
             }
             x.innerHTML = `<span style="font-family: 'currencycompnus', Ubuntu !important;">${y}</span> ${z}`
-            if (elms === 0) document.getElementById("trew" + i).appendChild(x);
+            document.getElementById("trew" + i).appendChild(x);
         }
         if (elms === 0) document.getElementById("trew" + i).innerHTML = "<span style='opacity: 0.6'>-</span>";
     }
