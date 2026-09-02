@@ -89,6 +89,14 @@ function levelPage(turn) {
     for (let p of sels) p.classList.remove('here');
     document.getElementById('levelpage' + turn).style.display = 'flex';
     document.getElementById('selector' + turn).classList.add('here');
+    if (turn === 1 && serverdata !== null) {
+        const cell = document.querySelector(`.tl${serverdata.level}`);
+        cell.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+        });
+    }
 }
 
 async function levelUp() {
