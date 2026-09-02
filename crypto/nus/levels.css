@@ -167,6 +167,10 @@ th, td {
     padding: 1vh;
     text-align: center;
 }
+td {
+    font-family: Ubuntu;
+    font-size: 2vh;
+}
 th.current, td.current {
     background-color: var(--lightbg);
 }

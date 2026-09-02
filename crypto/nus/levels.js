@@ -53,7 +53,13 @@ function loadLevels() {
     var _perks = LEVELS.perks;
     var _total = _perks.length;
     for (let i = 0; i < _total; i++) document.getElementById("texp" + i).innerHTML = _perks[i][0];
-    document.getElementById("texp0").innerHTML = "<span style='opacity: 0.6'>-</span>"
+    document.getElementById("texp0").innerHTML = "<span style='opacity: 0.6'>-</span>";
+    for (let i = 0; i < _total; i++) {
+        var whole = Math.floor(_perks[i][1] / 100);
+        var bits = _perks[i][1] % 100;
+        document.getElementById("txmp" + i).innerHTML = "x " + whole + "<span style='opacity: 0.6'>." + bits + "</span>";
+    }
+    document.getElementById("txmp10").innerHTML = "<span style='opacity: 0.6'>x 0</span>";
 }
 
 function levelPage(turn) {
