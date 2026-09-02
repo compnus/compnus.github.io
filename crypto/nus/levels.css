@@ -140,7 +140,7 @@ table {
     height: 74vh;
     width: 100%;
     padding: 0 2vh 1vh 2vh;
-    overflow: scroll;
+    overflow: auto;
     display: block;
     position: relative;
 }
@@ -152,10 +152,9 @@ th > img {
 tr {
     transition: 0.2s;
 }
-.perk, th {
+td, th {
     position: sticky;
     left: 0;
-    z-index: 3;
 }
     .perk > h1 {
         margin: 0;
@@ -166,8 +165,6 @@ tr {
     }
 .perk {
     box-shadow: black 0 0 5px;
-}
-th.perk {
     z-index: 4;
 }
 td.perk {
