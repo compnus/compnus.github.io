@@ -174,7 +174,7 @@ async function levelUp() {
             if (data.response) popup("An error occurred", data.response);
             else {
                 popup("Congratulations!", "You have successfully leveled up! Rewards for reaching the level have been added to your balance. Enjoy your new perks!", true, true);
-                document.getElementById("levelinfo").innerHTML = `You need <span id="exp_remain">${serverdata.level<9?LEVELS[serverdata.level+2][0]:"0"}</span> more XP to level up.`;
+                document.getElementById("levelinfo").innerHTML = `You need <span id="exp_remain">${serverdata.level<9?LEVELS.perks[serverdata.level+2][0]:"0"}</span> more XP to level up.`;
                 await loadData();
                 loadLevels();
             }
