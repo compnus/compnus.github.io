@@ -68,6 +68,7 @@ function loadLevels() {
     for (let i = 0; i < _total; i++) {
         var rews = _perks[i][4];
         var elms = 0;
+        document.getElementById("trew" + i).innerHTML = "";
         for (let j in rews) {
             elms++;
             var x = document.createElement("div");
