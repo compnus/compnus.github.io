@@ -314,7 +314,7 @@ function openUpgrades() {
         <button id="hashpb" onclick="upgrade('hashp', ${thispop})">Purchase</button>
     </div>
     <div class="upgrade_item">
-        <div><h1>Extra Chips</h1><h2 onclick="popup('Extra Chips', 'Invest in extra chips and gain more experience from mining! Upgrade Extra Chips to increase your mining XP multiplier.<br>Total XP is calculated according to this formula: <code>(mining_minutes/10)*(level_xp_multiplier+extra_chips_multiplier)</code>',true,true)">?</h2></div>
+        <div><h1>Extra Chips</h1><h2 onclick="popup('Extra Chips', 'Invest in extra chips and gain more experience from mining! Upgrade Extra Chips to increase your mining XP multiplier.<br>Total XP is calculated according to this formula: <code>(mining_minutes / 10) * (level_xp_multiplier + extra_chips_multiplier)</code>',true,true)">?</h2></div>
         <img id="echipi" src="/site/image/assets/mining/echip0.png">
         <h1 id="echipn">No Chips</h1>
         <h2>Extra XP: <span id="echipv">0</span>%</h2>
