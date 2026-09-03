@@ -53,15 +53,15 @@
   ],
   "npu2": [
     ["Base Power", "Look, it's 5% extra. That's better than nothing, isn't it?", [], 5, "npu20", null],
-    ["Base Power +", "Baby steps. Every extra buck helps!", [0.1, 0], 5.2, "npu20", 2],
-    ["Base Power ++", "Yessss it's all slowly coming together!", [0.15, 0], 5.5, "npu20", 3],
-    ["Base Power +++", "See? A whole percentual point up! I wonder what's next?", [0.2, 0], 6, "npu20", 4],
-    ["Extra Power I", "I'm sure this one will pay for itself in the long run!", [0.3, 0], 7.5, "npu21", 5],
-    ["Extra Power II", "The longer the run, the greater the outcome!", [0.375, 0], 8, "npu21", 6],
-    ["Extra Power III", "Actually, if the run is infinite, the reward is also infinite! Think about it!", [0.45, 0], 8.6, "npu21", 7],
-    ["Extra Power IV", "However everything is finite and everything ends one day. I wonder when?", [0.55, 0], 9.3, "npu21", 8],
-    ["Extra Power V", "Oh yea sorry about that. Look! 10% more? That's a delight!", [0.7, 0], 10, "npu21", 9],
-    ["Hyper Power", "Why waste your luck when the reward is little? With <u><b><i>this one</i></b></u>, you can rest assure none of your luck will be wasted!", [1, 0], 15, "npu22", 10]
+    ["Base Power +", "Baby steps. Every extra buck helps!", [0.2, 0], 5.2, "npu20", 2],
+    ["Base Power ++", "Yessss it's all slowly coming together!", [0.35, 0], 5.5, "npu20", 3],
+    ["Base Power +++", "See? A whole percentual point up! I wonder what's next?", [0.5, 0], 6, "npu20", 4],
+    ["Extra Power I", "I'm sure this one will pay for itself in the long run!", [0.75, 0], 7.5, "npu21", 5],
+    ["Extra Power II", "The longer the run, the greater the outcome!", [1, 0], 8, "npu21", 6],
+    ["Extra Power III", "Actually, if the run is infinite, the reward is also infinite! Think about it!", [1.5, 0], 8.6, "npu21", 7],
+    ["Extra Power IV", "However everything is finite and everything ends one day. I wonder when?", [2, 0], 9.3, "npu21", 8],
+    ["Extra Power V", "Oh yea sorry about that. Look! 10% more? That's a delight!", [2.5, 0], 10, "npu21", 9],
+    ["Hyper Power", "Why waste your luck when the reward is little? With <u><b><i>this one</i></b></u>, you can rest assure none of your luck will be wasted!", [3, 0], 15, "npu22", 10]
   ],
   "hashp": [
     [null,null, [5, 2], 100, null, 1]
