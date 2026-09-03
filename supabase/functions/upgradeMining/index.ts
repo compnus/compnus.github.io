@@ -143,7 +143,7 @@ Deno.serve(async (req) => {
         else if (item === "npu1") updateds["mining_upg"] = nData.mining_upg + 1000;
         else if (item === "npu2") updateds["mining_upg"] = nData.mining_upg + 10000;
         else if (item === "hashp") updateds["hashrate"] = nData.hashrate + detail.val;
-        else if (item === "echip") updateds["hashrate"] = nData.mining_upg + 100000;
+        else if (item === "echip") updateds["mining_upg"] = nData.mining_upg + 100000;
 
         // claim mining
         var maxXP = 0;

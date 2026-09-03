@@ -314,10 +314,10 @@ function openUpgrades() {
         <button id="hashpb" onclick="upgrade('hashp', ${thispop})">Purchase</button>
     </div>
     <div class="upgrade_item">
-        <div><h1>Extra Chips</h1><h2 onclick="popup('Extra Chips', 'Invest in extra chips and gain more experience from mining! Upgrade Extra Chips to increase your XP multiplier.<br>Total XP is calculated according to this formula: <code>(mining_minutes/10)*(level_xp_multiplier+extra_chips_multiplier)</code>',true,true)">?</h2></div>
+        <div><h1>Extra Chips</h1><h2 onclick="popup('Extra Chips', 'Invest in extra chips and gain more experience from mining! Upgrade Extra Chips to increase your mining XP multiplier.<br>Total XP is calculated according to this formula: <code>(mining_minutes/10)*(level_xp_multiplier+extra_chips_multiplier)</code>',true,true)">?</h2></div>
         <img id="echipi" src="/site/image/assets/mining/echip0.png">
         <h1 id="echipn">No Chips</h1>
-        <h2>Extra XP Multiplier: <span id="echipv">0</span>%</h2>
+        <h2>Extra XP: <span id="echipv">0</span>%</h2>
         <p id="echipd">Loading...</p>
         <button id="echipb" class="disabled" onclick="upgrade('echip', ${thispop})">Upgrade</button>
     </div>
@@ -524,7 +524,7 @@ function upgrade(what, closeid) {
         case "echip":
             lv = Math.floor((serverdata.mining_upg % 1000000) / 100000);
             if (lv >= 9) { document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201); }
-            valn = "Extra XP Multiplier"; valu = "%";
+            valn = "Extra XP"; valu = "%";
             break;
         default:
             lv = -1;
@@ -588,7 +588,7 @@ async function confirmUpgrade(what, closemain, closeside) {
     const status = document.getElementById("upgrade_status");
     const cntrl = document.getElementById("controls");
     controls.classList.add("disabled");
-    status.innerHTML = "Please wait...";
+    startLoading();
     const balance = await getBalance(uid);
     document.getElementById("walletnus").innerHTML = balance[0];
     document.getElementById("walletnoca").innerHTML = balance[1];
@@ -618,8 +618,8 @@ async function confirmUpgrade(what, closemain, closeside) {
         default:
             lv = -1;
     }
-    if (balance[UPGRADES[what][lv + 1][2][1]] < UPGRADES[what][lv + 1][2][0]) { status.innerHTML = "Insufficient balance."; controls.classList.remove("disabled"); return }
-    if (serverdata.level < UPGRADES[what][lv + 1][5]) { status.innerHTML = "You need to reach level " + UPGRADES[what][lv + 1][5] + " to upgrade."; controls.classList.remove("disabled"); return }
+    if (balance[UPGRADES[what][lv + 1][2][1]] < UPGRADES[what][lv + 1][2][0]) { stopLoading(); status.innerHTML = "Insufficient balance."; controls.classList.remove("disabled"); return }
+    if (serverdata.level < UPGRADES[what][lv + 1][5]) { stopLoading(); status.innerHTML = "You need to reach level " + UPGRADES[what][lv + 1][5] + " to upgrade."; controls.classList.remove("disabled"); return }
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/upgradeMining', {
         method: 'POST',
         headers: {
@@ -630,6 +630,7 @@ async function confirmUpgrade(what, closemain, closeside) {
     })
         .then(response => response.json())
         .then(async data => {  //0 = success; 10 = error
+            stopLoading();
             if (data.code === 10) {
                 status.innerHTML = data.response;
                 cntrl.classList.remove("disabled");

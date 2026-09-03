@@ -53,7 +53,7 @@
   ],
   "npu2": [
     ["Base Power", "Look, it's 5% extra. That's better than nothing, isn't it?", [], 5, "npu20", null],
-    ["Base Power +", "Baby steps. Every extra buck helps!", [0.2, 0], 5.2, "npu20", 2],
+    ["Base Power +", "Baby steps. Every extra buck helps!", [0.2, 0], 5.2, "npu20", 3],
     ["Base Power ++", "Yessss it's all slowly coming together!", [0.35, 0], 5.5, "npu20", 3],
     ["Base Power +++", "See? A whole percentual point up! I wonder what's next?", [0.5, 0], 6, "npu20", 4],
     ["Extra Power I", "I'm sure this one will pay for itself in the long run!", [0.75, 0], 7.5, "npu21", 5],
