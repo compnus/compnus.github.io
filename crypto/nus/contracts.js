@@ -23,7 +23,7 @@ async function loadData() {
     const { data: contractsd, error: contractsError } = await sb
         .from("contract")
         .select("activated,hashrate,duration,expiration")
-        .eq("user_id", uid);
+        .eq("owner", uid);
     if (!contractsd || contractsError) { console.log("Server error."); return; }
     for (i of contractsd) {
         if (i.activate !== null) contracts.active.push(i);
