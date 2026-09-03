@@ -518,8 +518,13 @@ function upgrade(what, closeid) {
             break;
         case "npu2":
             lv = Math.floor((serverdata.mining_upg % 100000) / 10000);
-            if (lv >= 2) { document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201); }
+            if (lv >= 9) { document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201); }
             valn = "Block Win Bonus"; valu = "%";
+            break;
+        case "echip":
+            lv = Math.floor((serverdata.mining_upg % 1000000) / 100000);
+            if (lv >= 9) { document.getElementById('popup' + sendfundsrqpopupid).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + sendfundsrqpopupid)), 201); }
+            valn = "Extra XP Multiplier"; valu = "%";
             break;
         default:
             lv = -1;
