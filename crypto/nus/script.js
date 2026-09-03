@@ -313,6 +313,14 @@ function openUpgrades() {
         <p id="hashpd">Invest your earned Satoshis into hashrate and boost your mining power! There is no purchase limit for now.</p>
         <button id="hashpb" onclick="upgrade('hashp', ${thispop})">Purchase</button>
     </div>
+    <div class="upgrade_item">
+        <div><h1>Extra Chips</h1><h2 onclick="popup('Extra Chips', 'Invest in extra chips and gain more experience from mining! Upgrade Extra Chips to increase your XP multiplier. Total XP is calculated based on this formula: (mining_minutes/10)*(level_xp_multiplier+extra_chips_multiplier)',true,true)">?</h2></div>
+        <img id="echipi" src="/site/image/assets/mining/echip0.png">
+        <h1 id="echipn">No Chips</h1>
+        <h2>Extra XP Multiplier: <span id="echipv">0</span>%</h2>
+        <p id="echipd">Loading...</p>
+        <button id="echipb" class="disabled" onclick="upgrade('echip', ${thispop})">Upgrade</button>
+    </div>
 
     </div>
     <p style="margin:0">
@@ -357,6 +365,13 @@ function openUpgrades() {
             name: document.getElementById("hashpn"),
             desc: document.getElementById("hashpd"),
             button: document.getElementById("hashpb")
+        },
+        echip: {
+            img: document.getElementById("echipi"),
+            name: document.getElementById("echipn"),
+            value: document.getElementById("echipv"),
+            desc: document.getElementById("echipd"),
+            button: document.getElementById("echipb")
         }
     }
     const lv = {
@@ -364,14 +379,16 @@ function openUpgrades() {
         memory: Math.floor((serverdata.mining_upg % 100) / 10),
         hashrate: Math.floor((serverdata.mining_upg % 1000) / 100),
         npu1: Math.floor((serverdata.mining_upg % 10000) / 1000),
-        npu2: Math.floor((serverdata.mining_upg % 100000) / 10000)
+        npu2: Math.floor((serverdata.mining_upg % 100000) / 10000),
+        echip: Math.floor((serverdata.mining_upg % 1000000) / 100000)
     }
     const rig = {
         cooling: UPGRADES.cooling[lv.cooling],
         memory: UPGRADES.memory[lv.memory],
         hashrate: UPGRADES.hashrate[lv.hashrate],
         npu1: UPGRADES.npu1[lv.npu1],
-        npu2: UPGRADES.npu2[lv.npu2]
+        npu2: UPGRADES.npu2[lv.npu2],
+        echip: UPGRADES.echip[lv.echip]
     }
     if (lv.cooling === 9) el.cooling.button.innerHTML = "MAX";
     else {
@@ -398,6 +415,11 @@ function openUpgrades() {
         if (UPGRADES.npu2[lv.npu2 + 1][5] > serverdata.level) el.npu2.button.innerHTML = "LV " + UPGRADES.npu2[lv.npu2 + 1][5] + " Required";
         else el.npu2.button.classList.remove("disabled");
     }*/
+    if (lv.echip === 9) el.echip.button.innerHTML = "MAX";
+    else {
+        if (UPGRADES.echip[lv.echip + 1][5] > serverdata.level) el.echip.button.innerHTML = "LV " + UPGRADES.echip[lv.echip + 1][5] + " Required";
+        else el.echip.button.classList.remove("disabled");
+    }
     if (UPGRADES.hashp[0][5] > serverdata.level) { el.hashp.button.innerHTML = "LV " + UPGRADES.hashp[0][5] + " Required"; el.hashp.button.classList.add('disabled'); }
     el.cooling.img.src = "/site/image/assets/mining/"+rig.cooling[4]+".png";
     el.cooling.name.innerHTML = rig.cooling[0];

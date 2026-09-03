@@ -98,6 +98,9 @@ Deno.serve(async (req) => {
         case "hashp":
             levelraw = -1;
             break;
+        case "echip":
+            levelraw = Math.floor((nData.mining_upg % 1000000) / 100000);
+            break;
         default: shammy = true;
     }
 
@@ -140,6 +143,7 @@ Deno.serve(async (req) => {
         else if (item === "npu1") updateds["mining_upg"] = nData.mining_upg + 1000;
         else if (item === "npu2") updateds["mining_upg"] = nData.mining_upg + 10000;
         else if (item === "hashp") updateds["hashrate"] = nData.hashrate + detail.val;
+        else if (item === "echip") updateds["hashrate"] = nData.mining_upg + 100000;
 
         // claim mining
         var maxXP = 0;
@@ -148,7 +152,7 @@ Deno.serve(async (req) => {
         var lastclaim = new Date(nData.last_claimed).getTime();
         var diff: number = (now - lastclaim) / 1000;
         var maxtime: number = (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[nData.level][2]) * 60 * 60;
-        var xpgain: number = Math.min(maxXP, Math.floor((Math.min(diff / 600, (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[nData.level][2]) * 6)) * (LEVELS.perks[nData.level][1] / 100)));
+        var xpgain: number = Math.min(maxXP, Math.floor((Math.min(diff / 600, (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[nData.level][2]) * 6)) * ((LEVELS.perks[nData.level][1]+UPGRADES.echip[levelraw][3]) / 100)));
         const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
         const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
         if (dte || dre || !dt || !dr) {

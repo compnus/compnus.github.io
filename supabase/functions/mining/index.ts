@@ -91,7 +91,7 @@ Deno.serve(async (req) => {
                     }
                 });
             } else {
-                var xpgain: number = Math.min(maxXP, Math.floor((Math.min(diff / 600, (UPGRADES.memory[Math.floor((mdata.mining_upg % 100) / 10)][3] + LEVELS.perks[mdata.level][2]) * 6)) * (LEVELS.perks[mdata.level][1] / 100)));
+                var xpgain: number = Math.min(maxXP, Math.floor((Math.min(diff / 600, (UPGRADES.memory[Math.floor((mdata.mining_upg % 100) / 10)][3] + LEVELS.perks[mdata.level][2]) * 6)) * ((LEVELS.perks[mdata.level][1]+UPGRADES.echip[Math.floor((mdata.mining_upg % 1000000) / 100000)][3]) / 100)));
                 maxXP -= xpgain;
                 const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
                 const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();

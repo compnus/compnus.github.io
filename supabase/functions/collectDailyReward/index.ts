@@ -219,7 +219,7 @@ Deno.serve(async (req) => {
                 var lastclaim = new Date(nData.last_claimed).getTime();
                 var diff: number = (now - lastclaim) / 1000;
                 var maxtime: number = (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[cdata.level][2]) * 60 * 60;
-                var xpgain: number = Math.min(maxXP, Math.floor((Math.min(diff / 600, (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[cdata.level][2]) * 6)) * (LEVELS.perks[cdata.level][1] / 100)));
+                var xpgain: number = Math.min(maxXP, Math.floor((Math.min(diff / 600, (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[cdata.level][2]) * 6)) * ((LEVELS.perks[cdata.level][1] + UPGRADES.echip[Math.floor((nData.mining_upg % 1000000) / 100000)][3]) / 100)));
                 const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
                 const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
                 if (dte || dre || !dt || !dr) {

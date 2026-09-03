@@ -1,5 +1,5 @@
 {
-  "prop.nfo": ["-(max:1)","-","-","-","-","npu2","npu1","hashrate","memory","cooling"],
+  "prop.nfo": ["-(max:1)","-","-","-","echip","npu2","npu1","hashrate","memory","cooling"],
   "currency.nfo":  [[0,"nus"],[1,"noca"],[2,"sat"]],
   "nonhash.nfo": [[0,"name"],[1,"desc"],[2,"cost","[amount,currency]"],[3,"value"],[4,"image"],[5,"requiredlevel"]],
   "hash.nfo": [[1,null]],
@@ -65,5 +65,17 @@
   ],
   "hashp": [
     [null,null, [5, 2], 100, null, 1]
+  ],
+  "echip": [
+    ["No Chips", "No chips mean no bonus XP. Simple as that.", [], 0, "echip0", null],
+    ["Common Chip", "It's exactly what you would expect a common chip to be. Weak, cheap, but it works, and that's what matters.", [100,1], 4, "echip1", 2],
+    ["Refined Chip", "Same as before, with a subtle touch to it. Such a small change, yet twice as effective!", [300,1], 8, "echip2", 2],
+    ["Chip 2.0", "Improved core and therefore efficiency! Definitely useful if you ask me!", [600,1], 12, "echip3", 3],
+    ["Chip 2.1", "Refined version of the previous. This time the efficiency doesn't increase as much, but every little counts!", [1000,1], 16, "echip4", 3],
+    ["Glided Chip", "Never doubt! It can always get better! And this absolutely is better!", [1500,1], 21, "echip5", 4],
+    ["Plated Chip", "Everybody knows gold is an awesome conductor! No more downtime! Pinnacle of efficiency!", [2300,1], 27, "echip6", 5],
+    ["Hyperchip", "Card form is inefficient. With a few more connectors you can embed this directly into your rig!", [3500,1], 34, "echip7", 6],
+    ["Refined Hyperchip", "Extra connector? That means extra efficiency! Simply math really.", [5000,1], 42, "echip8", 7],
+    ["Hyperchip Array", "Why have one when you can have four? With all of these you can call yourself an <i>experienced</i> miner.", [7000,1], 50, "echip9", 8],
   ]
 }
