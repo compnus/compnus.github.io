@@ -117,7 +117,7 @@ Deno.serve(async (req) => {
                 100: {}
             };
             const XP_LOOP = [
-
+                0
             ];
             mdata.daily_streak++;
             const date = mdata.daily_last.substring(5);
