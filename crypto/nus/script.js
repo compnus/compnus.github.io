@@ -375,30 +375,30 @@ function openUpgrades() {
     }
     if (lv.cooling === 9) el.cooling.button.innerHTML = "MAX";
     else {
-        if (UPGRADES.cooling[lv.cooling + 1][5] > serverdata.level) el.cooling.button.innerHTML = "LV " + UPGRADES.cooling[lv.cooling + 1][5] + "Required";
+        if (UPGRADES.cooling[lv.cooling + 1][5] > serverdata.level) el.cooling.button.innerHTML = "LV " + UPGRADES.cooling[lv.cooling + 1][5] + " Required";
         else el.cooling.button.classList.remove("disabled");
     } 
     if (lv.memory === 9) el.memory.button.innerHTML = "MAX";
     else {
-        if (UPGRADES.memory[lv.memory + 1][5] > serverdata.level) el.memory.button.innerHTML = "LV " + UPGRADES.memory[lv.memory + 1][5] + "Required";
+        if (UPGRADES.memory[lv.memory + 1][5] > serverdata.level) el.memory.button.innerHTML = "LV " + UPGRADES.memory[lv.memory + 1][5] + " Required";
         else el.memory.button.classList.remove("disabled");
     }
     if (lv.hashrate === 9) el.hashrate.button.innerHTML = "MAX";
     else {
-        if (UPGRADES.hashrate[lv.hashrate + 1][5] > serverdata.level) el.hashrate.button.innerHTML = "LV " + UPGRADES.hashrate[lv.hashrate + 1][5] + "Required";
+        if (UPGRADES.hashrate[lv.hashrate + 1][5] > serverdata.level) el.hashrate.button.innerHTML = "LV " + UPGRADES.hashrate[lv.hashrate + 1][5] + " Required";
         else el.hashrate.button.classList.remove("disabled");
     }
     /*if (lv.npu1 === 9) el.npu1.button.innerHTML = "MAX";
     else {
-        if (UPGRADES.npu1[lv.npu1 + 1][5] > serverdata.level) el.npu1.button.innerHTML = "LV " + UPGRADES.npu1[lv.npu1 + 1][5] + "Required";
+        if (UPGRADES.npu1[lv.npu1 + 1][5] > serverdata.level) el.npu1.button.innerHTML = "LV " + UPGRADES.npu1[lv.npu1 + 1][5] + " Required";
         else el.npu1.button.classList.remove("disabled");
     }*/
     /*if (lv.npu2 === 9) el.npu2.button.innerHTML = "MAX";
     else {
-        if (UPGRADES.npu2[lv.npu2 + 1][5] > serverdata.level) el.npu2.button.innerHTML = "LV " + UPGRADES.npu2[lv.npu2 + 1][5] + "Required";
+        if (UPGRADES.npu2[lv.npu2 + 1][5] > serverdata.level) el.npu2.button.innerHTML = "LV " + UPGRADES.npu2[lv.npu2 + 1][5] + " Required";
         else el.npu2.button.classList.remove("disabled");
     }*/
-    if (UPGRADES.hashp[0][5] > serverdata.level) el.hashp.button.innerHTML = "LV " + UPGRADES.hashp[1][5] + "Required";
+    if (UPGRADES.hashp[0][5] > serverdata.level) el.hashp.button.innerHTML = "LV " + UPGRADES.hashp[0][5] + " Required";
     el.cooling.img.src = "/site/image/assets/mining/"+rig.cooling[4]+".png";
     el.cooling.name.innerHTML = rig.cooling[0];
     el.cooling.value.innerHTML = rig.cooling[3];
