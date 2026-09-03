@@ -76,6 +76,6 @@
     ["Plated Chip", "Everybody knows gold is an awesome conductor! No more downtime! Pinnacle of efficiency!", [2300,1], 27, "echip6", 5],
     ["Hyperchip", "Card form is inefficient. With a few more connectors you can embed this directly into your rig!", [3500,1], 34, "echip7", 6],
     ["Refined Hyperchip", "Extra connector? That means extra efficiency! Simply math really.", [5000,1], 42, "echip8", 7],
-    ["Hyperchip Array", "Why have one when you can have four? With all of these you can call yourself an <i>experienced</i> miner.", [7000,1], 50, "echip9", 8],
+    ["Hyperchip Array", "Why have one when you can have four? With all of these you can call yourself an <i>experienced</i> miner.", [7000,1], 50, "echip9", 8]
   ]
 }
