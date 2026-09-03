@@ -65,7 +65,7 @@ async function collectDaily() {
                 ${reward.hash ? "+"+ reward.hash + " H/s<br>" : ""}
                 ${reward.div ? "+"+reward.div + " Dividend Power<br>" : ""}
                 ${reward.xp ? "+"+reward.xp + " XP<br>" : ""}
-                ${rewards.xp && data.level ? "You have enough XP to level up!<br><a href='levels.html' class='link'>Level Up Now!</a><br>" : ""}
+                ${data.level ? "You have enough XP to level up!<br><a href='levels.html' class='link'>Level Up Now!</a><br>" : ""}
                 <br>Don't forget to claim again tomorrow!` + (data.code === 2 ? "<br><br>Due to an internal error, your reward will not show up in your transaction history." : ""));
                 loadWallet();
             }

@@ -180,7 +180,6 @@ Deno.serve(async (req) => {
                     });
                 }
                 maxXP -= xpgain;
-                rewards.xp += xpgain;
                 var profit: number = parseFloat(((cdata.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8));
                 var post = { balance_nus: cdata.balance_nus + profit, last_claimed: new Date().toISOString(), exp: nData.exp + xpgain };
                 const { error: updateError } = await sb.from('udata').update(post).eq('user_id', uid);
