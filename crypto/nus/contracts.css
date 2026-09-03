@@ -6,7 +6,8 @@ main {
 }
 
 #compactWallet > div > p.cccicon#activecontt {
-
+    text-wrap: nowrap;
+    text-align: left;
 }
 
 span.sp4x {

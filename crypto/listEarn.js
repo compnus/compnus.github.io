@@ -1109,7 +1109,7 @@ const LISTE = [
         name: "Honey Farm",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6e%2Faa%2F8d%2F6eaa8d81fa7fe1ea534e74dfda80b9cf.jpg&f=1&nofb=1&ipt=62ba64abef777641a01aac9acfba9a2ab63aba9cde6460ba5bcdea761c2c7ccc",
         description: "Build your hive, harvest honey and sell it for the sweetest treat - crypto! While this app makes itself look like a game, it realistically works as a faucet, since after you complete the tutorial, there isn't much to do without topping up. Yea red flag alert - don't deposit.",
-        added: "27-8-2026",
+        added: "8-27-2026",
         id: "honeyfarm",
         divid: "jakh",
         attr: {
@@ -1142,7 +1142,7 @@ const LISTE = [
         name: "Jack's Farm",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdbc.fmsnsr.xyz%2Fapi%2Ffiles%2F1nlpavfhdos0lje%2Fvhu94d261vr36z7%2Favatar_vfo8va61n8.jpg&f=1&nofb=1&ipt=cf1602a575d6a7f93b8f725bcaf2ff78a72c3a9eb2ddd3e086a77896230ec43f",
         description: "Build your farm, harvest crops and sell them for the best farmer's delight - crypto! While this app makes itself look like a game, it realistically works as a faucet, since after you complete the tutorial, there isn't much to do without topping up. Yea red flag alert - don't deposit.",
-        added: "26-8-2026",
+        added: "8-26-2026",
         id: "jacksfarm",
         divid: "jakf",
         attr: {
