@@ -498,7 +498,8 @@ a.linkstv {
         border-radius: 3vh;
         box-shadow: black 0 0 15px;
         width: 30vh;
-        height: 30vh;
+        min-height: 30vh;
+        height: fit-content;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -525,16 +526,7 @@ a.linkstv {
 
         #referlanding > div.dlink {
             background: var(--lightbg);
-            padding: 2vh;
-            border-radius: 3vh;
-            box-shadow: black 0 0 15px;
             width: calc(96vw - 80vh);
-            height: fit-content;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 30vh;
             overflow: hidden;
         }
 
