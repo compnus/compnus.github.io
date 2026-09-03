@@ -74,7 +74,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    var detail = {cost: [], val: 0};
+    var detail = {cost: [], val: 0, reqlv: 0};
     var shammy: boolean = false;
     var levelraw: number = -2;
     switch (item) {
@@ -101,9 +101,12 @@ Deno.serve(async (req) => {
         default: shammy = true;
     }
 
-    detail.cost = UPGRADES[item][levelraw + 1][2];
-    detail.val = UPGRADES[item][levelraw + 1][3];
+    levelraw++;
+    if (levelraw >= UPGRADES[item].length) levelraw = -1;
+    detail.cost = UPGRADES[item][levelraw][2];
+    detail.val = UPGRADES[item][levelraw][3];
     detail.cost[1] = UPGRADES["currency.nfo"][detail.cost[1]][1];
+    detail.reqlv = UPGRADES[item][levelraw][5];
 
     if (shammy || levelraw === -1) {
         return new Response(JSON.stringify({ response: "Item is already at max level.", code: 10 }), {
@@ -122,6 +125,12 @@ Deno.serve(async (req) => {
                 ...headers
             }
         });
+    if (nData.level < detail.reqlv) return new Response(JSON.stringify({ response: "You need to reach level " + detail.reqlv + " to upgrade this.", code: 10 }), {
+        status: 500,
+        headers: {
+            ...headers
+        }
+    });
 
     try {
         var updateds = {};

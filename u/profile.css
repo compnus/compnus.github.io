@@ -504,6 +504,7 @@ a.linkstv {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        text-align: center;
     }
 
         #referlanding > div > h1 {

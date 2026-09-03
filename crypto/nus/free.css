@@ -282,12 +282,16 @@ table {
     display: block;
 }
 
-#th1,#th3 {
+#th1,#th3,#th5 {
     width: 5vw
 }
 
-#th2,#th4 {
+#th2,#th4,#th6 {
     width: calc(45vw - 9px);
+}
+
+.thd {
+    width: calc((50vw - 9px) / 4);
 }
 
 th {
@@ -389,12 +393,16 @@ td:hover {
         padding-bottom: 2vw;
     }
 
-    #th1, #th3 {
+    #th1, #th3, #th5 {
         width: 10vw
     }
 
-    #th2, #th4 {
+    #th2, #th4, #th6 {
         width: 70vw
+    }
+
+    .thd {
+        width: 20vw;
     }
     #table_org {
         width: 80vw;

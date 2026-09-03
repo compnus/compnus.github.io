@@ -117,12 +117,23 @@ span.sp4x {
     transition: 1s cubic-bezier(0, 0, 0, 1);
 }
 
-#levelinfo {
+#levelinfo, #levelinfo2 {
     font-weight: 200;
     margin: 1vh 0;
     color: #ccc;
     font-size: 1.7vh;
     line-height: 2vh;
+}
+
+#levelinfo2 {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    margin-top: 0;
+}
+
+#levelinfo2:hover {
+    color: white;
 }
 
 #level_up {
@@ -254,7 +265,7 @@ tr:hover {
         border-radius: 80vw;
     }
 
-    #levelinfo {
+    #levelinfo, #levelinfo2 {
         margin: 2vw 0;
         font-size: 3.2vw;
         line-height: 3.5vw;

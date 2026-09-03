@@ -82,18 +82,32 @@ Deno.serve(async (req) => {
             });
         }
         if (difference === 1 || difference === 2) {
+            const C_OVERRIDE = {
+
+            };
+            const REWARDS_E = [
+
+            ];
+            /* //events
+            const { data: edata, error: eerror } = await sb.from('udata').select('').eq('user_id', uid).single(); 
+            if (!edata || eerror) return new Response(JSON.stringify({ response: 'Error fetching user data' }), {
+                status: 500,
+                headers: {
+                    ...headers
+                }
+            });
+            */
             const REWARDS_C = [
                 { hash: 1 }, { noca: 5 }, { nus: 0.001 }, { hash: 3 }, { noca: 5 }, { nus: 0.001 }, { hash: 5, nus: 0.003 }, //1-7
-                { hash: 3 }, { noca: 10 }, { sat: 0.0001, nus: 0.0015 }, { noca: 3, hash: 1 }, { noca: 10 }, { nus: 0.002 }, { hash: 3, nus: 0.005, noca: 5 }, //8-14
+                { hash: 3 }, { noca: 10 }, { sat: 0.0001, xp: 25 }, { noca: 3, hash: 1 }, { noca: 10 }, { nus: 0.002 }, { hash: 3, nus: 0.005, noca: 5 }, //8-14
                 { hash: 10 }, { noca: 5 }, { nus: 0.001 }, { noca: 5, hash: 3 }, { noca: 10 }, { sat: 0.001 }, { nus: 0.01, noca: 20 }, //15-21
-                { hash: 3 }, { nus: 0.001 }, { noca: 5 }, { nus: 0.0005, noca: 10, hash: 2 }, { hash: 5 }, { noca: 3 }, { hash: 25 }, //22-28
+                { hash: 3 }, { nus: 0.001 }, { xp: 40 }, { nus: 0.0005, noca: 10, hash: 2 }, { hash: 5 }, { noca: 3 }, { hash: 25 }, //22-28
                 { noca: 3, hash: 1 }, { noca: 5, sat: 0.01 }, { div: 1 }, { hash: 5 }, { nus: 0.003 }, { noca: 10 }, { nus: 0.025 }, //29-35
-                { noca: 10 }, { hash: 5 }, { nus: 0.003 }, { noca: 20 }, { sat: 0.1 }, { nus: 0.001 }, { noca: 50, hash: 25 }, //36-42
+                { noca: 10 }, { hash: 5, xp: 25 }, { nus: 0.003 }, { noca: 20 }, { sat: 0.1 }, { nus: 0.001 }, { noca: 50, hash: 25 }, //36-42
                 { noca: 5 }, { nus: 0.003 }, { hash: 10 }, { noca: 3 }, { nus: 0.005 }, { noca: 20 }, { nus: 0.1 }, //43-49
-                { sat: 1 }, { hash: 3 }, { nus: 0.003, noca: 10 }, { noca: 5, hash: 1 }, { nus: 0.0075 }, { noca: 10 }, { nus: 0.5 }, //50-56
+                { sat: 1 }, { hash: 3 }, { nus: 0.003, noca: 10 }, {  hash: 1, xp: 50 }, { nus: 0.0075 }, { noca: 10 }, { nus: 0.5 }, //50-56
                 { hash: 5 }, { noca: 10 }, { nus: 0.01 }, { sat: 10 }, { noca: 15, hash: 3 }, { nus: 0.01 }, { hash: 50 }, //57-63
-                { noca: 10 }, { nus: 0.2 }, { hash: 10 }, { noca: 5 }, { nus: 0.1, hash: 10 }, { noca: 69 }, { div: 2 }, //64-70
-                {xp:0}
+                { noca: 10 }, { nus: 0.2 }, { hash: 10 }, { noca: 5 }, { nus: 0.1, hash: 10, xp: 100 }, { noca: 69 }, { div: 2 }, //64-70
             ];
             const REWARDS_S = {
                 "01-01": { nus: 1, hash: 100 },
@@ -113,11 +127,21 @@ Deno.serve(async (req) => {
                 "12-25": { div: 3, noca: 25 },
                 "12-26": { sat: 5, noca: 26 }
             };
-            const REWARDS_B = {
-                100: {}
+            const REWARDS_B = { //cannot contain xp
+                100: { nus: 0.5 },
+                200: { noca: 100 },
+                300: { hash: 100 },
+                400: { nus: 1 },
+                500: { sat: 100 },
+                600: { noca: 500, hash: 100 },
+                700: { nus: 3 },
+                800: { div: 5 },
+                900: { nus: 5, hash: 100 },
+                1000: { sat: 1000 }
             };
-            const XP_LOOP = [
-                5
+            const XP_LOOP = [  //23
+                5, 10, 5, 15,     5, 10, 25, 10,    15, 5, 10, 20,
+                10, 25, 5, 30,    15, 25, 5, 15,    10, 40, 35
             ];
             mdata.daily_streak++;
             const date = mdata.daily_last.substring(5);
@@ -137,8 +161,16 @@ Deno.serve(async (req) => {
                 hash: 0,
                 div: 0,
                 xp: 0
-            }
-            var rc = REWARDS_C[(mdata.daily_streak-1) % 70];
+            };
+            /*
+            var eventr = {
+
+            };
+            */
+            var collectday = (mdata.daily_streak - 1) % 70;
+            var rc;
+            if (collectday in C_OVERRIDE) rc = C_OVERRIDE[collectday];
+            else rc = REWARDS_C[collectday];
             rewards.nus += rc.nus || 0;
             rewards.noca += rc.noca || 0;
             rewards.sat += rc.sat || 0;
@@ -151,6 +183,25 @@ Deno.serve(async (req) => {
                 rewards.sat += rs.sat || 0;
                 rewards.hash += rs.hash || 0;
                 rewards.div += rs.div || 0;
+            }
+            if (mdata.daily_streak in REWARDS_B) {
+                var rb = REWARDS_B[mdata.daily_streak];
+                rewards.nus += rb.nus || 0;
+                rewards.noca += rb.noca || 0;
+                rewards.sat += rb.sat || 0;
+                rewards.hash += rb.hash || 0;
+                rewards.div += rb.div || 0;
+            }
+            if (REWARDS_E.length) {
+                var re = REWARDS_E[mdata.daily_streak % REWARDS_E.length];
+                rewards.nus += re.nus || 0;
+                rewards.noca += re.noca || 0;
+                rewards.sat += re.sat || 0;
+                rewards.hash += re.hash || 0;
+                rewards.div += re.div || 0;
+                /*
+                eventr.* += re.* || 0;
+                */
             }
             var maxXP = 0;
             if (cdata.level < 10) maxXP = LEVELS.perks[cdata.level + 1][0] - cdata.exp;
@@ -206,12 +257,20 @@ Deno.serve(async (req) => {
                     maxXP -= Math.min(maxXP, rs.xp);
                 }
             }
+            if (REWARDS_E.length) {
+                var re = REWARDS_E[mdata.daily_streak % REWARDS_E.length];
+                if (re.xp > 0) {
+                    rewards.xp += Math.min(maxXP, re.xp);
+                    maxXP -= Math.min(maxXP, re.xp);
+                }
+            }
             var rxp = XP_LOOP[(mdata.daily_streak - 1) % XP_LOOP.length];
             rewards.xp += Math.min(maxXP, rxp);
             maxXP -= Math.min(maxXP, rxp);
             const { error: updateError } = await sb.from('udata').update({
                 daily_last: mdata.daily_last, daily_streak: mdata.daily_streak, balance_nus: cdata.balance_nus + rewards.nus, balance_noca: cdata.balance_noca + rewards.noca,
                 balance_sats: cdata.balance_sats + rewards.sat, hashrate: cdata.hashrate + rewards.hash, dividends: cdata.dividends + rewards.div, exp: cdata.exp + rewards.xp
+                // , event*: edata.event* + eventr.*
             }).eq('user_id', uid);
             if (updateError) {
                 return new Response(JSON.stringify({ response: 'We had issues trying to collect your daily reward. Please try again later.', code: 10 }), {
@@ -226,6 +285,7 @@ Deno.serve(async (req) => {
             if (rewards.noca) resources['noca'] = rewards.noca;
             if (rewards.sat) resources['sat'] = rewards.sat;
             var ierr = false;
+            // if (Object.keys(eventr).length) rewards['event'] = eventr;
             if (Object.keys(resources).length) { const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Daily reward" }); if (insertError) ierr = true; }
             return new Response(JSON.stringify({ response: mdata.daily_streak, code: ierr?2:5, claimed: JSON.stringify(rewards), level: maxXP===0&&cdata.level!==10 }), {
                 status: 200,
