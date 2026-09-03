@@ -439,6 +439,10 @@ function openUpgrades() {
     el.npu2.name.innerHTML = rig.npu2[0];
     el.npu2.value.innerHTML = rig.npu2[3];
     el.npu2.desc.innerHTML = rig.npu2[1];
+    el.echip.img.src = "/site/image/assets/mining/" + rig.echip[4] + ".png";
+    el.echip.name.innerHTML = rig.echip[0];
+    el.echip.value.innerHTML = rig.echip[3];
+    el.echip.desc.innerHTML = rig.echip[1];
 }
 
 function upgrade(what, closeid) {
