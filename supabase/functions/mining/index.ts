@@ -44,7 +44,7 @@ Deno.serve(async (req) => {
 
     let uid: string = user.user.id;
 
-    const { data: mdata, error: merror } = await sb.from('udata').select('hashrate, last_claimed, mining_upg, level').eq('user_id', uid).single();
+    const { data: mdata, error: merror } = await sb.from('udata').select('hashrate, last_claimed, mining_upg, level, exp').eq('user_id', uid).single();
     const { data: udata, error: uerror } = await sb.from('users').select('username').eq('id', uid).single();
     if (merror || uerror || !mdata || !udata) {
         return new Response(JSON.stringify({ response: 'Error fetching user data' }), {
@@ -76,6 +76,8 @@ Deno.serve(async (req) => {
             }
         } else {
             // remember that you must add npu logic to upgradeMining and collectDailyReward
+            var maxXP = 0;
+            if (mdata.level < 10) maxXP = LEVELS.perks[mdata.level + 1][0] - mdata.exp;
             var now = new Date().getTime();
             var lastclaim = new Date(mdata.last_claimed).getTime();
             var diff: number = (now - lastclaim) / 1000;
@@ -89,6 +91,8 @@ Deno.serve(async (req) => {
                     }
                 });
             } else {
+                var xpgain: number = Math.min(maxXP, Math.floor((Math.min(diff / 600, (UPGRADES.memory[Math.floor((mdata.mining_upg % 100) / 10)][3] + LEVELS.perks[mdata.level][2]) * 6)) * (LEVELS.perks[mdata.level][1] / 100)));
+                maxXP -= xpgain;
                 const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
                 const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
                 const { data: cdata, error: cerror } = await sb.from('udata').select('balance_nus').eq('user_id', uid).single();
@@ -112,7 +116,7 @@ Deno.serve(async (req) => {
                     });
                 }
                 const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining reward" });
-                return new Response(JSON.stringify({ response: JSON.stringify({"newtime": post.last_claimed, "reward": profit}), code: insertError?2:5 }), {
+                return new Response(JSON.stringify({ response: JSON.stringify({ "newtime": post.last_claimed, "reward": profit }), code: insertError ? 2 : 5, level: maxXP === 0 && mdata.level !== 10, xp: xpgain }), {
                     status: 200,
                     headers: {
                         ...headers

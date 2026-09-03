@@ -240,7 +240,8 @@ async function miningStart() {
             } else if ((data.code === 2) || (data.code === 5)) {
                 response = JSON.parse(data.response);
                 serverdata.last_claimed = response.newtime;
-                popup("Mining rewards claimed!", `You have received ${response.reward} $NUS!<br>You may claim again once the timer expires.` + (data.code === 2 ? "<br><br>Due to an internal error, your claim will not show up in your transaction history." : ""));
+                popup("Mining rewards claimed!", `You have received ${response.reward} $NUS and ${response.xp} XP!<br>You may claim again once the timer expires.<br>${response.level ?"You have enough XP to level up!<br><a href='levels.html' class='link'>Level Up Now!</a>":""}` +
+                    (data.code === 2 ? "<br><br>Due to an internal error, your claim will not show up in your transaction history." : ""));
                 const balance = await getBalance(uid);
                 document.getElementById("walletnus").innerHTML = balance[0];
                 document.getElementById("walletnoca").innerHTML = balance[1];

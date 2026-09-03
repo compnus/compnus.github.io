@@ -66,7 +66,7 @@ Deno.serve(async (req) => {
         });
     }
     const { data: uname, error: unoerr } = await sb.from("users").select("username").eq("id", uid).single();
-    const { data: nData, error: nError } = await sb.from("udata").select("balance_nus, balance_noca, balance_sats, mining_upg, hashrate, last_claimed, level").eq("user_id", uid).single();
+    const { data: nData, error: nError } = await sb.from("udata").select("balance_nus, balance_noca, balance_sats, mining_upg, hashrate, last_claimed, level, exp").eq("user_id", uid).single();
     if (!nData || !uname || nError || unoerr) {
         return new Response(JSON.stringify({ response: "Unknown error.", code: 10 }), {
             status: 501,
@@ -133,10 +133,13 @@ Deno.serve(async (req) => {
         else if (item === "hashp") updateds["hashrate"] = nData.hashrate + detail.val;
 
         // claim mining
+        var maxXP = 0;
+        if (nData.level < 10) maxXP = LEVELS.perks[nData.level + 1][0] - nData.exp;
         var now = new Date().getTime();
         var lastclaim = new Date(nData.last_claimed).getTime();
         var diff: number = (now - lastclaim) / 1000;
-        var maxtime: number = (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[nData.level][2]) *60*60;
+        var maxtime: number = (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[nData.level][2]) * 60 * 60;
+        var xpgain: number = Math.min(maxXP, Math.floor((Math.min(diff / 600, (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[nData.level][2]) * 6)) * (LEVELS.perks[nData.level][1] / 100)));
         const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
         const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
         if (dte || dre || !dt || !dr) {
@@ -148,7 +151,7 @@ Deno.serve(async (req) => {
             });
         }
         var profit: number = parseFloat(((nData.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8));
-        var post = { balance_nus: nData.balance_nus + profit, last_claimed: new Date().toISOString() };
+        var post = { balance_nus: nData.balance_nus + profit, last_claimed: new Date().toISOString(), exp: nData.exp + xpgain };
         const { error: updateError } = await sb.from('udata').update(post).eq('user_id', uid);
         if (updateError) {
             return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.', code: 10 }), {
