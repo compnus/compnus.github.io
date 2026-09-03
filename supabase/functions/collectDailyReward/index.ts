@@ -110,8 +110,8 @@ Deno.serve(async (req) => {
                 "10-31": { noca: 10 },
                 "12-06": { hash: 25, noca: 6 },
                 "12-24": { nus: 1, noca: 24 },
-                "12-25": { sat: 5, noca: 25 },
-                "12-26": { div: 3, noca: 26 }
+                "12-25": { div: 3, noca: 25 },
+                "12-26": { sat: 5, noca: 26 }
             };
             const REWARDS_B = {
                 100: {}
@@ -197,17 +197,18 @@ Deno.serve(async (req) => {
             }
             if (rc.xp > 0) {
                 rewards.xp += Math.min(maxXP, rc.xp);
-                maxXP -= rc.xp;
+                maxXP -= Math.min(maxXP, rc.xp);
             }
             if (date in REWARDS_S) {
                 var rs = REWARDS_S[date];
                 if (rs.xp > 0) {
                     rewards.xp += Math.min(maxXP, rs.xp);
-                    maxXP -= rs.xp;
+                    maxXP -= Math.min(maxXP, rs.xp);
                 }
             }
             var rxp = XP_LOOP[(mdata.daily_streak - 1) % XP_LOOP.length];
             rewards.xp += Math.min(maxXP, rxp);
+            maxXP -= Math.min(maxXP, rxp);
             const { error: updateError } = await sb.from('udata').update({
                 daily_last: mdata.daily_last, daily_streak: mdata.daily_streak, balance_nus: cdata.balance_nus + rewards.nus, balance_noca: cdata.balance_noca + rewards.noca,
                 balance_sats: cdata.balance_sats + rewards.sat, hashrate: cdata.hashrate + rewards.hash, dividends: cdata.dividends + rewards.div, exp: cdata.exp + rewards.xp
