@@ -181,7 +181,7 @@ Deno.serve(async (req) => {
                 }
                 maxXP -= xpgain;
                 var profit: number = parseFloat(((cdata.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8));
-                var post = { balance_nus: cdata.balance_nus + profit, last_claimed: new Date().toISOString(), exp: nData.exp + xpgain };
+                var post = { balance_nus: cdata.balance_nus + profit, last_claimed: new Date().toISOString(), exp: cdata.exp + xpgain };
                 const { error: updateError } = await sb.from('udata').update(post).eq('user_id', uid);
                 if (updateError) {
                     return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.', code: 10 }), {
@@ -192,6 +192,7 @@ Deno.serve(async (req) => {
                     });
                 }
                 cdata.balance_nus = cdata.balance_nus + profit;
+                cdata.exp = cdata.exp + xpgain;
                 await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining reward" });
             }
             if (rc.xp > 0) {
