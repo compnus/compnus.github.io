@@ -26,11 +26,11 @@ async function loadData() {
         .eq("owner", uid);
     if (!contractsd || contractsError) { console.log("Server error."); return; }
     for (i of contractsd) {
-        if (i.activate !== null) contracts.active.push(i);
+        if (i.activated !== null) contracts.active.push(i);
         else contracts.inactive.push(i);
     }
-    if (contracts.active.length == 0) document.getElementById('levelpage0').innerHTML = "<h2>You have no active mining contracts.</h2>";
-    if (contracts.inactive.length == 0) document.getElementById('levelpage1').innerHTML = "<h2>You have no inactive mining contracts.</h2>";
+    if (contracts.active.length === 0) document.getElementById('levelpage0').innerHTML = "<h2>You have no active mining contracts.</h2>";
+    if (contracts.inactive.length === 0) document.getElementById('levelpage1').innerHTML = "<h2>You have no inactive mining contracts.</h2>";
     document.getElementById('ac_current').innerHTML = contracts.active.length;
     document.getElementById('ac_max').innerHTML = LEVELS.perks[serverdata.level][3];
 }
