@@ -1,0 +1,78 @@
+main {
+    display: block;
+    padding: 6vh 0 1vh 0;
+    min-height: 79vh;
+    height: 79vh;
+}
+
+#compactWallet > div > p.cccicon#activecontt {
+
+}
+
+span.sp4x {
+    font-size: 1.5vh;
+}
+
+#navlike {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 1vh;
+}
+
+#navlike > p {
+    margin: -3px 0 0 0;
+    padding: 0 2vh 1vh 2vh;
+    font-size: 3vh;
+    line-height: 1;
+    font-family: 'Funnel Display';
+    color: #aaa;
+    border-bottom: 3px solid #aaa;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+#navlike > p.here {
+    color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+    #navlike > p:hover {
+        color: white;
+        border-color: white;
+        box-shadow: white 0 7px 5px -7px;
+    }
+
+.levelpage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    flex-direction: column;
+}
+
+@media(max-width:800px) {
+    main {
+        padding: 4vw 0;
+        min-height: calc(100vh - 53vw);
+        height: calc(100vh - 53vw);
+    }
+
+    span.sp4x {
+        font-size: 2.5vw;
+    }
+
+    #navlike {
+        margin-bottom: 2vw;
+    }
+
+        #navlike > p {
+            margin: calc(4vw - 3px) 0 0 0;
+            padding: 0 4vw 2vw 4vw;
+            font-size: 5vw;
+        }
+
+    .levelpage {
+        height: calc(100vh - 69.5vw);
+    }
+}

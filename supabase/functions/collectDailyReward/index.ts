@@ -110,8 +110,8 @@ Deno.serve(async (req) => {
                 { noca: 10 }, { nus: 0.05 }, { hash: 10 }, { noca: 5 }, { nus: 0.03, hash: 10, xp: 100 }, { noca: 69 }, { div: 2 }, //64-70
             ];
             const REWARDS_S = {
-                "01-01": { nus: 1, hash: 100 },
-                "02-29": { noca: 29, hash: 29 },
+                "01-01": { nus: 0.2027, hash: 100 },
+                "02-29": { noca: 29, hash: 29, xp: 29 },
                 "03-14": { nus: 0.31415927 },
                 "04-01": { nus: 0.00000001 },
                 "04-20": { noca: 1 },
@@ -125,7 +125,8 @@ Deno.serve(async (req) => {
                 "12-06": { hash: 25, noca: 6 },
                 "12-24": { nus: 1, noca: 24 },
                 "12-25": { div: 3, noca: 25 },
-                "12-26": { sat: 5, noca: 26 }
+                "12-26": { sat: 5, noca: 26 },
+                "12-31": { xp: 1000, noca: 31 }
             };
             const REWARDS_B = { //cannot contain xp
                 100: { nus: 0.5 },

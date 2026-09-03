@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../../script.js" defer></script>
+    <script src="contracts.js" defer></script>
+    <title>Mining Contracts - CryptoNUS</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="contracts.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script>
+    <script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script>
+</head>
+<body>
+    <script>
+        initHeader("Mining Contracts");
+    </script>
+
+    <main>
+        <div id="compactWallet">
+            <div title="Nocas"><p class="cccicon">$</p><p id="balance_nus">0</p></div>
+            <p></p>
+            <div title="Active Contracts"><p class="cccicon" id="activecontt">Active Contracts</p><p><span id="ac_current">0</span><span style="font-weight:200" class="sp4x">/</span><span id="ac_max" style="opacity:0.7" class="sp4x">0</span></p></div>
+        </div>
+        <div id="navlike">
+            <p onclick="if (history.length > 1) history.back(); else window.location.href = 'https://compnus.com/crypto/nus';" style="border-bottom-left-radius: 6px 3px;">< Back</p>
+            <p class="lpselector here" onclick="levelPage(0)" id="selector0">Level Up</p>
+            <p class="lpselector" onclick="levelPage(1)" style="border-bottom-right-radius: 6px 3px;" id="selector1">Perks</p>
+        </div>
+        <div class="levelpage" id="levelpage0">
+            <img id="levelicon" src="../../site/image/assets/level/lv0.png" />
+            <h1 id="levelname">Level <span id="levelnumber">0</span></h1>
+            <div id="progressbar"><div id="progress"></div></div>
+            <p id="levelinfo">You need <span id="exp_remain">100</span> more XP to level up.</p>
+            <p id="levelinfo2" onclick="popup('How to get XP?', 'You get 1 XP for every 10 minutes of mining, multiplied by your XP multiplier (see level perks).<br>Additionally, you can receive XP from daily rewards or other free rewards!',true,true)">How to get XP?</p>
+            <button id="level_up" class="disabled" onclick="levelUp()">LEVEL UP</button>
+            <p id="information">Leveling up costs 10 Nocas to cover server expenses.</p>
+        </div>
+        <div class="levelpage" id="levelpage1" style="display: none">
+            <table>
+                <tr style="position:sticky; top:0">
+                    <th style="background-color: var(--lightbgaccent);" class="perk"><h1>Level</h1></th>
+                    <th class="tl0"><img src="../../site/image/assets/level/lv0.png" /></th>
+                    <th class="tl1"><img src="../../site/image/assets/level/lv1.png" /></th>
+                    <th class="tl2"><img src="../../site/image/assets/level/lv2.png" /></th>
+                    <th class="tl3"><img src="../../site/image/assets/level/lv3.png" /></th>
+                    <th class="tl4"><img src="../../site/image/assets/level/lv4.png" /></th>
+                    <th class="tl5"><img src="../../site/image/assets/level/lv5.png" /></th>
+                    <th class="tl6"><img src="../../site/image/assets/level/lv6.png" /></th>
+                    <th class="tl7"><img src="../../site/image/assets/level/lv7.png" /></th>
+                    <th class="tl8"><img src="../../site/image/assets/level/lv8.png" /></th>
+                    <th class="tl9"><img src="../../site/image/assets/level/lv9.png" /></th>
+                    <th class="tl10"><img src="../../site/image/assets/level/lv10.png" /></th>
+                </tr>
+                <tr>
+                    <td class="perk"><h1>XP to Reach</h1></td>
+                    <td class="tl0" id="texp0"></td>
+                    <td class="tl1" id="texp1"></td>
+                    <td class="tl2" id="texp2"></td>
+                    <td class="tl3" id="texp3"></td>
+                    <td class="tl4" id="texp4"></td>
+                    <td class="tl5" id="texp5"></td>
+                    <td class="tl6" id="texp6"></td>
+                    <td class="tl7" id="texp7"></td>
+                    <td class="tl8" id="texp8"></td>
+                    <td class="tl9" id="texp9"></td>
+                    <td class="tl10" id="texp10"></td>
+                </tr>
+                <tr>
+                    <td class="perk"><h1>Mining XP Multiplier</h1></td>
+                    <td class="tl0" id="txpm0"></td>
+                    <td class="tl1" id="txpm1"></td>
+                    <td class="tl2" id="txpm2"></td>
+                    <td class="tl3" id="txpm3"></td>
+                    <td class="tl4" id="txpm4"></td>
+                    <td class="tl5" id="txpm5"></td>
+                    <td class="tl6" id="txpm6"></td>
+                    <td class="tl7" id="txpm7"></td>
+                    <td class="tl8" id="txpm8"></td>
+                    <td class="tl9" id="txpm9"></td>
+                    <td class="tl10" id="txpm10"></td>
+                </tr>
+                <tr>
+                    <td class="perk"><h1>Extra Mining Uptime</h1></td>
+                    <td class="tl0" id="tmup0"></td>
+                    <td class="tl1" id="tmup1"></td>
+                    <td class="tl2" id="tmup2"></td>
+                    <td class="tl3" id="tmup3"></td>
+                    <td class="tl4" id="tmup4"></td>
+                    <td class="tl5" id="tmup5"></td>
+                    <td class="tl6" id="tmup6"></td>
+                    <td class="tl7" id="tmup7"></td>
+                    <td class="tl8" id="tmup8"></td>
+                    <td class="tl9" id="tmup9"></td>
+                    <td class="tl10" id="tmup10"></td>
+                </tr>
+                <tr>
+                    <td class="perk"><h1>Maximum Active Mining Contracts</h1></td>
+                    <td class="tl0" id="tcon0"></td>
+                    <td class="tl1" id="tcon1"></td>
+                    <td class="tl2" id="tcon2"></td>
+                    <td class="tl3" id="tcon3"></td>
+                    <td class="tl4" id="tcon4"></td>
+                    <td class="tl5" id="tcon5"></td>
+                    <td class="tl6" id="tcon6"></td>
+                    <td class="tl7" id="tcon7"></td>
+                    <td class="tl8" id="tcon8"></td>
+                    <td class="tl9" id="tcon9"></td>
+                    <td class="tl10" id="tcon10"></td>
+                </tr>
+                <tr>
+                    <td class="perk"><h1>Rewards</h1></td>
+                    <td class="tl0" id="trew0"></td>
+                    <td class="tl1" id="trew1"></td>
+                    <td class="tl2" id="trew2"></td>
+                    <td class="tl3" id="trew3"></td>
+                    <td class="tl4" id="trew4"></td>
+                    <td class="tl5" id="trew5"></td>
+                    <td class="tl6" id="trew6"></td>
+                    <td class="tl7" id="trew7"></td>
+                    <td class="tl8" id="trew8"></td>
+                    <td class="tl9" id="trew9"></td>
+                    <td class="tl10" id="trew10"></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            await main();
+        });
+        initFooter();
+    </script>
+</body>
+</html>

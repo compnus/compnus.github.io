@@ -389,7 +389,7 @@ a {
     text-align: left;
 }
 
-    .input > input, .input > .halve > input, .input > select, .input > .halve > select {
+    .input input, .input select{
         width: 15vw;
         font-size: 2vh;
         border-radius: 2vh;

@@ -1,11 +1,10 @@
 var uid = "";
 var serverdata;
 var LEVELS;
-var __shadowl = 0;
 
 async function main() {
     const { user, data } = await getUser();
-    if (!user) window.location.href = "/u/login.html";
+    //if (!user) window.location.href = "/u/login.html";
     uid = data.id;
     await loadData();
     if (LEVELS) loadLevels();
