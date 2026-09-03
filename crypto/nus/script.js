@@ -398,7 +398,7 @@ function openUpgrades() {
         if (UPGRADES.npu2[lv.npu2 + 1][5] > serverdata.level) el.npu2.button.innerHTML = "LV " + UPGRADES.npu2[lv.npu2 + 1][5] + " Required";
         else el.npu2.button.classList.remove("disabled");
     }*/
-    if (UPGRADES.hashp[0][5] > serverdata.level) el.hashp.button.innerHTML = "LV " + UPGRADES.hashp[0][5] + " Required";
+    if (UPGRADES.hashp[0][5] > serverdata.level) { el.hashp.button.innerHTML = "LV " + UPGRADES.hashp[0][5] + " Required"; el.hashp.button.classList.add('disabled'); }
     el.cooling.img.src = "/site/image/assets/mining/"+rig.cooling[4]+".png";
     el.cooling.name.innerHTML = rig.cooling[0];
     el.cooling.value.innerHTML = rig.cooling[3];
