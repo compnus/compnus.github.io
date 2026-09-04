@@ -100,9 +100,9 @@ Deno.serve(async (req) => {
         var resources = LEVELS.perks[newLevel][4];
         delete resources.div;
         if (Object.keys(resources).length) {
-            const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Level Up Reward" });
+            const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Level Up Reward", expiration: 1 });
         }
-        const { error: insertError2 } = await sb.from('transaction').insert({ from: udata.username, to: "CompNUS", resource: {"noca":10}, message: "Level Up Fee" });
+        const { error: insertError2 } = await sb.from('transaction').insert({ from: udata.username, to: "CompNUS", resource: {"noca":10}, message: "Level Up Fee", expiration: 1 });
         return new Response(JSON.stringify({ response: "" }), {
             status: 200,
             headers: {

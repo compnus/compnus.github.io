@@ -224,7 +224,7 @@ Deno.serve(async (req) => {
                 }
             });
         }
-        await sb.from("transaction").insert({ from: from, to: "CompNUS", resource: {"noca":price}, message: "Message Fee" });
+        await sb.from("transaction").insert({ from: from, to: "CompNUS", resource: {"noca":price}, message: "Message Fee", expiration: 1 });
         return new Response(JSON.stringify({ response: "Message sent successfully!", type:1 }), {
             status: 200,
             headers: {

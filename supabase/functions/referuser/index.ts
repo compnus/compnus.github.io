@@ -164,7 +164,7 @@ Deno.serve(async (req) => {
         }
 
         const { error: transactionError } = await sb.from("transaction")
-            .insert([{ from: "admin:CompNUS", to: userExists.username, resource: { "nus": 1 }, message: "Referral Reward - New User" }, { from: "admin:CompNUS", to: referral, resource: { "nus": 0.05 }, message: "Referral Reward - Invited a User (" + userExists.username + ")" }]);
+            .insert([{ from: "admin:CompNUS", to: userExists.username, resource: { "nus": 1 }, message: "Referral Reward - New User", expiration: 2 }, { from: "admin:CompNUS", to: referral, resource: { "nus": 0.05 }, message: "Referral Reward - Invited a User (" + userExists.username + ")", expiration: 2 }]);
 
         if (transactionError) {
             return new Response(JSON.stringify({ response: transactionError.message }), {

@@ -115,7 +115,7 @@ Deno.serve(async (req) => {
                         }
                     });
                 }
-                const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining reward" });
+                const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining reward", expiration: 1 });
                 return new Response(JSON.stringify({ response: JSON.stringify({ "newtime": post.last_claimed, "reward": profit, "level": maxXP === 0 && mdata.level !== 10, "xp": xpgain }), code: insertError ? 2 : 5 }), {
                     status: 200,
                     headers: {

@@ -175,7 +175,7 @@ Deno.serve(async (req) => {
             });
         }
         nData.balance_nus = nData.balance_nus + profit;
-        await sb.from('transaction').insert({ from: "admin:CompNUS", to: uname.username, resource: { "nus": profit }, message: "Mining reward" });
+        await sb.from('transaction').insert({ from: "admin:CompNUS", to: uname.username, resource: { "nus": profit }, message: "Mining reward", expiration: 1 });
 
         // push updates
         if (detail.cost[1] === "nus") updateds["balance_nus"] = parseFloat((nData.balance_nus - detail.cost[0]).toFixed(8));
@@ -192,7 +192,7 @@ Deno.serve(async (req) => {
 
         var resources = {};
         resources[detail.cost[1]] = detail.cost[0];
-        await sb.from("transaction").insert({ from: uname.username, to: "CompNUS", resource: resources, message: "Mining Upgrade (id:"+item+")" });
+        await sb.from("transaction").insert({ from: uname.username, to: "CompNUS", resource: resources, message: "Mining Upgrade (id:"+item+")", expiration: 1 });
 
         return new Response(JSON.stringify({ response: "", code: 0 }), {
             status: 200,

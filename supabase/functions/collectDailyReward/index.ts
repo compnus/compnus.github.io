@@ -245,7 +245,7 @@ Deno.serve(async (req) => {
                 }
                 cdata.balance_nus = cdata.balance_nus + profit;
                 cdata.exp = cdata.exp + xpgain;
-                await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining reward" });
+                await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining reward", expiration: 1 });
             }
             if (rc.xp > 0) {
                 rewards.xp += Math.min(maxXP, rc.xp);
@@ -287,7 +287,7 @@ Deno.serve(async (req) => {
             if (rewards.sat) resources['sat'] = rewards.sat;
             var ierr = false;
             // if (Object.keys(eventr).length) rewards['event'] = eventr;
-            if (Object.keys(resources).length) { const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Daily reward" }); if (insertError) ierr = true; }
+            if (Object.keys(resources).length) { const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Daily reward", expiration: 1 }); if (insertError) ierr = true; }
             return new Response(JSON.stringify({ response: mdata.daily_streak, code: ierr?2:5, claimed: JSON.stringify(rewards), level: maxXP===0&&cdata.level!==10 }), {
                 status: 200,
                 headers: {
