@@ -50,7 +50,7 @@ function showEstimated(hashrate, duration) {
         Hashes Needed per Block: ${cache.hpb}<br>
         Hashrate: ${formatNumber(hashrate).join(' ')}H/s<br>
         Rewards per Minute: ${((hashrate * 60 * cache.npb) / cache.hpb).toFixed(8)} <span class='rewards'>$</span><br>
-        Approximated Total Rewards: <b>${((hashrate * 60 * duration * cache.npb) / cache.hpb).toFixed(8)}</b> <span class='rewards'>$</span>`
+        Estimated Total Rewards: <b>${((hashrate * 60 * duration * cache.npb) / cache.hpb).toFixed(8)}</b> <span class='rewards'>$</span>`
     ); 
 }
 
