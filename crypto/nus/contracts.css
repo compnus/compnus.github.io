@@ -90,6 +90,10 @@ span.sp4x {
     font-size: 1.7vh;
 }
 
+span.rewards {
+    font-family: 'currencycompnus', Ubuntu !important;
+}
+
 @media(max-width:800px) {
     main {
         padding: 4vw 0;
