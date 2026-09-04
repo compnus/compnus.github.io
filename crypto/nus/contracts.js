@@ -52,14 +52,14 @@ function fillContracts(page) {
                 <div>
                     <h1>${i.name ? i.name : 'Mining Contract'}</h1>
                     <h3>Hashrate: ${formatNumber(i.hashrate).join(' ')}H/s &emsp; Duration: ${formatTime(i.duration * 60, false).join(' ')}</h3>
-                    <p>${page === 1 ? 'Expires on: ' + new Date(i.expiration).toLocaleDateString() : 'Activated on: ' + new Date(i.activated).toLocaleDateString()}</p>
-                    ${page === 0 ? '<p>Pending Rewards: <span class="rewards"><span id="rewards' + id + '">0.00000000</span></p>' : ''}
+                    <p>${page === 1 ? 'Expires on: ' + new Date(i.expiration).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Activated on: ' + new Date(i.activated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) }</p>
+                    ${page === 0 ? '<p>Accumulated Rewards: <span class="rewards">$</span><span id="rewards' + id + '">0.00000000</span></p>' : ''}
                 </div>
                 <button id='button${page}_${id}' class="${page === 0 ? 'disabled' : ''}" onclick="resolveContract(${page}, ${id})">${page === 0 ? 'Loading...' : 'Activate'}</button>
             `;
         container.appendChild(contract);
         if (page === 0) {
-            updating.push([document.getElementById('rewards' + id), ]);
+            updating.push([document.getElementById('rewards' + id), document.getElementById('button' + page + '_' + id)]);
             id++;
         }
     }
