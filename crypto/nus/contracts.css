@@ -50,6 +50,44 @@ span.sp4x {
     justify-content: center;
     height: 75vh;
     flex-direction: column;
+    margin: 0 10vw;
+}
+
+.contractc {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.contractd {
+    background-color: var(--lightbg);
+    box-shadow: var(--maingradfallback) 0 3px 3px;
+    width: calc(100% - 3vh);
+    padding: 1vh 1vh 1vh 2vh;
+    border-radius: 3vh;
+    margin-top: 2vh;
+    display: grid;
+    grid-template-columns: 1fr 10em;
+}
+
+.contractd h1  {
+    margin: 0;
+    font-family: Gabarito;
+    font-size: 3.5vh;
+}
+
+.contractd h3 {
+    margin: 1vh 0 0 0;
+    font-size: 2vh;
+}
+
+.contractd p {
+    margin: 1vh 0 0 0;
+    font-size: 1.7vh;
 }
 
 @media(max-width:800px) {

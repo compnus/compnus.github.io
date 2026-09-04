@@ -1,6 +1,7 @@
 var uid = "";
 var serverdata;
 var contracts = { active: [], inactive: [] };
+var cache = {nbp: 0, hpb: 0};
 var updating = [];
 var LEVELS;
 
@@ -30,6 +31,9 @@ async function loadData() {
         if (i.activated !== null) contracts.active.push(i);
         else contracts.inactive.push(i);
     }
+    cache.nbp = await getVariable("nusperblock");
+    cache.hpb = await getVariable("hashperblock");
+    if (cache.nbp === 0 || cache.hpb === 0) { console.log("Server error."); return; }
     if (contracts.active.length === 0) document.getElementById('levelpage0').innerHTML = "<h2 style='text-align: center;'>You have no active mining contracts.</h2>";
     else fillContracts(0);
     if (contracts.inactive.length === 0) document.getElementById('levelpage1').innerHTML = "<h2 style='text-align: center;'>You have no inactive mining contracts.</h2>";
@@ -51,7 +55,8 @@ function fillContracts(page) {
         contract.innerHTML = `
                 <div>
                     <h1>${i.name ? i.name : 'Mining Contract'}</h1>
-                    <h3>Hashrate: ${formatNumber(i.hashrate).join(' ')}H/s &emsp; Duration: ${formatTime(i.duration * 60, false).join(' ')}</h3>
+                    <h3>Hashrate: ${formatNumber(i.hashrate).join(' ')}H/s &emsp; Duration: <u onclick="popup('Duration', 'Exact Duration: ${i.duration} minute(s)<br><i>&approx; ${Math.floor(i.duration / 60)} hour(s) | ${Math.floor(i.duration / 1440)} day(s)</i>')" style="cursor:pointer">${formatTime(i.duration * 60, false).join(' ')}</u>
+                    &emsp; <i style="font-weight: normal" class='link' onclick='popup("Estimated Rewards", "Current Block Reward: ${cache.npb}<br>Hashes Needed per Block: ${cache.hpb}<br>Hashrate: ${formatNumber(i.hashrate).join(' ')}H/s<br>Rewards per Minute: ${((i.hashrate * 60 * cache.npb) / cache.hpb).toFixed(8)} <span class=\"rewards\">$</span><br>Approximated Total Rewards: <b>${((i.hashrate * 60 * i.duration * cache.npb) / cache.hpb).toFixed(8)}</b> <span class=\"rewards\">$</span>")'>Calculate Rewards</i></h3>
                     <p>${page === 1 ? 'Expires on: ' + new Date(i.expiration).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Activated on: ' + new Date(i.activated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) }</p>
                     ${page === 0 ? '<p>Accumulated Rewards: <span class="rewards">$</span><span id="rewards' + id + '">0.00000000</span></p>' : ''}
                 </div>
