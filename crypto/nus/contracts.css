@@ -18,7 +18,9 @@ span.sp4x {
     display: flex;
     align-items: baseline;
     justify-content: center;
-    margin-bottom: 1vh;
+    z-index: 5;
+    position: relative;
+    filter: drop-shadow(black 0 5px 5px);
 }
 
 #navlike > p {
@@ -48,7 +50,7 @@ span.sp4x {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 75vh;
+    height: 76vh;
     flex-direction: column;
     margin: 0 9vw 0 10vw;
 }
