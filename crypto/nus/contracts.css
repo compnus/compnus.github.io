@@ -50,7 +50,7 @@ span.sp4x {
     justify-content: center;
     height: 75vh;
     flex-direction: column;
-    margin: 0 10vw;
+    margin: 0 9vw 0 10vw;
 }
 
 .contractc {
@@ -59,17 +59,20 @@ span.sp4x {
     width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
     overflow-y: auto;
+    padding-right: 1vw;
+    padding-bottom: 2vh;
 }
 
 .contractd {
     background-color: var(--lightbg);
     box-shadow: var(--maingradfallback) 0 3px 3px;
-    width: calc(100% - 3vh);
+    width: calc(40em - 3vh);
     padding: 1vh 1vh 1vh 2vh;
     border-radius: 3vh;
-    margin-top: 2vh;
+    margin: 2vh 1vh 0 1vh;
     display: grid;
     grid-template-columns: 1fr 10em;
 }
@@ -77,17 +80,17 @@ span.sp4x {
 .contractd h1  {
     margin: 0;
     font-family: Gabarito;
-    font-size: 3.5vh;
+    font-size: 3vh;
 }
 
 .contractd h3 {
     margin: 1vh 0 0 0;
-    font-size: 2vh;
+    font-size: 1.7vh;
 }
 
 .contractd p {
     margin: 1vh 0 0 0;
-    font-size: 1.7vh;
+    font-size: 1.5vh;
 }
 
 span.rewards {
