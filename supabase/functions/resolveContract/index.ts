@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
 
     const { data: mdata, error: merror } = await sb.from('udata').select('level').eq('user_id', uid).single();
     const { data: udata, error: uerror } = await sb.from('users').select('username').eq('id', uid).single();
-    const { data: cdata, error: cerror } = await sb.from('contracts').select('id,owner,activated,hashrate,duration,expiration').eq('id', cid).single();
+    const { data: cdata, error: cerror } = await sb.from('contract').select('id,owner,activated,hashrate,duration,expiration').eq('id', cid).single();
     if (merror || uerror || !mdata || !udata || !cdata || cerror) {
         return new Response(JSON.stringify({ response: 'Error fetching user data' }), {
             status: 500,
@@ -88,7 +88,7 @@ Deno.serve(async (req) => {
                     }
                 });
             }
-            const { data: activec, error: activeerror } = await sb.from('contracts').select('id').eq('owner', uid).not('activated', 'is', null);
+            const { data: activec, error: activeerror } = await sb.from('contract').select('id').eq('owner', uid).not('activated', 'is', null);
             if (activeerror) return new Response(JSON.stringify({ response: 'Error checking active contracts' }), {
                 status: 500,
                 headers: {
@@ -101,7 +101,7 @@ Deno.serve(async (req) => {
                     ...headers
                 }
             });
-            const { error: updateError } = await sb.from('contracts').update({ activated: new Date().toISOString() }).eq('id', cid);
+            const { error: updateError } = await sb.from('contract').update({ activated: new Date().toISOString() }).eq('id', cid);
             if (updateError) return new Response(JSON.stringify({ response: 'We had issues trying to activate your contract. Please try again later.' }), {
                 status: 500,
                 headers: {
@@ -143,6 +143,7 @@ Deno.serve(async (req) => {
                     }
                 });
             }
+            const { error: deleteError } = await sb.from('contract').delete().eq('id', cid);
             const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining Contract reward", expiration: 1 });
             return new Response(JSON.stringify({ response: `${profit}`, sc:true }), {
                 status: 200,

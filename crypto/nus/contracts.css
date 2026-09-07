@@ -73,7 +73,7 @@ span.sp4x {
     box-shadow: var(--maingradfallback) 0 3px 3px;
     width: calc(40em - 3vh);
     padding: 1vh;
-    border-radius: 3vh;
+    border-radius: 2vh;
     margin: 2vh 1vh 0 1vh;
     display: grid;
     grid-template-columns: 1fr 10em;
