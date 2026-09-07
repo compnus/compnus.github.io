@@ -67,12 +67,12 @@ function fillContracts(page) {
     for (i of (page === 0 ? contracts.active : contracts.inactive)) {
         const contract = document.createElement('div');
         contract.classList.add('contractd');
-        const isExpired = new Date(i.expiration).getTime() <= new Date().getTime();
+        const isExpired = i.expiration !== null && new Date(i.expiration).getTime() <= new Date().getTime();
         contract.innerHTML = `
             <div>
                 <h1>${i.name ? i.name : 'Mining Contract'}</h1>
                 <h3>Hashrate: ${formatNumber(i.hashrate).join(' ') }H/s &emsp; Duration: <u onclick="popup('Duration', 'Exact Duration: ${i.duration} minute(s)<br><i>&approx; ${Math.floor(i.duration / 60)} hour(s) | ${Math.floor(i.duration / 1440)} day(s)</i>')" style="cursor:pointer">${formatTime(i.duration * 60, false).join(' ')}</u></h3>
-                <p>${page === 1 ? 'Expire' + (i.expiration <= new Date().toISOString().slice(0, 10) ? 'd' : 's') + ' on: ' + new Date(i.expiration).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Activated on: ' + new Date(i.activated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} &emsp; <i style="font-weight: normal" class='link' onclick='showEstimated(${i.hashrate}, ${i.duration})'>Calculate Rewards</i></p>
+                <p>${page === 1 ? (i.expiration === null? 'Does not expire.':'Expire' + (isExpired ? 'd' : 's') + ' on: ' + new Date(i.expiration).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })) : 'Activated on: ' + new Date(i.activated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} &emsp; <i style="font-weight: normal" class='link' onclick='showEstimated(${i.hashrate}, ${i.duration})'>Calculate Rewards</i></p>
                 ${page === 0 ? '<p>Accumulated Rewards: <span class="rewards">$</span> <span id="rewards' + id + '">0.00000000</span></p>' : ''}
             </div>
             <button id='button${page}_${id}' class="${page === 0 || isExpired ? 'disabled' : ''}" onclick="resolveContract(${page}, ${id}, ${i.id})">${page === 0 ? 'Loading...' : isExpired? 'Expired':'Activate'}</button>
