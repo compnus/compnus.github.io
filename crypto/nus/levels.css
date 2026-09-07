@@ -218,6 +218,9 @@ tr:hover {
 }
 
 @media(max-width:800px) {
+    #compactwallet {
+        margin: 0 4vw;
+    }
     main {
         padding: 4vw 0;
         min-height: calc(100vh - 53vw);

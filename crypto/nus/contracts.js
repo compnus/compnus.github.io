@@ -75,7 +75,7 @@ function fillContracts(page) {
         `;
         container.appendChild(contract);
         if (page === 0) {
-            updating.push([document.getElementById('rewards' + id), document.getElementById('button' + page + '_' + id)]);
+            updating.push([document.getElementById('rewards' + id), document.getElementById('button0_' + id)]);
             id++;
         }
     }
@@ -93,7 +93,7 @@ function levelPage(turn) {
 function resolveContract(page, index, contract) {
     var button;
     if (page === 0) button = updating[index][1];
-    else if (page === 1) button = document.getElementById('button' + page + '_' + index);
+    else if (page === 1) button = document.getElementById('button1_' + index);
     else return;
     button.classList.add('disabled');
     startLoading();
