@@ -99,19 +99,19 @@ Deno.serve(async (req) => {
             */
             const REWARDS_C = [
                 { hash: 1 }, { noca: 5 }, { nus: 0.001 }, { hash: 3 }, { noca: 5 }, { nus: 0.001 }, { hash: 5, nus: 0.003 }, //1-7
-                { hash: 3 }, { noca: 10 }, { sat: 0.0001, xp: 25 }, { noca: 3, hash: 1 }, { noca: 10 }, { nus: 0.002 }, { hash: 3, nus: 0.005, noca: 5 }, //8-14
+                { hash: 3 }, { noca: 10 }, { sat: 0.0001, xp: 25 }, { noca: 3, hash: 1 }, { noca: 10 }, { cont: {hash:2000,dur:20,name:'Daily Bonus Rig',exp:21} }, { hash: 3, nus: 0.005, noca: 5 }, //8-14
                 { hash: 10 }, { noca: 5 }, { nus: 0.001 }, { noca: 5, hash: 3 }, { noca: 10 }, { sat: 0.001 }, { nus: 0.01, noca: 20 }, //15-21
                 { hash: 3 }, { nus: 0.001 }, { xp: 40 }, { nus: 0.0005, noca: 10, hash: 2 }, { hash: 5 }, { noca: 3 }, { hash: 25 }, //22-28
-                { noca: 3, hash: 1 }, { noca: 5, sat: 0.01 }, { div: 1 }, { hash: 5 }, { nus: 0.003 }, { noca: 10 }, { nus: 0.025 }, //29-35
+                { noca: 3, hash: 1 }, { noca: 5, sat: 0.01 }, { div: 1 }, { hash: 5 }, { cont: { hash: 2500, dur: 30, name: 'Daily Bonus Rig', exp: 21 } }, { noca: 10 }, { nus: 0.025 }, //29-35
                 { noca: 10 }, { hash: 5, xp: 25 }, { nus: 0.003 }, { noca: 20 }, { sat: 0.1 }, { nus: 0.001 }, { noca: 50, hash: 25 }, //36-42
                 { noca: 5 }, { nus: 0.003 }, { hash: 10 }, { noca: 3 }, { nus: 0.005 }, { noca: 20 }, { nus: 0.1 }, //43-49
-                { sat: 1 }, { hash: 3 }, { nus: 0.003, noca: 10 }, {  hash: 1, xp: 50 }, { nus: 0.0075 }, { noca: 10 }, { nus: 0.25 }, //50-56
+                { sat: 1 }, { hash: 3 }, { cont: { hash: 2500, dur: 45, name: 'Daily Bonus Rig', exp: 21 }, noca: 10 }, {  hash: 1, xp: 50 }, { nus: 0.0075 }, { noca: 10 }, { nus: 0.25 }, //50-56
                 { hash: 5 }, { noca: 10 }, { nus: 0.01 }, { sat: 10 }, { noca: 15, hash: 3 }, { nus: 0.01 }, { hash: 50 }, //57-63
-                { noca: 10 }, { nus: 0.05 }, { hash: 10 }, { noca: 5 }, { nus: 0.03, hash: 10, xp: 100 }, { noca: 69 }, { div: 2 }, //64-70
+                { noca: 10 }, { nus: 0.05 }, { cont: { hash: 3000, dur: 60, name: 'Daily Bonus Rig', exp: 21 } }, { noca: 5 }, { nus: 0.03, hash: 10, xp: 100 }, { noca: 69 }, { div: 2 }, //64-70
             ];
             const REWARDS_S = {
                 "01-01": { nus: 0.2027, hash: 100 },
-                "02-29": { noca: 29, hash: 29, xp: 29 },
+                "02-29": { noca: 29, hash: 29, xp: 29, cont: { hash: 29, dur: 104400, name: '29', exp: 29 } },
                 "03-14": { nus: 0.31415927 },
                 "04-01": { nus: 0.00000001 },
                 "04-20": { noca: 1 },
@@ -129,13 +129,13 @@ Deno.serve(async (req) => {
                 "12-31": { xp: 1000, noca: 31 }
             };
             const REWARDS_B = { //cannot contain xp
-                100: { nus: 0.5 },
+                100: { cont: { hash: 5000, dur: 2160, name: '100 Day Streak Bonus Rig' } },
                 200: { noca: 100 },
                 300: { hash: 100 },
-                400: { nus: 1 },
+                400: { cont: { hash: 7500, dur: 2880, name: '400 Day Streak Bonus Rig' } },
                 500: { sat: 100 },
                 600: { noca: 500, hash: 100 },
-                700: { nus: 3 },
+                700: { cont: { hash: 10000, dur: 5760, name: '700 Day Streak Bonus Rig' } },
                 800: { div: 5 },
                 900: { nus: 5, hash: 100 },
                 1000: { sat: 1000 }
@@ -161,7 +161,9 @@ Deno.serve(async (req) => {
                 sat: 0,
                 hash: 0,
                 div: 0,
-                xp: 0
+                xp: 0,
+                con: 0,
+                cont: []
             };
             /*
             var eventr = {
@@ -177,6 +179,7 @@ Deno.serve(async (req) => {
             rewards.sat += rc.sat || 0;
             rewards.hash += rc.hash || 0;
             rewards.div += rc.div || 0;
+            if (rc.cont) rewards.cont.push(rc.cont);
             if (date in REWARDS_S) {
                 var rs = REWARDS_S[date];
                 rewards.nus += rs.nus || 0;
@@ -184,6 +187,7 @@ Deno.serve(async (req) => {
                 rewards.sat += rs.sat || 0;
                 rewards.hash += rs.hash || 0;
                 rewards.div += rs.div || 0;
+                if (rs.cont) rewards.cont.push(rs.cont);
             }
             if (mdata.daily_streak in REWARDS_B) {
                 var rb = REWARDS_B[mdata.daily_streak];
@@ -192,6 +196,7 @@ Deno.serve(async (req) => {
                 rewards.sat += rb.sat || 0;
                 rewards.hash += rb.hash || 0;
                 rewards.div += rb.div || 0;
+                if (rb.cont) rewards.cont.push(rb.cont);
             }
             if (REWARDS_E.length) {
                 var re = REWARDS_E[mdata.daily_streak % REWARDS_E.length];
@@ -200,6 +205,7 @@ Deno.serve(async (req) => {
                 rewards.sat += re.sat || 0;
                 rewards.hash += re.hash || 0;
                 rewards.div += re.div || 0;
+                if (re.cont) rewards.cont.push(re.cont);
                 /*
                 eventr.* += re.* || 0;
                 */
@@ -281,11 +287,22 @@ Deno.serve(async (req) => {
                     }
                 });
             }
+            for (let i of rewards.cont) {
+                var expiry = null;
+                if (i.exp) {
+                    const date = new Date();
+                    date.setDate(date.getDate() + i.exp);
+                    expiry = date.toISOString().split('T')[0];
+                }
+                const { error: insertError } = await sb.from('contract').insert({ owner: uid, hashrate: i.hash, duration: i.dur, name: i.name, expiration: expiry });
+            }
             var resources = {};
             if (rewards.nus) resources['nus'] = rewards.nus;
             if (rewards.noca) resources['noca'] = rewards.noca;
             if (rewards.sat) resources['sat'] = rewards.sat;
             var ierr = false;
+            rewards.con = rewards.cont.length;
+            delete rewards.cont;
             // if (Object.keys(eventr).length) rewards['event'] = eventr;
             if (Object.keys(resources).length) { const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Daily reward", expiration: 1 }); if (insertError) ierr = true; }
             return new Response(JSON.stringify({ response: mdata.daily_streak, code: ierr?2:5, claimed: JSON.stringify(rewards), level: maxXP===0&&cdata.level!==10 }), {
