@@ -2,7 +2,7 @@ var uid = "";
 var serverdata;
 var contracts;
 var cache = {npb: 0, hpb: 0};
-var updating;
+var updating = [];
 var interval;
 var LEVELS;
 
