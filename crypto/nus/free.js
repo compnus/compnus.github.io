@@ -18,7 +18,7 @@ async function freeMain() {
         document.getElementById("dailygift").classList.add('collectedx');
         document.getElementById("information_kiosk_daily").innerHTML = "Come back tomorrow for another reward!";
     }
-    BONUS = await fetch('../../supabase/functions/_shared/smallBonus.json');
+    BONUS = await fetch('../../supabase/functions/_shared/smallBonus.json').then(response=>response.json());
 }
 
 function daysBetween(serverDateString) {
