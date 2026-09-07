@@ -2,6 +2,22 @@ var FILTERID = "scam0";
 
 var LISTS = [
     {
+        name: "Jack's Farm",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdbc.fmsnsr.xyz%2Fapi%2Ffiles%2F1nlpavfhdos0lje%2Fvhu94d261vr36z7%2Favatar_vfo8va61n8.jpg&f=1&nofb=1&ipt=cf1602a575d6a7f93b8f725bcaf2ff78a72c3a9eb2ddd3e086a77896230ec43f",
+        short: "Should you trust an app to deposit 3$ when it only allows you to withdraw 0.0002$? Probably not.",
+        long: `Red flags are usually very easy to spot, and this app is a prime example of that. This project is young and all investments require about 7 months to pay off. Chances are that there will be no such app in 7 months. In order to withdraw your earnings, you need to deposit at least 3$. While that does not ezacly sound like a huge amount of money, keep in mind that the amount you are earning is about 0.01$ per 5 days, so, really, waiting 4 years to see if it was actually a scam or not is simply not viable.`,
+        id: "jack_farm",
+        category: 2
+    },
+    {
+        name: "Honey Farm",
+        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F6e%2Faa%2F8d%2F6eaa8d81fa7fe1ea534e74dfda80b9cf.jpg&f=1&nofb=1&ipt=62ba64abef777641a01aac9acfba9a2ab63aba9cde6460ba5bcdea761c2c7ccc",
+        short: "Should you trust an app to deposit 3$ when it only allows you to withdraw 0.0002$? Probably not.",
+        long: `Red flags are usually very easy to spot, and this app is a prime example of that. This project is young and all investments require about 7 months to pay off. Chances are that there will be no such app in 7 months. In order to withdraw your earnings, you need to deposit at least 3$. While that does not ezacly sound like a huge amount of money, keep in mind that the amount you are earning is about 0.01$ per 5 days, so, really, waiting 4 years to see if it was actually a scam or not is simply not viable.`,
+        id: "jack_bees",
+        category: 2
+    },
+    {
         name: "Perp100",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FX1qkqxxxSD7krtTzrzGX9n1uy66bjVuuPSycNW20hpqN_bqd5QqfuREgyav65eywVEb1SAG8QBEcWjC0hNk9%3Dw280-h280&f=1&nofb=1&ipt=e68da0f674aa8cb2117f32837457210869e39bc5f72e400829c8186aa6f1c383",
         short: "You wake up and boom! The app is not what it quite used to be.",

@@ -3,6 +3,7 @@ var serverdata;
 var contracts = { active: [], inactive: [] };
 var cache = {npb: 0, hpb: 0};
 var updating = [];
+var interval;
 var LEVELS;
 
 async function main() {
@@ -10,6 +11,7 @@ async function main() {
     //if (!user) window.location.href = "/u/login.html";
     uid = data.id;
     await loadData();
+    interval = setInterval(calculateProfit, 1000);
 }
 
 async function loadData() {
@@ -24,7 +26,7 @@ async function loadData() {
     document.getElementById('balance_nus').innerHTML = serverdata.balance_nus;
     const { data: contractsd, error: contractsError } = await sb
         .from("contract")
-        .select("activated,hashrate,duration,expiration,name")
+        .select("id,activated,hashrate,duration,expiration,name")
         .eq("owner", uid);
     if (!contractsd || contractsError) { console.log("Server error."); return; }
     for (i of contractsd) {
@@ -63,14 +65,14 @@ function fillContracts(page) {
         const contract = document.createElement('div');
         contract.classList.add('contractd');
         contract.innerHTML = `
-                <div>
-                    <h1>${i.name ? i.name : 'Mining Contract'}</h1>
-                    <h3>Hashrate: ${formatNumber(i.hashrate).join(' ') }H/s &emsp; Duration: <u onclick="popup('Duration', 'Exact Duration: ${i.duration} minute(s)<br><i>&approx; ${Math.floor(i.duration / 60)} hour(s) | ${Math.floor(i.duration / 1440)} day(s)</i>')" style="cursor:pointer">${formatTime(i.duration * 60, false).join(' ')}</u></h3>
-                    <p>${page === 1 ? 'Expire' + (i.expiration <= new Date().toISOString().slice(0, 10) ? 'd' : 's') + ' on: ' + new Date(i.expiration).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Activated on: ' + new Date(i.activated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} &emsp; <i style="font-weight: normal" class='link' onclick='showEstimated(${i.hashrate}, ${i.duration})'>Calculate Rewards</i></p>
-                    ${page === 0 ? '<p>Accumulated Rewards: <span class="rewards">$</span> <span id="rewards' + id + '">0.00000000</span></p>' : ''}
-                </div>
-                <button id='button${page}_${id}' class="${page === 0 ? 'disabled' : ''}" onclick="resolveContract(${page}, ${id})">${page === 0 ? 'Loading...' : 'Activate'}</button>
-            `;
+            <div>
+                <h1>${i.name ? i.name : 'Mining Contract'}</h1>
+                <h3>Hashrate: ${formatNumber(i.hashrate).join(' ') }H/s &emsp; Duration: <u onclick="popup('Duration', 'Exact Duration: ${i.duration} minute(s)<br><i>&approx; ${Math.floor(i.duration / 60)} hour(s) | ${Math.floor(i.duration / 1440)} day(s)</i>')" style="cursor:pointer">${formatTime(i.duration * 60, false).join(' ')}</u></h3>
+                <p>${page === 1 ? 'Expire' + (i.expiration <= new Date().toISOString().slice(0, 10) ? 'd' : 's') + ' on: ' + new Date(i.expiration).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Activated on: ' + new Date(i.activated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} &emsp; <i style="font-weight: normal" class='link' onclick='showEstimated(${i.hashrate}, ${i.duration})'>Calculate Rewards</i></p>
+                ${page === 0 ? '<p>Accumulated Rewards: <span class="rewards">$</span> <span id="rewards' + id + '">0.00000000</span></p>' : ''}
+            </div>
+            <button id='button${page}_${id}' class="${page === 0 ? 'disabled' : ''}" onclick="resolveContract(${page}, ${id}, ${i.id})">${page === 0 ? 'Loading...' : 'Activate'}</button>
+        `;
         container.appendChild(contract);
         if (page === 0) {
             updating.push([document.getElementById('rewards' + id), document.getElementById('button' + page + '_' + id)]);
@@ -86,4 +88,33 @@ function levelPage(turn) {
     for (let p of sels) p.classList.remove('here');
     document.getElementById('levelpage' + turn).style.display = 'flex';
     document.getElementById('selector' + turn).classList.add('here');
+}
+
+function resolveContract(page, index, contract) {
+    var button;
+    if (page === 0) button = updating[index][1];
+    else if (page === 1) button = document.getElementById('button' + page + '_' + index);
+    else return;
+    button.classList.add('disabled');
+    startLoading();
+    clearInterval(interval);
+}
+
+function calculateProfit() {
+    var now = new Date().getTime();
+    var j = -1;
+    for (i of updating) { j++
+        var activated = new Date(contracts.active[j].activated).getTime();
+        var hashrate = contracts.active[j].hashrate;
+        var duration = contracts.active[j].duration;
+        var timediff = (now - activated) / 1000;
+        if (timediff > duration * 60) {
+            i[1].innerHTML = "Claim";
+            i[1].classList.remove('disabled');
+        } else {
+            var remaining = duration * 60 - timediff;
+            i[1].innerHTML = remaining > 60 * 60 * 24 ? formatTime(remaining, false).join(' ') : formatTime(remaining, true);
+            //continue here
+        }
+    }
 }
