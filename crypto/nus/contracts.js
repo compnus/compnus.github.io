@@ -8,7 +8,7 @@ var LEVELS;
 
 async function main() {
     const { user, data } = await getUser();
-    //if (!user) window.location.href = "/u/login.html";
+    if (!user) window.location.href = "/u/login.html";
     uid = data.id;
     await loadData();
     interval = setInterval(calculateProfit, 1000);
