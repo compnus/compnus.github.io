@@ -111,10 +111,11 @@ function calculateProfit() {
         if (timediff > duration * 60) {
             i[1].innerHTML = "Claim";
             i[1].classList.remove('disabled');
+            i[0].innerHTML = ((hashrate * 60 * duration * cache.npb) / cache.hpb).toFixed(8);
         } else {
             var remaining = duration * 60 - timediff;
             i[1].innerHTML = remaining > 60 * 60 * 24 ? formatTime(remaining, false).join(' ') : formatTime(remaining, true);
-            //continue here
+            i[0].innerHTML = ((hashrate * timediff * cache.npb) / cache.hpb).toFixed(8);
         }
     }
 }
