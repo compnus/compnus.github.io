@@ -118,7 +118,7 @@ async function smallBonusParts(bonus, part) {
                         'Content-Type': 'application/json',
                         'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
                     },
-                    body: ""
+                    body: JSON.stringify({bid:bonus})
                 })
                     .then(response => response.json())
                     .then(async data => {
