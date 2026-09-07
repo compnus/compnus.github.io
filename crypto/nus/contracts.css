@@ -72,12 +72,16 @@ span.sp4x {
     background-color: var(--lightbg);
     box-shadow: var(--maingradfallback) 0 3px 3px;
     width: calc(40em - 3vh);
-    padding: 1vh 1vh 1vh 2vh;
+    padding: 1vh;
     border-radius: 3vh;
     margin: 2vh 1vh 0 1vh;
     display: grid;
     grid-template-columns: 1fr 10em;
 }
+
+    .contractd button {
+        border-radius: 1vh;
+    }
 
 .contractd h1  {
     margin: 0;
@@ -100,8 +104,8 @@ span.rewards {
 }
 
 @media(max-width:800px) {
-    #compactwallet {
-        margin: 0 4vw;
+    #compactWallet {
+        margin: -4vw 4vw 0 4vw;
     }
 
     main {

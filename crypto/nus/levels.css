@@ -218,8 +218,8 @@ tr:hover {
 }
 
 @media(max-width:800px) {
-    #compactwallet {
-        margin: 0 4vw;
+    #compactWallet {
+        margin: -4vw 4vw 0 4vw;
     }
     main {
         padding: 4vw 0;
