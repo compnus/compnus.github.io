@@ -1,8 +1,8 @@
 var uid = "";
 var serverdata;
-var contracts = { active: [], inactive: [] };
+var contracts;
 var cache = {npb: 0, hpb: 0};
-var updating = [];
+var updating;
 var interval;
 var LEVELS;
 
@@ -16,6 +16,7 @@ async function main() {
 
 async function loadData() {
     var pages = document.querySelectorAll('.levelpage');
+    contracts = { active: [], inactive: [] };
     for (let p of pages) p.innerHTML = '<p>We are still fetching your contracts...</p>';
     const { data: serverdatac, error: userExistsErrorn } = await sb
         .from("udata")
