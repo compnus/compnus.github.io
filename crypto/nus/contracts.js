@@ -8,13 +8,15 @@ var LEVELS;
 
 async function main() {
     const { user, data } = await getUser();
-    //if (!user) window.location.href = "/u/login.html";
+    if (!user) window.location.href = "/u/login.html";
     uid = data.id;
     await loadData();
     interval = setInterval(calculateProfit, 1000);
 }
 
 async function loadData() {
+    var pages = document.querySelectorAll('.levelpage');
+    for (let p of pages) p.innerHTML = '<p>We are still fetching your contracts...</p>';
     const { data: serverdatac, error: userExistsErrorn } = await sb
         .from("udata")
         .select("balance_nus, level")
