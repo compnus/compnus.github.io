@@ -383,6 +383,45 @@ td:hover {
     }
 }
 
+.smallBonus {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 8vh 1fr;
+    grid-template-rows: 3vh 1fr;
+    padding: 1vh;
+    border-radius: 1vh;
+    background: rgba(0 0 0 / 25%);
+    box-shadow: rgba(0 0 0 / 50%) 0 0 5px;
+    cursor: pointer;
+    grid-gap: 1vh;
+    transition: 0.2s ease-out;
+}
+
+.smallBonus img {
+    width: 8vh;
+    height: 8vh;
+    grid-row: span 2;
+}
+
+.smallBonus h1 {
+    font-size: 2.5vh;
+    line-height: 3vh;
+    margin: 0;
+    text-wrap: nowrap;
+    font-family: Gabarito;
+}
+
+.smallBonus p {
+    margin: 0;
+    line-height: 1.7vh;
+    font-size: 1.7vh;
+}
+
+    .smallBonus:hover {
+        background-color: var(--lightbg);
+        box-shadow: rgba(0 0 0 / 75%) 0 0 7px
+    }
+
 @media(max-width:800px) {
     table {
         width: 80vw;

@@ -1,4 +1,6 @@
 var collStatus = false;
+var BONUS;
+var smallBonusReq, smallBonusTime;
 
 async function freeMain() {
     const { data: sdata, error: userExistsErrorn } = await sb
@@ -15,7 +17,8 @@ async function freeMain() {
     if (daily_last !== null && daily_last === 0) {
         document.getElementById("dailygift").classList.add('collectedx');
         document.getElementById("information_kiosk_daily").innerHTML = "Come back tomorrow for another reward!";
-    } 
+    }
+    BONUS = await fetch('../../supabase/functions/_shared/smallBonus.json');
 }
 
 function daysBetween(serverDateString) {
@@ -79,4 +82,72 @@ async function collectDaily() {
             popup("An error occurred", "We had issues trying to collect your daily reward. Please try again later.", true, true);
             collStatus = false;
         });
+}
+
+function smallBonus(title, description, bonus) {
+    popup(title, `
+    ${description}</p><br>
+    <button onclick="smallBonusParts('${bonus}', 0);window.open('${BONUS.bonus[bonus][2]}', '_blank');" id="smallBonusBtn" class="fullwidth">LET'S GO!</button>
+<p style="margin:0">
+`, true, true);
+    var btn = document.getElementById('smallBonusBtn');
+    var bonuses = localStorage.getItem('smallBonus');
+    if (bonuses?.includes(bonus + ' ')) {
+        btn.innerHTML = "Claimed!";
+        btn.classList.add('disabled');
+    }
+}
+
+async function smallBonusParts(bonus, part) {
+    var btn = document.getElementById("smallBonusBtn");
+    switch (part) {
+        case 0:
+            btn.innerHTML = "CLAIM REWARD";
+            btn.setAttribute("onclick", `smallBonusParts('${bonus}', 1)`);
+            smallBonusReq = BONUS.bonus[bonus][0];
+            smallBonusTime = new Date().getTime();
+            break;
+        case 1:
+            if (new Date().getTime() >= smallBonusTime + smallBonusReq * 1000) {
+                btn.innerHTML = "...";
+                btn.classList.add("disabled");
+                startLoading();
+                await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/collectSmallBonus', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+                    },
+                    body: ""
+                })
+                    .then(response => response.json())
+                    .then(async data => {
+                        stopLoading();
+                        if (data.sc) {
+                            btn.innerHTML = "Claimed!"
+                            if (data.claimed) {
+                                addLocalBonus(bonus);
+                                loadWallet();
+                            } else addLocalBonus();
+                        } else {
+                            btn.classList.remove('disabled');
+                            btn.innerHTML = "CLAIM REWARD";
+                            popup("An error occurred", data.response);
+                        }
+                    })
+                    .catch((error) => {
+                        clearTimeout(dToll);
+                        console.error('Error invoking function:', error);
+                    });
+            } else {
+                btn.innerHTML = "LET'S GO!";
+                btn.setAttribute("onclick", `smallBonusParts('${bonus}', 0);window.open('${BONUS.bonus[bonus][2]}', '_blank');`);
+                smallBonusReq = smallBonusTime = null;
+            }
+            break;
+    }
+}
+
+function addLocalBonus(id) {
+    //no id == sync with server
 }
