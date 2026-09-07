@@ -64,6 +64,7 @@ function fillContracts(page) {
     for (i of (page === 0 ? contracts.active : contracts.inactive)) {
         const contract = document.createElement('div');
         contract.classList.add('contractd');
+        const isExpired = new Date(i.expiration).getTime() <= new Date().getTime();
         contract.innerHTML = `
             <div>
                 <h1>${i.name ? i.name : 'Mining Contract'}</h1>
@@ -71,7 +72,7 @@ function fillContracts(page) {
                 <p>${page === 1 ? 'Expire' + (i.expiration <= new Date().toISOString().slice(0, 10) ? 'd' : 's') + ' on: ' + new Date(i.expiration).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Activated on: ' + new Date(i.activated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} &emsp; <i style="font-weight: normal" class='link' onclick='showEstimated(${i.hashrate}, ${i.duration})'>Calculate Rewards</i></p>
                 ${page === 0 ? '<p>Accumulated Rewards: <span class="rewards">$</span> <span id="rewards' + id + '">0.00000000</span></p>' : ''}
             </div>
-            <button id='button${page}_${id}' class="${page === 0 ? 'disabled' : ''}" onclick="resolveContract(${page}, ${id}, ${i.id})">${page === 0 ? 'Loading...' : 'Activate'}</button>
+            <button id='button${page}_${id}' class="${page === 0 || isExpired ? 'disabled' : ''}" onclick="resolveContract(${page}, ${id}, ${i.id})">${page === 0 ? 'Loading...' : isExpired? 'Expired':'Activate'}</button>
         `;
         container.appendChild(contract);
         if (page === 0) {
@@ -90,7 +91,7 @@ function levelPage(turn) {
     document.getElementById('selector' + turn).classList.add('here');
 }
 
-function resolveContract(page, index, contract) {
+async function resolveContract(page, index, contract) {
     var button;
     if (page === 0) button = updating[index][1];
     else if (page === 1) button = document.getElementById('button1_' + index);
@@ -98,6 +99,66 @@ function resolveContract(page, index, contract) {
     button.classList.add('disabled');
     startLoading();
     clearInterval(interval);
+    if (page === 0) {
+        var timediff = (new Date().getTime() - new Date(contracts.active[index].activated).getTime()) / 1000;
+        if (timediff < contracts.active[index].duration * 60) {
+            stopLoading();
+            popup("Cannot claim yet!", "Wait patiently until the contract has finished mining. If the contract shows as finished, please refresh the page.", true, true);
+        } else await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/resolveContract', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+            },
+            body: JSON.stringify({ cid: contract })
+        })
+            .then(response => response.json())
+            .then(async data => {
+                stopLoading();
+                if (data.sc) {
+                    popup("Successfully claimed!", `You have received ${data.response} $NUS. Your balance should update shortly. If it takes too long, please refresh the page.`, true, true);
+                    await loadData();
+                } else {
+                    popup('An error occurred', data.response);
+                    button.classList.remove('disabled');
+                }
+            })
+            .catch((error) => {
+                console.error('Error invoking function:', error);
+                button.classList.remove('disabled');
+            });
+    } else if (page === 1) {
+        var current = contracts.active.length;
+        var maxc = LEVELS.perks[serverdata.level][3];
+        if (current >= maxc) {
+            stopLoading();
+            button.classList.remove('disabled');
+            popup("Cannot activate contract!", "You already have maximum possible contracts active. Claim one of your active contracts or <a class='link' href='levels.html'>level up</a> to activate more.", true, true);
+        } else await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/resolveContract', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+            },
+            body: JSON.stringify({ cid: contract })
+        })
+            .then(response => response.json())
+            .then(async data => {
+                stopLoading();
+                if (data.sc) {
+                    popup("Contract Activated!", "Your contract has been successfully activated. You can claim it once it finishes mining.", true, true);
+                    await loadData();
+                } else {
+                    popup('An error occurred', data.response);
+                    button.classList.remove('disabled');
+                }
+            })
+            .catch((error) => {
+                console.error('Error invoking function:', error);
+                button.classList.remove('disabled');
+            });
+    }
+    interval = setInterval(calculateProfit, 1000);
 }
 
 function calculateProfit() {

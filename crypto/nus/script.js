@@ -639,6 +639,7 @@ async function confirmUpgrade(what, closemain, closeside) {
                 document.getElementById('popup' + closemain).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + closemain)), 201);
                 document.getElementById('popup' + closeside).style.opacity = 0; window.setTimeout(() => document.body.removeChild(document.getElementById('popup' + closeside)), 201);
                 await initialize_serverdata();
+                document.getElementById('mining_action').classList.add("disabled");
             }
         })
         .catch((error) => {
