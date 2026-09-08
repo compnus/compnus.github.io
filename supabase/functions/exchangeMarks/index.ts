@@ -99,9 +99,7 @@ Deno.serve(async (req) => {
 
     try {
         const { error: sendError } = await sb.from("udata").update({ coins: nData.coins + parseInt(amount), balance_sats: Math.round((nData.balance_sats - toPay)*10000)/10000 }).eq("user_id", uid);
-
         if (sendError) {
-            console.log(`variable__coinvalue_buy__:${vals}, bitcoin_price:${pricebtc}, value_parsed:${value}, req_btc:${toPay}, end__log__77177`);
             return new Response(JSON.stringify({ response: "There was a problem updating your balance." }), {
                 status: 400,
                 headers: {
