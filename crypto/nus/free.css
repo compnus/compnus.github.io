@@ -391,7 +391,7 @@ td:hover {
     padding: 1vh;
     border-radius: 1vh;
     background: rgba(0 0 0 / 25%);
-    box-shadow: rgba(0 0 0 / 50%) 0 0 5px;
+    box-shadow: rgba(255 255 255 / 25%) 0 0 5px;
     cursor: pointer;
     grid-gap: 1vh;
     transition: 0.2s ease-out;
@@ -413,14 +413,45 @@ td:hover {
 
 .smallBonus p {
     margin: 0;
-    line-height: 1.7vh;
+    line-height: 2vh;
     font-size: 1.7vh;
 }
 
     .smallBonus:hover {
         background-color: var(--lightbg);
-        box-shadow: rgba(0 0 0 / 75%) 0 0 7px
+        box-shadow: rgba(0 0 0 / 75%) 0 0 7px;
     }
+
+.miniButton {
+    display: grid;
+    padding: 1vh;
+    border-radius: 1vh;
+    grid-template-rows: 5.5vh 1.5vh;
+    grid-gap: 1vh;
+    cursor: pointer;
+    background: rgba(0 0 127 / 25%);
+    box-shadow: rgba(255 255 255 / 18%) 0 0 5px;
+    transition: 0.2s ease-out;
+    justify-items: center;
+}
+
+    .miniButton:hover {
+        background-color: var(--lightbg);
+        box-shadow: rgba(0 0 0 / 50%) 0 0 10px;
+    }
+
+.miniButton img {
+    width: 5.5vh;
+    height: 5.5vh;
+}
+
+.miniButton h2 {
+    font-size: 1.5vh;
+    line-height: 1;
+    margin: 0;
+    font-family: Gabarito;
+    font-weight: 400;
+}
 
 @media(max-width:800px) {
     table {
@@ -614,5 +645,22 @@ td:hover {
             font-size: 3vw;
             line-height: 1;
             align-self: center;
+        }
+
+    .miniButton {
+        padding: 2vw;
+        border-radius: 2vw;
+        grid-template-rows: 12vw 3vw;
+        grid-gap: 2.5vw;
+    }
+
+        .miniButton img {
+            width: 12vw;
+            height: 12vw;
+        }
+
+        .miniButton h2 {
+            font-size: 3vw;
+            line-height: 1;
         }
 }

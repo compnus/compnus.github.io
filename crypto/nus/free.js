@@ -86,7 +86,7 @@ async function collectDaily() {
 
 function smallBonus(title, description, bonus) {
     popup(title, `
-    ${description}</p><br><p style="margin:0.5em; font-size:0.8em; text-align: center; color: #ccc; text-decoration: underline" id="smallBonusLink" onclick="window.open('${BONUS.bonus[bonus][2]}', '_blank');"></p>
+    ${description}</p><p style="margin:1em; font-size:0.8em; text-align: center; color: #ccc; text-decoration: underline; cursor:pointer" id="smallBonusLink" onclick="window.open('${BONUS.bonus[bonus][2]}', '_blank');"></p>
     <button onclick="smallBonusParts('${bonus}', 0);window.open('${BONUS.bonus[bonus][2]}', '_blank');" id="smallBonusBtn" class="fullwidth">LET'S GO!</button>
 <p style="margin:0;>
 `, true, true);

@@ -1030,6 +1030,13 @@ a.linkstv {
         flex-wrap: wrap;
         justify-content: center;
     }
+        .bottomacts img {
+            height: 9vw;
+            width: 9vw;
+            padding: 1vw;
+            margin: 0 1vw;
+            border-radius: 2vw;
+        }
 
         .bottomacts p {
             padding-bottom: 1vw;

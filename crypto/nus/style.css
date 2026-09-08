@@ -274,5 +274,6 @@ main {
         grid-template-columns: repeat(4, 21.5vw);
         grid-auto-rows: 21.5vw;
         grid-gap: 2vw;
+        overflow: unset;
     }
 }
