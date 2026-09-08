@@ -88,13 +88,18 @@ function smallBonus(title, description, bonus) {
     popup(title, `
     ${description}</p><br>
     <button onclick="smallBonusParts('${bonus}', 0);window.open('${BONUS.bonus[bonus][2]}', '_blank');" id="smallBonusBtn" class="fullwidth">LET'S GO!</button>
-<p style="margin:0">
+<p style="margin:0; color: #ccc; text-decoration: underline" id="smallBonusLink">
 `, true, true);
     var btn = document.getElementById('smallBonusBtn');
+    var lnk = document.getElementById('smallBonusLink');
     var bonuses = localStorage.getItem('smallBonus');
     if (bonuses?.includes(bonus + ' ')) {
         btn.innerHTML = "Claimed!";
         btn.classList.add('disabled');
+        lnk.innerHTML = "Open Link";
+        lnk.setAttribute('onclick', "window.open('" + BONUS.bonus[bonus][2] + "', '_blank');");
+        lnk.style.marginTop = "0.5em";
+        lnk.style.fontSize = "0.8em";
     }
 }
 

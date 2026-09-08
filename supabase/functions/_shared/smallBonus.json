@@ -2,6 +2,6 @@
   "currency.nfo":  [[0,"nus"],[1,"noca"],[2,"sat"]],
   "bonus.nfo": [[0,"timetofinish","seconds"],[1,"reward","[amount,currency]"],[2,"link"]],
   "bonus": {
-    "st":  [4,[5,1],"PLACEHOLDER"]
+    "st":  [4,[5,1],"https://t.me/compnus"]
   }
 }
