@@ -469,7 +469,7 @@ a.linkstv {
     grid-column: 1 / -1;
     display: flex;
     margin: 0;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .bottomacts img {
