@@ -128,7 +128,7 @@ async function smallBonusParts(bonus, part) {
                             if (data.claimed) {
                                 addLocalBonus(bonus);
                                 loadWallet();
-                            } else addLocalBonus();
+                            } else addLocalBonus(data.response, true);
                         } else {
                             btn.classList.remove('disabled');
                             btn.innerHTML = "CLAIM REWARD";
@@ -148,6 +148,7 @@ async function smallBonusParts(bonus, part) {
     }
 }
 
-function addLocalBonus(id) {
-    //no id == sync with server
+function addLocalBonus(id, sync=false) {
+    if (sync) localStorage.setItem('smallBonus', id);
+    else localStorage.setItem('smallBonus', localStorage.getItem('smallBonus') + id + ' ');
 }
