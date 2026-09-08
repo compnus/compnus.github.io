@@ -496,6 +496,10 @@ a.linkstv {
     border: none;
 }
 
+.bottomacts p {
+    padding-bottom: 0.5vh;
+}
+
 .bottomacts p.corr {
     margin-left: 1vw;
     font-weight: 900;
@@ -1027,6 +1031,10 @@ a.linkstv {
         flex-wrap: wrap;
         justify-content: center;
     }
+
+        .bottomacts p {
+            padding-bottom: 1vw;
+        }
 
         .bottomacts p.corr {
             padding: 1vw;
