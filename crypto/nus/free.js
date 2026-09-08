@@ -86,9 +86,9 @@ async function collectDaily() {
 
 function smallBonus(title, description, bonus) {
     popup(title, `
-    ${description}</p><br>
+    ${description}</p><br><p style="margin:0.5em; font-size:0.8em; text-align: center; color: #ccc; text-decoration: underline" id="smallBonusLink" onclick="window.open('${BONUS.bonus[bonus][2]}', '_blank');"></p>
     <button onclick="smallBonusParts('${bonus}', 0);window.open('${BONUS.bonus[bonus][2]}', '_blank');" id="smallBonusBtn" class="fullwidth">LET'S GO!</button>
-<p style="margin:0; color: #ccc; text-decoration: underline" id="smallBonusLink">
+<p style="margin:0;>
 `, true, true);
     var btn = document.getElementById('smallBonusBtn');
     var lnk = document.getElementById('smallBonusLink');
@@ -97,9 +97,6 @@ function smallBonus(title, description, bonus) {
         btn.innerHTML = "Claimed!";
         btn.classList.add('disabled');
         lnk.innerHTML = "Open Link";
-        lnk.setAttribute('onclick', "window.open('" + BONUS.bonus[bonus][2] + "', '_blank');");
-        lnk.style.marginTop = "0.5em";
-        lnk.style.fontSize = "0.8em";
     }
 }
 

@@ -586,4 +586,33 @@ td:hover {
             transform: translate(10vw, 0) scale(1,1);
         }
     }
+
+    .smallBonus {
+        grid-column: span 2;
+        grid-template-columns: 11vw 1fr;
+        grid-template-rows: 1fr 11vw;
+        padding: 2vw;
+        border-radius: 2vw;
+        grid-gap: 2.5vw;
+    }
+
+        .smallBonus img {
+            width: 11vw;
+            height: 11vw;
+            grid-row: 2;
+        }
+
+        .smallBonus h1 {
+            font-size: 4vw;
+            line-height: 1;
+            text-align: center;
+            grid-column: span 2;
+        }
+
+        .smallBonus p {
+            text-align: center;
+            font-size: 3vw;
+            line-height: 1;
+            align-self: center;
+        }
 }
