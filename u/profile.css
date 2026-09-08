@@ -1018,9 +1018,8 @@ a.linkstv {
         align-items: center;
         grid-gap: 2vw;
         margin-bottom: 4vw;
-        border-radius: 4vw;
-        padding: 4vw;
-        padding-bottom: 2vw;
+        border-radius: 3vw;
+        padding: 3vw;
     }
 
         .walletgridline > .currencydisplay {
