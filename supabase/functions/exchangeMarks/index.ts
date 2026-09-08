@@ -82,7 +82,7 @@ Deno.serve(async (req) => {
         });
     }
 
-    var vals = await sb.from("variable").select("value").eq("key","coinvalue_buy");
+    const { data: vals, error: _ } = await sb.from("variable").select("value").eq("key","coinvalue_buy").single();
     var pricebtc;
     await fetch('https://api.coinlore.net/api/ticker/?id=90').then(response => response.json()).then(json => json.forEach(x => { pricebtc = x.price_usd }));
     var value = parseFloat((parseFloat(vals) / (pricebtc / 100000000)).toFixed(4));
