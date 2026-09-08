@@ -450,11 +450,15 @@ a.linkstv {
     grid-template-columns: 5vh 25vw 1fr;
     align-items: center;
     grid-gap: 1vh;
-    margin-bottom: 2vh;
+    margin-top: 2vh;
     border-radius: 2vh;
-    padding: 2vh;
+    padding: 1.5vh;
     background-color: var(--lightbg);
     box-shadow: black 0 10px 15px -15px;
+}
+
+.walletgridline button {
+    border-radius: 1.5vh;
 }
 
 .walletgridline > h1, .walletgridline > .bottomacts > p {

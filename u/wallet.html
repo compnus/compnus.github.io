@@ -30,6 +30,10 @@
         Satoshi is a smaller division of Bitcoin, commonly used due to Bitcoin's high value.<br>
         <b>1 SAT = 0.00000001 BTC</b><br>
         `;
+
+        WICoins = `
+        Marks are a centralized currency used on CompNUS, which you can use to purchase items in the shop of real value. They are pseudo-stable.
+        `;
     </script>
 
     <div class="mainscroll mainwallet pcmarginfix">
@@ -39,7 +43,6 @@
             <button onclick="location.assign('transactions.html')">Transactions</button>
         </div>
 
-        <br />
 
         <div class="walletgridline">
             <img src="../site/image/logo/currency.svg" class="currencylogo" />
@@ -80,6 +83,22 @@
                 <button onclick="withdraw()">Withdraw</button>
             </div>
         </div>
+
+        <div class="walletgridline">
+            <img src="../site/image/logo/coins.svg" class="currencylogo" />
+            <h1>NUS Marks</h1>
+            <h2 class="currencydisplay" id="walletcoins">Loading...</h2>
+
+            <div class="bottomacts flex cc" style="justify-content: flex-end">
+                <p style="margin-right: 1vw;">&asymp; $<span id="markspr">0.000</span></p>
+            </div>
+
+            <div class="bottomacts">
+                <button onclick="popup('What are Marks?', WICoins)">What are Marks?</button>
+                <button onclick="purchaseMarks()">Purchase</button>
+                <button onclick="widnow.location.assign('shop.html')">Shop</button>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -87,7 +106,7 @@
             const { user, data } = await getUser();
 
             if (!user) {
-                window.location.href = "/u/login.html";
+                //window.location.href = "/u/login.html";
                 return;
             }
 

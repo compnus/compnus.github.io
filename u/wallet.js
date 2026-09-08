@@ -3,11 +3,15 @@ async function loadWallet() {
     document.getElementById("walletnus").innerHTML = balance[0];
     document.getElementById("walletnoca").innerHTML = balance[1];
     document.getElementById("walletsats").innerHTML = balance[2];
+    document.getElementById("walletcoins").innerHTML = balance[3];
     var pricebtc;
     await fetch('https://api.coinlore.net/api/ticker/?id=90').then(response => response.json()).then(json => json.forEach(x => { pricebtc = x.price_usd }));
     var pricebtcnew = (balance[2] * (pricebtc / 100000000)).toFixed(3);
     document.getElementById("bitcoinss").innerHTML = (balance[2] / 100000000).toFixed(8);
     document.getElementById("bitcoinpr").innerHTML = pricebtcnew;
+    var markvalue = parseFloat(await getVariable('coinvalue'));
+    var pricemarksnew = (balance[3] * markvalue).toFixed(3);
+    document.getElementById("markspr").innerHTML = pricemarksnew;
 }
 
 async function refreshs(btc, ...nodes) {
@@ -64,7 +68,7 @@ async function convertNocas(btc = false) {
     popup("Exchange Coin for Nocas",
         `
             <div class="flex cc"><p style="margin: 0; color: #ccc; font-style: italic">Current conversion rate:</p></div>
-            <div class="flex cc"><p style="font-family: 'currencycompnus',Ubuntu !important; margin-top: 0">1 ${btc ? "&#8383;" : "$"} = <span id="amountrt">100</span> &curren;</p></div>
+            <div class="flex cc"><p style="font-family: 'currencycompnus',Ubuntu !important; margin-top: 0">1 ${btc ? "&#8383;" : "$"} = <span id="amountrt">0</span> &curren;</p></div>
             <div class="input">
             <label for="amountnc">Nocas to receive:</label>
             <div class="halve">
@@ -79,6 +83,48 @@ async function convertNocas(btc = false) {
     );
 
     await refreshs(btc, document.getElementById("amountrt"), document.getElementById("amountpr"), document.getElementById("amountnc"));
+}
+
+async function refreshe(...nodes) {
+    var vals = await getVariable("coinvalue");
+    var pricebtc;
+    await fetch('https://api.coinlore.net/api/ticker/?id=90').then(response => response.json()).then(json => json.forEach(x => { pricebtc = x.price_usd }));
+    var value = parseFloat((parseFloat(vals) / (pricebtc / 100000000)).toFixed(4));
+    nodes[0].innerHTML = value;
+    nodes[1].innerHTML = (nodes[2].value * value).toFixed(4);
+}
+
+async function setMaxe(...nodes) {
+    var bls = await getBalance((await sb.auth.getSession()).data.session?.user.id);
+    var balance = bls[2];
+    var vals = await getVariable("coinvalue");
+    var pricebtc;
+    await fetch('https://api.coinlore.net/api/ticker/?id=90').then(response => response.json()).then(json => json.forEach(x => { pricebtc = x.price_usd }));
+    var value = parseFloat((parseFloat(vals) / (pricebtc / 100000000)).toFixed(4));
+    nodes[2].value = Math.floor(balance / value);
+
+    refreshe(...nodes);
+}
+
+async function purchaseMarks() {
+    popup("Purchase Marks for Bitcoin",
+        `
+            <div class="flex cc"><p style="margin: 0; color: #ccc; font-style: italic">Conversion rate:</p></div>
+            <div class="flex cc"><p style="font-family: 'currencycompnus',Ubuntu !important; margin-top: 0">1 &euro; = <span id="amountrte">0</span> &#8383;</p></div>
+            <div class="input">
+            <label for="amountnce">Marks to Purchase:</label>
+            <div class="halve">
+            <input id="amountnce" type="number" step="1" oninput="refreshe(document.getElementById('amountrte'), document.getElementById('amountpre'), document.getElementById('amountnce'));" min="10" value="10">
+            <p onclick="setMaxe(document.getElementById('amountrte'), document.getElementById('amountpre'), document.getElementById('amountnce'))" style="font-weight: bold; color: yellow; cursor: pointer;">MAX</button>
+            </div></div>
+            <div class="flex cc"><p style="font-family: 'currencycompnus',Ubuntu !important">Price: <span id="amountpre">0</span> &#8383;</p></div>
+            <p id="status" style="font-weight: bold;text-align:center"></p>
+            <button class="fullwidth" onclick="exchangeMarks(document.getElementById('amountnce').value, document.getElementById('status'))">Exchange</button>
+            <p style="margin:0">
+        `
+    );
+
+    await refreshe(document.getElementById("amountrte"), document.getElementById("amountpre"), document.getElementById("amountnce"));
 }
 
 async function setMaxW(fee, num, passd) {
@@ -363,6 +409,7 @@ const RESOURCE = {
     "nus": ["$NUS", "/site/image/logo/currency.svg", 0],
     "noca": ["Noca", "/site/image/logo/noca.svg", 1],
     "sat": ["Satoshi", "/site/image/logo/sats.svg", 1],
+    "coin": ["NUS Mark", "/site/image/logo/coins.svg", 1],
 }
 function resolveResource(id) {
     var x = RESOURCE[id];
