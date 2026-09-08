@@ -66,6 +66,10 @@ async function loadWallet() {
     await fetch('https://api.coinlore.net/api/ticker/?id=90').then(response => response.json()).then(json => json.forEach(x => { pricebtc = x.price_usd }));
     var pricebtcnew = (y * (pricebtc / 100000000)).toFixed(3);
     document.getElementById("valuebtcsats").innerHTML = `&asymp; $${pricebtcnew.substring(0, 4)}<span style="color:#999; font-weight:300">${pricebtcnew.substring(4)}</span>`;
+    var markvalue = parseFloat(await getVariable('coinvalue'));
+    document.getElementById("walletcoins").innerHTML = balance[3];
+    var pricemarksnew = (balance[3] * markvalue).toFixed(3);
+    document.getElementById("valuemarks").innerHTML = `&asymp; $${pricemarksnew.substring(0, 4)}<span style="color:#999; font-weight:300">${pricemarksnew.substring(4)}</span>`;
 }
 
 async function loadMessages() {

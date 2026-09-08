@@ -440,6 +440,12 @@
                     <h2 class="currencydisplay" id="walletsats">Loading...</h2>
                 </div>
                 <p style="margin: 0; width: 100%; text-align: right;" id="valuebtcsats" title="Approximate value based on the current price of Bitcoin (provided by CoinLore)">&asymp; $0.00<span style="color: #999; font-weight: 300">0</span></p>
+                <br />
+                <div class="flex" title="NUS Marks">
+                    <img src="../site/image/logo/coins.svg" class="currencylogo" />
+                    <h2 class="currencydisplay" id="walletcoins">Loading...</h2>
+                </div>
+                <p style="margin: 0; width: 100%; text-align: right;" id="valuemarks" title="Approximate value of your Marks">&asymp; $0.00<span style="color: #999; font-weight: 300">0</span></p>
                 <div id="walletactions">
                     <button class="fullwidth" title="Send assets to other users!" onclick="sendfundsrqpopupid = popupid; popup('Send Assets', sendfundsrq, false); if (ismsgban) document.getElementById('blockedmessaging').classList.add('disabled')">Send</button>
                     <button class="fullwidth" title="Receive assets from other users!" onclick="recfundsrqpopupid = popupid; popup('Receive Assets', receivefundsrq, false)">Receive</button>

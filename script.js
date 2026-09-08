@@ -83,13 +83,13 @@ function stopLoading() {
 async function getBalance(uid) {
     const { data: balance, error: userExistsErrorn } = await sb
         .from("udata")
-        .select("balance_nus, balance_noca, balance_sats")
+        .select("balance_nus, balance_noca, balance_sats, coins")
         .eq("user_id", uid)
         .single();
 
     if (!balance || userExistsErrorn) return false;
 
-    return [balance.balance_nus, balance.balance_noca, balance.balance_sats];
+    return [balance.balance_nus, balance.balance_noca, balance.balance_sats, balance.coins];
 }
 
 function GetURLParameter(sParam) {
