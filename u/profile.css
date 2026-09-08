@@ -476,7 +476,7 @@ a.linkstv {
     margin: 0 1vw;
 }
 
-.bottomacts > #corr {
+.bottomacts p.corr {
     margin: 0 1vw;
     font-weight: 900;
     padding: 0.5vh;
@@ -487,6 +487,7 @@ a.linkstv {
     border: solid 2px white;
     text-align: center;
     cursor: pointer;
+    display: block;
 }
 
 #referlanding {
@@ -707,6 +708,10 @@ a.linkstv {
 
 .accountactionicon:active {
     transform: scale(0.9);
+}
+
+.promobannerad {
+    height: fit-content;
 }
 
 @media(max-width:800px) {
@@ -1013,7 +1018,7 @@ a.linkstv {
             margin: 0 1vw 2vw 1vw;
         }
 
-        .bottomacts > #corr {
+        .bottomacts p.corr {
             padding: 1vw;
             width: 4vw;
             height: 4vw;

@@ -30,16 +30,15 @@ async function setMax(btc, ...nodes) {
 }
 
 async function exchangeNocas(btc, amount, status) {
-    status.innerHTML = "Please wait...";
+    startLoading();
     var uid = (await sb.auth.getSession()).data.session?.user.id;
-    if (btc && (amount < 100)) { status.innerHTML = "Minimum exchange for Satoshis is 100 Nocas."; return; }
-    else if (amount < 10) { status.innerHTML = "Minimum exchange for $NUS is 10 Nocas."; return; }
+    if (btc && (amount < 100)) { stopLoading(); status.innerHTML = "Minimum exchange for Satoshis is 100 Nocas."; return; }
+    else if (amount < 10) { stopLoading(); status.innerHTML = "Minimum exchange for $NUS is 10 Nocas."; return; }
     var bls = await getBalance(uid);
-    if (!bls) { status.innerHTML = "You need to be logged in to use this feature."; return; }
+    if (!bls) { stopLoading(); status.innerHTML = "You need to be logged in to use this feature."; return; }
     bls = btc ? bls[2] : bls[0];
     var nocavals = btc ? await getVariable("nocaforsat") : await getVariable("nocafornus");
-    if (parseFloat((amount / nocavals).toFixed(4)) > bls) { status.innerHTML = "Insufficient funds."; return; }
-    startLoading();
+    if (parseFloat((amount / nocavals).toFixed(4)) > bls) { stopLoading(); status.innerHTML = "Insufficient funds."; return; }
     await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/exchangeNocas', {
         method: 'POST',
         headers: {
@@ -51,16 +50,14 @@ async function exchangeNocas(btc, amount, status) {
         .then(response => response.json())
         .then(data => {
             stopLoading();
-            if (!data.sc) {
-                status.innerHTML = "Error: " + data.response;
-            } else {
+            if (!data.sc) status.innerHTML = "Error: " + data.response;
+            else {
                 status.innerHTML = data.response;
                 loadWallet();
             }
         })
         .catch((error) => {
             console.error('Error invoking function:', error);
-            stopLoading();
         });
 }
 
@@ -86,18 +83,18 @@ async function convertNocas(btc = false) {
 }
 
 async function refreshe(...nodes) {
-    var vals = await getVariable("coinvalue");
+    var vals = await getVariable("coinvalue_buy");
     var pricebtc;
     await fetch('https://api.coinlore.net/api/ticker/?id=90').then(response => response.json()).then(json => json.forEach(x => { pricebtc = x.price_usd }));
     var value = parseFloat((parseFloat(vals) / (pricebtc / 100000000)).toFixed(4));
     nodes[0].innerHTML = value;
-    nodes[1].innerHTML = (nodes[2].value * value).toFixed(4);
+    nodes[1].innerHTML = parseFloat((nodes[2].value * value).toFixed(4));
 }
 
 async function setMaxe(...nodes) {
     var bls = await getBalance((await sb.auth.getSession()).data.session?.user.id);
     var balance = bls[2];
-    var vals = await getVariable("coinvalue");
+    var vals = await getVariable("coinvalue_buy");
     var pricebtc;
     await fetch('https://api.coinlore.net/api/ticker/?id=90').then(response => response.json()).then(json => json.forEach(x => { pricebtc = x.price_usd }));
     var value = parseFloat((parseFloat(vals) / (pricebtc / 100000000)).toFixed(4));
@@ -106,10 +103,52 @@ async function setMaxe(...nodes) {
     refreshe(...nodes);
 }
 
+async function setMarks() {
+    document.getElementById('marksbuy').innerHTML = await getVariable('coinvalue_buy');
+    document.getElementById('markssell').innerHTML = await getVariable('coinvalue');
+}
+
+async function exchangeMarks(amount, status) {
+    startLoading();
+    var uid = (await sb.auth.getSession()).data.session?.user.id;
+    if (amount < 10) { stopLoading(); status.innerHTML = "Minimum purchase is 10 Marks."; return; }
+    var bls = await getBalance(uid);
+    if (!bls) { stopLoading(); status.innerHTML = "You need to be logged in to use this feature."; return; }
+    bls = bls[2];
+    var vals = await getVariable("coinvalue_buy");
+    var pricebtc;
+    await fetch('https://api.coinlore.net/api/ticker/?id=90').then(response => response.json()).then(json => json.forEach(x => { pricebtc = x.price_usd }));
+    var value = parseFloat((parseFloat(vals) / (pricebtc / 100000000)).toFixed(4));
+    if (parseFloat((amount * value).toFixed(4)) > bls) { stopLoading(); status.innerHTML = "Insufficient funds."; return; }
+    await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/exchangeMarks', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+        },
+        body: JSON.stringify({ uid: uid, amount: amount })
+    })
+        .then(response => response.json())
+        .then(data => {
+            stopLoading();
+            if (!data.sc) {
+                status.innerHTML = "Error: " + data.response;
+                refreshe(document.getElementById("amountrte"), document.getElementById("amountpre"), document.getElementById("amountnce"));
+            }
+            else {
+                status.innerHTML = data.response;
+                loadWallet();
+            }
+        })
+        .catch((error) => {
+            console.error('Error invoking function:', error);
+        });
+}
+
 async function purchaseMarks() {
     popup("Purchase Marks for Bitcoin",
         `
-            <div class="flex cc"><p style="margin: 0; color: #ccc; font-style: italic">Conversion rate:</p></div>
+            <div class="flex cc"><p style="margin: 0; color: #ccc; font-style: italic">Conversion rate (Buy):</p></div>
             <div class="flex cc"><p style="font-family: 'currencycompnus',Ubuntu !important; margin-top: 0">1 &euro; = <span id="amountrte">0</span> &#8383;</p></div>
             <div class="input">
             <label for="amountnce">Marks to Purchase:</label>

@@ -32,7 +32,7 @@
         `;
 
         WICoins = `
-        Marks are a centralized currency used on CompNUS, which you can use to purchase items in the shop of real value. They are pseudo-stable.
+        Marks are a centralized currency used on CompNUS, which you can use to purchase items of real value in the shop. They are pseudo-stable relative to the US Dollar.
         `;
     </script>
 
@@ -73,7 +73,7 @@
 
             <div class="bottomacts flex cc" style="justify-content: flex-end">
                 <p>= <span id="bitcoinss">0.00000000</span> BTC &asymp; $<span id="bitcoinpr">0.000</span></p>
-                <p id="corr" onclick="popup('What is this?','Approximate value of your Bitcoin Satoshi based on the current price of Bitcoin (provided by CoinLore).')">?</p>
+                <p class="corr" onclick="popup('What is this?','Approximate value of your Bitcoin Satoshi based on the current price of Bitcoin (provided by CoinLore).')">?</p>
             </div>
 
             <div class="bottomacts">
@@ -86,11 +86,12 @@
 
         <div class="walletgridline">
             <img src="../site/image/logo/coins.svg" class="currencylogo" />
-            <h1>NUS Marks</h1>
+            <h1>Marks</h1>
             <h2 class="currencydisplay" id="walletcoins">Loading...</h2>
 
             <div class="bottomacts flex cc" style="justify-content: flex-end">
-                <p style="margin-right: 1vw;">&asymp; $<span id="markspr">0.000</span></p>
+                <p>&asymp; $<span id="markspr">0.000</span></p>
+                <p class="corr" onclick="popup('Value of Marks', `Buy Price: <span id='marksbuy'>Loading...</span>$<br>Value: <span id='markssell'>Loading...</span>$`); setMarks()">?</p>
             </div>
 
             <div class="bottomacts">

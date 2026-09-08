@@ -41,13 +41,11 @@ Deno.serve(async (req) => {
     }
 
     let uid: string | null = null;
-    let btc: boolean | null = null;
     let amount: string | null = null;
 
     try {
         const body = await req.json();
         uid = body.uid || null;
-        btc = body.btc || null;
         amount = body.amount || null;
     } catch (error) {
         console.error("Failed to parse JSON body", error);
@@ -68,17 +66,15 @@ Deno.serve(async (req) => {
         });
     }
     const { data: uname, error: unoerr } = await sb.from("users").select("username").eq("id", uid).single();
-    const { data: nData, error: nError } = await sb.from("udata").select("balance_nus, balance_noca, balance_sats").eq("user_id", uid).single();
-    if (!nData || nError || unoerr) {
-        return new Response(JSON.stringify({ response: "We had problems processing the exchange." }), {
+    const { data: nData, error: nError } = await sb.from("udata").select("balance_sats, coins").eq("user_id", uid).single();
+    if (!nData || nError || unoerr) return new Response(JSON.stringify({ response: "We had problems processing the exchange." }), {
             status: 501,
             headers: { ...headers }
         });
-    }
     var from: string = uname.username;
 
-    if (parseInt(amount) < (btc?100:10)) {
-        return new Response(JSON.stringify({ response: "Please enter a valid amount to exchange.", sc:true }), {
+    if (parseInt(amount) < 10) {
+        return new Response(JSON.stringify({ response: "Please enter a valid amount to purchase.", sc:true }), {
             status: 400,
             headers: {
                 ...headers
@@ -86,8 +82,12 @@ Deno.serve(async (req) => {
         });
     }
 
-    var toPay: number = parseFloat((parseInt(amount) / parseInt((await sb.from("variable").select("value").eq("key", (btc ? "nocaforsat" : "nocafornus")).single()).data.value)).toFixed(4));
-    if (toPay > (btc ? nData.balance_sats : nData.balance_nus)) {
+    var vals = await getVariable("coinvalue_buy");
+    var pricebtc;
+    await fetch('https://api.coinlore.net/api/ticker/?id=90').then(response => response.json()).then(json => json.forEach(x => { pricebtc = x.price_usd }));
+    var value = parseFloat((parseFloat(vals) / (pricebtc / 100000000)).toFixed(4));
+    var toPay: number = parseFloat((parseInt(amount) * value).toFixed(4));
+    if (toPay > nData.balance_sats) {
         return new Response(JSON.stringify({ response: "Insufficient funds.", sc: true }), {
             status: 400,
             headers: {
@@ -97,7 +97,7 @@ Deno.serve(async (req) => {
     }
 
     try {
-        const { error: sendError } = await sb.from("udata").update(btc ? { balance_noca: nData.balance_noca + parseInt(amount), balance_sats: Math.round((nData.balance_sats - toPay)*10000)/10000 } : { balance_noca: nData.balance_noca + parseInt(amount), balance_nus: Math.round((nData.balance_nus - toPay)*100000000)/100000000 }).eq("user_id", uid);
+        const { error: sendError } = await sb.from("udata").update({ coins: nData.coins + parseInt(amount), balance_sats: Math.round((nData.balance_sats - toPay)*10000)/10000 }).eq("user_id", uid);
 
         if (sendError) {
             return new Response(JSON.stringify({ response: "There was a problem updating your balance." }), {
@@ -109,11 +109,11 @@ Deno.serve(async (req) => {
         }
 
         let resources = {};
-        resources[btc ? "sat" : "nus"] = toPay;
-        await sb.from("transaction").insert({ from: from, to: "CompNUS", resource: resources, message: "Exchange for Nocas", expiration: 1 });
-        await sb.from("transaction").insert({ from: "admin:CompNUS", to: from, resource: {"noca": parseInt(amount)}, message: "Received from exchange", expiration: 1});
+        resources["sat"] = toPay;
+        await sb.from("transaction").insert({ from: from, to: "CompNUS", resource: resources, message: "Exchange for Marks", expiration: 1 });
+        await sb.from("transaction").insert({ from: "admin:CompNUS", to: from, resource: {"coin": parseInt(amount)}, message: "Purchase for Bitcoin", expiration: 1});
 
-        return new Response(JSON.stringify({ response: "Exchange was successful!", sc:true }), {
+        return new Response(JSON.stringify({ response: "Purchase was successful!", sc:true }), {
             status: 200,
             headers: {
                 ...headers
