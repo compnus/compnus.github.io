@@ -468,16 +468,36 @@ a.linkstv {
 .bottomacts {
     grid-column: 1 / -1;
     display: flex;
-    margin: 0 -1vw;
+    margin: 0;
+    align-items: center;
 }
 
-.bottomacts > button {
+.bottomacts img {
+    height: 4.5vh;
+    width: 4.5vh;
+    padding: 0.5vh;
+    margin-right: 1vh;
+    cursor: pointer;
+    transition: 0.25s ease-out, 0.2s linear background;
+    background-color: var(--bg);
+    border-radius: 1vh;
+}
+
+    .bottomacts img:hover {
+        background: none;
+        filter: drop-shadow(black 0 0 5px) drop-shadow(white 0 0 3px);
+        transform: scale(1.05);
+    }
+
+.bottomacts hr {
+    display: block;
     flex: 1;
-    margin: 0 1vw;
+    height: 1px;
+    border: none;
 }
 
 .bottomacts p.corr {
-    margin: 0 1vw;
+    margin-left: 1vw;
     font-weight: 900;
     padding: 0.5vh;
     line-height: 1;
@@ -1003,25 +1023,19 @@ a.linkstv {
             grid-column: 1 / -1;
         }
 
-    .bottomacts.flex.cc {
-        display: flex;
-        margin: 0 -2vw;
-    }
-
     .bottomacts {
-        display: block;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-
-        .bottomacts > button {
-            display: block;
-            width: calc(100% - 2vw);
-            margin: 0 1vw 2vw 1vw;
-        }
 
         .bottomacts p.corr {
             padding: 1vw;
             width: 4vw;
             height: 4vw;
+        }
+        .bottomacts hr {
+            width: 80vw;
+            flex: 0 0 100%;
         }
 
     #referlanding {

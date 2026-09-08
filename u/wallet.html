@@ -50,10 +50,10 @@
             <h2 class="currencydisplay" id="walletnus">Loading...</h2>
 
             <div class="bottomacts">
-                <button onclick="popup('What is NUS?', WINUS)">Coin Info</button>
-                <button onclick="convertNocas()">Exchange for Nocas</button>
-                <button onclick="location.assign('../crypto/nus/dividends.html')">Get Dividends</button>
-                <button onclick="location.assign('../crypto/nus/')">$NUS Mining</button>
+                <img onclick="popup('What is NUS?', WINUS)" title="Coin Info" src="https://img.icons8.com/?size=100&id=83180&format=png&color=FFFFFF">
+                <img onclick="convertNocas()" title="Exchange for Nocas" src="../site/icon/exchangenocas.png">
+                <img onclick="location.assign('../crypto/nus/dividends.html')" title="Get Dividends" src="https://img.icons8.com/?size=100&id=85952&format=png&color=FFFFFF">
+                <img onclick="location.assign('../crypto/nus/')" title="$NUS Mining" src="https://img.icons8.com/?size=100&id=3hnKkALv4z7Y&format=png&color=FFFFFF">
             </div>
         </div>
         <div class="walletgridline">
@@ -62,8 +62,10 @@
             <h2 class="currencydisplay" id="walletnoca">Loading...</h2>
 
             <div class="bottomacts">
-                <button onclick="popup('What are Nocas?', WINocas)">What are Nocas?</button>
-                <button onclick="location.assign('../crypto/nus/free.html')">Free Nocas</button>
+                <img onclick="popup('What are Nocas?', WINocas)" title="What are Nocas?" src="https://img.icons8.com/?size=100&id=83180&format=png&color=FFFFFF">
+                <img onclick="convertNocas()" title="Exchange for $NUS" src="../site/icon/exchangenus.png">
+                <img onclick="convertNocas(true)" title="Exchange for Bitcoin Satoshi" src="../site/icon/exchangesats.png">
+                <img onclick="location.assign('../crypto/nus/free.html')" title="Free Nocas" src="https://img.icons8.com/?size=100&id=85174&format=png&color=FFFFFF">
             </div>
         </div>
         <div class="walletgridline">
@@ -71,16 +73,15 @@
             <h1>Bitcoin Satoshi</h1>
             <h2 class="currencydisplay" id="walletsats">Loading...</h2>
 
-            <div class="bottomacts flex cc" style="justify-content: flex-end">
+            <div class="bottomacts">
+                <img onclick="popup('What is Bitcoin Satoshi?', WIBTC)" title="Coin Info" src="https://img.icons8.com/?size=100&id=83180&format=png&color=FFFFFF">
+                <img onclick="convertNocas(true)" title="Exchange for Nocas" src="../site/icon/exchangenocas.png">
+                <img onclick="purchaseMarks()" title="Exchange for Marks" src="../site/icon/exchangecoins.png">
+                <img onclick="location.assign('../crypto/nus/dividends.html')" title="Get Dividends" src="https://img.icons8.com/?size=100&id=85952&format=png&color=FFFFFF">
+                <img onclick="withdraw()" title="Withdraw" src="https://img.icons8.com/?size=100&id=89853&format=png&color=FFFFFF">
+                <hr>
                 <p>= <span id="bitcoinss">0.00000000</span> BTC &asymp; $<span id="bitcoinpr">0.000</span></p>
                 <p class="corr" onclick="popup('What is this?','Approximate value of your Bitcoin Satoshi based on the current price of Bitcoin (provided by CoinLore).')">?</p>
-            </div>
-
-            <div class="bottomacts">
-                <button onclick="popup('What is Bitcoin Satoshi?', WIBTC)">Coin Info</button>
-                <button onclick="convertNocas(true)">Exchange for Nocas</button>
-                <button onclick="location.assign('../crypto/nus/dividends.html')">Get Dividends</button>
-                <button onclick="withdraw()">Withdraw</button>
             </div>
         </div>
 
@@ -89,15 +90,13 @@
             <h1>Marks</h1>
             <h2 class="currencydisplay" id="walletcoins">Loading...</h2>
 
-            <div class="bottomacts flex cc" style="justify-content: flex-end">
+            <div class="bottomacts">
+                <img onclick="popup('What are Marks?', WICoins)" title="What are Marks?" src="https://img.icons8.com/?size=100&id=83180&format=png&color=FFFFFF">
+                <img onclick="purchaseMarks()" title="Purchase for Bitcoin Satoshi" src="../site/icon/exchangesats.png">
+                <img onclick="location.assign('shop.html')" title="Shop" src="https://img.icons8.com/?size=100&id=85180&format=png&color=FFFFFF">
+                <hr>
                 <p>&asymp; $<span id="markspr">0.000</span></p>
                 <p class="corr" onclick="popup('Value of Marks', `Buy Price: <span id='marksbuy'>Loading...</span> $<br>Value: <span id='markssell'>Loading...</span> $`); setMarks()">?</p>
-            </div>
-
-            <div class="bottomacts">
-                <button onclick="popup('What are Marks?', WICoins)">What are Marks?</button>
-                <button onclick="purchaseMarks()">Purchase</button>
-                <button onclick="widnow.location.assign('shop.html')">Shop</button>
             </div>
         </div>
     </div>
@@ -107,7 +106,7 @@
             const { user, data } = await getUser();
 
             if (!user) {
-                //window.location.href = "/u/login.html";
+                window.location.href = "/u/login.html";
                 return;
             }
 
