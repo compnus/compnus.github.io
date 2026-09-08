@@ -1,6 +1,6 @@
 async function loadWallet() {
     balance = await getBalance((await sb.auth.getSession()).data.session?.user.id);
-    document.getElementById("walletnus").innerHTML = balance[0];
+    document.getElementById("walletnus").innerHTML = balance[0].toLocaleString('en-US', { useGrouping: false, maximumSignificantDigits: 21 });
     document.getElementById("walletnoca").innerHTML = balance[1];
     document.getElementById("walletsats").innerHTML = balance[2];
     document.getElementById("walletcoins").innerHTML = balance[3];
