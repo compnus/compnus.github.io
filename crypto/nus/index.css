@@ -691,20 +691,20 @@ main {
     }
 
     #miningicon {
-        width: 60vw;
-        height: 60vw;
+        width: 50vw;
+        height: 50vw;
     }
 
     .miningicon {
-        width: 60vw;
-        height: 60vw;
+        width: 50vw;
+        height: 50vw;
     }
 
     #miningiconb {
-        width: 30vw;
-        height: 30vw;
-        left: 15vw;
-        top: 15vw;
+        width: 25vw;
+        height: 25vw;
+        left: 12.5vw;
+        top: 12.5vw;
     }
 
     #accumulateddisplay {

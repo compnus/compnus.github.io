@@ -246,7 +246,7 @@ main {
         width: calc(100% - 4vw);
         padding: 2vw 4vw;
         border-radius: 0 0 100vh 100vh;
-        margin: -4vw 0 0 0;
+        margin: -4vw 0 0 -2vw;
     }
 
             #compactWallet > div > p {
