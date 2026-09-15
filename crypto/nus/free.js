@@ -154,3 +154,18 @@ function addLocalBonus(id, sync=false) {
     if (sync) localStorage.setItem('smallBonus', id);
     else localStorage.setItem('smallBonus', localStorage.getItem('smallBonus') + id + ' ');
 }
+
+function funtile(id, ...p) {
+    let elm;
+    elm = document.getElementById("funtile_" + id);
+    switch (id) {
+        case "color":
+            if (p[0] === 0) elm.style.transition = "none";
+            let color = random(20);
+            elm.style.backgroundColor = "rgba(" + color[0] + " " + color[1] + " " + color[2] + ")"
+            if (p[0] === 0) window.setTimeout(() => { elm.style.transition = "0.5s ease-out" }, 1);
+            break;
+        case "transform":
+            elm.style.transform = `scale(${random(0, 0.2, 1, 2)}, ${random(0, 0.2, 1, 2)}) translate(${random(0, 0, 5)}px, ${random(0, 0, 5)}px) skew(${random(0, -10, 10, 2)}deg, ${random(0, -10, 10, 2)}deg) rotate(${random(0, -180, 180, 1)}deg)`
+    }
+}

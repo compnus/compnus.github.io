@@ -453,10 +453,27 @@ td:hover {
     font-weight: 400;
 }
 
+.funtile {
+    border-radius: 1vh;
+    cursor: pointer;
+    box-shadow: rgba(255 255 255 / 10%) 0 0 5px;
+}
+
+#funtile_transform {
+    transition: 0.5s ease;
+    background-color: var(--accent);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Ubuntu;
+    font-size: 2vh;
+}
+
 @media(max-width:800px) {
     table {
         width: 80vw;
     }
+
     th {
         font-size: 6vw;
         padding-top: 2vw;
@@ -474,6 +491,7 @@ td:hover {
     .thd {
         width: 20vw;
     }
+
     #table_org {
         width: 80vw;
     }
@@ -663,4 +681,11 @@ td:hover {
             font-size: 3vw;
             line-height: 1;
         }
+
+    .funtile {
+        border-radius: 2vw;
+    }
+    #funtile_transform {
+        font-size: 4vw;
+    }
 }

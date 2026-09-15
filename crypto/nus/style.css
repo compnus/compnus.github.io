@@ -152,7 +152,8 @@ main {
 #content {
     height: 78vh;
     padding: 6vh 2vh 2vh 2vh;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10vh,1fr));
     grid-auto-rows: 10vh;

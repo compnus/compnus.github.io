@@ -25,10 +25,25 @@ async function getUser(bypass=false) {
 }
 
 function random(type, ...settings) {
+    let result;
     switch (type) {
-        case 100:
+        case 0: //min_max(min=0, max=1, type=0)
+            let min = settings[0] || 0
+            let max = settings[1] || 1
+            let type = settings[2] || 0;
+            //type0: int(incl), type1: int(excl), type2: float
+            result = Math.random() * (max - min + (type===0 ? 1 : 0)) + min;
+            if (type < 2) result = Math.floor(result);
+            return result;
+        case 20: //color_rgb()
+            return [
+                Math.floor(Math.random() * 256),
+                Math.floor(Math.random() * 256),
+                Math.floor(Math.random() * 256)
+            ];
+        case 100: //username_setting(length=10)
             let count = settings[0] || 10;
-            let result = "";
+            result = "";
             const chars = "qwertyuiopasdfghjklzxcvbnm0123456789_";
             for (let i = 0; i < count; i++) result += chars.charAt(Math.floor(Math.random() * chars.length));
             return result;

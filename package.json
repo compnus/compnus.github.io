@@ -5,6 +5,7 @@
     "deploy": "npx supabase functions deploy"
   },
   "devDependencies": {
+    "eslint": "^10.10.0",
     "supabase": "^2.0.0"
   }
 }
