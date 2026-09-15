@@ -1,0 +1,13 @@
+{
+  "div.nfo": [[0,"divids", "4chars"],[1,"strictIdCheck"]],
+  "div": {
+    "robox": [ "rox1rox2rox3rox4rox5", true ],
+    "hgain": [ "hnyg", true ],
+    "btccm": [ "btcm", true ],
+    "uprck": [ "uprk", true ],
+    "jtask": [ "jmpt", true ],
+    "btcmn": [ "btmn", false ],
+    "btctp": [ "bttm", true ],
+    "wemin": [ "wemn", false ]
+  }
+}

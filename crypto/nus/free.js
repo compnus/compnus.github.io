@@ -166,6 +166,7 @@ function funtile(id, ...p) {
             if (p[0] === 0) window.setTimeout(() => { elm.style.transition = "0.5s ease-out" }, 1);
             break;
         case "transform":
-            elm.style.transform = `scale(${random(0, 0.2, 1, 2)}, ${random(0, 0.2, 1, 2)}) translate(${random(0, 0, 5)}px, ${random(0, 0, 5)}px) skew(${random(0, -10, 10, 2)}deg, ${random(0, -10, 10, 2)}deg) rotate(${random(0, -180, 180, 1)}deg)`
+            elm.style.transform = `scale(${random(0, 0.2, 1, 2)}, ${random(0, 0.2, 1, 2)}) translate(${random(0, -5, 5)}px, ${random(0, -5, 5)}px) skew(${random(0, -30, 30, 2)}deg, ${random(0, -30, 30, 2)}deg) rotate(${random(0, -180, 180, 1)}deg)`;
+            break;
     }
 }

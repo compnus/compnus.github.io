@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../../head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="../../script.js" defer></script>
+    <script src="main.js" defer></script>
+    <script src="dividends.js" defer></script>
+    <title>Dividends - CryptoNUS</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dividends.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8SQ3EQ1B"></script>
+    <script>window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-ZW8SQ3EQ1B');</script>
+</head>
+<body>
+    <script>
+                initHeader("$NUS - Dividends");
+    </script>
+    <main>
+        <div id="compactWallet">
+            <div title="$NUS"><p class="cccicon">$</p><p id="balance_nus">0.00000000</p></div>
+            <p></p>
+            <div title="Nocas"><p class="cccicon">¤</p><p id="balance_noca">0</p></div>
+            <p></p>
+            <div title="Bitcoin Satoshi"><p class="cccicon">₿</p><p id="balance_sat">0.0000</p></div>
+            <p></p>
+            <img title="Refresh Wallet" src="https://img.icons8.com/?size=100&id=122158&format=png&color=FFFFFF" onclick="this.style.transform = 'rotate(' + (Number(this.style.transform.substring(7, this.style.transform.length - 4)) + 360) +'deg)';loadWallet();" />
+        </div>
+
+        <div id="pcnav">
+            <a title="Mine CompNUS's own cryptocurrency - $NUS!" href="../nus/" style="border-radius: 0 3vh 0 0; border-top: var(--border) solid 2px">
+                <img src="https://img.icons8.com/?size=100&id=3hnKkALv4z7Y&format=png&color=FFFFFF" />
+                <p>Mining</p>
+            </a>
+            <a title="Get free rewards for simple tasks!" href="free.html" style="border-radius: 0 0 3vh 0">
+                <img src="https://img.icons8.com/?size=100&id=85174&format=png&color=FFFFFF" />
+                <p>Free Rewards</p>
+            </a>
+            <a title="Request and check dividends here!" class="here" style="border-radius: 3vh 0 0 3vh">
+                <img src="https://img.icons8.com/?size=100&id=85952&format=png&color=FFFFFF" />
+                <p>Dividends</p>
+            </a>
+            <a title="Participate in various events to gain more rewards!" href="events.html" style="border-radius: 0 3vh 0 0">
+                <img src="https://img.icons8.com/?size=100&id=86324&format=png&color=FFFFFF" />
+                <p>Events</p>
+            </a>
+            <a title="Check out information about $NUS and see the community statistics!" href="info.html" style="border-radius: 0 0 3vh 0; border-bottom: var(--border) solid 2px">
+                <img src="https://img.icons8.com/?size=100&id=83180&format=png&color=FFFFFF" />
+                <p>Stats & Info</p>
+            </a>
+        </div>
+        <div id="content">
+            <div id="topnav">
+                <h1 class="present" onclick="topNav(0)" id="topnav0" style="border-bottom-left-radius: 6px 3px;">Main</h1>
+                <h1 onclick="topNav(1)" id="topnav1">Enrolled</h1>
+                <h1 onclick="topNav(2)" id="topnav2" style="border-bottom-right-radius: 6px 3px;">Available</h1>
+            </div><br />
+            <div id="divpage0" class="divpage">
+                p0
+            </div>
+            <div id="divpage1" class="divpage" style="display: none">
+                p1
+            </div>
+            <div id="divpage2" class="divpage" style="display: none">
+                p2
+            </div>
+        </div>
+    </main>
+
+    <nav id="mobilenav">
+        <a class="mobilenavbtn" href="../nus/" style="border-radius: 0">
+            <img src="https://img.icons8.com/?size=100&id=3hnKkALv4z7Y&format=png&color=FFFFFF" />
+            <p>Mining</p>
+        </a>
+        <a class="mobilenavbtn" href="free.html" style="border-radius: 0 4vw 0 0">
+            <img src="https://img.icons8.com/?size=100&id=85174&format=png&color=FFFFFF" />
+            <p>Free Rewards</p>
+        </a>
+        <a class="mobilenavbtn here" style="border-radius: 0 0 4vw 4vw">
+            <img src="https://img.icons8.com/?size=100&id=85952&format=png&color=FFFFFF" />
+            <p>Dividends</p>
+        </a>
+        <a class="mobilenavbtn" href="events.html" style="border-radius: 4vw 0 0 0">
+            <img src="https://img.icons8.com/?size=100&id=86324&format=png&color=FFFFFF" />
+            <p>Events</p>
+        </a>
+        <a class="mobilenavbtn" href="info.html">
+            <img src="https://img.icons8.com/?size=100&id=83180&format=png&color=FFFFFF" />
+            <p>Stats & Info</p>
+        </a>
+    </nav>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            funtile('color', 0);
+            await main();
+            divMain();
+        });
+        initFooter();
+    </script>
+</body>
+</html>
