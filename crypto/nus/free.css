@@ -471,7 +471,7 @@ td:hover {
 
 @media(max-width:800px) {
     table {
-        width: 80vw;
+        width: calc(80vw - 9px);
     }
 
     th {
