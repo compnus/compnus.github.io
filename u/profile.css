@@ -815,7 +815,7 @@ a.linkstv {
 
     .mainactions {
         margin-bottom: 4vw;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 4vw;
         height: 42vw;
         padding-top: 0;
