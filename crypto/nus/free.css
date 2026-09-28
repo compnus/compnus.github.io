@@ -3,7 +3,7 @@
     grid-column: span 5;
     background-color: var(--lightbg);
     padding: 2vh;
-    border-radius: 2vh;
+    border-radius: 1vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -467,6 +467,47 @@ td:hover {
     justify-content: center;
     font-family: Ubuntu;
     font-size: 2vh;
+}
+
+#spinawin {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 5;
+    grid-row: span 5;
+    background-color: var(--maingradfallback);
+    border-radius: 1vh;
+    padding: 2vh;
+    align-items: center;
+}
+
+#spinawinh {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+}
+#spinawinh h1 {
+    font-family: Gabarito;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+    font-size: 3.5vh;
+    line-height: 1;
+}
+#spinawinh div {
+    display: flex;
+    align-items: center;
+    border-radius: 50vh;
+    background-color: var(--lightbg);
+    padding: 0.5vh;
+    box-shadow: white 0 0 5px;
+}
+#spinawinh img {
+    width: 3vh;
+    height: 3vh;
+}
+#spinawinh h2 {
+    font-size: 2vh;
+    margin: 0 1vh 0 2vh;
 }
 
 @media(max-width:800px) {
