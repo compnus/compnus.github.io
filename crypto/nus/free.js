@@ -1,11 +1,12 @@
 var collStatus = false;
 var BONUS;
 var smallBonusReq, smallBonusTime;
+var spintokens;
 
 async function freeMain() {
     const { data: sdata, error: userExistsErrorn } = await sb
         .from("udata")
-        .select("daily_last, daily_streak")
+        .select("daily_last, daily_streak, spin_tokens")
         .eq("user_id", uid)
         .single();
     if (!sdata || userExistsErrorn) console.log("Server error.");
@@ -18,6 +19,8 @@ async function freeMain() {
         document.getElementById("dailygift").classList.add('collectedx');
         document.getElementById("information_kiosk_daily").innerHTML = "Come back tomorrow for another reward!";
     }
+    spintokens = sdata.spin_tokens;
+    document.getElementById("spintokens").innerHTML = spintokens;
     BONUS = await fetch('../../supabase/functions/_shared/smallBonus.json').then(response=>response.json());
 }
 
@@ -169,4 +172,8 @@ function funtile(id, ...p) {
             elm.style.transform = `scale(${random(0, 0.2, 1, 2)}, ${random(0, 0.2, 1, 2)}) translate(${random(0, -5, 5)}px, ${random(0, -5, 5)}px) skew(${random(0, -30, 30, 2)}deg, ${random(0, -30, 30, 2)}deg) rotate(${random(0, -180, 180, 1)}deg)`;
             break;
     }
+}
+
+function getSpinRewards() {
+
 }
