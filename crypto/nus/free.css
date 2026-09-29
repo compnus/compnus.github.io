@@ -483,7 +483,7 @@ td:hover {
 #spinawinh {
     display: flex;
     width: 100%;
-    align-items: baseline;
+    align-items: center;
 }
 #spinawinh h1 {
     font-family: Gabarito;
@@ -513,6 +513,7 @@ td:hover {
     position: relative;
     margin-top: 0.5vh;
     width: min-content;
+    filter: drop-shadow(black 0 0 3px);
 }
 #spinawinc img {
     width: 42vh;
@@ -524,6 +525,7 @@ td:hover {
     top: 0;
     left: 0;
     pointer-events: none;
+    filter: drop-shadow(black 0 0 3px);
 }
 #spinawinm {
     cursor: pointer;
@@ -585,7 +587,7 @@ td:hover {
         grid-row: span 4;
         grid-column: span 4;
         padding: 4vw;
-        border-radius: 4vw;
+        border-radius: 2vw;
     }
 
     #dailygiftlr {
@@ -766,5 +768,51 @@ td:hover {
     }
     #funtile_transform {
         font-size: 4vw;
+    }
+
+    #spinawin {
+        grid-column: span 4;
+        grid-row: span 4;
+        border-radius: 2vw;
+        padding: 4vw;
+    }
+
+        #spinawinh h1 {
+            font-size: 6vw;
+        }
+
+        #spinawinh div {
+            padding: 1vw;
+        }
+
+        #spinawinh img {
+            width: 5vw;
+            height: 5vw;
+        }
+
+        #spinawinh h2 {
+            font-size: 4vw;
+            margin: 0 2vw 0 4vw;
+        }
+
+    #spinawinc {
+        margin-top: 1vw;
+    }
+
+        #spinawinc img {
+            width: 71vw;
+            height: 71vw;
+        }
+
+        #spinawinm:hover {
+            transform: scale(1);
+        }
+
+        #spinawinm:active {
+            transform: scale(1);
+        }
+
+    #spinawinx {
+        margin: 1vw 0 0 0;
     }
 }
