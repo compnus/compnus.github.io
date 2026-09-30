@@ -1759,7 +1759,7 @@ function loadView(item) {
         case "usdt": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fresource.cwallet.com%2Ftoken%2Flarge_icon%2Fusdt.png&f=1&nofb=1&ipt=f469902176a107dc91dcaf25aaf1c1464937d8ee8c51213dca9c4f4cb5635d80'> USDT/USDC"; break;
         case "stars": curr = "<img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkupistars.ru%2Fassets%2Fimg%2Ftgstars.png&f=1&nofb=1&ipt=80c59d47eda2ee08b9421a8ca2256b51a99e1a9566f0dd2f858786dc35377832'> Telegram Stars"; break;
         default:
-            if (item.attr.coin.startsWith("other:") && !item.attr.coin.contains(" ")) curr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${item.attr.coin.substring(6)}`;
+            if (item.attr.coin.startsWith("other:") && !item.attr.coin.includes(" ")) curr = `<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fcoin%2Fcoin_PNG36871.png&f=1&nofb=1&ipt=e3fb6b38cdd94324ca1d7f1358e2bf66b6fbf803b701370f5ad64c7c0c1d4703"> ${item.attr.coin.substring(6)}`;
             else {
                 curr = "Click to view";
                 let xpt = [];
