@@ -291,7 +291,7 @@ const LISTE = [
         name: "JumpTask",
         icon: "https://play-lh.googleusercontent.com/x_5u0RcjMK9WdyJ5QR9ZNnVF4dQDeDGs2C9GVzDzhsmgaQYX43cIYBO4O8nLVXgU8Vk=w240-h480-rw",
         featured: false,
-        description: "Get paid for watching videos, playing games or browsing websites! Truly stretches the definition of 'micro task'! Additionally, participate in missions, stake your tokens and earn daily bonuses just for using the app!",
+        description: "Get paid for watching videos, playing games, recording yourself or browsing websites! Truly stretches the definition of 'micro task'! Additionally, participate in missions, stake your tokens and earn daily bonuses just for using the app!",
         added: "7-21-2024",
         id: "jumptask",
         divid: "jmpt",
@@ -300,29 +300,29 @@ const LISTE = [
             dividends: true,
             platform: "wa",
             type: "mt",
-            coin: "other:JMPT",
+            coin: "btc usdt other:Ethereum other:Tron",
             effort: 3,
             rating: 4
         },
         info: {
-            description: "JumpTask completely redefines the term 'micro tasks' with tasks ranging from searching the web, through signing up on a website all the way to playing games or signing up for casinos? Do not gamble kids! Or adults! CompNUS was created for you to make money, not to lose it! Anyway, just like with any other micro tasking service there are surveys and offerwalls! After you are satisfied with your earnings, you can withdraw your $JMPT to any CELO or BSC wallet from as little as 0.5$!",
+            description: "JumpTask completely redefines the term 'micro tasks' with tasks ranging from searching the web, through signing up on a website all the way to playing games or signing up for casinos? Do not gamble kids! Or adults! CompNUS was created for you to make money, not to lose it! Anyway, just like with any other micro tasking service there are surveys and offerwalls! After you are satisfied with your earnings, you can withdraw your credits as giftcards or crypto from as little as 0.5$!",
             effort: "Certain tasks are extremely easy while others might take extra effort. However, the daily check-in bonus is completely effortless!"
         },
         go: {
             type: 0,
             link: "https://www.jumptask.io/r/jicunicyfumo"
         },
-        features: [["Complete Tasks to Earn $JMPT", "JumpTask offers an extremely wide selection of tasks, including but not limited to searching the web, watching YouTube videos, following social profiles, joining Telegram channels, signing up for websites, filling out surveys and even more!"],
-            ["Free Tokens Daily", "Log in every day to get a booster of $JMPT tokens every day for free!"],
+        features: [["Complete Tasks to Earn Credits", "JumpTask offers an extremely wide selection of tasks, including but not limited to searching the web, watching YouTube videos, following social profiles, joining Telegram channels, signing up for websites, recording yourself, filling out surveys and even more!"],
+            ["Free Credits Daily", "Log in every day to get a booster of Credits every day for free!"],
             ["Web3 Missions and Token Staking", "Participate in special mission to earn extra tokens! You can then stake your tokens to earn even more!"], 
-            ["Task Categories", "Have no time but still want to earn? Check out the \"Quick tasks\" category! Want to watch something? Check out the \"Watch & Earn\" category! To put it simply, JumpTask categorizes its tasks for extra conveniency!"]
+            ["Task Categories", "Have no time but still want to earn? Check out the \"Quick tasks\" category! Want to watch something? Check out the \"Watch & Earn\" category! To put it simply, JumpTask categorizes its tasks for extra convenience!"]
         ],
-        tips: [["Check-in every day!", "Free $JMPT every day! Surely you won't give up on those!"],
+        tips: [["Check-in every day!", "Free Credits every day! Surely you won't give up on those!"],
             ["Higher activity = Higher rewards!", "The more tasks you complete, the higher is the probability of getting access to participate in one of the closed Web3 missions or staking pools!"],
-        ["Withdraw to CELO, but do not rush it!", "CELO has lower network fee than BSC, but it still has a network fee. Do not withdraw your tokens if you don't need them! Avoiding fees is the first step to understanding how economy works! Or something. What I'm trying to say is, be financially literate!"]
+        ["Withdraw as USDC to avoid fees!", "Certain USDC networks allow you to withdraw your Credits without any fee! That's what I call amazing!"]
         ],
-        pros: ["Quick withdrawals with low threshold","Seemingly endless supply of tasks", "Allows you to earn 10% extra when using <a href='viewEarn.html?id=honeygain' style='color:yellow'>Honeygain</a> in JumpTask mode"],
-        cons: ["Impossible to change wallet address once set", "Many tasks have unclear completion conditions (especially \"search the web\" tasks) and won't pay out no matter what you do"],
+        pros: ["Quick withdrawals with low threshold","Seemingly endless supply of tasks"],
+        cons: ["Many tasks have unclear completion conditions (especially \"search the web\" tasks) and won't pay out no matter what you do"],
         benefits: ["10% earning boost on your first task"],
         banner: "bin"
     },
