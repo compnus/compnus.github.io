@@ -175,6 +175,29 @@ function funtile(id, ...p) {
     }
 }
 
-function getSpinRewards() {
-
+async function getSpinRewards() {
+    startLoading();
+    var SR = await fetch('../../supabase/functions/_shared/spinawin.json').then(response => response.json());
+    popup(
+        "Current Spin and Win Rewards",
+        `
+            <h1 class="spinawinroster">Common</h1>
+            <h2 class="spinawinroster">Rewards with white background</h2>
+            <div class="spinawin_loot" id="saw_common">
+            <br>
+            <h1 class="spinawinroster">Uncommon</h1>
+            <h2 class="spinawinroster">Rewards with reddish chino background</h2>
+            <div class="spinawin_loot" id="saw_uncommon">
+            <br>
+            <h1 class="spinawinroster">Rare</h1>
+            <h2 class="spinawinroster">Rewards with bluish purple background</h2>
+            <div class="spinawin_loot" id="saw_rare">
+            <br>
+            <h1 class="spinawinroster">Legendary</h1>
+            <h2 class="spinawinroster">Reward with golden background</h2>
+            <div class="spinawin_loot" id="saw_legendary">
+            <br>
+<p style='margin:0'>`,
+        true, true
+    );
 }
