@@ -190,6 +190,10 @@ function load() {
     }
     var isid = GetURLParameter("id");
     if (isid) loadView(isid);
+    if (!localStorage.getItem("scam_notice")) {
+        popup("Disclaimer", "We are very careful with the term \"scam\" and want to emphasize, that not all apps listed here are scams as in fraudulent. We categorize apps into three categories based on their outline color. Only apps outlined in <b>red</b> are to be taken as fraudulent. For more information, please click the question mark button next to the category selector.", true, true);
+        localStorage.setItem("scam_notice", "1");
+    }
 }
 
 function loadView(iteid) {

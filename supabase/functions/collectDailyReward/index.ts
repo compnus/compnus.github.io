@@ -146,7 +146,7 @@ Deno.serve(async (req) => {
             ];
             mdata.daily_streak++;
             const date = mdata.daily_last.substring(5);
-            const { data: cdata, error: cerror } = await sb.from('udata').select('balance_nus, balance_noca, balance_sats, hashrate, dividends, level, exp').eq('user_id', uid).single();
+            const { data: cdata, error: cerror } = await sb.from('udata').select('balance_nus, balance_noca, balance_sats, hashrate, dividends, level, exp, spin_tokens').eq('user_id', uid).single();
             if (cerror || !cdata) {
                 return new Response(JSON.stringify({ response: 'Error fetching user data' }), {
                     status: 500,
@@ -163,7 +163,8 @@ Deno.serve(async (req) => {
                 div: 0,
                 xp: 0,
                 con: 0,
-                cont: []
+                cont: [],
+                spin: 0
             };
             /*
             var eventr = {
@@ -179,6 +180,7 @@ Deno.serve(async (req) => {
             rewards.sat += rc.sat || 0;
             rewards.hash += rc.hash || 0;
             rewards.div += rc.div || 0;
+            rewards.spin += rc.spin || 0;
             if (rc.cont) rewards.cont.push(rc.cont);
             if (date in REWARDS_S) {
                 var rs = REWARDS_S[date];
@@ -187,6 +189,7 @@ Deno.serve(async (req) => {
                 rewards.sat += rs.sat || 0;
                 rewards.hash += rs.hash || 0;
                 rewards.div += rs.div || 0;
+                rewards.spin += rs.spin || 0;
                 if (rs.cont) rewards.cont.push(rs.cont);
             }
             if (mdata.daily_streak in REWARDS_B) {
@@ -196,6 +199,7 @@ Deno.serve(async (req) => {
                 rewards.sat += rb.sat || 0;
                 rewards.hash += rb.hash || 0;
                 rewards.div += rb.div || 0;
+                rewards.spin += rb.spin || 0;
                 if (rb.cont) rewards.cont.push(rb.cont);
             }
             if (REWARDS_E.length) {
@@ -205,6 +209,7 @@ Deno.serve(async (req) => {
                 rewards.sat += re.sat || 0;
                 rewards.hash += re.hash || 0;
                 rewards.div += re.div || 0;
+                rewards.spin += re.spin || 0;
                 if (re.cont) rewards.cont.push(re.cont);
                 /*
                 eventr.* += re.* || 0;
@@ -276,7 +281,7 @@ Deno.serve(async (req) => {
             maxXP -= Math.min(maxXP, rxp);
             const { error: updateError } = await sb.from('udata').update({
                 daily_last: mdata.daily_last, daily_streak: mdata.daily_streak, balance_nus: cdata.balance_nus + rewards.nus, balance_noca: cdata.balance_noca + rewards.noca,
-                balance_sats: cdata.balance_sats + rewards.sat, hashrate: cdata.hashrate + rewards.hash, dividends: cdata.dividends + rewards.div, exp: cdata.exp + rewards.xp
+                balance_sats: cdata.balance_sats + rewards.sat, hashrate: cdata.hashrate + rewards.hash, dividends: cdata.dividends + rewards.div, exp: cdata.exp + rewards.xp, spin_tokens: cdata.spin_tokens + rewards.spin
                 // , event*: edata.event* + eventr.*
             }).eq('user_id', uid);
             if (updateError) {
