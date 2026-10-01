@@ -507,7 +507,7 @@ td:hover {
 }
 #spinawinh h2 {
     font-size: 2vh;
-    margin: 0 1vh 0 2vh;
+    margin: 0 1vh;
 }
 #spinawinc {
     position: relative;
@@ -792,7 +792,7 @@ td:hover {
 
         #spinawinh h2 {
             font-size: 4vw;
-            margin: 0 2vw 0 4vw;
+            margin: 0 2vw;
         }
 
     #spinawinc {
