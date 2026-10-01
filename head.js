@@ -66,6 +66,7 @@ fullfooter.innerHTML = `
 <p class="link fnav"><a href="/legal/">Legal</a></p>
 <p class="link fnav fnavbot"><a href="/legal/credits.html">Credits</a></p>
 <p class="link fnav fnavbot"><a href="/legal/tos.html">Terms of Service</a></p>
+<p class="link fnav fnavbot"><a href="/legal/privacy.html">Privacy Policy</a></p>
 <p class="link fnav fnavbot"><a href="/legal/faq.html">Frequently Asked Questions</a></p>
 </div>
 <div class="footerx">

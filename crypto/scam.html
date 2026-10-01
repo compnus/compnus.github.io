@@ -28,7 +28,7 @@
                 <option value="2">TMRF</option>
                 <option value="3">NWYT</option>
             </select>
-            <button onclick="popup('Scam Categories', `<b>VerS</b> = <b>Verified Scam</b> (<span style='color:red'>red outline</span>)<br>These apps are scams with no questions asked.<br><br><b>TMRF</b> = <b>Too Many Red Flags</b> (<span style='color:orange'>orange outline</span>)<br>These apps have way too many red flags to be trusted even slightly. They <b>may not be scams</b>! But all information available is against them.<br><br><b>NWYT</b> = <b>Not Worth Your Time</b> (<span style='color:lightblue'>blue outline</span>)<br>These apps are <b>not scams</b>, however, they are built in a way that makes it impossible to withdraw without spending your money or wasting an insane amount of time. They do not scam you for your wallet, rather for your time.`,true,true)">?</button>
+            <button onclick="popup('App Categories', `<b>VerS</b> = <b>Verified Scam</b> (<span style='color:red'>red outline</span>)<br>These apps are scams with no questions asked.<br><br><b>TMRF</b> = <b>Too Many Red Flags</b> (<span style='color:orange'>orange outline</span>)<br>These apps have way too many red flags. They <b>may not be scams</b>! But are definitely not to be trusted.<br><br><b>NWYT</b> = <b>Not Worth Your Time</b> (<span style='color:lightblue'>blue outline</span>)<br>These apps are <b>not scams</b>, however, they are built in a way that makes it impossible to withdraw without spending your money or wasting an insane amount of time. They do not scam you for your wallet, rather for your time.`,true,true)">?</button>
             <h1>Sort By:</h1>
             <select id="searchbarselect" onchange="sortUpdate(this.value)">
                 <option value="0">Newest</option>
@@ -48,7 +48,8 @@
 
     <script>
 initFooter(true);
-        let DEFAULT = [];
+let DEFAULT = [];
+        var x;
         window.addEventListener("DOMContentLoaded", () => load());
         window.addEventListener('pageshow', function(event) {
         if (document.getElementById('searchbarinput').value) search(document.getElementById('searchbarinput').value);
@@ -68,6 +69,12 @@ initFooter(true);
             x.style.height = "calc(" + x.offsetHeight + "px - " + parseFloat(getComputedStyle(x).paddingTop) + "px * 2 - 4px)";
             x.style.transition = "0.5s cubic-bezier(0, 0, 0, 1), 0.3s ease-out border-width";
         });
+
+        if (!localStorage.getItem("scam_notice")) { 
+            popup("Disclaimer", "We are very careful with the term \"scam\" and want to emphasize, that not all apps listed here are scams as in fraudulent. We categorize apps into three categories based on their outline color. Only apps outlined in <b>red</b> are to be taken as fraudulent. For more information, please click the question mark button next to the category selector.", true, true);
+            localStorage.setItem("scam_notice", "1");
+        }
+        
     </script>
 </body>
 </html>
