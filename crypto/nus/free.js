@@ -70,6 +70,7 @@ async function collectDaily() {
                 ${reward.sat ? reward.sat.toLocaleString('en-US', { useGrouping: false, maximumSignificantDigits: 21 }) + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">₿</span><br>" : ""}
                 ${reward.hash ? "+"+ reward.hash + " H/s<br>" : ""}
                 ${reward.div ? "+" + reward.div + " Dividend Power<br>" : ""}
+                ${reward.spin ? "+" + reward.spin + " Spin Token"+(reward.spin===1?"":"s")+"<br>" : ""}
                 ${reward.con ? reward.con + " Mining Contract"+(reward.con===1?"":"s")+"<br>" : ""}
                 ${/*reward.event.*?reward.event.*+"<span style=\"font-family: 'currencycompnus', Ubuntu !important\">?</span><br>":""*/ ""}
                 ${reward.xp ? "+"+reward.xp + " XP<br>" : ""}

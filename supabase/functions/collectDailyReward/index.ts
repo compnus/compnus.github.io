@@ -98,16 +98,16 @@ Deno.serve(async (req) => {
             });
             */
             const REWARDS_C = [
-                { hash: 1 }, { noca: 5 }, { nus: 0.001 }, { hash: 3 }, { noca: 5 }, { nus: 0.001 }, { hash: 5, nus: 0.003 }, //1-7
-                { hash: 3 }, { noca: 10 }, { sat: 0.0001, xp: 25 }, { noca: 3, hash: 1 }, { noca: 10 }, { cont: {hash:2000,dur:20,name:'Daily Bonus Rig',exp:21} }, { hash: 3, nus: 0.005, noca: 5 }, //8-14
-                { hash: 10 }, { noca: 5 }, { nus: 0.001 }, { noca: 5, hash: 3 }, { noca: 10 }, { sat: 0.001 }, { nus: 0.01, noca: 20 }, //15-21
-                { hash: 3 }, { nus: 0.001 }, { xp: 40 }, { nus: 0.0005, noca: 10, hash: 2 }, { hash: 5 }, { noca: 3 }, { hash: 25 }, //22-28
-                { noca: 3, hash: 1 }, { noca: 5, sat: 0.01 }, { div: 1 }, { hash: 5 }, { cont: { hash: 2500, dur: 30, name: 'Daily Bonus Rig', exp: 21 } }, { noca: 10 }, { nus: 0.025 }, //29-35
-                { noca: 10 }, { hash: 5, xp: 25 }, { nus: 0.003 }, { noca: 20 }, { sat: 0.1 }, { nus: 0.001 }, { noca: 50, hash: 25 }, //36-42
+                { noca: 5 }, { nus: 0.001 }, { noca: 5 }, { hash: 3 }, { noca: 5 }, { nus: 0.001 }, { spin: 1, nus: 0.003 }, //1-7
+                { hash: 3 }, { noca: 10 }, { sat: 0.0001, xp: 25 }, { noca: 5 }, { nus: 0.001 }, { cont: {hash:2000,dur:20,name:'Daily Bonus Rig',exp:21} }, { hash: 3, nus: 0.005, noca: 5 }, //8-14
+                { hash: 5 }, { noca: 5 }, { nus: 0.001 }, { spin: 1 }, { noca: 10 }, { sat: 0.001 }, { nus: 0.01, noca: 20 }, //15-21
+                { hash: 3 }, { nus: 0.001 }, { xp: 75 }, { nus: 0.0005, noca: 15 }, { hash: 5 }, { noca: 3 }, { hash: 15 }, //22-28
+                { spin: 1 }, { noca: 5, sat: 0.01 }, { div: 1 }, { hash: 5 }, { cont: { hash: 2500, dur: 30, name: 'Daily Bonus Rig', exp: 21 } }, { noca: 10 }, { nus: 0.025 }, //29-35
+                { noca: 10 }, { hash: 5, xp: 25 }, { nus: 0.003 }, { noca: 20 }, { sat: 0.1 }, { nus: 0.001 }, { noca: 25, spin: 1 }, //36-42
                 { noca: 5 }, { nus: 0.003 }, { hash: 10 }, { noca: 3 }, { nus: 0.005 }, { noca: 20 }, { nus: 0.1 }, //43-49
-                { sat: 1 }, { hash: 3 }, { cont: { hash: 2500, dur: 45, name: 'Daily Bonus Rig', exp: 21 }, noca: 10 }, {  hash: 1, xp: 50 }, { nus: 0.0075 }, { noca: 10 }, { nus: 0.25 }, //50-56
-                { hash: 5 }, { noca: 10 }, { nus: 0.01 }, { sat: 10 }, { noca: 15, hash: 3 }, { nus: 0.01 }, { hash: 50 }, //57-63
-                { noca: 10 }, { nus: 0.05 }, { cont: { hash: 3000, dur: 60, name: 'Daily Bonus Rig', exp: 21 } }, { noca: 5 }, { nus: 0.03, hash: 10, xp: 100 }, { noca: 69 }, { div: 2 }, //64-70
+                { sat: 1 }, { hash: 3 }, { cont: { hash: 2500, dur: 45, name: 'Daily Bonus Rig', exp: 21 }, noca: 10 }, { spin: 1, xp: 100 }, { nus: 0.0075 }, { noca: 10 }, { nus: 0.25 }, //50-56
+                { hash: 5 }, { noca: 10 }, { nus: 0.01 }, { sat: 10 }, { noca: 15, spin: 1 }, { nus: 0.01 }, { hash: 25 }, //57-63
+                { noca: 10 }, { nus: 0.05 }, { cont: { hash: 3000, dur: 60, name: 'Daily Bonus Rig', exp: 21 } }, { noca: 5 }, { nus: 0.03, hash: 10, xp: 250 }, { noca: 69 }, { div: 2 }, //64-70
             ];
             const REWARDS_S = {
                 "01-01": { nus: 0.2027, hash: 100 },
@@ -117,24 +117,24 @@ Deno.serve(async (req) => {
                 "04-20": { noca: 1 },
                 "05-08": { nus: 0.1945 },
                 "06-09": { sat: 0.0069 },
-                "06-28": { nus: 0.31415927, noca: 2 },
+                "06-28": { nus: 0.03141593, spin: 1 },
                 "07-04": { noca: 10 },
                 "08-15": { noca: 10 },
                 "09-21": { hash: 10 },
                 "10-31": { noca: 10 },
                 "12-06": { hash: 25, noca: 6 },
                 "12-24": { nus: 1, noca: 24 },
-                "12-25": { div: 3, noca: 25 },
+                "12-25": { div: 1, noca: 25, spin: 3 },
                 "12-26": { sat: 5, noca: 26 },
                 "12-31": { xp: 1000, noca: 31 }
             };
             const REWARDS_B = { //cannot contain xp
                 100: { cont: { hash: 5000, dur: 2160, name: '100 Day Streak Bonus Rig' } },
-                200: { noca: 100 },
+                200: { spin: 10 },
                 300: { hash: 100 },
                 400: { cont: { hash: 7500, dur: 2880, name: '400 Day Streak Bonus Rig' } },
                 500: { sat: 100 },
-                600: { noca: 500, hash: 100 },
+                600: { spin: 20, hash: 100 },
                 700: { cont: { hash: 10000, dur: 5760, name: '700 Day Streak Bonus Rig' } },
                 800: { div: 5 },
                 900: { nus: 5, hash: 100 },
