@@ -43,7 +43,7 @@ Deno.serve(async (req) => {
 
     let uid: string = user.user.id;
 
-    const { data: mdata, error: merror } = await sb.from('udata').select('balance_nus, balance_noca, balance_sats, dividends, level, exp').eq('user_id', uid).single();
+    const { data: mdata, error: merror } = await sb.from('udata').select('balance_nus, balance_noca, balance_sats, dividends, level, exp, spin_tokens').eq('user_id', uid).single();
     const { data: udata, error: uerror } = await sb.from('users').select('username').eq('id', uid).single();
     if (merror || uerror || !mdata || !udata) {
         return new Response(JSON.stringify({ response: 'Error fetching user data' }), {
@@ -81,12 +81,14 @@ Deno.serve(async (req) => {
             balance_nus: mdata.balance_nus,
             balance_noca: mdata.balance_noca-10,
             balance_sats: mdata.balance_sats,
-            dividends: mdata.dividends
+            dividends: mdata.dividends,
+            spin_tokens: mdata.spin_tokens
         }
         if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('nus') !== -1) updateds.balance_nus += LEVELS.perks[newLevel][4].nus;
         if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('noca') !== -1) updateds.balance_noca += LEVELS.perks[newLevel][4].noca;
         if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('sat') !== -1) updateds.balance_sats += LEVELS.perks[newLevel][4].sat;
         if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('div') !== -1) updateds.dividends += LEVELS.perks[newLevel][4].div;
+        if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('spin') !== -1) updateds.spin_tokens += LEVELS.perks[newLevel][4].spin;
         const { error: updateError } = await sb.from('udata').update(updateds).eq('user_id', uid);
         if (updateError) {
             return new Response(JSON.stringify({ response: 'We had issues trying to update your data.' }), {
@@ -99,6 +101,7 @@ Deno.serve(async (req) => {
 
         var resources = LEVELS.perks[newLevel][4];
         delete resources.div;
+        delete resources.spin;
         if (Object.keys(resources).length) {
             const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Level Up Reward", expiration: 1 });
         }

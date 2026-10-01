@@ -79,6 +79,7 @@ function loadLevels() {
                 case "noca": y = "¤"; z = rews[j]; break;
                 case "sat": y = "₿"; z = rews[j]; break;
                 case "div": y = "+"; z = rews[j] + " Dividend Power"; break;
+                case "spin": y = "+"; z = rews[j] + " Spin Token"+(rews[j]===1?"":"s"); break;
                 default: y = ""; z = "Something went wrong.";
             }
             x.innerHTML = `<span style="font-family: 'currencycompnus', Ubuntu !important;">${y}</span> ${z}`
