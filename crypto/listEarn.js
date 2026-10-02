@@ -595,7 +595,7 @@ const LISTE = [
         name: "CT Pool",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FYv1_wJKJD2UVEUW35Jn6yTjiNs00H8I3oiIoRiHtWbwn_XL1m8mO8_noSRZBaqVmB-w&f=1&nofb=1&ipt=c82e99c93da2eda4f906be76a608b22b5f93887646f8362c88be86d9a24a5e49",
         id: "ctpool",
-        description: "This is a standard pool mining service, except it has too many flaws to be actually used as one. However it will (probably) give you a free miner and 100 HSH when you sign up through CompNUS! Yeah... You can <b>probably</b> see why it only has one star. But it's legitimate! Legitimately terrible.",
+        description: "This is a standard pool mining service, except it does not really pay off. However it will provide you with a free miner and 100 HSH when you sign up through CompNUS! Most of the time anyway!",
         added: "8-9-2024",
         attr: {
             verified: 1,
@@ -607,18 +607,18 @@ const LISTE = [
             rating: 1
         },
         info: {
-            description: "Okay I will be straight up with you in this one. Do not use this app for what it's supposed to be used for. You will lose your money. Install it, see if you get the sign up bonuses listed in the benefits, use them up, withdraw them to your NC Wallet and delete it. If you don't get the benefits, please report this to the support (visit your profile -> contact support). Generally do not touch CryptoTab products. The only decent one is NC Wallet.",
-            effort: "You have to reactivate mining at random periods."
+            description: "Okay I will be straight up with you in this one. Do not use this app for what it's supposed to be used for. You will lose your money. We tried purchasing a pool miner, waiting for the three months to pass, and were welcome with a grand loss of about 50% of our investment despite Bitcoin going up in value (so the absolute loss was probably even higher). Install it, see if you get the sign up bonuses listed in the benefits, use them up, withdraw them to your NC Wallet and perhaps only use the app for ad watch bonuses. They don't usually work. If you don't get the benefits, please report this to the support (visit your profile -> contact support). Generally we advise strongly against investing in CryptoTab products. The only decent one is NC Wallet.",
+            effort: "You (probably) have to reactivate mining at random periods."
         },
         go: {
             type: 0,
             link: "https://g.cb.click/I6tBqL"
         },
-        benefits: ["Free miner (maybe, for some reasons certain people didn&apos;t get it)", "100 free HSH (same issue as the previous &quot;benefit&quot;)"],
-        features: [["Mining", "Don't forget to reactivate your mining at random time!"], ["HSH Bonuses", "Withdraw HSH to your NC Wallet and swap it for any crypto!"]],
-        tips: [["Refrain from buying miners!", "No matter what, the app is designed for you to lose money. I purchased a contract for 0.17mBTC to try it out and after 3 months (of constant monitoring mind you, because this app turns off the mining randomly without warning) I withdrew 0.11mBTC. Yeah that's what I call a scam."]],
+        benefits: ["Free miner (although we are unsure if this is provided to everyone or only invitees)", "100 free HSH (sometimes)"],
+        features: [["Mining", "Don't forget to reactivate your mining at random time (maybe has been fixed but it's not very easy to verify)!"], ["HSH Bonuses", "Withdraw HSH to your NC Wallet and swap it for any crypto!"], ["Ad rewards","You can watch ads to get chips, which reward you with seasonal bonuses. But usually ads don't load so you cannot use them anyway."]],
+        tips: [["Refrain from buying miners!", "We purchased a contract for 0.17mBTC to try it out and after 3 months (of constant monitoring mind you, because this app turns off the mining randomly without warning) I withdrew 0.11mBTC. Yeah that's not very nice."]],
         pros: ["I guess they (sometimes) tell you in how many hours your mining is getting turned off?"],
-        cons: ["Useless notifications", "Paid miners will mostly result in a loss", "Non-transparent services", "Unhelpful support team", "Your mining gets turned off randomly", "Although HSH withdrawals are almost instant, other currencies can take weeks before the withdrawal is processed"],
+        cons: ["Useless notifications", "Paid miners will mostly result in a loss", "Non-transparent services", "Unhelpful support team", "Your mining gets turned off randomly (or at least it used to)", "Although HSH withdrawals are almost instant, other currencies can take weeks before the withdrawal is processed", "Ad rewards never work"],
         banner: "ncct"
     },
     {
@@ -1424,6 +1424,7 @@ const LISTE = [
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftelegramchannels.me%2Fstorage%2Fmedia-logo%2F2409%2Fton_ai_news.jpg&f=1&nofb=1&ipt=4f00c8701018b3520d6da178cf77fd3b8c5e887da0637217d6436d043e35333b",
         description: "Spin a wheel and earn! Complete tasks, earn points and spend the poins to spin a wheel! You can earn both USDT and Pepe from the spin! One thing that should be mentioned is the ridiculous withdrawal threshold combined with how little the rewards are, which makes for a neverending spinning with being nowhere close to the withdrawal.",
         added: "8-26-2024",
+        unlisted: true,
         id: "peaai",
         divid: "peai",
         attr: {
