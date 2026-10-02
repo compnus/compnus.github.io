@@ -550,6 +550,110 @@ td:hover {
     color: #ccc;
 }
 
+h1.spinawinroster {
+    margin: 0;
+    font-size: 3vh;
+}
+h2.spinawinroster {
+    margin: 1vh 0;
+    font-size: 1.7vh;
+    color: #ccc;
+}
+.spinawin_loot {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: var(--lightbg);
+    padding: 1vh;
+    border-radius: 3vh;
+    grid-gap: 1vh;
+}
+.spinawin_entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh;
+    border-radius: 2vh;
+}
+.spinawin_bg0 {
+    background-color: var(--bg);
+}
+.spinawin_bg1 {
+    background-color: #56503f;
+}
+.spinawin_bg2 {
+    background-color: #4a4472;
+}
+.spinawin_bg3 {
+    background: #76872e;
+    background: linear-gradient(135deg, rgba(150, 150, 150, 1) 0%, rgb(65, 116, 41) 25%, rgba(69, 69, 94, 1) 52%, rgb(30, 118, 35) 79%, rgb(124, 124, 124) 100%);
+}
+.spinawin_entry > h1 {
+    margin: 0;
+    font-size: 2.5vh;
+    font-family: 'Funnel Display';
+}
+.spinawin_unit {
+    margin: 1vh 0 0 0;
+    width: calc(100% - 1vh);
+    display: grid;
+    border-radius: 1vh;
+    padding: 0.5vh;
+    background: rgba(255 255 255 / 10%);
+    grid-template-columns: auto 1fr;
+}
+.spinawin_single {
+    grid-template-columns: 1fr;
+}
+.spinawin_unit > h1 {
+    margin: .5vh 1vh .5vh .5vh;
+    padding: 0 1.5vh 0 0;
+    position: relative;
+    font-size: 2.5vh;
+    width: 2.5em;
+    text-align: right;
+}
+    .spinawin_unit > h1::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient( 0deg, rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 1) 50%, rgb(255 255 255 / 1) 95%, rgb(255 255 255 / 0) 100% );
+    }
+
+.spinawin_re {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(0 0 0 / 25%);
+    border-radius: 100vh;
+    padding: 1vh;
+    margin: 0.5vh;
+    vertical-align: middle;
+}
+
+.spinawin_re > img {
+    width: 3vh;
+    height: 3vh;
+    margin-right: 1vh;
+}
+
+.spinawin_re > h6 {
+    margin: 0 1vh 0 0;
+    font-size: 2.3vh;
+    line-height: 3vh;
+    align-self: center;
+    height: 3vh;
+}
+
+.spinawin_re > p {
+    margin: 0;
+}
+    .spinawin_re > p span {
+        opacity: 0.5;
+        font-weight: 700;
+    }
+
 @media(max-width:800px) {
     table {
         width: calc(80vw - 9px);

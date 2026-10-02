@@ -175,29 +175,120 @@ function funtile(id, ...p) {
     }
 }
 
+async function spinWheel() {
+
+}
+
+const SRFORMAT = {
+    // [0:name, 1:prepend, 2:append, 3:imagetype (0=img, 1=text, 2=none), 4?:imageparam]
+    noca: ["Nocas", "", "", 0, "../../site/image/logo/noca.svg"],
+    sat: ["Bitcoin Satoshis", "", "", 0, "../../site/image/logo/sats.svg"],
+    nus: ["$NUS", "", "", 0, "../../site/image/logo/currency.svg"],
+    coin: ["Marks", "", "", 0, "../../site/image/logo/coins.svg"],
+    spin: ["Spin Tokens", "", "", 0, "https://img.icons8.com/?size=100&id=bUrGLkai6eS8&format=png&color=FFFFFF"],
+    xp: ["XP", "+", "", 1, "XP"],
+    div: ["Dividend Power", "+ ", " Dividend Power", 2],
+    hash: ["Hashrate", "+", "H/s", 0, "../../site/image/assets/mining/hash0.png"],
+    cont: ["Mining Contract", "", "", 0, "../../site/image/assets/mining/cooling1.png"],
+};
+
+function getSpinElement(type, amount) {
+    const elm = document.createElement("div");
+    elm.classList.add("spinawin_re");
+    const f = SRFORMAT[type];
+    elm.title = f[0];
+    switch (f[3]) {
+        case 0:
+            const img = document.createElement("img");
+            img.src = f[4];
+            elm.appendChild(img);
+            break;
+        case 1:
+            const text = document.createElement("h6");
+            text.innerHTML = f[4];
+            elm.appendChild(text);
+            break;
+    }
+    const amt = document.createElement("p");
+    if (type === "cont") {
+        amt.innerHTML = amount.name + " (" + formatNumber(amount.hash).join("") + "H/s for " + amount.dur + " minutes)"
+    } else amt.innerHTML = f[1] + (
+        typeof amount === "number" ?
+            amount :
+            amount.split("-").slice(0,2).join("<span>-</span>")
+    ) + f[2];
+    elm.appendChild(amt);
+    return elm;
+}
+
+function addSpinReward(container_id, bg_id, entry) {
+    const container = document.getElementById(container_id);
+    const elm = document.createElement("div");
+    elm.classList.add("spinawin_entry");
+    const name = document.createElement("h1");
+    name.innerHTML = entry[0];
+    elm.appendChild(name);
+    if (entry[1].length === 1) {
+        const loot = document.createElement("div");
+        loot.classList.add("spinawin_unit", "spinawin_single");
+        const looti = document.createElement("div");
+        looti.classList.add("spinawin_table");
+        for (var i in entry[1][0][1]) looti.appendChild(getSpinElement(i, entry[1][0][1][i]));
+        loot.appendChild(looti);
+        elm.appendChild(loot);
+    } else {
+        for (var i of entry[1]) {
+            const loot = document.createElement("div");
+            loot.classList.add("spinawin_unit");
+            const lootb = document.createElement("h1");
+            lootb.innerHTML = i[0] + "%";
+            lootb.title = "Chance";
+            const looti = document.createElement("div");
+            looti.classList.add("spinawin_table");
+            for (var j in i[1]) looti.appendChild(getSpinElement(j, i[1][j]));
+            loot.appendChild(lootb);
+            loot.appendChild(looti);
+            elm.appendChild(loot);
+        }
+    }
+    elm.classList.add("spinawin_bg" + bg_id);
+    container.appendChild(elm);
+}
+
 async function getSpinRewards() {
     startLoading();
-    var SR = await fetch('../../supabase/functions/_shared/spinawin.json').then(response => response.json());
+    try {
+        var SR = await fetch('../../supabase/functions/_shared/spinawin.json').then(response => response.json());
+    } catch {
+        stopLoading();
+        popup("An Error Occurred", "We could not access the current loot table roster. Please try again later.");
+        return;
+    }
+    stopLoading();
     popup(
         "Current Spin and Win Rewards",
         `
             <h1 class="spinawinroster">Common</h1>
             <h2 class="spinawinroster">Rewards with white background</h2>
-            <div class="spinawin_loot" id="saw_common">
+            <div class="spinawin_loot" id="saw_common"></div>
             <br>
             <h1 class="spinawinroster">Uncommon</h1>
             <h2 class="spinawinroster">Rewards with reddish chino background</h2>
-            <div class="spinawin_loot" id="saw_uncommon">
+            <div class="spinawin_loot" id="saw_uncommon"></div>
             <br>
             <h1 class="spinawinroster">Rare</h1>
             <h2 class="spinawinroster">Rewards with bluish purple background</h2>
-            <div class="spinawin_loot" id="saw_rare">
+            <div class="spinawin_loot" id="saw_rare"></div>
             <br>
             <h1 class="spinawinroster">Legendary</h1>
             <h2 class="spinawinroster">Reward with golden background</h2>
-            <div class="spinawin_loot" id="saw_legendary">
-            <br>
+            <div class="spinawin_loot" id="saw_legendary"></div>
+
 <p style='margin:0'>`,
         true, true
     );
+    for (var i = 0; i < 6; i++) addSpinReward("saw_common", 0, SR.win[i]);
+    for (var i = 6; i < 9; i++) addSpinReward("saw_uncommon", 1, SR.win[i]);
+    for (var i = 9; i < 11; i++) addSpinReward("saw_rare", 2, SR.win[i]);
+    addSpinReward("saw_legendary", 3, SR.win[11]);
 }
