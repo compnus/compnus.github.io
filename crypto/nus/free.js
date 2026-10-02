@@ -64,17 +64,7 @@ async function collectDaily() {
                 document.getElementById("dailygift").classList.remove('collected');
                 document.getElementById("dailygift").classList.add('collectedx');
                 const reward = JSON.parse(data.claimed);
-                popup("Daily rewards claimed!", `<p style="margin:0; text-align:center">You have received:<br>
-                ${reward.nus ? reward.nus.toLocaleString('en-US',{useGrouping:false,maximumSignificantDigits: 21}) + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">$</span><br>" : ""}
-                ${reward.noca ? reward.noca + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">¤</span><br>" : ""}
-                ${reward.sat ? reward.sat.toLocaleString('en-US', { useGrouping: false, maximumSignificantDigits: 21 }) + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">₿</span><br>" : ""}
-                ${reward.hash ? "+"+ reward.hash + " H/s<br>" : ""}
-                ${reward.div ? "+" + reward.div + " Dividend Power<br>" : ""}
-                ${reward.spin ? reward.spin + "Spin Token"+(reward.spin===1?"":"s")+"<br>" : ""}
-                ${reward.con ? reward.con + " Mining Contract"+(reward.con===1?"":"s")+"<br>" : ""}
-                ${/*reward.event.*?reward.event.*+"<span style=\"font-family: 'currencycompnus', Ubuntu !important\">?</span><br>":""*/ ""}
-                ${reward.xp ? "+"+reward.xp + " XP<br>" : ""}
-                ${data.level ? "You have enough XP to level up!<br><a href='levels.html' class='link'>Level Up Now!</a><br>" : ""}
+                popup("Daily rewards claimed!", `</p>${parseRewards(reward, data.level)}
                 <br>Don't forget to claim again tomorrow!` + (data.code === 2 ? "<br><br>Due to an internal error, your reward will not show up in your transaction history." : ""));
                 loadWallet();
             }
@@ -86,6 +76,21 @@ async function collectDaily() {
             popup("An error occurred", "We had issues trying to collect your daily reward. Please try again later.", true, true);
             collStatus = false;
         });
+}
+
+function parseRewards(reward, level) {
+    return `<p style="margin:0; text-align:center">You have received:<br>
+                ${reward.nus ? reward.nus.toLocaleString('en-US', { useGrouping: false, maximumSignificantDigits: 21 }) + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">$</span><br>" : ""}
+                ${reward.noca ? reward.noca + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">¤</span><br>" : ""}
+                ${reward.sat ? reward.sat.toLocaleString('en-US', { useGrouping: false, maximumSignificantDigits: 21 }) + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">₿</span><br>" : ""}
+                ${reward.coin ? reward.coin + " <span style=\"font-family: 'currencycompnus', Ubuntu !important\">€</span><br>" : ""}
+                ${reward.hash ? "+" + reward.hash + " H/s<br>" : ""}
+                ${reward.div ? "+" + reward.div + " Dividend Power<br>" : ""}
+                ${reward.spin ? reward.spin + "Spin Token" + (reward.spin === 1 ? "" : "s") + "<br>" : ""}
+                ${reward.con ? reward.con + " Mining Contract" + (reward.con === 1 ? "" : "s") + "<br>" : ""}
+                ${/*reward.event.*?reward.event.*+"<span style=\"font-family: 'currencycompnus', Ubuntu !important\">?</span><br>":""*/ ""}
+                ${reward.xp ? "+" + reward.xp + " XP<br>" : ""}
+                ${level ? "You have enough XP to level up!<br><a href='levels.html' class='link'>Level Up Now!</a><br>" : ""}`;
 }
 
 function smallBonus(title, description, bonus) {
@@ -176,7 +181,70 @@ function funtile(id, ...p) {
 }
 
 async function spinWheel() {
-
+    const wheel = document.getElementById("spinawinm");
+    if (wheel.style.pointerEvents === "none") return;
+    if (spintokens < 1) {
+        popup("You have no Spin Tokens!", "You need Spin Tokens to spin the wheel! Earn more from daily rewards or by leveling up! You can also look for them elsewhere. Maybe you will find something!", true, true);
+        return;
+    }
+    document.getElementById("spintokens").innerHTML = --spintokens;
+    wheel.style.pointerEvents = "none";
+    if (wheel.style.rotate !== "0deg") {
+        wheel.style.rotate = Number(wheel.style.rotate.substring(0, wheel.style.rotate.length - 3))%360 + "deg";
+        wheel.style.transition = "0.3s ease-out transform, .2s ease-out rotate";
+        wheel.style.rotate = "0deg";
+        await new Promise(resolve => setTimeout(resolve, 200));
+    };
+    var spinning = false;
+    var spingoal = 0;
+    var reward = null;
+    function sspin() {
+        if (spinning) {
+            wheel.style.rotate = Number(wheel.style.rotate.substring(0, wheel.style.rotate.length - 3)) + 360 + "deg";
+            window.setTimeout(sspin, 500);
+        } else {
+            wheel.style.transition = "0.3s ease-out transform, 3s cubic-bezier(0, 1, 0.7, 1.02) rotate";
+            wheel.style.rotate = Number(wheel.style.rotate.substring(0, wheel.style.rotate.length - 3)) + 360 + spingoal + "deg";
+            window.setTimeout(() => {
+                wheel.style.transition = "0.3s ease-out transform";
+                wheel.style.pointerEvents = "auto";
+                if (reward) {
+                    popup("Congratulations!", `${parseRewards(reward, data.level)} <br>Spin again once you feel lucky!`, true, true)
+                }
+            }, 3000);
+        }
+    }
+    wheel.style.transition = "0.3s ease-out transform, 1s cubic-bezier(0.3,-0.75, 1, 0.8) rotate";
+    wheel.style.rotate = "360deg";
+    window.setTimeout(async () => {
+        wheel.style.transition = "0.3s ease-out transform, 0.5s linear rotate";
+        spinning = true;
+        sspin();
+        await fetch('https://jwpvozanqtemykhdqhvk.supabase.co/functions/v1/spinAWheel', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${(await sb.auth.getSession()).data.session?.access_token}`
+            }
+        })
+            .then(response => response.json())
+            .then(async data => {
+                spingoal = data.rot;
+                spinning = false;
+                if (data.sc) {
+                    reward = JSON.parse(data.response);
+                } else {
+                    popup("An error occurred", data.response);
+                    wheel.style.pointerEvents = "auto";
+                    wheel.style.transition = "0.3s ease-out transform";
+                    document.getElementById("spintokens").innerHTML = ++spintokens;
+                }
+            })
+            .catch((error) => {
+                spinning = false;
+                console.error('Error invoking function:', error);
+            });
+    }, 1000);
 }
 
 const SRFORMAT = {
