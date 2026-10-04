@@ -101,7 +101,7 @@ Deno.serve(async (req) => {
                 { noca: 5 }, { nus: 0.001 }, { noca: 5 }, { hash: 3 }, { noca: 5 }, { nus: 0.001 }, { spin: 1, nus: 0.003 }, //1-7
                 { hash: 3 }, { noca: 10 }, { sat: 0.0001, xp: 25 }, { noca: 5 }, { nus: 0.001 }, { cont: {hash:2000,dur:20,name:'Daily Bonus Rig',exp:21} }, { hash: 3, nus: 0.005, noca: 5 }, //8-14
                 { hash: 5 }, { noca: 5 }, { nus: 0.001 }, { spin: 1 }, { noca: 10 }, { sat: 0.001 }, { nus: 0.01, noca: 20 }, //15-21
-                { hash: 3 }, { nus: 0.001 }, { xp: 75 }, { nus: 0.0005, noca: 15 }, { hash: 5 }, { noca: 3 }, { hash: 15 }, //22-28
+                { hash: 3 }, { nus: 0.001 }, { noca: 5, xp: 75 }, { nus: 0.0005, noca: 15 }, { hash: 5 }, { noca: 3 }, { hash: 15 }, //22-28
                 { spin: 1 }, { noca: 5, sat: 0.01 }, { div: 1 }, { hash: 5 }, { cont: { hash: 2500, dur: 30, name: 'Daily Bonus Rig', exp: 21 } }, { noca: 10 }, { nus: 0.025 }, //29-35
                 { noca: 10 }, { hash: 5, xp: 25 }, { nus: 0.003 }, { noca: 20 }, { sat: 0.1 }, { nus: 0.001 }, { noca: 25, spin: 1 }, //36-42
                 { noca: 5 }, { nus: 0.003 }, { hash: 10 }, { noca: 3 }, { nus: 0.005 }, { noca: 20 }, { nus: 0.1 }, //43-49
