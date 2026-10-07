@@ -235,7 +235,6 @@ Deno.serve(async (req) => {
                     }
                 });
                 maxXP -= miningStatus[1].xp;
-                var profit: number = parseFloat(((cdata.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8));
                 cdata.balance_nus = cdata.balance_nus + miningStatus[1].reward;
                 cdata.exp += cdata.exp + miningStatus[1].xp;
             }
