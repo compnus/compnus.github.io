@@ -3,6 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 import LEVELS from "../_shared/levels.json" with { type: "json" };
 import UPGRADES from "../_shared/upgrades.json" with { type: "json" };
+import { mining } from "../_shared/fns.ts";
 
 Deno.serve(async (req) => {
     const sb = createClient(
@@ -146,36 +147,14 @@ Deno.serve(async (req) => {
         else if (item === "echip") updateds["mining_upg"] = nData.mining_upg + 100000;
 
         // claim mining
-        var maxXP = 0;
-        if (nData.level < 10) maxXP = LEVELS.perks[nData.level + 1][0] - nData.exp;
-        var now = new Date().getTime();
-        var lastclaim = new Date(nData.last_claimed).getTime();
-        var diff: number = (now - lastclaim) / 1000;
-        var maxtime: number = (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[nData.level][2]) * 60 * 60;
-        var xpgain: number = Math.min(maxXP, Math.floor((Math.min(diff / 600, (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[nData.level][2]) * 6)) * ((LEVELS.perks[nData.level][1]+UPGRADES.echip[levelraw][3]) / 100)));
-        const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
-        const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
-        if (dte || dre || !dt || !dr) {
-            return new Response(JSON.stringify({ response: 'We had issues trying to collect mining rewards. Please try again later.', code: 10 }), {
-                status: 500,
-                headers: {
-                    ...headers
-                }
-            });
-        }
-        var profit: number = parseFloat(((nData.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8));
-        var post = { balance_nus: nData.balance_nus + profit, last_claimed: new Date().toISOString(), exp: nData.exp + xpgain };
-        const { error: updateError } = await sb.from('udata').update(post).eq('user_id', uid);
-        if (updateError) {
-            return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.', code: 10 }), {
-                status: 500,
-                headers: {
-                    ...headers
-                }
-            });
-        }
-        nData.balance_nus = nData.balance_nus + profit;
-        await sb.from('transaction').insert({ from: "admin:CompNUS", to: uname.username, resource: { "nus": profit }, message: "Mining reward", expiration: 1 });
+        const miningStatus: [number, any, number] = await mining(sb, uid, LEVELS, UPGRADES, { ...nData, ...uname }, true);
+        if (typeof miningStatus[1] === "string") return new Response(JSON.stringify({ response: miningStatus[1], code: miningStatus[0] }), {
+            status: miningStatus[2],
+            headers: {
+                ...headers
+            }
+        });
+        nData.balance_nus = nData.balance_nus + miningStatus[1].reward;
 
         // push updates
         if (detail.cost[1] === "nus") updateds["balance_nus"] = parseFloat((nData.balance_nus - detail.cost[0]).toFixed(8));

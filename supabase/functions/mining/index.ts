@@ -76,7 +76,6 @@ Deno.serve(async (req) => {
                 });
             }
         } else {
-            // remember that you must add npu logic to upgradeMining
             const miningStatus: [number, any, number] = await mining(sb, uid, LEVELS, UPGRADES, { ...udata, ...mdata });
             if (typeof miningStatus[1] === "string") return new Response(JSON.stringify({ response: miningStatus[1], code: miningStatus[0] }), {
                 status: miningStatus[2],
