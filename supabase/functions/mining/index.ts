@@ -84,7 +84,7 @@ Deno.serve(async (req) => {
                     ...headers
                 }
             });
-            else return new Response(JSON.stringify({ newtime: miningStatus[1].newtime, reward: miningStatus[1].reward, level: miningStatus[1].level, xp: miningStatus[1].xp, code: miningStatus[0] }), {
+            else return new Response(JSON.stringify({ response: JSON.stringify({ newtime: miningStatus[1].newtime, reward: miningStatus[1].reward, level: miningStatus[1].level, xp: miningStatus[1].xp }), code: miningStatus[0] }), {
                 status: miningStatus[2],
                 headers: {
                     ...headers
