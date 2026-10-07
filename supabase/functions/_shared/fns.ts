@@ -33,9 +33,11 @@ export function rndm(min: number, max: number, step: number): number {
     return parseFloat((valueInt / factor).toFixed(decimals));
 }
 
-export async function mining(sb: any, uid: string, LEVELS: any, UPGRADES: any, data: any, bypass: boolean = false): Promise<any> { // [status:number, response:string | response_parts:object, http:number]
-    var maxXP = 0;
-    if (data.level < 10) maxXP = LEVELS.perks[data.level + 1][0] - data.exp;
+export async function mining(sb: any, uid: string, LEVELS: any, UPGRADES: any, data: any, bypass: boolean = false, maxXP: number = -1): Promise<any> { // [status:number, response:string | response_parts:object, http:number]
+    if (maxXP === -1) {
+        maxXP = 0;
+        if (data.level < 10) maxXP = LEVELS.perks[data.level + 1][0] - data.exp;
+    }
     var now = new Date().getTime();
     var lastclaim = new Date(data.last_claimed).getTime();
     var diff: number = (now - lastclaim) / 1000;

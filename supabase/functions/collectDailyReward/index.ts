@@ -3,7 +3,7 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 import LEVELS from "../_shared/levels.json" with { type: "json" };
 import UPGRADES from "../_shared/upgrades.json" with { type: "json" };
-
+import { mining } from "../_shared/fns.ts";
 
 Deno.serve(async (req) => {
     const sb = createClient(
@@ -217,7 +217,7 @@ Deno.serve(async (req) => {
             }
             var maxXP = 0;
             if (cdata.level < 10) maxXP = LEVELS.perks[cdata.level + 1][0] - cdata.exp;
-            if (rewards.hash > 0) { //collect mining
+            if (rewards.hash > 0) { //claim mining
                 const { data: nData, error: nerrr } = await sb.from('udata').select('last_claimed, mining_upg').eq('user_id', uid).single();
                 if (!nData || nerrr) {
                     return new Response(JSON.stringify({ response: 'Error fetching user data', code: 10 }), {
@@ -227,36 +227,17 @@ Deno.serve(async (req) => {
                         }
                     });
                 }
-                var now = new Date().getTime();
-                var lastclaim = new Date(nData.last_claimed).getTime();
-                var diff: number = (now - lastclaim) / 1000;
-                var maxtime: number = (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[cdata.level][2]) * 60 * 60;
-                var xpgain: number = Math.min(maxXP, Math.floor((Math.min(diff / 600, (UPGRADES.memory[Math.floor((nData.mining_upg % 100) / 10)][3] + LEVELS.perks[cdata.level][2]) * 6)) * ((LEVELS.perks[cdata.level][1] + UPGRADES.echip[Math.floor((nData.mining_upg % 1000000) / 100000)][3]) / 100)));
-                const { data: dt, error: dte } = await sb.from("variable").select("value").eq("key", "nusperblock").single();
-                const { data: dr, error: dre } = await sb.from("variable").select("value").eq("key", "hashperblock").single();
-                if (dte || dre || !dt || !dr) {
-                    return new Response(JSON.stringify({ response: 'We had issues trying to collect mining rewards. Please try again later.', code: 10 }), {
-                        status: 500,
-                        headers: {
-                            ...headers
-                        }
-                    });
-                }
-                maxXP -= xpgain;
+                const miningStatus: [number, any, number] = await mining(sb, uid, LEVELS, UPGRADES, {...nData, ...udata, ...cdata}, true, maxXP);
+                if (typeof miningStatus[1] === "string") return new Response(JSON.stringify({ response: miningStatus[1], code: miningStatus[0] }), {
+                    status: miningStatus[2],
+                    headers: {
+                        ...headers
+                    }
+                });
+                maxXP -= miningStatus[1].xp;
                 var profit: number = parseFloat(((cdata.hashrate * Math.min(diff, maxtime) * dt.value) / dr.value).toFixed(8));
-                var post = { balance_nus: cdata.balance_nus + profit, last_claimed: new Date().toISOString(), exp: cdata.exp + xpgain };
-                const { error: updateError } = await sb.from('udata').update(post).eq('user_id', uid);
-                if (updateError) {
-                    return new Response(JSON.stringify({ response: 'We had issues updating your mining data. Please try again later.', code: 10 }), {
-                        status: 500,
-                        headers: {
-                            ...headers
-                        }
-                    });
-                }
-                cdata.balance_nus = cdata.balance_nus + profit;
-                cdata.exp = cdata.exp + xpgain;
-                await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: { "nus": profit }, message: "Mining reward", expiration: 1 });
+                cdata.balance_nus = cdata.balance_nus + miningStatus[1].reward;
+                cdata.exp += cdata.exp + miningStatus[1].xp;
             }
             if (rc.xp > 0) {
                 rewards.xp += Math.min(maxXP, rc.xp);
