@@ -41,6 +41,8 @@ Deno.serve(async (req) => {
         });
     }
 
+    return new Response("{0:'raaaah'}", {status:500, headers: { ...headers }});
+
     let uid: string = user.user.id;
 
     const { data: mdata, error: merror } = await sb.from('udata').select('balance_nus, balance_noca, balance_sats, dividends, level, exp, spin_tokens').eq('user_id', uid).single();
