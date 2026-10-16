@@ -236,7 +236,7 @@ Deno.serve(async (req) => {
                 });
                 maxXP -= miningStatus[1].xp;
                 cdata.balance_nus = cdata.balance_nus + miningStatus[1].reward;
-                cdata.exp += cdata.exp + miningStatus[1].xp;
+                cdata.exp += miningStatus[1].xp;
             }
             if (rc.xp > 0) {
                 rewards.xp += Math.min(maxXP, rc.xp);
