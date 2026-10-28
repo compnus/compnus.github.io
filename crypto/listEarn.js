@@ -695,7 +695,7 @@ const LISTE = [
             ["Save up!", "If you want to earn gifts you can sell, you must play the expensive rolls. Just wait a couple months, complete quests and collect your daily free case to save up for a big win!"]
         ],
         pros: ["Very simple to use", "Unlike most apps with gambling aspect, it allows you to collect freebies without depositing (this might be wrong about withdrawing, we will update you)", "Free Giveaways"],
-        cons: ["Withdrawn common gifts cannot be sold for stars", "Unstable App (might have troubles opening on certain devices)"],
+        cons: ["Fake chances","Withdrawn common gifts cannot be sold for stars", "Unstable App (might have troubles opening on certain devices)"],
         banner: "bin"
     },
     {
