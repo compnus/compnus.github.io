@@ -106,7 +106,7 @@ Deno.serve(async (req) => {
                 { noca: 10 }, { hash: 5, xp: 25 }, { nus: 0.003 }, { noca: 20 }, { sat: 0.1 }, { nus: 0.001 }, { noca: 25, spin: 1 }, //36-42
                 { noca: 5 }, { nus: 0.003 }, { hash: 10 }, { noca: 3 }, { nus: 0.005 }, { noca: 20 }, { nus: 0.1 }, //43-49
                 { sat: 1 }, { hash: 3 }, { cont: { hash: 2500, dur: 45, name: 'Daily Bonus Rig', exp: 21 }, noca: 10 }, { spin: 1, xp: 100 }, { nus: 0.0075 }, { noca: 10 }, { nus: 0.25 }, //50-56
-                { hash: 5 }, { noca: 10 }, { nus: 0.01 }, { sat: 10 }, { noca: 15, spin: 1 }, { nus: 0.01 }, { hash: 25 }, //57-63
+                { hash: 5 }, { noca: 10 }, { nus: 0.01 }, { sat: 5 }, { noca: 15, spin: 1 }, { nus: 0.01 }, { hash: 25 }, //57-63
                 { noca: 10 }, { nus: 0.05 }, { cont: { hash: 3000, dur: 60, name: 'Daily Bonus Rig', exp: 21 } }, { noca: 5 }, { nus: 0.03, hash: 10, xp: 250 }, { noca: 69 }, { div: 2 }, //64-70
             ];
             const REWARDS_S = {
