@@ -64,7 +64,7 @@
     ["Hyper Power", "Why waste your luck when the reward is little? With <u><b><i>this one</i></b></u>, you can rest assure none of your luck will be wasted!", [3, 0], 15, "npu22", 10]
   ],
   "hashp": [
-    [null,null, [5, 2], 100, null, 1]
+    [null,null, [10, 2], 100, null, 1]
   ],
   "echip": [
     ["No Chips", "No chips mean no bonus XP. Simple as that.", [], 0, "echip0", null],
