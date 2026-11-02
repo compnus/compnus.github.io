@@ -67,6 +67,8 @@ async function collectDaily() {
                 popup("Daily rewards claimed!", `</p>${parseRewards(reward, data.level)}
                 <br>Don't forget to claim again tomorrow!` + (data.code === 2 ? "<br><br>Due to an internal error, your reward will not show up in your transaction history." : ""));
                 loadWallet();
+                if (reward.spin) spintokens += reward.spin;
+                document.getElementById("spintokens").innerHTML = spintokens;
             }
         })
         .catch((error) => {

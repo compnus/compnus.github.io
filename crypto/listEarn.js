@@ -515,38 +515,6 @@ const LISTE = [
         banner: "speed"
     },
     {
-        name: "Launch Bitcoin Mining",
-        icon: "https://play-lh.googleusercontent.com/guAhvwpT6iT_SSjiFVynYO6vWd7Cj6WUquuFnR4DqVxEZ-lNQXI9YDSNukYpntiTzwIztdwKlDf1kRshY6pr=w240-h480-rw",
-        featured: false,
-        description: "Simple Bitcoin miner, allowing you to mine bitcoin passively or for watching ads. Offers daily contracts for passive mining and extra mining contracts for ads, along with daily tasks for even more free contracts!",
-        added: "2-10-2026",
-        id: "btclaunch",
-        attr: {
-            verified: 1,
-            dividends: false,
-            platform: "a",
-            type: "mine",
-            coin: "btc",
-            effort: 0,
-            rating: 4
-        },
-        info: {
-            description: "Classic mining service that allows you to purchase computing power and mine Bitcoin effortlessly. But don't forget about our favorite part: free contracts! Check in 8 hours to claim a free contract and watch ads to get even more contracts! Complete daily tasks for, you got that right, <b>EVEN MORE</b> contracts! Withdraw your earnings into your <a href='/promo/speed.html' style='color:yellow'>Speed Wallet</a> and enjoy some free Bitcoin!",
-            effort: "Check-in daily for free contracts. Optionally, you can watch ads and complete daily tasks for more contracts."
-        },
-        go: {
-            type: 1,
-            link: "https://play.google.com/store/apps/details?id=com.wind.ebox.wbtc",
-            code: "124156"
-        },
-        features: [["Free Contracts", "Collect a free contract every 8 hours and up to 30 extra free contracts every day are available for watching ads!"], ["Daily Tasks", "Complete daily tasks to earn more free contracts! Without spending a dime, you can earn two special contracts a day this way!"]],
-        tips: [["There are no tips.", "This is usually the part where you would see &quot;Use dual apps!&quot;, however, this app somehow knows how to prevent it. So just get on there and mine, mine, mine!"]],
-        benefits: ["We are not quite sure how this app's referral program works yet, but if it means income, we will distribute dividends!"],
-        pros: ["Generous ad rewards"],
-        cons: ["Paid contracts take forever to pay off"],
-        banner: "speed"
-    },
-    {
         name: "WeMine",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.E1g-yjbboAD6wz_myPC8cwAAAA%3Fpid%3DApi&f=1&ipt=bf97f72a9fb6c087219b63c6fe858dc8b318bc3596c0c41cd6ecf73f4d8aa2fe",
         description: "Mine USDT, $LABR and WeMine's own token $WM for free! Solve daily cases to get extra wUSDT and WM that can be used to upgrade your miners and enjoy extra income!",
@@ -789,7 +757,7 @@ const LISTE = [
             rating: 4
         },
         info: {
-            description: "The app that actually pays for walking! Unlike <a class='link' href='viewEarn.html?id=sweatcoin'><b>Sweatcoin</b></a> or <a class='link' href='viewEarn.html?id=roboxfit'><b>Robox Fit</b></a> which simply use your steps as a way to distribute rewards (Sweatcoin has no value and Robox uses it as an excuse to make another mining app), Macadam will actually pay you for walking - you will get Coins which you can then use to purchase gift cards or withdraw money directly to your bank account! Now, the only thing you have to keep in mind - don't forget to claim them!",
+            description: "The app that actually pays for walking! Unlike <a class='link' href='viewEarn.html?id=roboxfit'><b>Robox Fit</b></a>, which simply use your steps as a way to distribute rewards (Robox uses it as an excuse to make another mining app), Macadam will actually pay you for walking - you will get Coins which you can then use to purchase gift cards or withdraw money directly to your bank account! Now, the only thing you have to keep in mind - don't forget to claim them!",
             effort: "Validate your steps every day (slide a slider) in order to receive coins."
         },
         go: {
@@ -1312,73 +1280,6 @@ const LISTE = [
         ],
         pros: ["Absolute peak of simplicity"],
         cons: ["High withdrawal threshold (5 USDC = 1000 ads @ 20 per day = 50 days)"],
-        banner: "bin"
-    },
-    {
-        name: "Sweat Wallet",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FJwkGy0o_DOQ8gWTY_8M3_bwp8wHDk766guJ-GR8FNgwBNE7m_hOLy8jDfBlSg0k2XgA&f=1&nofb=1&ipt=c1c17814f416141c8cdf186963b12194a468c4a291145f5e45f067765dc8becb",
-        description: "Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to collect even more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
-        added: "9-3-2024",
-        id: "sweat",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "ai",
-            type: "ad",
-            coin: "other:SWEAT",
-            effort: 2,
-            rating: 1
-        },
-        info: {
-            description: "<b>Note: In order to make money from steps, you will need a <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> account.</b><br>Make your physical activity count! Sweat Wallet converts your step from Sweatcoin to real crypto! Watch ads to play games like spin-a-wheel or card flip and earn more! Once you have enough, put them to a jar and see them grow! Withdraw your $SWEAT or use them directly in-app to purchase tickets to raffles!",
-            effort: "Steps and jars create $SWEAT automatically, but watching ads is way more efficient."
-        },
-        go: {
-            type: 0,
-            link: "https://swe.at/wallet"
-        },
-        benefits: ["Whether you download this app through us or directly from the store, it won&apos;t make any difference.<br>We aren&apos;t getting any benefits and therefore you also won&apos;t."],
-        features: [["Spin-a-Wheel and Flip-a-Card", "Daily ad watch abilities allow you to earn $SWAET for free!"],
-        ["Sweat Jars", "Lock your $SWEAT in a jar and watch it grow! The longer you lock your $SWEAT for, the higher the APY becomes! Watch out for promotions that allow you to get even higher APY!"],
-        ["Learn and Earn + Quests", "Learn about Sweat and its partners, answer quizzes and earn free $SWEAT! Check out quests, complete simple tasks and earn even more!"],
-        ["Prize Draw Reffles", "Grow your $SWEAT in jars and unlock Prize draws! Buy a raffle ticket for $SWEAT and get a chance to win great prizes!"]
-        ],
-        tips: [
-            ["Do not risk a higher prize.", "This tip might seem stupid, but one thing you should know about the wheel spin (and the card flip) is that it's rigged. After you win 4000 Steps (lowest reward on the wheel other than 0), you might want to spin again to try and get a higher prize. The chance for that should be 67% right? Well, it isn't. And you have a much greater chance that you will spin 0, even twice in a row. Once you win something from the wheel, take it immediately."],
-            ["Grow all your $SWEAT!", "Due to not-so-good decisions by the developers, $SWEAT fails to surge and increase in value. The only way to actively increase your earnings are jars. With up to 12% APY, or even more in certain promotions, you can secure a passive income, if you grow enough $SWEAT."]
-        ],
-        pros: ["Frequent prize draws", "Convert your <a style='color:yellow' href='viewEarn.html?id=sweatcoin'>Sweatcoin</a> earnings to real money"],
-        cons: ["Rigged Spin-a-Wheel and Flip-a-Card minigames", "$SWEAT fails to increase its value due to questionable decisions by the developers", "The app breaks more with every update", "ABsolutely unhelpful support", "Impossible to claim $SWEAT in the last few updates"],
-        banner: "bin"
-    },
-    {
-        name: "Sweatcoin",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fsweatcoin-logo-coin-gradient-background-move-earn-concept-design-earn-cryptocurrency-by-exercising-moving-vector-eps-10_532800-733.jpg&f=1&nofb=1&ipt=acdf89b692c0bd1730e4d1e8684d7ffdb57bbfee5be0846c3aac342c7cb79909",
-        unlisted: true,
-        id: "sweatcoin",
-        attr: {
-            verified: 1,
-            dividends: false,
-            platform: "ai",
-            type: "Walk to Earn",
-            coin: "other:None",
-            effort: 0,
-            rating: 2
-        },
-        info: {
-            description: "<b>Note: In order to make money from steps, you will need to download <a style='color:yellow' href='viewEarn.html?id=sweat'>Sweat Wallet</a>.</b><br>This app is required in order to get $SWEAT from Sweat Wallet for steps.",
-            effort: "Just walk."
-        },
-        go: {
-            type: 0,
-            link: "https://swcapp.com/i/kingpvz"
-        },
-        benefits: ["There are no benefits. We will get Sweatcoins but those are useless anyway. So what are we supposed to share?"],
-        features: [["Convert Steps into $SWEAT", "Up to 7000 Steps will be converted to $SWEAT."]],
-        tips: [
-            ["Do not buy premium.", "It's worthless."]],
-        pros: ["Used with <a style='color:yellow' href='viewEarn.html?id=sweat'>Sweat Wallet</a> to create $SWEAT tokens"],
-        cons: ["The only way to spend Sweatcoins is on prize draws, which with a community as big as Sweatcoin's means no chance to win anything"],
         banner: "bin"
     },
     {
