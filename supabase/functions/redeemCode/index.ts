@@ -144,6 +144,20 @@ Deno.serve(async (req) => {
                 rewards["sats"] = rndm(tmp[0], tmp[1], tmp[2])
             }
         }
+        if (rewards["spin"]) {
+            if (!(typeof rewards["spin"] === "number")) {
+                var tmp = rewards["spin"].split("-");
+                tmp = tmp.map((x: string) => parseFloat(x));
+                rewards["spin"] = rndm(tmp[0], tmp[1], tmp[2])
+            }
+        }
+        if (rewards["coin"]) {
+            if (!(typeof rewards["coin"] === "number")) {
+                var tmp = rewards["coin"].split("-");
+                tmp = tmp.map((x: string) => parseFloat(x));
+                rewards["coin"] = rndm(tmp[0], tmp[1], tmp[2])
+            }
+        }
     
         var updateds: Object = {};
         var messageparts: string[] = [];
@@ -154,6 +168,10 @@ Deno.serve(async (req) => {
         if (rewards["nus"] > 0) { messageparts.push(`${rewards["nus"]} $NUS`); resources["nus"] = rewards["nus"]; }
         updateds["balance_sats"] = balance["balance_sats"] + (rewards["sats"] || 0);
         if (rewards["sats"] > 0) { messageparts.push(rewards["sats"] === 1 ? "1 Satoshi" : `${rewards["sats"]} Satoshis`); resources["sat"] = rewards["sats"]; }
+        updateds["spin_tokens"] = balance["spin_tokens"] + (rewards["spin"] || 0);
+        if (rewards["spin"] > 0) { messageparts.push(rewards["spin"] === 1 ? "1 Spin Token" : `${rewards["spin"]} Spin Tokens`); resources["spin"] = rewards["spin"]; }
+        updateds["coins"] = balance["coins"] + (rewards["coin"] || 0);
+        if (rewards["coin"] > 0) { messageparts.push(rewards["coin"] === 1 ? "1 Mark" : `${rewards["coin"]} Marks`); resources["coin"] = rewards["coin"]; }
         updateds["inventory"] = balance["inventory"]; //do this one later
         usedby.push(recuser.username);
  
