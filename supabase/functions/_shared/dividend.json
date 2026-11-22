@@ -1,5 +1,5 @@
 {
-  "div.nfo": [[0,"divids", "4chars"],[1,"strictIdCheck"]],
+  "div.nfo": [[0,"divids", "char[4]"],[1,"strictIdCheck", "bool"]],
   "div": {
     "robox": [ "rox1rox2rox3rox4rox5", true ],
     "hgain": [ "hnyg", true ],

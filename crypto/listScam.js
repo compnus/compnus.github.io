@@ -2,6 +2,30 @@ var FILTERID = "scam0";
 
 var LISTS = [
     {
+        name: "Bitcoin Cloud Mining & Ad Earn",
+        icon: "https://play-lh.googleusercontent.com/04PBBjB--E4pJEX6v4TtB9mx0C4LGuGpNoVl54Ps82rQC6LQ8rub3ngmxNG2ZIafXCP3b9h5989mIAJrDppI4Q=w240-h480",
+        short: "Spend countless hours watching ads, only to realize withdrawal is not possible. Sweet.",
+        long: "This app features a simple premise - watch ads, get hashrate, earn satoshis and cash out. That sounds sweet but after you do spend a year grinding, watching hundreds of ads every day, to get to a neat speed of 1$ per day, you want to obviously withdraw some of this money. After all, you've earned this developer hundreds of dollars. Welp, that's when you realize it's not exactly possible to withdraw. This app also features a fake leaderboard and a disfunctional referral system. Neat.",
+        id: "cdm_btc",
+        category: 1
+    },
+    {
+        name: "ETH Cloud Mining & Mobile Earn",
+        icon: "https://play-lh.googleusercontent.com/Wna3qyxcLkmkHWeZIHAZMpapbd_Y4k_j7h9Xf6q6EnCGTXKB2PhvbFlEJ50Yj8Suexn0QeZLrMbIvuOMuaLfVg=w240-h480",
+        short: "Spend countless hours watching ads, only to realize withdrawal is not possible. Sweet.",
+        long: "This app features a simple premise - watch ads, get hashrate, earn szabo, whatever that is, and cash out. That sounds sweet but after you do spend a year grinding, watching hundreds of ads every day, to get to a neat speed of 1$ per day, you want to obviously withdraw some of this money. After all, you've earned this developer hundreds of dollars. Welp, that's when you realize it's not exactly possible to withdraw. This app also features a fake leaderboard and a disfunctional referral system. Neat.",
+        id: "cdm_eth",
+        category: 1
+    },
+    {
+        name: "AdsCoin - Easy Mobile Earnings",
+        icon: "https://play-lh.googleusercontent.com/o3evsRUL-qDZNse2hTePu7NMlk2R4qa0j8gZo0zHSl1EbKq0kl2ppHS3olsJaOV5NZmgTaNYXCSyNTJCP5AXWH0=w240-h480",
+        short: "Spend countless hours watching ads, only to realize withdrawal is not possible. Sweet.",
+        long: "This app features a simple premise - watch ads, get coins, and cash out. That sounds sweet but after you do spend a year grinding, watching ads every day, you want to obviously withdraw some of this money. After all, you've earned this developer hundreds of dollars. Welp, that's when you realize it's not exactly possible to withdraw. Neat.",
+        id: "cdm_ads",
+        category: 1
+    },
+    {
         name: "Jack's Farm",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdbc.fmsnsr.xyz%2Fapi%2Ffiles%2F1nlpavfhdos0lje%2Fvhu94d261vr36z7%2Favatar_vfo8va61n8.jpg&f=1&nofb=1&ipt=cf1602a575d6a7f93b8f725bcaf2ff78a72c3a9eb2ddd3e086a77896230ec43f",
         short: "Should you trust an app to deposit 3$ when it only allows you to withdraw 0.0002$? Probably not.",
