@@ -3,7 +3,8 @@ import { createClient } from "jsr:@supabase/supabase-js@2.48";
 import { corsHeaders } from "../_shared/cors.ts";
 import LEVELS from "../_shared/levels.json" with { type: "json" };
 import UPGRADES from "../_shared/upgrades.json" with { type: "json" };
-import { mining } from "../_shared/fns.ts";
+import SPINR from "../_shared/spinawin.json" with { type: "json" };
+import { rndm,mining } from "../_shared/fns.ts";
 
 Deno.serve(async (req) => {
     const sb = createClient(
@@ -46,6 +47,7 @@ Deno.serve(async (req) => {
     return new Response("{0:'raaaah'}", {status:500, headers: { ...headers }});
 
     let uid: string = user.user.id;
+    var maxXP: number;
 
     const { data: mdata, error: merror } = await sb.from('udata').select('balance_nus, balance_noca, balance_sats, dividends, level, exp, spin_tokens, hashrate, coins').eq('user_id', uid).single();
     const { data: udata, error: uerror } = await sb.from('users').select('username').eq('id', uid).single();
@@ -58,41 +60,46 @@ Deno.serve(async (req) => {
         });
     }
 
+    maxXP = 0;
+    if (mdata.level < 10) maxXP = Number(LEVELS.perks[mdata.level + 1][0]) - mdata.exp;
+
     try {
-        if (mdata.balance_noca < 10) return new Response(JSON.stringify({ response: "You need 10 Nocas to level up!" }), {
-            status: 403,
-            headers: {
-                ...headers
-            }
-        });
-        var newLevel: number = mdata.level === 10 ? -1 : mdata.level + 1;
-        if (newLevel < 0) return new Response(JSON.stringify({ response: "You are already at max level!" }), {
-            status: 403,
-            headers: {
-                ...headers
-            }
-        });
-        if (mdata.exp < LEVELS.perks[newLevel][0]) return new Response(JSON.stringify({ response: "Not enough XP!" }), {
+        if (mdata.spin_tokens < 1) return new Response(JSON.stringify({ response: "You have no spin tokens!" }), {
             status: 403,
             headers: {
                 ...headers
             }
         });
 
-        var updateds = {
-            level: newLevel,
-            exp: 0,
-            balance_nus: mdata.balance_nus,
-            balance_noca: mdata.balance_noca-10,
-            balance_sats: mdata.balance_sats,
-            dividends: mdata.dividends,
-            spin_tokens: mdata.spin_tokens
+        const reward: [string, [number, Record<string, string | number>][], number] = (SPINR.win as unknown as [string, [number, Record<string, string | number>][], number][])[rndm(0, 11, 1)];     
+        var complement = rndm(0, 100, 0.01);
+        var rewardindex = 0;
+        for (var i of reward[1]) {
+            if (complement <= i[0]) break;
+            complement -= i[0];
+            rewardindex++;
         }
-        if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('nus') !== -1) updateds.balance_nus += LEVELS.perks[newLevel][4].nus;
-        if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('noca') !== -1) updateds.balance_noca += LEVELS.perks[newLevel][4].noca;
-        if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('sat') !== -1) updateds.balance_sats += LEVELS.perks[newLevel][4].sat;
-        if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('div') !== -1) updateds.dividends += LEVELS.perks[newLevel][4].div;
-        if (Object.keys(LEVELS.perks[newLevel][4]).indexOf('spin') !== -1) updateds.spin_tokens += LEVELS.perks[newLevel][4].spin;
+        var rewards: Record<string, number> = {};
+        for (const [key, value] of Object.entries(reward[1][rewardindex][1])) {
+            if (typeof value === "string") {
+                var r: number[] = value.split("-").map(Number);
+                rewards[key] = rndm(r[0], r[1], r[2]);
+            } else rewards[key] = value;
+        }
+
+// need to handle xp, need to handle mining, also remove the return from line 47
+
+        var updateds = {
+            exp: mdata.exp,
+            balance_nus: mdata.balance_nus,
+            balance_noca: mdata.balance_noca,
+            balance_sats: mdata.balance_sats,
+            coins: mdata.coins,
+            dividends: mdata.dividends,
+            spin_tokens: mdata.spin_tokens,
+            hashrate: mdata.hashrate
+        }
+        var resources: Record<string, number> = {balance_nus: 0, balance_noca: 0, balance_sats: 0, coins: 0};
         const { error: updateError } = await sb.from('udata').update(updateds).eq('user_id', uid);
         if (updateError) {
             return new Response(JSON.stringify({ response: 'We had issues trying to update your data.' }), {
@@ -102,12 +109,12 @@ Deno.serve(async (req) => {
                 }
             });
         }
+        for (const [key, value] of Object.entries(reward)) {
+            if (value === 0) delete resources[key];
+        }
 
-        var resources = LEVELS.perks[newLevel][4];
-        delete resources.div;
-        delete resources.spin;
         if (Object.keys(resources).length) {
-            const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Level Up Reward", expiration: 1 });
+            const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Spin Reward", expiration: 1 });
         }
         const { error: insertError2 } = await sb.from('transaction').insert({ from: udata.username, to: "CompNUS", resource: {"noca":10}, message: "Level Up Fee", expiration: 1 });
         return new Response(JSON.stringify({ response: "" }), {
