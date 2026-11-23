@@ -366,48 +366,6 @@ const LISTE = [
         banner: "bin"
     },
     {
-        name: "GenkiMiner",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplaytoearn.com%2Fimg%2Fdapp%2Fgenki-miner%2Fprofile_picture%2F100_genki-miner.jpg&f=1&nofb=1&ipt=34a474bc7b503cf7309931997fe797b1eba0c55e04bfd501d3be4a071aceaf80",
-        description: "Mine ores, upgrade your pickaxe, open chests and withdraw money! Leave it running in the background and enjoy passive earning of ores and automatic chest opening for extra income!",
-        added: "7-22-2024",
-        unlisted: true,
-        id: "genki",
-        attr: {
-            verified: 1,
-            dividends: true,
-            platform: "t",
-            type: "p2e",
-            coin: "usdt",
-            effort: 2,
-            rating: 4
-        },
-        info: {
-            description: "GenkiMiner allows you to earn USDT in many interesting ways, carrying the Play to Earn aspect the most. You can passively mine ores that give gold (used for upgrading your pickaxe), keys (used for opening chests), points (used for withdrawals) and gems (exhanged for USDT)! Chests allow you to participate in prop hunts for extra rewards and the forge, which can reward you with limited pickaxes that can be sold for USDT, keys or gems - but if you decide to keep them, they will allow you to claim keys, points or gems daily! Finally, we have the spin-a-wheel, which allows you to get USDT, keys, points, gold and tickets for free or for gems.",
-            effort: "Activate auto mining to mine (almost) effortlessly - you have to leave it running in the background and check it from time to time, ensuring it's still running, because USDT chest popup or your pickaxe losing durability will automatically stop it. Every other part of the game requires your full attention in order to earn anything."
-        },
-        go: {
-            type: 0,
-            link: "https://t.me/GenkiMinerBot/GenkiMiner?startapp=6BY-aagN"
-        },
-        benefits: [],
-        features: [["Automatic Mining", "You can enable automatic mining to mine ores, chests and gems effortlessly!"],
-        ["Spin-a-Wheel", "Daily spins for ads and unlimited spins for gems allow you to stock up on tickets and points!"],
-        ["Prop Hunts", "Prop hunt events are active almost permanently and allow you to maximize your earnings by rewarding you with extra keys, coins and gems!"],
-            ["Tasks", "Daily and Social tasks, along with achievements allow you to get extra keys and points for activity!"],
-        ["Battles and Forge", "Upgrade your individual mine to get Glory Points and horde up troops to fight and protect your mine! You can also attack other mines to get extra Glory Points. You can use tickets in the forge to get Artifacts - different pickaxes that not only upgrade your rewards but can also be sold for USDT, keys and gems!"]
-        ],
-        tips: [
-            ["Activate auto mining and complete daily tasks!", "This will allow you to open extra chests - which means extra money! Just don't forget to check it from time to time, since the earnings can stop quite unexpectedly."],
-            ["Skip ads but get rewards for them!", "Certain ad providers on Telegram allow you to skip the ad while still getting the reward by pressing a button in the ad. GenkiMiner has most, if not all of its ads from these kinds of companies! Do not waste time watching ads!"],
-            ["Properly set-up Auto Mine Settings!", "In the mine, there is a gear icon to the right, which allows you to configure Auto Mine. Make sure to enable <b>Width-First</b> (this will decrease durability taken from your pickaxe and prevent constant repairs), <b>Auto Repair</b> (this will automatically use your excess coins to repair your pickaxe and restore its durability) and <b>Auto Open Chest</b> (this will decrease the effort required to open chests)!"],
-            ["Avoid mine battles!", "Participating in battles makes you visible to other players as well. Reinforcing your army is mostly a waste of coins. This doesn't mean you shouldn't upgrade your mine, however! Upgrade your mine to passively earn extra Glory Points!"],
-            ["Spin the wheel!", "Spinning the wheel is the second best way to earn points after mining. Remember, points are required to withdraw your gems as USDT, so it's very important to gain as many as you can in as little time as possible. Additionally, the Spin-a-Wheel is excellent for getting Forge tickets, that can be exchanged for pickaxes which can be sold for USDT, keys and gems!"]
-        ],
-        pros: ["Daily tasks rewarding coins and keys for free", "Automatic pickaxe durability restoring, allowing you to save coins", "Very low withdrawal threshold for gems (as low as 0.03$)", "Low withdrawal fee (0.02$ for every withdrawal, regardless of the amount)"],
-        cons: ["Later gem withdrawals require an insane amount of points, forcing you to be active almost daily", "Later gem withdrawals require inviting users", "Annoying notifications with no value", "Daily check-in requires TON transaction"],
-        banner: "bin"
-    },
-    {
         name: "Labrador Adventures",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.googleusercontent.com%2FiH3J6FwTuWdMLT4LpOpG8tk1mqXWC70Vu4y9n7Qfi4euiHoFWn44jcq3HQI3w3fM7xYbzK3cVQ%3Ds900-c-k-c0x00ffffff-no-rj&f=1&nofb=1&ipt=f43d041799b9336f2284912d3a3262d0956adbb8d67b6ff00598e5643519d98e",
         unlisted: true,
@@ -526,7 +484,7 @@ const LISTE = [
             dividends: true,
             platform: "t",
             type: "mine",
-            coin: "usdt other:LABR other:WM",
+            coin: "usdt ton other:LABR other:WM",
             effort: 1,
             rating: 3
         },
@@ -563,7 +521,7 @@ const LISTE = [
         name: "CT Pool",
         icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2FYv1_wJKJD2UVEUW35Jn6yTjiNs00H8I3oiIoRiHtWbwn_XL1m8mO8_noSRZBaqVmB-w&f=1&nofb=1&ipt=c82e99c93da2eda4f906be76a608b22b5f93887646f8362c88be86d9a24a5e49",
         id: "ctpool",
-        description: "This is a standard pool mining service, except it does not really pay off. However it will provide you with a free miner and 100 HSH when you sign up through CompNUS! Most of the time anyway!",
+        description: "This used to be a terrible mining app that really redeemed itself over the past few updates. Still not worth investing, but at least provides actual free rewards now.",
         added: "8-9-2024",
         attr: {
             verified: 1,
@@ -571,63 +529,23 @@ const LISTE = [
             platform: "ait",
             type: "mine",
             coin: "btc ton usdt other:Dogecoin other:Ethereum other:Polygon other:Solana other:TRON other:BNB",
-            effort: 1,
-            rating: 1
+            effort: 3,
+            rating: 3
         },
         info: {
-            description: "Okay I will be straight up with you in this one. Do not use this app for what it's supposed to be used for. You will lose your money. We tried purchasing a pool miner, waiting for the three months to pass, and were welcome with a grand loss of about 50% of our investment despite Bitcoin going up in value (so the absolute loss was probably even higher). Install it, see if you get the sign up bonuses listed in the benefits, use them up, withdraw them to your NC Wallet and perhaps only use the app for ad watch bonuses. They don't usually work. If you don't get the benefits, please report this to the support (visit your profile -> contact support). Generally we advise strongly against investing in CryptoTab products. The only decent one is NC Wallet.",
-            effort: "You (probably) have to reactivate mining at random periods."
+            description: "Okay I will be straight up with you in this one. Do not use this app for what it's supposed to be used for. You will lose your money. We tried purchasing a pool miner, waiting for the three months to pass, and were welcome with a grand loss of about 50% of our investment despite Bitcoin going up in value (so the absolute loss was probably even higher). However! Last few updates implemented a season system, which allows you to watch ads for gradually better rewards. Not only that, but there is also a shop where you can spend your earned seasonal bonuses for miners with a pretty high value, meaning it absolutely is worth it.",
+            effort: "All free rewards are tied to watching ads, and there is this weird system where you have to wait 5 minutes between individual ad views, which can be frustrating and annoying"
         },
         go: {
             type: 0,
             link: "https://g.cb.click/I6tBqL"
         },
-        benefits: ["Free miner (although we are unsure if this is provided to everyone or only invitees)", "100 free HSH (sometimes)"],
-        features: [["Mining", "Don't forget to reactivate your mining at random time (maybe has been fixed but it's not very easy to verify)!"], ["HSH Bonuses", "Withdraw HSH to your NC Wallet and swap it for any crypto!"], ["Ad rewards","You can watch ads to get chips, which reward you with seasonal bonuses. But usually ads don't load so you cannot use them anyway."]],
-        tips: [["Refrain from buying miners!", "We purchased a contract for 0.17mBTC to try it out and after 3 months (of constant monitoring mind you, because this app turns off the mining randomly without warning) I withdrew 0.11mBTC. Yeah that's not very nice."]],
-        pros: ["I guess they (sometimes) tell you in how many hours your mining is getting turned off?"],
-        cons: ["Useless notifications", "Paid miners will mostly result in a loss", "Non-transparent services", "Unhelpful support team", "Your mining gets turned off randomly (or at least it used to)", "Although HSH withdrawals are almost instant, other currencies can take weeks before the withdrawal is processed", "Ad rewards never work"],
+        benefits: ["Free miner", "10 free HSH"],
+        features: [["Mining", "Don't forget to reactivate your mining every day or so!"], ["HSH Bonuses", "Withdraw HSH to your NC Wallet and swap it for any crypto!"], ["Ad rewards", "You can watch ads to get chips, which reward you with seasonal bonuses!"]],
+        tips: [["Refrain from buying miners!", "We purchased a contract for 0.17mBTC to try it out and after 3 months (of constant monitoring mind you, because this app turns off the mining randomly without warning) we withdrew 0.11mBTC. Yeah that's not very nice."]],
+        pros: ["Nearly instant withdrawals", "Generous ad rewards (if you are willing to watch 15 ads every day)"],
+        cons: ["Paid miners will result in a loss", "Non-transparent services", "Unhelpful support team", "Your mining gets turned off randomly"],
         banner: "ncct"
-    },
-    {
-        name: "freebitcoin",
-        icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-3hHoxMSdzvc%2FXlJfe9uTxSI%2FAAAAAAAAAFU%2FOg2RBuKDm2gbk9CSdZSRMIaOXakCj0BggCLcBGAsYHQ%2Fs1600%2FScAR5Tf2.jpg&f=1&nofb=1&ipt=0ea1ceb850eec21ab8d94b3e19a0cca40da39eb093d88f6842531cb578183993",
-        description: "Get free Bitcoin every hour! Test your luck, roll your lucky number and see how much you win! Get free lottery tickets and win ever more Bitcoin! Optionally, you can buy golden tickets to get a chance to win an actual Lamborghini? This site is crazy!",
-        added: "9-20-2024",
-        id: "freebitcoin",
-        attr: {
-            verified: 0,
-            dividends: false,
-            platform: "w",
-            type: "faucet",
-            coin: "btc",
-            effort: 1,
-            rating: 5
-        },
-        info: {
-            description: "One of the OG crypto faucets! You can roll a lucky number every hour and get Bitcoin based on it! Every roll will also give you reward points and you have a chance to get lottery tickets! Buy golden tickets for the Lamborghini lottery, play the Hi-Lo gambling game to multiply your Bitcoin and check out premium features for holders of the FUN Token - such as the lucky wheel spin! This website is crazy and packed with features! Additionally, if you decide not to withdraw immediately, you will receive interest on your held Bitcoins!",
-            effort: "Collect Bitcoin every hour."
-        },
-        go: {
-            type: 0,
-            link: "https://freebitco.in/?r=29107736"
-        },
-        benefits: ["Get on-site dividends based on your activity. (We will pay them out every once-in-a-while so don&apos;t forget to check back often!)<br><b>Note: These are not CompNUS dividends. You will receive your dividends on the freebitcoin website once we send them. They are based on your activity since last dividend distribution.</b>"],
-        features: [
-            ["Roll a Lucky Number", "Roll a lucky number every hour and win up to 200$ in Bitcoin! Although the chance for that is only 0.01%, you can still win less Bitcoin with way higher chance!"],
-            ["Lottery and Win a Lambo", "Participate in the weekly lottery for free or by buying tickets and get up to 1000$ in Bitcoin! You can also buy golden tickets and get a chance to win 200000$ in Bitcoin - just enought to buy a Lamborghini Huracan 610-4 Coupe!"],
-            ["Multiply Bitcoin with Hi-Lo and Betting", "Play the Hi-Lo game and wager your Bitcoin to multiply it (or lose it all)! You can also try to predict prices of crypto, bet on it and either win big or lose it all! The more you wager, the more Bitcoins you get for the free roll every hour!<br><b>Edge of the house: 5%</b>"],
-            ["Reward Points", "Use your reward points to buy gift cards, exchange them for Bitcoin or see them as a way to get access to premium features such as the lucky wheel spin! You can buy 1 spin for 8 Reward Points"],
-            ["Earn Bitcoin with 4% APY", "Once you reach 30000 Satoshis, you can withdraw. If you decide not to, you'll receive interest on your held Bitcoin - more than 4% APY!"]
-        ],
-        tips: [
-            ["Just claim it!", "Every hour you can claim free Bitcoin. But let's be real here, 98.85% chance is to get the lowest reward (1 Satoshi, you can increase it to 38 Satoshis if you wager enough). So this seems like a waste of time, right? Well actually, we are not here for the Bitcoin (ironic isn't it). We are here for Reward Points - these are guaranteed on every single claim. Use them to buy boosters to multiply your Bitcoin earnings up to 10 times (no we are talking), or exchange them for wheel spins!"],
-            ["Spin the wheel!", "Although this is a premium feature, you can spin for free every day by buying a wheel spin for 8 Reward Points. There is a chance you will get your 8 Reward Points back instead of getting any cool reward, but you never know, maybe it's your lucky day today?"],
-            ["Be active!", "We will earn commissions for your activity and of course, won't keep it all to ourselves! We will distribute dividends back to you through an in-build system on the freebitcoin website. Keep in mind, that this system tracks your activity. Higher your activity, higher your dividend share!"]
-        ],
-        pros: ["Many features to explore", "Many opportunities to earn", "Interest for holding Bitcoin", "Ability to use Reward Points to get extra crypto - Bitcoin or FUN token", "In-build dividend distribution system", "Wagering results in your faucet earnings being increased"],
-        cons: ["The website is confusing", "Too many ads", "High withdrawal threshold (30000 Satoshis)"],
-        banner: "bin"
     },
     {
         name: "Gift Go",
