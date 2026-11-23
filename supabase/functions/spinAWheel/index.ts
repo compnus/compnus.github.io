@@ -47,7 +47,7 @@ Deno.serve(async (req) => {
 
     let uid: string = user.user.id;
 
-    const { data: mdata, error: merror } = await sb.from('udata').select('balance_nus, balance_noca, balance_sats, dividends, level, exp, spin_tokens').eq('user_id', uid).single();
+    const { data: mdata, error: merror } = await sb.from('udata').select('balance_nus, balance_noca, balance_sats, dividends, level, exp, spin_tokens, hashrate, coins').eq('user_id', uid).single();
     const { data: udata, error: uerror } = await sb.from('users').select('username').eq('id', uid).single();
     if (merror || uerror || !mdata || !udata) {
         return new Response(JSON.stringify({ response: 'Error fetching user data' }), {

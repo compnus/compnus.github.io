@@ -55,7 +55,7 @@ Deno.serve(async (req) => {
     }
 
     try {
-        if (mdata.balance_noca < 10) return new Response(JSON.stringify({ response: "You need 10 Nocas to level up!" }), {
+        if (mdata.balance_noca < 5) return new Response(JSON.stringify({ response: "You need 5 Nocas to level up!" }), {
             status: 403,
             headers: {
                 ...headers
@@ -79,7 +79,7 @@ Deno.serve(async (req) => {
             level: newLevel,
             exp: 0,
             balance_nus: mdata.balance_nus,
-            balance_noca: mdata.balance_noca-10,
+            balance_noca: mdata.balance_noca-5,
             balance_sats: mdata.balance_sats,
             dividends: mdata.dividends,
             spin_tokens: mdata.spin_tokens
