@@ -238,7 +238,7 @@ async function spinWheel() {
                 spingoal = data.rot ?? 0;
                 spinning = false;
                 if (data.response === "") {
-                    reward = JSON.parse(data.rewards);
+                    reward = data.rewards;
                     dlevel = data.level;
                 } else {
                     popup("An error occurred", data.response);
