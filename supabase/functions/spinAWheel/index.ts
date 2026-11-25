@@ -159,7 +159,7 @@ Deno.serve(async (req) => {
         if (Object.keys(resources).length) {
             const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Spin Reward", expiration: 1 });
         }
-        return new Response(JSON.stringify({ response: "", rewards: rewards, rot: -reward[2]*30 + rndm(-13,13,1), level: maxXP <= 0 }), {
+        return new Response(JSON.stringify({ response: "", rewards: rewards, rot: -reward[2]*30 + rndm(-13,13,1) + 360, level: maxXP <= 0 }), {
             status: 200,
             headers: {
                 ...headers
