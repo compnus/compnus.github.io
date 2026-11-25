@@ -44,8 +44,6 @@ Deno.serve(async (req) => {
         });
     }
 
-    return new Response("{0:'raaaah'}", {status:500, headers: { ...headers }});
-
     let uid: string = user.user.id;
     var maxXP: number;
 
@@ -71,7 +69,7 @@ Deno.serve(async (req) => {
             }
         });
 
-        const reward: [string, [number, Record<string, string | number>][], number] = (SPINR.win as unknown as [string, [number, Record<string, string | number>][], number][])[rndm(0, 11, 1)];     
+        const reward: [string, [number, Record<string, string | number | Record<string, string | number>>][], number] = (SPINR.win as unknown as [string, [number, Record<string, string | number>][], number][])[rndm(0, 11, 1)];     
         var complement = rndm(0, 100, 0.01);
         var rewardindex = 0;
         for (var i of reward[1]) {
@@ -80,26 +78,70 @@ Deno.serve(async (req) => {
             rewardindex++;
         }
         var rewards: Record<string, number> = {};
+        var contracts: Record<string, string | number>[] = [];
         for (const [key, value] of Object.entries(reward[1][rewardindex][1])) {
-            if (typeof value === "string") {
+            if (typeof value === "object" && value !== null) {
+                contracts.push(value);
+            } else if (typeof value === "string") {
                 var r: number[] = value.split("-").map(Number);
                 rewards[key] = rndm(r[0], r[1], r[2]);
             } else rewards[key] = value;
         }
 
-// need to handle xp, need to handle mining, also remove the return from line 47
+        rewards.xp = Math.min(maxXP, rewards.xp ?? 0);
+        maxXP -= Math.min(maxXP, rewards.xp);
 
-        var updateds = {
-            exp: mdata.exp,
-            balance_nus: mdata.balance_nus,
-            balance_noca: mdata.balance_noca,
-            balance_sats: mdata.balance_sats,
-            coins: mdata.coins,
-            dividends: mdata.dividends,
-            spin_tokens: mdata.spin_tokens,
-            hashrate: mdata.hashrate
+        if (rewards.hash > 0) { //claim mining
+            const { data: nData, error: nerrr } = await sb.from('udata').select('last_claimed, mining_upg').eq('user_id', uid).single();
+            if (!nData || nerrr) {
+                return new Response(JSON.stringify({ response: 'Error fetching user data' }), {
+                    status: 500,
+                    headers: {
+                        ...headers
+                    }
+                });
+            }
+            const miningStatus: [number, any, number] = await mining(sb, uid, LEVELS, UPGRADES, { ...nData, ...udata, ...mdata }, true, maxXP);
+            if (typeof miningStatus[1] === "string") return new Response(JSON.stringify({ response: miningStatus[1], code: miningStatus[0] }), {
+                status: miningStatus[2],
+                headers: {
+                    ...headers
+                }
+            });
+            mdata.balance_nus += miningStatus[1].reward;
+            mdata.exp += miningStatus[1].xp;
+            maxXP -= miningStatus[1].xp;
         }
-        var resources: Record<string, number> = {balance_nus: 0, balance_noca: 0, balance_sats: 0, coins: 0};
+        var updateds = {
+            exp: mdata.exp + rewards.xp,
+            balance_nus: mdata.balance_nus + (rewards.nus ?? 0),
+            balance_noca: mdata.balance_noca + (rewards.noca ?? 0),
+            balance_sats: mdata.balance_sats + (rewards.sat ?? 0),
+            coins: mdata.coins + (rewards.coin ?? 0),
+            dividends: mdata.dividends + (rewards.div ?? 0),
+            spin_tokens: mdata.spin_tokens + (rewards.spin ?? 0) - 1,
+            hashrate: mdata.hashrate + (rewards.hash ?? 0)
+        }
+        if (contracts.length > 0) {
+            rewards["cont"] = contracts.length;
+            let topush = [];
+            for (const contract of contracts) {
+                topush.push({
+                    owner: uid,
+                    hashrate: contract.hash,
+                    duration: contract.dur,
+                    name: contract.name
+                });
+            }
+            const { error: cone } = await sb.from("contract").insert(topush);
+            if (cone) return new Response(JSON.stringify({ response: 'Contract insertion error.' }), {
+                status: 500,
+                headers: {
+                    ...headers
+                }
+            });
+        }
+
         const { error: updateError } = await sb.from('udata').update(updateds).eq('user_id', uid);
         if (updateError) {
             return new Response(JSON.stringify({ response: 'We had issues trying to update your data.' }), {
@@ -109,15 +151,15 @@ Deno.serve(async (req) => {
                 }
             });
         }
-        for (const [key, value] of Object.entries(reward)) {
+        var resources: Record<string, number> = {nus: rewards.nus ?? 0, noca: rewards.noca ?? 0, sat: rewards.sat ?? 0, coin: rewards.coin ?? 0};
+        for (const [key, value] of Object.entries(resources)) {
             if (value === 0) delete resources[key];
         }
 
         if (Object.keys(resources).length) {
             const { error: insertError } = await sb.from('transaction').insert({ from: "admin:CompNUS", to: udata.username, resource: resources, message: "Spin Reward", expiration: 1 });
         }
-        const { error: insertError2 } = await sb.from('transaction').insert({ from: udata.username, to: "CompNUS", resource: {"noca":10}, message: "Level Up Fee", expiration: 1 });
-        return new Response(JSON.stringify({ response: "" }), {
+        return new Response(JSON.stringify({ response: "", rewards: rewards, rot: -reward[2]*30 + rndm(-13,13,1), level: maxXP <= 0 }), {
             status: 200,
             headers: {
                 ...headers

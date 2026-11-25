@@ -200,6 +200,7 @@ async function spinWheel() {
     var spinning = false;
     var spingoal = 0;
     var reward = null;
+    var dlevel = false;
     function sspin() {
         if (spinning) {
             wheel.style.rotate = Number(wheel.style.rotate.substring(0, wheel.style.rotate.length - 3)) + 360 + "deg";
@@ -211,7 +212,10 @@ async function spinWheel() {
                 wheel.style.transition = "0.3s ease-out transform";
                 wheel.style.pointerEvents = "auto";
                 if (reward) {
-                    popup("Congratulations!", `${parseRewards(reward, data.level)} <br>Spin again once you feel lucky!`, true, true)
+                    popup("Congratulations!", `${parseRewards(reward, dlevel)} <br>Spin again once you feel lucky!`, true, true);
+                    loadWallet();
+                    if (reward.spin) spintokens += reward.spin;
+                    document.getElementById("spintokens").innerHTML = spintokens;
                 }
             }, 3000);
         }
@@ -231,10 +235,11 @@ async function spinWheel() {
         })
             .then(response => response.json())
             .then(async data => {
-                spingoal = data.rot;
+                spingoal = data.rot ?? 0;
                 spinning = false;
-                if (data.sc) {
-                    reward = JSON.parse(data.response);
+                if (data.response === "") {
+                    reward = JSON.parse(data.rewards);
+                    dlevel = data.level;
                 } else {
                     popup("An error occurred", data.response);
                     wheel.style.pointerEvents = "auto";
